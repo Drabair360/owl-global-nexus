@@ -88,10 +88,10 @@ const CookiesPage = () => {
                 <h3 className="text-xl font-heading font-medium">Browser Settings</h3>
                 <p className="mb-4">You can control and delete cookies through your browser settings:</p>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Chrome:</strong> Settings > Privacy and Security > Cookies</li>
-                  <li><strong>Firefox:</strong> Preferences > Privacy & Security > Cookies</li>
-                  <li><strong>Safari:</strong> Preferences > Privacy > Cookies</li>
-                  <li><strong>Edge:</strong> Settings > Cookies and site permissions</li>
+                  <li><strong>Chrome:</strong> Settings {'->'} Privacy and Security {'->'} Cookies</li>
+                  <li><strong>Firefox:</strong> Preferences {'->'} Privacy & Security {'->'} Cookies</li>
+                  <li><strong>Safari:</strong> Preferences {'->'} Privacy {'->'} Cookies</li>
+                  <li><strong>Edge:</strong> Settings {'->'} Cookies and site permissions</li>
                 </ul>
                 
                 <h3 className="text-xl font-heading font-medium">Opt-Out Options</h3>
