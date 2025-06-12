@@ -45,11 +45,11 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h3 className="text-lg font-['Montserrat'] font-semibold mb-4 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">COMPANY</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg font-brand font-bold mb-6 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">COMPANY</h3>
+            <ul className="space-y-4">
               <li>
                 <Link to="/about" className="text-blue-200 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
-                  About OWL
+                  About Owl
                 </Link>
               </li>
               <li>
@@ -72,17 +72,17 @@ const Footer = () => {
 
           {/* Portfolio */}
           <div>
-            <h3 className="text-lg font-['Montserrat'] font-semibold mb-4 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">PORTFOLIO</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg font-brand font-bold mb-6 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">PORTFOLIO</h3>
+            <ul className="space-y-4 mb-8">
               <li>
                 <Link to="/portfolio" className="text-blue-200 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
                   Investments
                 </Link>
               </li>
             </ul>
-            <div className="mt-6">
-              <h4 className="text-lg font-['Montserrat'] font-semibold mb-4 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">INVESTORS</h4>
-              <ul className="space-y-3">
+            <div>
+              <h4 className="text-lg font-brand font-bold mb-6 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">INVESTORS</h4>
+              <ul className="space-y-4">
                 <li>
                   <Link to="/investors" className="text-blue-200 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
                     Investor Portal
@@ -99,8 +99,8 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-['Montserrat'] font-semibold mb-4 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">QUICK LINKS</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg font-brand font-bold mb-6 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">QUICK LINKS</h3>
+            <ul className="space-y-4">
               <li>
                 <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors duration-300 font-body flex items-center">
                   AKOULA <span className="ml-1 text-xs">↗</span>
@@ -126,9 +126,9 @@ const Footer = () => {
         </div>
 
         {/* Stay Connected Section */}
-        <div className="border-t border-blue-800/30 mt-12 pt-8">
+        <div className="mt-16 pt-8">
           <div className="mb-8">
-            <h3 className="text-lg font-['Montserrat'] font-semibold mb-4 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">STAY CONNECTED</h3>
+            <h3 className="text-lg font-brand font-bold mb-6 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">STAY CONNECTED</h3>
             <p className="text-blue-200 font-body mb-6">
               Get updates on our latest projects and investment opportunities.
             </p>
@@ -147,7 +147,7 @@ const Footer = () => {
 
         {/* Bottom Links and Copyright */}
         <div className="border-t border-blue-800/30 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-6 md:space-y-0">
             <div className="flex flex-wrap gap-6">
               <Link to="/privacy" className="text-blue-300 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
                 Privacy Policy
@@ -172,7 +172,7 @@ const Footer = () => {
             </div>
           </div>
           
-          <div className="mt-6 text-center">
+          <div className="mt-6 text-left">
             <p className="text-blue-300 font-body">
               © 2025 OWL International SAS. All rights reserved.
             </p>
