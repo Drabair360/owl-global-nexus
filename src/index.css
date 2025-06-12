@@ -1,8 +1,9 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+/* Sophisticated Design System - Institutional Excellence */
 
 @layer base {
   :root {
@@ -37,20 +38,18 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Sophisticated Typography Variables */
+    --font-heading: 'Playfair Display', 'Oswald', serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-condensed: 'Oswald', 'Inter', sans-serif;
   }
 
   .dark {
@@ -99,5 +98,160 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-optical-sizing: auto;
+    font-feature-settings: "liga" 1, "kern" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Sophisticated Typography System */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .font-condensed {
+    font-family: var(--font-condensed);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+    font-weight: 400;
+  }
+
+  /* Institutional Typography Hierarchy */
+  .text-display {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+  }
+
+  .text-hero {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .text-section {
+    font-family: var(--font-condensed);
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .text-body-large {
+    font-family: var(--font-body);
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  .text-institutional {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+  }
+}
+
+/* Advanced Animation System */
+@layer utilities {
+  .animate-sophisticated-fade {
+    animation: sophisticatedFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-institutional-rise {
+    animation: institutionalRise 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-elegant-scale {
+    animation: elegantScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .hover-institutional {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hover-institutional:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .gradient-institutional {
+    background: linear-gradient(135deg, 
+      hsl(222, 47%, 11%) 0%, 
+      hsl(220, 70%, 15%) 25%, 
+      hsl(218, 85%, 20%) 50%, 
+      hsl(32, 95%, 44%) 75%, 
+      hsl(38, 92%, 50%) 100%);
+  }
+
+  .gradient-text-institutional {
+    background: linear-gradient(135deg, 
+      hsl(32, 95%, 44%) 0%, 
+      hsl(38, 92%, 50%) 50%, 
+      hsl(45, 87%, 55%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes sophisticatedFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes institutionalRise {
+  from {
+    opacity: 0;
+    transform: translateY(60px) rotateX(10deg);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(-5px) rotateX(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes elegantScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9) rotateY(10deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
   }
 }
