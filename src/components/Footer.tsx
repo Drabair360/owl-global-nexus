@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -174,16 +173,13 @@ const Footer = () => {
                 <h3 className="text-lg font-brand font-semibold mb-4 text-amber-400 tracking-wide">QUICK LINKS</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link 
-                      to="/solutions" 
-                      onClick={() => window.scrollTo(0, 0)}
-                      className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle flex items-center group"
-                    >
+                    <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle flex items-center group">
                       <span className="relative">
                         AKOULA
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
-                    </Link>
+                      <ExternalLink className="w-3 h-3 ml-1 transition-transform duration-300 group-hover:scale-110" />
+                    </a>
                   </li>
                   <li>
                     <a href="https://www.caoagro.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle flex items-center group">
@@ -195,16 +191,13 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <Link 
-                      to="/portfolio" 
-                      onClick={() => window.scrollTo(0, 0)}
-                      className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle group"
-                    >
+                    <a href="https://www.owloma.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle flex items-center group">
                       <span className="relative">
                         OWLOMA
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
-                    </Link>
+                      <ExternalLink className="w-3 h-3 ml-1 transition-transform duration-300 group-hover:scale-110" />
+                    </a>
                   </li>
                   <li>
                     <a href="https://www.kidzlabmodels.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle flex items-center group">
