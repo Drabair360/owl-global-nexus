@@ -71,7 +71,7 @@ const Navbar = () => {
                 </button>
                 {isCompanyDropdownOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-border/50 rounded-xl shadow-sophisticated py-3 z-50 animate-elegant-scale"
+                    className="absolute top-full left-0 mt-2 w-56 bg-background/98 backdrop-blur-xl border border-border/50 rounded-xl shadow-sophisticated py-3 z-50 animate-elegant-scale"
                     onMouseEnter={handleCompanyMouseEnter}
                     onMouseLeave={handleCompanyMouseLeave}
                   >
@@ -141,7 +141,7 @@ const Navbar = () => {
                 </button>
                 {isInvestorsDropdownOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-border/50 rounded-xl shadow-sophisticated py-3 z-50 animate-elegant-scale"
+                    className="absolute top-full left-0 mt-2 w-56 bg-background/98 backdrop-blur-xl border border-border/50 rounded-xl shadow-sophisticated py-3 z-50 animate-elegant-scale"
                     onMouseEnter={handleInvestorsMouseEnter}
                     onMouseLeave={handleInvestorsMouseLeave}
                   >

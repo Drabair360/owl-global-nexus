@@ -9,17 +9,17 @@ import GeometricPattern from '@/components/GeometricPattern';
 
 const Solutions = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-amber-50 dark:from-slate-900 dark:via-blue-900 dark:to-purple-900">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center gradient-institutional-soft overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.08),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.08),transparent_50%)]" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.12),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.12),transparent_50%)]" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32">
           <div className="animate-sophisticated-fade">
-            <h1 className="text-display text-white mb-8 leading-tight font-heading">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl text-white mb-8 leading-tight font-heading">
               Innovative
               <span className="gradient-text-institutional block mt-2">
                 Solutions
@@ -35,17 +35,19 @@ const Solutions = () => {
       </section>
 
       {/* AKOULA Section */}
-      <section className="py-32 bg-background relative">
+      <section className="py-32 bg-gradient-to-br from-amber-50/80 via-orange-50/80 to-rose-50/80 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-rose-950/30 relative">
         <GeometricPattern variant="background" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.05),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.05),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(251,146,60,0.08),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(59,130,246,0.08),transparent_50%)]" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-heading font-semibold text-foreground mb-8 tracking-tight">
-              AKOULA: AI-Powered Ecosystem
+            <h2 className="text-5xl md:text-6xl font-heading font-semibold mb-8 tracking-tight">
+              <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-rose-600 bg-clip-text text-transparent">
+                AKOULA: AI-Powered Ecosystem
+              </span>
             </h2>
-            <div className="bg-blue-100/50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-200/50 max-w-4xl mx-auto mb-12">
+            <div className="bg-gradient-to-r from-blue-100/80 via-purple-100/80 to-amber-100/80 dark:from-blue-900/30 dark:via-purple-900/30 dark:to-amber-900/30 p-8 rounded-2xl border border-amber-200/50 max-w-4xl mx-auto mb-12 shadow-glow-amber">
               <p className="text-blue-800 dark:text-blue-200 font-body font-medium italic text-lg leading-relaxed">
                 "AKOULA brings gold-standard, agile industrial intelligence to Africa—combining the vision of an eagle, the speed of a shark, and the boundless creativity of tomorrow's makers."
               </p>
@@ -56,7 +58,7 @@ const Solutions = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-            <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary/50 bg-gradient-to-br from-blue-50/80 to-indigo-50/80 dark:from-blue-950/20 dark:to-indigo-950/20 backdrop-blur-sm hover-glow">
+            <Card className="group hover:shadow-glow-amber transition-all duration-500 border-2 hover:border-amber-300/50 bg-gradient-to-br from-blue-50/90 via-indigo-50/90 to-purple-50/90 dark:from-blue-950/30 dark:via-indigo-950/30 dark:to-purple-950/30 backdrop-blur-sm hover-institutional">
               <CardHeader className="pb-6">
                 <div className="flex items-center justify-between">
                   <Factory className="w-14 h-14 text-blue-600 transition-transform duration-300 group-hover:scale-110" />
@@ -73,21 +75,21 @@ const Solutions = () => {
                   designed specifically for Africa's agro-industrial transformation.
                 </p>
                 <div className="space-y-4">
-                  <div className="bg-white/70 dark:bg-slate-800/50 p-4 rounded-lg border border-blue-200/30 hover:border-blue-400/50 transition-all duration-300">
+                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-blue-200/40 hover:border-blue-400/60 transition-all duration-300 hover:shadow-glow-blue">
                     <div className="flex items-center mb-2">
                       <Zap className="w-5 h-5 text-blue-600 mr-3" />
                       <h4 className="font-heading font-semibold">AI Quote Builder</h4>
                     </div>
                     <p className="text-sm text-muted-foreground font-body">Intelligent cost estimation and project planning</p>
                   </div>
-                  <div className="bg-white/70 dark:bg-slate-800/50 p-4 rounded-lg border border-blue-200/30 hover:border-blue-400/50 transition-all duration-300">
+                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-blue-200/40 hover:border-blue-400/60 transition-all duration-300 hover:shadow-glow-blue">
                     <div className="flex items-center mb-2">
                       <Globe className="w-5 h-5 text-blue-600 mr-3" />
                       <h4 className="font-heading font-semibold">Equipment Marketplace</h4>
                     </div>
                     <p className="text-sm text-muted-foreground font-body">Global sourcing with local expertise</p>
                   </div>
-                  <div className="bg-white/70 dark:bg-slate-800/50 p-4 rounded-lg border border-blue-200/30 hover:border-blue-400/50 transition-all duration-300">
+                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-blue-200/40 hover:border-blue-400/60 transition-all duration-300 hover:shadow-glow-blue">
                     <div className="flex items-center mb-2">
                       <Users className="w-5 h-5 text-blue-600 mr-3" />
                       <h4 className="font-heading font-semibold">Training Platform</h4>
@@ -98,7 +100,7 @@ const Solutions = () => {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary/50 bg-gradient-to-br from-amber-50/80 to-orange-50/80 dark:from-amber-950/20 dark:to-orange-950/20 backdrop-blur-sm hover-glow">
+            <Card className="group hover:shadow-glow-amber transition-all duration-500 border-2 hover:border-amber-300/50 bg-gradient-to-br from-amber-50/90 via-orange-50/90 to-rose-50/90 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-rose-950/30 backdrop-blur-sm hover-institutional">
               <CardHeader className="pb-6">
                 <div className="flex items-center justify-between">
                   <Users className="w-14 h-14 text-amber-600 transition-transform duration-300 group-hover:scale-110" />
@@ -115,21 +117,21 @@ const Solutions = () => {
                   with global opportunities in entertainment and media.
                 </p>
                 <div className="space-y-4">
-                  <div className="bg-white/70 dark:bg-slate-800/50 p-4 rounded-lg border border-amber-200/30 hover:border-amber-400/50 transition-all duration-300">
+                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200/40 hover:border-amber-400/60 transition-all duration-300 hover:shadow-glow-amber">
                     <div className="flex items-center mb-2">
                       <Cpu className="w-5 h-5 text-amber-600 mr-3" />
                       <h4 className="font-heading font-semibold">AI Talent Matching</h4>
                     </div>
                     <p className="text-sm text-muted-foreground font-body">Smart pairing of talent with opportunities</p>
                   </div>
-                  <div className="bg-white/70 dark:bg-slate-800/50 p-4 rounded-lg border border-amber-200/30 hover:border-amber-400/50 transition-all duration-300">
+                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200/40 hover:border-amber-400/60 transition-all duration-300 hover:shadow-glow-amber">
                     <div className="flex items-center mb-2">
                       <Building2 className="w-5 h-5 text-amber-600 mr-3" />
                       <h4 className="font-heading font-semibold">Booking Platform</h4>
                     </div>
                     <p className="text-sm text-muted-foreground font-body">Streamlined booking and management system</p>
                   </div>
-                  <div className="bg-white/70 dark:bg-slate-800/50 p-4 rounded-lg border border-amber-200/30 hover:border-amber-400/50 transition-all duration-300">
+                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200/40 hover:border-amber-400/60 transition-all duration-300 hover:shadow-glow-amber">
                     <div className="flex items-center mb-2">
                       <Globe className="w-5 h-5 text-amber-600 mr-3" />
                       <h4 className="font-heading font-semibold">Global Network</h4>
@@ -137,7 +139,7 @@ const Solutions = () => {
                     <p className="text-sm text-muted-foreground font-body">Connecting Africa to worldwide entertainment markets</p>
                   </div>
                 </div>
-                <Button className="w-full mt-6 bg-amber-600 hover:bg-amber-700 font-subtitle font-semibold transition-all duration-300 hover:scale-105" asChild>
+                <Button className="w-full mt-6 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 font-subtitle font-semibold transition-all duration-300 hover:scale-105 shadow-glow-amber" asChild>
                   <a href="https://www.kidzlabmodels.com/premium" target="_blank" rel="noopener noreferrer">
                     Explore KIDZ LAB <ExternalLink className="ml-2 w-4 h-4" />
                   </a>
@@ -150,7 +152,7 @@ const Solutions = () => {
             <p className="text-lg text-muted-foreground mb-8 font-body leading-relaxed">
               Transforming Africa's industrial landscape through intelligent automation and human-centered design
             </p>
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-subtitle font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl">
+            <Button size="lg" className="bg-gradient-to-r from-blue-600 via-purple-600 to-amber-600 hover:from-blue-700 hover:via-purple-700 hover:to-amber-700 text-white font-subtitle font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-glow-amber">
               Learn More About AKOULA
             </Button>
           </div>

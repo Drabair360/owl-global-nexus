@@ -1,157 +1,196 @@
 
 import React, { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Lock, Mail, Eye, EyeOff, Shield, Award, TrendingUp, Globe2 } from 'lucide-react';
-import { toast } from 'sonner';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Shield, TrendingUp, Users, Lock, Mail, Key, BarChart3, Globe2 } from 'lucide-react';
 
 const InvestorLogin = () => {
-  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     
+    // Simulate authentication
     setTimeout(() => {
-      if (email && password) {
-        toast.success('Welcome to your exclusive portal. Redirecting...');
-      } else {
-        toast.error('Please enter valid credentials');
-      }
       setIsLoading(false);
-    }, 1500);
+      console.log('Login attempt:', { email, password });
+    }, 2000);
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Premium background elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_40%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(251,146,60,0.12),transparent_40%)]" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-400/30 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-400/30 to-transparent"></div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 pt-24 px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.15),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.15),transparent_50%)]" />
       
-      <div className="w-full max-w-lg relative z-10">
-        {/* Premium header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-500 via-amber-600 to-orange-600 rounded-full mb-6 shadow-2xl relative">
-            <Lock className="w-10 h-10 text-white" />
-            <div className="absolute -top-1 -right-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-              <Shield className="w-3 h-3 text-white" />
-            </div>
-          </div>
-          <h1 className="text-4xl font-heading font-bold text-white mb-3 tracking-tight">
-            Exclusive Access
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-heading font-semibold text-white mb-6 tracking-tight">
+            <span className="gradient-text-institutional">Investor</span> Portal
           </h1>
-          <p className="text-xl text-blue-100 font-subtitle tracking-wide">
-            OWL INTERNATIONAL PRIVATE PORTAL
+          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto font-body leading-relaxed">
+            Access exclusive investment opportunities, portfolio insights, and strategic market intelligence 
+            across our African and European operations.
           </p>
-          <div className="flex items-center justify-center mt-4 space-x-6 text-sm text-amber-300">
-            <div className="flex items-center">
-              <Award className="w-4 h-4 mr-2" />
-              <span className="font-subtitle">Premium Access</span>
-            </div>
-            <div className="flex items-center">
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <Badge variant="secondary" className="bg-blue-100/20 text-blue-200 border-blue-300/30 px-4 py-2 text-sm font-subtitle">
+              <BarChart3 className="w-4 h-4 mr-2" />
+              Real-time Analytics
+            </Badge>
+            <Badge variant="secondary" className="bg-amber-100/20 text-amber-200 border-amber-300/30 px-4 py-2 text-sm font-subtitle">
               <Globe2 className="w-4 h-4 mr-2" />
-              <span className="font-subtitle">Global Network</span>
-            </div>
+              Global Markets
+            </Badge>
+            <Badge variant="secondary" className="bg-purple-100/20 text-purple-200 border-purple-300/30 px-4 py-2 text-sm font-subtitle">
+              <TrendingUp className="w-4 h-4 mr-2" />
+              Growth Opportunities
+            </Badge>
           </div>
         </div>
 
-        {/* Premium card */}
-        <Card className="border-2 border-amber-400/20 bg-white/95 backdrop-blur-xl shadow-2xl hover-glow transition-all duration-500">
-          <CardHeader className="space-y-2 pb-8">
-            <CardTitle className="text-3xl font-heading font-bold text-center text-slate-900">
-              Private Banking Access
-            </CardTitle>
-            <CardDescription className="text-center text-lg text-slate-600 font-body">
-              Enter your exclusive credentials to access your investment portfolio
-            </CardDescription>
-            <div className="w-24 h-0.5 bg-gradient-amber-soft mx-auto mt-4"></div>
-          </CardHeader>
-          <CardContent className="space-y-6 px-8 pb-8">
-            <form onSubmit={handleLogin} className="space-y-6">
-              <div className="space-y-3">
-                <Label htmlFor="email" className="text-sm font-subtitle font-semibold text-slate-700 tracking-wide">
-                  EMAIL ADDRESS
-                </Label>
-                <div className="relative">
-                  <Mail className="absolute left-4 top-4 h-5 w-5 text-slate-400" />
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="investor@exclusive.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="pl-12 h-14 text-lg bg-slate-50 border-2 border-slate-200 focus:border-amber-400 focus:ring-amber-400/20 rounded-xl font-body"
-                    required
-                  />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Login Form */}
+          <Card className="backdrop-blur-xl bg-white/10 border border-white/20 shadow-glow-amber hover:shadow-glow-blue transition-all duration-500">
+            <CardHeader className="text-center pb-8">
+              <div className="mx-auto w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center mb-6">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <CardTitle className="text-2xl font-heading text-white">Secure Access</CardTitle>
+              <CardDescription className="text-blue-200 font-body">
+                Enter your credentials to access your investment dashboard
+              </CardDescription>
+            </CardHeader>
+            
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-subtitle text-blue-200">
+                    Email Address
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-300 w-5 h-5" />
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="investor@example.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-blue-300 focus:border-amber-400 transition-all duration-300"
+                      required
+                    />
+                  </div>
                 </div>
-              </div>
-              
-              <div className="space-y-3">
-                <Label htmlFor="password" className="text-sm font-subtitle font-semibold text-slate-700 tracking-wide">
-                  SECURE PASSWORD
-                </Label>
-                <div className="relative">
-                  <Lock className="absolute left-4 top-4 h-5 w-5 text-slate-400" />
-                  <Input
-                    id="password"
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Enter your secure password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="pl-12 pr-12 h-14 text-lg bg-slate-50 border-2 border-slate-200 focus:border-amber-400 focus:ring-amber-400/20 rounded-xl font-body"
-                    required
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-4 h-5 w-5 text-slate-400 hover:text-slate-600 transition-colors"
-                  >
-                    {showPassword ? <EyeOff /> : <Eye />}
-                  </button>
+                
+                <div className="space-y-2">
+                  <label htmlFor="password" className="text-sm font-subtitle text-blue-200">
+                    Password
+                  </label>
+                  <div className="relative">
+                    <Key className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-300 w-5 h-5" />
+                    <Input
+                      id="password"
+                      type="password"
+                      placeholder="••••••••"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-blue-300 focus:border-amber-400 transition-all duration-300"
+                      required
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <Button 
-                type="submit" 
-                className="w-full h-14 text-lg bg-gradient-amber-soft hover:from-amber-600 hover:to-orange-700 text-white font-subtitle font-bold tracking-wide rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl"
-                disabled={isLoading}
-              >
-                {isLoading ? 'Authenticating Access...' : 'Enter Private Portal'}
-              </Button>
-            </form>
+                <Button 
+                  type="submit" 
+                  className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-subtitle font-semibold py-3 transition-all duration-300 hover:scale-105 shadow-glow-amber"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <div className="flex items-center">
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      Authenticating...
+                    </div>
+                  ) : (
+                    <>
+                      <Lock className="w-4 h-4 mr-2" />
+                      Access Portal
+                    </>
+                  )}
+                </Button>
 
-            <div className="text-center space-y-4 pt-4">
-              <button className="text-sm text-amber-600 hover:text-amber-700 font-subtitle font-semibold hover:underline transition-all duration-300">
-                Forgot your credentials?
-              </button>
-              <div className="text-xs text-slate-500 font-body leading-relaxed">
-                For exclusive investor inquiries and portfolio access<br/>
-                <a href="mailto:investors@owlinternational.com" className="text-amber-600 hover:text-amber-700 font-semibold hover:underline transition-all duration-300">
-                  investors@owlinternational.com
-                </a>
-              </div>
+                <div className="text-center">
+                  <a href="#" className="text-sm text-blue-300 hover:text-amber-300 transition-colors font-subtitle relative group">
+                    Forgot your password?
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
+
+          {/* Features Section */}
+          <div className="space-y-8">
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl font-heading font-semibold text-white mb-6">
+                Investment <span className="gradient-text-institutional">Intelligence</span>
+              </h2>
+              <p className="text-blue-200 font-body text-lg leading-relaxed">
+                Access comprehensive market analytics, portfolio performance metrics, and exclusive 
+                investment opportunities across our diversified global portfolio.
+              </p>
             </div>
-          </CardContent>
-        </Card>
 
-        {/* Premium trust indicators */}
-        <div className="mt-10 text-center">
-          <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
-            <TrendingUp className="w-5 h-5 mr-3 text-green-400" />
-            <span className="text-sm font-subtitle font-medium text-white tracking-wide">
-              Bank-Grade Security • Encrypted Access • Global Network
-            </span>
+            <div className="grid grid-cols-1 gap-6">
+              <Card className="bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:shadow-glow-blue">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4">
+                      <BarChart3 className="w-6 h-6 text-blue-400" />
+                    </div>
+                    <h3 className="text-xl font-heading text-white">Portfolio Analytics</h3>
+                  </div>
+                  <p className="text-blue-200 font-body">
+                    Real-time performance tracking and detailed investment analytics across all holdings.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:shadow-glow-amber">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center mr-4">
+                      <TrendingUp className="w-6 h-6 text-amber-400" />
+                    </div>
+                    <h3 className="text-xl font-heading text-white">Market Insights</h3>
+                  </div>
+                  <p className="text-blue-200 font-body">
+                    Strategic market intelligence and emerging opportunities in African and European markets.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:shadow-glow-purple">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4">
+                      <Users className="w-6 h-6 text-purple-400" />
+                    </div>
+                    <h3 className="text-xl font-heading text-white">Network Access</h3>
+                  </div>
+                  <p className="text-blue-200 font-body">
+                    Connect with our global network of investors, partners, and industry leaders.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
