@@ -5,7 +5,7 @@ import { Linkedin, Twitter, MapPin, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="footer-gradient-soft text-white">
+    <footer className="bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand Section */}
@@ -17,53 +17,53 @@ const Footer = () => {
                 className="w-10 h-10"
               />
               <div>
-                <span className="text-xl font-brand text-white tracking-wide">
+                <span className="text-xl font-bold text-white tracking-wide">
                   OWL INTERNATIONAL
                 </span>
-                <div className="text-sm text-blue-200 font-body">SAS</div>
+                <div className="text-sm text-gray-300">SAS</div>
               </div>
             </div>
-            <p className="text-blue-200 mb-6 font-body">
+            <p className="text-gray-300 mb-6 text-sm leading-relaxed">
               Transforming Africa through strategic investments, cutting-edge technology, 
               and innovative industrial solutions that create lasting prosperity for communities worldwide.
             </p>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-amber-400" />
-                <span className="text-blue-200 font-body">47 Boulevard de Courcelles, 75008 Paris, France</span>
+                <MapPin className="w-4 h-4 text-orange-400 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">47 Boulevard de Courcelles, 75008 Paris, France</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-amber-400" />
-                <span className="text-blue-200 font-body">contact@internationalowl.com</span>
+                <Mail className="w-4 h-4 text-orange-400 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">contact@internationalowl.com</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-amber-400" />
-                <span className="text-blue-200 font-body">+33 7 44 98 87 89</span>
+                <Phone className="w-4 h-4 text-orange-400 flex-shrink-0" />
+                <span className="text-gray-300 text-sm">+33 7 44 98 87 89</span>
               </div>
             </div>
           </div>
 
           {/* Company */}
           <div>
-            <h3 className="text-lg font-brand font-bold mb-6 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">COMPANY</h3>
-            <ul className="space-y-4">
+            <h3 className="text-sm font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">COMPANY</h3>
+            <ul className="space-y-3">
               <li>
-                <Link to="/about" className="text-blue-200 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
+                <Link to="/about" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                   About Owl
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="text-blue-200 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
+                <Link to="/careers" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                   Careers
                 </Link>
               </li>
               <li>
-                <Link to="/news" className="text-blue-200 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
+                <Link to="/news" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                   Hot News
                 </Link>
               </li>
               <li>
-                <Link to="/impact" className="text-blue-200 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
+                <Link to="/impact" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                   Impact
                 </Link>
               </li>
@@ -72,24 +72,24 @@ const Footer = () => {
 
           {/* Portfolio */}
           <div>
-            <h3 className="text-lg font-brand font-bold mb-6 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">PORTFOLIO</h3>
-            <ul className="space-y-4 mb-8">
+            <h3 className="text-sm font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">PORTFOLIO</h3>
+            <ul className="space-y-3 mb-6">
               <li>
-                <Link to="/portfolio" className="text-blue-200 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
+                <Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                   Investments
                 </Link>
               </li>
             </ul>
             <div>
-              <h4 className="text-lg font-brand font-bold mb-6 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">INVESTORS</h4>
-              <ul className="space-y-4">
+              <h4 className="text-sm font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">INVESTORS</h4>
+              <ul className="space-y-3">
                 <li>
-                  <Link to="/investors" className="text-blue-200 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
+                  <Link to="/investors" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                     Investor Portal
                   </Link>
                 </li>
                 <li>
-                  <Link to="/scouts" className="text-blue-200 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
+                  <Link to="/scouts" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                     Scouts
                   </Link>
                 </li>
@@ -99,25 +99,25 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-brand font-bold mb-6 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">QUICK LINKS</h3>
-            <ul className="space-y-4">
+            <h3 className="text-sm font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">QUICK LINKS</h3>
+            <ul className="space-y-3">
               <li>
-                <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors duration-300 font-body flex items-center">
+                <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm flex items-center">
                   AKOULA <span className="ml-1 text-xs">↗</span>
                 </a>
               </li>
               <li>
-                <a href="https://www.caoagro.com" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors duration-300 font-body flex items-center">
+                <a href="https://www.caoagro.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm flex items-center">
                   CAOAGRO.COM <span className="ml-1 text-xs">↗</span>
                 </a>
               </li>
               <li>
-                <a href="https://www.owloma.com/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors duration-300 font-body flex items-center">
+                <a href="https://www.owloma.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm flex items-center">
                   OWLOMA <span className="ml-1 text-xs">↗</span>
                 </a>
               </li>
               <li>
-                <a href="https://www.kidzlabmodels.com/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors duration-300 font-body flex items-center">
+                <a href="https://www.kidzlabmodels.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm flex items-center">
                   KIDZ LAB <span className="ml-1 text-xs">↗</span>
                 </a>
               </li>
@@ -126,19 +126,19 @@ const Footer = () => {
         </div>
 
         {/* Stay Connected Section */}
-        <div className="mt-16 pt-8">
+        <div className="mt-12 pt-8 border-t border-gray-700">
           <div className="mb-8">
-            <h3 className="text-lg font-brand font-bold mb-6 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">STAY CONNECTED</h3>
-            <p className="text-blue-200 font-body mb-6">
+            <h3 className="text-sm font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">STAY CONNECTED</h3>
+            <p className="text-gray-300 mb-4 text-sm">
               Get updates on our latest projects and investment opportunities.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md">
+            <div className="flex flex-col sm:flex-row gap-3 max-w-md">
               <input 
                 type="email" 
                 placeholder="Enter your email" 
-                className="flex-1 px-4 py-3 bg-blue-800/30 border border-blue-700/50 rounded-md text-white placeholder-blue-300 focus:outline-none focus:border-amber-400 font-body"
+                className="flex-1 px-4 py-2 bg-slate-800 border border-gray-600 rounded text-white placeholder-gray-400 focus:outline-none focus:border-orange-400 text-sm"
               />
-              <button className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-md hover:from-amber-600 hover:to-orange-700 transition-colors duration-300 font-body">
+              <button className="px-6 py-2 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded hover:from-orange-600 hover:to-red-700 transition-colors duration-300 text-sm font-medium">
                 Subscribe
               </button>
             </div>
@@ -146,34 +146,34 @@ const Footer = () => {
         </div>
 
         {/* Bottom Links and Copyright */}
-        <div className="border-t border-blue-800/30 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-6 md:space-y-0">
+        <div className="border-t border-gray-700 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
             <div className="flex flex-wrap gap-6">
-              <Link to="/privacy" className="text-blue-300 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
+              <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-blue-300 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
+              <Link to="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                 Terms of Service
               </Link>
-              <Link to="/cookies" className="text-blue-300 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
+              <Link to="/cookies" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                 Cookie Policy
               </Link>
-              <button className="text-blue-300 hover:text-white transition-colors duration-300 font-body">
+              <button className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">
                 Do Not Sell My Info
               </button>
             </div>
             <div className="flex items-center space-x-4">
-              <a href="#" className="text-blue-200 hover:text-amber-400 transition-colors duration-300">
-                <Linkedin size={24} />
+              <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">
+                <Linkedin size={20} />
               </a>
-              <a href="#" className="text-blue-200 hover:text-amber-400 transition-colors duration-300">
-                <Twitter size={24} />
+              <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">
+                <Twitter size={20} />
               </a>
             </div>
           </div>
           
-          <div className="mt-6 text-left">
-            <p className="text-blue-300 font-body">
+          <div className="mt-4">
+            <p className="text-gray-400 text-sm">
               © 2025 OWL International SAS. All rights reserved.
             </p>
           </div>
