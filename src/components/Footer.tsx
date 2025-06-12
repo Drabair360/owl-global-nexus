@@ -5,9 +5,9 @@ import { Linkedin, Twitter, MapPin, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-16">
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
@@ -18,9 +18,8 @@ const Footer = () => {
               />
               <div>
                 <span className="text-xl font-bold text-white tracking-wide">
-                  OWL INTERNATIONAL
+                  OWL INTERNATIONAL SAS
                 </span>
-                <div className="text-sm text-gray-300">SAS</div>
               </div>
             </div>
             <p className="text-gray-300 mb-6 text-sm leading-relaxed">
@@ -43,110 +42,109 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Company */}
-          <div>
-            <h3 className="text-sm font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">COMPANY</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/about" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
-                  About Owl
-                </Link>
-              </li>
-              <li>
-                <Link to="/careers" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link to="/news" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
-                  Hot News
-                </Link>
-              </li>
-              <li>
-                <Link to="/impact" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
-                  Impact
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Right side columns container */}
+          <div className="lg:col-span-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 text-right">
+              {/* Company & Portfolio combined */}
+              <div>
+                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">COMPANY</h3>
+                <ul className="space-y-3 mb-8">
+                  <li>
+                    <Link to="/about" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
+                      About Owl
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/careers" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
+                      Careers
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/news" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
+                      Hot News
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/impact" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
+                      Impact
+                    </Link>
+                  </li>
+                </ul>
 
-          {/* Portfolio */}
-          <div>
-            <h3 className="text-sm font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">PORTFOLIO</h3>
-            <ul className="space-y-3 mb-6">
-              <li>
-                <Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
-                  Investments
-                </Link>
-              </li>
-            </ul>
-            <div>
-              <h4 className="text-sm font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">INVESTORS</h4>
-              <ul className="space-y-3">
-                <li>
-                  <Link to="/investors" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
-                    Investor Portal
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/scouts" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
-                    Scouts
-                  </Link>
-                </li>
-              </ul>
+                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">PORTFOLIO</h3>
+                <ul className="space-y-3">
+                  <li>
+                    <Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
+                      Investments
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Investors & Quick Links combined */}
+              <div>
+                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">INVESTORS</h3>
+                <ul className="space-y-3 mb-8">
+                  <li>
+                    <Link to="/investors" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
+                      Investor Portal
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/scouts" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
+                      Scouts
+                    </Link>
+                  </li>
+                </ul>
+
+                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">QUICK LINKS</h3>
+                <ul className="space-y-3">
+                  <li>
+                    <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm flex items-center justify-end">
+                      AKOULA <span className="ml-1 text-xs">↗</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.caoagro.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm flex items-center justify-end">
+                      CAOAGRO.COM <span className="ml-1 text-xs">↗</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.owloma.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm flex items-center justify-end">
+                      OWLOMA <span className="ml-1 text-xs">↗</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.kidzlabmodels.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm flex items-center justify-end">
+                      KIDZ LAB <span className="ml-1 text-xs">↗</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Stay Connected */}
+              <div>
+                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">STAY CONNECTED</h3>
+                <p className="text-gray-300 mb-4 text-sm">
+                  Get updates on our latest projects and investment opportunities.
+                </p>
+                <div className="flex flex-col gap-3">
+                  <input 
+                    type="email" 
+                    placeholder="Enter your email" 
+                    className="px-4 py-2 bg-slate-800 border border-gray-600 rounded text-white placeholder-gray-400 focus:outline-none focus:border-orange-400 text-sm"
+                  />
+                  <button className="px-6 py-2 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded hover:from-orange-600 hover:to-red-700 transition-colors duration-300 text-sm font-medium">
+                    Subscribe
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-sm font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">QUICK LINKS</h3>
-            <ul className="space-y-3">
-              <li>
-                <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm flex items-center">
-                  AKOULA <span className="ml-1 text-xs">↗</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.caoagro.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm flex items-center">
-                  CAOAGRO.COM <span className="ml-1 text-xs">↗</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.owloma.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm flex items-center">
-                  OWLOMA <span className="ml-1 text-xs">↗</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.kidzlabmodels.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm flex items-center">
-                  KIDZ LAB <span className="ml-1 text-xs">↗</span>
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
 
-        {/* Stay Connected Section */}
-        <div className="mt-12 pt-8 border-t border-gray-700">
-          <div className="mb-8">
-            <h3 className="text-sm font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">STAY CONNECTED</h3>
-            <p className="text-gray-300 mb-4 text-sm">
-              Get updates on our latest projects and investment opportunities.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                className="flex-1 px-4 py-2 bg-slate-800 border border-gray-600 rounded text-white placeholder-gray-400 focus:outline-none focus:border-orange-400 text-sm"
-              />
-              <button className="px-6 py-2 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded hover:from-orange-600 hover:to-red-700 transition-colors duration-300 text-sm font-medium">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Links and Copyright */}
-        <div className="border-t border-gray-700 pt-6">
+        {/* Bottom section without border */}
+        <div className="pt-12 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
             <div className="flex flex-wrap gap-6">
               <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
