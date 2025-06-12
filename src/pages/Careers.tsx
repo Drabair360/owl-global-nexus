@@ -1,256 +1,202 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { MapPin, Clock, Users, Briefcase, Globe, ArrowRight } from 'lucide-react';
-import GeometricPattern from '@/components/GeometricPattern';
+import Footer from '@/components/Footer';
+import { MapPin, Clock, Users, Briefcase } from 'lucide-react';
 
-const CareersPage = () => {
-  const franceJobs = [
-    {
-      title: "Senior Industrial Project Manager",
-      department: "Operations",
-      location: "Paris, France",
-      type: "Full-time",
-      description: "Lead complex industrial projects across Africa, managing end-to-end delivery of cocoa processing facilities and equipment installations.",
-      requirements: ["5+ years in industrial project management", "Experience with international projects", "Fluency in French and English"]
-    },
-    {
-      title: "AI Platform Developer",
-      department: "Technology",
-      location: "Paris, France",
-      type: "Full-time",
-      description: "Develop and enhance our AKOULA platform, building intelligent matching systems for agro-industry and entertainment sectors.",
-      requirements: ["3+ years in AI/ML development", "Experience with Python and React", "Knowledge of recommendation systems"]
-    },
-    {
-      title: "Business Development Manager - Europe",
-      department: "Sales",
-      location: "Paris, France",
-      type: "Full-time",
-      description: "Expand our European partnerships and client base, focusing on equipment procurement and strategic alliances.",
-      requirements: ["5+ years in B2B sales", "Network in industrial equipment sector", "Proven track record in international business"]
-    }
-  ];
-
-  const ivoryCoastJobs = [
-    {
-      title: "Operations Director - West Africa",
-      department: "Operations",
-      location: "Abidjan, Côte d'Ivoire",
-      type: "Full-time",
-      description: "Oversee all West African operations, including project implementation, local partnerships, and team management.",
-      requirements: ["7+ years in operations management", "Experience in West Africa", "Bilingual French/English"]
-    },
-    {
-      title: "Local Procurement Specialist",
-      department: "Supply Chain",
-      location: "Abidjan, Côte d'Ivoire",
-      type: "Full-time",
-      description: "Manage local sourcing and procurement activities, building relationships with regional suppliers and contractors.",
-      requirements: ["3+ years in procurement", "Knowledge of local markets", "Strong negotiation skills"]
-    },
-    {
-      title: "Community Impact Coordinator",
-      department: "Social Impact",
-      location: "Abidjan, Côte d'Ivoire",
-      type: "Full-time",
-      description: "Design and implement community development programs, measuring social impact and building stakeholder relationships.",
-      requirements: ["Experience in community development", "Understanding of local culture", "Project management skills"]
-    }
-  ];
-
+const Careers = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-slate-100">
       <Navbar />
-      <div className="pt-20 pb-16 relative">
-        <GeometricPattern variant="background" />
+      
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.08),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.08),transparent_50%)]" />
         
-        {/* Hero Section */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-heading font-semibold text-foreground mb-6">
-              Join Our Mission
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+          <div className="animate-sophisticated-fade">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight font-heading">
+              Join Our
+              <span className="bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-600 bg-clip-text text-transparent block mt-2">
+                Mission
+              </span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
-              Help us transform communities and industries across Africa and Europe. 
-              We're looking for passionate individuals ready to make a global impact.
+            
+            <p className="text-body-large text-blue-100 mb-8 max-w-3xl mx-auto font-body">
+              Be part of Africa's transformation. Build your career with a team that's shaping 
+              the future of innovation, technology, and sustainable development.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Transition */}
+      <div className="relative h-32 bg-gradient-to-b from-slate-900 to-blue-50 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50" />
+      </div>
+
+      {/* Content */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-section text-slate-800 mb-4 font-brand">CAREER OPPORTUNITIES</h2>
+            <p className="text-body-large text-slate-600 max-w-3xl mx-auto font-body">
+              Explore our open positions and find out how you can contribute to our vision of transforming Africa through innovation and technology.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <Card className="text-center border-2 hover:border-primary/50 transition-all duration-300">
-              <CardHeader>
-                <Globe className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                <CardTitle className="font-heading font-semibold">Global Impact</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground font-body">Work on projects that transform entire economies and create lasting change across continents.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-2 hover:border-primary/50 transition-all duration-300">
-              <CardHeader>
-                <Users className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                <CardTitle className="font-heading font-semibold">Diverse Team</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground font-body">Join a multicultural team spanning France, Côte d'Ivoire, and beyond, united by shared vision.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-2 hover:border-primary/50 transition-all duration-300">
-              <CardHeader>
-                <Briefcase className="w-12 h-12 text-amber-600 mx-auto mb-4" />
-                <CardTitle className="font-heading font-semibold">Innovation Focus</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground font-body">Work with cutting-edge AI technology and innovative industrial solutions at the forefront of change.</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* France Opportunities */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-          <div className="mb-8">
-            <h2 className="text-3xl font-heading font-semibold text-foreground mb-4">🇫🇷 France Opportunities</h2>
-            <p className="text-lg text-muted-foreground font-body">Join our Paris headquarters team</p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6">
-            {franceJobs.map((job, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 border-2 hover:border-blue-500/50">
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-xl font-heading font-semibold">{job.title}</CardTitle>
-                      <CardDescription className="text-lg font-body">{job.department}</CardDescription>
-                    </div>
-                    <Button className="font-body">
-                      Apply Now <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </div>
-                  <div className="flex items-center space-x-4 text-sm text-muted-foreground font-body">
-                    <div className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-1" />
-                      {job.location}
-                    </div>
-                    <div className="flex items-center">
-                      <Clock className="w-4 h-4 mr-1" />
-                      {job.type}
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4 font-body">{job.description}</p>
-                  <div>
-                    <h4 className="font-heading font-semibold mb-2">Key Requirements:</h4>
-                    <ul className="space-y-1">
-                      {job.requirements.map((req, reqIndex) => (
-                        <li key={reqIndex} className="flex items-center text-sm text-muted-foreground font-body">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full mr-3" />
-                          {req}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Côte d'Ivoire Opportunities */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-          <div className="mb-8">
-            <h2 className="text-3xl font-heading font-semibold text-foreground mb-4">🇨🇮 Côte d'Ivoire Opportunities</h2>
-            <p className="text-lg text-muted-foreground font-body">Be part of our African operations team</p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6">
-            {ivoryCoastJobs.map((job, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 border-2 hover:border-orange-500/50">
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-xl font-heading font-semibold">{job.title}</CardTitle>
-                      <CardDescription className="text-lg font-body">{job.department}</CardDescription>
-                    </div>
-                    <Button variant="outline" className="font-body">
-                      Apply Now <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </div>
-                  <div className="flex items-center space-x-4 text-sm text-muted-foreground font-body">
-                    <div className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-1" />
-                      {job.location}
-                    </div>
-                    <div className="flex items-center">
-                      <Clock className="w-4 h-4 mr-1" />
-                      {job.type}
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4 font-body">{job.description}</p>
-                  <div>
-                    <h4 className="font-heading font-semibold mb-2">Key Requirements:</h4>
-                    <ul className="space-y-1">
-                      {job.requirements.map((req, reqIndex) => (
-                        <li key={reqIndex} className="flex items-center text-sm text-muted-foreground font-body">
-                          <div className="w-2 h-2 bg-orange-500 rounded-full mr-3" />
-                          {req}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Application Process */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-2">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-heading font-semibold">Ready to Join Us?</CardTitle>
-              <CardDescription className="text-lg font-body">
-                Our application process is designed to find the best fit for both you and our mission.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div>
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl">📝</span>
-                  </div>
-                  <h3 className="font-heading font-semibold mb-2">1. Apply Online</h3>
-                  <p className="text-sm text-muted-foreground font-body">Submit your application with CV and cover letter</p>
-                </div>
-                <div>
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl">💬</span>
-                  </div>
-                  <h3 className="font-heading font-semibold mb-2">2. Interview Process</h3>
-                  <p className="text-sm text-muted-foreground font-body">Video interviews with hiring managers and team members</p>
-                </div>
-                <div>
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl">🚀</span>
-                  </div>
-                  <h3 className="font-heading font-semibold mb-2">3. Join the Team</h3>
-                  <p className="text-sm text-muted-foreground font-body">Onboarding and integration into your new role</p>
-                </div>
+          {/* Job Listings */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Job 1 */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="flex items-center mb-4">
+                <Briefcase className="w-6 h-6 text-blue-500 mr-3" />
+                <h3 className="text-xl font-subtitle font-semibold text-foreground">AI Engineer</h3>
               </div>
-            </CardContent>
-          </Card>
+              <p className="text-muted-foreground mb-4 font-body">
+                Develop and implement AI solutions for our AKOULA platform.
+              </p>
+              <div className="flex items-center text-sm text-muted-foreground mb-2 font-body">
+                <MapPin className="w-4 h-4 mr-2" />
+                Paris, France
+              </div>
+              <div className="flex items-center text-sm text-muted-foreground mb-2 font-body">
+                <Clock className="w-4 h-4 mr-2" />
+                Full-time
+              </div>
+              {/*<Button size="sm" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-subtitle font-medium mt-4">
+                Apply Now
+              </Button>*/}
+            </div>
+
+            {/* Job 2 */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="flex items-center mb-4">
+                <Users className="w-6 h-6 text-green-500 mr-3" />
+                <h3 className="text-xl font-subtitle font-semibold text-foreground">Agronomist</h3>
+              </div>
+              <p className="text-muted-foreground mb-4 font-body">
+                Drive sustainable farming practices with CAOAGRO in Africa.
+              </p>
+              <div className="flex items-center text-sm text-muted-foreground mb-2 font-body">
+                <MapPin className="w-4 h-4 mr-2" />
+                Nairobi, Kenya
+              </div>
+              <div className="flex items-center text-sm text-muted-foreground mb-2 font-body">
+                <Clock className="w-4 h-4 mr-2" />
+                Full-time
+              </div>
+              {/*<Button size="sm" className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-subtitle font-medium mt-4">
+                Apply Now
+              </Button>*/}
+            </div>
+
+            {/* Job 3 */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="flex items-center mb-4">
+                <Briefcase className="w-6 h-6 text-amber-500 mr-3" />
+                <h3 className="text-xl font-subtitle font-semibold text-foreground">Automation Specialist</h3>
+              </div>
+              <p className="text-muted-foreground mb-4 font-body">
+                Implement advanced automation solutions with OWLOMA.
+              </p>
+              <div className="flex items-center text-sm text-muted-foreground mb-2 font-body">
+                <MapPin className="w-4 h-4 mr-2" />
+                Lagos, Nigeria
+              </div>
+              <div className="flex items-center text-sm text-muted-foreground mb-2 font-body">
+                <Clock className="w-4 h-4 mr-2" />
+                Full-time
+              </div>
+              {/*<Button size="sm" className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-subtitle font-medium mt-4">
+                Apply Now
+              </Button>*/}
+            </div>
+
+            {/* Job 4 */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="flex items-center mb-4">
+                <Users className="w-6 h-6 text-purple-500 mr-3" />
+                <h3 className="text-xl font-subtitle font-semibold text-foreground">Content Creator</h3>
+              </div>
+              <p className="text-muted-foreground mb-4 font-body">
+                Develop engaging content for KIDZ LAB's media platforms.
+              </p>
+              <div className="flex items-center text-sm text-muted-foreground mb-2 font-body">
+                <MapPin className="w-4 h-4 mr-2" />
+                Dakar, Senegal
+              </div>
+              <div className="flex items-center text-sm text-muted-foreground mb-2 font-body">
+                <Clock className="w-4 h-4 mr-2" />
+                Full-time
+              </div>
+              {/*<Button size="sm" className="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-subtitle font-medium mt-4">
+                Apply Now
+              </Button>*/}
+            </div>
+
+            {/* Job 5 */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="flex items-center mb-4">
+                <Briefcase className="w-6 h-6 text-blue-500 mr-3" />
+                <h3 className="text-xl font-subtitle font-semibold text-foreground">Data Scientist</h3>
+              </div>
+              <p className="text-muted-foreground mb-4 font-body">
+                Analyze data to drive strategic decisions across our portfolio.
+              </p>
+              <div className="flex items-center text-sm text-muted-foreground mb-2 font-body">
+                <MapPin className="w-4 h-4 mr-2" />
+                Johannesburg, South Africa
+              </div>
+              <div className="flex items-center text-sm text-muted-foreground mb-2 font-body">
+                <Clock className="w-4 h-4 mr-2" />
+                Full-time
+              </div>
+              {/*<Button size="sm" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-subtitle font-medium mt-4">
+                Apply Now
+              </Button>*/}
+            </div>
+
+            {/* Job 6 */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="flex items-center mb-4">
+                <Users className="w-6 h-6 text-green-500 mr-3" />
+                <h3 className="text-xl font-subtitle font-semibold text-foreground">Sustainability Manager</h3>
+              </div>
+              <p className="text-muted-foreground mb-4 font-body">
+                Lead sustainability initiatives across our investments.
+              </p>
+              <div className="flex items-center text-sm text-muted-foreground mb-2 font-body">
+                <MapPin className="w-4 h-4 mr-2" />
+                Accra, Ghana
+              </div>
+              <div className="flex items-center text-sm text-muted-foreground mb-2 font-body">
+                <Clock className="w-4 h-4 mr-2" />
+                Full-time
+              </div>
+              {/*<Button size="sm" className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-subtitle font-medium mt-4">
+                Apply Now
+              </Button>*/}
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="mt-16 text-center">
+            <p className="text-body-large text-slate-600 mb-8 font-body">
+              Don't see a position that fits your skills? Send us your resume and tell us how you can contribute to our mission.
+            </p>
+            {/*<Button size="lg" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-subtitle font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-sophisticated">
+              Contact Us
+            </Button>*/}
+          </div>
         </div>
-      </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };
 
-export default CareersPage;
+export default Careers;

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -9,7 +10,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="gradient-institutional-soft text-white relative overflow-hidden">
+      <footer className="bg-gradient-to-br from-slate-800 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
         {/* Sophisticated background elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>

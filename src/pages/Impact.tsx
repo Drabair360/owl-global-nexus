@@ -1,230 +1,157 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Users, TrendingUp, Globe, Heart, Factory, GraduationCap } from 'lucide-react';
-import GeometricPattern from '@/components/GeometricPattern';
+import Footer from '@/components/Footer';
+import { Users, Globe, Leaf, TrendingUp } from 'lucide-react';
 
-const ImpactPage = () => {
-  const metrics = [
-    {
-      number: "10,000+",
-      label: "Jobs Created",
-      description: "Direct and indirect employment across our projects",
-      icon: <Users className="w-8 h-8 text-blue-600" />
-    },
-    {
-      number: "€150M",
-      label: "Economic Impact",
-      description: "Generated value in local communities",
-      icon: <TrendingUp className="w-8 h-8 text-green-600" />
-    },
-    {
-      number: "25",
-      label: "Communities Transformed",
-      description: "Villages and towns positively impacted",
-      icon: <Heart className="w-8 h-8 text-red-600" />
-    },
-    {
-      number: "5,000+",
-      label: "People Trained",
-      description: "Technical skills development programs",
-      icon: <GraduationCap className="w-8 h-8 text-purple-600" />
-    }
-  ];
-
-  const stories = [
-    {
-      title: "Transforming Cocoa Communities in Côte d'Ivoire",
-      location: "San-Pédro Region, Côte d'Ivoire",
-      impact: "2,500 farmers now earn 40% more through direct processing partnerships",
-      description: "Our CAOAGRO operations have revolutionized the local cocoa supply chain, enabling farmers to process their beans locally rather than exporting raw materials. This value-addition strategy has dramatically increased incomes while creating hundreds of technical jobs.",
-      image: "🏭",
-      metrics: ["40% income increase", "800 direct jobs", "2,500 farmers benefited"]
-    },
-    {
-      title: "Youth Empowerment Through Technology",
-      location: "Abidjan, Côte d'Ivoire",
-      impact: "500+ young people trained in digital skills and industrial operations",
-      description: "Through our training programs and KIDZ LAB platform, we're bridging the digital divide by providing cutting-edge technology education and entertainment industry opportunities to young Africans.",
-      image: "💻",
-      metrics: ["500+ trained", "85% employment rate", "12 months avg program"]
-    },
-    {
-      title: "Women's Economic Participation",
-      location: "Multiple Locations",
-      impact: "60% of our administrative and quality control positions filled by women",
-      description: "We prioritize gender equality in all our operations, creating opportunities for women in traditionally male-dominated industries while providing leadership development programs.",
-      image: "👩‍💼",
-      metrics: ["60% women in QC roles", "45% women managers", "100% equal pay"]
-    }
-  ];
-
-  const initiatives = [
-    {
-      title: "Local Supplier Development",
-      description: "Building capacity among local suppliers to meet international standards",
-      icon: <Factory className="w-6 h-6 text-amber-600" />
-    },
-    {
-      title: "Education Partnerships",
-      description: "Collaborating with universities to develop relevant technical curricula",
-      icon: <GraduationCap className="w-6 h-6 text-blue-600" />
-    },
-    {
-      title: "Community Health Programs",
-      description: "Supporting healthcare infrastructure in project areas",
-      icon: <Heart className="w-6 h-6 text-red-600" />
-    },
-    {
-      title: "Environmental Sustainability",
-      description: "Implementing eco-friendly practices across all operations",
-      icon: <Globe className="w-6 h-6 text-green-600" />
-    }
-  ];
-
+const Impact = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-slate-100">
       <Navbar />
-      <div className="pt-20 pb-16 relative">
-        <GeometricPattern variant="background" />
+      
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-cyan-900 via-blue-900 to-slate-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.08),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.08),transparent_50%)]" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-heading font-semibold text-foreground mb-6">
-              Our Impact
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+          <div className="animate-sophisticated-fade">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight font-heading">
+              Our
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-600 bg-clip-text text-transparent block mt-2">
+                Impact
+              </span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
-              Measuring the meaningful change we create in communities across Africa and Europe. 
-              Every project, every partnership, every innovation is designed to improve lives.
+            
+            <p className="text-body-large text-blue-100 mb-8 max-w-3xl mx-auto font-body">
+              Measuring success through sustainable development, community empowerment, 
+              and transformative change across African economies.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Transition */}
+      <div className="relative h-32 bg-gradient-to-b from-slate-900 to-cyan-50 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50" />
+      </div>
+
+      {/* Content */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-section text-slate-800 mb-4 font-brand">SUSTAINABLE DEVELOPMENT</h2>
+            <p className="text-body-large text-slate-600 max-w-3xl mx-auto font-body">
+              Our commitment to sustainable development is at the core of everything we do. We strive to create
+              lasting positive change in the communities we serve.
             </p>
           </div>
 
           {/* Impact Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {metrics.map((metric, index) => (
-              <Card key={index} className="text-center border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg">
-                <CardHeader className="pb-4">
-                  <div className="flex justify-center mb-4">
-                    {metric.icon}
-                  </div>
-                  <div className="text-3xl font-heading font-semibold text-foreground mb-2">
-                    {metric.number}
-                  </div>
-                  <CardTitle className="text-lg font-heading font-semibold">{metric.label}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground font-body">{metric.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Job Creation */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Users className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Job Creation</h3>
+              <p className="text-muted-foreground mb-4 font-body">
+                Creating sustainable employment opportunities for local communities.
+              </p>
+              <div className="flex items-center justify-between">
+                <span className="text-2xl font-bold text-blue-700">5,000+</span>
+                <span className="text-sm text-blue-600 font-subtitle">Jobs Created</span>
+              </div>
+            </div>
+
+            {/* Environmental Impact */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(34,197,94,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Leaf className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Environmental Impact</h3>
+              <p className="text-muted-foreground mb-4 font-body">
+                Reducing our carbon footprint and promoting eco-friendly practices.
+              </p>
+              <div className="flex items-center justify-between">
+                <span className="text-2xl font-bold text-green-700">30%</span>
+                <span className="text-sm text-green-600 font-subtitle">Reduced Emissions</span>
+              </div>
+            </div>
+
+            {/* Community Empowerment */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Globe className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Community Empowerment</h3>
+              <p className="text-muted-foreground mb-4 font-body">
+                Empowering local communities through education, training, and resources.
+              </p>
+              <div className="flex items-center justify-between">
+                <span className="text-2xl font-bold text-amber-700">10,000+</span>
+                <span className="text-sm text-amber-600 font-subtitle">Lives Impacted</span>
+              </div>
+            </div>
+
+            {/* Economic Growth */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(147,51,234,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Economic Growth</h3>
+              <p className="text-muted-foreground mb-4 font-body">
+                Driving economic growth and prosperity through strategic investments.
+              </p>
+              <div className="flex items-center justify-between">
+                <span className="text-2xl font-bold text-purple-700">15%</span>
+                <span className="text-sm text-purple-600 font-subtitle">GDP Contribution</span>
+              </div>
+            </div>
           </div>
 
           {/* Impact Stories */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-heading font-semibold text-foreground mb-8 text-center">
-              Stories of Transformation
-            </h2>
-            <div className="space-y-8">
-              {stories.map((story, index) => (
-                <Card key={index} className="overflow-hidden border-2 hover:border-primary/50 transition-all duration-300">
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
-                    <div className="lg:col-span-2">
-                      <CardHeader>
-                        <div className="flex items-start space-x-4">
-                          <div className="text-4xl">{story.image}</div>
-                          <div className="flex-1">
-                            <CardTitle className="text-xl font-heading font-semibold mb-2">{story.title}</CardTitle>
-                            <CardDescription className="text-sm text-muted-foreground font-body mb-2">
-                              📍 {story.location}
-                            </CardDescription>
-                            <div className="text-lg font-heading font-semibold text-primary mb-4">
-                              {story.impact}
-                            </div>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-muted-foreground font-body">{story.description}</p>
-                      </CardContent>
-                    </div>
-                    <div className="bg-muted/30 p-6 flex items-center">
-                      <div className="w-full">
-                        <h4 className="font-heading font-semibold mb-4">Key Metrics</h4>
-                        <div className="space-y-3">
-                          {story.metrics.map((metric, metricIndex) => (
-                            <div key={metricIndex} className="flex items-center">
-                              <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-                              <span className="text-sm font-body">{metric}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Ongoing Initiatives */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-heading font-semibold text-foreground mb-8 text-center">
-              Ongoing Initiatives
-            </h2>
+          <div className="mt-16">
+            <h2 className="text-section text-slate-800 mb-6 text-center font-brand">IMPACT STORIES</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {initiatives.map((initiative, index) => (
-                <Card key={index} className="border-2 hover:border-primary/50 transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex items-center space-x-3">
-                      {initiative.icon}
-                      <CardTitle className="font-heading font-semibold">{initiative.title}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground font-body">{initiative.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
+              {/* Story 1 */}
+              <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+                <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Empowering Women in Agriculture</h3>
+                <p className="text-muted-foreground mb-4 font-body">
+                  Through our CAOAGRO initiative, we've provided training and resources to over 500 women farmers,
+                  increasing their yields and improving their livelihoods.
+                </p>
+                <a href="#" className="text-blue-600 hover:text-blue-700 font-subtitle font-semibold">Read More</a>
+              </div>
+
+              {/* Story 2 */}
+              <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(34,197,94,0.3)] transition-all duration-300 group hover:-translate-y-2">
+                <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Digital Literacy for All</h3>
+                <p className="text-muted-foreground mb-4 font-body">
+                  Our AKOULA platform has enabled digital literacy programs in underserved communities, providing
+                  access to education and technology for thousands of individuals.
+                </p>
+                <a href="#" className="text-green-600 hover:text-green-700 font-subtitle font-semibold">Read More</a>
+              </div>
             </div>
           </div>
 
-          {/* Commitment Statement */}
-          <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-2">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-heading font-semibold">Our Commitment</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-lg text-muted-foreground mb-6 font-body max-w-3xl mx-auto">
-                We believe that sustainable development comes from empowering local communities, 
-                creating economic opportunities, and building lasting partnerships. Every project 
-                we undertake is designed to leave a positive, measurable impact that extends far 
-                beyond our direct operations.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div>
-                  <div className="text-2xl mb-2">🎯</div>
-                  <h3 className="font-heading font-semibold mb-2">Measurable Impact</h3>
-                  <p className="text-sm text-muted-foreground font-body">Every initiative tracked with clear KPIs</p>
-                </div>
-                <div>
-                  <div className="text-2xl mb-2">🤝</div>
-                  <h3 className="font-heading font-semibold mb-2">Local Partnership</h3>
-                  <p className="text-sm text-muted-foreground font-body">Working hand-in-hand with communities</p>
-                </div>
-                <div>
-                  <div className="text-2xl mb-2">🌱</div>
-                  <h3 className="font-heading font-semibold mb-2">Sustainable Growth</h3>
-                  <p className="text-sm text-muted-foreground font-body">Building for long-term prosperity</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          {/* Call to Action */}
+          <div className="mt-16 text-center">
+            <p className="text-body-large text-slate-600 mb-8 font-body">
+              Join us in our mission to create a better future for Africa.
+            </p>
+            {/*<Button size="lg" className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-subtitle font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-sophisticated">
+              Get Involved
+            </Button>*/}
+          </div>
         </div>
-      </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };
 
-export default ImpactPage;
+export default Impact;

@@ -1,194 +1,132 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Calendar, ExternalLink, TrendingUp, Globe, Zap } from 'lucide-react';
-import GeometricPattern from '@/components/GeometricPattern';
+import Footer from '@/components/Footer';
+import { Calendar, Tag, User, ArrowRight } from 'lucide-react';
 
-const NewsPage = () => {
-  const news = [
-    {
-      title: "OWL International Secures €50M Series A for African Expansion",
-      category: "Funding",
-      date: "2024-12-10",
-      summary: "Major funding round to accelerate CAOAGRO operations across East and North Africa, with new processing facilities planned in Kenya and Morocco.",
-      highlight: true,
-      icon: <TrendingUp className="w-6 h-6" />
-    },
-    {
-      title: "Strategic Partnership with German Engineering Leader",
-      category: "Partnership",
-      date: "2024-12-05",
-      summary: "Exclusive agreement with Bavaria's top cocoa processing equipment manufacturer to supply cutting-edge technology for African projects.",
-      highlight: true,
-      icon: <Globe className="w-6 h-6" />
-    },
-    {
-      title: "AKOULA Platform Beta Launch in Q1 2025",
-      category: "Product",
-      date: "2024-11-28",
-      summary: "Revolutionary AI-powered matching platform for agro-industry set to transform how businesses connect across Africa.",
-      highlight: false,
-      icon: <Zap className="w-6 h-6" />
-    },
-    {
-      title: "KIDZ LAB Discovers Rising Talent in West Africa",
-      category: "Entertainment",
-      date: "2024-11-20",
-      summary: "AI talent discovery platform successfully matches 200+ young performers with international opportunities in just 3 months.",
-      highlight: false,
-      icon: <Globe className="w-6 h-6" />
-    },
-    {
-      title: "Sustainability Milestone: 10,000 Jobs Created",
-      category: "Impact",
-      date: "2024-11-15",
-      summary: "OWL International's projects have now created over 10,000 direct and indirect jobs across West Africa since inception.",
-      highlight: true,
-      icon: <TrendingUp className="w-6 h-6" />
-    },
-    {
-      title: "New Cocoa Processing Facility Opens in Côte d'Ivoire",
-      category: "Operations",
-      date: "2024-11-10",
-      summary: "State-of-the-art facility in Abidjan begins operations, capable of processing 50,000 tons of cocoa beans annually.",
-      highlight: false,
-      icon: <Globe className="w-6 h-6" />
-    }
-  ];
-
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case 'Funding': return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300';
-      case 'Partnership': return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300';
-      case 'Product': return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300';
-      case 'Entertainment': return 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300';
-      case 'Impact': return 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300';
-      case 'Operations': return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300';
-      default: return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300';
-    }
-  };
-
+const News = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-blue-50 to-slate-100">
       <Navbar />
-      <div className="pt-20 pb-16 relative">
-        <GeometricPattern variant="background" />
+      
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-indigo-900 via-blue-900 to-slate-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.08),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.08),transparent_50%)]" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-heading font-semibold text-foreground mb-6">
-              Hot News & Updates
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+          <div className="animate-sophisticated-fade">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight font-heading">
+              Hot
+              <span className="bg-gradient-to-r from-indigo-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent block mt-2">
+                News
+              </span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
-              Stay updated with the latest developments, partnerships, and milestones 
-              as we transform industries across Africa and Europe.
+            
+            <p className="text-body-large text-blue-100 mb-8 max-w-3xl mx-auto font-body">
+              Stay updated with the latest developments, insights, and breakthroughs 
+              from OWL International and our portfolio companies.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Transition */}
+      <div className="relative h-32 bg-gradient-to-b from-slate-900 to-indigo-50 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent opacity-50" />
+      </div>
+
+      {/* Content */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-section text-slate-800 mb-4 font-brand">LATEST NEWS</h2>
+            <p className="text-body-large text-slate-600 max-w-3xl mx-auto font-body">
+              Explore the latest news, insights, and stories from OWL International and our portfolio companies.
             </p>
           </div>
 
-          {/* Featured News */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-heading font-semibold text-foreground mb-6">Featured Stories</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {news.filter(item => item.highlight).map((item, index) => (
-                <Card key={index} className="border-2 border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-xl">
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge className={getCategoryColor(item.category)}>
-                        {item.category}
-                      </Badge>
-                      <div className="flex items-center text-sm text-muted-foreground font-body">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        {new Date(item.date).toLocaleDateString('en-US', { 
-                          year: 'numeric', 
-                          month: 'long', 
-                          day: 'numeric' 
-                        })}
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="p-2 bg-primary/10 rounded-lg">
-                        {item.icon}
-                      </div>
-                      <div className="flex-1">
-                        <CardTitle className="text-xl font-heading font-semibold mb-2">{item.title}</CardTitle>
-                        <CardDescription className="text-base font-body">{item.summary}</CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* All News */}
-          <div>
-            <h2 className="text-2xl font-heading font-semibold text-foreground mb-6">All Updates</h2>
-            <div className="space-y-6">
-              {news.map((item, index) => (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300 border hover:border-primary/30">
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge className={getCategoryColor(item.category)}>
-                        {item.category}
-                      </Badge>
-                      <div className="flex items-center text-sm text-muted-foreground font-body">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        {new Date(item.date).toLocaleDateString('en-US', { 
-                          year: 'numeric', 
-                          month: 'long', 
-                          day: 'numeric' 
-                        })}
-                      </div>
-                    </div>
-                    <div className="flex items-start justify-between">
-                      <div className="flex items-start space-x-3 flex-1">
-                        <div className="p-2 bg-muted rounded-lg">
-                          {item.icon}
-                        </div>
-                        <div className="flex-1">
-                          <CardTitle className="text-lg font-heading font-semibold mb-2">{item.title}</CardTitle>
-                          <CardDescription className="font-body">{item.summary}</CardDescription>
-                        </div>
-                      </div>
-                      <ExternalLink className="w-5 h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-                    </div>
-                  </CardHeader>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Newsletter Signup */}
-          <Card className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-2">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-heading font-semibold">Stay Informed</CardTitle>
-              <CardDescription className="text-lg font-body">
-                Get the latest updates delivered directly to your inbox
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-muted-foreground mb-6 font-body">
-                Subscribe to our newsletter for exclusive insights, project updates, and investment opportunities.
+          {/* News Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* News Item 1 */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <img 
+                src="https://images.unsplash.com/photo-1682685797497-f296491f82b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60" 
+                alt="News Thumbnail" 
+                className="rounded-xl mb-4 w-full h-48 object-cover" 
+              />
+              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">OWL International Expands into Renewable Energy Sector</h3>
+              <p className="text-muted-foreground mb-4 font-body">
+                OWL International is proud to announce its expansion into the renewable energy sector, investing in sustainable energy projects across Africa.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="flex-1 px-4 py-2 border border-input bg-background rounded-md text-sm font-body"
-                />
-                <button className="px-6 py-2 bg-primary text-primary-foreground rounded-md text-sm font-body hover:bg-primary/90 transition-colors">
-                  Subscribe
-                </button>
+              <div className="flex items-center text-sm text-muted-foreground font-body">
+                <Calendar className="w-4 h-4 mr-2" />
+                <span>October 26, 2024</span>
+                <Tag className="w-4 h-4 mx-2" />
+                <span>Renewable Energy</span>
               </div>
-            </CardContent>
-          </Card>
+              <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-subtitle font-semibold mt-4">
+                Read More <ArrowRight className="ml-2 w-4 h-4" />
+              </a>
+            </div>
+
+            {/* News Item 2 */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <img 
+                src="https://images.unsplash.com/photo-1695656744705-c948541e352b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60" 
+                alt="News Thumbnail" 
+                className="rounded-xl mb-4 w-full h-48 object-cover" 
+              />
+              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">AKOULA Platform Achieves Record User Engagement</h3>
+              <p className="text-muted-foreground mb-4 font-body">
+                The AKOULA platform has achieved record user engagement, with over 15,000 active users leveraging its AI-powered solutions.
+              </p>
+              <div className="flex items-center text-sm text-muted-foreground font-body">
+                <Calendar className="w-4 h-4 mr-2" />
+                <span>October 20, 2024</span>
+                <Tag className="w-4 h-4 mx-2" />
+                <span>AI Platform</span>
+              </div>
+              <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-subtitle font-semibold mt-4">
+                Read More <ArrowRight className="ml-2 w-4 h-4" />
+              </a>
+            </div>
+
+            {/* News Item 3 */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <img 
+                src="https://images.unsplash.com/photo-1695657358994-c96980534993?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60" 
+                alt="News Thumbnail" 
+                className="rounded-xl mb-4 w-full h-48 object-cover" 
+              />
+              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">CAOAGRO Partners with Local Farmers for Sustainable Agriculture</h3>
+              <p className="text-muted-foreground mb-4 font-body">
+                CAOAGRO has established new partnerships with local farmers to promote sustainable agriculture and enhance crop yields.
+              </p>
+              <div className="flex items-center text-sm text-muted-foreground font-body">
+                <Calendar className="w-4 h-4 mr-2" />
+                <span>October 15, 2024</span>
+                <Tag className="w-4 h-4 mx-2" />
+                <span>Sustainable Agriculture</span>
+              </div>
+              <a href="#" className="inline-flex items-center text-blue-600 hover:text-blue-700 font-subtitle font-semibold mt-4">
+                Read More <ArrowRight className="ml-2 w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Pagination */}
+          <div className="flex justify-center mt-12">
+            <Button variant="outline" className="mr-4 font-subtitle">Previous</Button>
+            <Button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-subtitle">Next</Button>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };
 
-export default NewsPage;
+export default News;

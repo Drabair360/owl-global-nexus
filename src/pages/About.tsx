@@ -1,10 +1,7 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Users, Globe, Lightbulb, Target, Heart, Briefcase } from 'lucide-react';
-import GeometricPattern from '@/components/GeometricPattern';
+import { Users, Globe, Award, TrendingUp } from 'lucide-react';
 
 const About = () => {
   return (
@@ -12,146 +9,164 @@ const About = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center gradient-institutional-soft overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.08),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.08),transparent_50%)]" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
           <div className="animate-sophisticated-fade">
-            <h1 className="text-display text-white mb-8 leading-tight font-heading">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight font-heading">
               About
-              <span className="gradient-text-institutional block mt-2">
+              <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600 bg-clip-text text-transparent block mt-2">
                 OWL International
               </span>
             </h1>
             
-            <p className="text-body-large text-blue-100 mb-12 max-w-4xl mx-auto font-body leading-relaxed">
-              We are pioneers of transformation, bridging continents through strategic investments 
-              and innovative solutions that create lasting prosperity for communities worldwide.
+            <p className="text-body-large text-blue-100 mb-8 max-w-3xl mx-auto font-body">
+              Pioneering transformative investments across Africa through strategic vision, 
+              innovative technology, and sustainable development initiatives.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
-      <section className="py-32 bg-background relative">
-        <GeometricPattern variant="background" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-heading font-semibold text-foreground mb-8 tracking-tight">
-              Our Purpose
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
-              Driven by human values and technological excellence
+      {/* Transition */}
+      <div className="relative h-32 bg-gradient-to-b from-indigo-900 to-slate-50 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent opacity-50" />
+      </div>
+
+      {/* Content */}
+      <section className="py-16 bg-slate-50">
+        <div className="container mx-auto px-4">
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-section text-slate-800 mb-4 font-brand">OUR VISION</h2>
+            <p className="text-body-large text-slate-600 max-w-3xl mx-auto font-body">
+              To lead Africa's transformation through strategic investments, innovative technology, and sustainable development initiatives.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-            <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary/50 bg-gradient-to-br from-blue-50/80 to-indigo-50/80 dark:from-blue-950/20 dark:to-indigo-950/20 backdrop-blur-sm hover-glow">
-              <CardHeader className="pb-6">
-                <Target className="w-14 h-14 text-blue-600 mb-4 transition-transform duration-300 group-hover:scale-110" />
-                <CardTitle className="text-3xl font-heading font-semibold tracking-tight">Our Mission</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground font-body text-lg leading-relaxed">
-                  To transform Africa through strategic investments, cutting-edge technology, 
-                  and innovative industrial solutions that create sustainable prosperity and 
-                  meaningful opportunities for communities across the continent.
-                </p>
-              </CardContent>
-            </Card>
+          {/* Core Values */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {/* Innovation */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Globe className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Global Vision</h3>
+              <p className="text-muted-foreground mb-4 font-body">
+                We envision a world where Africa is at the forefront of innovation and technology.
+              </p>
+            </div>
 
-            <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary/50 bg-gradient-to-br from-amber-50/80 to-orange-50/80 dark:from-amber-950/20 dark:to-orange-950/20 backdrop-blur-sm hover-glow">
-              <CardHeader className="pb-6">
-                <Lightbulb className="w-14 h-14 text-amber-600 mb-4 transition-transform duration-300 group-hover:scale-110" />
-                <CardTitle className="text-3xl font-heading font-semibold tracking-tight">Our Vision</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground font-body text-lg leading-relaxed">
-                  To become the leading bridge between Africa and Europe, fostering innovation, 
-                  economic growth, and cultural exchange through visionary investments and 
-                  transformative technological solutions.
-                </p>
-              </CardContent>
-            </Card>
+            {/* Integrity */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Award className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Excellence</h3>
+              <p className="text-muted-foreground mb-4 font-body">
+                We strive for excellence in all our endeavors, setting the highest standards for ourselves and our partners.
+              </p>
+            </div>
+
+            {/* Collaboration */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Users className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Community Impact</h3>
+              <p className="text-muted-foreground mb-4 font-body">
+                We are committed to creating sustainable opportunities and transforming lives in the communities we serve.
+              </p>
+            </div>
+
+            {/* Sustainability */}
+            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Sustainable Growth</h3>
+              <p className="text-muted-foreground mb-4 font-body">
+                We believe in responsible and sustainable growth that benefits both our stakeholders and the environment.
+              </p>
+            </div>
           </div>
 
-          {/* Values Section */}
-          <div className="text-center mb-16">
-            <h3 className="text-4xl font-heading font-semibold text-foreground mb-8 tracking-tight">
-              Our Core Values
-            </h3>
+          {/* Our Story */}
+          <div className="mb-16">
+            <h2 className="text-section text-slate-800 mb-6 text-center font-brand">OUR STORY</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div>
+                <p className="text-body-large text-slate-600 mb-6 font-body leading-relaxed">
+                  Founded in 2023, OWL International emerged from a vision to bridge continents through strategic investments and innovative solutions.
+                  Our journey began with a focus on identifying and nurturing high-potential ventures across Africa, leveraging technology and sustainable practices to drive growth.
+                </p>
+                <p className="text-body-large text-slate-600 mb-6 font-body leading-relaxed">
+                  Today, we operate across multiple sectors, from digital innovation and agricultural technology to industrial solutions and creative media.
+                  Our portfolio companies are interconnected, creating powerful synergies that amplify their impact and contribute to a more prosperous and sustainable future for Africa.
+                </p>
+              </div>
+              <div>
+                <img
+                  src="/placeholder-image.jpg"
+                  alt="OWL International Team"
+                  className="rounded-xl shadow-lg"
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/30 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm hover-glow">
-              <CardHeader className="text-center pb-4">
-                <Heart className="w-12 h-12 text-red-500 mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
-                <CardTitle className="text-xl font-heading font-semibold">Human-Centered</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground font-body text-center">
-                  Every decision we make prioritizes human impact and community prosperity.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/30 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm hover-glow">
-              <CardHeader className="text-center pb-4">
-                <Globe className="w-12 h-12 text-blue-500 mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
-                <CardTitle className="text-xl font-heading font-semibold">Global Vision</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground font-body text-center">
-                  We think globally while acting locally to create meaningful change.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/30 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm hover-glow">
-              <CardHeader className="text-center pb-4">
-                <Briefcase className="w-12 h-12 text-green-500 mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
-                <CardTitle className="text-xl font-heading font-semibold">Excellence</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground font-body text-center">
-                  We strive for excellence in every project and partnership.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-32 bg-muted/30 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-heading font-semibold text-foreground mb-8 tracking-tight">
-              Leadership Team
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body leading-relaxed">
-              Experienced professionals committed to transforming Africa's future
+          {/* Our Team */}
+          <div>
+            <h2 className="text-section text-slate-800 mb-6 text-center font-brand">OUR TEAM</h2>
+            <p className="text-body-large text-slate-600 max-w-3xl mx-auto text-center mb-12 font-body">
+              Meet the dedicated individuals driving OWL International's mission, bringing diverse expertise and a shared passion for transformative change.
             </p>
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Team Member 1 */}
+              <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
+                <img
+                  src="/placeholder-avatar.jpg"
+                  alt="Team Member"
+                  className="w-24 h-24 rounded-full mx-auto mb-4"
+                />
+                <h3 className="text-xl font-subtitle font-semibold mb-2 text-foreground text-center">John Doe</h3>
+                <p className="text-muted-foreground mb-4 font-body text-center">CEO</p>
+                <p className="text-muted-foreground font-body text-center">
+                  Visionary leader with a passion for innovation and sustainable development.
+                </p>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/30 bg-white dark:bg-slate-800 hover-glow">
-                <CardHeader className="text-center">
-                  <div className="w-24 h-24 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Users className="w-12 h-12 text-white" />
-                  </div>
-                  <CardTitle className="text-xl font-heading font-semibold">Leadership Member</CardTitle>
-                  <CardDescription className="font-subtitle">Executive Position</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground font-body text-center text-sm">
-                    Dedicated to driving innovation and creating sustainable impact across Africa.
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+              {/* Team Member 2 */}
+              <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
+                <img
+                  src="/placeholder-avatar.jpg"
+                  alt="Team Member"
+                  className="w-24 h-24 rounded-full mx-auto mb-4"
+                />
+                <h3 className="text-xl font-subtitle font-semibold mb-2 text-foreground text-center">Jane Smith</h3>
+                <p className="text-muted-foreground mb-4 font-body text-center">CTO</p>
+                <p className="text-muted-foreground font-body text-center">
+                  Technology expert driving our digital transformation initiatives.
+                </p>
+              </div>
+
+              {/* Team Member 3 */}
+              <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
+                <img
+                  src="/placeholder-avatar.jpg"
+                  alt="Team Member"
+                  className="w-24 h-24 rounded-full mx-auto mb-4"
+                />
+                <h3 className="text-xl font-subtitle font-semibold mb-2 text-foreground text-center">David Lee</h3>
+                <p className="text-muted-foreground mb-4 font-body text-center">COO</p>
+                <p className="text-muted-foreground font-body text-center">
+                  Operations guru ensuring seamless execution and sustainable growth.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
