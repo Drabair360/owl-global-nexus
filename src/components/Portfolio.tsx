@@ -7,55 +7,55 @@ import GeometricPattern from '@/components/GeometricPattern';
 
 const Portfolio = () => {
   return (
-    <section className="py-32 bg-background relative overflow-hidden">
+    <section className="py-32 bg-gradient-to-b from-slate-50 to-slate-100 relative overflow-hidden">
       <GeometricPattern variant="background" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.05),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.05),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.03),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.03),transparent_50%)]" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-heading font-semibold text-foreground mb-8 tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-heading font-semibold text-slate-800 mb-8 tracking-tight">
             Investment Portfolio
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto font-body leading-relaxed">
+          <p className="text-xl text-slate-600 max-w-4xl mx-auto font-body leading-relaxed">
             Strategic investments across industries, continents, and technologies that drive meaningful change and create lasting prosperity for communities worldwide.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 mb-20">
           {/* CAOAGRO Division */}
-          <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary/50 bg-gradient-to-br from-green-50/80 to-emerald-50/80 dark:from-green-950/20 dark:to-emerald-950/20 backdrop-blur-sm hover-glow">
+          <Card className="group hover:shadow-2xl hover:shadow-amber-500/20 transition-all duration-500 border border-slate-200 hover:border-slate-300 bg-white backdrop-blur-sm hover:transform hover:scale-[1.02]">
             <CardHeader className="pb-6">
               <div className="flex items-center justify-between">
-                <Factory className="w-14 h-14 text-green-600 mb-4 transition-transform duration-300 group-hover:scale-110" />
-                <MapPin className="w-6 h-6 text-muted-foreground" />
+                <Factory className="w-14 h-14 text-slate-600 mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:text-green-600" />
+                <MapPin className="w-6 h-6 text-slate-400" />
               </div>
-              <CardTitle className="text-2xl font-heading font-semibold tracking-tight">CAOAGRO.COM</CardTitle>
-              <CardDescription className="text-lg font-subtitle text-green-700 dark:text-green-300 font-semibold tracking-wide">
+              <CardTitle className="text-2xl font-heading font-semibold tracking-tight text-slate-800">CAOAGRO.COM</CardTitle>
+              <CardDescription className="text-lg font-subtitle text-slate-600 font-semibold tracking-wide">
                 INDUSTRIAL TURKEY PROJECT MANAGEMENT
               </CardDescription>
-              <p className="text-sm text-muted-foreground font-body">West, East & North Africa</p>
+              <p className="text-sm text-slate-500 font-body">West, East & North Africa</p>
             </CardHeader>
             <CardContent className="space-y-6">
-              <p className="text-muted-foreground font-body leading-relaxed">
+              <p className="text-slate-600 font-body leading-relaxed">
                 Specialized turnkey project design office focusing on cocoa bean transformation, 
                 featuring cutting-edge German process equipment and Chinese industrial infrastructure.
               </p>
               <div className="space-y-3">
-                <div className="flex items-center text-sm font-body">
+                <div className="flex items-center text-sm font-body text-slate-600">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse" />
                   <span>Metallic structures & industrial buildings</span>
                 </div>
-                <div className="flex items-center text-sm font-body">
+                <div className="flex items-center text-sm font-body text-slate-600">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse" />
                   <span>Storage tanks, silos & handling equipment</span>
                 </div>
-                <div className="flex items-center text-sm font-body">
+                <div className="flex items-center text-sm font-body text-slate-600">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse" />
                   <span>Cocoa processing to mass, powder & liquor</span>
                 </div>
               </div>
-              <Button className="w-full mt-6 bg-green-600 hover:bg-green-700 font-subtitle font-semibold transition-all duration-300 hover:scale-105" asChild>
+              <Button className="w-full mt-6 bg-slate-700 hover:bg-slate-800 text-white font-subtitle font-semibold transition-all duration-300 hover:scale-105" asChild>
                 <a href="https://www.caoagro.com" target="_blank" rel="noopener noreferrer">
                   Explore CAOAGRO.COM <ExternalLink className="ml-2 w-4 h-4" />
                 </a>
@@ -64,47 +64,47 @@ const Portfolio = () => {
           </Card>
 
           {/* AKOULA Division */}
-          <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary/50 bg-gradient-to-br from-blue-50/80 to-indigo-50/80 dark:from-blue-950/20 dark:to-indigo-950/20 backdrop-blur-sm hover-glow">
+          <Card className="group hover:shadow-2xl hover:shadow-amber-500/20 transition-all duration-500 border border-slate-200 hover:border-slate-300 bg-white backdrop-blur-sm hover:transform hover:scale-[1.02]">
             <CardHeader className="pb-6">
               <div className="flex items-center justify-between">
                 <div className="relative">
-                  <Cpu className="w-14 h-14 text-blue-600 mb-4 transition-transform duration-300 group-hover:scale-110" />
+                  <Cpu className="w-14 h-14 text-slate-600 mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:text-blue-600" />
                   <Eye className="w-6 h-6 text-amber-500 absolute -top-1 -right-1" />
                 </div>
                 <Sparkles className="w-6 h-6 text-amber-500 animate-pulse" />
               </div>
-              <CardTitle className="text-2xl font-heading font-semibold tracking-tight">AKOULA</CardTitle>
-              <CardDescription className="text-lg font-subtitle text-blue-700 dark:text-blue-300 font-semibold tracking-wide">
+              <CardTitle className="text-2xl font-heading font-semibold tracking-tight text-slate-800">AKOULA</CardTitle>
+              <CardDescription className="text-lg font-subtitle text-slate-600 font-semibold tracking-wide">
                 AI-POWERED INDUSTRIAL INTELLIGENCE
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="bg-blue-100/50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200/50">
-                <p className="text-blue-800 dark:text-blue-200 font-body font-medium italic text-sm leading-relaxed">
+              <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                <p className="text-slate-700 font-body font-medium italic text-sm leading-relaxed">
                   "AKOULA brings gold-standard, agile industrial intelligence to Africa—combining the vision of an eagle, the speed of a shark, and the boundless creativity of tomorrow's makers."
                 </p>
               </div>
-              <p className="text-muted-foreground font-body leading-relaxed">
+              <p className="text-slate-600 font-body leading-relaxed">
                 Revolutionary automated matching platforms transforming agro-industry operations 
                 and talent discovery through cutting-edge AI technology.
               </p>
               <div className="grid grid-cols-1 gap-4">
-                <div className="bg-white/70 dark:bg-slate-800/50 p-4 rounded-lg border border-blue-200/30 hover:border-blue-400/50 transition-all duration-300">
+                <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 hover:border-slate-300 transition-all duration-300">
                   <div className="flex items-center mb-2">
                     <Target className="w-4 h-4 text-blue-600 mr-2" />
-                    <h4 className="font-heading font-semibold text-sm">Industrial Quote Builder</h4>
+                    <h4 className="font-heading font-semibold text-sm text-slate-800">Industrial Quote Builder</h4>
                   </div>
-                  <p className="text-xs text-muted-foreground font-body">Equipment Marketplace & Training Platform</p>
+                  <p className="text-xs text-slate-600 font-body">Equipment Marketplace & Training Platform</p>
                 </div>
-                <div className="bg-white/70 dark:bg-slate-800/50 p-4 rounded-lg border border-blue-200/30 hover:border-blue-400/50 transition-all duration-300">
+                <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 hover:border-slate-300 transition-all duration-300">
                   <div className="flex items-center mb-2">
                     <Zap className="w-4 h-4 text-amber-600 mr-2" />
-                    <h4 className="font-heading font-semibold text-sm">KIDZ LAB Entertainment</h4>
+                    <h4 className="font-heading font-semibold text-sm text-slate-800">KIDZ LAB Entertainment</h4>
                   </div>
-                  <p className="text-xs text-muted-foreground font-body">AI-powered talent discovery and booking platform</p>
+                  <p className="text-xs text-slate-600 font-body">AI-powered talent discovery and booking platform</p>
                 </div>
               </div>
-              <Button className="w-full mt-6 bg-blue-600 hover:bg-blue-700 font-subtitle font-semibold transition-all duration-300 hover:scale-105" asChild>
+              <Button className="w-full mt-6 bg-slate-700 hover:bg-slate-800 text-white font-subtitle font-semibold transition-all duration-300 hover:scale-105" asChild>
                 <a href="https://www.kidzlabmodels.com/premium" target="_blank" rel="noopener noreferrer">
                   Explore KIDZ LAB <ExternalLink className="ml-2 w-4 h-4" />
                 </a>
@@ -113,51 +113,51 @@ const Portfolio = () => {
           </Card>
 
           {/* OWLOMA Division */}
-          <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary/50 bg-gradient-to-br from-amber-50/80 to-orange-50/80 dark:from-amber-950/20 dark:to-orange-950/20 lg:col-span-2 xl:col-span-1 backdrop-blur-sm hover-glow">
+          <Card className="group hover:shadow-2xl hover:shadow-amber-500/20 transition-all duration-500 border border-slate-200 hover:border-slate-300 lg:col-span-2 xl:col-span-1 bg-white backdrop-blur-sm hover:transform hover:scale-[1.02]">
             <CardHeader className="pb-6">
               <div className="flex items-center justify-between">
-                <Building2 className="w-14 h-14 text-amber-600 mb-4 transition-transform duration-300 group-hover:scale-110" />
-                <MapPin className="w-6 h-6 text-muted-foreground" />
+                <Building2 className="w-14 h-14 text-slate-600 mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:text-amber-600" />
+                <MapPin className="w-6 h-6 text-slate-400" />
               </div>
-              <CardTitle className="text-2xl font-heading font-semibold tracking-tight">OWLOMA</CardTitle>
-              <CardDescription className="text-lg font-subtitle text-amber-700 dark:text-amber-300 font-semibold tracking-wide">
+              <CardTitle className="text-2xl font-heading font-semibold tracking-tight text-slate-800">OWLOMA</CardTitle>
+              <CardDescription className="text-lg font-subtitle text-slate-600 font-semibold tracking-wide">
                 REAL ESTATE INVESTMENT PORTFOLIO
               </CardDescription>
-              <p className="text-sm text-muted-foreground font-body">France, Côte d'Ivoire & South Africa</p>
+              <p className="text-sm text-slate-500 font-body">France, Côte d'Ivoire & South Africa</p>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="bg-amber-100/50 dark:bg-amber-900/20 p-4 rounded-lg border border-amber-200/50">
-                <p className="text-amber-800 dark:text-amber-200 font-body font-medium italic text-sm leading-relaxed">
+              <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                <p className="text-slate-700 font-body font-medium italic text-sm leading-relaxed">
                   "OwLoma is the real estate investment portfolio of Owl International — built on the belief that home is both a place and a purpose. With one eye on Africa, the other on Europe, we craft value through visionary, long-term property investments rooted in cultural understanding, architectural beauty, and resilient returns."
                 </p>
               </div>
-              <p className="text-muted-foreground font-body leading-relaxed">
+              <p className="text-slate-600 font-body leading-relaxed">
                 Premium real estate developments combining corporate headquarters, 
                 residential communities, and exclusive commercial spaces across three strategic markets.
               </p>
               <div className="space-y-3">
-                <div className="flex items-center text-sm font-body">
+                <div className="flex items-center text-sm font-body text-slate-600">
                   <div className="w-2 h-2 bg-amber-500 rounded-full mr-3 animate-pulse" />
                   <span>Paris corporate headquarters & offices</span>
                 </div>
-                <div className="flex items-center text-sm font-body">
+                <div className="flex items-center text-sm font-body text-slate-600">
                   <div className="w-2 h-2 bg-amber-500 rounded-full mr-3 animate-pulse" />
                   <span>Abidjan mixed-use developments</span>
                 </div>
-                <div className="flex items-center text-sm font-body">
+                <div className="flex items-center text-sm font-body text-slate-600">
                   <div className="w-2 h-2 bg-amber-500 rounded-full mr-3 animate-pulse" />
                   <span>Cape Town luxury residential projects</span>
                 </div>
-                <div className="flex items-center text-sm font-body">
+                <div className="flex items-center text-sm font-body text-slate-600">
                   <div className="w-2 h-2 bg-amber-500 rounded-full mr-3 animate-pulse" />
                   <span>Exclusive commercial developments</span>
                 </div>
               </div>
-              <div className="bg-white/70 dark:bg-slate-800/50 p-4 rounded-lg border border-amber-200/30">
-                <h4 className="font-heading font-semibold text-sm text-amber-700 dark:text-amber-300 mb-1">Coming Soon</h4>
-                <p className="text-xs text-muted-foreground font-body">Exclusive investment opportunities in emerging markets</p>
+              <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                <h4 className="font-heading font-semibold text-sm text-slate-700 mb-1">Coming Soon</h4>
+                <p className="text-xs text-slate-600 font-body">Exclusive investment opportunities in emerging markets</p>
               </div>
-              <Button className="w-full mt-6 bg-amber-600 hover:bg-amber-700 font-subtitle font-semibold" disabled>
+              <Button className="w-full mt-6 bg-slate-400 text-slate-700 font-subtitle font-semibold cursor-not-allowed" disabled>
                 <span>Portfolio Launching Q2 2025</span>
               </Button>
             </CardContent>
@@ -165,12 +165,11 @@ const Portfolio = () => {
         </div>
 
         <div className="text-center">
-          <p className="text-lg text-muted-foreground mb-8 font-body leading-relaxed">
+          <p className="text-lg text-slate-600 mb-8 font-body leading-relaxed">
             Headquartered in Paris, driving innovation across continents with human-centered values
           </p>
-          <div className="inline-flex items-center px-6 py-3 bg-muted/50 backdrop-blur-sm rounded-full border border-border/50 hover:border-primary/30 transition-all duration-300">
-            <MapPin className="w-5 h-5 mr-3 text-muted-foreground" />
-            <span className="text-sm font-medium font-subtitle tracking-wide">47 Boulevard de Courcelles, 75008 Paris, France</span>
+          <div className="inline-flex items-center px-6 py-3 bg-white/70 backdrop-blur-sm rounded-full border border-slate-200 hover:border-slate-300 transition-all duration-300 shadow-sm hover:shadow-md">
+            <span className="text-sm font-heading font-medium text-slate-700 tracking-wide">Headquartered in Paris, driving innovation across continents with human-centered values</span>
           </div>
         </div>
       </div>

@@ -1,228 +1,237 @@
 
 import React from 'react';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Users, TrendingUp, Globe, Heart, Factory, GraduationCap } from 'lucide-react';
-import GeometricPattern from '@/components/GeometricPattern';
+import { Users, Zap, Globe, Heart, TreePine, GraduationCap, Building, TrendingUp } from 'lucide-react';
 
 const ImpactPage = () => {
-  const metrics = [
+  const impactMetrics = [
     {
-      number: "10,000+",
-      label: "Jobs Created",
-      description: "Direct and indirect employment across our projects",
-      icon: <Users className="w-8 h-8 text-blue-600" />
+      icon: Users,
+      value: "50,000+",
+      label: "Lives Transformed",
+      description: "Direct and indirect beneficiaries of our programs"
     },
     {
-      number: "€150M",
-      label: "Economic Impact",
-      description: "Generated value in local communities",
-      icon: <TrendingUp className="w-8 h-8 text-green-600" />
+      icon: Building,
+      value: "25",
+      label: "Infrastructure Projects",
+      description: "Completed across West and East Africa"
     },
     {
-      number: "25",
-      label: "Communities Transformed",
-      description: "Villages and towns positively impacted",
-      icon: <Heart className="w-8 h-8 text-red-600" />
+      icon: GraduationCap,
+      value: "5,000+",
+      label: "Skills Trained",
+      description: "Individuals trained in advanced technologies"
     },
     {
-      number: "5,000+",
-      label: "People Trained",
-      description: "Technical skills development programs",
-      icon: <GraduationCap className="w-8 h-8 text-purple-600" />
+      icon: TreePine,
+      value: "95%",
+      label: "Carbon Neutral",
+      description: "Operations achieving sustainability goals"
+    }
+  ];
+
+  const sdgGoals = [
+    {
+      number: "8",
+      title: "Decent Work and Economic Growth",
+      description: "Creating sustainable employment opportunities through technology and industrial development",
+      impact: "12,000+ direct jobs created"
+    },
+    {
+      number: "9",
+      title: "Industry, Innovation and Infrastructure",
+      description: "Building resilient infrastructure and promoting inclusive industrialization",
+      impact: "25 major infrastructure projects"
+    },
+    {
+      number: "4",
+      title: "Quality Education",
+      description: "Ensuring inclusive and equitable quality education through digital platforms",
+      impact: "5,000+ individuals trained"
+    },
+    {
+      number: "17",
+      title: "Partnerships for the Goals",
+      description: "Strengthening global partnerships for sustainable development",
+      impact: "50+ strategic partnerships"
     }
   ];
 
   const stories = [
     {
       title: "Transforming Cocoa Communities in Côte d'Ivoire",
-      location: "San-Pédro Region, Côte d'Ivoire",
-      impact: "2,500 farmers now earn 40% more through direct processing partnerships",
-      description: "Our CAOAGRO operations have revolutionized the local cocoa supply chain, enabling farmers to process their beans locally rather than exporting raw materials. This value-addition strategy has dramatically increased incomes while creating hundreds of technical jobs.",
-      image: "🏭",
-      metrics: ["40% income increase", "800 direct jobs", "2,500 farmers benefited"]
+      description: "Our CAOAGRO operations have revolutionized local cocoa processing, providing direct employment to over 500 families while ensuring fair trade practices and sustainable farming techniques.",
+      impact: "500 families directly benefited",
+      location: "Côte d'Ivoire",
+      category: "Economic Empowerment"
     },
     {
-      title: "Youth Empowerment Through Technology",
-      location: "Abidjan, Côte d'Ivoire",
-      impact: "500+ young people trained in digital skills and industrial operations",
-      description: "Through our training programs and KIDZ LAB platform, we're bridging the digital divide by providing cutting-edge technology education and entertainment industry opportunities to young Africans.",
-      image: "💻",
-      metrics: ["500+ trained", "85% employment rate", "12 months avg program"]
+      title: "AI-Powered Education Revolution",
+      description: "AKOULA's talent discovery platform has democratized access to opportunities, connecting over 2,000 young professionals with career-defining projects across Africa.",
+      impact: "2,000+ careers launched",
+      location: "Pan-African",
+      category: "Digital Innovation"
     },
     {
-      title: "Women's Economic Participation",
-      location: "Multiple Locations",
-      impact: "60% of our administrative and quality control positions filled by women",
-      description: "We prioritize gender equality in all our operations, creating opportunities for women in traditionally male-dominated industries while providing leadership development programs.",
-      image: "👩‍💼",
-      metrics: ["60% women in QC roles", "45% women managers", "100% equal pay"]
-    }
-  ];
-
-  const initiatives = [
-    {
-      title: "Local Supplier Development",
-      description: "Building capacity among local suppliers to meet international standards",
-      icon: <Factory className="w-6 h-6 text-amber-600" />
-    },
-    {
-      title: "Education Partnerships",
-      description: "Collaborating with universities to develop relevant technical curricula",
-      icon: <GraduationCap className="w-6 h-6 text-blue-600" />
-    },
-    {
-      title: "Community Health Programs",
-      description: "Supporting healthcare infrastructure in project areas",
-      icon: <Heart className="w-6 h-6 text-red-600" />
-    },
-    {
-      title: "Environmental Sustainability",
-      description: "Implementing eco-friendly practices across all operations",
-      icon: <Globe className="w-6 h-6 text-green-600" />
+      title: "Sustainable Urban Development",
+      description: "OWLOMA's mixed-use developments integrate green building practices with community-centered design, creating sustainable living spaces for growing urban populations.",
+      impact: "1,200 sustainable housing units",
+      location: "Multiple Cities",
+      category: "Environmental"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Navbar />
-      <div className="pt-20 pb-16 relative">
-        <GeometricPattern variant="background" />
+      
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(59,130,246,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,rgba(251,146,60,0.08),transparent_50%)]" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-heading font-semibold text-foreground mb-6">
-              Our Impact
+            <h1 className="text-5xl md:text-6xl font-heading font-semibold text-white mb-6 tracking-tight">
+              Creating Lasting Impact
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
-              Measuring the meaningful change we create in communities across Africa and Europe. 
-              Every project, every partnership, every innovation is designed to improve lives.
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto font-body leading-relaxed">
+              Our commitment to transforming communities goes beyond business success. 
+              We measure our achievements by the positive change we create for people and planet.
             </p>
           </div>
 
-          {/* Impact Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {metrics.map((metric, index) => (
-              <Card key={index} className="text-center border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {impactMetrics.map((metric, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 group hover:shadow-amber-500/20 hover:shadow-xl text-center">
+                <metric.icon className="w-12 h-12 text-amber-400 mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                <div className="text-3xl font-heading font-bold text-white mb-2">{metric.value}</div>
+                <h3 className="text-lg font-heading font-semibold text-white mb-2">{metric.label}</h3>
+                <p className="text-blue-100 font-body text-sm">{metric.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Transition */}
+      <div className="relative h-20 bg-gradient-to-b from-slate-800 to-slate-50 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.03),transparent_70%)]" />
+      </div>
+
+      {/* SDG Goals */}
+      <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-semibold text-slate-800 mb-6">
+              UN Sustainable Development Goals
+            </h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto font-body">
+              Our operations directly contribute to achieving the United Nations Sustainable Development Goals, 
+              creating measurable impact across multiple dimensions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {sdgGoals.map((goal, index) => (
+              <Card key={index} className="group hover:shadow-2xl hover:shadow-amber-500/20 transition-all duration-500 border border-slate-200 hover:border-slate-300 bg-white hover:transform hover:scale-[1.02]">
                 <CardHeader className="pb-4">
-                  <div className="flex justify-center mb-4">
-                    {metric.icon}
+                  <div className="flex items-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg flex items-center justify-center mr-4">
+                      <span className="text-2xl font-heading font-bold text-white">{goal.number}</span>
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl font-heading font-semibold text-slate-800">
+                        SDG {goal.number}
+                      </CardTitle>
+                      <CardDescription className="text-slate-600 font-subtitle font-semibold">
+                        {goal.title}
+                      </CardDescription>
+                    </div>
                   </div>
-                  <div className="text-3xl font-heading font-semibold text-foreground mb-2">
-                    {metric.number}
-                  </div>
-                  <CardTitle className="text-lg font-heading font-semibold">{metric.label}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground font-body">{metric.description}</p>
+                  <p className="text-slate-600 font-body leading-relaxed mb-4">
+                    {goal.description}
+                  </p>
+                  <div className="bg-slate-50 p-3 rounded-lg">
+                    <div className="flex items-center">
+                      <TrendingUp className="w-4 h-4 text-green-600 mr-2" />
+                      <span className="text-sm font-subtitle font-semibold text-slate-800">{goal.impact}</span>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Impact Stories */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-heading font-semibold text-foreground mb-8 text-center">
-              Stories of Transformation
+      {/* Impact Stories */}
+      <section className="py-20 bg-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-semibold text-slate-800 mb-6">
+              Stories of Change
             </h2>
-            <div className="space-y-8">
-              {stories.map((story, index) => (
-                <Card key={index} className="overflow-hidden border-2 hover:border-primary/50 transition-all duration-300">
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
-                    <div className="lg:col-span-2">
-                      <CardHeader>
-                        <div className="flex items-start space-x-4">
-                          <div className="text-4xl">{story.image}</div>
-                          <div className="flex-1">
-                            <CardTitle className="text-xl font-heading font-semibold mb-2">{story.title}</CardTitle>
-                            <CardDescription className="text-sm text-muted-foreground font-body mb-2">
-                              📍 {story.location}
-                            </CardDescription>
-                            <div className="text-lg font-heading font-semibold text-primary mb-4">
-                              {story.impact}
-                            </div>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-muted-foreground font-body">{story.description}</p>
-                      </CardContent>
-                    </div>
-                    <div className="bg-muted/30 p-6 flex items-center">
-                      <div className="w-full">
-                        <h4 className="font-heading font-semibold mb-4">Key Metrics</h4>
-                        <div className="space-y-3">
-                          {story.metrics.map((metric, metricIndex) => (
-                            <div key={metricIndex} className="flex items-center">
-                              <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-                              <span className="text-sm font-body">{metric}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto font-body">
+              Real stories from communities where our investments and innovations are creating lasting transformation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {stories.map((story, index) => (
+              <Card key={index} className="group hover:shadow-2xl hover:shadow-amber-500/20 transition-all duration-500 border border-slate-200 hover:border-slate-300 bg-white hover:transform hover:scale-[1.02]">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-subtitle font-semibold rounded-full">
+                      {story.category}
+                    </span>
+                    <span className="text-xs text-slate-500 font-body">{story.location}</span>
+                  </div>
+                  <CardTitle className="text-xl font-heading font-semibold text-slate-800 leading-tight">
+                    {story.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-slate-600 font-body leading-relaxed mb-4">
+                    {story.description}
+                  </p>
+                  <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                    <div className="flex items-center">
+                      <Heart className="w-4 h-4 text-green-600 mr-2" />
+                      <span className="text-sm font-subtitle font-semibold text-green-800">{story.impact}</span>
                     </div>
                   </div>
-                </Card>
-              ))}
-            </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-
-          {/* Ongoing Initiatives */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-heading font-semibold text-foreground mb-8 text-center">
-              Ongoing Initiatives
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {initiatives.map((initiative, index) => (
-                <Card key={index} className="border-2 hover:border-primary/50 transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex items-center space-x-3">
-                      {initiative.icon}
-                      <CardTitle className="font-heading font-semibold">{initiative.title}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground font-body">{initiative.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Commitment Statement */}
-          <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-2">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-heading font-semibold">Our Commitment</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-lg text-muted-foreground mb-6 font-body max-w-3xl mx-auto">
-                We believe that sustainable development comes from empowering local communities, 
-                creating economic opportunities, and building lasting partnerships. Every project 
-                we undertake is designed to leave a positive, measurable impact that extends far 
-                beyond our direct operations.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div>
-                  <div className="text-2xl mb-2">🎯</div>
-                  <h3 className="font-heading font-semibold mb-2">Measurable Impact</h3>
-                  <p className="text-sm text-muted-foreground font-body">Every initiative tracked with clear KPIs</p>
-                </div>
-                <div>
-                  <div className="text-2xl mb-2">🤝</div>
-                  <h3 className="font-heading font-semibold mb-2">Local Partnership</h3>
-                  <p className="text-sm text-muted-foreground font-body">Working hand-in-hand with communities</p>
-                </div>
-                <div>
-                  <div className="text-2xl mb-2">🌱</div>
-                  <h3 className="font-heading font-semibold mb-2">Sustainable Growth</h3>
-                  <p className="text-sm text-muted-foreground font-body">Building for long-term prosperity</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
-      </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20 bg-gradient-to-r from-slate-800 to-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-heading font-semibold text-white mb-6">
+            Join Our Mission
+          </h2>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto font-body leading-relaxed mb-8">
+            Partner with us to create sustainable solutions that transform communities and build a better future for all.
+          </p>
+          <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+            <Globe className="w-5 h-5 mr-3 text-amber-400" />
+            <span className="text-sm font-heading font-medium text-white tracking-wide">
+              Headquartered in Paris, driving innovation across continents with human-centered values
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };
