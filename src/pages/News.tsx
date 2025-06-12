@@ -2,40 +2,40 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Calendar, Clock, User, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Calendar, Tag, User, ArrowRight } from 'lucide-react';
 
 const News = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-pink-100">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-teal-50 to-emerald-100">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-violet-900 via-purple-900 to-pink-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(139,92,246,0.08),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(236,72,153,0.08),transparent_50%)]" />
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-cyan-900 via-teal-900 to-emerald-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(6,182,212,0.10),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(16,185,129,0.08),transparent_50%)]" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
           <div className="animate-sophisticated-fade">
             <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight font-heading">
               Hot
-              <span className="bg-gradient-to-r from-violet-400 via-purple-500 to-pink-600 bg-clip-text text-transparent block mt-2">
+              <span className="bg-gradient-to-r from-cyan-400 via-teal-500 to-emerald-600 bg-clip-text text-transparent block mt-2">
                 News
               </span>
             </h1>
             
-            <p className="text-body-large text-blue-100 mb-8 max-w-3xl mx-auto font-body">
-              Stay updated with the latest developments, insights, and breakthroughs 
-              from OWL International and our portfolio companies.
+            <p className="text-body-large text-teal-100 mb-8 max-w-3xl mx-auto font-body">
+              Stay updated with the latest developments, innovations, and insights from OWL International 
+              and our portfolio companies across Africa and beyond.
             </p>
           </div>
         </div>
       </section>
 
       {/* Transition */}
-      <div className="relative h-32 bg-gradient-to-b from-slate-900 to-indigo-50 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent opacity-50" />
+      <div className="relative h-32 bg-gradient-to-b from-emerald-900 to-cyan-50 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.05),transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-teal-400 to-transparent opacity-50" />
       </div>
 
       {/* Content */}

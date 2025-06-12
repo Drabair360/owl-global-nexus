@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, Youtube, Mail, Phone, MapPin } from 'lucide-react';
@@ -38,7 +37,7 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h3 className="text-lg font-brand font-semibold mb-4 text-amber-400">COMPANY</h3>
+            <h3 className="text-lg font-['Montserrat'] font-semibold mb-4 text-amber-400 tracking-wide">COMPANY</h3>
             <ul className="space-y-3">
               <li>
                 <Link to="/about" className="text-blue-200 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
@@ -65,7 +64,7 @@ const Footer = () => {
 
           {/* Portfolio */}
           <div>
-            <h3 className="text-lg font-brand font-semibold mb-4 text-amber-400">PORTFOLIO</h3>
+            <h3 className="text-lg font-['Montserrat'] font-semibold mb-4 text-amber-400 tracking-wide">PORTFOLIO</h3>
             <ul className="space-y-3">
               <li>
                 <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors duration-300 font-body">
@@ -92,7 +91,7 @@ const Footer = () => {
 
           {/* Investors */}
           <div>
-            <h3 className="text-lg font-brand font-semibold mb-4 text-amber-400">INVESTORS</h3>
+            <h3 className="text-lg font-['Montserrat'] font-semibold mb-4 text-amber-400 tracking-wide">INVESTORS</h3>
             <ul className="space-y-3">
               <li>
                 <Link to="/investors" className="text-blue-200 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
@@ -114,7 +113,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-brand font-semibold mb-4 text-amber-400">QUICK LINKS</h3>
+            <h3 className="text-lg font-['Montserrat'] font-semibold mb-4 text-amber-400 tracking-wide">QUICK LINKS</h3>
             <ul className="space-y-3">
               <li>
                 <Link to="/solutions" className="text-blue-200 hover:text-white transition-colors duration-300 font-body" onClick={() => window.scrollTo(0, 0)}>
@@ -144,7 +143,7 @@ const Footer = () => {
         <div className="border-t border-blue-800/30 mt-12 pt-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-lg font-brand font-semibold mb-4 text-amber-400">STAY CONNECTED</h3>
+              <h3 className="text-lg font-['Montserrat'] font-semibold mb-4 text-amber-400 tracking-wide">STAY CONNECTED</h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-amber-400" />

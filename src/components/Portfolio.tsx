@@ -1,350 +1,251 @@
 
 import React from 'react';
-import { Zap, Leaf, Cog, Camera, TrendingUp, Users, Globe, ArrowRight, BarChart3, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ArrowRight, Brain, Leaf, Building, Palette } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Portfolio = () => {
   return (
-    <>
-      {/* Integrated Investments Section - No transition, same gradient */}
-      <section className="py-16 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-        <div className="container mx-auto px-4">
-          {/* Portfolio Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Digital Innovation */}
-            <div className="bg-gradient-to-br from-blue-100 to-orange-100 rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Zap className="w-6 h-6 text-amber-400" />
-              </div>
-              <h3 className="text-xl font-brand font-semibold mb-3 text-slate-800">DIGITAL INNOVATION</h3>
-              <p className="text-slate-700 mb-4 font-body">
-                Leading the digital transformation with cutting-edge AI platforms and innovative solutions
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium">AKOULA Platform</span>
-                <span className="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium">AI Solutions</span>
-              </div>
-            </div>
-
-            {/* Agricultural Technology */}
-            <div className="bg-gradient-to-br from-blue-100 to-orange-100 rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Leaf className="w-6 h-6 text-amber-400" />
-              </div>
-              <h3 className="text-xl font-brand font-semibold mb-3 text-slate-800">AGRO-INDUSTRIAL TECHNOLOGY</h3>
-              <p className="text-slate-700 mb-4 font-body">
-                Revolutionizing African agriculture through technology and sustainable farming practices
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium">CAOAGRO.COM</span>
-                <span className="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium">Smart Farming</span>
-              </div>
-            </div>
-
-            {/* Industrial Solutions */}
-            <div className="bg-gradient-to-br from-blue-100 to-orange-100 rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Home className="w-6 h-6 text-amber-400" />
-              </div>
-              <h3 className="text-xl font-brand font-semibold mb-3 text-slate-800">INDUSTRIAL SOLUTIONS</h3>
-              <p className="text-slate-700 mb-4 font-body">
-                Strategic real estate investments across Africa and Europe for sustainable development
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium">OWLOMA</span>
-                <span className="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium">Real Estate</span>
-              </div>
-            </div>
-
-            {/* Creative & Media */}
-            <div className="bg-gradient-to-br from-blue-100 to-orange-100 rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Camera className="w-6 h-6 text-amber-400" />
-              </div>
-              <h3 className="text-xl font-brand font-semibold mb-3 text-slate-800">CREATIVE & MEDIA</h3>
-              <p className="text-slate-700 mb-4 font-body">
-                AI-powered talent discovery and creative content solutions across Africa
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium">KIDZ LAB</span>
-                <span className="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium">Talent Discovery</span>
-              </div>
-            </div>
-
-            {/* Energy Solutions */}
-            <div className="bg-gradient-to-br from-blue-100 to-orange-100 rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Zap className="w-6 h-6 text-amber-400" />
-              </div>
-              <h3 className="text-xl font-brand font-semibold mb-3 text-slate-800">ENERGY SOLUTIONS</h3>
-              <p className="text-slate-700 mb-4 font-body">
-                Sustainable energy projects powering Africa's future development
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium">Renewable Energy</span>
-                <span className="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium">Grid Solutions</span>
-              </div>
-            </div>
-
-            {/* Financial Technology */}
-            <div className="bg-gradient-to-br from-blue-100 to-orange-100 rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <TrendingUp className="w-6 h-6 text-amber-400" />
-              </div>
-              <h3 className="text-xl font-brand font-semibold mb-3 text-slate-800">FINANCIAL TECHNOLOGY</h3>
-              <p className="text-slate-700 mb-4 font-body">
-                Innovative fintech solutions enabling financial inclusion across Africa
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium">Payment Systems</span>
-                <span className="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-sm font-medium">Blockchain</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Detailed Portfolio Showcase */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-section text-slate-800 mb-6 font-brand">FLAGSHIP VENTURES</h2>
-            <p className="text-body-large text-slate-600 max-w-4xl mx-auto font-body leading-relaxed">
-              Our portfolio companies form an integrated ecosystem where innovation meets opportunity. 
-              From AI-driven platforms to industrial solutions, each venture creates exponential value through strategic synergies.
-            </p>
-          </div>
-
+    <section className="py-24 bg-gradient-to-b from-slate-50 to-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Portfolio Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          
           {/* AKOULA */}
-          <div className="mb-20 bg-slate-100 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="p-10 lg:p-12">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Zap className="w-8 h-8 text-amber-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-3xl font-brand font-bold text-slate-800">AKOULA</h3>
-                    <p className="text-slate-600 font-subtitle font-semibold">AI-Powered Development Platform</p>
-                  </div>
+          <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200">
+            <div className="p-8">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mr-4">
+                  <Brain className="w-6 h-6 text-slate-700" />
                 </div>
-                <p className="text-slate-600 mb-6 font-body text-lg leading-relaxed">
-                  Akoula brings gold-standard, agile industrial intelligence to Africa—combining the vision of an eagle, 
-                  the speed of a shark, and the boundless creativity of tomorrow's makers.
-                </p>
-                <div className="space-y-3 mb-6 text-sm text-slate-600">
-                  <div>• Industrial Quote Builder SaaS for Agro-Industry</div>
-                  <div>• Africa-Ready Equipment Marketplace (Niche B2B Amazon)</div>
-                  <div>• Micro-Course Platform: "Train Your Factory Staff"</div>
-                  <div>• Technical Spec Sheet Generator (AI-Assisted)</div>
-                  <div>• Factory Cost Estimator (CapEx + OpEx Calculator)</div>
-                  <div>• Local Tech Consultant Finder (Matching Marketplace)</div>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-800 font-heading">AKOULA</h3>
+                  <p className="text-slate-600 font-body">AI-Powered Industrial Intelligence Platform</p>
                 </div>
-                <div className="grid grid-cols-2 gap-6 mb-6">
-                  <div className="text-center p-4 bg-slate-200 rounded-lg">
-                    <div className="text-2xl font-bold text-slate-700">15,000+</div>
-                    <div className="text-sm text-slate-600 font-subtitle">Active Users</div>
-                  </div>
-                  <div className="text-center p-4 bg-slate-200 rounded-lg">
-                    <div className="text-2xl font-bold text-slate-700">85%</div>
-                    <div className="text-sm text-slate-600 font-subtitle">Efficiency Gain</div>
-                  </div>
+              </div>
+              
+              <p className="text-slate-700 mb-6 font-body leading-relaxed">
+                Akoula brings gold-standard, agile industrial intelligence to Africa—combining the vision of an eagle, 
+                the speed of a shark, and the boundless creativity of tomorrow's makers.
+              </p>
+
+              <div className="space-y-3 mb-6">
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">Industrial Quote Builder SaaS for Agro-Industry</p>
                 </div>
-                <a 
-                  href="https://www.akoulala.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-slate-700 hover:text-slate-900 font-subtitle font-semibold"
-                >
-                  Explore Platform <ArrowRight className="ml-2 w-4 h-4" />
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">Africa-Ready Equipment Marketplace (Niche B2B Amazon)</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">Micro-Course Platform: "Train Your Factory Staff"</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">Technical Spec Sheet Generator (AI-Assisted)</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">Factory Cost Estimator (CapEx + OpEx Calculator)</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">Local Tech Consultant Finder (Matching Marketplace)</p>
+                </div>
+              </div>
+
+              <Button className="bg-slate-700 hover:bg-slate-800 text-white font-subtitle" asChild>
+                <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer">
+                  Explore Platform <ArrowRight className="ml-2" size={16} />
                 </a>
-              </div>
-              <div className="p-10 lg:p-12 bg-slate-200 flex items-center justify-center">
-                <div className="text-center">
-                  <Globe className="w-24 h-24 text-slate-600 mx-auto mb-4" />
-                  <p className="text-slate-700 font-body italic">
-                    "Powering industrial intelligence across our entire ecosystem"
-                  </p>
-                </div>
-              </div>
+              </Button>
             </div>
           </div>
 
           {/* CAOAGRO.COM */}
-          <div className="mb-20 bg-slate-100 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="p-10 lg:p-12 bg-slate-200 flex items-center justify-center order-2 lg:order-1">
-                <div className="text-center">
-                  <Leaf className="w-24 h-24 text-slate-600 mx-auto mb-4" />
-                  <p className="text-slate-700 font-body italic">
-                    "Transforming African agriculture through smart industrial solutions"
-                  </p>
+          <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200">
+            <div className="p-8">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                  <Leaf className="w-6 h-6 text-green-700" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-800 font-heading">CAOAGRO.COM</h3>
+                  <p className="text-slate-600 font-body">Smart Agro-Industrial Solutions</p>
                 </div>
               </div>
-              <div className="p-10 lg:p-12 order-1 lg:order-2">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Leaf className="w-8 h-8 text-amber-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-3xl font-brand font-bold text-slate-800">CAOAGRO.COM</h3>
-                    <p className="text-slate-600 font-subtitle font-semibold">Smart Agro-Industrial Solutions</p>
-                  </div>
+              
+              <p className="text-slate-700 mb-6 font-body leading-relaxed">
+                Cutting-edge agro-industrial technology combining IoT sensors, analytics, and sustainable 
+                industrial practices to revolutionize African agriculture.
+              </p>
+
+              <div className="space-y-3 mb-6">
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">IoT-enabled precision farming solutions</p>
                 </div>
-                <p className="text-slate-600 mb-6 font-body text-lg leading-relaxed">
-                  Cutting-edge agro-industrial technology combining IoT sensors, analytics, and sustainable industrial practices. 
-                  CAOAGRO provides raw materials to OWLOMA while using AKOULA's AI for crop optimization.
-                </p>
-                <div className="grid grid-cols-2 gap-6 mb-6">
-                  <div className="text-center p-4 bg-slate-200 rounded-lg">
-                    <div className="text-2xl font-bold text-slate-700">2,500+</div>
-                    <div className="text-sm text-slate-600 font-subtitle">Farms Connected</div>
-                  </div>
-                  <div className="text-center p-4 bg-slate-200 rounded-lg">
-                    <div className="text-2xl font-bold text-slate-700">40%</div>
-                    <div className="text-sm text-slate-600 font-subtitle">Yield Increase</div>
-                  </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">Sustainable industrial processing equipment</p>
                 </div>
-                <a 
-                  href="https://www.caoagro.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-slate-700 hover:text-slate-900 font-subtitle font-semibold"
-                >
-                  Visit Platform <ArrowRight className="ml-2 w-4 h-4" />
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">Data analytics for crop optimization</p>
+                </div>
+              </div>
+
+              <Button className="bg-green-700 hover:bg-green-800 text-white font-subtitle" asChild>
+                <a href="https://www.caoagro.com" target="_blank" rel="noopener noreferrer">
+                  Learn More <ArrowRight className="ml-2" size={16} />
                 </a>
-              </div>
+              </Button>
             </div>
           </div>
 
           {/* OWLOMA */}
-          <div className="mb-20 bg-slate-100 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="p-10 lg:p-12">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Home className="w-8 h-8 text-amber-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-3xl font-brand font-bold text-slate-800">OWLOMA</h3>
-                    <p className="text-slate-600 font-subtitle font-semibold">Real Estate Investment Portfolio</p>
-                  </div>
+          <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200">
+            <div className="p-8">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                  <Building className="w-6 h-6 text-blue-700" />
                 </div>
-                <p className="text-slate-600 mb-6 font-body text-lg leading-relaxed">
-                  OwLoma is the real estate investment portfolio of Owl International — built on the belief that home is both a place and a purpose. 
-                  With one eye on Africa, the other on Europe, we craft value through visionary, long-term property investments rooted in cultural understanding, 
-                  architectural beauty, and resilient returns.
-                </p>
-                <p className="text-slate-600 mb-6 font-body">
-                  From urban developments in European capitals to emerging cities across Africa, OwLoma connects the best of both worlds — intelligently.
-                </p>
-                <div className="grid grid-cols-2 gap-6 mb-6">
-                  <div className="text-center p-4 bg-slate-200 rounded-lg">
-                    <div className="text-2xl font-bold text-slate-700">2026</div>
-                    <div className="text-sm text-slate-600 font-subtitle">Launch Year</div>
-                  </div>
-                  <div className="text-center p-4 bg-slate-200 rounded-lg">
-                    <div className="text-2xl font-bold text-slate-700">3</div>
-                    <div className="text-sm text-slate-600 font-subtitle">Countries</div>
-                  </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-800 font-heading">OWLOMA</h3>
+                  <p className="text-slate-600 font-body">Strategic Real Estate Portfolio</p>
                 </div>
-                <a 
-                  href="https://www.owloma.com/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-slate-700 hover:text-slate-900 font-subtitle font-semibold"
-                >
-                  Explore Portfolio <ArrowRight className="ml-2 w-4 h-4" />
+              </div>
+              
+              <p className="text-slate-700 mb-6 font-body leading-relaxed">
+                OwLoma is the real estate investment portfolio of Owl International — built on the belief that home 
+                is both a place and a purpose. With one eye on Africa, the other on Europe, we craft value through 
+                visionary, long-term property investments rooted in cultural understanding, architectural beauty, and resilient returns.
+              </p>
+
+              <div className="space-y-3 mb-6">
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">Urban developments in European capitals</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">Emerging cities across Africa</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">Cultural heritage preservation projects</p>
+                </div>
+              </div>
+
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                <p className="text-sm text-blue-800 font-medium font-body">Launching in 2026</p>
+              </div>
+
+              <Button className="bg-blue-700 hover:bg-blue-800 text-white font-subtitle" asChild>
+                <a href="https://www.owloma.com/" target="_blank" rel="noopener noreferrer">
+                  Discover More <ArrowRight className="ml-2" size={16} />
                 </a>
-              </div>
-              <div className="p-10 lg:p-12 bg-slate-200 flex items-center justify-center">
-                <div className="text-center">
-                  <Home className="w-24 h-24 text-slate-600 mx-auto mb-4" />
-                  <p className="text-slate-700 font-body italic">
-                    "Crafting value through visionary property investments"
-                  </p>
-                </div>
-              </div>
+              </Button>
             </div>
           </div>
 
           {/* KIDZ LAB */}
-          <div className="mb-12 bg-slate-100 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="p-10 lg:p-12 bg-slate-200 flex items-center justify-center order-2 lg:order-1">
-                <div className="text-center">
-                  <Camera className="w-24 h-24 text-slate-600 mx-auto mb-4" />
-                  <p className="text-slate-700 font-body italic">
-                    "AI-powered future of talent discovery"
-                  </p>
+          <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200">
+            <div className="p-8">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                  <Palette className="w-6 h-6 text-purple-700" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-800 font-heading">KIDZ LAB</h3>
+                  <p className="text-slate-600 font-body">AI-Powered Future of Talent Discovery</p>
                 </div>
               </div>
-              <div className="p-10 lg:p-12 order-1 lg:order-2">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <Camera className="w-8 h-8 text-amber-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-3xl font-brand font-bold text-slate-800">KIDZ LAB</h3>
-                    <p className="text-slate-600 font-subtitle font-semibold">AI-Powered Talent Discovery</p>
-                  </div>
-                </div>
-                <p className="text-slate-600 mb-6 font-body text-lg leading-relaxed">
-                  Our AI-powered platform has transformed how agencies discover, match, and book talent. 
-                  KIDZ LAB creates compelling content showcasing OWLOMA's properties, CAOAGRO's innovations, 
-                  and uses AKOULA's AI for content optimization and audience targeting.
-                </p>
-                <div className="grid grid-cols-2 gap-6 mb-6">
-                  <div className="text-center p-4 bg-slate-200 rounded-lg">
-                    <div className="text-2xl font-bold text-slate-700">500+</div>
-                    <div className="text-sm text-slate-600 font-subtitle">Content Pieces</div>
-                  </div>
-                  <div className="text-center p-4 bg-slate-200 rounded-lg">
-                    <div className="text-2xl font-bold text-slate-700">50M+</div>
-                    <div className="text-sm text-slate-600 font-subtitle">Total Reach</div>
-                  </div>
-                </div>
-                <a 
-                  href="https://www.kidzlabmodels.com/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-slate-700 hover:text-slate-900 font-subtitle font-semibold"
-                >
-                  View Portfolio <ArrowRight className="ml-2 w-4 h-4" />
-                </a>
-              </div>
-            </div>
-          </div>
+              
+              <p className="text-slate-700 mb-6 font-body leading-relaxed">
+                Our AI-powered platform has transformed how agencies discover, match, and book talent. 
+                Revolutionizing the creative industry through intelligent talent discovery and seamless booking solutions.
+              </p>
 
-          {/* Synergy Section */}
-          <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-12 text-center text-white">
-            <h3 className="text-3xl font-brand font-bold mb-6">The Power of Synergy</h3>
-            <p className="text-xl font-body mb-8 text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              Our ventures form an integrated ecosystem where each company strengthens the others. AKOULA's AI powers 
-              optimization across all platforms, CAOAGRO provides sustainable raw materials, OWLOMA creates strategic 
-              real estate investments, while KIDZ LAB amplifies their stories across Africa and beyond.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-              <div className="text-center">
-                <BarChart3 className="w-12 h-12 text-amber-400 mx-auto mb-4" />
-                <h4 className="text-lg font-subtitle font-semibold mb-2">Cross-Platform Value</h4>
-                <p className="text-slate-300 font-body">Shared resources and capabilities multiply impact exponentially</p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">AI-powered talent matching algorithms</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">Seamless booking and management platform</p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-sm text-slate-600 font-body">Creative industry transformation tools</p>
+                </div>
               </div>
-              <div className="text-center">
-                <Users className="w-12 h-12 text-amber-400 mx-auto mb-4" />
-                <h4 className="text-lg font-subtitle font-semibold mb-2">Talent Circulation</h4>
-                <p className="text-slate-300 font-body">Expertise flows between ventures, accelerating innovation</p>
-              </div>
-              <div className="text-center">
-                <Globe className="w-12 h-12 text-amber-400 mx-auto mb-4" />
-                <h4 className="text-lg font-subtitle font-semibold mb-2">Market Amplification</h4>
-                <p className="text-slate-300 font-body">Combined reach creates unprecedented market opportunities</p>
-              </div>
+
+              <Button className="bg-purple-700 hover:bg-purple-800 text-white font-subtitle" asChild>
+                <a href="https://www.kidzlabmodels.com/" target="_blank" rel="noopener noreferrer">
+                  Visit Platform <ArrowRight className="ml-2" size={16} />
+                </a>
+              </Button>
             </div>
           </div>
         </div>
-      </section>
-    </>
+
+        {/* Synergy Section */}
+        <div className="mt-20 bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl p-12 text-white">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 font-heading">Portfolio Synergy</h2>
+            <p className="text-slate-300 font-body max-w-3xl mx-auto">
+              Our integrated ecosystem creates powerful synergies across industries, connecting technology, 
+              agriculture, real estate, and talent to drive sustainable growth across Africa.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Brain className="w-8 h-8 text-amber-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 font-subtitle">Technology Integration</h3>
+              <p className="text-slate-300 text-sm font-body">
+                AKOULA's AI intelligence powers decision-making across our agro-industrial and real estate portfolios.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Leaf className="w-8 h-8 text-green-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 font-subtitle">Sustainable Development</h3>
+              <p className="text-slate-300 text-sm font-body">
+                CAOAGRO's sustainable practices inform our approach to eco-friendly real estate development.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Palette className="w-8 h-8 text-purple-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 font-subtitle">Talent Ecosystem</h3>
+              <p className="text-slate-300 text-sm font-body">
+                KIDZ LAB's talent discovery fuels creative campaigns for all our portfolio companies.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <Button size="lg" className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-subtitle font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105" asChild>
+            <Link to="/portfolio" onClick={() => window.scrollTo(0, 0)}>
+              Explore Full Portfolio <ArrowRight className="ml-2" size={20} />
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </section>
   );
 };
 

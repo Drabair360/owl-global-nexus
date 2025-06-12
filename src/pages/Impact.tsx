@@ -2,39 +2,39 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Users, Globe, Leaf, TrendingUp } from 'lucide-react';
+import { Leaf, Users, Globe, TrendingUp, Heart, Lightbulb } from 'lucide-react';
 
 const Impact = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-orange-50 to-amber-100">
+    <div className="min-h-screen bg-gradient-to-br from-lime-50 via-green-50 to-emerald-100">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-rose-900 via-orange-900 to-amber-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(244,63,94,0.08),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.08),transparent_50%)]" />
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-lime-900 via-green-900 to-emerald-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(34,197,94,0.10),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(132,204,22,0.08),transparent_50%)]" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
           <div className="animate-sophisticated-fade">
             <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight font-heading">
-              Our
-              <span className="bg-gradient-to-r from-rose-400 via-orange-500 to-amber-600 bg-clip-text text-transparent block mt-2">
+              Sustainable
+              <span className="bg-gradient-to-r from-lime-400 via-green-500 to-emerald-600 bg-clip-text text-transparent block mt-2">
                 Impact
               </span>
             </h1>
             
-            <p className="text-body-large text-blue-100 mb-8 max-w-3xl mx-auto font-body">
-              Measuring success through sustainable development, community empowerment, 
-              and transformative change across African economies.
+            <p className="text-body-large text-green-100 mb-8 max-w-3xl mx-auto font-body">
+              Driving positive change across Africa through sustainable investments, innovative solutions, 
+              and community-focused initiatives that create lasting prosperity.
             </p>
           </div>
         </div>
       </section>
 
       {/* Transition */}
-      <div className="relative h-32 bg-gradient-to-b from-slate-900 to-cyan-50 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50" />
+      <div className="relative h-32 bg-gradient-to-b from-emerald-900 to-lime-50 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,197,94,0.05),transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-400 to-transparent opacity-50" />
       </div>
 
       {/* Content */}

@@ -64,11 +64,53 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* Sophisticated Transition Section */}
-      <div className="relative h-32 bg-gradient-to-b from-indigo-900 to-slate-50 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent opacity-50" />
-      </div>
+      {/* Strategic Investments Portfolio Section - Direct Integration */}
+      <section className="relative py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03),transparent_70%)]" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
+            {/* Digital Innovation */}
+            <div className="bg-gradient-to-br from-sky-100 to-orange-100 rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <TrendingUp className="w-8 h-8 text-slate-800 mb-4 transition-transform duration-300 group-hover:scale-110" />
+              <h3 className="text-lg font-['Montserrat'] font-bold text-slate-800 mb-3">Digital Innovation</h3>
+              <p className="text-slate-700 text-sm font-body">AI-powered platforms transforming industries</p>
+            </div>
+
+            {/* Agro-industrial Technology */}
+            <div className="bg-gradient-to-br from-sky-100 to-orange-100 rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <Globe className="w-8 h-8 text-slate-800 mb-4 transition-transform duration-300 group-hover:scale-110" />
+              <h3 className="text-lg font-['Montserrat'] font-bold text-slate-800 mb-3">Agro-industrial Technology</h3>
+              <p className="text-slate-700 text-sm font-body">Smart agricultural solutions for sustainable farming</p>
+            </div>
+
+            {/* Industrial Solutions */}
+            <div className="bg-gradient-to-br from-sky-100 to-orange-100 rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <Users className="w-8 h-8 text-slate-800 mb-4 transition-transform duration-300 group-hover:scale-110" />
+              <h3 className="text-lg font-['Montserrat'] font-bold text-slate-800 mb-3">Industrial Solutions</h3>
+              <p className="text-slate-700 text-sm font-body">Advanced automation and manufacturing technologies</p>
+            </div>
+
+            {/* Energy Solutions */}
+            <div className="bg-gradient-to-br from-sky-100 to-orange-100 rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <TrendingUp className="w-8 h-8 text-slate-800 mb-4 transition-transform duration-300 group-hover:scale-110" />
+              <h3 className="text-lg font-['Montserrat'] font-bold text-slate-800 mb-3">Energy Solutions</h3>
+              <p className="text-slate-700 text-sm font-body">Renewable energy and sustainable power systems</p>
+            </div>
+
+            {/* Financial Technology */}
+            <div className="bg-gradient-to-br from-sky-100 to-orange-100 rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
+              <Globe className="w-8 h-8 text-slate-800 mb-4 transition-transform duration-300 group-hover:scale-110" />
+              <h3 className="text-lg font-['Montserrat'] font-bold text-slate-800 mb-3">Financial Technology</h3>
+              <p className="text-slate-700 text-sm font-body">Innovative fintech solutions for emerging markets</p>
+            </div>
+          </div>
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-['Montserrat'] font-bold text-white mb-6">Flagship Ventures</h2>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -5,25 +6,25 @@ import { Briefcase, Users, TrendingUp, Heart, Globe, Lightbulb, MapPin, Clock } 
 
 const Careers = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-100">
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-orange-100">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-emerald-900 via-teal-900 to-blue-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(16,185,129,0.08),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(59,130,246,0.08),transparent_50%)]" />
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-rose-900 via-pink-900 to-orange-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(236,72,153,0.10),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.08),transparent_50%)]" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
           <div className="animate-sophisticated-fade">
             <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight font-heading">
               Build Your
-              <span className="bg-gradient-to-r from-emerald-400 via-teal-500 to-blue-600 bg-clip-text text-transparent block mt-2">
+              <span className="bg-gradient-to-r from-rose-400 via-pink-500 to-orange-600 bg-clip-text text-transparent block mt-2">
                 Future
               </span>
               <span className="block mt-2">With Us</span>
             </h1>
             
-            <p className="text-body-large text-blue-100 mb-8 max-w-3xl mx-auto font-body">
+            <p className="text-body-large text-pink-100 mb-8 max-w-3xl mx-auto font-body">
               Join OWL International and be part of a team that's transforming Africa through innovation, 
               technology, and strategic investments. Shape the future while building your career.
             </p>
@@ -32,9 +33,9 @@ const Careers = () => {
       </section>
 
       {/* Transition */}
-      <div className="relative h-32 bg-gradient-to-b from-slate-900 to-blue-50 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50" />
+      <div className="relative h-32 bg-gradient-to-b from-orange-900 to-rose-50 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.05),transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-400 to-transparent opacity-50" />
       </div>
 
       {/* Content */}
