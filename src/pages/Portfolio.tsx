@@ -1,17 +1,17 @@
 
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
 import Portfolio from '@/components/Portfolio';
 
-const Index = () => {
+const PortfolioPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <Hero />
-      <Portfolio />
+      <div className="pt-16">
+        <Portfolio />
+      </div>
     </div>
   );
 };
 
-export default Index;
+export default PortfolioPage;
