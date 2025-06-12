@@ -1,8 +1,7 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Briefcase, Users, TrendingUp, Heart, Globe, Lightbulb } from 'lucide-react';
+import { Briefcase, Users, TrendingUp, Heart, Globe, Lightbulb, MapPin, Clock } from 'lucide-react';
 
 const Careers = () => {
   return (
