@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -5,19 +6,19 @@ import { Users, Globe, Leaf, TrendingUp } from 'lucide-react';
 
 const Impact = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-orange-50 to-amber-100">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-cyan-900 via-blue-900 to-slate-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.08),transparent_50%)]" />
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-rose-900 via-orange-900 to-amber-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(244,63,94,0.08),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.08),transparent_50%)]" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
           <div className="animate-sophisticated-fade">
             <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight font-heading">
               Our
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-600 bg-clip-text text-transparent block mt-2">
+              <span className="bg-gradient-to-r from-rose-400 via-orange-500 to-amber-600 bg-clip-text text-transparent block mt-2">
                 Impact
               </span>
             </h1>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -17,7 +18,7 @@ const Scouts = () => {
           <div className="animate-sophisticated-fade">
             <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight font-heading">
               Talent
-              <span className="bg-gradient-to-r from-sky-400 via-blue-500 to-sky-600 bg-clip-text text-transparent block mt-2">
+              <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600 bg-clip-text text-transparent block mt-2">
                 Scouts
               </span>
             </h1>
@@ -41,7 +42,7 @@ const Scouts = () => {
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-section text-slate-800 mb-4">BECOME A SCOUT</h2>
+            <h2 className="text-section text-slate-800 mb-4 font-brand">BECOME A SCOUT</h2>
             <p className="text-body-large text-slate-600 max-w-3xl mx-auto font-body">
               Join our network of talent scouts and help us discover the next generation of innovators, entrepreneurs, and leaders across Africa.
             </p>

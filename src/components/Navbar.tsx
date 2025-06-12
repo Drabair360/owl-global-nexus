@@ -71,11 +71,11 @@ const Navbar = () => {
                 </button>
                 {isCompanyDropdownOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-56 bg-background/90 backdrop-blur-xl border border-border/50 rounded-xl shadow-sophisticated py-3 z-50 animate-elegant-scale"
+                    className="absolute top-full left-0 mt-2 w-56 bg-background/80 backdrop-blur-xl border border-border/50 rounded-xl shadow-sophisticated py-3 z-50 animate-elegant-scale"
                     onMouseEnter={handleCompanyMouseEnter}
                     onMouseLeave={handleCompanyMouseLeave}
                   >
-                    <div className="absolute -top-1 left-6 w-2 h-2 bg-background/90 border-l border-t border-border/50 rotate-45"></div>
+                    <div className="absolute -top-1 left-6 w-2 h-2 bg-background/80 border-l border-t border-border/50 rotate-45"></div>
                     <Link 
                       to="/about" 
                       onClick={() => window.scrollTo(0, 0)}
@@ -83,7 +83,7 @@ const Navbar = () => {
                     >
                       <span className="relative">
                         About Owl
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full opacity-80"></span>
                       </span>
                     </Link>
                     <Link 
@@ -93,7 +93,7 @@ const Navbar = () => {
                     >
                       <span className="relative">
                         Careers
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full opacity-80"></span>
                       </span>
                     </Link>
                     <Link 
@@ -103,7 +103,7 @@ const Navbar = () => {
                     >
                       <span className="relative">
                         Hot News
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full opacity-80"></span>
                       </span>
                     </Link>
                     <Link 
@@ -113,7 +113,7 @@ const Navbar = () => {
                     >
                       <span className="relative">
                         Impact
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full opacity-80"></span>
                       </span>
                     </Link>
                   </div>
@@ -141,11 +141,11 @@ const Navbar = () => {
                 </button>
                 {isInvestorsDropdownOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-56 bg-background/90 backdrop-blur-xl border border-border/50 rounded-xl shadow-sophisticated py-3 z-50 animate-elegant-scale"
+                    className="absolute top-full left-0 mt-2 w-56 bg-background/80 backdrop-blur-xl border border-border/50 rounded-xl shadow-sophisticated py-3 z-50 animate-elegant-scale"
                     onMouseEnter={handleInvestorsMouseEnter}
                     onMouseLeave={handleInvestorsMouseLeave}
                   >
-                    <div className="absolute -top-1 left-6 w-2 h-2 bg-background/90 border-l border-t border-border/50 rotate-45"></div>
+                    <div className="absolute -top-1 left-6 w-2 h-2 bg-background/80 border-l border-t border-border/50 rotate-45"></div>
                     <Link 
                       to="/investors" 
                       onClick={() => window.scrollTo(0, 0)}
@@ -153,7 +153,7 @@ const Navbar = () => {
                     >
                       <span className="relative">
                         Investor Portal
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full opacity-80"></span>
                       </span>
                     </Link>
                     <Link 
@@ -163,7 +163,7 @@ const Navbar = () => {
                     >
                       <span className="relative">
                         Scouts
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full opacity-80"></span>
                       </span>
                     </Link>
                   </div>
