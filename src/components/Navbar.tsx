@@ -56,7 +56,7 @@ const Navbar = () => {
                 className="text-muted-foreground hover:text-primary transition-all duration-300 font-subtitle text-sm font-medium relative group py-2"
               >
                 Solutions
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-600 transition-all duration-500 group-hover:w-full origin-left"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-500 group-hover:w-full"></span>
               </Link>
               
               <div 
@@ -67,11 +67,11 @@ const Navbar = () => {
                 <button className="flex items-center text-foreground hover:text-primary transition-all duration-300 font-subtitle text-sm font-medium relative group py-2 px-2">
                   Company
                   <ChevronDown className="ml-1 w-4 h-4 transition-all duration-300 group-hover:rotate-180 group-hover:text-amber-500" />
-                  <span className="absolute bottom-0 left-2 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-600 transition-all duration-500 group-hover:w-[calc(100%-1rem)] origin-left"></span>
+                  <span className="absolute bottom-0 left-2 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-500 group-hover:w-[calc(100%-1rem)]"></span>
                 </button>
                 {isCompanyDropdownOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-border/50 rounded-xl shadow-sophisticated py-3 z-50 animate-elegant-scale"
+                    className="absolute top-full left-0 mt-2 w-56 bg-background/98 backdrop-blur-xl border border-border/50 rounded-xl shadow-sophisticated py-3 z-50 animate-elegant-scale"
                     onMouseEnter={handleCompanyMouseEnter}
                     onMouseLeave={handleCompanyMouseLeave}
                   >
@@ -83,7 +83,7 @@ const Navbar = () => {
                     >
                       <span className="relative">
                         About Owl
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-600 transition-all duration-300 group-hover:w-full origin-left"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
                     <Link 
@@ -93,7 +93,7 @@ const Navbar = () => {
                     >
                       <span className="relative">
                         Careers
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-600 transition-all duration-300 group-hover:w-full origin-left"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
                     <Link 
@@ -103,7 +103,7 @@ const Navbar = () => {
                     >
                       <span className="relative">
                         Hot News
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-600 transition-all duration-300 group-hover:w-full origin-left"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
                     <Link 
@@ -113,7 +113,7 @@ const Navbar = () => {
                     >
                       <span className="relative">
                         Impact
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-600 transition-all duration-300 group-hover:w-full origin-left"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
                   </div>
@@ -126,7 +126,7 @@ const Navbar = () => {
                 className="text-muted-foreground hover:text-primary transition-all duration-300 font-subtitle text-sm font-medium relative group py-2"
               >
                 Portfolio
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-600 transition-all duration-500 group-hover:w-full origin-left"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-500 group-hover:w-full"></span>
               </Link>
 
               <div 
@@ -137,11 +137,11 @@ const Navbar = () => {
                 <button className="flex items-center text-foreground hover:text-primary transition-all duration-300 font-subtitle text-sm font-medium relative group py-2 px-2">
                   Investors
                   <ChevronDown className="ml-1 w-4 h-4 transition-all duration-300 group-hover:rotate-180 group-hover:text-amber-500" />
-                  <span className="absolute bottom-0 left-2 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-600 transition-all duration-500 group-hover:w-[calc(100%-1rem)] origin-left"></span>
+                  <span className="absolute bottom-0 left-2 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-500 group-hover:w-[calc(100%-1rem)]"></span>
                 </button>
                 {isInvestorsDropdownOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-border/50 rounded-xl shadow-sophisticated py-3 z-50 animate-elegant-scale"
+                    className="absolute top-full left-0 mt-2 w-56 bg-background/98 backdrop-blur-xl border border-border/50 rounded-xl shadow-sophisticated py-3 z-50 animate-elegant-scale"
                     onMouseEnter={handleInvestorsMouseEnter}
                     onMouseLeave={handleInvestorsMouseLeave}
                   >
@@ -153,7 +153,7 @@ const Navbar = () => {
                     >
                       <span className="relative">
                         Investor Portal
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-600 transition-all duration-300 group-hover:w-full origin-left"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
                     <Link 
@@ -163,7 +163,7 @@ const Navbar = () => {
                     >
                       <span className="relative">
                         Scouts
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-600 transition-all duration-300 group-hover:w-full origin-left"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
                   </div>
@@ -176,7 +176,7 @@ const Navbar = () => {
             <Button variant="outline" className="group overflow-hidden relative border-2 border-primary/20 hover:border-primary/50 transition-all duration-500 hover-institutional font-subtitle" asChild>
               <Link to="/investors" onClick={() => window.scrollTo(0, 0)} className="text-sm font-medium">
                 <span className="relative z-10 transition-colors duration-500 group-hover:text-white">Investor Portal</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+                <span className="absolute inset-0 bg-gradient-amber-soft transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
               </Link>
             </Button>
           </div>
