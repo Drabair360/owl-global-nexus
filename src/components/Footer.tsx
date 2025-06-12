@@ -10,7 +10,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="gradient-institutional text-white relative overflow-hidden">
+      <footer className="gradient-institutional-soft text-white relative overflow-hidden">
         {/* Sophisticated background elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
@@ -32,12 +32,12 @@ const Footer = () => {
                   className="w-10 h-10 filter invert brightness-0 transition-transform duration-300 group-hover:scale-110"
                 />
                 <div>
-                  <span className="text-xl font-condensed font-semibold tracking-wide">OWL INTERNATIONAL</span>
-                  <div className="text-xs text-gray-300 font-body">SAS</div>
+                  <span className="text-xl font-brand tracking-wide">OWL INTERNATIONAL</span>
+                  <div className="text-xs text-gray-300 font-subtitle">SAS</div>
                 </div>
               </div>
               
-              <p className="text-gray-300 mb-6 font-body text-body-large max-w-md leading-relaxed">
+              <p className="text-gray-300 mb-6 font-body text-sm max-w-md leading-relaxed">
                 Transforming Africa through strategic investments, cutting-edge technology, 
                 and innovative industrial solutions that create lasting prosperity for communities worldwide.
               </p>
@@ -47,14 +47,20 @@ const Footer = () => {
                   <MapPin className="w-4 h-4 mr-3 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                   47 Boulevard de Courcelles, 75008 Paris, France
                 </div>
-                <div className="flex items-center text-sm text-gray-300 font-body group hover:text-amber-400 transition-colors duration-300">
+                <a 
+                  href="mailto:contact@internationalowl.com"
+                  className="flex items-center text-sm text-gray-300 font-body group hover:text-amber-400 transition-colors duration-300"
+                >
                   <Mail className="w-4 h-4 mr-3 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                   contact@internationalowl.com
-                </div>
-                <div className="flex items-center text-sm text-gray-300 font-body group hover:text-amber-400 transition-colors duration-300">
+                </a>
+                <a 
+                  href="tel:+33744988789"
+                  className="flex items-center text-sm text-gray-300 font-body group hover:text-amber-400 transition-colors duration-300"
+                >
                   <Phone className="w-4 h-4 mr-3 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                   +33 7 44 98 87 89
-                </div>
+                </a>
               </div>
             </div>
 
@@ -63,37 +69,53 @@ const Footer = () => {
               
               {/* Company Links */}
               <div>
-                <h3 className="text-lg font-condensed font-semibold mb-4 text-amber-400 tracking-wide">COMPANY</h3>
+                <h3 className="text-lg font-brand font-semibold mb-4 text-amber-400 tracking-wide">COMPANY</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link to="/about" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-body group">
+                    <Link 
+                      to="/about" 
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle group"
+                    >
                       <span className="relative">
                         About Owl
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/careers" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-body group">
+                    <Link 
+                      to="/careers" 
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle group"
+                    >
                       <span className="relative">
                         Careers
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/news" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-body group">
+                    <Link 
+                      to="/news" 
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle group"
+                    >
                       <span className="relative">
                         Hot News
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/impact" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-body group">
+                    <Link 
+                      to="/impact" 
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle group"
+                    >
                       <span className="relative">
                         Impact
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
                   </li>
@@ -102,68 +124,96 @@ const Footer = () => {
 
               {/* Portfolio & Investors */}
               <div>
-                <h3 className="text-lg font-condensed font-semibold mb-4 text-amber-400 tracking-wide">PORTFOLIO</h3>
+                <h3 className="text-lg font-brand font-semibold mb-4 text-amber-400 tracking-wide">PORTFOLIO</h3>
                 <ul className="space-y-3 mb-6">
                   <li>
-                    <Link to="/portfolio" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-body group">
+                    <Link 
+                      to="/portfolio" 
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle group"
+                    >
                       <span className="relative">
                         Investments
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
                   </li>
                 </ul>
                 
-                <h3 className="text-lg font-condensed font-semibold mb-4 text-amber-400 tracking-wide">INVESTORS</h3>
+                <h3 className="text-lg font-brand font-semibold mb-4 text-amber-400 tracking-wide">INVESTORS</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link to="/investors" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-body group">
+                    <Link 
+                      to="/investors" 
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle group"
+                    >
                       <span className="relative">
                         Investor Portal
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/scouts" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-body group">
+                    <Link 
+                      to="/scouts" 
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle group"
+                    >
                       <span className="relative">
                         Scouts
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
                   </li>
                 </ul>
               </div>
 
-              {/* Quick Links */}
+              {/* Quick Links - Reordered */}
               <div>
-                <h3 className="text-lg font-condensed font-semibold mb-4 text-amber-400 tracking-wide">QUICK LINKS</h3>
+                <h3 className="text-lg font-brand font-semibold mb-4 text-amber-400 tracking-wide">QUICK LINKS</h3>
                 <ul className="space-y-3">
                   <li>
-                    <a href="https://www.caoagro.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-body flex items-center group">
-                      <span className="relative">
-                        CAOAGRO.COM
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
-                      </span>
-                      <ExternalLink className="w-3 h-3 ml-1 transition-transform duration-300 group-hover:scale-110" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.kidzlabmodels.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-body flex items-center group">
-                      <span className="relative">
-                        KIDZ LAB
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
-                      </span>
-                      <ExternalLink className="w-3 h-3 ml-1 transition-transform duration-300 group-hover:scale-110" />
-                    </a>
-                  </li>
-                  <li>
-                    <Link to="/solutions" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-body group">
+                    <Link 
+                      to="/solutions" 
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle flex items-center group"
+                    >
                       <span className="relative">
                         AKOULA
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                       </span>
                     </Link>
+                  </li>
+                  <li>
+                    <a href="https://www.caoagro.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle flex items-center group">
+                      <span className="relative">
+                        CAOAGRO.COM
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
+                      </span>
+                      <ExternalLink className="w-3 h-3 ml-1 transition-transform duration-300 group-hover:scale-110" />
+                    </a>
+                  </li>
+                  <li>
+                    <Link 
+                      to="/portfolio" 
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle group"
+                    >
+                      <span className="relative">
+                        OWLOMA
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <a href="https://www.kidzlabmodels.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-all duration-300 font-subtitle flex items-center group">
+                      <span className="relative">
+                        KIDZ LAB
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
+                      </span>
+                      <ExternalLink className="w-3 h-3 ml-1 transition-transform duration-300 group-hover:scale-110" />
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -173,7 +223,7 @@ const Footer = () => {
           {/* Newsletter Signup */}
           <div className="border-t border-gray-700/50 pt-8 mb-8">
             <div className="max-w-md">
-              <h3 className="text-lg font-condensed font-semibold mb-2 text-amber-400 tracking-wide">STAY CONNECTED</h3>
+              <h3 className="text-lg font-brand font-semibold mb-2 text-amber-400 tracking-wide">STAY CONNECTED</h3>
               <p className="text-gray-300 text-sm mb-4 font-body">
                 Get updates on our latest projects and investment opportunities.
               </p>
@@ -183,7 +233,7 @@ const Footer = () => {
                   placeholder="Enter your email" 
                   className="flex-1 px-4 py-2 bg-white/10 backdrop-blur-sm border border-gray-600/50 rounded-lg text-sm font-body text-white placeholder-gray-400 focus:border-amber-400 focus:outline-none focus:ring-1 focus:ring-amber-400 transition-all duration-300"
                 />
-                <Button size="sm" className="bg-gradient-to-r from-amber-600 to-orange-700 hover:from-amber-700 hover:to-orange-800 font-body font-medium transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <Button size="sm" className="bg-gradient-amber-soft hover:from-amber-700 hover:to-orange-800 font-subtitle font-medium transition-all duration-300 transform hover:scale-105 shadow-lg">
                   Subscribe
                 </Button>
               </div>
@@ -193,31 +243,43 @@ const Footer = () => {
           {/* Legal Links - Horizontal Layout */}
           <div className="border-t border-gray-700/50 pt-8 mb-8">
             <div className="flex flex-wrap gap-6 justify-center md:justify-start">
-              <Link to="/privacy" className="text-gray-400 hover:text-amber-400 transition-all duration-300 text-sm font-body group">
+              <Link 
+                to="/privacy" 
+                onClick={() => window.scrollTo(0, 0)}
+                className="text-gray-400 hover:text-amber-400 transition-all duration-300 text-sm font-subtitle group"
+              >
                 <span className="relative">
                   Privacy Policy
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                 </span>
               </Link>
-              <Link to="/terms" className="text-gray-400 hover:text-amber-400 transition-all duration-300 text-sm font-body group">
+              <Link 
+                to="/terms" 
+                onClick={() => window.scrollTo(0, 0)}
+                className="text-gray-400 hover:text-amber-400 transition-all duration-300 text-sm font-subtitle group"
+              >
                 <span className="relative">
                   Terms of Service
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                 </span>
               </Link>
-              <Link to="/cookies" className="text-gray-400 hover:text-amber-400 transition-all duration-300 text-sm font-body group">
+              <Link 
+                to="/cookies" 
+                onClick={() => window.scrollTo(0, 0)}
+                className="text-gray-400 hover:text-amber-400 transition-all duration-300 text-sm font-subtitle group"
+              >
                 <span className="relative">
                   Cookie Policy
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                 </span>
               </Link>
               <button 
                 onClick={() => setShowDoNotSell(true)}
-                className="text-gray-400 hover:text-amber-400 transition-all duration-300 text-sm font-body group"
+                className="text-gray-400 hover:text-amber-400 transition-all duration-300 text-sm font-subtitle group"
               >
                 <span className="relative">
                   Do Not Sell My Info
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-amber-soft transition-all duration-300 group-hover:w-full"></span>
                 </span>
               </button>
             </div>

@@ -13,16 +13,16 @@ const ScoutsPage = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.1),transparent_50%)]" />
+      <section className="relative min-h-screen flex items-center justify-center gradient-institutional-soft overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.08),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.08),transparent_50%)]" />
         <GeometricPattern variant="background" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32">
           <div className="animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-heading font-semibold text-white mb-6 leading-tight">
               Become an
-              <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+              <span className="gradient-text-institutional">
                 {" "}OWL Scout
               </span>
             </h1>
@@ -33,7 +33,7 @@ const ScoutsPage = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-              <Button size="lg" className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-body font-bold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+              <Button size="lg" className="bg-gradient-amber-soft hover:from-amber-600 hover:to-orange-700 text-white font-subtitle font-bold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
                 Apply to Become a Scout
               </Button>
             </div>
@@ -70,7 +70,7 @@ const ScoutsPage = () => {
               </p>
             </div>
             
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 p-8 rounded-xl border border-border">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 p-8 rounded-xl border border-border hover-glow">
               <Search className="w-16 h-16 text-amber-600 mb-6" />
               <h3 className="text-2xl font-heading font-semibold mb-4">What We're Looking For</h3>
               <ul className="space-y-3 text-muted-foreground font-body">
@@ -113,7 +113,7 @@ const ScoutsPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/50">
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/50 hover-glow">
               <CardHeader className="text-center">
                 <Gift className="w-12 h-12 text-amber-600 mx-auto mb-4" />
                 <CardTitle className="text-xl font-heading font-semibold">Welcome Package</CardTitle>
@@ -136,7 +136,7 @@ const ScoutsPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/50">
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/50 hover-glow">
               <CardHeader className="text-center">
                 <TrendingUp className="w-12 h-12 text-blue-600 mx-auto mb-4" />
                 <CardTitle className="text-xl font-heading font-semibold">Participation Rights</CardTitle>
@@ -159,7 +159,7 @@ const ScoutsPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/50">
+            <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/50 hover-glow">
               <CardHeader className="text-center">
                 <Award className="w-12 h-12 text-green-600 mx-auto mb-4" />
                 <CardTitle className="text-xl font-heading font-semibold">Elite Recognition</CardTitle>
@@ -185,7 +185,7 @@ const ScoutsPage = () => {
 
           {/* Additional Benefits */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-2">
+            <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-2 hover-glow">
               <CardHeader>
                 <Globe className="w-12 h-12 text-blue-600 mb-4" />
                 <CardTitle className="text-2xl font-heading font-semibold">Global Network Access</CardTitle>
@@ -211,7 +211,7 @@ const ScoutsPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 border-2">
+            <Card className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 border-2 hover-glow">
               <CardHeader>
                 <Handshake className="w-12 h-12 text-amber-600 mb-4" />
                 <CardTitle className="text-2xl font-heading font-semibold">Partnership Opportunities</CardTitle>
@@ -241,20 +241,20 @@ const ScoutsPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white relative">
+      <section className="py-20 bg-gradient-to-br from-amber-600 via-orange-600 to-amber-700 text-white relative">
         <GeometricPattern variant="background" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-heading font-semibold mb-6">
             Ready to Join the Elite?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 font-body">
+          <p className="text-xl text-white/90 mb-8 font-body">
             Become part of an exclusive network that shapes the future of investments across emerging markets.
           </p>
           <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 font-body font-bold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+            <Button size="lg" className="bg-white text-amber-600 hover:bg-gray-100 font-subtitle font-bold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
               Apply Now
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-slate-900 font-body font-bold px-8 py-3 rounded-lg transition-all duration-300">
+            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-amber-600 font-subtitle font-bold px-8 py-3 rounded-lg transition-all duration-300">
               Learn More
             </Button>
           </div>
