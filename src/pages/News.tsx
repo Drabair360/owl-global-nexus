@@ -1,6 +1,8 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Button } from '@/components/ui/button';
 import { Calendar, Tag, User, ArrowRight } from 'lucide-react';
 
 const News = () => {
