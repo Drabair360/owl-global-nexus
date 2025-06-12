@@ -101,7 +101,7 @@ const DoNotSellModal = ({ isOpen, onClose }: DoNotSellModalProps) => {
                 Cancel
               </Button>
             </div>
-          </div>
+          </form>
         </div>
       </DialogContent>
     </Dialog>
