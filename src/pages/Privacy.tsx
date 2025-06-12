@@ -2,200 +2,120 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const PrivacyPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <div className="pt-20 pb-16">
+      <div className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-heading font-semibold text-foreground mb-4">
-              Privacy Policy
-            </h1>
-            <p className="text-muted-foreground font-body">
-              Last updated: December 12, 2024
+          <h1 className="text-4xl font-heading font-semibold text-foreground mb-8">Privacy Policy</h1>
+          
+          <div className="prose prose-lg max-w-none font-body">
+            <p className="text-muted-foreground mb-8">
+              Last updated: January 2025
             </p>
-          </div>
 
-          <div className="space-y-8">
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-heading font-semibold">Introduction</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 font-body">
-                <p>
-                  OWL International SAS ("we," "our," or "us") is committed to protecting your privacy. 
-                  This Privacy Policy explains how we collect, use, disclose, and safeguard your information 
-                  when you visit our website or engage with our services.
-                </p>
-                <p>
-                  This policy applies to all information collected through our website, mobile applications, 
-                  and any related services, sales, marketing, or events.
-                </p>
-              </CardContent>
-            </Card>
+            <section className="mb-8">
+              <h2 className="text-2xl font-heading font-semibold mb-4">Introduction</h2>
+              <p className="mb-4">
+                OWL International SAS ("we," "our," or "us") respects your privacy and is committed to protecting your personal data. 
+                This privacy policy explains how we collect, use, and safeguard your information when you visit our website 
+                internationalowl.com or engage with our services.
+              </p>
+            </section>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-heading font-semibold">Information We Collect</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 font-body">
+            <section className="mb-8">
+              <h2 className="text-2xl font-heading font-semibold mb-4">Information We Collect</h2>
+              <div className="space-y-4">
                 <div>
-                  <h3 className="font-heading font-semibold mb-2">Personal Data</h3>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li>• Contact information (name, email address, phone number, mailing address)</li>
-                    <li>• Professional information (company, job title, industry)</li>
-                    <li>• Investment-related information (for qualified investors)</li>
-                    <li>• Communication preferences and history</li>
+                  <h3 className="text-xl font-heading font-medium mb-2">Personal Information</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li>Contact information (name, email address, phone number)</li>
+                    <li>Professional information (company, job title, investment interests)</li>
+                    <li>Communication preferences and correspondence</li>
                   </ul>
                 </div>
+                
                 <div>
-                  <h3 className="font-heading font-semibold mb-2">Technical Data</h3>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li>• IP address, browser type, and version</li>
-                    <li>• Device information and unique device identifiers</li>
-                    <li>• Website usage data and analytics</li>
-                    <li>• Cookies and similar tracking technologies</li>
+                  <h3 className="text-xl font-heading font-medium mb-2">Technical Information</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li>IP address and device information</li>
+                    <li>Browser type and version</li>
+                    <li>Website usage analytics and performance data</li>
+                    <li>Cookies and similar tracking technologies</li>
                   </ul>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </section>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-heading font-semibold">How We Use Your Information</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 font-body">
-                <p>We use the information we collect to:</p>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• Provide, operate, and maintain our services</li>
-                  <li>• Communicate with you about our projects and investment opportunities</li>
-                  <li>• Process investor applications and due diligence</li>
-                  <li>• Improve our website and user experience</li>
-                  <li>• Comply with legal obligations and regulatory requirements</li>
-                  <li>• Protect against fraud and ensure security</li>
-                  <li>• Send newsletters and marketing communications (with consent)</li>
-                </ul>
-              </CardContent>
-            </Card>
+            <section className="mb-8">
+              <h2 className="text-2xl font-heading font-semibold mb-4">How We Use Your Information</h2>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>To provide and improve our investment services</li>
+                <li>To communicate about investment opportunities and company updates</li>
+                <li>To process investor applications and maintain investor relations</li>
+                <li>To comply with legal and regulatory requirements</li>
+                <li>To analyze website performance and user experience</li>
+              </ul>
+            </section>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-heading font-semibold">Data Sharing and Disclosure</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 font-body">
-                <p>We may share your information with:</p>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• Service providers and business partners who assist our operations</li>
-                  <li>• Professional advisors (lawyers, accountants, auditors)</li>
-                  <li>• Regulatory authorities when required by law</li>
-                  <li>• Third parties in connection with business transactions (mergers, acquisitions)</li>
-                  <li>• Law enforcement when required to comply with legal obligations</li>
-                </ul>
-                <p className="text-sm bg-muted p-3 rounded">
-                  <strong>We do not sell your personal information to third parties for marketing purposes.</strong>
-                </p>
-              </CardContent>
-            </Card>
+            <section className="mb-8">
+              <h2 className="text-2xl font-heading font-semibold mb-4">Data Sharing and Disclosure</h2>
+              <p className="mb-4">
+                We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:
+              </p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>With trusted service providers who assist in our operations</li>
+                <li>When required by law or to respond to legal processes</li>
+                <li>To protect our rights, privacy, safety, or property</li>
+                <li>In connection with a business transfer or merger</li>
+              </ul>
+            </section>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-heading font-semibold">International Data Transfers</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 font-body">
-                <p>
-                  As a France-based company with operations across Africa and Europe, we may transfer 
-                  your personal data internationally. We ensure appropriate safeguards are in place 
-                  through:
-                </p>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• European Commission adequacy decisions</li>
-                  <li>• Standard contractual clauses approved by the European Commission</li>
-                  <li>• Binding corporate rules and certification schemes</li>
-                  <li>• Other legally recognized transfer mechanisms</li>
-                </ul>
-              </CardContent>
-            </Card>
+            <section className="mb-8">
+              <h2 className="text-2xl font-heading font-semibold mb-4">Your Rights (GDPR)</h2>
+              <p className="mb-4">Under GDPR, you have the following rights:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Right to access your personal data</li>
+                <li>Right to rectification of inaccurate data</li>
+                <li>Right to erasure ("right to be forgotten")</li>
+                <li>Right to restrict processing</li>
+                <li>Right to data portability</li>
+                <li>Right to object to processing</li>
+                <li>Right to withdraw consent</li>
+              </ul>
+            </section>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-heading font-semibold">Your Privacy Rights</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 font-body">
-                <p>Depending on your location, you may have the following rights:</p>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• <strong>Access:</strong> Request copies of your personal data</li>
-                  <li>• <strong>Rectification:</strong> Request correction of inaccurate data</li>
-                  <li>• <strong>Erasure:</strong> Request deletion of your personal data</li>
-                  <li>• <strong>Restriction:</strong> Request limitation of processing</li>
-                  <li>• <strong>Portability:</strong> Request transfer of your data</li>
-                  <li>• <strong>Objection:</strong> Object to processing for direct marketing</li>
-                  <li>• <strong>Withdraw consent:</strong> Where processing is based on consent</li>
-                </ul>
-                <p className="text-sm bg-muted p-3 rounded">
-                  To exercise these rights, contact us at privacy@owl-international.com
-                </p>
-              </CardContent>
-            </Card>
+            <section className="mb-8">
+              <h2 className="text-2xl font-heading font-semibold mb-4">International Data Transfers</h2>
+              <p>
+                As we operate internationally between France and Africa, your data may be transferred to and processed in 
+                countries outside the European Economic Area. We ensure appropriate safeguards are in place to protect your data 
+                in accordance with GDPR requirements.
+              </p>
+            </section>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-heading font-semibold">Data Security</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 font-body">
-                <p>
-                  We implement appropriate technical and organizational measures to protect your 
-                  personal data against unauthorized access, alteration, disclosure, or destruction:
-                </p>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• Encryption of data in transit and at rest</li>
-                  <li>• Regular security assessments and updates</li>
-                  <li>• Access controls and employee training</li>
-                  <li>• Secure data centers and backup systems</li>
-                  <li>• Incident response and breach notification procedures</li>
-                </ul>
-              </CardContent>
-            </Card>
+            <section className="mb-8">
+              <h2 className="text-2xl font-heading font-semibold mb-4">Data Security</h2>
+              <p>
+                We implement appropriate technical and organizational measures to protect your personal data against unauthorized 
+                access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.
+              </p>
+            </section>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-heading font-semibold">Data Retention</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 font-body">
-                <p>
-                  We retain personal data only for as long as necessary to fulfill the purposes 
-                  outlined in this policy, unless a longer retention period is required by law. 
-                  Retention periods vary based on:
-                </p>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• The nature of the data and our relationship with you</li>
-                  <li>• Legal and regulatory requirements</li>
-                  <li>• The purposes for which the data was collected</li>
-                  <li>• Our legitimate business interests</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-heading font-semibold">Contact Information</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 font-body">
-                <p>If you have questions about this Privacy Policy or our data practices, contact us:</p>
-                <div className="bg-muted p-4 rounded space-y-2">
-                  <p><strong>OWL International SAS</strong></p>
-                  <p>47 Boulevard de Courcelles, 75008 Paris, France</p>
-                  <p>Email: privacy@owl-international.com</p>
-                  <p>Phone: +33 1 45 67 89 00</p>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  You also have the right to lodge a complaint with the French Data Protection 
-                  Authority (CNIL) or your local supervisory authority.
-                </p>
-              </CardContent>
-            </Card>
+            <section className="mb-8">
+              <h2 className="text-2xl font-heading font-semibold mb-4">Contact Us</h2>
+              <p className="mb-4">
+                If you have any questions about this Privacy Policy or wish to exercise your rights, please contact us:
+              </p>
+              <div className="bg-accent p-6 rounded-lg">
+                <p className="font-medium">OWL International SAS</p>
+                <p>47 Boulevard de Courcelles, 75008 Paris, France</p>
+                <p>Email: contact@internationalowl.com</p>
+                <p>Phone: +33 7 44 98 87 89</p>
+              </div>
+            </section>
           </div>
         </div>
       </div>

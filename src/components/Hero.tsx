@@ -41,19 +41,19 @@ const Hero = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 animate-particle-float">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
               <Globe className="w-12 h-12 text-amber-400 mb-4 mx-auto" />
               <h3 className="text-xl font-heading font-semibold text-white mb-2">Global Reach</h3>
               <p className="text-blue-100 font-body">Operating across Africa and Europe with strategic partnerships worldwide</p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 animate-particle-float" style={{ animationDelay: '1s' }}>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
               <TrendingUp className="w-12 h-12 text-amber-400 mb-4 mx-auto" />
               <h3 className="text-xl font-heading font-semibold text-white mb-2">Innovation-Driven</h3>
               <p className="text-blue-100 font-body">Pioneering AI-powered platforms and industrial solutions</p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 animate-particle-float" style={{ animationDelay: '2s' }}>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
               <Users className="w-12 h-12 text-amber-400 mb-4 mx-auto" />
               <h3 className="text-xl font-heading font-semibold text-white mb-2">Community Impact</h3>
               <p className="text-blue-100 font-body">Creating sustainable opportunities and transforming lives</p>

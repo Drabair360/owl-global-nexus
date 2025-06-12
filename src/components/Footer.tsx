@@ -11,21 +11,28 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-slate-900 text-white relative overflow-hidden">
+      <footer className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white relative overflow-hidden">
         <GeometricPattern variant="subtle" className="opacity-5" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           {/* Main Footer Content */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
             
             {/* Company Info */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-1">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center">
-                  <div className="w-8 h-8 rounded-full border-2 border-white relative">
-                    <div className="absolute inset-1 rounded-full border border-white opacity-60" />
-                    <div className="absolute inset-2 rounded-full border border-white opacity-30" />
-                  </div>
+                <div className="w-10 h-10 flex items-center justify-center">
+                  <svg width="40" height="40" viewBox="0 0 100 100" className="text-white">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2"/>
+                    <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.7"/>
+                    <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
+                    <path d="M20 50 Q50 20 80 50 Q50 80 20 50" fill="currentColor" opacity="0.2"/>
+                    <circle cx="35" cy="40" r="3" fill="currentColor" opacity="0.8"/>
+                    <circle cx="50" cy="35" r="3" fill="currentColor" opacity="0.6"/>
+                    <circle cx="65" cy="40" r="3" fill="currentColor" opacity="0.8"/>
+                    <circle cx="40" cy="60" r="3" fill="currentColor" opacity="0.7"/>
+                    <circle cx="60" cy="60" r="3" fill="currentColor" opacity="0.7"/>
+                  </svg>
                 </div>
                 <div>
                   <span className="text-xl font-heading font-semibold">OWL INTERNATIONAL</span>
@@ -45,16 +52,16 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center text-sm text-gray-300 font-body">
                   <Mail className="w-4 h-4 mr-2 text-amber-400" />
-                  contact@owl-international.com
+                  contact@internationalowl.com
                 </div>
                 <div className="flex items-center text-sm text-gray-300 font-body">
                   <Phone className="w-4 h-4 mr-2 text-amber-400" />
-                  +33 1 45 67 89 00
+                  +33 7 44 98 87 89
                 </div>
               </div>
             </div>
 
-            {/* Quick Links */}
+            {/* Company Links */}
             <div>
               <h3 className="text-lg font-heading font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
@@ -81,20 +88,31 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Portfolio & Legal */}
+            {/* Portfolio */}
             <div>
-              <h3 className="text-lg font-heading font-semibold mb-4">Services</h3>
-              <ul className="space-y-2 mb-6">
+              <h3 className="text-lg font-heading font-semibold mb-4">Portfolio</h3>
+              <ul className="space-y-2">
                 <li>
                   <Link to="/portfolio" className="text-gray-300 hover:text-amber-400 transition-colors font-body">
-                    Portfolio
+                    View All Investments
                   </Link>
                 </li>
+              </ul>
+            </div>
+
+            {/* Investors & Quick Links */}
+            <div>
+              <h3 className="text-lg font-heading font-semibold mb-4">Investors</h3>
+              <ul className="space-y-2 mb-6">
                 <li>
                   <Link to="/investors" className="text-gray-300 hover:text-amber-400 transition-colors font-body">
-                    Investors
+                    Investor Portal
                   </Link>
                 </li>
+              </ul>
+              
+              <h4 className="text-lg font-heading font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2">
                 <li>
                   <a href="https://www.caoagro.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-colors font-body flex items-center">
                     CAOAGRO.COM
@@ -102,37 +120,10 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.kidzlabmodels.com/premium" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-colors font-body flex items-center">
+                  <a href="https://www.kidzlabmodels.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-colors font-body flex items-center">
                     KIDZ LAB
                     <ExternalLink className="w-3 h-3 ml-1" />
                   </a>
-                </li>
-              </ul>
-              
-              <h4 className="text-sm font-heading font-semibold mb-2 text-gray-400">Legal</h4>
-              <ul className="space-y-1">
-                <li>
-                  <Link to="/privacy" className="text-gray-400 hover:text-amber-400 transition-colors text-sm font-body">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/terms" className="text-gray-400 hover:text-amber-400 transition-colors text-sm font-body">
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/cookies" className="text-gray-400 hover:text-amber-400 transition-colors text-sm font-body">
-                    Cookie Policy
-                  </Link>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => setShowDoNotSell(true)}
-                    className="text-gray-400 hover:text-amber-400 transition-colors text-sm font-body text-left"
-                  >
-                    Do Not Sell My Info
-                  </button>
                 </li>
               </ul>
             </div>
@@ -158,10 +149,31 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Legal Links - Horizontal Layout */}
+          <div className="border-t border-gray-700 pt-8 mb-8">
+            <div className="flex flex-wrap gap-6 justify-center md:justify-start">
+              <Link to="/privacy" className="text-gray-400 hover:text-amber-400 transition-colors text-sm font-body">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="text-gray-400 hover:text-amber-400 transition-colors text-sm font-body">
+                Terms of Service
+              </Link>
+              <Link to="/cookies" className="text-gray-400 hover:text-amber-400 transition-colors text-sm font-body">
+                Cookie Policy
+              </Link>
+              <button 
+                onClick={() => setShowDoNotSell(true)}
+                className="text-gray-400 hover:text-amber-400 transition-colors text-sm font-body"
+              >
+                Do Not Sell My Info
+              </button>
+            </div>
+          </div>
+
           {/* Bottom Bar */}
           <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm font-body mb-4 md:mb-0">
-              © 2024 OWL International SAS. All rights reserved.
+              © 2025 OWL International SAS. All rights reserved.
             </div>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors">

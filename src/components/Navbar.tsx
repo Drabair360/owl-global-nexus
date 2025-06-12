@@ -13,11 +13,18 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center">
-              <div className="w-8 h-8 rounded-full border-2 border-white relative">
-                <div className="absolute inset-1 rounded-full border border-white opacity-60" />
-                <div className="absolute inset-2 rounded-full border border-white opacity-30" />
-              </div>
+            <div className="w-10 h-10 flex items-center justify-center">
+              <svg width="40" height="40" viewBox="0 0 100 100" className="text-amber-500">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2"/>
+                <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.7"/>
+                <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
+                <path d="M20 50 Q50 20 80 50 Q50 80 20 50" fill="currentColor" opacity="0.2"/>
+                <circle cx="35" cy="40" r="3" fill="currentColor" opacity="0.8"/>
+                <circle cx="50" cy="35" r="3" fill="currentColor" opacity="0.6"/>
+                <circle cx="65" cy="40" r="3" fill="currentColor" opacity="0.8"/>
+                <circle cx="40" cy="60" r="3" fill="currentColor" opacity="0.7"/>
+                <circle cx="60" cy="60" r="3" fill="currentColor" opacity="0.7"/>
+              </svg>
             </div>
             <div>
               <span className="text-xl font-heading font-semibold text-foreground">OWL INTERNATIONAL</span>
