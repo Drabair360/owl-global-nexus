@@ -5,7 +5,7 @@ import PortfolioCard from './PortfolioCard';
 const PortfolioSection = () => {
   return (
     <section className="relative py-32 overflow-hidden">
-      {/* Enhanced overlay effects for visual depth */}
+      {/* Keep only the subtle overlay effects and animations, no backgrounds */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_60%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(251,146,60,0.12),transparent_60%)]" />
       <div className="absolute inset-0 bg-[conic-gradient(from_0deg_at_50%_50%,transparent,rgba(34,197,94,0.05),transparent,rgba(147,51,234,0.05),transparent)]" />
