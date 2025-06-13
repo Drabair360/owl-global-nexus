@@ -31,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-md z-50 border-b border-border/50 shadow-[0_1px_0_0_transparent,0_2px_8px_-2px_rgba(245,158,11,0.15),0_4px_16px_-4px_rgba(217,119,6,0.1)]">
+    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-md z-50 border-b border-border/50 shadow-[0_1px_0_0_transparent,0_4px_12px_-2px_rgba(245,158,11,0.4),0_8px_24px_-4px_rgba(217,119,6,0.3),0_12px_32px_-6px_rgba(251,191,36,0.2)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-3 group" onClick={() => window.scrollTo(0, 0)}>
