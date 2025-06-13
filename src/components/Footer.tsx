@@ -1,14 +1,10 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, MapPin, Mail, Phone } from 'lucide-react';
 import DoNotSellModal from './DoNotSellModal';
-
 const Footer = () => {
   const [isDoNotSellModalOpen, setIsDoNotSellModalOpen] = useState(false);
-
-  return (
-    <footer className="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 relative overflow-hidden">
+  return <footer className="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 relative overflow-hidden">
       {/* Enhanced gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-800/30 via-transparent to-indigo-700/40 pointer-events-none"></div>
       <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-blue-900/50 to-blue-950/70 pointer-events-none"></div>
@@ -19,16 +15,16 @@ const Footer = () => {
           {/* Brand Section - Wider column */}
           <div className="lg:col-span-2 lg:pr-8">
             <div className="flex items-center space-x-3 mb-6">
-              <img 
-                src="/lovable-uploads/4d7f9a85-a58b-4911-9097-b446f027e04a.png" 
-                alt="OWL International Logo" 
-                className="w-10 h-10 brightness-0 invert transition-transform duration-300 hover:scale-110 flex-shrink-0" 
-              />
+              <img src="/lovable-uploads/4d7f9a85-a58b-4911-9097-b446f027e04a.png" alt="OWL International Logo" className="w-10 h-10 brightness-0 invert transition-transform duration-300 hover:scale-110 flex-shrink-0" />
               <div className="flex flex-col justify-center">
-                <span className="text-xl font-bold text-white tracking-wide whitespace-nowrap" style={{ fontFamily: 'Avenir Next, sans-serif' }}>
+                <span className="text-xl font-bold text-white tracking-wide whitespace-nowrap" style={{
+                fontFamily: 'Avenir Next, sans-serif'
+              }}>
                   OWL INTERNATIONAL
                 </span>
-                <span className="text-sm font-bold text-gray-300 -mt-1" style={{ fontFamily: 'Avenir Next, sans-serif' }}>SAS</span>
+                <span style={{
+                fontFamily: 'Avenir Next, sans-serif'
+              }} className="text-sm font-bold text-white-300 -mt-1">SAS</span>
               </div>
             </div>
             
@@ -53,17 +49,17 @@ const Footer = () => {
 
             {/* STAY CONNECTED section positioned under contact info */}
             <div className="mt-12 mb-12">
-              <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>STAY CONNECTED</h3>
+              <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{
+              fontFamily: 'Avenir Next, sans-serif'
+            }}>STAY CONNECTED</h3>
               <p className="text-gray-300 mb-4 text-sm">
                 Get updates on our latest projects and investment opportunities.
               </p>
               <div className="flex gap-3 max-w-md">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="flex-1 px-4 py-2 bg-slate-800/60 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 text-sm backdrop-blur-sm transition-all duration-300" 
-                />
-                <button className="px-6 py-2 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-600 hover:from-yellow-500 hover:via-amber-600 hover:to-orange-700 text-white rounded-lg transition-all duration-300 text-sm font-semibold shadow-lg hover:shadow-xl hover:shadow-amber-500/25 transform hover:scale-105 active:scale-95" style={{ fontFamily: 'Avenir Next, sans-serif' }}>
+                <input type="email" placeholder="Enter your email" className="flex-1 px-4 py-2 bg-slate-800/60 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 text-sm backdrop-blur-sm transition-all duration-300" />
+                <button className="px-6 py-2 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-600 hover:from-yellow-500 hover:via-amber-600 hover:to-orange-700 text-white rounded-lg transition-all duration-300 text-sm font-semibold shadow-lg hover:shadow-xl hover:shadow-amber-500/25 transform hover:scale-105 active:scale-95" style={{
+                fontFamily: 'Avenir Next, sans-serif'
+              }}>
                   Subscribe
                 </button>
               </div>
@@ -75,25 +71,35 @@ const Footer = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-right">
               {/* Column 1: Company */}
               <div>
-                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>COMPANY</h3>
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{
+                fontFamily: 'Avenir Next, sans-serif'
+              }}>COMPANY</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link to="/about" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
+                    <Link to="/about" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+                    fontFamily: 'Avenir Next, sans-serif'
+                  }} onClick={() => window.scrollTo(0, 0)}>
                       About Owl
                     </Link>
                   </li>
                   <li>
-                    <Link to="/careers" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
+                    <Link to="/careers" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+                    fontFamily: 'Avenir Next, sans-serif'
+                  }} onClick={() => window.scrollTo(0, 0)}>
                       Careers
                     </Link>
                   </li>
                   <li>
-                    <Link to="/news" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
+                    <Link to="/news" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+                    fontFamily: 'Avenir Next, sans-serif'
+                  }} onClick={() => window.scrollTo(0, 0)}>
                       Hot News
                     </Link>
                   </li>
                   <li>
-                    <Link to="/impact" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
+                    <Link to="/impact" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+                    fontFamily: 'Avenir Next, sans-serif'
+                  }} onClick={() => window.scrollTo(0, 0)}>
                       Impact
                     </Link>
                   </li>
@@ -102,24 +108,34 @@ const Footer = () => {
 
               {/* Column 2: Portfolio & Investors */}
               <div>
-                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>PORTFOLIO</h3>
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{
+                fontFamily: 'Avenir Next, sans-serif'
+              }}>PORTFOLIO</h3>
                 <ul className="space-y-3 mb-8">
                   <li>
-                    <Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
+                    <Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+                    fontFamily: 'Avenir Next, sans-serif'
+                  }} onClick={() => window.scrollTo(0, 0)}>
                       Investments
                     </Link>
                   </li>
                 </ul>
 
-                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>INVESTORS</h3>
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{
+                fontFamily: 'Avenir Next, sans-serif'
+              }}>INVESTORS</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link to="/investors" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
+                    <Link to="/investors" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+                    fontFamily: 'Avenir Next, sans-serif'
+                  }} onClick={() => window.scrollTo(0, 0)}>
                       Investor Portal
                     </Link>
                   </li>
                   <li>
-                    <Link to="/scouts" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
+                    <Link to="/scouts" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+                    fontFamily: 'Avenir Next, sans-serif'
+                  }} onClick={() => window.scrollTo(0, 0)}>
                       Scouts
                     </Link>
                   </li>
@@ -128,25 +144,35 @@ const Footer = () => {
 
               {/* Column 3: Quick Links */}
               <div>
-                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>QUICK LINKS</h3>
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{
+                fontFamily: 'Avenir Next, sans-serif'
+              }}>QUICK LINKS</h3>
                 <ul className="space-y-3">
                   <li>
-                    <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold flex items-center justify-end" style={{ fontFamily: 'Avenir Next, sans-serif' }}>
+                    <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold flex items-center justify-end" style={{
+                    fontFamily: 'Avenir Next, sans-serif'
+                  }}>
                       AKOULA <span className="ml-1 text-xs">↗</span>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.caoagro.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold flex items-center justify-end" style={{ fontFamily: 'Avenir Next, sans-serif' }}>
+                    <a href="https://www.caoagro.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold flex items-center justify-end" style={{
+                    fontFamily: 'Avenir Next, sans-serif'
+                  }}>
                       CAOAGRO.COM <span className="ml-1 text-xs">↗</span>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.owloma.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold flex items-center justify-end" style={{ fontFamily: 'Avenir Next, sans-serif' }}>
+                    <a href="https://www.owloma.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold flex items-center justify-end" style={{
+                    fontFamily: 'Avenir Next, sans-serif'
+                  }}>
                       OWLOMA <span className="ml-1 text-xs">↗</span>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.kidzlabmodels.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold flex items-center justify-end" style={{ fontFamily: 'Avenir Next, sans-serif' }}>
+                    <a href="https://www.kidzlabmodels.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold flex items-center justify-end" style={{
+                    fontFamily: 'Avenir Next, sans-serif'
+                  }}>
                       KIDZ LAB <span className="ml-1 text-xs">↗</span>
                     </a>
                   </li>
@@ -161,20 +187,24 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-8 lg:space-y-0 lg:space-x-8">
             {/* Legal Links */}
             <div className="flex flex-wrap gap-6 order-1">
-              <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
+              <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+              fontFamily: 'Avenir Next, sans-serif'
+            }} onClick={() => window.scrollTo(0, 0)}>
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
+              <Link to="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+              fontFamily: 'Avenir Next, sans-serif'
+            }} onClick={() => window.scrollTo(0, 0)}>
                 Terms of Service
               </Link>
-              <Link to="/cookies" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
+              <Link to="/cookies" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+              fontFamily: 'Avenir Next, sans-serif'
+            }} onClick={() => window.scrollTo(0, 0)}>
                 Cookie Policy
               </Link>
-              <button 
-                onClick={() => setIsDoNotSellModalOpen(true)}
-                className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-semibold" 
-                style={{ fontFamily: 'Avenir Next, sans-serif' }}
-              >
+              <button onClick={() => setIsDoNotSellModalOpen(true)} className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+              fontFamily: 'Avenir Next, sans-serif'
+            }}>
                 Do Not Sell My Info
               </button>
             </div>
@@ -198,12 +228,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <DoNotSellModal 
-        isOpen={isDoNotSellModalOpen} 
-        onClose={() => setIsDoNotSellModalOpen(false)} 
-      />
-    </footer>
-  );
+      <DoNotSellModal isOpen={isDoNotSellModalOpen} onClose={() => setIsDoNotSellModalOpen(false)} />
+    </footer>;
 };
-
 export default Footer;
