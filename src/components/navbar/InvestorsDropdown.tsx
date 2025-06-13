@@ -38,21 +38,21 @@ const InvestorsDropdown = () => {
           <Link 
             to="/investors" 
             onClick={() => window.scrollTo(0, 0)}
-            className="block px-6 py-4 text-sm text-foreground hover:bg-accent/50 hover:text-primary transition-all duration-300 font-subtitle relative group"
+            className="block px-6 py-4 text-sm text-foreground hover:bg-accent/50 hover:text-primary transition-all duration-300 font-subtitle relative group/item"
           >
             <span className="relative">
               Investor Portal
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full opacity-80"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover/item:w-full"></span>
             </span>
           </Link>
           <Link 
             to="/scouts" 
             onClick={() => window.scrollTo(0, 0)}
-            className="block px-6 py-4 text-sm text-foreground hover:bg-accent/50 hover:text-primary transition-all duration-300 font-subtitle relative group"
+            className="block px-6 py-4 text-sm text-foreground hover:bg-accent/50 hover:text-primary transition-all duration-300 font-subtitle relative group/item"
           >
             <span className="relative">
               Scouts
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full opacity-80"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover/item:w-full"></span>
             </span>
           </Link>
         </div>

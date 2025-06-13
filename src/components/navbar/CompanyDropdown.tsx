@@ -38,41 +38,41 @@ const CompanyDropdown = () => {
           <Link 
             to="/about" 
             onClick={() => window.scrollTo(0, 0)}
-            className="block px-6 py-4 text-sm text-foreground hover:bg-accent/50 hover:text-primary transition-all duration-300 font-subtitle relative group"
+            className="block px-6 py-4 text-sm text-foreground hover:bg-accent/50 hover:text-primary transition-all duration-300 font-subtitle relative group/item"
           >
             <span className="relative">
               About Owl
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full opacity-80"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover/item:w-full"></span>
             </span>
           </Link>
           <Link 
             to="/careers" 
             onClick={() => window.scrollTo(0, 0)}
-            className="block px-6 py-4 text-sm text-foreground hover:bg-accent/50 hover:text-primary transition-all duration-300 font-subtitle relative group"
+            className="block px-6 py-4 text-sm text-foreground hover:bg-accent/50 hover:text-primary transition-all duration-300 font-subtitle relative group/item"
           >
             <span className="relative">
               Careers
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full opacity-80"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover/item:w-full"></span>
             </span>
           </Link>
           <Link 
             to="/news" 
             onClick={() => window.scrollTo(0, 0)}
-            className="block px-6 py-4 text-sm text-foreground hover:bg-accent/50 hover:text-primary transition-all duration-300 font-subtitle relative group"
+            className="block px-6 py-4 text-sm text-foreground hover:bg-accent/50 hover:text-primary transition-all duration-300 font-subtitle relative group/item"
           >
             <span className="relative">
               Hot News
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full opacity-80"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover/item:w-full"></span>
             </span>
           </Link>
           <Link 
             to="/impact" 
             onClick={() => window.scrollTo(0, 0)}
-            className="block px-6 py-4 text-sm text-foreground hover:bg-accent/50 hover:text-primary transition-all duration-300 font-subtitle relative group"
+            className="block px-6 py-4 text-sm text-foreground hover:bg-accent/50 hover:text-primary transition-all duration-300 font-subtitle relative group/item"
           >
             <span className="relative">
               Impact
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full opacity-80"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover/item:w-full"></span>
             </span>
           </Link>
         </div>
