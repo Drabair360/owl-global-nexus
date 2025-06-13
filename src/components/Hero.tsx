@@ -1,13 +1,13 @@
 
 import React from 'react';
 import HeroHeader from './hero/HeroHeader';
-import PortfolioSection from './hero/PortfolioSection';
+import UnifiedPortfolioWrapper from './hero/UnifiedPortfolioWrapper';
 
 const Hero = () => {
   return (
     <>
       <HeroHeader />
-      <PortfolioSection />
+      <UnifiedPortfolioWrapper />
     </>
   );
 };
