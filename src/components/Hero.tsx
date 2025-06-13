@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, TrendingUp, Users, Cpu, Factory, Zap, Target, Wrench, Network, Building2 } from 'lucide-react';
@@ -41,19 +42,43 @@ const Hero = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-20">
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 group hover-institutional hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)]">
-                <Globe className="w-12 h-12 text-amber-400 mb-6 mx-auto transition-transform duration-300 group-hover:scale-110" />
+                <div className="w-12 h-12 mx-auto mb-6 relative">
+                  <Globe className="w-12 h-12 absolute inset-0 text-transparent bg-gradient-to-r from-amber-600 via-orange-500 via-amber-400 via-yellow-500 via-orange-400 via-amber-500 to-yellow-400 bg-clip-text transition-transform duration-300 group-hover:scale-110" style={{WebkitBackgroundClip: 'text', backgroundClip: 'text'}} />
+                  <Globe className="w-12 h-12 absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110" style={{
+                    background: 'linear-gradient(to right, #d97706, #ea580c, #f59e0b, #eab308, #ea580c, #d97706, #facc15)',
+                    WebkitBackgroundClip: 'text',
+                    backgroundClip: 'text',
+                    color: 'transparent'
+                  }} />
+                </div>
                 <h3 className="text-xl font-brand font-semibold text-white mb-4 tracking-wide">GLOBAL REACH</h3>
                 <p className="text-blue-100 font-body">Operating across Africa and Europe with strategic partnerships worldwide</p>
               </div>
               
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 group hover-institutional hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)]">
-                <TrendingUp className="w-12 h-12 text-amber-400 mb-6 mx-auto transition-transform duration-300 group-hover:scale-110" />
+                <div className="w-12 h-12 mx-auto mb-6 relative">
+                  <TrendingUp className="w-12 h-12 absolute inset-0 text-transparent bg-gradient-to-r from-amber-600 via-orange-500 via-amber-400 via-yellow-500 via-orange-400 via-amber-500 to-yellow-400 bg-clip-text transition-transform duration-300 group-hover:scale-110" style={{WebkitBackgroundClip: 'text', backgroundClip: 'text'}} />
+                  <TrendingUp className="w-12 h-12 absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110" style={{
+                    background: 'linear-gradient(to right, #d97706, #ea580c, #f59e0b, #eab308, #ea580c, #d97706, #facc15)',
+                    WebkitBackgroundClip: 'text',
+                    backgroundClip: 'text',
+                    color: 'transparent'
+                  }} />
+                </div>
                 <h3 className="text-xl font-brand font-semibold text-white mb-4 tracking-wide">INNOVATION-DRIVEN</h3>
                 <p className="text-blue-100 font-body">Pioneering AI-powered platforms and industrial solutions</p>
               </div>
               
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 group hover-institutional hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)]">
-                <Users className="w-12 h-12 text-amber-400 mb-6 mx-auto transition-transform duration-300 group-hover:scale-110" />
+                <div className="w-12 h-12 mx-auto mb-6 relative">
+                  <Users className="w-12 h-12 absolute inset-0 text-transparent bg-gradient-to-r from-amber-600 via-orange-500 via-amber-400 via-yellow-500 via-orange-400 via-amber-500 to-yellow-400 bg-clip-text transition-transform duration-300 group-hover:scale-110" style={{WebkitBackgroundClip: 'text', backgroundClip: 'text'}} />
+                  <Users className="w-12 h-12 absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110" style={{
+                    background: 'linear-gradient(to right, #d97706, #ea580c, #f59e0b, #eab308, #ea580c, #d97706, #facc15)',
+                    WebkitBackgroundClip: 'text',
+                    backgroundClip: 'text',
+                    color: 'transparent'
+                  }} />
+                </div>
                 <h3 className="text-xl font-brand font-semibold text-white mb-4 tracking-wide">COMMUNITY IMPACT</h3>
                 <p className="text-blue-100 font-body">Creating sustainable opportunities and transforming lives</p>
               </div>

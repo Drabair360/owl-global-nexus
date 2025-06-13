@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -18,7 +19,7 @@ const Solutions = () => {
           <div className="animate-sophisticated-fade">
             <h1 className="text-6xl md:text-7xl lg:text-8xl text-white mb-8 leading-tight font-heading">
               Innovative
-              <span className="gradient-text-institutional block mt-2">
+              <span className="bg-gradient-to-r from-amber-600 via-orange-500 via-amber-400 via-yellow-500 via-orange-400 via-amber-500 to-yellow-400 bg-clip-text text-transparent font-bold drop-shadow-2xl block mt-2">
                 Solutions
               </span>
             </h1>
