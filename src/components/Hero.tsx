@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, TrendingUp, Users, Cpu, Factory, Zap, Target, Wrench, Network, Building2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
 const Hero = () => {
   return <>
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
@@ -61,85 +63,81 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* Strategic Investment Portfolio Section - Redesigned */}
-      <section className="relative py-32 bg-gradient-to-br from-slate-200 via-zinc-300 to-stone-200">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.4),rgba(148,163,184,0.3)_70%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(203,213,225,0.1)_25%,transparent_25%,transparent_75%,rgba(203,213,225,0.1)_75%)] bg-[length:20px_20px]" />
+      {/* Strategic Investment Portfolio Section - Light & Sophisticated */}
+      <section className="relative py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-emerald-50">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8),rgba(59,130,246,0.05)_70%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(34,197,94,0.03)_25%,transparent_25%,transparent_75%,rgba(59,130,246,0.03)_75%)] bg-[length:40px_40px]" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-20">
             {/* Agro-Industrial Solutions */}
-            <div className="bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 rounded-2xl p-8 border-2 border-emerald-200/40 shadow-lg hover:shadow-[0_20px_60px_rgba(16,185,129,0.25)] transition-all duration-500 group hover:-translate-y-3 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-emerald-200 to-green-300 rounded-bl-3xl opacity-20"></div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-teal-200 to-emerald-300 rounded-tr-3xl opacity-15"></div>
-              <Factory className="w-12 h-12 text-emerald-700 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" />
-              <h3 className="text-xl font-['Montserrat'] font-bold text-emerald-800 mb-4 leading-tight">Agro-Industrial Solutions</h3>
-              <p className="text-emerald-700 text-sm font-body leading-relaxed mb-4">Complete agro-industrial transformation from farm to market, integrating smart technology with traditional farming wisdom for sustainable food security.</p>
+            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-emerald-100/60 shadow-[0_8px_32px_rgba(34,197,94,0.08)] hover:shadow-[0_20px_60px_rgba(34,197,94,0.15)] transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-emerald-400/10 to-emerald-500/20 rounded-bl-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-emerald-300/10 to-emerald-400/15 rounded-tr-3xl"></div>
+              <Factory className="w-14 h-14 text-emerald-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-emerald-600" />
+              <h3 className="text-xl font-semibold text-emerald-800 mb-4 leading-tight" style={{ fontFamily: 'Avenir Next, sans-serif' }}>Agro-Industrial Solutions</h3>
+              <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">Complete agro-industrial transformation from farm to market, integrating smart technology with traditional farming wisdom for sustainable food security across Africa.</p>
               <div className="flex items-center text-xs text-emerald-600 font-medium">
-                <Zap className="w-4 h-4 mr-2" />
+                <Zap className="w-4 h-4 mr-2 text-emerald-500" />
                 Smart farming ecosystems
               </div>
             </div>
 
             {/* Turnkey Projects */}
-            <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-8 border-2 border-blue-200/40 shadow-lg hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)] transition-all duration-500 group hover:-translate-y-3 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-200 to-indigo-300 rounded-bl-3xl opacity-20"></div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-purple-200 to-blue-300 rounded-tr-3xl opacity-15"></div>
-              <Building2 className="w-12 h-12 text-blue-700 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" />
-              <h3 className="text-xl font-['Montserrat'] font-bold text-blue-800 mb-4 leading-tight">Turnkey Projects</h3>
-              <p className="text-blue-700 text-sm font-body leading-relaxed mb-4">End-to-end project delivery combining indus-tech innovations, BIM integration, and industrial automation for maximum cost optimization, efficiency and impact.</p>
+            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-blue-100/60 shadow-[0_8px_32px_rgba(59,130,246,0.08)] hover:shadow-[0_20px_60px_rgba(59,130,246,0.15)] transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-400/10 to-blue-500/20 rounded-bl-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-300/10 to-blue-400/15 rounded-tr-3xl"></div>
+              <Building2 className="w-14 h-14 text-blue-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-blue-600" />
+              <h3 className="text-xl font-semibold text-blue-800 mb-4 leading-tight" style={{ fontFamily: 'Avenir Next, sans-serif' }}>Turnkey Projects</h3>
+              <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">End-to-end project delivery combining agro-tech innovations, AI integration, and industrial automation for maximum efficiency, cost optimization, and transformative impact.</p>
               <div className="flex items-center text-xs text-blue-600 font-medium">
-                <Wrench className="w-4 h-4 mr-2" />
+                <Wrench className="w-4 h-4 mr-2 text-blue-500" />
                 Complete project lifecycle
               </div>
             </div>
 
             {/* Digital Innovation */}
-            <div className="bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 rounded-2xl p-8 border-2 border-amber-200/40 shadow-lg hover:shadow-[0_20px_60px_rgba(245,158,11,0.25)] transition-all duration-500 group hover:-translate-y-3 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-amber-200 to-orange-300 rounded-bl-3xl opacity-20"></div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-yellow-200 to-amber-300 rounded-tr-3xl opacity-15"></div>
-              <Cpu className="w-12 h-12 text-amber-700 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" />
-              <h3 className="text-xl font-['Montserrat'] font-bold text-amber-800 mb-4 leading-tight">Digital Innovation</h3>
-              <p className="text-amber-700 text-sm font-body leading-relaxed mb-4">Cutting-edge AI trained platforms and digital solutions that revolutionize how African & European businesses connect, operate, and scale globally.</p>
+            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-amber-100/60 shadow-[0_8px_32px_rgba(251,191,36,0.08)] hover:shadow-[0_20px_60px_rgba(251,191,36,0.15)] transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-amber-400/10 to-amber-500/20 rounded-bl-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-amber-300/10 to-amber-400/15 rounded-tr-3xl"></div>
+              <Cpu className="w-14 h-14 text-amber-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-amber-600" />
+              <h3 className="text-xl font-semibold text-amber-800 mb-4 leading-tight" style={{ fontFamily: 'Avenir Next, sans-serif' }}>Digital Innovation</h3>
+              <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">Cutting-edge AI-powered platforms and digital solutions that revolutionize how African & European businesses connect, operate, and scale in the global marketplace.</p>
               <div className="flex items-center text-xs text-amber-600 font-medium">
-                <Target className="w-4 h-4 mr-2" />
+                <Target className="w-4 h-4 mr-2 text-amber-500" />
                 AI-powered transformation
               </div>
             </div>
 
             {/* Integrated Industrial Marketplace */}
-            <div className="bg-gradient-to-br from-purple-50 via-violet-50 to-fuchsia-50 rounded-2xl p-8 border-2 border-purple-200/40 shadow-lg hover:shadow-[0_20px_60px_rgba(147,51,234,0.25)] transition-all duration-500 group hover:-translate-y-3 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-200 to-violet-300 rounded-bl-3xl opacity-20"></div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-fuchsia-200 to-purple-300 rounded-tr-3xl opacity-15"></div>
-              <Network className="w-12 h-12 text-purple-700 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" />
-              <h3 className="text-xl font-['Montserrat'] font-bold text-purple-800 mb-4 leading-tight">Integrated Industrial Marketplace</h3>
-              <p className="text-purple-700 text-sm font-body leading-relaxed mb-4">Comprehensive B2B platform connecting manufacturers, suppliers, and service providers across Africa's industrial value chain.</p>
+            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-purple-100/60 shadow-[0_8px_32px_rgba(147,51,234,0.08)] hover:shadow-[0_20px_60px_rgba(147,51,234,0.15)] transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-400/10 to-purple-500/20 rounded-bl-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-purple-300/10 to-purple-400/15 rounded-tr-3xl"></div>
+              <Network className="w-14 h-14 text-purple-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-purple-600" />
+              <h3 className="text-xl font-semibold text-purple-800 mb-4 leading-tight" style={{ fontFamily: 'Avenir Next, sans-serif' }}>Integrated Industrial Marketplace</h3>
+              <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">Comprehensive B2B platform connecting manufacturers, suppliers, and service providers across Africa's industrial value chain with global opportunities.</p>
               <div className="flex items-center text-xs text-purple-600 font-medium">
-                <Globe className="w-4 h-4 mr-2" />
+                <Globe className="w-4 h-4 mr-2 text-purple-500" />
                 Pan-African network
               </div>
             </div>
 
             {/* Future of Talent Discovery */}
-            <div className="bg-gradient-to-br from-rose-50 via-pink-50 to-red-50 rounded-2xl p-8 border-2 border-rose-200/40 shadow-lg hover:shadow-[0_20px_60px_rgba(244,63,94,0.25)] transition-all duration-500 group hover:-translate-y-3 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-rose-200 to-pink-300 rounded-bl-3xl opacity-20"></div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-red-200 to-rose-300 rounded-tr-3xl opacity-15"></div>
-              <Users className="w-12 h-12 text-rose-700 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" />
-              <h3 className="text-xl font-['Montserrat'] font-bold text-rose-800 mb-4 leading-tight">Future of Talent Discovery</h3>
-              <p className="text-rose-700 text-sm font-body leading-relaxed mb-4">AI-driven talent platforms connecting the world's creative and technical professionals with global skills and talents matching opportunities and advancement.</p>
+            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-rose-100/60 shadow-[0_8px_32px_rgba(244,63,94,0.08)] hover:shadow-[0_20px_60px_rgba(244,63,94,0.15)] transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-rose-400/10 to-rose-500/20 rounded-bl-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-rose-300/10 to-rose-400/15 rounded-tr-3xl"></div>
+              <Users className="w-14 h-14 text-rose-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-rose-600" />
+              <h3 className="text-xl font-semibold text-rose-800 mb-4 leading-tight" style={{ fontFamily: 'Avenir Next, sans-serif' }}>Future of Talent Discovery</h3>
+              <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">AI-driven talent platforms connecting the world's creative and technical professionals with global opportunities for skills matching and career advancement.</p>
               <div className="flex items-center text-xs text-rose-600 font-medium">
-                <TrendingUp className="w-4 h-4 mr-2" />
+                <TrendingUp className="w-4 h-4 mr-2 text-rose-500" />
                 Global talent pipeline
               </div>
             </div>
-          </div>
-
-          <div className="text-center">
-            <h2 className="text-4xl font-['Montserrat'] font-bold bg-gradient-to-r from-slate-700 via-zinc-600 to-stone-700 bg-clip-text text-transparent mb-6">Flagship Ventures</h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto font-body leading-relaxed">Discover our portfolio of innovative companies transforming the industrial landscape through technology, investment, and strategic partnerships.</p>
           </div>
         </div>
       </section>
     </>;
 };
+
 export default Hero;
