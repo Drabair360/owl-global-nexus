@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Brain, Leaf, Building, Users } from 'lucide-react';
+import BackgroundEffects from './portfolio/BackgroundEffects';
 import SVGGradients from './portfolio/SVGGradients';
 import FlagshipHeader from './portfolio/FlagshipHeader';
 import FlagshipVentureCard from './portfolio/FlagshipVentureCard';
@@ -9,9 +10,7 @@ import FlagshipVentureCard from './portfolio/FlagshipVentureCard';
 const Portfolio = () => {
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Section-Specific Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-slate-900/15" />
-      
+      <BackgroundEffects />
       <SVGGradients />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
