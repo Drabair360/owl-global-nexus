@@ -1,12 +1,9 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, TrendingUp, Users, Cpu, Factory, Zap, Target, Wrench, Network, Building2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const Hero = () => {
-  return (
-    <>
+  return <>
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
         {/* Sophisticated background elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.08),transparent_50%)]" />
@@ -77,7 +74,7 @@ const Hero = () => {
               <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-teal-200 to-emerald-300 rounded-tr-3xl opacity-15"></div>
               <Factory className="w-12 h-12 text-emerald-700 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" />
               <h3 className="text-xl font-['Montserrat'] font-bold text-emerald-800 mb-4 leading-tight">Agro-Industrial Solutions</h3>
-              <p className="text-emerald-700 text-sm font-body leading-relaxed mb-4">Complete agricultural transformation from farm to market, integrating smart technology with traditional farming wisdom for sustainable food security.</p>
+              <p className="text-emerald-700 text-sm font-body leading-relaxed mb-4">Complete agro-industrial transformation from farm to market, integrating smart technology with traditional farming wisdom for sustainable food security.</p>
               <div className="flex items-center text-xs text-emerald-600 font-medium">
                 <Zap className="w-4 h-4 mr-2" />
                 Smart farming ecosystems
@@ -90,7 +87,7 @@ const Hero = () => {
               <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-purple-200 to-blue-300 rounded-tr-3xl opacity-15"></div>
               <Building2 className="w-12 h-12 text-blue-700 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" />
               <h3 className="text-xl font-['Montserrat'] font-bold text-blue-800 mb-4 leading-tight">Turnkey Projects</h3>
-              <p className="text-blue-700 text-sm font-body leading-relaxed mb-4">End-to-end project delivery combining agro-tech innovations, AI integration, and industrial automation for maximum efficiency and impact.</p>
+              <p className="text-blue-700 text-sm font-body leading-relaxed mb-4">End-to-end project delivery combining indus-tech innovations, BIM integration, and industrial automation for maximum cost optimization, efficiency and impact.</p>
               <div className="flex items-center text-xs text-blue-600 font-medium">
                 <Wrench className="w-4 h-4 mr-2" />
                 Complete project lifecycle
@@ -103,7 +100,7 @@ const Hero = () => {
               <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-yellow-200 to-amber-300 rounded-tr-3xl opacity-15"></div>
               <Cpu className="w-12 h-12 text-amber-700 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" />
               <h3 className="text-xl font-['Montserrat'] font-bold text-amber-800 mb-4 leading-tight">Digital Innovation</h3>
-              <p className="text-amber-700 text-sm font-body leading-relaxed mb-4">Cutting-edge AI platforms and digital solutions that revolutionize how African businesses connect, operate, and scale globally.</p>
+              <p className="text-amber-700 text-sm font-body leading-relaxed mb-4">Cutting-edge AI trained platforms and digital solutions that revolutionize how African & European businesses connect, operate, and scale globally.</p>
               <div className="flex items-center text-xs text-amber-600 font-medium">
                 <Target className="w-4 h-4 mr-2" />
                 AI-powered transformation
@@ -129,7 +126,7 @@ const Hero = () => {
               <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-red-200 to-rose-300 rounded-tr-3xl opacity-15"></div>
               <Users className="w-12 h-12 text-rose-700 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" />
               <h3 className="text-xl font-['Montserrat'] font-bold text-rose-800 mb-4 leading-tight">Future of Talent Discovery</h3>
-              <p className="text-rose-700 text-sm font-body leading-relaxed mb-4">AI-driven talent platforms connecting Africa's creative and technical professionals with global opportunities and career advancement.</p>
+              <p className="text-rose-700 text-sm font-body leading-relaxed mb-4">AI-driven talent platforms connecting the world's creative and technical professionals with global skills and talents matching opportunities and advancement.</p>
               <div className="flex items-center text-xs text-rose-600 font-medium">
                 <TrendingUp className="w-4 h-4 mr-2" />
                 Global talent pipeline
@@ -139,14 +136,10 @@ const Hero = () => {
 
           <div className="text-center">
             <h2 className="text-4xl font-['Montserrat'] font-bold bg-gradient-to-r from-slate-700 via-zinc-600 to-stone-700 bg-clip-text text-transparent mb-6">Flagship Ventures</h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto font-body leading-relaxed">
-              Discover our portfolio of innovative companies transforming Africa's industrial landscape through technology, investment, and strategic partnerships.
-            </p>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto font-body leading-relaxed">Discover our portfolio of innovative companies transforming the industrial landscape through technology, investment, and strategic partnerships.</p>
           </div>
         </div>
       </section>
-    </>
-  );
+    </>;
 };
-
 export default Hero;
