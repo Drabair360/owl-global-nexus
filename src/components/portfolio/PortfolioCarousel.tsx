@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { ExternalLink, Globe, Zap, ChevronLeft, ChevronRight, Cpu, Network } from 'lucide-react';
+import { ExternalLink, Globe, ChevronLeft, ChevronRight, Cpu, Network, Zap, TrendingUp, Users, Building2, Factory, BarChart3, Target, Workflow } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
 interface PortfolioItem {
@@ -14,6 +14,11 @@ interface PortfolioItem {
   isCore?: boolean;
   poweredBy?: string;
   launchDate?: string;
+  statistics?: {
+    value: string;
+    label: string;
+  }[];
+  synergies?: string[];
 }
 
 interface PortfolioCarouselProps {
@@ -42,7 +47,8 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
         glow: 'shadow-blue-500/20',
         text: 'text-blue-300',
         button: 'bg-blue-600 hover:bg-blue-700',
-        accent: 'bg-blue-500'
+        accent: 'bg-blue-500',
+        statBg: 'bg-blue-500/10'
       },
       emerald: {
         bg: 'from-emerald-500/20 to-emerald-600/30',
@@ -50,7 +56,8 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
         glow: 'shadow-emerald-500/20',
         text: 'text-emerald-300',
         button: 'bg-emerald-600 hover:bg-emerald-700',
-        accent: 'bg-emerald-500'
+        accent: 'bg-emerald-500',
+        statBg: 'bg-emerald-500/10'
       },
       amber: {
         bg: 'from-amber-500/20 to-amber-600/30',
@@ -58,7 +65,8 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
         glow: 'shadow-amber-500/20',
         text: 'text-amber-300',
         button: 'bg-amber-600 hover:bg-amber-700',
-        accent: 'bg-amber-500'
+        accent: 'bg-amber-500',
+        statBg: 'bg-amber-500/10'
       },
       purple: {
         bg: 'from-purple-500/20 to-purple-600/30',
@@ -66,7 +74,8 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
         glow: 'shadow-purple-500/20',
         text: 'text-purple-300',
         button: 'bg-purple-600 hover:bg-purple-700',
-        accent: 'bg-purple-500'
+        accent: 'bg-purple-500',
+        statBg: 'bg-purple-500/10'
       }
     };
     return colorMap[color as keyof typeof colorMap] || colorMap.blue;
@@ -82,7 +91,7 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
 
   return (
     <div 
-      className="relative w-full h-[500px] overflow-hidden rounded-2xl"
+      className="relative w-full h-[600px] overflow-hidden rounded-2xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
@@ -126,63 +135,36 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
                 relative h-full bg-gradient-to-br ${colors.bg} backdrop-blur-xl 
                 rounded-2xl border ${colors.border} 
                 shadow-2xl ${colors.glow} 
-                transition-all duration-700 ease-out
-                ${isHoveredCard ? 'scale-[1.02] shadow-4xl' : 'scale-100'}
+                transition-all duration-500 ease-out
+                ${isHoveredCard ? 'scale-[1.02]' : 'scale-100'}
                 overflow-hidden group
               `}>
                 
-                {/* Core Platform Indicator */}
+                {/* Platform Indicators */}
                 {item.isCore && (
                   <div className="absolute top-4 right-4 z-10">
                     <div className={`flex items-center ${colors.text} ${colors.bg} px-3 py-1 rounded-full border ${colors.border} text-xs font-bold`}>
                       <Cpu className="w-3 h-3 mr-1" />
-                      CORE AI
+                      CORE AI PLATFORM
                     </div>
                   </div>
                 )}
 
-                {/* Powered By Indicator */}
                 {item.poweredBy && (
                   <div className="absolute top-4 right-4 z-10">
                     <div className={`flex items-center ${colors.text} ${colors.bg} px-3 py-1 rounded-full border ${colors.border} text-xs font-medium`}>
                       <Network className="w-3 h-3 mr-1" />
-                      Powered by {item.poweredBy}
+                      Powered by {item.poweredBy} AI
                     </div>
                   </div>
                 )}
 
-                {/* Launch Date Indicator */}
                 {item.launchDate && (
                   <div className="absolute top-4 right-4 z-10">
                     <div className={`flex items-center ${colors.text} ${colors.bg} px-3 py-1 rounded-full border ${colors.border} text-xs font-medium`}>
                       <Zap className="w-3 h-3 mr-1" />
                       {item.launchDate}
                     </div>
-                  </div>
-                )}
-                
-                {/* Animated Background Effect */}
-                <div className={`
-                  absolute inset-0 bg-gradient-to-r ${colors.bg} 
-                  opacity-0 group-hover:opacity-100 
-                  transition-opacity duration-500
-                `} />
-                
-                {/* Floating Particles Effect */}
-                {isHoveredCard && (
-                  <div className="absolute inset-0 overflow-hidden">
-                    {[...Array(8)].map((_, i) => (
-                      <div
-                        key={i}
-                        className={`absolute w-1 h-1 ${colors.accent} rounded-full animate-ping`}
-                        style={{
-                          left: `${15 + i * 12}%`,
-                          top: `${10 + i * 8}%`,
-                          animationDelay: `${i * 0.3}s`,
-                          animationDuration: '2s'
-                        }}
-                      />
-                    ))}
                   </div>
                 )}
                 
@@ -193,10 +175,9 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
                       <div className={`
                         w-20 h-20 rounded-2xl bg-gradient-to-br ${colors.bg} 
                         flex items-center justify-center mr-6
-                        ${isHoveredCard ? 'animate-pulse' : ''}
-                        transition-all duration-500 shadow-lg
+                        transition-all duration-300 shadow-lg
                       `}>
-                        <Icon className={`w-10 h-10 ${colors.text} ${isHoveredCard ? 'scale-110' : ''} transition-transform duration-500`} />
+                        <Icon className={`w-10 h-10 ${colors.text}`} />
                       </div>
                       <div className="flex-1">
                         <h3 className={`text-3xl font-bold ${colors.text} font-heading mb-2`}>
@@ -207,8 +188,72 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
                         </p>
                       </div>
                     </div>
-                    
-                    {/* Interactive Link Button */}
+                  </div>
+                  
+                  {/* Description */}
+                  <div className="mb-6">
+                    <p className="text-slate-300 leading-relaxed font-body text-base">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  {/* Statistics Section */}
+                  {item.statistics && (
+                    <div className="mb-6">
+                      <div className="grid grid-cols-2 gap-4">
+                        {item.statistics.map((stat, statIndex) => (
+                          <div
+                            key={statIndex}
+                            className={`${colors.statBg} rounded-lg p-3 border ${colors.border}`}
+                          >
+                            <div className={`text-lg font-bold ${colors.text}`}>
+                              {stat.value}
+                            </div>
+                            <div className="text-slate-400 text-xs">
+                              {stat.label}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Synergies Section */}
+                  {item.synergies && (
+                    <div className="mb-6">
+                      <div className="flex items-center mb-3">
+                        <Workflow className={`w-4 h-4 ${colors.text} mr-2`} />
+                        <span className={`text-sm font-medium ${colors.text}`}>Platform Synergies</span>
+                      </div>
+                      <div className="space-y-2">
+                        {item.synergies.map((synergy, synergyIndex) => (
+                          <div key={synergyIndex} className="flex items-start">
+                            <div className={`w-1.5 h-1.5 ${colors.accent} rounded-full mt-2 mr-3 flex-shrink-0`} />
+                            <span className="text-slate-300 text-sm">{synergy}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Features */}
+                  <div className="flex flex-wrap gap-3 mt-auto mb-16">
+                    {item.features.map((feature, featureIndex) => (
+                      <span
+                        key={featureIndex}
+                        className={`
+                          px-4 py-2 rounded-full text-sm font-medium
+                          bg-slate-800/60 ${colors.text} border ${colors.border}
+                          transition-all duration-300 backdrop-blur-sm
+                        `}
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Website Link - Bottom Right */}
+                  <div className="absolute bottom-6 right-6">
                     <a
                       href={item.website}
                       target="_blank"
@@ -216,68 +261,15 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
                       className={`
                         group/link relative p-4 rounded-full ${colors.button} 
                         transition-all duration-300 hover:scale-110
-                        ${isHoveredCard ? 'animate-bounce' : ''}
                         shadow-lg hover:shadow-xl
+                        ${isHoveredCard ? 'animate-[bounce_3s_ease-in-out_infinite]' : ''}
                       `}
                     >
                       <Globe className="w-6 h-6 text-white transition-transform duration-300 group-hover/link:rotate-12" />
                       <ExternalLink className="absolute inset-0 w-6 h-6 text-white m-auto opacity-0 group-hover/link:opacity-100 transition-opacity duration-300" />
-                      
-                      {/* Ripple Effect */}
-                      <div className={`
-                        absolute inset-0 rounded-full ${colors.button.split(' ')[0]} 
-                        animate-ping opacity-20 group-hover/link:opacity-40
-                      `} />
                     </a>
                   </div>
-                  
-                  {/* Description */}
-                  <div className="flex-1 mb-6">
-                    <p className={`
-                      text-slate-300 leading-relaxed font-body text-base
-                      ${isHoveredCard ? 'text-slate-200' : ''}
-                      transition-colors duration-500
-                    `}>
-                      {item.description}
-                    </p>
-                  </div>
-                  
-                  {/* Features */}
-                  <div className="flex flex-wrap gap-3 mt-auto">
-                    {item.features.map((feature, featureIndex) => (
-                      <span
-                        key={featureIndex}
-                        className={`
-                          px-4 py-2 rounded-full text-sm font-medium
-                          bg-slate-800/60 ${colors.text} border ${colors.border}
-                          ${isHoveredCard ? 'animate-pulse shadow-lg' : ''}
-                          transition-all duration-300 backdrop-blur-sm
-                        `}
-                        style={{ animationDelay: `${featureIndex * 0.1}s` }}
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  {/* Hover Indicator */}
-                  {isHoveredCard && (
-                    <div className="absolute bottom-6 right-6">
-                      <div className={`flex items-center ${colors.text} text-sm font-medium animate-bounce`}>
-                        <Zap className="w-4 h-4 mr-2" />
-                        Visit Platform
-                      </div>
-                    </div>
-                  )}
                 </div>
-
-                {/* Connection Lines for AKOULA-powered platforms */}
-                {item.poweredBy && isHoveredCard && (
-                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4">
-                    <div className="w-8 h-px bg-gradient-to-r from-blue-400/60 to-transparent animate-pulse"></div>
-                    <div className="w-2 h-2 bg-blue-400 rounded-full -mt-1 animate-ping"></div>
-                  </div>
-                )}
               </div>
             </div>
           );
@@ -297,9 +289,6 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
           />
         ))}
       </div>
-      
-      {/* Enhanced Edge Glow */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-blue-500/5 to-transparent animate-pulse pointer-events-none" />
     </div>
   );
 };
