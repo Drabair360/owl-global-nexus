@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, TrendingUp, Users, Cpu, Factory, Zap, Target, Wrench, Network, Building2 } from 'lucide-react';
@@ -41,7 +39,7 @@ const Hero = () => {
                     </linearGradient>
                   </defs>
                 </svg>
-                <span style={{ fill: 'url(#textGradient)', WebkitTextFillColor: 'transparent', WebkitBackgroundClip: 'text', backgroundImage: 'linear-gradient(45deg, #d97706, #f97316, #fbbf24, #eab308, #facc15)', WebkitBackgroundClip: 'text' }} className="font-bold drop-shadow-2xl">
+                <span style={{ WebkitTextFillColor: 'transparent', backgroundImage: 'linear-gradient(45deg, #d97706, #f97316, #fbbf24, #eab308, #facc15)', WebkitBackgroundClip: 'text' }} className="font-bold drop-shadow-2xl">
                   Africa
                 </span>
               </span>
@@ -182,4 +180,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
