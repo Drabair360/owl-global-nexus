@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, TrendingUp, Users, Cpu, Factory, Zap, Target, Wrench, Network, Building2 } from 'lucide-react';
@@ -63,7 +64,7 @@ const Hero = () => {
       </section>
 
       {/* Strategic Investment Portfolio Section - Plain Background */}
-      <section className="relative py-32 bg-[#f7f5f3]">
+      <section className="relative py-20 bg-[#f7f5f3]">
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-20">
