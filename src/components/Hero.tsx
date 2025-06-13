@@ -62,10 +62,8 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* Strategic Investment Portfolio Section - Light & Sophisticated */}
+      {/* Strategic Investment Portfolio Section - Plain Background */}
       <section className="relative py-32 bg-[#f7f5f3]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8),rgba(59,130,246,0.05)_70%)]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-blue-50" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-20">
