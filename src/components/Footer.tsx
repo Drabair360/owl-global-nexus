@@ -24,7 +24,7 @@ const Footer = () => {
                 </span>
                 <span style={{
                 fontFamily: 'Avenir Next, sans-serif'
-              }} className="text-sm font-bold text-white-300 -mt-1">SAS</span>
+              }} className="text-sm text-white-300 -mt-1 font-semibold">SAS</span>
               </div>
             </div>
             
