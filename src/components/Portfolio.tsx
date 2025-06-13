@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 
 const Portfolio = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-amber-50 via-orange-50 to-white relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-tl from-white via-orange-50 to-amber-50 relative overflow-hidden">
       {/* Sophisticated Light Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(34,197,94,0.04),transparent_40%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(59,130,246,0.04),transparent_40%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,191,36,0.03),transparent_50%)]" />
-      <div className="absolute inset-0 bg-gradient-to-tl from-white via-orange-50 to-amber-50" />
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-white" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Flagship Ventures Title */}
