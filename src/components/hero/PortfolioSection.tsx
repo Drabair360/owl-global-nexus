@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Factory, Building2, Cpu, Network, Users, Zap, Wrench, Target, Globe, TrendingUp } from 'lucide-react';
 import PortfolioCard from './PortfolioCard';
@@ -5,16 +6,6 @@ import PortfolioCard from './PortfolioCard';
 const PortfolioSection = () => {
   return (
     <section className="relative py-32 overflow-hidden">
-      {/* Keep only the subtle overlay effects and animations, no backgrounds */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(251,146,60,0.12),transparent_60%)]" />
-      <div className="absolute inset-0 bg-[conic-gradient(from_0deg_at_50%_50%,transparent,rgba(34,197,94,0.05),transparent,rgba(147,51,234,0.05),transparent)]" />
-      
-      {/* Animated Grid Overlay - keeping the visual identity */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(180deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:80px_80px] animate-pulse" />
-      </div>
-
       {/* Enhanced SVG Gradients for Financial Look */}
       <svg width="0" height="0" className="absolute">
         <defs>
