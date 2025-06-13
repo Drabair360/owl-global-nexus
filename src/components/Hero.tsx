@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, TrendingUp, Users, Cpu, Factory, Zap, Target, Wrench, Network, Building2 } from 'lucide-react';
@@ -43,7 +44,9 @@ const Hero = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-20">
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 group hover-institutional hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)]">
                 <div className="w-12 h-12 mx-auto mb-6 relative">
-                  <Globe className="w-12 h-12 text-amber-400 transition-transform duration-300 group-hover:scale-110" />
+                  <div className="w-12 h-12 bg-gradient-to-r from-amber-600 via-orange-500 via-amber-400 via-yellow-500 via-orange-400 via-amber-500 via-yellow-600 via-orange-600 via-amber-700 via-yellow-500 via-orange-500 via-amber-600 to-yellow-400 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                    <Globe className="w-8 h-8 text-white" />
+                  </div>
                 </div>
                 <h3 className="text-xl font-brand font-semibold text-white mb-4 tracking-wide">GLOBAL REACH</h3>
                 <p className="text-blue-100 font-body">Operating across Africa and Europe with strategic partnerships worldwide</p>
@@ -51,7 +54,9 @@ const Hero = () => {
               
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 group hover-institutional hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)]">
                 <div className="w-12 h-12 mx-auto mb-6 relative">
-                  <TrendingUp className="w-12 h-12 text-amber-400 transition-transform duration-300 group-hover:scale-110" />
+                  <div className="w-12 h-12 bg-gradient-to-r from-amber-600 via-orange-500 via-amber-400 via-yellow-500 via-orange-400 via-amber-500 via-yellow-600 via-orange-600 via-amber-700 via-yellow-500 via-orange-500 via-amber-600 to-yellow-400 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                    <TrendingUp className="w-8 h-8 text-white" />
+                  </div>
                 </div>
                 <h3 className="text-xl font-brand font-semibold text-white mb-4 tracking-wide">INNOVATION-DRIVEN</h3>
                 <p className="text-blue-100 font-body">Pioneering AI-powered platforms and industrial solutions</p>
@@ -59,7 +64,9 @@ const Hero = () => {
               
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 group hover-institutional hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)]">
                 <div className="w-12 h-12 mx-auto mb-6 relative">
-                  <Users className="w-12 h-12 text-amber-400 transition-transform duration-300 group-hover:scale-110" />
+                  <div className="w-12 h-12 bg-gradient-to-r from-amber-600 via-orange-500 via-amber-400 via-yellow-500 via-orange-400 via-amber-500 via-yellow-600 via-orange-600 via-amber-700 via-yellow-500 via-orange-500 via-amber-600 to-yellow-400 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                    <Users className="w-8 h-8 text-white" />
+                  </div>
                 </div>
                 <h3 className="text-xl font-brand font-semibold text-white mb-4 tracking-wide">COMMUNITY IMPACT</h3>
                 <p className="text-blue-100 font-body">Creating sustainable opportunities and transforming lives</p>
@@ -155,3 +162,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
