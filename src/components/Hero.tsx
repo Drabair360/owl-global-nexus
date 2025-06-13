@@ -94,85 +94,270 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* Strategic Investment Portfolio Section - Plain Background */}
-      <section className="relative py-20 bg-[#f7f5f3]">
+      {/* Strategic Investment Portfolio Section - Futuristic Financial Institution Design */}
+      <section className="relative py-32 bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 overflow-hidden">
+        {/* Futuristic Background Elements */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(251,146,60,0.12),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[conic-gradient(from_0deg_at_50%_50%,transparent,rgba(34,197,94,0.05),transparent,rgba(147,51,234,0.05),transparent)]" />
+        
+        {/* Animated Grid Overlay */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(180deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:80px_80px] animate-pulse" />
+        </div>
+
+        {/* Enhanced SVG Gradients for Financial Look */}
+        <svg width="0" height="0" className="absolute">
+          <defs>
+            <linearGradient id="financialGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#10b981" />
+              <stop offset="50%" stopColor="#06b6d4" />
+              <stop offset="100%" stopColor="#3b82f6" />
+            </linearGradient>
+            <linearGradient id="financialGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#3b82f6" />
+              <stop offset="50%" stopColor="#6366f1" />
+              <stop offset="100%" stopColor="#8b5cf6" />
+            </linearGradient>
+            <linearGradient id="financialGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f59e0b" />
+              <stop offset="50%" stopColor="#f97316" />
+              <stop offset="100%" stopColor="#dc2626" />
+            </linearGradient>
+            <linearGradient id="financialGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#8b5cf6" />
+              <stop offset="50%" stopColor="#a855f7" />
+              <stop offset="100%" stopColor="#d946ef" />
+            </linearGradient>
+            <linearGradient id="financialGradient5" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ec4899" />
+              <stop offset="50%" stopColor="#f43f5e" />
+              <stop offset="100%" stopColor="#ef4444" />
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge> 
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+        </svg>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-20">
-            {/* Agro-Industrial Solutions */}
-            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-emerald-100/60 shadow-[0_8px_32px_rgba(34,197,94,0.08)] hover:shadow-[0_20px_60px_rgba(34,197,94,0.15)] transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-emerald-400/10 to-emerald-500/20 rounded-bl-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-emerald-300/10 to-emerald-400/15 rounded-tr-3xl"></div>
-              <Factory className="w-14 h-14 text-emerald-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-emerald-600" />
-              <h3 className="text-xl font-semibold text-emerald-800 mb-4 leading-tight" style={{
-              fontFamily: 'Avenir Next, sans-serif'
-            }}>Agro-Industrial Solutions</h3>
-              <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">Complete agro-industrial transformation from farm to market, integrating smart technology with traditional farming wisdom for sustainable food security across Africa.</p>
-              <div className="flex items-center text-xs text-emerald-600 font-medium">
-                <Zap className="w-4 h-4 mr-2 text-emerald-500" />
-                Smart farming ecosystems
+            
+            {/* Agro-Industrial Solutions - Enhanced Financial Design */}
+            <div className="relative group transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-cyan-500/15 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-700" />
+              <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl rounded-2xl p-8 border border-emerald-400/30 shadow-[0_8px_32px_rgba(16,185,129,0.15)] hover:shadow-[0_20px_60px_rgba(16,185,129,0.25)] transition-all duration-700 overflow-hidden">
+                
+                {/* Futuristic Corner Elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-emerald-400/10 via-cyan-400/5 to-transparent rounded-bl-3xl" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-emerald-300/8 to-transparent rounded-tr-3xl" />
+                
+                {/* Animated Border Effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-400/0 via-emerald-400/20 to-emerald-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                {/* Enhanced Icon with Glow */}
+                <div className="relative mb-8">
+                  <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-lg animate-pulse" />
+                  <Factory className="relative w-16 h-16 transition-all duration-700 group-hover:scale-125 group-hover:rotate-12" 
+                         stroke="url(#financialGradient1)" strokeWidth="1.5" filter="url(#glow)" />
+                </div>
+                
+                <h3 className="text-xl font-semibold mb-6 leading-tight bg-gradient-to-r from-emerald-300 to-cyan-300 bg-clip-text text-transparent" style={{
+                fontFamily: 'Avenir Next, sans-serif'
+              }}>
+                  Agro-Industrial Solutions
+                </h3>
+                
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 group-hover:text-slate-200 transition-colors duration-500">
+                  Complete agro-industrial transformation from farm to market, integrating smart technology with traditional farming wisdom for sustainable food security across Africa.
+                </p>
+                
+                <div className="flex items-center text-xs font-medium">
+                  <div className="flex items-center text-emerald-300 bg-emerald-400/10 px-3 py-2 rounded-full border border-emerald-400/20">
+                    <Zap className="w-4 h-4 mr-2" stroke="url(#financialGradient1)" />
+                    Smart farming ecosystems
+                  </div>
+                </div>
+                
+                {/* Data Visualization Elements */}
+                <div className="absolute bottom-4 right-4 opacity-30 group-hover:opacity-60 transition-opacity duration-500">
+                  <div className="flex space-x-1">
+                    <div className="w-1 h-8 bg-emerald-400 rounded animate-pulse" style={{animationDelay: '0s'}} />
+                    <div className="w-1 h-6 bg-emerald-400 rounded animate-pulse" style={{animationDelay: '0.2s'}} />
+                    <div className="w-1 h-10 bg-emerald-400 rounded animate-pulse" style={{animationDelay: '0.4s'}} />
+                    <div className="w-1 h-4 bg-emerald-400 rounded animate-pulse" style={{animationDelay: '0.6s'}} />
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Turnkey Projects */}
-            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-blue-100/60 shadow-[0_8px_32px_rgba(59,130,246,0.08)] hover:shadow-[0_20px_60px_rgba(59,130,246,0.15)] transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-400/10 to-blue-500/20 rounded-bl-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-300/10 to-blue-400/15 rounded-tr-3xl"></div>
-              <Building2 className="w-14 h-14 text-blue-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-blue-600" />
-              <h3 className="text-xl font-semibold text-blue-800 mb-4 leading-tight" style={{
-              fontFamily: 'Avenir Next, sans-serif'
-            }}>Turnkey Projects</h3>
-              <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">End-to-end project delivery combining agro-tech innovations, AI integration, and industrial automation for maximum efficiency, cost optimization, and transformative impact.</p>
-              <div className="flex items-center text-xs text-blue-600 font-medium">
-                <Wrench className="w-4 h-4 mr-2 text-blue-500" />
-                Complete project lifecycle
+            {/* Turnkey Projects - Enhanced Financial Design */}
+            <div className="relative group transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-indigo-500/15 to-purple-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-700" />
+              <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl rounded-2xl p-8 border border-blue-400/30 shadow-[0_8px_32px_rgba(59,130,246,0.15)] hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)] transition-all duration-700 overflow-hidden">
+                
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-400/10 via-indigo-400/5 to-transparent rounded-bl-3xl" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-300/8 to-transparent rounded-tr-3xl" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/0 via-blue-400/20 to-blue-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                <div className="relative mb-8">
+                  <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-lg animate-pulse" />
+                  <Building2 className="relative w-16 h-16 transition-all duration-700 group-hover:scale-125 group-hover:-rotate-12" 
+                           stroke="url(#financialGradient2)" strokeWidth="1.5" filter="url(#glow)" />
+                </div>
+                
+                <h3 className="text-xl font-semibold mb-6 leading-tight bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent" style={{
+                fontFamily: 'Avenir Next, sans-serif'
+              }}>
+                  Turnkey Projects
+                </h3>
+                
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 group-hover:text-slate-200 transition-colors duration-500">
+                  End-to-end project delivery combining agro-tech innovations, AI integration, and industrial automation for maximum efficiency, cost optimization, and transformative impact.
+                </p>
+                
+                <div className="flex items-center text-xs font-medium">
+                  <div className="flex items-center text-blue-300 bg-blue-400/10 px-3 py-2 rounded-full border border-blue-400/20">
+                    <Wrench className="w-4 h-4 mr-2" stroke="url(#financialGradient2)" />
+                    Complete project lifecycle
+                  </div>
+                </div>
+                
+                <div className="absolute bottom-4 right-4 opacity-30 group-hover:opacity-60 transition-opacity duration-500">
+                  <div className="w-8 h-8 border-2 border-blue-400 rounded-full animate-spin" style={{borderTopColor: 'transparent'}} />
+                </div>
               </div>
             </div>
 
-            {/* Digital Innovation */}
-            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-amber-100/60 shadow-[0_8px_32px_rgba(251,191,36,0.08)] hover:shadow-[0_20px_60px_rgba(251,191,36,0.15)] transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-amber-400/10 to-amber-500/20 rounded-bl-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-amber-300/10 to-amber-400/15 rounded-tr-3xl"></div>
-              <Cpu className="w-14 h-14 text-amber-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-amber-600" />
-              <h3 className="text-xl font-semibold text-amber-800 mb-4 leading-tight" style={{
-              fontFamily: 'Avenir Next, sans-serif'
-            }}>Digital Innovation & Integration</h3>
-              <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">Cutting-edge AI-powered platforms and digital solutions that revolutionize how African & European businesses connect, operate, and scale in the global marketplace.</p>
-              <div className="flex items-center text-xs text-amber-600 font-medium">
-                <Target className="w-4 h-4 mr-2 text-amber-500" />
-                AI-powered transformation
+            {/* Digital Innovation - Enhanced Financial Design */}
+            <div className="relative group transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-orange-500/15 to-red-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-700" />
+              <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl rounded-2xl p-8 border border-amber-400/30 shadow-[0_8px_32px_rgba(245,158,11,0.15)] hover:shadow-[0_20px_60px_rgba(245,158,11,0.25)] transition-all duration-700 overflow-hidden">
+                
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-amber-400/10 via-orange-400/5 to-transparent rounded-bl-3xl" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-amber-300/8 to-transparent rounded-tr-3xl" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400/0 via-amber-400/20 to-amber-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                <div className="relative mb-8">
+                  <div className="absolute inset-0 bg-amber-400/20 rounded-full blur-lg animate-pulse" />
+                  <Cpu className="relative w-16 h-16 transition-all duration-700 group-hover:scale-125 group-hover:rotate-180" 
+                        stroke="url(#financialGradient3)" strokeWidth="1.5" filter="url(#glow)" />
+                </div>
+                
+                <h3 className="text-xl font-semibold mb-6 leading-tight bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent" style={{
+                fontFamily: 'Avenir Next, sans-serif'
+              }}>
+                  Digital Innovation & Integration
+                </h3>
+                
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 group-hover:text-slate-200 transition-colors duration-500">
+                  Cutting-edge AI-powered platforms and digital solutions that revolutionize how African & European businesses connect, operate, and scale in the global marketplace.
+                </p>
+                
+                <div className="flex items-center text-xs font-medium">
+                  <div className="flex items-center text-amber-300 bg-amber-400/10 px-3 py-2 rounded-full border border-amber-400/20">
+                    <Target className="w-4 h-4 mr-2" stroke="url(#financialGradient3)" />
+                    AI-powered transformation
+                  </div>
+                </div>
+                
+                <div className="absolute bottom-4 right-4 opacity-30 group-hover:opacity-60 transition-opacity duration-500">
+                  <div className="grid grid-cols-3 gap-1">
+                    <div className="w-2 h-2 bg-amber-400 rounded animate-ping" style={{animationDelay: '0s'}} />
+                    <div className="w-2 h-2 bg-amber-400 rounded animate-ping" style={{animationDelay: '0.3s'}} />
+                    <div className="w-2 h-2 bg-amber-400 rounded animate-ping" style={{animationDelay: '0.6s'}} />
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Integrated Industrial Marketplace */}
-            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-purple-100/60 shadow-[0_8px_32px_rgba(147,51,234,0.08)] hover:shadow-[0_20px_60px_rgba(147,51,234,0.15)] transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-400/10 to-purple-500/20 rounded-bl-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-purple-300/10 to-purple-400/15 rounded-tr-3xl"></div>
-              <Network className="w-14 h-14 text-purple-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-purple-600" />
-              <h3 className="text-xl font-semibold text-purple-800 mb-4 leading-tight" style={{
-              fontFamily: 'Avenir Next, sans-serif'
-            }}>Integrated Industrial Marketplace</h3>
-              <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">Comprehensive B2B platform connecting manufacturers, suppliers, and service providers across Africa's industrial value chain with global opportunities.</p>
-              <div className="flex items-center text-xs text-purple-600 font-medium">
-                <Globe className="w-4 h-4 mr-2 text-purple-500" />
-                Pan-African network
+            {/* Integrated Industrial Marketplace - Enhanced Financial Design */}
+            <div className="relative group transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-violet-500/15 to-fuchsia-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-700" />
+              <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl rounded-2xl p-8 border border-purple-400/30 shadow-[0_8px_32px_rgba(147,51,234,0.15)] hover:shadow-[0_20px_60px_rgba(147,51,234,0.25)] transition-all duration-700 overflow-hidden">
+                
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-purple-400/10 via-violet-400/5 to-transparent rounded-bl-3xl" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-purple-300/8 to-transparent rounded-tr-3xl" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-400/0 via-purple-400/20 to-purple-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                <div className="relative mb-8">
+                  <div className="absolute inset-0 bg-purple-400/20 rounded-full blur-lg animate-pulse" />
+                  <Network className="relative w-16 h-16 transition-all duration-700 group-hover:scale-125 group-hover:rotate-45" 
+                          stroke="url(#financialGradient4)" strokeWidth="1.5" filter="url(#glow)" />
+                </div>
+                
+                <h3 className="text-xl font-semibold mb-6 leading-tight bg-gradient-to-r from-purple-300 to-violet-300 bg-clip-text text-transparent" style={{
+                fontFamily: 'Avenir Next, sans-serif'
+              }}>
+                  Integrated Industrial Marketplace
+                </h3>
+                
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 group-hover:text-slate-200 transition-colors duration-500">
+                  Comprehensive B2B platform connecting manufacturers, suppliers, and service providers across Africa's industrial value chain with global opportunities.
+                </p>
+                
+                <div className="flex items-center text-xs font-medium">
+                  <div className="flex items-center text-purple-300 bg-purple-400/10 px-3 py-2 rounded-full border border-purple-400/20">
+                    <Globe className="w-4 h-4 mr-2" stroke="url(#financialGradient4)" />
+                    Pan-African network
+                  </div>
+                </div>
+                
+                <div className="absolute bottom-4 right-4 opacity-30 group-hover:opacity-60 transition-opacity duration-500">
+                  <div className="relative">
+                    <div className="w-8 h-8 border border-purple-400 rounded-full animate-ping" />
+                    <div className="absolute inset-2 bg-purple-400 rounded-full animate-pulse" />
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Future of Talent Discovery */}
-            <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-rose-100/60 shadow-[0_8px_32px_rgba(244,63,94,0.08)] hover:shadow-[0_20px_60px_rgba(244,63,94,0.15)] transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-rose-400/10 to-rose-500/20 rounded-bl-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-rose-300/10 to-rose-400/15 rounded-tr-3xl"></div>
-              <Users className="w-14 h-14 text-rose-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-rose-600" />
-              <h3 className="text-xl font-semibold text-rose-800 mb-4 leading-tight" style={{
-              fontFamily: 'Avenir Next, sans-serif'
-            }}>Future of Talent Discovery</h3>
-              <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">AI-driven talent platforms connecting the world's creative and technical professionals with global opportunities for skills matching and development.</p>
-              <div className="flex items-center text-xs text-rose-600 font-medium">
-                <TrendingUp className="w-4 h-4 mr-2 text-rose-500" />
-                Global talent pipeline
+            {/* Future of Talent Discovery - Enhanced Financial Design */}
+            <div className="relative group transform transition-all duration-700 hover:-translate-y-4 hover:scale-105">
+              <div className="absolute inset-0 bg-gradient-to-br from-rose-500/20 via-pink-500/15 to-red-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-700" />
+              <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl rounded-2xl p-8 border border-rose-400/30 shadow-[0_8px_32px_rgba(244,63,94,0.15)] hover:shadow-[0_20px_60px_rgba(244,63,94,0.25)] transition-all duration-700 overflow-hidden">
+                
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-rose-400/10 via-pink-400/5 to-transparent rounded-bl-3xl" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-rose-300/8 to-transparent rounded-tr-3xl" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-rose-400/0 via-rose-400/20 to-rose-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                <div className="relative mb-8">
+                  <div className="absolute inset-0 bg-rose-400/20 rounded-full blur-lg animate-pulse" />
+                  <Users className="relative w-16 h-16 transition-all duration-700 group-hover:scale-125 group-hover:-rotate-45" 
+                         stroke="url(#financialGradient5)" strokeWidth="1.5" filter="url(#glow)" />
+                </div>
+                
+                <h3 className="text-xl font-semibold mb-6 leading-tight bg-gradient-to-r from-rose-300 to-pink-300 bg-clip-text text-transparent" style={{
+                fontFamily: 'Avenir Next, sans-serif'
+              }}>
+                  Future of Talent Discovery
+                </h3>
+                
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 group-hover:text-slate-200 transition-colors duration-500">
+                  AI-driven talent platforms connecting the world's creative and technical professionals with global opportunities for skills matching and development.
+                </p>
+                
+                <div className="flex items-center text-xs font-medium">
+                  <div className="flex items-center text-rose-300 bg-rose-400/10 px-3 py-2 rounded-full border border-rose-400/20">
+                    <TrendingUp className="w-4 h-4 mr-2" stroke="url(#financialGradient5)" />
+                    Global talent pipeline
+                  </div>
+                </div>
+                
+                <div className="absolute bottom-4 right-4 opacity-30 group-hover:opacity-60 transition-opacity duration-500">
+                  <div className="flex items-center space-x-1">
+                    <div className="w-2 h-2 bg-rose-400 rounded-full animate-bounce" style={{animationDelay: '0s'}} />
+                    <div className="w-2 h-2 bg-rose-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}} />
+                    <div className="w-2 h-2 bg-rose-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}} />
+                  </div>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
