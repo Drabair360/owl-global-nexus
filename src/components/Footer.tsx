@@ -1,11 +1,8 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, MapPin, Mail, Phone } from 'lucide-react';
-
 const Footer = () => {
-  return (
-    <footer className="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 relative overflow-hidden">
+  return <footer className="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 relative overflow-hidden">
       {/* Enhanced gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-800/20 via-transparent to-indigo-700/30 pointer-events-none"></div>
       <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-blue-900/40 to-blue-950/60 pointer-events-none"></div>
@@ -15,19 +12,16 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-2">
-              <img 
-                src="/lovable-uploads/4d7f9a85-a58b-4911-9097-b446f027e04a.png" 
-                alt="OWL International Logo" 
-                className="w-10 h-10 brightness-0 invert"
-                style={{ filter: 'brightness(0) invert(1)' }}
-              />
+              <img src="/lovable-uploads/4d7f9a85-a58b-4911-9097-b446f027e04a.png" alt="OWL International Logo" className="w-10 h-10 brightness-0 invert" style={{
+              filter: 'brightness(0) invert(1)'
+            }} />
               <div>
                 <span className="text-xl font-bold text-white tracking-wide">
                   OWL INTERNATIONAL
                 </span>
               </div>
             </div>
-            <div className="ml-13 mb-6">
+            <div className="ml-13 mb-6 px-[50px]">
               <span className="text-sm text-gray-300 font-normal">SAS</span>
             </div>
             <p className="text-gray-300 mb-6 text-sm leading-relaxed">
@@ -162,11 +156,7 @@ const Footer = () => {
                 Get updates on our latest projects and investment opportunities.
               </p>
               <div className="flex flex-col gap-3">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="px-4 py-2 bg-slate-800 border border-gray-600 rounded text-white placeholder-gray-400 focus:outline-none focus:border-orange-400 text-sm"
-                />
+                <input type="email" placeholder="Enter your email" className="px-4 py-2 bg-slate-800 border border-gray-600 rounded text-white placeholder-gray-400 focus:outline-none focus:border-orange-400 text-sm" />
                 <button className="px-6 py-2 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded hover:from-orange-600 hover:to-red-700 transition-colors duration-300 text-sm font-medium">
                   Subscribe
                 </button>
@@ -191,8 +181,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
