@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, TrendingUp, Users, Cpu, Factory, Zap, Target, Wrench, Network, Building2 } from 'lucide-react';
@@ -15,7 +14,7 @@ const Hero = () => {
           <div className="animate-sophisticated-fade">
             <h1 className="text-5xl md:text-6xl lg:text-7xl text-white mb-12 leading-tight font-heading">
               Transforming
-              <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 bg-clip-text text-transparent font-bold drop-shadow-2xl block mt-4 animate-pulse">
+              <span className="bg-gradient-to-r from-amber-600 via-orange-500 via-amber-400 via-yellow-500 via-orange-400 via-amber-500 to-yellow-400 bg-clip-text text-transparent font-bold drop-shadow-2xl block mt-4">
                 Africa
               </span>
               <span className="block mt-4">Through Innovation</span>
