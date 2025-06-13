@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, X, Instagram, MapPin, Mail, Phone } from 'lucide-react';
@@ -227,13 +226,13 @@ const Footer = () => {
 
             {/* Social Links */}
             <div className="flex items-center space-x-4 order-2">
-              <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+              <a href="https://www.linkedin.com/company/owlinternational" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+              <a href="https://x.com/owlinternational" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
                 <X size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+              <a href="https://www.instagram.com/owlinternational" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
                 <Instagram size={20} />
               </a>
             </div>
