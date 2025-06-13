@@ -1,40 +1,89 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ExternalLink, Globe, Zap, Leaf, Building, Users, Cpu, Network, Target, TrendingUp } from 'lucide-react';
+import { ArrowRight, ExternalLink, Globe, Zap, Leaf, Building, Users, Cpu, Network, Target, TrendingUp, Brain, BarChart3, Activity } from 'lucide-react';
 
 const Portfolio = () => {
   return (
-    <section className="relative py-20 bg-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-blue-50/30" />
+    <section className="relative py-20 bg-gradient-to-b from-slate-950 via-slate-100 to-white">
+      {/* Enhanced gradient overlay for smooth transition */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-50/60 to-white/90" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.08),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(251,146,60,0.06),transparent_60%)]" />
+      
+      {/* SVG Gradients for Financial Look */}
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <linearGradient id="financialBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#3b82f6" />
+            <stop offset="50%" stopColor="#1d4ed8" />
+            <stop offset="100%" stopColor="#1e40af" />
+          </linearGradient>
+          <linearGradient id="financialGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#10b981" />
+            <stop offset="50%" stopColor="#059669" />
+            <stop offset="100%" stopColor="#047857" />
+          </linearGradient>
+          <linearGradient id="financialAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#f59e0b" />
+            <stop offset="50%" stopColor="#d97706" />
+            <stop offset="100%" stopColor="#b45309" />
+          </linearGradient>
+          <linearGradient id="financialPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#8b5cf6" />
+            <stop offset="50%" stopColor="#7c3aed" />
+            <stop offset="100%" stopColor="#6d28d9" />
+          </linearGradient>
+          <filter id="institutionalGlow">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge> 
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+      </svg>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading text-slate-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-heading bg-gradient-to-r from-slate-800 via-blue-700 to-slate-900 bg-clip-text text-transparent mb-6">
             Flagship Ventures
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto font-body">
+          <p className="text-xl text-slate-700 max-w-3xl mx-auto font-body">
             Our portfolio companies are pioneering the future of technology, agriculture, real estate, and talent development across Africa and beyond.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {/* AKOULA - Electric Blue High Tech */}
-          <div className="group bg-gradient-to-br from-cyan-400/10 via-blue-500/10 to-indigo-600/10 backdrop-blur-xl rounded-3xl p-8 border border-cyan-300/30 shadow-[0_8px_32px_rgba(6,182,212,0.15)] hover:shadow-[0_20px_60px_rgba(6,182,212,0.25)] transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-            {/* Animated circuit pattern background */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-4 left-4 w-16 h-16 border border-cyan-400 rounded-lg animate-pulse"></div>
-              <div className="absolute top-8 right-8 w-8 h-8 border border-blue-500 rounded-full animate-ping"></div>
-              <div className="absolute bottom-6 left-12 w-12 h-12 border border-indigo-500 rounded-lg animate-pulse delay-300"></div>
+          {/* AKOULA - Advanced Financial Tech Design */}
+          <div className="group relative bg-gradient-to-br from-white via-blue-50/80 to-cyan-50/60 backdrop-blur-xl rounded-3xl border border-blue-200/40 shadow-[0_8px_32px_rgba(59,130,246,0.12)] hover:shadow-[0_20px_60px_rgba(59,130,246,0.20)] transition-all duration-700 hover:-translate-y-3 overflow-hidden">
+            {/* Futuristic Grid Background */}
+            <div className="absolute inset-0 opacity-[0.03]">
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(59,130,246,0.3)_1px,transparent_1px),linear-gradient(180deg,rgba(59,130,246,0.3)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
             </div>
             
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-blue-500/30 rounded-bl-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-400/20 to-indigo-500/25 rounded-tr-3xl"></div>
+            {/* Flowing Lines - Data Visualization */}
+            <div className="absolute top-0 right-0 w-48 h-48 opacity-10">
+              <svg width="192" height="192" viewBox="0 0 192 192" className="animate-pulse">
+                <path d="M20,100 Q60,60 100,80 T180,70" stroke="url(#financialBlue)" strokeWidth="2" fill="none" opacity="0.6"/>
+                <path d="M20,120 Q60,80 100,100 T180,90" stroke="url(#financialBlue)" strokeWidth="2" fill="none" opacity="0.4"/>
+                <path d="M20,140 Q60,100 100,120 T180,110" stroke="url(#financialBlue)" strokeWidth="2" fill="none" opacity="0.2"/>
+              </svg>
+            </div>
             
-            <div className="relative z-10">
+            {/* Institutional Corner Element */}
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-400/20 via-cyan-400/15 to-transparent rounded-bl-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-300/15 via-cyan-300/10 to-transparent rounded-tr-3xl"></div>
+            
+            <div className="relative z-10 p-8">
               <div className="flex items-center mb-6">
-                <Cpu className="w-12 h-12 text-cyan-500 mr-4 transition-all duration-500 group-hover:scale-110 group-hover:text-cyan-400 animate-pulse" />
-                <h3 className="text-2xl font-bold text-cyan-800" style={{
+                <div className="relative">
+                  <div className="absolute inset-0 bg-blue-400/20 rounded-xl blur-lg animate-pulse"></div>
+                  <div className="relative w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                    <Cpu className="w-7 h-7 text-white filter drop-shadow-sm" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-800 to-cyan-700 bg-clip-text text-transparent" style={{
                   fontFamily: 'Avenir Next, sans-serif'
                 }}>AKOULA</h3>
               </div>
@@ -44,34 +93,53 @@ const Portfolio = () => {
               </p>
               
               <div className="flex flex-wrap gap-2 mb-6">
-                <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">AI Analytics</span>
-                <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">IoT Integration</span>
-                <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">Smart Manufacturing</span>
+                <span className="px-4 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-800 rounded-full text-sm font-medium border border-blue-200/50">AI Analytics</span>
+                <span className="px-4 py-2 bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-800 rounded-full text-sm font-medium border border-cyan-200/50">IoT Integration</span>
+                <span className="px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-indigo-800 rounded-full text-sm font-medium border border-blue-200/50">Smart Manufacturing</span>
               </div>
               
-              <div className="flex items-center text-cyan-600 font-medium group-hover:text-cyan-500 transition-colors">
-                <Network className="w-5 h-5 mr-2" />
-                <span>Industrial Intelligence Platform</span>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center text-blue-700 font-medium group-hover:text-blue-600 transition-colors">
+                  <Brain className="w-5 h-5 mr-2" stroke="url(#financialBlue)" />
+                  <span>Industrial Intelligence Platform</span>
+                </div>
+                <div className="flex items-center space-x-2 opacity-40 group-hover:opacity-70 transition-opacity">
+                  <BarChart3 className="w-4 h-4 text-blue-500 animate-pulse" />
+                  <Activity className="w-4 h-4 text-cyan-500 animate-pulse" style={{animationDelay: '0.5s'}} />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* CAOAGRO.COM - Electric Green Agro Industrial */}
-          <div className="group bg-gradient-to-br from-lime-400/10 via-green-500/10 to-emerald-600/10 backdrop-blur-xl rounded-3xl p-8 border border-lime-300/30 shadow-[0_8px_32px_rgba(34,197,94,0.15)] hover:shadow-[0_20px_60px_rgba(34,197,94,0.25)] transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-            {/* Animated plant growth pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-6 left-6 w-12 h-12 border-2 border-lime-400 rounded-full animate-ping"></div>
-              <div className="absolute top-12 right-10 w-6 h-6 bg-green-400 rounded-full animate-bounce delay-150"></div>
-              <div className="absolute bottom-8 left-16 w-8 h-8 border border-emerald-500 rotate-45 animate-spin" style={{animationDuration: '8s'}}></div>
+          {/* CAOAGRO.COM - Enhanced Green Agro Design */}
+          <div className="group relative bg-gradient-to-br from-white via-emerald-50/80 to-green-50/60 backdrop-blur-xl rounded-3xl border border-emerald-200/40 shadow-[0_8px_32px_rgba(16,185,129,0.12)] hover:shadow-[0_20px_60px_rgba(16,185,129,0.20)] transition-all duration-700 hover:-translate-y-3 overflow-hidden">
+            {/* Growth Pattern Background */}
+            <div className="absolute inset-0 opacity-[0.04]">
+              <div className="absolute top-8 left-8 w-6 h-6 bg-emerald-400 rounded-full animate-ping"></div>
+              <div className="absolute top-16 right-12 w-4 h-4 bg-green-400 rounded-full animate-bounce delay-150"></div>
+              <div className="absolute bottom-12 left-16 w-5 h-5 bg-lime-400 rounded-full animate-pulse delay-300"></div>
             </div>
             
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-lime-400/20 to-green-500/30 rounded-bl-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-green-400/20 to-emerald-500/25 rounded-tr-3xl"></div>
+            {/* Organic Flow Lines */}
+            <div className="absolute top-0 right-0 w-48 h-48 opacity-10">
+              <svg width="192" height="192" viewBox="0 0 192 192" className="animate-pulse" style={{animationDuration: '4s'}}>
+                <path d="M40,160 Q80,120 120,140 Q160,100 180,120" stroke="url(#financialGreen)" strokeWidth="3" fill="none" opacity="0.6"/>
+                <path d="M20,140 Q60,100 100,120 Q140,80 160,100" stroke="url(#financialGreen)" strokeWidth="2" fill="none" opacity="0.4"/>
+              </svg>
+            </div>
             
-            <div className="relative z-10">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-emerald-400/20 via-green-400/15 to-transparent rounded-bl-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-green-300/15 via-emerald-300/10 to-transparent rounded-tr-3xl"></div>
+            
+            <div className="relative z-10 p-8">
               <div className="flex items-center mb-6">
-                <Leaf className="w-12 h-12 text-lime-500 mr-4 transition-all duration-500 group-hover:scale-110 group-hover:text-lime-400 animate-pulse" />
-                <h3 className="text-2xl font-bold text-green-800" style={{
+                <div className="relative">
+                  <div className="absolute inset-0 bg-emerald-400/20 rounded-xl blur-lg animate-pulse"></div>
+                  <div className="relative w-14 h-14 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                    <Leaf className="w-7 h-7 text-white filter drop-shadow-sm" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-emerald-800 to-green-700 bg-clip-text text-transparent" style={{
                   fontFamily: 'Avenir Next, sans-serif'
                 }}>CAOAGRO.COM</h3>
               </div>
@@ -81,34 +149,55 @@ const Portfolio = () => {
               </p>
               
               <div className="flex flex-wrap gap-2 mb-6">
-                <span className="px-3 py-1 bg-lime-100 text-lime-700 rounded-full text-sm font-medium">Smart Farming</span>
-                <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Supply Chain</span>
-                <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">Sustainability</span>
+                <span className="px-4 py-2 bg-gradient-to-r from-emerald-100 to-green-100 text-emerald-800 rounded-full text-sm font-medium border border-emerald-200/50">Smart Farming</span>
+                <span className="px-4 py-2 bg-gradient-to-r from-green-100 to-lime-100 text-green-800 rounded-full text-sm font-medium border border-green-200/50">Supply Chain</span>
+                <span className="px-4 py-2 bg-gradient-to-r from-lime-100 to-emerald-100 text-lime-800 rounded-full text-sm font-medium border border-emerald-200/50">Sustainability</span>
               </div>
               
-              <div className="flex items-center text-green-600 font-medium group-hover:text-green-500 transition-colors">
-                <Target className="w-5 h-5 mr-2" />
-                <span>Precision Agriculture Platform</span>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center text-emerald-700 font-medium group-hover:text-emerald-600 transition-colors">
+                  <Target className="w-5 h-5 mr-2" stroke="url(#financialGreen)" />
+                  <span>Precision Agriculture Platform</span>
+                </div>
+                <div className="flex items-center space-x-2 opacity-40 group-hover:opacity-70 transition-opacity">
+                  <div className="w-2 h-6 bg-emerald-400 rounded animate-pulse"></div>
+                  <div className="w-2 h-8 bg-green-400 rounded animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                  <div className="w-2 h-4 bg-lime-400 rounded animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* OWLOMA - Electric Yellow Real Estate Tech */}
-          <div className="group bg-gradient-to-br from-yellow-400/10 via-amber-500/10 to-orange-500/10 backdrop-blur-xl rounded-3xl p-8 border border-yellow-300/30 shadow-[0_8px_32px_rgba(251,191,36,0.15)] hover:shadow-[0_20px_60px_rgba(251,191,36,0.25)] transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-            {/* Animated building/construction pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-4 left-8 w-8 h-16 border-l-2 border-t-2 border-yellow-400 animate-pulse"></div>
-              <div className="absolute top-8 right-6 w-12 h-8 border-2 border-amber-500 animate-pulse delay-200"></div>
-              <div className="absolute bottom-6 left-6 w-10 h-10 border border-orange-500 transform rotate-45 animate-spin" style={{animationDuration: '12s'}}></div>
+          {/* OWLOMA - Sophisticated Real Estate Design */}
+          <div className="group relative bg-gradient-to-br from-white via-amber-50/80 to-orange-50/60 backdrop-blur-xl rounded-3xl border border-amber-200/40 shadow-[0_8px_32px_rgba(245,158,11,0.12)] hover:shadow-[0_20px_60px_rgba(245,158,11,0.20)] transition-all duration-700 hover:-translate-y-3 overflow-hidden">
+            {/* Architectural Grid Pattern */}
+            <div className="absolute inset-0 opacity-[0.03]">
+              <div className="absolute top-6 left-10 w-8 h-16 border-l-2 border-t-2 border-amber-400"></div>
+              <div className="absolute top-12 right-8 w-12 h-8 border-2 border-orange-400"></div>
+              <div className="absolute bottom-8 left-8 w-10 h-10 border border-yellow-500 transform rotate-45"></div>
             </div>
             
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-400/20 to-amber-500/30 rounded-bl-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-amber-400/20 to-orange-500/25 rounded-tr-3xl"></div>
+            {/* Geometric Flow */}
+            <div className="absolute top-0 right-0 w-48 h-48 opacity-10">
+              <svg width="192" height="192" viewBox="0 0 192 192">
+                <rect x="140" y="20" width="20" height="40" fill="url(#financialAmber)" opacity="0.3" className="animate-pulse"/>
+                <rect x="120" y="40" width="15" height="60" fill="url(#financialAmber)" opacity="0.2" className="animate-pulse" style={{animationDelay: '0.5s'}}/>
+                <rect x="160" y="30" width="12" height="50" fill="url(#financialAmber)" opacity="0.4" className="animate-pulse" style={{animationDelay: '1s'}}/>
+              </svg>
+            </div>
             
-            <div className="relative z-10">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-amber-400/20 via-orange-400/15 to-transparent rounded-bl-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-orange-300/15 via-amber-300/10 to-transparent rounded-tr-3xl"></div>
+            
+            <div className="relative z-10 p-8">
               <div className="flex items-center mb-6">
-                <Building className="w-12 h-12 text-yellow-500 mr-4 transition-all duration-500 group-hover:scale-110 group-hover:text-yellow-400 animate-pulse" />
-                <h3 className="text-2xl font-bold text-amber-800" style={{
+                <div className="relative">
+                  <div className="absolute inset-0 bg-amber-400/20 rounded-xl blur-lg animate-pulse"></div>
+                  <div className="relative w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                    <Building className="w-7 h-7 text-white filter drop-shadow-sm" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-amber-800 to-orange-700 bg-clip-text text-transparent" style={{
                   fontFamily: 'Avenir Next, sans-serif'
                 }}>OWLOMA</h3>
               </div>
@@ -118,35 +207,59 @@ const Portfolio = () => {
               </p>
               
               <div className="flex flex-wrap gap-2 mb-6">
-                <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">PropTech</span>
-                <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-medium">Smart Cities</span>
-                <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">Investment Analytics</span>
+                <span className="px-4 py-2 bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-800 rounded-full text-sm font-medium border border-amber-200/50">PropTech</span>
+                <span className="px-4 py-2 bg-gradient-to-r from-yellow-100 to-orange-100 text-orange-800 rounded-full text-sm font-medium border border-yellow-200/50">Smart Cities</span>
+                <span className="px-4 py-2 bg-gradient-to-r from-orange-100 to-amber-100 text-red-800 rounded-full text-sm font-medium border border-orange-200/50">Investment Analytics</span>
               </div>
               
-              <div className="flex items-center text-amber-600 font-medium group-hover:text-amber-500 transition-colors">
-                <Globe className="w-5 h-5 mr-2" />
-                <span>Smart Real Estate Ecosystem</span>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center text-amber-700 font-medium group-hover:text-amber-600 transition-colors">
+                  <Globe className="w-5 h-5 mr-2" stroke="url(#financialAmber)" />
+                  <span>Smart Real Estate Ecosystem</span>
+                </div>
+                <div className="flex items-center space-x-1 opacity-40 group-hover:opacity-70 transition-opacity">
+                  <div className="w-3 h-3 bg-amber-400 rounded-sm animate-pulse"></div>
+                  <div className="w-3 h-4 bg-orange-400 rounded-sm animate-pulse" style={{animationDelay: '0.3s'}}></div>
+                  <div className="w-3 h-2 bg-yellow-400 rounded-sm animate-pulse" style={{animationDelay: '0.6s'}}></div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* KIDZ LAB - Electric Light Blue & Pink Talent Tech */}
-          <div className="group bg-gradient-to-br from-sky-300/10 via-pink-300/10 to-purple-400/10 backdrop-blur-xl rounded-3xl p-8 border border-sky-200/40 shadow-[0_8px_32px_rgba(14,165,233,0.15)] hover:shadow-[0_20px_60px_rgba(236,72,153,0.25)] transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-            {/* Animated connection/network pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-6 left-10 w-4 h-4 bg-sky-400 rounded-full animate-ping"></div>
-              <div className="absolute top-12 right-12 w-6 h-6 bg-pink-400 rounded-full animate-bounce delay-100"></div>
-              <div className="absolute bottom-10 left-8 w-5 h-5 bg-purple-400 rounded-full animate-pulse delay-300"></div>
-              <div className="absolute top-16 left-20 w-0.5 h-8 bg-gradient-to-b from-sky-400 to-pink-400 animate-pulse"></div>
+          {/* KIDZ LAB - Human-Centered Creative Design */}
+          <div className="group relative bg-gradient-to-br from-white via-purple-50/80 to-pink-50/60 backdrop-blur-xl rounded-3xl border border-purple-200/40 shadow-[0_8px_32px_rgba(147,51,234,0.12)] hover:shadow-[0_20px_60px_rgba(147,51,234,0.20)] transition-all duration-700 hover:-translate-y-3 overflow-hidden">
+            {/* Connection Network Pattern */}
+            <div className="absolute inset-0 opacity-[0.04]">
+              <div className="absolute top-8 left-12 w-3 h-3 bg-purple-400 rounded-full"></div>
+              <div className="absolute top-14 right-16 w-4 h-4 bg-pink-400 rounded-full"></div>
+              <div className="absolute bottom-12 left-10 w-2 h-2 bg-violet-400 rounded-full"></div>
+              <div className="absolute top-12 left-16 w-0.5 h-8 bg-gradient-to-b from-purple-400 to-pink-400"></div>
+              <div className="absolute top-16 left-20 w-8 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400"></div>
             </div>
             
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-300/20 to-pink-400/30 rounded-bl-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-300/20 to-purple-400/25 rounded-tr-3xl"></div>
+            {/* Creative Flow Visualization */}
+            <div className="absolute top-0 right-0 w-48 h-48 opacity-10">
+              <svg width="192" height="192" viewBox="0 0 192 192">
+                <circle cx="160" cy="40" r="8" fill="url(#financialPurple)" opacity="0.6" className="animate-pulse"/>
+                <circle cx="140" cy="60" r="6" fill="url(#financialPurple)" opacity="0.4" className="animate-pulse" style={{animationDelay: '0.5s'}}/>
+                <circle cx="170" cy="70" r="4" fill="url(#financialPurple)" opacity="0.3" className="animate-pulse" style={{animationDelay: '1s'}}/>
+                <path d="M160,40 Q150,50 140,60" stroke="url(#financialPurple)" strokeWidth="1" fill="none" opacity="0.2"/>
+                <path d="M140,60 Q155,65 170,70" stroke="url(#financialPurple)" strokeWidth="1" fill="none" opacity="0.2"/>
+              </svg>
+            </div>
             
-            <div className="relative z-10">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-400/20 via-pink-400/15 to-transparent rounded-bl-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-pink-300/15 via-purple-300/10 to-transparent rounded-tr-3xl"></div>
+            
+            <div className="relative z-10 p-8">
               <div className="flex items-center mb-6">
-                <Users className="w-12 h-12 text-sky-500 mr-4 transition-all duration-500 group-hover:scale-110 group-hover:text-pink-500 animate-pulse" />
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-sky-600 to-pink-600 bg-clip-text text-transparent" style={{
+                <div className="relative">
+                  <div className="absolute inset-0 bg-purple-400/20 rounded-xl blur-lg animate-pulse"></div>
+                  <div className="relative w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                    <Users className="w-7 h-7 text-white filter drop-shadow-sm" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-800 to-pink-700 bg-clip-text text-transparent" style={{
                   fontFamily: 'Avenir Next, sans-serif'
                 }}>KIDZ LAB</h3>
               </div>
@@ -156,14 +269,21 @@ const Portfolio = () => {
               </p>
               
               <div className="flex flex-wrap gap-2 mb-6">
-                <span className="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-sm font-medium">AI Matching</span>
-                <span className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm font-medium">Talent Development</span>
-                <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Global Network</span>
+                <span className="px-4 py-2 bg-gradient-to-r from-purple-100 to-violet-100 text-purple-800 rounded-full text-sm font-medium border border-purple-200/50">AI Matching</span>
+                <span className="px-4 py-2 bg-gradient-to-r from-violet-100 to-pink-100 text-violet-800 rounded-full text-sm font-medium border border-violet-200/50">Talent Development</span>
+                <span className="px-4 py-2 bg-gradient-to-r from-pink-100 to-purple-100 text-pink-800 rounded-full text-sm font-medium border border-pink-200/50">Global Network</span>
               </div>
               
-              <div className="flex items-center text-sky-600 font-medium group-hover:text-pink-600 transition-colors">
-                <TrendingUp className="w-5 h-5 mr-2" />
-                <span>Next-Gen Talent Platform</span>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center text-purple-700 font-medium group-hover:text-purple-600 transition-colors">
+                  <TrendingUp className="w-5 h-5 mr-2" stroke="url(#financialPurple)" />
+                  <span>Next-Gen Talent Platform</span>
+                </div>
+                <div className="flex items-center space-x-2 opacity-40 group-hover:opacity-70 transition-opacity">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce"></div>
+                  <div className="w-2 h-2 bg-pink-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                  <div className="w-2 h-2 bg-violet-400 rounded-full animate-bounce" style={{animationDelay: '0.4s'}}></div>
+                </div>
               </div>
             </div>
           </div>
