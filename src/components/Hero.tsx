@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, TrendingUp, Users, Cpu, Factory, Zap, Target, Wrench, Network, Building2 } from 'lucide-react';
@@ -28,8 +29,21 @@ const Hero = () => {
           <div className="animate-sophisticated-fade">
             <h1 className="text-5xl md:text-6xl lg:text-7xl text-white mb-12 leading-tight font-heading">
               Transforming
-              <span className="bg-gradient-to-r from-amber-600 via-orange-500 via-amber-400 via-yellow-500 via-orange-400 via-amber-500 via-yellow-600 via-orange-600 via-amber-700 via-yellow-500 via-orange-500 via-amber-600 to-yellow-400 bg-clip-text text-transparent font-bold drop-shadow-2xl block mt-4">
-                Africa
+              <span className="block mt-4">
+                <svg width="0" height="0" className="absolute">
+                  <defs>
+                    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#d97706" />
+                      <stop offset="25%" stopColor="#f97316" />
+                      <stop offset="50%" stopColor="#fbbf24" />
+                      <stop offset="75%" stopColor="#eab308" />
+                      <stop offset="100%" stopColor="#facc15" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <span style={{ fill: 'url(#textGradient)', WebkitTextFillColor: 'transparent', WebkitBackgroundClip: 'text', backgroundImage: 'linear-gradient(45deg, #d97706, #f97316, #fbbf24, #eab308, #facc15)', WebkitBackgroundClip: 'text' }} className="font-bold drop-shadow-2xl">
+                  Africa
+                </span>
               </span>
               <span className="block mt-4">Through Innovation</span>
             </h1>
@@ -56,7 +70,7 @@ const Hero = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-20">
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 group hover-institutional hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)]">
                 <div className="w-12 h-12 mx-auto mb-6 relative">
-                  <Globe className="w-12 h-12 transition-transform duration-300 group-hover:scale-110" fill="url(#iconGradient)" />
+                  <Globe className="w-12 h-12 transition-transform duration-300 group-hover:scale-110" stroke="url(#iconGradient)" strokeWidth="2" />
                 </div>
                 <h3 className="text-xl font-brand font-semibold text-white mb-4 tracking-wide">GLOBAL REACH</h3>
                 <p className="text-blue-100 font-body">Operating across Africa and Europe with strategic partnerships worldwide</p>
@@ -168,3 +182,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
