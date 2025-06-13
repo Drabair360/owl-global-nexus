@@ -1,26 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, MapPin, Mail, Phone } from 'lucide-react';
+
 const Footer = () => {
-  return <footer className="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 relative overflow-hidden">
+  return (
+    <footer className="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 relative overflow-hidden">
       {/* Enhanced gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-blue-800/20 via-transparent to-indigo-700/30 pointer-events-none"></div>
-      <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-blue-900/40 to-blue-950/60 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-blue-800/30 via-transparent to-indigo-700/40 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-blue-900/50 to-blue-950/70 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-950/60 via-blue-800/40 to-indigo-900/60 pointer-events-none"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-white">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-16">
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-2">
-              <img src="/lovable-uploads/4d7f9a85-a58b-4911-9097-b446f027e04a.png" alt="OWL International Logo" className="w-10 h-10 brightness-0 invert" style={{
-              filter: 'brightness(0) invert(1)'
-            }} />
+              <img 
+                src="/lovable-uploads/4d7f9a85-a58b-4911-9097-b446f027e04a.png" 
+                alt="OWL International Logo" 
+                className="w-10 h-10 brightness-0 invert transition-transform duration-300 hover:scale-110" 
+              />
               <div>
                 <span className="text-xl font-bold text-white tracking-wide">
                   OWL INTERNATIONAL
                 </span>
               </div>
             </div>
+            
             <div className="ml-13 mb-6 px-[50px]">
               <span className="text-sm text-gray-300 font-normal">SAS</span>
             </div>
@@ -181,6 +187,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
