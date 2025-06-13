@@ -5,22 +5,30 @@ import { Linkedin, Twitter, MapPin, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 relative overflow-hidden">
+      {/* Enhanced gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-blue-800/20 via-transparent to-indigo-700/30 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-blue-900/40 to-blue-950/60 pointer-events-none"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-white">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-16">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-3 mb-6">
+            <div className="flex items-center space-x-3 mb-2">
               <img 
                 src="/lovable-uploads/4d7f9a85-a58b-4911-9097-b446f027e04a.png" 
                 alt="OWL International Logo" 
-                className="w-10 h-10"
+                className="w-10 h-10 brightness-0 invert"
+                style={{ filter: 'brightness(0) invert(1)' }}
               />
               <div>
                 <span className="text-xl font-bold text-white tracking-wide">
-                  OWL INTERNATIONAL SAS
+                  OWL INTERNATIONAL
                 </span>
               </div>
+            </div>
+            <div className="ml-13 mb-6">
+              <span className="text-sm text-gray-300 font-normal">SAS</span>
             </div>
             <p className="text-gray-300 mb-6 text-sm leading-relaxed">
               Transforming Africa through strategic investments, cutting-edge technology, 
@@ -44,11 +52,11 @@ const Footer = () => {
 
           {/* Right side columns container */}
           <div className="lg:col-span-3">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 text-right">
-              {/* Company & Portfolio combined */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14 text-right">
+              {/* Column 1: Company */}
               <div>
-                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">COMPANY</h3>
-                <ul className="space-y-3 mb-8">
+                <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-orange-300 to-red-400 bg-clip-text text-transparent tracking-wide">COMPANY</h3>
+                <ul className="space-y-4">
                   <li>
                     <Link to="/about" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                       About Owl
@@ -70,21 +78,21 @@ const Footer = () => {
                     </Link>
                   </li>
                 </ul>
+              </div>
 
-                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">PORTFOLIO</h3>
-                <ul className="space-y-3">
+              {/* Column 2: Portfolio & Investors */}
+              <div>
+                <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-orange-300 to-red-400 bg-clip-text text-transparent tracking-wide">PORTFOLIO</h3>
+                <ul className="space-y-4 mb-8">
                   <li>
                     <Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                       Investments
                     </Link>
                   </li>
                 </ul>
-              </div>
 
-              {/* Investors & Quick Links combined */}
-              <div>
-                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">INVESTORS</h3>
-                <ul className="space-y-3 mb-8">
+                <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-orange-300 to-red-400 bg-clip-text text-transparent tracking-wide">INVESTORS</h3>
+                <ul className="space-y-4">
                   <li>
                     <Link to="/investors" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                       Investor Portal
@@ -96,9 +104,12 @@ const Footer = () => {
                     </Link>
                   </li>
                 </ul>
+              </div>
 
-                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">QUICK LINKS</h3>
-                <ul className="space-y-3">
+              {/* Column 3: Quick Links */}
+              <div>
+                <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-orange-300 to-red-400 bg-clip-text text-transparent tracking-wide">QUICK LINKS</h3>
+                <ul className="space-y-4">
                   <li>
                     <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm flex items-center justify-end">
                       AKOULA <span className="ml-1 text-xs">↗</span>
@@ -121,32 +132,15 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-
-              {/* Stay Connected */}
-              <div>
-                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent tracking-wide">STAY CONNECTED</h3>
-                <p className="text-gray-300 mb-4 text-sm">
-                  Get updates on our latest projects and investment opportunities.
-                </p>
-                <div className="flex flex-col gap-3">
-                  <input 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    className="px-4 py-2 bg-slate-800 border border-gray-600 rounded text-white placeholder-gray-400 focus:outline-none focus:border-orange-400 text-sm"
-                  />
-                  <button className="px-6 py-2 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded hover:from-orange-600 hover:to-red-700 transition-colors duration-300 text-sm font-medium">
-                    Subscribe
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom section without border */}
+        {/* Bottom section with Stay Connected between contact and legal links */}
         <div className="pt-12 mt-12">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
-            <div className="flex flex-wrap gap-6">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-8 lg:space-y-0 lg:space-x-8">
+            {/* Legal Links */}
+            <div className="flex flex-wrap gap-6 order-3 lg:order-1">
               <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm" onClick={() => window.scrollTo(0, 0)}>
                 Privacy Policy
               </Link>
@@ -160,7 +154,27 @@ const Footer = () => {
                 Do Not Sell My Info
               </button>
             </div>
-            <div className="flex items-center space-x-4">
+
+            {/* Stay Connected */}
+            <div className="order-2 lg:order-2">
+              <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-orange-300 to-red-400 bg-clip-text text-transparent tracking-wide">STAY CONNECTED</h3>
+              <p className="text-gray-300 mb-4 text-sm">
+                Get updates on our latest projects and investment opportunities.
+              </p>
+              <div className="flex flex-col gap-3">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email" 
+                  className="px-4 py-2 bg-slate-800 border border-gray-600 rounded text-white placeholder-gray-400 focus:outline-none focus:border-orange-400 text-sm"
+                />
+                <button className="px-6 py-2 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded hover:from-orange-600 hover:to-red-700 transition-colors duration-300 text-sm font-medium">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center space-x-4 order-1 lg:order-3">
               <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-300">
                 <Linkedin size={20} />
               </a>
@@ -170,7 +184,7 @@ const Footer = () => {
             </div>
           </div>
           
-          <div className="mt-4">
+          <div className="mt-8 text-center lg:text-left">
             <p className="text-gray-400 text-sm">
               © 2025 OWL International SAS. All rights reserved.
             </p>
