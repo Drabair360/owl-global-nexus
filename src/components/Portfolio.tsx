@@ -8,7 +8,7 @@ import FlagshipVentureCard from './portfolio/FlagshipVentureCard';
 
 const Portfolio = () => {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative pt-16 pb-24 overflow-hidden">
       <SVGGradients />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

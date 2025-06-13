@@ -5,7 +5,7 @@ import PortfolioCard from './PortfolioCard';
 
 const PortfolioSection = () => {
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative py-32 pb-16 overflow-hidden">
       {/* Enhanced SVG Gradients for Financial Look */}
       <svg width="0" height="0" className="absolute">
         <defs>
