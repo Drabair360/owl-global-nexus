@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, MapPin, Mail, Phone } from 'lucide-react';
 import DoNotSellModal from './DoNotSellModal';
+
 const Footer = () => {
   const [isDoNotSellModalOpen, setIsDoNotSellModalOpen] = useState(false);
-  return <footer className="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 relative overflow-hidden">
+
+  return (
+    <footer className="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 relative overflow-hidden">
       {/* Enhanced gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-800/30 via-transparent to-indigo-700/40 pointer-events-none"></div>
       <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-blue-900/50 to-blue-950/70 pointer-events-none"></div>
@@ -70,10 +73,13 @@ const Footer = () => {
           <div className="lg:col-span-3">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-right">
               {/* Column 1: Company */}
-              <div>
-                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{
-                fontFamily: 'Avenir Next, sans-serif'
-              }}>COMPANY</h3>
+              <div className="group relative cursor-pointer">
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide relative" style={{
+                  fontFamily: 'Avenir Next, sans-serif'
+                }}>
+                  COMPANY
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-500 ease-out"></span>
+                </h3>
                 <ul className="space-y-3">
                   <li>
                     <Link to="/about" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
@@ -107,10 +113,13 @@ const Footer = () => {
               </div>
 
               {/* Column 2: Portfolio & Investors */}
-              <div>
-                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{
-                fontFamily: 'Avenir Next, sans-serif'
-              }}>PORTFOLIO</h3>
+              <div className="group relative cursor-pointer">
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide relative" style={{
+                  fontFamily: 'Avenir Next, sans-serif'
+                }}>
+                  PORTFOLIO
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-500 ease-out"></span>
+                </h3>
                 <ul className="space-y-3 mb-8">
                   <li>
                     <Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
@@ -121,9 +130,12 @@ const Footer = () => {
                   </li>
                 </ul>
 
-                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{
-                fontFamily: 'Avenir Next, sans-serif'
-              }}>INVESTORS</h3>
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide relative" style={{
+                  fontFamily: 'Avenir Next, sans-serif'
+                }}>
+                  INVESTORS
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-500 ease-out"></span>
+                </h3>
                 <ul className="space-y-3">
                   <li>
                     <Link to="/investors" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
@@ -143,10 +155,13 @@ const Footer = () => {
               </div>
 
               {/* Column 3: Quick Links */}
-              <div>
-                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{
-                fontFamily: 'Avenir Next, sans-serif'
-              }}>QUICK LINKS</h3>
+              <div className="group relative cursor-pointer">
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide relative" style={{
+                  fontFamily: 'Avenir Next, sans-serif'
+                }}>
+                  QUICK LINKS
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-500 ease-out"></span>
+                </h3>
                 <ul className="space-y-3">
                   <li>
                     <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold flex items-center justify-end" style={{
@@ -229,6 +244,8 @@ const Footer = () => {
       </div>
 
       <DoNotSellModal isOpen={isDoNotSellModalOpen} onClose={() => setIsDoNotSellModalOpen(false)} />
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
