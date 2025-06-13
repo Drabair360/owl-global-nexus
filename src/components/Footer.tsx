@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Linkedin, Twitter, MapPin, Mail, Phone } from 'lucide-react';
+import { Linkedin, X, Instagram, MapPin, Mail, Phone } from 'lucide-react';
 import DoNotSellModal from './DoNotSellModal';
 
 const Footer = () => {
@@ -230,7 +231,10 @@ const Footer = () => {
                 <Linkedin size={20} />
               </a>
               <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
-                <Twitter size={20} />
+                <X size={20} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                <Instagram size={20} />
               </a>
             </div>
           </div>
