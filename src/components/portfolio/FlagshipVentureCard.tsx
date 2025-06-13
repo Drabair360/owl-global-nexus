@@ -7,17 +7,8 @@ interface FlagshipVentureCardProps {
   subtitle: string;
   description: string;
   icon: LucideIcon;
-  iconBg: string;
-  gradientFrom: string;
-  gradientTo: string;
-  glowColor: string;
   features: string[];
   primaryColor: string;
-  secondaryColor: string;
-  tertiaryColor: string;
-  borderColor: string;
-  shadowColor: string;
-  animationComponent: React.ReactNode;
   url?: string;
 }
 
@@ -26,80 +17,83 @@ const FlagshipVentureCard = ({
   subtitle,
   description,
   icon: Icon,
-  iconBg,
-  gradientFrom,
-  gradientTo,
-  glowColor,
   features,
   primaryColor,
-  secondaryColor,
-  tertiaryColor,
-  borderColor,
-  shadowColor,
-  animationComponent,
   url
 }: FlagshipVentureCardProps) => {
+  const colorClasses = {
+    blue: {
+      iconBg: 'bg-blue-500/10',
+      iconColor: 'text-blue-400',
+      titleGradient: 'from-blue-300 to-blue-100',
+      border: 'border-blue-500/20',
+      tagBg: 'bg-blue-500/10',
+      tagBorder: 'border-blue-400/20',
+      tagText: 'text-blue-200'
+    },
+    emerald: {
+      iconBg: 'bg-emerald-500/10',
+      iconColor: 'text-emerald-400',
+      titleGradient: 'from-emerald-300 to-emerald-100',
+      border: 'border-emerald-500/20',
+      tagBg: 'bg-emerald-500/10',
+      tagBorder: 'border-emerald-400/20',
+      tagText: 'text-emerald-200'
+    },
+    amber: {
+      iconBg: 'bg-amber-500/10',
+      iconColor: 'text-amber-400',
+      titleGradient: 'from-amber-300 to-amber-100',
+      border: 'border-amber-500/20',
+      tagBg: 'bg-amber-500/10',
+      tagBorder: 'border-amber-400/20',
+      tagText: 'text-amber-200'
+    },
+    purple: {
+      iconBg: 'bg-purple-500/10',
+      iconColor: 'text-purple-400',
+      titleGradient: 'from-purple-300 to-purple-100',
+      border: 'border-purple-500/20',
+      tagBg: 'bg-purple-500/10',
+      tagBorder: 'border-purple-400/20',
+      tagText: 'text-purple-200'
+    }
+  };
+
+  const colors = colorClasses[primaryColor as keyof typeof colorClasses] || colorClasses.blue;
+
   return (
-    <div className="group relative transform transition-all duration-1000 hover:-translate-y-6 hover:scale-105">
-      {/* Premium Outer Glow */}
-      <div className={`absolute -inset-8 bg-gradient-to-br ${glowColor} rounded-3xl blur-3xl group-hover:blur-2xl transition-all duration-1000 animate-pulse`} style={{animationDuration: '4s'}} />
-      
-      {/* Main Product Card */}
-      <div className={`relative bg-gradient-to-br ${gradientFrom} ${gradientTo} backdrop-blur-2xl rounded-3xl p-10 border ${borderColor} ${shadowColor} hover:shadow-[0_30px_120px_rgba(59,130,246,0.4)] transition-all duration-1000 overflow-hidden`}>
+    <div className="group relative transform transition-all duration-300 hover:-translate-y-2">
+      {/* Main Card */}
+      <div className={`relative bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border ${colors.border} hover:border-opacity-40 transition-all duration-300`}>
         
-        {/* Holographic Grid Background */}
-        <div className="absolute inset-0 opacity-[0.03]">
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(59,130,246,0.5)_1px,transparent_1px),linear-gradient(180deg,rgba(59,130,246,0.5)_1px,transparent_1px)] bg-[size:30px_30px] animate-pulse" />
-        </div>
-        
-        {/* Data Flow Visualization */}
-        <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
-          {animationComponent}
-        </div>
-        
-        {/* Premium Header */}
-        <div className="flex items-center mb-8">
-          <div className="relative mr-6">
-            <div className={`absolute inset-0 ${iconBg} rounded-2xl blur-xl animate-pulse`} />
-            <div className={`relative w-16 h-16 bg-gradient-to-br ${primaryColor} ${secondaryColor} ${tertiaryColor} rounded-2xl flex items-center justify-center shadow-xl`}>
-              <Icon className="w-8 h-8 text-white filter drop-shadow-lg" filter="url(#premiumGlow)" />
-            </div>
+        {/* Header */}
+        <div className="flex items-center mb-6">
+          <div className={`w-12 h-12 ${colors.iconBg} rounded-lg flex items-center justify-center mr-4`}>
+            <Icon className={`w-6 h-6 ${colors.iconColor}`} />
           </div>
           <div>
-            <h3 className={`text-3xl font-bold bg-gradient-to-r ${primaryColor}-200 ${secondaryColor}-200 ${tertiaryColor}-200 bg-clip-text text-transparent mb-2`} style={{fontFamily: 'Avenir Next, sans-serif'}}>{title}</h3>
-            <div className={`flex items-center ${primaryColor}-300`}>
-              <Icon className="w-5 h-5 mr-2" />
-              <span className="text-sm font-medium">{subtitle}</span>
-            </div>
+            <h3 className={`text-2xl font-bold bg-gradient-to-r ${colors.titleGradient} bg-clip-text text-transparent mb-1`}>
+              {title}
+            </h3>
+            <p className="text-slate-400 text-sm font-medium">{subtitle}</p>
           </div>
         </div>
         
-        <p className="text-slate-200 mb-8 font-body leading-relaxed text-lg">
+        <p className="text-slate-300 mb-6 font-body leading-relaxed">
           {description}
         </p>
         
-        {/* Premium Feature Tags */}
-        <div className="flex flex-wrap gap-3 mb-8">
+        {/* Feature Tags */}
+        <div className="flex flex-wrap gap-2">
           {features.map((feature, index) => (
-            <span key={index} className={`px-4 py-2 bg-gradient-to-r ${primaryColor}-500/20 ${secondaryColor}-500/20 ${primaryColor}-200 rounded-full text-sm font-medium border ${primaryColor}-400/30 backdrop-blur-sm`}>
-              <Icon className="w-4 h-4 inline mr-2" />
+            <span 
+              key={index} 
+              className={`px-3 py-1 ${colors.tagBg} ${colors.tagText} rounded-full text-xs font-medium border ${colors.tagBorder}`}
+            >
               {feature}
             </span>
           ))}
-        </div>
-        
-        {/* Real-time Activity Indicator */}
-        <div className="flex items-center justify-between">
-          <div className={`flex items-center ${primaryColor}-200 font-medium`}>
-            <Icon className="w-5 h-5 mr-3" stroke={`url(#premium${primaryColor.charAt(0).toUpperCase() + primaryColor.slice(1)})`} />
-            <span>{subtitle}</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <div className={`w-2 h-8 ${primaryColor}-400 rounded animate-pulse`} />
-            <div className={`w-2 h-12 ${secondaryColor}-400 rounded animate-pulse`} style={{animationDelay: '0.2s'}} />
-            <div className={`w-2 h-6 ${tertiaryColor}-400 rounded animate-pulse`} style={{animationDelay: '0.4s'}} />
-            <div className={`w-2 h-10 ${primaryColor}-300 rounded animate-pulse`} style={{animationDelay: '0.6s'}} />
-          </div>
         </div>
       </div>
     </div>
