@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, TrendingUp, Users, Cpu, Factory, Zap, Target, Wrench, Network, Building2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
 const Hero = () => {
   return <>
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
@@ -134,7 +135,7 @@ const Hero = () => {
               <h3 className="text-xl font-semibold text-rose-800 mb-4 leading-tight" style={{
               fontFamily: 'Avenir Next, sans-serif'
             }}>Future of Talent Discovery</h3>
-              <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">AI-driven talent platforms connecting the world's creative and technical professionals with global opportunities for skills matching and career advancement.</p>
+              <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">AI-driven talent platforms connecting the world's creative and technical professionals with global opportunities for skills matching and development.</p>
               <div className="flex items-center text-xs text-rose-600 font-medium">
                 <TrendingUp className="w-4 h-4 mr-2 text-rose-500" />
                 Global talent pipeline
@@ -145,4 +146,5 @@ const Hero = () => {
       </section>
     </>;
 };
+
 export default Hero;
