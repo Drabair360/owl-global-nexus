@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, TrendingUp, Users, Cpu, Factory, Zap, Target, Wrench, Network, Building2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const Hero = () => {
   return <>
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
@@ -72,7 +71,9 @@ const Hero = () => {
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-emerald-400/10 to-emerald-500/20 rounded-bl-3xl"></div>
               <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-emerald-300/10 to-emerald-400/15 rounded-tr-3xl"></div>
               <Factory className="w-14 h-14 text-emerald-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-emerald-600" />
-              <h3 className="text-xl font-semibold text-emerald-800 mb-4 leading-tight" style={{ fontFamily: 'Avenir Next, sans-serif' }}>Agro-Industrial Solutions</h3>
+              <h3 className="text-xl font-semibold text-emerald-800 mb-4 leading-tight" style={{
+              fontFamily: 'Avenir Next, sans-serif'
+            }}>Agro-Industrial Solutions</h3>
               <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">Complete agro-industrial transformation from farm to market, integrating smart technology with traditional farming wisdom for sustainable food security across Africa.</p>
               <div className="flex items-center text-xs text-emerald-600 font-medium">
                 <Zap className="w-4 h-4 mr-2 text-emerald-500" />
@@ -85,7 +86,9 @@ const Hero = () => {
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-400/10 to-blue-500/20 rounded-bl-3xl"></div>
               <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-300/10 to-blue-400/15 rounded-tr-3xl"></div>
               <Building2 className="w-14 h-14 text-blue-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-blue-600" />
-              <h3 className="text-xl font-semibold text-blue-800 mb-4 leading-tight" style={{ fontFamily: 'Avenir Next, sans-serif' }}>Turnkey Projects</h3>
+              <h3 className="text-xl font-semibold text-blue-800 mb-4 leading-tight" style={{
+              fontFamily: 'Avenir Next, sans-serif'
+            }}>Turnkey Projects</h3>
               <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">End-to-end project delivery combining agro-tech innovations, AI integration, and industrial automation for maximum efficiency, cost optimization, and transformative impact.</p>
               <div className="flex items-center text-xs text-blue-600 font-medium">
                 <Wrench className="w-4 h-4 mr-2 text-blue-500" />
@@ -98,7 +101,9 @@ const Hero = () => {
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-amber-400/10 to-amber-500/20 rounded-bl-3xl"></div>
               <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-amber-300/10 to-amber-400/15 rounded-tr-3xl"></div>
               <Cpu className="w-14 h-14 text-amber-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-amber-600" />
-              <h3 className="text-xl font-semibold text-amber-800 mb-4 leading-tight" style={{ fontFamily: 'Avenir Next, sans-serif' }}>Digital Innovation</h3>
+              <h3 className="text-xl font-semibold text-amber-800 mb-4 leading-tight" style={{
+              fontFamily: 'Avenir Next, sans-serif'
+            }}>Digital Innovation & Integration</h3>
               <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">Cutting-edge AI-powered platforms and digital solutions that revolutionize how African & European businesses connect, operate, and scale in the global marketplace.</p>
               <div className="flex items-center text-xs text-amber-600 font-medium">
                 <Target className="w-4 h-4 mr-2 text-amber-500" />
@@ -111,7 +116,9 @@ const Hero = () => {
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-400/10 to-purple-500/20 rounded-bl-3xl"></div>
               <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-purple-300/10 to-purple-400/15 rounded-tr-3xl"></div>
               <Network className="w-14 h-14 text-purple-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-purple-600" />
-              <h3 className="text-xl font-semibold text-purple-800 mb-4 leading-tight" style={{ fontFamily: 'Avenir Next, sans-serif' }}>Integrated Industrial Marketplace</h3>
+              <h3 className="text-xl font-semibold text-purple-800 mb-4 leading-tight" style={{
+              fontFamily: 'Avenir Next, sans-serif'
+            }}>Integrated Industrial Marketplace</h3>
               <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">Comprehensive B2B platform connecting manufacturers, suppliers, and service providers across Africa's industrial value chain with global opportunities.</p>
               <div className="flex items-center text-xs text-purple-600 font-medium">
                 <Globe className="w-4 h-4 mr-2 text-purple-500" />
@@ -124,7 +131,9 @@ const Hero = () => {
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-rose-400/10 to-rose-500/20 rounded-bl-3xl"></div>
               <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-rose-300/10 to-rose-400/15 rounded-tr-3xl"></div>
               <Users className="w-14 h-14 text-rose-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:text-rose-600" />
-              <h3 className="text-xl font-semibold text-rose-800 mb-4 leading-tight" style={{ fontFamily: 'Avenir Next, sans-serif' }}>Future of Talent Discovery</h3>
+              <h3 className="text-xl font-semibold text-rose-800 mb-4 leading-tight" style={{
+              fontFamily: 'Avenir Next, sans-serif'
+            }}>Future of Talent Discovery</h3>
               <p className="text-slate-600 text-sm font-body leading-relaxed mb-4">AI-driven talent platforms connecting the world's creative and technical professionals with global opportunities for skills matching and career advancement.</p>
               <div className="flex items-center text-xs text-rose-600 font-medium">
                 <TrendingUp className="w-4 h-4 mr-2 text-rose-500" />
@@ -136,5 +145,4 @@ const Hero = () => {
       </section>
     </>;
 };
-
 export default Hero;
