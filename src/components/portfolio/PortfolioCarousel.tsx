@@ -157,12 +157,11 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
                     ))}
                   </div>
 
-                  {/* Website Link - Bottom Right */}
-                  <div className="absolute bottom-6 right-6 relative z-10">
+                  {/* Website Link */}
+                  <div className="flex items-center space-x-4 relative z-10">
                     <Button 
                       size="sm" 
-                      className="bg-white/20 hover:bg-white/30 text-white border-white/30 font-subtitle animate-bounce" 
-                      style={{ animationDuration: '2s' }}
+                      className="bg-white/20 hover:bg-white/30 text-white border-white/30 font-subtitle" 
                       asChild
                     >
                       <a href={item.website} target="_blank" rel="noopener noreferrer">
