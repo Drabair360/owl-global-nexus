@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, TrendingUp, Users, Cpu, Factory, Zap, Target, Wrench, Network, Building2 } from 'lucide-react';
@@ -92,6 +93,9 @@ const Hero = () => {
             </div>
           </div>
         </div>
+
+        {/* Smooth transition element to next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-slate-950/50 to-slate-950 pointer-events-none"></div>
       </section>
 
       {/* Strategic Investment Portfolio Section - Futuristic Financial Institution Design */}
@@ -152,9 +156,9 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-cyan-500/15 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-700" />
               <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl rounded-2xl p-8 border border-emerald-400/30 shadow-[0_8px_32px_rgba(16,185,129,0.15)] hover:shadow-[0_20px_60px_rgba(16,185,129,0.25)] transition-all duration-700 overflow-hidden">
                 
-                {/* Futuristic Corner Elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-emerald-400/10 via-cyan-400/5 to-transparent rounded-bl-3xl" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-emerald-300/8 to-transparent rounded-tr-3xl" />
+                {/* Futuristic Corner Elements - Made smaller and more subtle */}
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-emerald-400/5 via-cyan-400/3 to-transparent rounded-bl-2xl" />
+                <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-emerald-300/4 to-transparent rounded-tr-2xl opacity-60" />
                 
                 {/* Animated Border Effect */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-400/0 via-emerald-400/20 to-emerald-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -200,8 +204,8 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-indigo-500/15 to-purple-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-700" />
               <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl rounded-2xl p-8 border border-blue-400/30 shadow-[0_8px_32px_rgba(59,130,246,0.15)] hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)] transition-all duration-700 overflow-hidden">
                 
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-400/10 via-indigo-400/5 to-transparent rounded-bl-3xl" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-300/8 to-transparent rounded-tr-3xl" />
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-blue-400/5 via-indigo-400/3 to-transparent rounded-bl-2xl" />
+                <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-blue-300/4 to-transparent rounded-tr-2xl opacity-60" />
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/0 via-blue-400/20 to-blue-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 
                 <div className="relative mb-8">
@@ -238,8 +242,8 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-orange-500/15 to-red-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-700" />
               <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl rounded-2xl p-8 border border-amber-400/30 shadow-[0_8px_32px_rgba(245,158,11,0.15)] hover:shadow-[0_20px_60px_rgba(245,158,11,0.25)] transition-all duration-700 overflow-hidden">
                 
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-amber-400/10 via-orange-400/5 to-transparent rounded-bl-3xl" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-amber-300/8 to-transparent rounded-tr-3xl" />
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-amber-400/5 via-orange-400/3 to-transparent rounded-bl-2xl" />
+                <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-amber-300/4 to-transparent rounded-tr-2xl opacity-60" />
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400/0 via-amber-400/20 to-amber-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 
                 <div className="relative mb-8">
@@ -280,8 +284,8 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-violet-500/15 to-fuchsia-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-700" />
               <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl rounded-2xl p-8 border border-purple-400/30 shadow-[0_8px_32px_rgba(147,51,234,0.15)] hover:shadow-[0_20px_60px_rgba(147,51,234,0.25)] transition-all duration-700 overflow-hidden">
                 
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-purple-400/10 via-violet-400/5 to-transparent rounded-bl-3xl" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-purple-300/8 to-transparent rounded-tr-3xl" />
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-purple-400/5 via-violet-400/3 to-transparent rounded-bl-2xl" />
+                <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-purple-300/4 to-transparent rounded-tr-2xl opacity-60" />
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-400/0 via-purple-400/20 to-purple-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 
                 <div className="relative mb-8">
@@ -321,8 +325,8 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-rose-500/20 via-pink-500/15 to-red-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-700" />
               <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl rounded-2xl p-8 border border-rose-400/30 shadow-[0_8px_32px_rgba(244,63,94,0.15)] hover:shadow-[0_20px_60px_rgba(244,63,94,0.25)] transition-all duration-700 overflow-hidden">
                 
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-rose-400/10 via-pink-400/5 to-transparent rounded-bl-3xl" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-rose-300/8 to-transparent rounded-tr-3xl" />
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-rose-400/5 via-pink-400/3 to-transparent rounded-bl-2xl" />
+                <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-rose-300/4 to-transparent rounded-tr-2xl opacity-60" />
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-rose-400/0 via-rose-400/20 to-rose-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 
                 <div className="relative mb-8">
