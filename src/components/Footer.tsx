@@ -1,9 +1,12 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, MapPin, Mail, Phone } from 'lucide-react';
+import DoNotSellModal from './DoNotSellModal';
 
 const Footer = () => {
+  const [isDoNotSellModalOpen, setIsDoNotSellModalOpen] = useState(false);
+
   return (
     <footer className="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-900 relative overflow-hidden">
       {/* Enhanced gradient overlay */}
@@ -15,7 +18,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16">
           {/* Brand Section - Wider column */}
           <div className="lg:col-span-2 lg:pr-8">
-            <div className="flex items-center space-x-3 mb-2">
+            <div className="flex items-center space-x-3 mb-6">
               <img 
                 src="/lovable-uploads/4d7f9a85-a58b-4911-9097-b446f027e04a.png" 
                 alt="OWL International Logo" 
@@ -47,6 +50,24 @@ const Footer = () => {
                 <span className="text-gray-300 text-sm">+33 7 44 98 87 89</span>
               </div>
             </div>
+
+            {/* STAY CONNECTED section positioned under contact info */}
+            <div className="mt-12 mb-12">
+              <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>STAY CONNECTED</h3>
+              <p className="text-gray-300 mb-4 text-sm">
+                Get updates on our latest projects and investment opportunities.
+              </p>
+              <div className="flex gap-3 max-w-md">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email" 
+                  className="flex-1 px-4 py-2 bg-slate-800/60 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 text-sm backdrop-blur-sm transition-all duration-300" 
+                />
+                <button className="px-6 py-2 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-600 hover:from-yellow-500 hover:via-amber-600 hover:to-orange-700 text-white rounded-lg transition-all duration-300 text-sm font-semibold shadow-lg hover:shadow-xl hover:shadow-amber-500/25 transform hover:scale-105 active:scale-95" style={{ fontFamily: 'Avenir Next, sans-serif' }}>
+                  Subscribe
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Right side columns container */}
@@ -54,8 +75,8 @@ const Footer = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-right">
               {/* Column 1: Company */}
               <div>
-                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-500 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>COMPANY</h3>
-                <ul className="space-y-2">
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>COMPANY</h3>
+                <ul className="space-y-3">
                   <li>
                     <Link to="/about" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
                       About Owl
@@ -81,8 +102,8 @@ const Footer = () => {
 
               {/* Column 2: Portfolio & Investors */}
               <div>
-                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-500 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>PORTFOLIO</h3>
-                <ul className="space-y-2 mb-6">
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>PORTFOLIO</h3>
+                <ul className="space-y-3 mb-8">
                   <li>
                     <Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
                       Investments
@@ -90,8 +111,8 @@ const Footer = () => {
                   </li>
                 </ul>
 
-                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-500 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>INVESTORS</h3>
-                <ul className="space-y-2">
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>INVESTORS</h3>
+                <ul className="space-y-3">
                   <li>
                     <Link to="/investors" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
                       Investor Portal
@@ -107,7 +128,7 @@ const Footer = () => {
 
               {/* Column 3: Quick Links */}
               <div>
-                <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-500 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>QUICK LINKS</h3>
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>QUICK LINKS</h3>
                 <ul className="space-y-3">
                   <li>
                     <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold flex items-center justify-end" style={{ fontFamily: 'Avenir Next, sans-serif' }}>
@@ -135,26 +156,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* STAY CONNECTED section positioned between contact and legal */}
-        <div className="mt-16 mb-16">
-          <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-500 bg-clip-text text-transparent tracking-wide" style={{ fontFamily: 'Avenir Next, sans-serif' }}>STAY CONNECTED</h3>
-          <p className="text-gray-300 mb-4 text-sm">
-            Get updates on our latest projects and investment opportunities.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              className="flex-1 px-4 py-3 bg-slate-800/60 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 text-sm backdrop-blur-sm transition-all duration-300" 
-            />
-            <button className="px-8 py-3 bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-600 hover:from-amber-500 hover:via-yellow-600 hover:to-orange-700 text-white rounded-lg transition-all duration-300 text-sm font-bold shadow-lg hover:shadow-xl hover:shadow-amber-500/25 transform hover:scale-105 active:scale-95" style={{ fontFamily: 'Avenir Next, sans-serif' }}>
-              Subscribe
-            </button>
-          </div>
-        </div>
-
         {/* Bottom section with legal links and social */}
-        <div className="pt-12 border-t border-gray-700">
+        <div className="pt-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-8 lg:space-y-0 lg:space-x-8">
             {/* Legal Links */}
             <div className="flex flex-wrap gap-6 order-1">
@@ -167,7 +170,11 @@ const Footer = () => {
               <Link to="/cookies" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }} onClick={() => window.scrollTo(0, 0)}>
                 Cookie Policy
               </Link>
-              <button className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{ fontFamily: 'Avenir Next, sans-serif' }}>
+              <button 
+                onClick={() => setIsDoNotSellModalOpen(true)}
+                className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-semibold" 
+                style={{ fontFamily: 'Avenir Next, sans-serif' }}
+              >
                 Do Not Sell My Info
               </button>
             </div>
@@ -190,6 +197,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      <DoNotSellModal 
+        isOpen={isDoNotSellModalOpen} 
+        onClose={() => setIsDoNotSellModalOpen(false)} 
+      />
     </footer>
   );
 };
