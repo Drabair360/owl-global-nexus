@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, TrendingUp, Users, Cpu, Factory, Zap, Target, Wrench, Network, Building2 } from 'lucide-react';
@@ -66,7 +65,7 @@ const Hero = () => {
       {/* Strategic Investment Portfolio Section - Light & Sophisticated */}
       <section className="relative py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-emerald-50">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8),rgba(59,130,246,0.05)_70%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(34,197,94,0.03)_25%,transparent_25%,transparent_75%,rgba(59,130,246,0.03)_75%)] bg-[length:40px_40px]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-blue-50" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-20">
