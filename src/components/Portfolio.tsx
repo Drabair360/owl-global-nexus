@@ -11,14 +11,6 @@ const Portfolio = () => {
     <section className="relative py-24 overflow-hidden">
       <SVGGradients />
       
-      {/* Subtle overlay effects for visual depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-slate-900/20" />
-      
-      {/* Minimal grid pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:60px_60px]" />
-      </div>
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <FlagshipHeader />
 
