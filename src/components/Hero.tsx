@@ -33,9 +33,9 @@ const Hero = () => {
                   Explore Our Portfolio <ArrowRight className="ml-2" size={20} />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white/80 text-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-xl transition-all duration-500 font-subtitle font-bold group relative overflow-hidden backdrop-blur-sm" asChild>
+              <Button size="lg" variant="outline" className="border-2 border-white/80 hover:bg-white hover:text-slate-900 px-8 py-4 rounded-xl transition-all duration-500 font-subtitle font-bold group relative overflow-hidden backdrop-blur-sm" asChild>
                 <Link to="/investors" onClick={() => window.scrollTo(0, 0)}>
-                  <span className="relative z-10 transition-colors duration-500">Investor Portal</span>
+                  <span className="relative z-10 transition-all duration-500 text-black group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-orange-500 group-hover:bg-clip-text group-hover:text-transparent">Investor Portal</span>
                   <span className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
                 </Link>
               </Button>
