@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -9,8 +10,11 @@ const News = () => {
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-teal-50 to-emerald-100">
       <Navbar />
       
-      {/* Hero Section with gradient to white */}
-      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-cyan-900 via-teal-900 via-emerald-900 to-white overflow-hidden">
+      {/* Hero Section with seamless gradient to white */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
+        style={{
+          background: 'linear-gradient(to bottom, rgb(22 78 99), rgb(15 118 110), rgb(6 95 70), rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 1))'
+        }}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(6,182,212,0.10),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(16,185,129,0.08),transparent_50%)]" />
         
