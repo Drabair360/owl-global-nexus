@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { MapPin, Clock, Briefcase, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,6 +10,17 @@ interface JobCardProps {
 }
 
 const JobCard: React.FC<JobCardProps> = ({ job, onClick }) => {
+  const handleCardClick = () => {
+    console.log('JobCard: Card clicked for job:', job.title, job.id);
+    onClick();
+  };
+
+  const handleButtonClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    console.log('JobCard: Button clicked for job:', job.title, job.id);
+    onClick();
+  };
+
   const getDepartmentGradient = (department: string) => {
     const gradients = {
       Engineering: 'from-blue-500 via-cyan-500 to-blue-600',
@@ -40,7 +52,7 @@ const JobCard: React.FC<JobCardProps> = ({ job, onClick }) => {
       
       <div 
         className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group hover:-translate-y-1"
-        onClick={onClick}
+        onClick={handleCardClick}
       >
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
@@ -87,11 +99,7 @@ const JobCard: React.FC<JobCardProps> = ({ job, onClick }) => {
           <Button 
             size="sm" 
             className={`bg-gradient-to-r ${getDepartmentGradient(job.department)} hover:opacity-90 text-white font-subtitle group-hover:scale-105 transition-transform shadow-lg`}
-            onClick={(e) => {
-              e.stopPropagation();
-              console.log('Button clicked, job:', job.title, job.id);
-              onClick();
-            }}
+            onClick={handleButtonClick}
           >
             View Details
           </Button>

@@ -15,13 +15,35 @@ interface JobDetailModalProps {
 const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
   const [showApplication, setShowApplication] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    console.log('JobDetailModal received job:', job);
+    console.log('JobDetailModal: job prop changed:', job?.title, job?.id);
+    if (job) {
+      setIsOpen(true);
+      console.log('JobDetailModal: Setting modal open to true');
+    } else {
+      setIsOpen(false);
+      console.log('JobDetailModal: Setting modal open to false');
+    }
   }, [job]);
 
+  const handleClose = () => {
+    console.log('JobDetailModal: handleClose called');
+    setIsOpen(false);
+    setShowApplication(false);
+    onClose();
+  };
+
+  const handleOpenChange = (open: boolean) => {
+    console.log('JobDetailModal: handleOpenChange called with:', open);
+    if (!open) {
+      handleClose();
+    }
+  };
+
   if (!job) {
-    console.log('No job provided to modal');
+    console.log('JobDetailModal: No job provided, returning null');
     return null;
   }
 
@@ -29,7 +51,7 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
     return (
       <ApplicationForm 
         job={job} 
-        onClose={onClose}
+        onClose={handleClose}
         onBack={() => setShowApplication(false)}
       />
     );
@@ -51,11 +73,16 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
     return gradients[department as keyof typeof gradients] || 'from-gray-500 via-slate-500 to-gray-600';
   };
 
+  console.log('JobDetailModal: Rendering modal with isOpen:', isOpen, 'job:', job.title);
+
   return (
-    <Dialog open={true} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogContent 
         className={`max-w-5xl max-h-[90vh] overflow-y-auto ${themeClasses} relative`}
-        style={{ zIndex: 9999 }}
+        style={{ 
+          zIndex: 99999,
+          backgroundColor: isDarkMode ? '#0f172a' : '#ffffff'
+        }}
       >
         <div className="absolute inset-0 overflow-hidden">
           <RoleSketch role={job.department} className="w-full h-full absolute" />
@@ -82,7 +109,7 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={onClose}
+                onClick={handleClose}
                 className="rounded-full h-8 w-8 p-0"
               >
                 <X className="h-4 w-4" />
