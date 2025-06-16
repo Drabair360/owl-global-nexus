@@ -30,7 +30,7 @@ const Careers = () => {
           <div className="animate-sophisticated-fade">
             <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight font-heading">
               Build Your
-              <span className="bg-gradient-to-r from-rose-400 via-pink-500 to-orange-600 bg-clip-text text-transparent block mt-2">
+              <span className="bg-gradient-to-r from-rose-400 via-pink-500 to-orange-600 bg-clip-text text-transparent block mt-2 drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
                 Future
               </span>
               <span className="block mt-2">With Us</span>
