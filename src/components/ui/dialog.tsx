@@ -22,7 +22,7 @@ const DialogOverlay = React.forwardRef<
       "fixed inset-0 z-[9998] bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       className
     )}
-    style={{ position: 'fixed !important', top: 0, left: 0, right: 0, bottom: 0 }}
+    style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 } as React.CSSProperties}
     {...props}
   />
 ))
@@ -41,12 +41,12 @@ const DialogContent = React.forwardRef<
         className
       )}
       style={{ 
-        position: 'fixed !important', 
-        top: '50% !important', 
-        left: '50% !important',
-        transform: 'translate(-50%, -50%) !important',
+        position: 'fixed', 
+        top: '50%', 
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
         zIndex: 9999
-      }}
+      } as React.CSSProperties}
       {...props}
     >
       {children}
