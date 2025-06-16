@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -11,11 +10,8 @@ const PortfolioPage = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero Section with seamless gradient to white */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
-        style={{
-          background: 'linear-gradient(to bottom, rgb(15 23 42), rgb(30 58 138), rgb(67 56 202), rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 1))'
-        }}>
+      {/* Hero Section with gradient to white */}
+      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-slate-900 via-blue-900 via-indigo-900 to-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.10),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(99,102,241,0.08),transparent_50%)]" />
         

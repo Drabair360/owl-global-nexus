@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -8,11 +9,8 @@ const Scouts = () => {
     <div className="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-100">
       <Navbar />
       
-      {/* Hero Section with seamless gradient to white */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
-        style={{
-          background: 'linear-gradient(to bottom, rgb(91 33 182), rgb(147 51 234), rgb(67 56 202), rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 1))'
-        }}>
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-violet-900 via-purple-900 to-indigo-900 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(139,69,219,0.12),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.08),transparent_50%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(99,102,241,0.05),transparent_50%,rgba(168,85,247,0.05))]" />
@@ -34,9 +32,14 @@ const Scouts = () => {
         </div>
       </section>
 
+      {/* Transition */}
+      <div className="relative h-32 bg-gradient-to-b from-indigo-900 to-violet-50 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,69,219,0.05),transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-50" />
+      </div>
+
       {/* Content */}
-      <section className="py-16 bg-white">
-        {/* Section Header */}
+      <section className="py-16">
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-12">
