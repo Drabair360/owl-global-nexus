@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
@@ -54,13 +53,14 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
 
   return (
     <Dialog open={true} onOpenChange={onClose}>
-      <DialogContent className={`max-w-5xl max-h-[90vh] overflow-y-auto ${themeClasses} relative`}>
-        {/* Background Role Sketch */}
+      <DialogContent 
+        className={`max-w-5xl max-h-[90vh] overflow-y-auto ${themeClasses} relative`}
+        style={{ zIndex: 9999 }}
+      >
         <div className="absolute inset-0 overflow-hidden">
           <RoleSketch role={job.department} className="w-full h-full absolute" />
         </div>
 
-        {/* Console-like header */}
         <div className={`relative z-10 border-b ${isDarkMode ? 'border-slate-700' : 'border-slate-200'} pb-4`}>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-3">
@@ -130,7 +130,6 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
             </div>
           </div>
 
-          {/* Department and Remote Badges */}
           <div className="flex gap-2">
             <Badge className={`bg-gradient-to-r ${getDepartmentGradient(job.department)} text-white font-body border-0`}>
               {job.department}
@@ -143,13 +142,11 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
             )}
           </div>
 
-          {/* Job Description */}
           <div>
             <h3 className="text-lg font-semibold mb-3 font-subtitle">About This Role</h3>
             <p className="text-gray-700 leading-relaxed font-body">{job.description}</p>
           </div>
 
-          {/* Requirements */}
           <div>
             <h3 className="text-lg font-semibold mb-3 font-subtitle">What We're Looking For</h3>
             <ul className="space-y-2">
@@ -162,7 +159,6 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
             </ul>
           </div>
 
-          {/* Benefits */}
           <div>
             <h3 className="text-lg font-semibold mb-3 font-subtitle">What We Offer</h3>
             <ul className="space-y-2">
@@ -175,7 +171,6 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
             </ul>
           </div>
 
-          {/* Enhanced Company Culture Section */}
           <div className={`bg-gradient-to-r ${isDarkMode ? 'from-slate-800/50 to-slate-700/50' : 'from-blue-50 to-purple-50'} p-6 rounded-xl backdrop-blur-sm`}>
             <div className="flex items-center gap-2 mb-3">
               <Users className="w-5 h-5 text-blue-500" />
@@ -188,7 +183,6 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
             </p>
           </div>
 
-          {/* Enhanced Action Buttons */}
           <div className="flex gap-4 pt-4 border-t">
             <Button 
               onClick={() => setShowApplication(true)}

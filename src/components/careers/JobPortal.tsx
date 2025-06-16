@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Search, MapPin, Briefcase, Clock, Filter, X, Grid3X3, List, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import JobCard from './JobCard';
 import JobDetailModal from './JobDetailModal';
-import InteractiveWorldMap from './InteractiveWorldMap';
+import RealWorldMap from './RealWorldMap';
 import JobListView from './JobListView';
 import SmartJobMatcher from './SmartJobMatcher';
 import SalaryCalculator from './SalaryCalculator';
@@ -78,20 +77,22 @@ const JobPortal = () => {
         style={{
           background: 'linear-gradient(135deg, #ffffff 0%, #fdf2f8 25%, #fef3e2 50%, #ffffff 100%)',
           boxShadow: `
-            0 0 0 1px rgba(236, 72, 153, 0.1),
-            0 2px 4px -1px rgba(251, 146, 60, 0.15),
-            0 4px 8px -2px rgba(236, 72, 153, 0.25),
-            0 8px 16px -4px rgba(251, 146, 60, 0.2),
-            0 16px 32px -8px rgba(236, 72, 153, 0.15),
-            -2px -2px 8px rgba(251, 146, 60, 0.1),
-            2px 2px 8px rgba(236, 72, 153, 0.1),
-            -4px 4px 12px rgba(251, 146, 60, 0.08),
-            4px -4px 12px rgba(236, 72, 153, 0.08)
+            0 0 0 1px rgba(236, 72, 153, 0.15),
+            0 4px 8px -2px rgba(251, 146, 60, 0.2),
+            0 8px 16px -4px rgba(236, 72, 153, 0.3),
+            0 16px 32px -8px rgba(251, 146, 60, 0.25),
+            0 32px 64px -16px rgba(236, 72, 153, 0.2),
+            -4px -4px 16px rgba(251, 146, 60, 0.15),
+            4px 4px 16px rgba(236, 72, 153, 0.15),
+            -8px 8px 24px rgba(251, 146, 60, 0.12),
+            8px -8px 24px rgba(236, 72, 153, 0.12),
+            0 0 40px rgba(251, 146, 60, 0.1),
+            0 0 80px rgba(236, 72, 153, 0.08)
           `
         }}
       >
-        {/* Subtle inner glow */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-pink-500/5 via-transparent to-orange-500/5 pointer-events-none" />
+        {/* Enhanced inner glow */}
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-pink-500/8 via-transparent to-orange-500/8 pointer-events-none" />
         
         <div className="relative z-10">
           <div className="flex flex-col lg:flex-row gap-4 mb-4">
@@ -201,7 +202,6 @@ const JobPortal = () => {
         </div>
       </div>
 
-      {/* Smart Features */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-6 text-white">
           <div className="flex items-center gap-3 mb-3">
@@ -234,12 +234,10 @@ const JobPortal = () => {
         </div>
       </div>
 
-      {/* Map Section */}
       {showMap && (
-        <InteractiveWorldMap jobs={filteredJobs} onJobSelect={handleJobSelect} />
+        <RealWorldMap jobs={filteredJobs} onJobSelect={handleJobSelect} />
       )}
 
-      {/* Job Listings */}
       {viewMode === 'grid' ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredJobs.map((job) => (

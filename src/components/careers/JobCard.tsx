@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapPin, Clock, Briefcase, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -36,7 +35,7 @@ const JobCard: React.FC<JobCardProps> = ({ job, onClick }) => {
 
   return (
     <div className="relative group">
-      {/* Static gradient border - no animation */}
+      {/* Simple static border - no animation */}
       <div className={`absolute -inset-0.5 bg-gradient-to-r ${getDepartmentGradient(job.department)} rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300`} />
       
       <div 
