@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -10,21 +9,7 @@ const Scouts = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section 
-        className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-violet-900 via-purple-900 via-indigo-900 to-white overflow-hidden"
-        style={{
-          background: `linear-gradient(180deg, 
-            rgba(76, 29, 149, 1) 0%, 
-            rgba(109, 40, 217, 1) 10%, 
-            rgba(139, 69, 219, 0.98) 20%, 
-            rgba(168, 85, 247, 0.95) 35%, 
-            rgba(99, 102, 241, 0.90) 50%, 
-            rgba(139, 69, 219, 0.75) 65%, 
-            rgba(168, 85, 247, 0.55) 75%, 
-            rgba(76, 29, 149, 0.35) 85%, 
-            rgba(255, 255, 255, 1) 100%)`
-        }}
-      >
+      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-violet-800 via-purple-700 via-indigo-600 to-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(139,69,219,0.12),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.08),transparent_50%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(99,102,241,0.05),transparent_50%,rgba(168,85,247,0.05))]" />

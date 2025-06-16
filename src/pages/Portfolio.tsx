@@ -11,19 +11,7 @@ const PortfolioPage = () => {
       <Navbar />
       
       {/* Hero Section with gradient to white */}
-      <section 
-        className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-slate-900 via-blue-900 via-indigo-900 to-white overflow-hidden"
-        style={{
-          background: `linear-gradient(180deg, 
-            rgba(15, 23, 42, 1) 0%, 
-            rgba(30, 41, 59, 0.98) 15%, 
-            rgba(51, 65, 85, 0.95) 30%, 
-            rgba(71, 85, 105, 0.85) 50%, 
-            rgba(100, 116, 139, 0.65) 70%, 
-            rgba(148, 163, 184, 0.35) 85%, 
-            rgba(255, 255, 255, 1) 100%)`
-        }}
-      >
+      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-slate-800 via-blue-700 via-indigo-600 to-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.10),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(99,102,241,0.08),transparent_50%)]" />
         

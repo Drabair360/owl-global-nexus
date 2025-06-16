@@ -9,19 +9,7 @@ const Impact = () => {
       <Navbar />
       
       {/* Hero Section with gradient to white */}
-      <section 
-        className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-lime-900 via-green-900 via-emerald-900 to-white overflow-hidden"
-        style={{
-          background: `linear-gradient(180deg, 
-            rgba(54, 83, 20, 1) 0%, 
-            rgba(20, 83, 45, 0.98) 15%, 
-            rgba(5, 102, 55, 0.95) 30%, 
-            rgba(6, 120, 95, 0.85) 50%, 
-            rgba(34, 197, 94, 0.65) 70%, 
-            rgba(101, 217, 115, 0.35) 85%, 
-            rgba(255, 255, 255, 1) 100%)`
-        }}
-      >
+      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-lime-800 via-green-700 via-emerald-600 to-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(34,197,94,0.10),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(132,204,22,0.08),transparent_50%)]" />
         

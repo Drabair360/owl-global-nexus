@@ -10,19 +10,7 @@ const News = () => {
       <Navbar />
       
       {/* Hero Section with gradient to white */}
-      <section 
-        className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-cyan-900 via-teal-900 via-emerald-900 to-white overflow-hidden"
-        style={{
-          background: `linear-gradient(180deg, 
-            rgba(22, 78, 99, 1) 0%, 
-            rgba(19, 78, 74, 0.98) 15%, 
-            rgba(6, 95, 70, 0.95) 30%, 
-            rgba(6, 120, 95, 0.85) 50%, 
-            rgba(20, 184, 166, 0.65) 70%, 
-            rgba(45, 212, 191, 0.35) 85%, 
-            rgba(255, 255, 255, 1) 100%)`
-        }}
-      >
+      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-cyan-800 via-teal-700 via-emerald-600 to-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(6,182,212,0.10),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(16,185,129,0.08),transparent_50%)]" />
         
