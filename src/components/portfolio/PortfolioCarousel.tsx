@@ -167,6 +167,18 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
                     </div>
                   </div>
                 )}
+
+                {/* CAO Logo for CAOAGRO card */}
+                {item.title === "CAOAGRO.COM" && (
+                  <div className="absolute top-4 left-4 z-10">
+                    <img 
+                      src="/lovable-uploads/f047b8be-2f3b-434f-96ae-443cb5d8c522.png" 
+                      alt="CAO Logo" 
+                      className="w-12 h-12 opacity-70 filter invert brightness-0 contrast-100"
+                      style={{ filter: 'invert(1) brightness(2) contrast(1)' }}
+                    />
+                  </div>
+                )}
                 
                 <div className="relative z-10 p-8 h-full flex flex-col">
                   {/* Header with Icon and Title */}
@@ -200,6 +212,12 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
                   {/* Statistics Section */}
                   {item.statistics && (
                     <div className="mb-6">
+                      <div className="flex items-center mb-4">
+                        <Target className={`w-5 h-5 ${colors.text} mr-2`} />
+                        <span className={`text-lg font-semibold ${colors.text}`} style={{ fontFamily: 'Avenir Next, -apple-system, BlinkMacSystemFont, sans-serif' }}>
+                          Targets
+                        </span>
+                      </div>
                       <div className="grid grid-cols-2 gap-4">
                         {item.statistics.map((stat, statIndex) => (
                           <div

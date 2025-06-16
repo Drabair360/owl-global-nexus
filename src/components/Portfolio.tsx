@@ -11,14 +11,14 @@ const Portfolio = () => {
     {
       title: "AKOULA",
       subtitle: "AI Industrial Intelligence Platform - Powering Africa's Digital Transformation",
-      description: "The central AI brain powering our entire ecosystem. AKOULA delivers revolutionary industrial intelligence through integrated platforms, from agro-industrial automation to talent discovery, creating the foundation for Africa's digital transformation with advanced machine learning algorithms processing millions of data points daily.",
+      description: "The central back-end AI brain powering a chunk of our ecosystem. AKOULA develops revolutionary industrial intelligence through integrated platforms, from agro-industrial automation to talent discovery, creating a foundation for Africa's digital transformation with advanced machine learning algorithms processing hundreds of thousands of data points daily.",
       icon: Brain,
       features: ["Industrial Quote Builder SaaS", "B2B Equipment Marketplace", "AI-Powered Analytics", "Process Optimization"],
       primaryColor: "blue",
       website: "https://www.akoulaa.com/",
       isCore: true,
       statistics: [
-        { value: "1M+", label: "API Calls Daily" },
+        { value: "100K+", label: "API Calls Daily" },
         { value: "99.8%", label: "AI Accuracy Rate" },
         { value: "54", label: "African Countries" },
         { value: "1B+", label: "People Reached" }
@@ -33,17 +33,17 @@ const Portfolio = () => {
     {
       title: "CAOAGRO.COM",
       subtitle: "Pan-African Industrial Project Management - AKOULA-Enhanced Solutions",
-      description: "Pan-African leader in turnkey agro-industrial project management, covering all 54 African countries. Powered by AKOULA's AI intelligence, we deliver comprehensive solutions from design to commissioning, scaling to serve 1+ billion Africans through advanced process engineering and industrial automation.",
+      description: "Pan-African champion in turnkey agro-industrial project management, targetting all 54 African countries. Marketplace powered by AKOULA's AI developments, we deliver comprehensive solutions from design to commissioning, scaling to serve 1+ billion end-customers through advanced process engineering and industrial automation.",
       icon: Settings,
       features: ["Pan-African Coverage", "Turnkey Project Delivery", "Process Engineering", "AI-Powered Optimization"],
       primaryColor: "emerald",
       website: "https://www.caoagro.com/",
       poweredBy: "AKOULA",
       statistics: [
-        { value: "€50M+", label: "Projects Delivered" },
-        { value: "18 Months", label: "Avg. Completion" },
+        { value: "€10M+", label: "Projects Delivered and in the Happening" },
+        { value: "12 to 19 Months", label: "Avg. Completion" },
         { value: "95%", label: "On-Time Delivery" },
-        { value: "12", label: "Industrial Sectors" }
+        { value: "9", label: "Industrial Sectors" }
       ],
       synergies: [
         "Leverages AKOULA's AI for project cost optimization and timeline prediction",
