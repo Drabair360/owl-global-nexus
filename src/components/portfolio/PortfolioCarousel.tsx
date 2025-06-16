@@ -180,7 +180,7 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
                         <Icon className={`w-10 h-10 ${colors.text}`} />
                       </div>
                       <div className="flex-1">
-                        <h3 className={`text-3xl font-bold ${colors.text} font-heading mb-2`}>
+                        <h3 className={`text-3xl font-semibold ${colors.text} mb-2`} style={{ fontFamily: 'Avenir Next, -apple-system, BlinkMacSystemFont, sans-serif' }}>
                           {item.title}
                         </h3>
                         <p className="text-slate-300 text-sm font-body leading-relaxed">
