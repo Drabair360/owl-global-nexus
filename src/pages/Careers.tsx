@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -34,13 +33,12 @@ const Careers = () => {
       </section>
 
       {/* Transition */}
-      <div className="relative h-32 bg-gradient-to-b from-orange-900 to-rose-50 overflow-hidden">
+      <div className="relative h-48 bg-gradient-to-b from-orange-900 via-orange-600 via-orange-300 to-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.05),transparent_70%)]" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-400 to-transparent opacity-50" />
       </div>
 
       {/* Content */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-16">
