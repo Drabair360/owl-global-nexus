@@ -27,12 +27,13 @@ const JobPortal = () => {
                            job.description.toLowerCase().includes(filters.search.toLowerCase()) ||
                            job.requirements.some(req => req.toLowerCase().includes(filters.search.toLowerCase()));
       
-      const matchesLocation = !filters.location || job.location.includes(filters.location) || 
+      const matchesLocation = !filters.location || filters.location === 'all' || 
+                             job.location.includes(filters.location) || 
                              (filters.location === 'Remote' && job.remote);
       
-      const matchesDepartment = !filters.department || job.department === filters.department;
-      const matchesExperience = !filters.experience || job.experience === filters.experience;
-      const matchesType = !filters.type || job.type === filters.type;
+      const matchesDepartment = !filters.department || filters.department === 'all' || job.department === filters.department;
+      const matchesExperience = !filters.experience || filters.experience === 'all' || job.experience === filters.experience;
+      const matchesType = !filters.type || filters.type === 'all' || job.type === filters.type;
 
       return matchesSearch && matchesLocation && matchesDepartment && matchesExperience && matchesType;
     });
@@ -80,7 +81,7 @@ const JobPortal = () => {
               <SelectValue placeholder="Location" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Locations</SelectItem>
+              <SelectItem value="all">All Locations</SelectItem>
               <SelectItem value="Abuja">Abuja, Nigeria</SelectItem>
               <SelectItem value="Abidjan">Abidjan, Côte d'Ivoire</SelectItem>
               <SelectItem value="Aix-en-Provence">Aix-en-Provence, France</SelectItem>
@@ -93,7 +94,7 @@ const JobPortal = () => {
               <SelectValue placeholder="Department" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Departments</SelectItem>
+              <SelectItem value="all">All Departments</SelectItem>
               <SelectItem value="Engineering">Engineering</SelectItem>
               <SelectItem value="Strategy">Strategy</SelectItem>
               <SelectItem value="Operations">Operations</SelectItem>
@@ -108,7 +109,7 @@ const JobPortal = () => {
               <SelectValue placeholder="Experience" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Levels</SelectItem>
+              <SelectItem value="all">All Levels</SelectItem>
               <SelectItem value="Entry">Entry Level</SelectItem>
               <SelectItem value="Mid">Mid Level</SelectItem>
               <SelectItem value="Senior">Senior Level</SelectItem>
