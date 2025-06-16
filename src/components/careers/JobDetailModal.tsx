@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
@@ -43,7 +44,7 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
   };
 
   return (
-    <Dialog open={true} onOpenChange={onClose}>
+    <Dialog open={!!job} onOpenChange={onClose}>
       <DialogContent className={`max-w-5xl max-h-[90vh] overflow-y-auto ${themeClasses} relative`}>
         {/* Background Role Sketch */}
         <div className="absolute inset-0 overflow-hidden">

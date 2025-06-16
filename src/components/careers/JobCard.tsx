@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MapPin, Clock, Briefcase, ExternalLink, Sparkles } from 'lucide-react';
+import { MapPin, Clock, Briefcase, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Job } from './types';
 
@@ -43,11 +43,6 @@ const JobCard: React.FC<JobCardProps> = ({ job, onClick }) => {
         className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group hover:-translate-y-1"
         onClick={onClick}
       >
-        {/* Sparkle effect on hover */}
-        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <Sparkles className="w-4 h-4 text-yellow-400 animate-pulse" />
-        </div>
-
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
             <h3 className="text-xl font-semibold text-gray-900 mb-2 font-subtitle group-hover:text-blue-600 transition-colors">

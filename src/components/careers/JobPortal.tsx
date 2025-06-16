@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import JobCard from './JobCard';
 import JobDetailModal from './JobDetailModal';
-import CustomJobMap from './CustomJobMap';
+import InteractiveWorldMap from './InteractiveWorldMap';
 import JobListView from './JobListView';
 import SmartJobMatcher from './SmartJobMatcher';
 import SalaryCalculator from './SalaryCalculator';
@@ -76,6 +76,9 @@ const JobPortal = () => {
               <Input
                 placeholder="Search jobs, skills, keywords..."
                 className="pl-10 border-2 focus:border-gradient-to-r focus:from-blue-500 focus:to-purple-500"
+                style={{
+                  boxShadow: '0 0 0 3px rgba(236, 72, 153, 0.1), 0 0 0 6px rgba(251, 146, 60, 0.05)'
+                }}
                 value={filters.search}
                 onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
               />
@@ -210,7 +213,7 @@ const JobPortal = () => {
 
       {/* Map Section */}
       {showMap && (
-        <CustomJobMap jobs={filteredJobs} onJobSelect={setSelectedJob} />
+        <InteractiveWorldMap jobs={filteredJobs} onJobSelect={setSelectedJob} />
       )}
 
       {/* Job Listings */}
