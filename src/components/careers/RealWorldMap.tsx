@@ -1,7 +1,6 @@
 
-
-import React, { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import React from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon, LatLngExpression } from 'leaflet';
 import { MapPin, Building, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -20,16 +19,6 @@ interface RealWorldMapProps {
   jobs: Job[];
   onJobSelect: (job: Job) => void;
 }
-
-const MapController = ({ center }: { center: LatLngExpression }) => {
-  const map = useMap();
-  
-  useEffect(() => {
-    map.setView(center, map.getZoom());
-  }, [map, center]);
-  
-  return null;
-};
 
 const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
   // Define location coordinates
@@ -162,4 +151,3 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
 };
 
 export default RealWorldMap;
-
