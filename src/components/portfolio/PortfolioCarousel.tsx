@@ -37,7 +37,7 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
 
   return (
     <div 
-      className="relative w-full h-[620px] overflow-hidden rounded-2xl"
+      className="relative w-full h-[635px] overflow-hidden rounded-2xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
