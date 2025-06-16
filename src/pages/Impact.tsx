@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -12,6 +13,8 @@ const Impact = () => {
       <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-lime-900 via-green-900 to-emerald-900 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(34,197,94,0.10),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(132,204,22,0.08),transparent_50%)]" />
+        {/* Extended gradient to blend with transition */}
+        <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-b from-transparent to-emerald-900/80" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
           <div className="animate-sophisticated-fade">
@@ -30,8 +33,8 @@ const Impact = () => {
         </div>
       </section>
 
-      {/* Transition */}
-      <div className="relative h-48 bg-gradient-to-b from-emerald-900 via-emerald-600 via-emerald-300 to-white overflow-hidden">
+      {/* Seamless Transition */}
+      <div className="relative h-48 bg-gradient-to-b from-emerald-900/80 via-emerald-600 via-emerald-300 to-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,197,94,0.05),transparent_70%)]" />
       </div>
 

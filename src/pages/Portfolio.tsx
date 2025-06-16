@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -14,6 +15,8 @@ const PortfolioPage = () => {
       <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.10),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(99,102,241,0.08),transparent_50%)]" />
+        {/* Extended gradient to blend with transition */}
+        <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-b from-transparent to-indigo-900/80" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
           <div className="animate-sophisticated-fade">
@@ -32,8 +35,8 @@ const PortfolioPage = () => {
         </div>
       </section>
 
-      {/* Transition */}
-      <div className="relative h-48 bg-gradient-to-b from-indigo-900 via-indigo-600 via-indigo-300 to-white overflow-hidden">
+      {/* Seamless Transition */}
+      <div className="relative h-48 bg-gradient-to-b from-indigo-900/80 via-indigo-600 via-indigo-300 to-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
       </div>
 
