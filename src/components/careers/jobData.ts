@@ -1,4 +1,3 @@
-
 import { Job } from './types';
 
 export const jobData: Job[] = [
@@ -11,7 +10,7 @@ export const jobData: Job[] = [
     coordinates: [7.4951, 9.0765],
     type: 'Full-time',
     experience: 'Executive',
-    salary: '$80,000 - $120,000',
+    salary: '€75,000 - €110,000',
     remote: false,
     description: 'Lead our strategic operations across West Africa, driving sustainable growth and community impact through innovative business solutions.',
     requirements: [
@@ -30,61 +29,66 @@ export const jobData: Job[] = [
     ],
     posted: '2 days ago'
   },
-  // Abidjan, Côte d'Ivoire - Position 1
+  // Abidjan, Côte d'Ivoire - New Positions
   {
     id: '2',
-    title: 'Sustainable Agriculture Lead',
+    title: 'Senior Project Manager - CAOAGRO Industrial Projects',
     department: 'Operations',
     location: 'Abidjan, Côte d\'Ivoire',
     coordinates: [-4.0435, 5.3599],
     type: 'Full-time',
     experience: 'Senior',
-    salary: '$65,000 - $85,000',
+    salary: '€60,000 - €80,000',
     remote: false,
-    description: 'Drive revolutionary sustainable farming practices combining IoT technology, data analytics, and traditional wisdom to optimize African agricultural systems.',
+    description: 'Lead turnkey industrial project builds and installations for CAOAGRO\'s revolutionary agricultural processing facilities. Manage complex multi-phase projects from conception to commissioning, ensuring seamless integration of cutting-edge technology with sustainable agricultural practices.',
     requirements: [
-      '7+ years in agricultural technology',
-      'Experience with IoT and data analytics',
-      'Knowledge of African farming practices',
-      'French and English fluency',
-      'Agronomy or related degree'
+      '8+ years in industrial project management',
+      'Experience with turnkey facility construction',
+      'PMP or equivalent certification preferred',
+      'Knowledge of agricultural processing systems',
+      'Fluency in French and English',
+      'Strong leadership and coordination skills',
+      'Experience in African industrial markets'
     ],
     benefits: [
-      'Health insurance',
-      'Housing support',
-      'Local transportation',
-      'Professional development',
-      'Performance bonuses'
+      'Comprehensive health and dental coverage',
+      'Housing and transportation allowance',
+      'Professional development opportunities',
+      'International project exposure',
+      'Performance-based bonuses',
+      'Equity participation in CAOAGRO'
     ],
-    posted: '1 week ago'
+    posted: '3 days ago'
   },
-  // Abidjan, Côte d'Ivoire - Position 2
   {
     id: '3',
-    title: 'Financial Systems Analyst',
-    department: 'Finance',
+    title: 'CAD Mechanical Engineer - Factory Design & 3D Rendering',
+    department: 'Engineering',
     location: 'Abidjan, Côte d\'Ivoire',
     coordinates: [-4.0435, 5.3599],
     type: 'Full-time',
-    experience: 'Mid',
-    salary: '$45,000 - $65,000',
+    experience: 'Senior',
+    salary: '€55,000 - €75,000',
     remote: false,
-    description: 'Develop and maintain financial systems that support our portfolio companies across Africa, ensuring transparency and efficiency in financial operations.',
+    description: 'Design complete factories and processing lines from scratch using advanced CAD software. Create unprecedented 3D renderings and technical drawings for revolutionary agricultural processing facilities. Transform conceptual ideas into detailed engineering blueprints.',
     requirements: [
-      '5+ years in financial analysis',
-      'Experience with ERP systems',
-      'CFA or similar certification preferred',
-      'French and English proficiency',
-      'Knowledge of African financial markets'
+      '7+ years in mechanical design and CAD',
+      'Expertise in SolidWorks, AutoCAD, and 3D rendering',
+      'Experience designing industrial processing equipment',
+      'Knowledge of manufacturing and assembly processes',
+      'Ability to create photorealistic 3D visualizations',
+      'Understanding of mechanical systems and automation',
+      'French and English proficiency'
     ],
     benefits: [
-      'Comprehensive benefits package',
+      'State-of-the-art design software and hardware',
+      'International collaboration opportunities',
       'Professional certification support',
-      'Career advancement opportunities',
-      'International exposure',
-      'Flexible working arrangements'
+      'Health insurance and housing support',
+      'Innovation bonus programs',
+      'Career advancement pathways'
     ],
-    posted: '3 days ago'
+    posted: '5 days ago'
   },
   // Aix-en-Provence, France - Position 1
   {
@@ -148,10 +152,10 @@ export const jobData: Job[] = [
     title: 'Global Marketing Director',
     department: 'Marketing',
     location: 'Remote (Americas)',
-    coordinates: [-74.006, 40.7128], // NYC as reference
+    coordinates: [-74.006, 40.7128],
     type: 'Full-time',
     experience: 'Executive',
-    salary: '$110,000 - $150,000',
+    salary: '€95,000 - €130,000',
     remote: true,
     description: 'Shape OWL International\'s global brand strategy and lead marketing initiatives across our portfolio companies, driving awareness and engagement.',
     requirements: [
@@ -175,10 +179,10 @@ export const jobData: Job[] = [
     title: 'Data Science Manager',
     department: 'Data Science',
     location: 'Remote (Asia-Pacific)',
-    coordinates: [103.8198, 1.3521], // Singapore as reference
+    coordinates: [103.8198, 1.3521],
     type: 'Full-time',
     experience: 'Senior',
-    salary: '$85,000 - $115,000',
+    salary: '€75,000 - €100,000',
     remote: true,
     description: 'Lead data science initiatives across our portfolio, developing predictive models and analytics solutions that drive strategic decision-making.',
     requirements: [
@@ -202,10 +206,10 @@ export const jobData: Job[] = [
     title: 'Product Manager - AKOULA Platform',
     department: 'Engineering',
     location: 'Remote (Africa/Europe)',
-    coordinates: [2.3522, 48.8566], // Paris as reference
+    coordinates: [2.3522, 48.8566],
     type: 'Full-time',
     experience: 'Mid',
-    salary: '$70,000 - $90,000',
+    salary: '€60,000 - €80,000',
     remote: true,
     description: 'Drive product strategy and development for our flagship AKOULA platform, working closely with engineering teams to deliver cutting-edge solutions.',
     requirements: [
@@ -229,10 +233,10 @@ export const jobData: Job[] = [
     title: 'Cybersecurity Specialist',
     department: 'Engineering',
     location: 'Remote (Global)',
-    coordinates: [0, 0], // Global position
+    coordinates: [0, 0],
     type: 'Full-time',
     experience: 'Senior',
-    salary: '$90,000 - $120,000',
+    salary: '€80,000 - €105,000',
     remote: true,
     description: 'Protect our global operations and portfolio companies through comprehensive cybersecurity strategies and implementation.',
     requirements: [
@@ -256,10 +260,10 @@ export const jobData: Job[] = [
     title: 'Business Development Manager',
     department: 'Strategy',
     location: 'Remote (Americas)',
-    coordinates: [-122.4194, 37.7749], // SF as reference
+    coordinates: [-122.4194, 37.7749],
     type: 'Full-time',
     experience: 'Mid',
-    salary: '$75,000 - $95,000',
+    salary: '€65,000 - €85,000',
     remote: true,
     description: 'Identify and develop strategic partnerships and business opportunities that align with our mission of transforming Africa through innovation.',
     requirements: [
@@ -283,10 +287,10 @@ export const jobData: Job[] = [
     title: 'DevOps Engineer',
     department: 'Engineering',
     location: 'Remote (Asia-Pacific)',
-    coordinates: [151.2093, -33.8688], // Sydney as reference
+    coordinates: [151.2093, -33.8688],
     type: 'Full-time',
     experience: 'Mid',
-    salary: '$65,000 - $85,000',
+    salary: '€58,000 - €75,000',
     remote: true,
     description: 'Build and maintain the infrastructure that powers our global operations, ensuring scalability, reliability, and security across all systems.',
     requirements: [
@@ -310,10 +314,10 @@ export const jobData: Job[] = [
     title: 'Legal Counsel - Africa Operations',
     department: 'Operations',
     location: 'Remote (Africa/Europe)',
-    coordinates: [31.2357, -29.8587], // Durban as reference
+    coordinates: [31.2357, -29.8587],
     type: 'Full-time',
     experience: 'Senior',
-    salary: '$80,000 - $110,000',
+    salary: '€70,000 - €95,000',
     remote: true,
     description: 'Provide legal expertise for our African operations, ensuring compliance across multiple jurisdictions while supporting strategic initiatives.',
     requirements: [

@@ -1,18 +1,24 @@
 
 import React, { useState, useMemo } from 'react';
-import { Search, MapPin, Briefcase, Clock, Filter, X } from 'lucide-react';
+import { Search, MapPin, Briefcase, Clock, Filter, X, Grid3X3, List, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import JobCard from './JobCard';
 import JobDetailModal from './JobDetailModal';
-import JobMap from './JobMap';
+import CustomJobMap from './CustomJobMap';
+import JobListView from './JobListView';
+import SmartJobMatcher from './SmartJobMatcher';
+import SalaryCalculator from './SalaryCalculator';
 import { jobData } from './jobData';
 import { Job, JobFilters } from './types';
 
 const JobPortal = () => {
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [showMap, setShowMap] = useState(false);
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [showMatcher, setShowMatcher] = useState(false);
+  const [showCalculator, setShowCalculator] = useState(false);
   const [filters, setFilters] = useState<JobFilters>({
     search: '',
     location: '',
@@ -49,7 +55,7 @@ const JobPortal = () => {
     });
   };
 
-  const hasActiveFilters = Object.values(filters).some(value => value !== '');
+  const hasActiveFilters = Object.values(filters).some(value => value !== '' && value !== 'all');
 
   return (
     <div className="space-y-8">
@@ -61,15 +67,15 @@ const JobPortal = () => {
         </p>
       </div>
 
-      {/* Filter Section */}
-      <div className="bg-white rounded-2xl p-6 shadow-lg border">
+      {/* Enhanced Filter Section */}
+      <div className="bg-white rounded-2xl p-6 shadow-lg border bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
         <div className="flex flex-col lg:flex-row gap-4 mb-4">
           <div className="flex-1">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <Input
                 placeholder="Search jobs, skills, keywords..."
-                className="pl-10"
+                className="pl-10 border-2 focus:border-gradient-to-r focus:from-blue-500 focus:to-purple-500"
                 value={filters.search}
                 onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
               />
@@ -136,35 +142,91 @@ const JobPortal = () => {
             )}
           </div>
           
-          <Button
-            variant="outline"
-            onClick={() => setShowMap(!showMap)}
-            className="flex items-center gap-2 font-subtitle"
+          <div className="flex items-center gap-2">
+            {/* View Mode Toggle */}
+            <div className="flex bg-gray-100 rounded-lg p-1">
+              <Button
+                variant={viewMode === 'grid' ? 'default' : 'ghost'}
+                size="sm"
+                onClick={() => setViewMode('grid')}
+                className="rounded-md"
+              >
+                <Grid3X3 className="w-4 h-4" />
+              </Button>
+              <Button
+                variant={viewMode === 'list' ? 'default' : 'ghost'}
+                size="sm"
+                onClick={() => setViewMode('list')}
+                className="rounded-md"
+              >
+                <List className="w-4 h-4" />
+              </Button>
+            </div>
+
+            <Button
+              variant="outline"
+              onClick={() => setShowMap(!showMap)}
+              className="flex items-center gap-2 font-subtitle"
+            >
+              <MapPin className="w-4 h-4" />
+              {showMap ? 'Hide Map' : 'Show Map'}
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Smart Features */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-6 text-white">
+          <div className="flex items-center gap-3 mb-3">
+            <Sparkles className="w-6 h-6" />
+            <h3 className="text-lg font-semibold font-subtitle">Smart Job Matching</h3>
+          </div>
+          <p className="text-blue-100 mb-4 font-body">Get AI-powered job recommendations based on your interests and skills.</p>
+          <Button 
+            variant="secondary" 
+            onClick={() => setShowMatcher(true)}
+            className="bg-white text-blue-600 hover:bg-blue-50"
           >
-            <MapPin className="w-4 h-4" />
-            {showMap ? 'Hide Map' : 'Show Map'}
+            Find My Perfect Role
+          </Button>
+        </div>
+
+        <div className="bg-gradient-to-r from-green-500 to-teal-600 rounded-xl p-6 text-white">
+          <div className="flex items-center gap-3 mb-3">
+            <Briefcase className="w-6 h-6" />
+            <h3 className="text-lg font-semibold font-subtitle">Salary Calculator</h3>
+          </div>
+          <p className="text-green-100 mb-4 font-body">Compare salaries across different locations and experience levels.</p>
+          <Button 
+            variant="secondary" 
+            onClick={() => setShowCalculator(true)}
+            className="bg-white text-green-600 hover:bg-green-50"
+          >
+            Calculate Compensation
           </Button>
         </div>
       </div>
 
       {/* Map Section */}
       {showMap && (
-        <div className="bg-white rounded-2xl p-6 shadow-lg border">
-          <h3 className="text-xl font-semibold mb-4 font-subtitle">Global Opportunities</h3>
-          <JobMap jobs={filteredJobs} onJobSelect={setSelectedJob} />
-        </div>
+        <CustomJobMap jobs={filteredJobs} onJobSelect={setSelectedJob} />
       )}
 
       {/* Job Listings */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredJobs.map((job) => (
-          <JobCard
-            key={job.id}
-            job={job}
-            onClick={() => setSelectedJob(job)}
-          />
-        ))}
-      </div>
+      {viewMode === 'grid' ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredJobs.map((job) => (
+            <JobCard
+              key={job.id}
+              job={job}
+              onClick={() => setSelectedJob(job)}
+            />
+          ))}
+        </div>
+      ) : (
+        <JobListView jobs={filteredJobs} onJobSelect={setSelectedJob} />
+      )}
 
       {filteredJobs.length === 0 && (
         <div className="text-center py-12">
@@ -176,11 +238,26 @@ const JobPortal = () => {
         </div>
       )}
 
-      {/* Job Detail Modal */}
+      {/* Modals */}
       {selectedJob && (
         <JobDetailModal
           job={selectedJob}
           onClose={() => setSelectedJob(null)}
+        />
+      )}
+
+      {showMatcher && (
+        <SmartJobMatcher 
+          jobs={jobData}
+          onClose={() => setShowMatcher(false)}
+          onJobSelect={setSelectedJob}
+        />
+      )}
+
+      {showCalculator && (
+        <SalaryCalculator 
+          jobs={jobData}
+          onClose={() => setShowCalculator(false)}
         />
       )}
     </div>
