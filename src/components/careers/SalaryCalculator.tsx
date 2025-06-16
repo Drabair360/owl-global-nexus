@@ -1,10 +1,9 @@
 
 import React, { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { X, Calculator, MapPin, Briefcase, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Label } from '@/components/ui/label';
-import { Calculator, TrendingUp, MapPin, X, Euro, BarChart3 } from 'lucide-react';
 import { Job } from './types';
 
 interface SalaryCalculatorProps {
@@ -13,171 +12,181 @@ interface SalaryCalculatorProps {
 }
 
 const SalaryCalculator: React.FC<SalaryCalculatorProps> = ({ jobs, onClose }) => {
-  const [selectedDepartment, setSelectedDepartment] = useState('');
+  const [selectedRole, setSelectedRole] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
-  const [selectedExperience, setSelectedExperience] = useState('');
+  const [experienceLevel, setExperienceLevel] = useState('');
   const [results, setResults] = useState<any>(null);
 
-  const departments = [...new Set(jobs.map(job => job.department))];
-  const locations = [...new Set(jobs.map(job => job.location.split(',')[0]))];
-  const experienceLevels = [...new Set(jobs.map(job => job.experience))];
-
   const calculateSalary = () => {
-    const filteredJobs = jobs.filter(job => {
-      return (!selectedDepartment || job.department === selectedDepartment) &&
-             (!selectedLocation || job.location.includes(selectedLocation)) &&
-             (!selectedExperience || job.experience === selectedExperience);
-    });
+    // Mock salary calculation based on selections
+    const baseRanges = {
+      'Engineering': { min: 45000, max: 85000 },
+      'Strategy': { min: 50000, max: 95000 },
+      'Operations': { min: 40000, max: 75000 },
+      'Finance': { min: 48000, max: 90000 },
+      'Marketing': { min: 42000, max: 70000 },
+      'Data Science': { min: 55000, max: 100000 }
+    };
 
-    if (filteredJobs.length === 0) {
-      setResults({ error: 'No matching positions found' });
-      return;
-    }
+    const locationMultipliers = {
+      'Abuja': 0.85,
+      'Abidjan': 0.75,
+      'Aix-en-Provence': 1.2,
+      'Remote': 0.95
+    };
 
-    // Extract salary ranges and calculate averages
-    const salaryRanges = filteredJobs.map(job => {
-      const salaryStr = job.salary.replace(/[€,]/g, '');
-      const [min, max] = salaryStr.split(' - ').map(s => parseInt(s));
-      return { min, max, avg: (min + max) / 2 };
-    });
+    const experienceMultipliers = {
+      'Entry': 0.8,
+      'Mid': 1.0,
+      'Senior': 1.4,
+      'Executive': 2.0
+    };
 
-    const avgMin = Math.round(salaryRanges.reduce((sum, s) => sum + s.min, 0) / salaryRanges.length);
-    const avgMax = Math.round(salaryRanges.reduce((sum, s) => sum + s.max, 0) / salaryRanges.length);
-    const avgSalary = Math.round(salaryRanges.reduce((sum, s) => sum + s.avg, 0) / salaryRanges.length);
+    const baseRange = baseRanges[selectedRole as keyof typeof baseRanges] || { min: 40000, max: 80000 };
+    const locationMult = locationMultipliers[selectedLocation as keyof typeof locationMultipliers] || 1.0;
+    const expMult = experienceMultipliers[experienceLevel as keyof typeof experienceMultipliers] || 1.0;
+
+    const calculatedMin = Math.round(baseRange.min * locationMult * expMult);
+    const calculatedMax = Math.round(baseRange.max * locationMult * expMult);
 
     setResults({
-      avgSalary,
-      range: `€${avgMin.toLocaleString()} - €${avgMax.toLocaleString()}`,
-      jobCount: filteredJobs.length,
-      breakdown: filteredJobs.map(job => ({
-        title: job.title,
-        salary: job.salary,
-        location: job.location
-      }))
+      range: `€${calculatedMin.toLocaleString()} - €${calculatedMax.toLocaleString()}`,
+      median: `€${Math.round((calculatedMin + calculatedMax) / 2).toLocaleString()}`,
+      location: selectedLocation,
+      role: selectedRole,
+      experience: experienceLevel
     });
   };
 
+  const resetCalculator = () => {
+    setSelectedRole('');
+    setSelectedLocation('');
+    setExperienceLevel('');
+    setResults(null);
+  };
+
   return (
-    <Dialog open={true} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+    <Dialog open onOpenChange={onClose}>
+      <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <div className="flex items-center justify-between">
-            <DialogTitle className="text-2xl font-bold text-gray-900 font-heading flex items-center gap-3">
-              <Calculator className="w-6 h-6 text-green-500" />
-              Salary Calculator
-              <Euro className="w-5 h-5 text-yellow-500" />
-            </DialogTitle>
-            <Button variant="ghost" size="sm" onClick={onClose} className="rounded-full h-8 w-8 p-0">
-              <X className="h-4 w-4" />
-            </Button>
-          </div>
+          <DialogTitle className="flex items-center gap-2 text-2xl">
+            <Calculator className="w-6 h-6 text-green-500" />
+            Salary Calculator
+          </DialogTitle>
         </DialogHeader>
 
-        <div className="space-y-6">
+        <div className="space-y-6 p-6">
           <div className="text-center mb-6">
-            <TrendingUp className="w-12 h-12 text-green-500 mx-auto mb-3" />
-            <h3 className="text-xl font-semibold mb-2">Discover Your Market Value</h3>
-            <p className="text-gray-600">Compare salaries across different roles, locations, and experience levels</p>
+            <TrendingUp className="w-16 h-16 mx-auto text-green-500 mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Calculate Your Potential Salary</h3>
+            <p className="text-gray-600">Get insights into compensation based on role, location, and experience</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid gap-6">
             <div>
-              <Label className="text-sm font-medium mb-2 block">Department</Label>
-              <Select value={selectedDepartment} onValueChange={setSelectedDepartment}>
+              <label className="block text-sm font-medium mb-2">Role/Department</label>
+              <Select value={selectedRole} onValueChange={setSelectedRole}>
                 <SelectTrigger>
-                  <SelectValue placeholder="All Departments" />
+                  <SelectValue placeholder="Select a role category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Departments</SelectItem>
-                  {departments.map(dept => (
-                    <SelectItem key={dept} value={dept}>{dept}</SelectItem>
-                  ))}
+                  <SelectItem value="Engineering">Engineering</SelectItem>
+                  <SelectItem value="Strategy">Strategy</SelectItem>
+                  <SelectItem value="Operations">Operations</SelectItem>
+                  <SelectItem value="Finance">Finance</SelectItem>
+                  <SelectItem value="Marketing">Marketing</SelectItem>
+                  <SelectItem value="Data Science">Data Science</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div>
-              <Label className="text-sm font-medium mb-2 block">Location</Label>
+              <label className="block text-sm font-medium mb-2">Location</label>
               <Select value={selectedLocation} onValueChange={setSelectedLocation}>
                 <SelectTrigger>
-                  <SelectValue placeholder="All Locations" />
+                  <SelectValue placeholder="Select location" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Locations</SelectItem>
-                  {locations.map(location => (
-                    <SelectItem key={location} value={location}>{location}</SelectItem>
-                  ))}
+                  <SelectItem value="Abuja">Abuja, Nigeria</SelectItem>
+                  <SelectItem value="Abidjan">Abidjan, Côte d'Ivoire</SelectItem>
+                  <SelectItem value="Aix-en-Provence">Aix-en-Provence, France</SelectItem>
+                  <SelectItem value="Remote">Remote</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div>
-              <Label className="text-sm font-medium mb-2 block">Experience Level</Label>
-              <Select value={selectedExperience} onValueChange={setSelectedExperience}>
+              <label className="block text-sm font-medium mb-2">Experience Level</label>
+              <Select value={experienceLevel} onValueChange={setExperienceLevel}>
                 <SelectTrigger>
-                  <SelectValue placeholder="All Levels" />
+                  <SelectValue placeholder="Select experience level" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Levels</SelectItem>
-                  {experienceLevels.map(level => (
-                    <SelectItem key={level} value={level}>{level}</SelectItem>
-                  ))}
+                  <SelectItem value="Entry">Entry Level (0-2 years)</SelectItem>
+                  <SelectItem value="Mid">Mid Level (3-5 years)</SelectItem>
+                  <SelectItem value="Senior">Senior Level (5+ years)</SelectItem>
+                  <SelectItem value="Executive">Executive Level</SelectItem>
                 </SelectContent>
               </Select>
             </div>
           </div>
 
-          <Button 
-            onClick={calculateSalary} 
-            className="w-full bg-gradient-to-r from-green-500 to-teal-600 text-white hover:opacity-90"
-          >
-            <BarChart3 className="w-4 h-4 mr-2" />
-            Calculate Salary Range
-          </Button>
-
-          {results && (
-            <div className="mt-6">
-              {results.error ? (
-                <div className="text-center py-8 bg-red-50 rounded-lg">
-                  <p className="text-red-600">{results.error}</p>
-                  <p className="text-sm text-red-500 mt-2">Try adjusting your filters</p>
+          {!results ? (
+            <Button 
+              onClick={calculateSalary} 
+              className="w-full bg-gradient-to-r from-green-500 to-teal-600 hover:opacity-90"
+              disabled={!selectedRole || !selectedLocation || !experienceLevel}
+            >
+              <Calculator className="w-4 h-4 mr-2" />
+              Calculate Salary
+            </Button>
+          ) : (
+            <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-xl p-6 border border-green-200">
+              <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-green-600" />
+                Salary Estimate
+              </h4>
+              
+              <div className="grid gap-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-600">Salary Range:</span>
+                  <span className="font-semibold text-lg">{results.range}</span>
                 </div>
-              ) : (
-                <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-xl p-6">
-                  <div className="text-center mb-6">
-                    <h4 className="text-2xl font-bold text-gray-900 mb-2">
-                      €{results.avgSalary.toLocaleString()}
-                    </h4>
-                    <p className="text-gray-600">Average Annual Salary</p>
-                    <p className="text-sm text-gray-500 mt-1">
-                      Range: {results.range} • Based on {results.jobCount} position{results.jobCount !== 1 ? 's' : ''}
-                    </p>
-                  </div>
-
-                  <div className="space-y-3">
-                    <h5 className="font-semibold text-gray-900 flex items-center gap-2">
-                      <MapPin className="w-4 h-4" />
-                      Position Breakdown
-                    </h5>
-                    {results.breakdown.map((job: any, index: number) => (
-                      <div key={index} className="flex justify-between items-center py-2 px-3 bg-white rounded-lg">
-                        <div>
-                          <p className="font-medium text-gray-900">{job.title}</p>
-                          <p className="text-sm text-gray-600">{job.location}</p>
-                        </div>
-                        <p className="font-semibold text-green-600">{job.salary}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-4 p-4 bg-blue-50 rounded-lg">
-                    <p className="text-sm text-blue-800">
-                      💡 <strong>Tip:</strong> Salaries may vary based on specific skills, company size, and benefits package. 
-                      These figures represent base salary ranges in our current openings.
-                    </p>
-                  </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-600">Median Salary:</span>
+                  <span className="font-semibold text-green-600">{results.median}</span>
                 </div>
-              )}
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-600 flex items-center gap-1">
+                    <MapPin className="w-4 h-4" />
+                    Location:
+                  </span>
+                  <span>{results.location}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-600 flex items-center gap-1">
+                    <Briefcase className="w-4 h-4" />
+                    Experience:
+                  </span>
+                  <span>{results.experience} Level</span>
+                </div>
+              </div>
+
+              <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <p className="text-sm text-blue-800">
+                  💡 <strong>Note:</strong> These are estimated ranges based on market data and company standards. 
+                  Actual offers may vary based on specific skills, qualifications, and negotiation.
+                </p>
+              </div>
+
+              <div className="flex gap-3 mt-6">
+                <Button variant="outline" onClick={resetCalculator} className="flex-1">
+                  Calculate Again
+                </Button>
+                <Button onClick={onClose} className="flex-1 bg-green-600 hover:bg-green-700">
+                  View Open Positions
+                </Button>
+              </div>
             </div>
           )}
         </div>

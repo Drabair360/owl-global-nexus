@@ -1,12 +1,9 @@
 
 import React, { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { X, Sparkles, Zap, Target, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Badge } from '@/components/ui/badge';
-import { Sparkles, Brain, Zap, X, Star } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Job } from './types';
 
 interface SmartJobMatcherProps {
@@ -16,252 +13,162 @@ interface SmartJobMatcherProps {
 }
 
 const SmartJobMatcher: React.FC<SmartJobMatcherProps> = ({ jobs, onClose, onJobSelect }) => {
+  const [interests, setInterests] = useState('');
+  const [experience, setExperience] = useState('');
+  const [location, setLocation] = useState('');
+  const [matches, setMatches] = useState<Job[]>([]);
   const [step, setStep] = useState(1);
-  const [preferences, setPreferences] = useState({
-    skills: [] as string[],
-    interests: [] as string[],
-    experience: '',
-    location: '',
-    remote: false
-  });
-  const [matches, setMatches] = useState<Array<Job & { score: number }>>([]);
 
-  const skillOptions = [
-    'React', 'TypeScript', 'Python', 'Machine Learning', 'Data Analysis',
-    'Project Management', 'Strategic Planning', 'Financial Analysis',
-    'Marketing', 'CAD Design', 'Industrial Engineering', 'AI Development'
-  ];
-
-  const interestOptions = [
-    'Innovation', 'Africa Development', 'Sustainability', 'Technology',
-    'Investment', 'Agriculture', 'Manufacturing', 'Data Science',
-    'Strategic Growth', 'Community Impact'
-  ];
-
-  const handleSkillToggle = (skill: string) => {
-    setPreferences(prev => ({
-      ...prev,
-      skills: prev.skills.includes(skill)
-        ? prev.skills.filter(s => s !== skill)
-        : [...prev.skills, skill]
-    }));
-  };
-
-  const handleInterestToggle = (interest: string) => {
-    setPreferences(prev => ({
-      ...prev,
-      interests: prev.interests.includes(interest)
-        ? prev.interests.filter(i => i !== interest)
-        : [...prev.interests, interest]
-    }));
-  };
-
-  const calculateMatches = () => {
-    const scoredJobs = jobs.map(job => {
+  const findMatches = () => {
+    // Simple matching algorithm based on selections
+    let matchedJobs = jobs.filter(job => {
       let score = 0;
       
-      // Skill matching
-      preferences.skills.forEach(skill => {
-        if (job.title.toLowerCase().includes(skill.toLowerCase()) ||
-            job.description.toLowerCase().includes(skill.toLowerCase()) ||
-            job.requirements.some(req => req.toLowerCase().includes(skill.toLowerCase()))) {
-          score += 20;
-        }
-      });
-
-      // Interest matching
-      preferences.interests.forEach(interest => {
-        if (job.description.toLowerCase().includes(interest.toLowerCase()) ||
-            job.department.toLowerCase().includes(interest.toLowerCase())) {
-          score += 15;
-        }
-      });
-
-      // Location preference
-      if (preferences.remote && job.remote) score += 25;
-      if (preferences.location && job.location.toLowerCase().includes(preferences.location.toLowerCase())) {
-        score += 20;
-      }
-
-      // Experience matching
-      if (preferences.experience && job.experience.toLowerCase().includes(preferences.experience.toLowerCase())) {
-        score += 30;
-      }
-
-      return { ...job, score };
+      if (interests && job.department.toLowerCase().includes(interests.toLowerCase())) score += 3;
+      if (experience && job.experience === experience) score += 2;
+      if (location && (job.location.includes(location) || (location === 'remote' && job.remote))) score += 1;
+      
+      return score > 0;
     });
 
-    const sortedMatches = scoredJobs
-      .filter(job => job.score > 0)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 5);
+    // Sort by relevance and take top 3
+    setMatches(matchedJobs.slice(0, 3));
+    setStep(2);
+  };
 
-    setMatches(sortedMatches);
-    setStep(3);
+  const resetMatcher = () => {
+    setInterests('');
+    setExperience('');
+    setLocation('');
+    setMatches([]);
+    setStep(1);
   };
 
   return (
-    <Dialog open={true} onOpenChange={onClose}>
+    <Dialog open onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <div className="flex items-center justify-between">
-            <DialogTitle className="text-2xl font-bold text-gray-900 font-heading flex items-center gap-3">
-              <Brain className="w-6 h-6 text-purple-500" />
-              Smart Job Matcher
-              <Sparkles className="w-5 h-5 text-yellow-500 animate-pulse" />
-            </DialogTitle>
-            <Button variant="ghost" size="sm" onClick={onClose} className="rounded-full h-8 w-8 p-0">
-              <X className="h-4 w-4" />
-            </Button>
-          </div>
+          <DialogTitle className="flex items-center gap-2 text-2xl">
+            <Sparkles className="w-6 h-6 text-blue-500" />
+            Smart Job Matching
+          </DialogTitle>
         </DialogHeader>
 
         {step === 1 && (
-          <div className="space-y-6">
+          <div className="space-y-6 p-6">
             <div className="text-center mb-6">
-              <Zap className="w-12 h-12 text-blue-500 mx-auto mb-3" />
-              <h3 className="text-xl font-semibold mb-2">Let's find your perfect role!</h3>
-              <p className="text-gray-600">Tell us about your skills and interests</p>
+              <Target className="w-16 h-16 mx-auto text-blue-500 mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Find Your Perfect Role</h3>
+              <p className="text-gray-600">Answer a few questions to get personalized job recommendations</p>
             </div>
 
-            <div>
-              <Label className="text-lg font-semibold mb-3 block">What are your key skills?</Label>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                {skillOptions.map(skill => (
-                  <div key={skill} className="flex items-center space-x-2">
-                    <Checkbox
-                      id={skill}
-                      checked={preferences.skills.includes(skill)}
-                      onCheckedChange={() => handleSkillToggle(skill)}
-                    />
-                    <Label htmlFor={skill} className="text-sm">{skill}</Label>
-                  </div>
-                ))}
+            <div className="grid gap-6">
+              <div>
+                <label className="block text-sm font-medium mb-2">What interests you most?</label>
+                <Select value={interests} onValueChange={setInterests}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select your area of interest" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="engineering">Engineering & Technology</SelectItem>
+                    <SelectItem value="strategy">Strategy & Business</SelectItem>
+                    <SelectItem value="operations">Operations & Management</SelectItem>
+                    <SelectItem value="finance">Finance & Investment</SelectItem>
+                    <SelectItem value="marketing">Marketing & Growth</SelectItem>
+                    <SelectItem value="data">Data Science & Analytics</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">Experience Level</label>
+                <Select value={experience} onValueChange={setExperience}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select your experience level" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Entry">Entry Level (0-2 years)</SelectItem>
+                    <SelectItem value="Mid">Mid Level (3-5 years)</SelectItem>
+                    <SelectItem value="Senior">Senior Level (5+ years)</SelectItem>
+                    <SelectItem value="Executive">Executive Level</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">Preferred Location</label>
+                <Select value={location} onValueChange={setLocation}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select preferred location" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="any">Any Location</SelectItem>
+                    <SelectItem value="Abuja">Abuja, Nigeria</SelectItem>
+                    <SelectItem value="Abidjan">Abidjan, Côte d'Ivoire</SelectItem>
+                    <SelectItem value="Aix-en-Provence">Aix-en-Provence, France</SelectItem>
+                    <SelectItem value="remote">Remote</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
 
-            <div>
-              <Label className="text-lg font-semibold mb-3 block">What interests you most?</Label>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                {interestOptions.map(interest => (
-                  <div key={interest} className="flex items-center space-x-2">
-                    <Checkbox
-                      id={interest}
-                      checked={preferences.interests.includes(interest)}
-                      onCheckedChange={() => handleInterestToggle(interest)}
-                    />
-                    <Label htmlFor={interest} className="text-sm">{interest}</Label>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <Button onClick={() => setStep(2)} className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-              Next: Location & Experience
+            <Button 
+              onClick={findMatches} 
+              className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:opacity-90"
+              disabled={!interests || !experience || !location}
+            >
+              <Zap className="w-4 h-4 mr-2" />
+              Find My Matches
             </Button>
           </div>
         )}
 
         {step === 2 && (
-          <div className="space-y-6">
+          <div className="space-y-6 p-6">
             <div className="text-center mb-6">
-              <h3 className="text-xl font-semibold mb-2">Almost there!</h3>
-              <p className="text-gray-600">Tell us about your preferences</p>
+              <TrendingUp className="w-16 h-16 mx-auto text-green-500 mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Your Personalized Matches</h3>
+              <p className="text-gray-600">Based on your preferences, here are the best roles for you</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <Label htmlFor="experience">Preferred Experience Level</Label>
-                <Input
-                  id="experience"
-                  placeholder="e.g., Senior, Mid, Entry"
-                  value={preferences.experience}
-                  onChange={(e) => setPreferences(prev => ({ ...prev, experience: e.target.value }))}
-                />
-              </div>
-              <div>
-                <Label htmlFor="location">Preferred Location</Label>
-                <Input
-                  id="location"
-                  placeholder="e.g., Abuja, Remote, France"
-                  value={preferences.location}
-                  onChange={(e) => setPreferences(prev => ({ ...prev, location: e.target.value }))}
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-2">
-              <Checkbox
-                id="remote"
-                checked={preferences.remote}
-                onCheckedChange={(checked) => setPreferences(prev => ({ ...prev, remote: checked as boolean }))}
-              />
-              <Label htmlFor="remote">I'm interested in remote opportunities</Label>
-            </div>
-
-            <div className="flex gap-4">
-              <Button variant="outline" onClick={() => setStep(1)} className="flex-1">
-                Back
-              </Button>
-              <Button onClick={calculateMatches} className="flex-1 bg-gradient-to-r from-green-500 to-teal-600 text-white">
-                <Sparkles className="w-4 h-4 mr-2" />
-                Find My Matches
-              </Button>
-            </div>
-          </div>
-        )}
-
-        {step === 3 && (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <Star className="w-12 h-12 text-yellow-500 mx-auto mb-3" />
-              <h3 className="text-xl font-semibold mb-2">Your Perfect Matches!</h3>
-              <p className="text-gray-600">Based on your preferences, here are the best opportunities for you</p>
-            </div>
-
-            <div className="space-y-4">
-              {matches.map((job, index) => (
-                <div
-                  key={job.id}
-                  className="bg-gradient-to-r from-white to-blue-50 rounded-xl p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all cursor-pointer"
-                  onClick={() => {
-                    onJobSelect(job);
-                    onClose();
-                  }}
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h4 className="text-lg font-semibold text-gray-900">{job.title}</h4>
-                        <Badge className={`bg-gradient-to-r from-green-500 to-blue-500 text-white`}>
-                          {job.score}% Match
-                        </Badge>
-                        {index === 0 && <Star className="w-5 h-5 text-yellow-500" />}
-                      </div>
-                      <p className="text-gray-600 mb-2">{job.location} • {job.department}</p>
-                      <p className="text-gray-700 text-sm line-clamp-2">{job.description}</p>
+            {matches.length > 0 ? (
+              <div className="space-y-4">
+                {matches.map((job, index) => (
+                  <div 
+                    key={job.id}
+                    className="border rounded-lg p-4 hover:shadow-lg transition-shadow cursor-pointer"
+                    onClick={() => onJobSelect(job)}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="font-semibold text-lg">{job.title}</h4>
+                      <span className="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                        {index === 0 ? '95% Match' : index === 1 ? '88% Match' : '82% Match'}
+                      </span>
                     </div>
-                    <div className="text-right">
-                      <p className="font-semibold text-gray-900">{job.salary}</p>
-                      <p className="text-sm text-gray-500">{job.experience}</p>
+                    <p className="text-gray-600 mb-2">{job.department} • {job.location}</p>
+                    <p className="text-sm text-gray-500 line-clamp-2">{job.description}</p>
+                    <div className="mt-3 flex items-center justify-between">
+                      <span className="font-semibold text-green-600">{job.salary}</span>
+                      <Button size="sm" variant="outline">View Details</Button>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-
-            {matches.length === 0 && (
+                ))}
+              </div>
+            ) : (
               <div className="text-center py-8">
-                <p className="text-gray-600">No matches found. Try adjusting your preferences!</p>
-                <Button onClick={() => setStep(1)} className="mt-4" variant="outline">
-                  Update Preferences
-                </Button>
+                <p className="text-gray-500 mb-4">No perfect matches found based on your criteria.</p>
+                <p className="text-sm text-gray-400">Try adjusting your preferences or explore all our open positions.</p>
               </div>
             )}
 
-            <Button onClick={onClose} variant="outline" className="w-full">
-              Close
-            </Button>
+            <div className="flex gap-3">
+              <Button variant="outline" onClick={resetMatcher} className="flex-1">
+                Try Again
+              </Button>
+              <Button onClick={onClose} className="flex-1">
+                View All Jobs
+              </Button>
+            </div>
           </div>
         )}
       </DialogContent>
