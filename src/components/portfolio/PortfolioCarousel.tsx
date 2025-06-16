@@ -91,7 +91,7 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
 
   return (
     <div 
-      className="relative w-full h-[600px] overflow-hidden rounded-2xl"
+      className="relative w-full h-[650px] overflow-hidden rounded-2xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
@@ -154,7 +154,7 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
                   <div className="absolute top-4 right-4 z-10">
                     <div className={`flex items-center ${colors.text} ${colors.bg} px-3 py-1 rounded-full border ${colors.border} text-xs font-medium`}>
                       <Network className="w-3 h-3 mr-1" />
-                      Powered by {item.poweredBy} AI
+                      {item.poweredBy}
                     </div>
                   </div>
                 )}
@@ -165,18 +165,6 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
                       <Zap className="w-3 h-3 mr-1" />
                       {item.launchDate}
                     </div>
-                  </div>
-                )}
-
-                {/* CAO Logo for CAOAGRO card */}
-                {item.title === "CAOAGRO.COM" && (
-                  <div className="absolute top-4 left-4 z-10">
-                    <img 
-                      src="/lovable-uploads/f047b8be-2f3b-434f-96ae-443cb5d8c522.png" 
-                      alt="CAO Logo" 
-                      className="w-12 h-12 opacity-70 filter invert brightness-0 contrast-100"
-                      style={{ filter: 'invert(1) brightness(2) contrast(1)' }}
-                    />
                   </div>
                 )}
                 
@@ -191,13 +179,26 @@ const PortfolioCarousel = ({ items }: PortfolioCarouselProps) => {
                       `}>
                         <Icon className={`w-10 h-10 ${colors.text}`} />
                       </div>
-                      <div className="flex-1">
-                        <h3 className={`text-3xl font-semibold ${colors.text} mb-2`} style={{ fontFamily: 'Avenir Next, -apple-system, BlinkMacSystemFont, sans-serif' }}>
-                          {item.title}
-                        </h3>
-                        <p className="text-slate-300 text-sm font-body leading-relaxed">
-                          {item.subtitle}
-                        </p>
+                      <div className="flex-1 flex items-center">
+                        <div>
+                          <h3 className={`text-3xl font-semibold ${colors.text} mb-2`} style={{ fontFamily: 'Avenir Next, -apple-system, BlinkMacSystemFont, sans-serif' }}>
+                            {item.title}
+                          </h3>
+                          <p className="text-slate-300 text-sm font-body leading-relaxed">
+                            {item.subtitle}
+                          </p>
+                        </div>
+                        {/* CAO Logo for CAOAGRO card - positioned next to title */}
+                        {item.title === "CAOAGRO.COM" && (
+                          <div className="ml-4">
+                            <img 
+                              src="/lovable-uploads/f047b8be-2f3b-434f-96ae-443cb5d8c522.png" 
+                              alt="CAO Logo" 
+                              className="w-12 h-12 opacity-70 filter invert brightness-0 contrast-100"
+                              style={{ filter: 'invert(1) brightness(2) contrast(1)' }}
+                            />
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
