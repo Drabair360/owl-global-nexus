@@ -10,8 +10,8 @@ const PortfolioPage = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
+      {/* Hero Section with gradient to white */}
+      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-slate-900 via-blue-900 via-indigo-900 to-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.10),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(99,102,241,0.08),transparent_50%)]" />
         
@@ -31,11 +31,6 @@ const PortfolioPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Seamless Transition */}
-      <div className="relative h-48 -mt-24 bg-gradient-to-b from-indigo-900/20 via-indigo-600/40 via-indigo-300/60 to-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
-      </div>
 
       {/* Flagship Ventures Section */}
       <section className="py-24 bg-white">

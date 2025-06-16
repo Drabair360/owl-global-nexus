@@ -9,8 +9,8 @@ const Careers = () => {
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-orange-100">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-rose-900 via-pink-900 to-orange-900 overflow-hidden">
+      {/* Hero Section with gradient to white */}
+      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-rose-900 via-pink-900 via-orange-900 to-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(236,72,153,0.10),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.08),transparent_50%)]" />
         
@@ -32,13 +32,9 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* Seamless Transition */}
-      <div className="relative h-48 -mt-24 bg-gradient-to-b from-orange-900/20 via-orange-600/40 via-orange-300/60 to-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.05),transparent_70%)]" />
-      </div>
-
       {/* Content */}
       <section className="py-16 bg-white">
+        {/* Section Header */}
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-16">

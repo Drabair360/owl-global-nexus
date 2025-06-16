@@ -8,8 +8,8 @@ const Impact = () => {
     <div className="min-h-screen bg-gradient-to-br from-lime-50 via-green-50 to-emerald-100">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-lime-900 via-green-900 to-emerald-900 overflow-hidden">
+      {/* Hero Section with gradient to white */}
+      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-lime-900 via-green-900 via-emerald-900 to-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(34,197,94,0.10),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(132,204,22,0.08),transparent_50%)]" />
         
@@ -29,11 +29,6 @@ const Impact = () => {
           </div>
         </div>
       </section>
-
-      {/* Seamless Transition */}
-      <div className="relative h-48 -mt-24 bg-gradient-to-b from-emerald-900/20 via-emerald-600/40 via-emerald-300/60 to-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,197,94,0.05),transparent_70%)]" />
-      </div>
 
       {/* Content */}
       <section className="py-16 bg-white">
