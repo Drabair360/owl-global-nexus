@@ -11,16 +11,16 @@ const Scouts = () => {
       
       {/* Hero Section */}
       <section 
-        className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
+        className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-violet-900 via-purple-900 via-indigo-900 to-white overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, 
+          background: `linear-gradient(180deg, 
             rgba(76, 29, 149, 1) 0%, 
-            rgba(139, 69, 219, 0.95) 15%, 
-            rgba(168, 85, 247, 0.9) 30%, 
-            rgba(99, 102, 241, 0.7) 50%, 
-            rgba(139, 69, 219, 0.4) 70%, 
-            rgba(76, 29, 149, 0.2) 85%, 
-            rgba(255, 255, 255, 0) 100%)`
+            rgba(139, 69, 219, 0.98) 15%, 
+            rgba(168, 85, 247, 0.95) 30%, 
+            rgba(99, 102, 241, 0.85) 50%, 
+            rgba(139, 69, 219, 0.65) 70%, 
+            rgba(76, 29, 149, 0.35) 85%, 
+            rgba(255, 255, 255, 1) 100%)`
         }}
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(139,69,219,0.12),transparent_50%)]" />

@@ -10,7 +10,19 @@ const Careers = () => {
       <Navbar />
       
       {/* Hero Section with gradient to white */}
-      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-rose-900 via-pink-900 via-orange-900 to-white overflow-hidden">
+      <section 
+        className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-rose-900 via-pink-900 via-orange-900 to-white overflow-hidden"
+        style={{
+          background: `linear-gradient(180deg, 
+            rgba(159, 18, 57, 1) 0%, 
+            rgba(190, 24, 93, 0.98) 15%, 
+            rgba(219, 39, 119, 0.95) 30%, 
+            rgba(236, 72, 153, 0.85) 50%, 
+            rgba(251, 113, 133, 0.65) 70%, 
+            rgba(254, 159, 98, 0.35) 85%, 
+            rgba(255, 255, 255, 1) 100%)`
+        }}
+      >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(236,72,153,0.10),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.08),transparent_50%)]" />
         
