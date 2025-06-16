@@ -41,7 +41,7 @@ const Portfolio = () => {
       poweredBy: "Powered by Human Talents, Supported by AI",
       statistics: [
         { value: "€10M+", label: "Projects Delivered and in the Happening" },
-        { value: "12 to 19 Months", label: "Avg. Completion" },
+        { value: "12 to 18 Months", label: "Avg. Completion Time" },
         { value: "95%", label: "On-Time Delivery" },
         { value: "9", label: "Industrial Sectors" }
       ],
@@ -82,7 +82,7 @@ const Portfolio = () => {
       features: ["AI Talent Matching", "Global Network", "Automated Booking", "Career Development"],
       primaryColor: "purple",
       website: "https://www.kidzlabmodels.com/",
-      poweredBy: "AKOULA",
+      poweredBy: "Powered by AKOULA AI",
       statistics: [
         { value: "95%", label: "Match Success Rate" },
         { value: "5 min", label: "Avg. Booking Time" },

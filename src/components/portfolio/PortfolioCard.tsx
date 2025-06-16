@@ -17,7 +17,7 @@ const PortfolioCard = ({ item, index, isHovered, onMouseEnter }: PortfolioCardPr
 
   return (
     <div
-      className="w-full h-full flex-shrink-0 px-6"
+      className="w-full h-full flex-shrink-0 px-6 py-6"
       onMouseEnter={onMouseEnter}
     >
       <div className={`
@@ -77,13 +77,13 @@ const PortfolioCard = ({ item, index, isHovered, onMouseEnter }: PortfolioCardPr
                     {item.subtitle}
                   </p>
                 </div>
-                {/* CAO Logo for CAOAGRO card - positioned next to title */}
+                {/* CAO Logo for CAOAGRO card - positioned next to title with same height as icon */}
                 {item.title === "CAOAGRO.COM" && (
                   <div className="ml-4">
                     <img 
                       src="/lovable-uploads/f047b8be-2f3b-434f-96ae-443cb5d8c522.png" 
                       alt="CAO Logo" 
-                      className="w-12 h-12 opacity-70 filter invert brightness-0 contrast-100"
+                      className="w-20 h-20 opacity-70 filter invert brightness-0 contrast-100"
                       style={{ filter: 'invert(1) brightness(2) contrast(1)' }}
                     />
                   </div>
