@@ -17,7 +17,7 @@ const PortfolioCard = ({ item, index, isHovered, onMouseEnter }: PortfolioCardPr
 
   return (
     <div
-      className="w-full h-full flex-shrink-0 px-6 py-6"
+      className="w-full h-full flex-shrink-0 px-6"
       onMouseEnter={onMouseEnter}
     >
       <div className={`
@@ -57,9 +57,9 @@ const PortfolioCard = ({ item, index, isHovered, onMouseEnter }: PortfolioCardPr
           </div>
         )}
         
-        <div className="relative z-10 p-8 h-full flex flex-col">
+        <div className="relative z-10 p-6 h-full flex flex-col">
           {/* Header with Icon and Title */}
-          <div className="flex items-start justify-between mb-6">
+          <div className="flex items-start justify-between mb-4">
             <div className="flex items-center flex-1">
               <div className={`
                 w-20 h-20 rounded-2xl bg-gradient-to-br ${colors.bg} 
@@ -93,7 +93,7 @@ const PortfolioCard = ({ item, index, isHovered, onMouseEnter }: PortfolioCardPr
           </div>
           
           {/* Description */}
-          <div className="mb-6">
+          <div className="mb-4">
             <p className="text-slate-300 leading-relaxed font-body text-base">
               {item.description}
             </p>
@@ -101,8 +101,8 @@ const PortfolioCard = ({ item, index, isHovered, onMouseEnter }: PortfolioCardPr
 
           {/* Statistics Section */}
           {item.statistics && (
-            <div className="mb-6">
-              <div className="flex items-center mb-4">
+            <div className="mb-4">
+              <div className="flex items-center mb-3">
                 <Target className={`w-5 h-5 ${colors.text} mr-2`} />
                 <span className={`text-lg font-semibold ${colors.text}`} style={{ fontFamily: 'Avenir Next, -apple-system, BlinkMacSystemFont, sans-serif' }}>
                   Targets
@@ -128,7 +128,7 @@ const PortfolioCard = ({ item, index, isHovered, onMouseEnter }: PortfolioCardPr
 
           {/* Synergies Section */}
           {item.synergies && (
-            <div className="mb-6">
+            <div className="mb-4">
               <div className="flex items-center mb-3">
                 <Workflow className={`w-4 h-4 ${colors.text} mr-2`} />
                 <span className={`text-sm font-medium ${colors.text}`}>Platform Synergies</span>
@@ -145,7 +145,7 @@ const PortfolioCard = ({ item, index, isHovered, onMouseEnter }: PortfolioCardPr
           )}
           
           {/* Features */}
-          <div className="flex flex-wrap gap-3 mt-auto mb-16">
+          <div className="flex flex-wrap gap-3 mt-auto mb-8">
             {item.features.map((feature, featureIndex) => (
               <span
                 key={featureIndex}
