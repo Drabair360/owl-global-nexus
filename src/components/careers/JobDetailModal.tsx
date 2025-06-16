@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -9,13 +9,22 @@ import { RoleSketch } from './RoleSketches';
 import ApplicationForm from './ApplicationForm';
 
 interface JobDetailModalProps {
-  job: Job;
+  job: Job | null;
   onClose: () => void;
 }
 
 const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
   const [showApplication, setShowApplication] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    console.log('JobDetailModal received job:', job);
+  }, [job]);
+
+  if (!job) {
+    console.log('No job provided to modal');
+    return null;
+  }
 
   if (showApplication) {
     return (
@@ -44,7 +53,7 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
   };
 
   return (
-    <Dialog open={!!job} onOpenChange={onClose}>
+    <Dialog open={true} onOpenChange={onClose}>
       <DialogContent className={`max-w-5xl max-h-[90vh] overflow-y-auto ${themeClasses} relative`}>
         {/* Background Role Sketch */}
         <div className="absolute inset-0 overflow-hidden">
@@ -55,7 +64,7 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
         <div className={`relative z-10 border-b ${isDarkMode ? 'border-slate-700' : 'border-slate-200'} pb-4`}>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-3">
-              <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${getDepartmentGradient(job.department)} animate-pulse`} />
+              <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${getDepartmentGradient(job.department)}`} />
               <span className={`text-xs font-mono ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                 OWL_CAREERS_SYSTEM_v2.1.0
               </span>

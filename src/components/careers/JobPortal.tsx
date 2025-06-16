@@ -57,6 +57,11 @@ const JobPortal = () => {
 
   const hasActiveFilters = Object.values(filters).some(value => value !== '' && value !== 'all');
 
+  const handleJobSelect = (job: Job) => {
+    console.log('JobPortal: Setting selected job:', job.title, job.id);
+    setSelectedJob(job);
+  };
+
   return (
     <div className="space-y-8">
       {/* Section Header */}
@@ -67,113 +72,131 @@ const JobPortal = () => {
         </p>
       </div>
 
-      {/* Enhanced Filter Section */}
-      <div className="bg-white rounded-2xl p-6 shadow-lg border bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
-        <div className="flex flex-col lg:flex-row gap-4 mb-4">
-          <div className="flex-1">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <Input
-                placeholder="Search jobs, skills, keywords..."
-                className="pl-10 border-2 focus:border-gradient-to-r focus:from-blue-500 focus:to-purple-500"
-                style={{
-                  boxShadow: '0 0 0 3px rgba(236, 72, 153, 0.1), 0 0 0 6px rgba(251, 146, 60, 0.05)'
-                }}
-                value={filters.search}
-                onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
-              />
+      {/* Enhanced Filter Section with Beautiful Gradient Shadow */}
+      <div 
+        className="relative bg-white rounded-2xl p-6 border"
+        style={{
+          background: 'linear-gradient(135deg, #ffffff 0%, #fdf2f8 25%, #fef3e2 50%, #ffffff 100%)',
+          boxShadow: `
+            0 0 0 1px rgba(236, 72, 153, 0.1),
+            0 2px 4px -1px rgba(251, 146, 60, 0.15),
+            0 4px 8px -2px rgba(236, 72, 153, 0.25),
+            0 8px 16px -4px rgba(251, 146, 60, 0.2),
+            0 16px 32px -8px rgba(236, 72, 153, 0.15),
+            -2px -2px 8px rgba(251, 146, 60, 0.1),
+            2px 2px 8px rgba(236, 72, 153, 0.1),
+            -4px 4px 12px rgba(251, 146, 60, 0.08),
+            4px -4px 12px rgba(236, 72, 153, 0.08)
+          `
+        }}
+      >
+        {/* Subtle inner glow */}
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-pink-500/5 via-transparent to-orange-500/5 pointer-events-none" />
+        
+        <div className="relative z-10">
+          <div className="flex flex-col lg:flex-row gap-4 mb-4">
+            <div className="flex-1">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Input
+                  placeholder="Search jobs, skills, keywords..."
+                  className="pl-10 border-2 focus:border-gradient-to-r focus:from-blue-500 focus:to-purple-500 bg-white/80 backdrop-blur-sm"
+                  value={filters.search}
+                  onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
+                />
+              </div>
             </div>
+            
+            <Select value={filters.location} onValueChange={(value) => setFilters(prev => ({ ...prev, location: value }))}>
+              <SelectTrigger className="w-full lg:w-48 bg-white/80 backdrop-blur-sm">
+                <SelectValue placeholder="Location" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Locations</SelectItem>
+                <SelectItem value="Abuja">Abuja, Nigeria</SelectItem>
+                <SelectItem value="Abidjan">Abidjan, Côte d'Ivoire</SelectItem>
+                <SelectItem value="Aix-en-Provence">Aix-en-Provence, France</SelectItem>
+                <SelectItem value="Remote">Remote</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Select value={filters.department} onValueChange={(value) => setFilters(prev => ({ ...prev, department: value }))}>
+              <SelectTrigger className="w-full lg:w-48 bg-white/80 backdrop-blur-sm">
+                <SelectValue placeholder="Department" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Departments</SelectItem>
+                <SelectItem value="Engineering">Engineering</SelectItem>
+                <SelectItem value="Strategy">Strategy</SelectItem>
+                <SelectItem value="Operations">Operations</SelectItem>
+                <SelectItem value="Finance">Finance</SelectItem>
+                <SelectItem value="Marketing">Marketing</SelectItem>
+                <SelectItem value="Data Science">Data Science</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Select value={filters.experience} onValueChange={(value) => setFilters(prev => ({ ...prev, experience: value }))}>
+              <SelectTrigger className="w-full lg:w-48 bg-white/80 backdrop-blur-sm">
+                <SelectValue placeholder="Experience" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Levels</SelectItem>
+                <SelectItem value="Entry">Entry Level</SelectItem>
+                <SelectItem value="Mid">Mid Level</SelectItem>
+                <SelectItem value="Senior">Senior Level</SelectItem>
+                <SelectItem value="Executive">Executive</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
-          
-          <Select value={filters.location} onValueChange={(value) => setFilters(prev => ({ ...prev, location: value }))}>
-            <SelectTrigger className="w-full lg:w-48">
-              <SelectValue placeholder="Location" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Locations</SelectItem>
-              <SelectItem value="Abuja">Abuja, Nigeria</SelectItem>
-              <SelectItem value="Abidjan">Abidjan, Côte d'Ivoire</SelectItem>
-              <SelectItem value="Aix-en-Provence">Aix-en-Provence, France</SelectItem>
-              <SelectItem value="Remote">Remote</SelectItem>
-            </SelectContent>
-          </Select>
 
-          <Select value={filters.department} onValueChange={(value) => setFilters(prev => ({ ...prev, department: value }))}>
-            <SelectTrigger className="w-full lg:w-48">
-              <SelectValue placeholder="Department" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Departments</SelectItem>
-              <SelectItem value="Engineering">Engineering</SelectItem>
-              <SelectItem value="Strategy">Strategy</SelectItem>
-              <SelectItem value="Operations">Operations</SelectItem>
-              <SelectItem value="Finance">Finance</SelectItem>
-              <SelectItem value="Marketing">Marketing</SelectItem>
-              <SelectItem value="Data Science">Data Science</SelectItem>
-            </SelectContent>
-          </Select>
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-gray-600 font-body">
+                {filteredJobs.length} position{filteredJobs.length !== 1 ? 's' : ''} found
+              </span>
+              {hasActiveFilters && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={clearFilters}
+                  className="flex items-center gap-2 font-subtitle bg-white/60 backdrop-blur-sm"
+                >
+                  <X className="w-4 h-4" />
+                  Clear Filters
+                </Button>
+              )}
+            </div>
+            
+            <div className="flex items-center gap-2">
+              {/* View Mode Toggle */}
+              <div className="flex bg-gray-100/80 backdrop-blur-sm rounded-lg p-1">
+                <Button
+                  variant={viewMode === 'grid' ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => setViewMode('grid')}
+                  className="rounded-md"
+                >
+                  <Grid3X3 className="w-4 h-4" />
+                </Button>
+                <Button
+                  variant={viewMode === 'list' ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => setViewMode('list')}
+                  className="rounded-md"
+                >
+                  <List className="w-4 h-4" />
+                </Button>
+              </div>
 
-          <Select value={filters.experience} onValueChange={(value) => setFilters(prev => ({ ...prev, experience: value }))}>
-            <SelectTrigger className="w-full lg:w-48">
-              <SelectValue placeholder="Experience" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Levels</SelectItem>
-              <SelectItem value="Entry">Entry Level</SelectItem>
-              <SelectItem value="Mid">Mid Level</SelectItem>
-              <SelectItem value="Senior">Senior Level</SelectItem>
-              <SelectItem value="Executive">Executive</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-600 font-body">
-              {filteredJobs.length} position{filteredJobs.length !== 1 ? 's' : ''} found
-            </span>
-            {hasActiveFilters && (
               <Button
                 variant="outline"
-                size="sm"
-                onClick={clearFilters}
-                className="flex items-center gap-2 font-subtitle"
+                onClick={() => setShowMap(!showMap)}
+                className="flex items-center gap-2 font-subtitle bg-white/60 backdrop-blur-sm"
               >
-                <X className="w-4 h-4" />
-                Clear Filters
-              </Button>
-            )}
-          </div>
-          
-          <div className="flex items-center gap-2">
-            {/* View Mode Toggle */}
-            <div className="flex bg-gray-100 rounded-lg p-1">
-              <Button
-                variant={viewMode === 'grid' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => setViewMode('grid')}
-                className="rounded-md"
-              >
-                <Grid3X3 className="w-4 h-4" />
-              </Button>
-              <Button
-                variant={viewMode === 'list' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => setViewMode('list')}
-                className="rounded-md"
-              >
-                <List className="w-4 h-4" />
+                <MapPin className="w-4 h-4" />
+                {showMap ? 'Hide Map' : 'Show Map'}
               </Button>
             </div>
-
-            <Button
-              variant="outline"
-              onClick={() => setShowMap(!showMap)}
-              className="flex items-center gap-2 font-subtitle"
-            >
-              <MapPin className="w-4 h-4" />
-              {showMap ? 'Hide Map' : 'Show Map'}
-            </Button>
           </div>
         </div>
       </div>
@@ -213,7 +236,7 @@ const JobPortal = () => {
 
       {/* Map Section */}
       {showMap && (
-        <InteractiveWorldMap jobs={filteredJobs} onJobSelect={setSelectedJob} />
+        <InteractiveWorldMap jobs={filteredJobs} onJobSelect={handleJobSelect} />
       )}
 
       {/* Job Listings */}
@@ -223,12 +246,12 @@ const JobPortal = () => {
             <JobCard
               key={job.id}
               job={job}
-              onClick={() => setSelectedJob(job)}
+              onClick={() => handleJobSelect(job)}
             />
           ))}
         </div>
       ) : (
-        <JobListView jobs={filteredJobs} onJobSelect={setSelectedJob} />
+        <JobListView jobs={filteredJobs} onJobSelect={handleJobSelect} />
       )}
 
       {filteredJobs.length === 0 && (
@@ -245,7 +268,10 @@ const JobPortal = () => {
       {selectedJob && (
         <JobDetailModal
           job={selectedJob}
-          onClose={() => setSelectedJob(null)}
+          onClose={() => {
+            console.log('Closing modal');
+            setSelectedJob(null);
+          }}
         />
       )}
 
@@ -253,7 +279,7 @@ const JobPortal = () => {
         <SmartJobMatcher 
           jobs={jobData}
           onClose={() => setShowMatcher(false)}
-          onJobSelect={setSelectedJob}
+          onJobSelect={handleJobSelect}
         />
       )}
 

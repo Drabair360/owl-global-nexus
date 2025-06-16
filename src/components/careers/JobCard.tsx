@@ -36,8 +36,8 @@ const JobCard: React.FC<JobCardProps> = ({ job, onClick }) => {
 
   return (
     <div className="relative group">
-      {/* Animated gradient border */}
-      <div className={`absolute -inset-0.5 bg-gradient-to-r ${getDepartmentGradient(job.department)} rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300 animate-pulse`} />
+      {/* Static gradient border - no animation */}
+      <div className={`absolute -inset-0.5 bg-gradient-to-r ${getDepartmentGradient(job.department)} rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300`} />
       
       <div 
         className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group hover:-translate-y-1"
@@ -90,6 +90,7 @@ const JobCard: React.FC<JobCardProps> = ({ job, onClick }) => {
             className={`bg-gradient-to-r ${getDepartmentGradient(job.department)} hover:opacity-90 text-white font-subtitle group-hover:scale-105 transition-transform shadow-lg`}
             onClick={(e) => {
               e.stopPropagation();
+              console.log('Button clicked, job:', job.title, job.id);
               onClick();
             }}
           >
