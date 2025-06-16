@@ -1,4 +1,3 @@
-
 import * as React from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { X } from "lucide-react"
@@ -30,7 +29,7 @@ const DialogOverlay = React.forwardRef<
       right: '0 !important', 
       bottom: '0 !important',
       zIndex: '99998 !important'
-    } as React.CSSProperties}
+    } as unknown as React.CSSProperties}
     {...props}
   />
 ))
@@ -56,7 +55,7 @@ const DialogContent = React.forwardRef<
         zIndex: '99999 !important',
         maxHeight: '90vh !important',
         overflow: 'auto !important'
-      } as React.CSSProperties}
+      } as unknown as React.CSSProperties}
       {...props}
     >
       {children}
