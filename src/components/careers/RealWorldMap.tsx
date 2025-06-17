@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Building } from 'lucide-react';
+import { Building, ZoomIn, ZoomOut } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { Job } from './types';
 
 interface RealWorldMapProps {
@@ -24,8 +25,8 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
       map.current = new mapboxgl.default.Map({
         container: mapContainer.current!,
         style: 'mapbox://styles/mapbox/light-v11',
-        zoom: 1,
-        center: [0, 20],
+        zoom: 2,
+        center: [10, 15], // Better center to show Africa and Europe
         projection: 'mercator'
       });
 
@@ -36,12 +37,24 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
       map.current.on('load', () => {
         console.log('Map loaded, adding markers for', jobs.length, 'jobs');
 
-        // Group jobs by location
+        // Group jobs by location and fix coordinates
         const locationGroups = jobs.reduce((acc, job) => {
-          const locationKey = `${job.coordinates[0]},${job.coordinates[1]}`;
+          // Ensure coordinates are in [longitude, latitude] format
+          let [lng, lat] = job.coordinates;
+          
+          // Fix coordinate format based on known locations
+          if (job.location.includes('Abuja')) {
+            lng = 7.4951; lat = 9.0765;
+          } else if (job.location.includes('Abidjan')) {
+            lng = -4.0435; lat = 5.3599;
+          } else if (job.location.includes('Aix-en-Provence')) {
+            lng = 5.4474; lat = 43.5263;
+          }
+          
+          const locationKey = `${lng},${lat}`;
           if (!acc[locationKey]) {
             acc[locationKey] = {
-              coordinates: job.coordinates,
+              coordinates: [lng, lat],
               jobs: [],
               location: job.location
             };
@@ -54,7 +67,7 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
 
         // Add markers for each location group
         Object.values(locationGroups).forEach((group, index) => {
-          console.log(`Adding marker ${index + 1} for ${group.location} with ${group.jobs.length} jobs`);
+          console.log(`Adding marker ${index + 1} for ${group.location} at [${group.coordinates[0]}, ${group.coordinates[1]}] with ${group.jobs.length} jobs`);
           
           // Create custom marker element
           const markerElement = document.createElement('div');
@@ -101,16 +114,19 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
             maxWidth: '300px'
           }).setHTML(popupContent);
 
-          // Ensure coordinates are properly typed as [number, number] tuple
+          // Ensure coordinates are properly typed as [number, number] tuple for Mapbox
           const coordinates: [number, number] = [group.coordinates[0], group.coordinates[1]];
 
-          // Add marker to map
-          const marker = new mapboxgl.default.Marker(markerElement)
+          // Add marker to map with proper anchor
+          const marker = new mapboxgl.default.Marker({
+            element: markerElement,
+            anchor: 'bottom' // Anchor the marker at the bottom for proper positioning
+          })
             .setLngLat(coordinates)
             .setPopup(popup)
             .addTo(map.current);
 
-          console.log(`Marker added at coordinates:`, coordinates);
+          console.log(`Marker successfully added at coordinates [${coordinates[0]}, ${coordinates[1]}]`);
         });
 
         // Global function to handle job selection from popup
@@ -134,6 +150,19 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
     };
   }, [jobs, onJobSelect]);
 
+  // Zoom functions
+  const handleZoomIn = () => {
+    if (map.current) {
+      map.current.zoomIn();
+    }
+  };
+
+  const handleZoomOut = () => {
+    if (map.current) {
+      map.current.zoomOut();
+    }
+  };
+
   return (
     <div className="relative bg-white rounded-2xl p-6 shadow-lg overflow-hidden">
       <div className="flex items-center gap-3 mb-6">
@@ -141,7 +170,31 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
         <h3 className="text-2xl font-bold text-gray-900 font-heading">Global Opportunities</h3>
       </div>
       
-      <div ref={mapContainer} className="w-full h-96 rounded-xl" />
+      <div className="relative">
+        <div ref={mapContainer} className="w-full h-96 rounded-xl" />
+        
+        {/* Custom Zoom Controls */}
+        <div className="absolute top-4 right-4 flex flex-col gap-2 z-10">
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={handleZoomIn}
+            className="bg-white shadow-lg hover:bg-gray-50"
+            title="Zoom In"
+          >
+            <ZoomIn className="w-4 h-4" />
+          </Button>
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={handleZoomOut}
+            className="bg-white shadow-lg hover:bg-gray-50"
+            title="Zoom Out"
+          >
+            <ZoomOut className="w-4 h-4" />
+          </Button>
+        </div>
+      </div>
       
       <div className="mt-4 flex flex-wrap gap-4 text-sm">
         <div className="flex items-center gap-2">
