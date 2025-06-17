@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Building, RotateCcw, Maximize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -117,7 +118,7 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
         <div
           className="absolute inset-0 cursor-grab active:cursor-grabbing"
           style={{
-            backgroundImage: `url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")`,
+            backgroundImage: `url("https://images.unsplash.com/photo-1597149850956-d14e7c9c32a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -130,7 +131,7 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
           onMouseLeave={handleMouseUp}
         >
           {/* Subtle overlay for better marker visibility */}
-          <div className="absolute inset-0 bg-blue-900/10" />
+          <div className="absolute inset-0 bg-blue-900/20" />
           
           {/* Job Markers */}
           {locationGroups.map((group, index) => (
