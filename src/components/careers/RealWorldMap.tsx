@@ -93,9 +93,12 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
             maxWidth: '300px'
           }).setHTML(popupContent);
 
+          // Fix: Ensure coordinates are properly typed as [number, number] tuple
+          const coordinates: [number, number] = [group.coordinates[0], group.coordinates[1]];
+
           // Add marker to map
           new mapboxgl.default.Marker(markerElement)
-            .setLngLat(group.coordinates)
+            .setLngLat(coordinates)
             .setPopup(popup)
             .addTo(map.current);
         }
