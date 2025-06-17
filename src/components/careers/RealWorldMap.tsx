@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Building, RotateCcw, Maximize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -114,13 +113,14 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
       
       {/* Map Container */}
       <div className="relative w-full h-96 rounded-xl overflow-hidden bg-gradient-to-b from-sky-200 to-blue-300 shadow-inner">
-        {/* World Map Background */}
+        {/* Real World Map Background */}
         <div
           className="absolute inset-0 cursor-grab active:cursor-grabbing"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 500'%3E%3Cdefs%3E%3ClinearGradient id='ocean' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23e0f2fe'/%3E%3Cstop offset='100%25' style='stop-color:%23b3e5fc'/%3E%3C/linearGradient%3E%3ClinearGradient id='land' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2366bb6a'/%3E%3Cstop offset='50%25' style='stop-color:%234caf50'/%3E%3Cstop offset='100%25' style='stop-color:%23388e3c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1000' height='500' fill='url(%23ocean)'/%3E%3C!-- Simplified continent shapes --%3E%3C!-- North America --%3E%3Cpath d='M120,80 L280,70 L320,120 L300,180 L200,200 L150,160 Z' fill='url(%23land)' stroke='%232e7d32' stroke-width='1'/%3E%3C!-- South America --%3E%3Cpath d='M220,220 L280,210 L300,320 L260,380 L200,350 L180,280 Z' fill='url(%23land)' stroke='%232e7d32' stroke-width='1'/%3E%3C!-- Europe --%3E%3Cpath d='M420,70 L520,65 L540,130 L480,140 L430,120 Z' fill='url(%23land)' stroke='%232e7d32' stroke-width='1'/%3E%3C!-- Africa --%3E%3Cpath d='M450,150 L550,140 L580,280 L520,380 L460,350 L430,220 Z' fill='url(%23land)' stroke='%232e7d32' stroke-width='1'/%3E%3C!-- Asia --%3E%3Cpath d='M550,60 L780,50 L820,180 L760,200 L580,160 L540,100 Z' fill='url(%23land)' stroke='%232e7d32' stroke-width='1'/%3E%3C!-- Australia --%3E%3Cpath d='M720,300 L820,290 L850,340 L800,370 L720,360 Z' fill='url(%23land)' stroke='%232e7d32' stroke-width='1'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
             transform: `translate(${mapTransform.x}px, ${mapTransform.y}px) scale(${mapTransform.scale})`,
             transition: isDragging ? 'none' : 'transform 0.3s ease-out'
           }}
@@ -129,11 +129,14 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         >
+          {/* Subtle overlay for better marker visibility */}
+          <div className="absolute inset-0 bg-blue-900/10" />
+          
           {/* Job Markers */}
           {locationGroups.map((group, index) => (
             <div
               key={index}
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+              className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20"
               style={{
                 left: `${(group.position.x / 1000) * 100}%`,
                 top: `${(group.position.y / 500) * 100}%`
