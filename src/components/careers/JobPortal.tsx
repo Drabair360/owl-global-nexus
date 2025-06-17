@@ -1,8 +1,10 @@
-import React, { useState, useMemo } from 'react';
-import { Search, MapPin, Briefcase, Clock, Filter, X, Grid3X3, List, Sparkles } from 'lucide-react';
+
+import React, { useState, useMemo, useEffect } from 'react';
+import { Search, MapPin, Briefcase, Clock, Filter, X, Grid3X3, List, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
 import JobCard from './JobCard';
 import JobDetailModal from './JobDetailModal';
 import RealWorldMap from './RealWorldMap';
@@ -14,10 +16,14 @@ import { Job, JobFilters } from './types';
 
 const JobPortal = () => {
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
-  const [showMap, setShowMap] = useState(false);
+  const [showMap, setShowMap] = useState(true); // Default to visible
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [showMatcher, setShowMatcher] = useState(false);
   const [showCalculator, setShowCalculator] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [jobsPerPage, setJobsPerPage] = useState(10);
+  const [scrollY, setScrollY] = useState(0);
+
   const [filters, setFilters] = useState<JobFilters>({
     search: '',
     location: '',
@@ -25,6 +31,13 @@ const JobPortal = () => {
     experience: '',
     type: ''
   });
+
+  // Handle scroll for animated shadow
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const filteredJobs = useMemo(() => {
     return jobData.filter(job => {
@@ -44,6 +57,17 @@ const JobPortal = () => {
     });
   }, [filters]);
 
+  // Pagination logic
+  const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
+  const startIndex = (currentPage - 1) * jobsPerPage;
+  const endIndex = startIndex + jobsPerPage;
+  const currentJobs = filteredJobs.slice(startIndex, endIndex);
+
+  // Reset to first page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filters, jobsPerPage]);
+
   const clearFilters = () => {
     setFilters({
       search: '',
@@ -61,6 +85,10 @@ const JobPortal = () => {
     setSelectedJob(job);
   };
 
+  // Calculate shadow animation based on scroll
+  const shadowIntensity = Math.min(scrollY / 500, 1);
+  const shadowOffset = Math.sin(scrollY / 200) * 4;
+
   return (
     <div className="space-y-8">
       {/* Section Header */}
@@ -71,24 +99,21 @@ const JobPortal = () => {
         </p>
       </div>
 
-      {/* Enhanced Filter Section with Beautiful Gradient Shadow */}
+      {/* Enhanced Filter Section with Animated Shadow */}
       <div 
-        className="relative bg-white rounded-2xl p-6 border"
+        className="relative bg-white rounded-2xl p-6 border transition-all duration-300"
         style={{
           background: 'linear-gradient(135deg, #ffffff 0%, #fdf2f8 25%, #fef3e2 50%, #ffffff 100%)',
           boxShadow: `
             0 0 0 1px rgba(236, 72, 153, 0.15),
-            0 4px 8px -2px rgba(251, 146, 60, 0.2),
-            0 8px 16px -4px rgba(236, 72, 153, 0.3),
-            0 16px 32px -8px rgba(251, 146, 60, 0.25),
-            0 32px 64px -16px rgba(236, 72, 153, 0.2),
-            -4px -4px 16px rgba(251, 146, 60, 0.15),
-            4px 4px 16px rgba(236, 72, 153, 0.15),
-            -8px 8px 24px rgba(251, 146, 60, 0.12),
-            8px -8px 24px rgba(236, 72, 153, 0.12),
-            0 0 40px rgba(251, 146, 60, 0.1),
-            0 0 80px rgba(236, 72, 153, 0.08)
-          `
+            ${shadowOffset}px 4px ${8 + shadowIntensity * 8}px -2px rgba(251, 146, 60, ${0.2 + shadowIntensity * 0.1}),
+            ${shadowOffset * 2}px 8px ${16 + shadowIntensity * 16}px -4px rgba(236, 72, 153, ${0.3 + shadowIntensity * 0.2}),
+            ${shadowOffset * 4}px 16px ${32 + shadowIntensity * 32}px -8px rgba(251, 146, 60, ${0.25 + shadowIntensity * 0.15}),
+            ${shadowOffset * 8}px 32px ${64 + shadowIntensity * 64}px -16px rgba(236, 72, 153, ${0.2 + shadowIntensity * 0.1}),
+            ${-shadowOffset}px -4px 16px rgba(251, 146, 60, ${0.15 + shadowIntensity * 0.05}),
+            ${shadowOffset}px 4px 16px rgba(236, 72, 153, ${0.15 + shadowIntensity * 0.05})
+          `,
+          transform: `translateY(${shadowIntensity * 2}px)`
         }}
       >
         {/* Enhanced inner glow */}
@@ -169,6 +194,17 @@ const JobPortal = () => {
             </div>
             
             <div className="flex items-center gap-2">
+              {/* Results per page selector */}
+              <Select value={jobsPerPage.toString()} onValueChange={(value) => setJobsPerPage(Number(value))}>
+                <SelectTrigger className="w-20 bg-white/80 backdrop-blur-sm">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="5">5</SelectItem>
+                  <SelectItem value="10">10</SelectItem>
+                </SelectContent>
+              </Select>
+
               {/* View Mode Toggle */}
               <div className="flex bg-gray-100/80 backdrop-blur-sm rounded-lg p-1">
                 <Button
@@ -238,9 +274,10 @@ const JobPortal = () => {
         <RealWorldMap jobs={filteredJobs} onJobSelect={handleJobSelect} />
       )}
 
+      {/* Jobs Display */}
       {viewMode === 'grid' ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredJobs.map((job) => (
+          {currentJobs.map((job) => (
             <JobCard
               key={job.id}
               job={job}
@@ -249,7 +286,57 @@ const JobPortal = () => {
           ))}
         </div>
       ) : (
-        <JobListView jobs={filteredJobs} onJobSelect={handleJobSelect} />
+        <JobListView jobs={currentJobs} onJobSelect={handleJobSelect} />
+      )}
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6">
+          <div className="text-sm text-gray-600 font-body">
+            Showing {startIndex + 1} to {Math.min(endIndex, filteredJobs.length)} of {filteredJobs.length} positions
+          </div>
+          
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious 
+                  href="#" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (currentPage > 1) setCurrentPage(currentPage - 1);
+                  }}
+                  className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
+                />
+              </PaginationItem>
+              
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <PaginationItem key={page}>
+                  <PaginationLink
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setCurrentPage(page);
+                    }}
+                    isActive={currentPage === page}
+                  >
+                    {page}
+                  </PaginationLink>
+                </PaginationItem>
+              ))}
+              
+              <PaginationItem>
+                <PaginationNext 
+                  href="#" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+                  }}
+                  className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
       )}
 
       {filteredJobs.length === 0 && (

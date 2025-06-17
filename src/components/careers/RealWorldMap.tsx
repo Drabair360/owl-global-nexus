@@ -1,7 +1,6 @@
 
-import React from 'react';
-import { MapPin, Building, Users, AlertTriangle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import React, { useEffect, useRef } from 'react';
+import { Building } from 'lucide-react';
 import { Job } from './types';
 
 interface RealWorldMapProps {
@@ -10,34 +9,117 @@ interface RealWorldMapProps {
 }
 
 const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
-  console.log('RealWorldMap: Rendering with', jobs.length, 'jobs');
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const map = useRef<any>(null);
 
-  // Define location data
-  const locations = [
-    {
-      name: 'Abuja',
-      country: 'Nigeria',
-      jobs: jobs.filter(job => job.location.includes('Abuja')),
-      color: '#10b981'
-    },
-    {
-      name: 'Abidjan',
-      country: "Côte d'Ivoire", 
-      jobs: jobs.filter(job => job.location.includes('Abidjan')),
-      color: '#f59e0b'
-    },
-    {
-      name: 'Aix-en-Provence',
-      country: 'France',
-      jobs: jobs.filter(job => job.location.includes('Aix-en-Provence')),
-      color: '#3b82f6'
-    }
-  ];
+  useEffect(() => {
+    if (!mapContainer.current) return;
 
-  // Filter out locations with no jobs
-  const activeLocations = locations.filter(location => location.jobs.length > 0);
+    // Dynamic import of mapbox-gl
+    import('mapbox-gl').then((mapboxgl) => {
+      if (map.current) return; // Initialize map only once
 
-  console.log('RealWorldMap: Active locations:', activeLocations.length);
+      mapboxgl.default.accessToken = 'pk.eyJ1IjoiZHJhYmFpciIsImEiOiJjbWJ6YWllaXYxc29oMmxzMTljZmgxYTN3In0.UZdny1AZfXn1KdVM_eZgrQ';
+      
+      map.current = new mapboxgl.default.Map({
+        container: mapContainer.current!,
+        style: 'mapbox://styles/mapbox/light-v11',
+        zoom: 2,
+        center: [20, 20],
+        projection: 'mercator'
+      });
+
+      // Add navigation controls
+      map.current.addControl(new mapboxgl.default.NavigationControl());
+
+      // Group jobs by location
+      const locationGroups = jobs.reduce((acc, job) => {
+        const locationKey = `${job.coordinates[0]},${job.coordinates[1]}`;
+        if (!acc[locationKey]) {
+          acc[locationKey] = {
+            coordinates: job.coordinates,
+            jobs: [],
+            location: job.location
+          };
+        }
+        acc[locationKey].jobs.push(job);
+        return acc;
+      }, {} as Record<string, { coordinates: number[], jobs: Job[], location: string }>);
+
+      // Add markers for each location group
+      Object.values(locationGroups).forEach((group) => {
+        if (group.coordinates[0] !== 0 || group.coordinates[1] !== 0) {
+          // Create custom marker element
+          const markerElement = document.createElement('div');
+          markerElement.className = 'custom-marker';
+          markerElement.innerHTML = `
+            <div class="relative">
+              <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform shadow-lg border-2 border-white">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold border border-white">
+                ${group.jobs.length}
+              </div>
+            </div>
+          `;
+
+          // Create popup with job listings
+          const popupContent = `
+            <div class="p-3 max-w-xs">
+              <h3 class="font-bold text-sm mb-2">${group.location}</h3>
+              <div class="space-y-2 max-h-40 overflow-y-auto">
+                ${group.jobs.map(job => `
+                  <div class="border-b border-gray-200 pb-2 last:border-b-0">
+                    <h4 class="font-semibold text-xs text-gray-900">${job.title}</h4>
+                    <p class="text-xs text-gray-600">${job.department} • ${job.salary}</p>
+                    <button 
+                      onclick="window.selectJob('${job.id}')"
+                      class="text-xs text-blue-600 hover:text-blue-800 mt-1 font-medium"
+                    >
+                      View Details →
+                    </button>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+
+          const popup = new mapboxgl.default.Popup({
+            offset: 25,
+            closeButton: true,
+            closeOnClick: false,
+            maxWidth: '300px'
+          }).setHTML(popupContent);
+
+          // Add marker to map
+          new mapboxgl.default.Marker(markerElement)
+            .setLngLat(group.coordinates)
+            .setPopup(popup)
+            .addTo(map.current);
+        }
+      });
+
+      // Global function to handle job selection from popup
+      (window as any).selectJob = (jobId: string) => {
+        const job = jobs.find(j => j.id === jobId);
+        if (job) {
+          onJobSelect(job);
+        }
+      };
+
+    }).catch((error) => {
+      console.error('Error loading Mapbox:', error);
+    });
+
+    return () => {
+      if (map.current) {
+        map.current.remove();
+        map.current = null;
+      }
+    };
+  }, [jobs, onJobSelect]);
 
   return (
     <div className="relative bg-white rounded-2xl p-6 shadow-lg overflow-hidden">
@@ -46,72 +128,13 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
         <h3 className="text-2xl font-bold text-gray-900 font-heading">Global Opportunities</h3>
       </div>
       
-      {/* Temporary message instead of map */}
-      <div className="h-96 rounded-xl border-2 border-gray-200 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-        <div className="text-center p-8">
-          <AlertTriangle className="w-16 h-16 text-blue-500 mx-auto mb-4" />
-          <h4 className="text-xl font-semibold text-gray-800 mb-2">Interactive Map Coming Soon</h4>
-          <p className="text-gray-600 mb-6">We're working on bringing you an interactive world map to explore our global opportunities.</p>
-          
-          {/* Location cards as fallback */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {activeLocations.map((location) => (
-              <div key={location.name} className="bg-white rounded-lg p-4 shadow-md border">
-                <div className="flex items-center gap-2 mb-3">
-                  <div 
-                    className="w-4 h-4 rounded-full" 
-                    style={{ backgroundColor: location.color }}
-                  />
-                  <div className="text-left">
-                    <h5 className="font-semibold text-gray-900">{location.name}</h5>
-                    <p className="text-sm text-gray-600">{location.country}</p>
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  {location.jobs.slice(0, 2).map((job) => (
-                    <div key={job.id} className="text-left">
-                      <h6 className="font-medium text-sm text-gray-900">{job.title}</h6>
-                      <p className="text-xs text-gray-600">{job.department} • {job.salary}</p>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="mt-1 text-xs h-6"
-                        onClick={() => onJobSelect(job)}
-                      >
-                        View Details
-                      </Button>
-                    </div>
-                  ))}
-                  {location.jobs.length > 2 && (
-                    <p className="text-xs text-gray-500 text-center">
-                      +{location.jobs.length - 2} more position{location.jobs.length - 2 !== 1 ? 's' : ''}
-                    </p>
-                  )}
-                </div>
-                
-                <div className="flex items-center gap-2 text-xs text-gray-600 border-t pt-2 mt-3">
-                  <Users className="w-4 h-4" />
-                  <span>{location.jobs.length} open position{location.jobs.length !== 1 ? 's' : ''}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <div ref={mapContainer} className="w-full h-96 rounded-xl" />
       
       <div className="mt-4 flex flex-wrap gap-4 text-sm">
-        {activeLocations.map((location) => (
-          <div key={location.name} className="flex items-center gap-2">
-            <div 
-              className="w-4 h-4 rounded-full" 
-              style={{ backgroundColor: location.color }}
-            />
-            <span className="text-gray-700">
-              {location.name} ({location.jobs.length})
-            </span>
-          </div>
-        ))}
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600" />
+          <span className="text-gray-700">Job Locations ({jobs.length} total positions)</span>
+        </div>
       </div>
     </div>
   );
