@@ -118,7 +118,7 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
         <div
           className="absolute inset-0 cursor-grab active:cursor-grabbing"
           style={{
-            backgroundImage: `url("https://images.unsplash.com/photo-1597149850956-d14e7c9c32a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")`,
+            backgroundImage: `url("https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg")`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -131,7 +131,7 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
           onMouseLeave={handleMouseUp}
         >
           {/* Subtle overlay for better marker visibility */}
-          <div className="absolute inset-0 bg-blue-900/20" />
+          <div className="absolute inset-0 bg-blue-900/30" />
           
           {/* Job Markers */}
           {locationGroups.map((group, index) => (
