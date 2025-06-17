@@ -5,6 +5,9 @@ import { Building, RotateCcw, Layers } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Job } from './types';
 
+// Ensure TypeScript recognizes Google Maps types
+/// <reference types="@types/google.maps" />
+
 interface GoogleJobMapProps {
   jobs: Job[];
   onJobSelect: (job: Job) => void;
@@ -46,7 +49,7 @@ const GoogleJobMap: React.FC<GoogleJobMapProps> = ({ jobs, onJobSelect }) => {
 
   // Initialize map
   const initMap = useCallback(() => {
-    if (!mapRef.current) return;
+    if (!mapRef.current || !window.google) return;
 
     const mapInstance = new google.maps.Map(mapRef.current, {
       zoom: 2,
@@ -83,7 +86,7 @@ const GoogleJobMap: React.FC<GoogleJobMapProps> = ({ jobs, onJobSelect }) => {
 
   // Create custom markers
   const createMarkers = useCallback(() => {
-    if (!map) return;
+    if (!map || !window.google) return;
 
     // Clear existing markers
     markersRef.current.forEach(marker => marker.setMap(null));
@@ -182,7 +185,7 @@ const GoogleJobMap: React.FC<GoogleJobMapProps> = ({ jobs, onJobSelect }) => {
 
   // Initialize map when Google Maps loads
   useEffect(() => {
-    if (window.google) {
+    if (window.google && window.google.maps) {
       initMap();
     }
   }, [initMap]);
@@ -194,7 +197,7 @@ const GoogleJobMap: React.FC<GoogleJobMapProps> = ({ jobs, onJobSelect }) => {
 
   // Fit bounds to show all markers
   const fitToMarkers = () => {
-    if (!map || locationGroups.length === 0) return;
+    if (!map || locationGroups.length === 0 || !window.google) return;
 
     const bounds = new google.maps.LatLngBounds();
     locationGroups.forEach(group => {
