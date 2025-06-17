@@ -77,7 +77,7 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-      <DialogContent className={`!max-w-5xl max-h-[90vh] overflow-y-auto ${themeClasses} relative border-4 border-red-500`}>
+      <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto bg-white">
         <div className="absolute inset-0 overflow-hidden">
           <RoleSketch role={job.department} className="w-full h-full absolute" />
         </div>
