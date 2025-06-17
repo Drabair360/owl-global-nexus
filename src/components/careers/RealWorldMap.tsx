@@ -1,6 +1,6 @@
 
-import React, { useEffect, useRef } from 'react';
-import { Building, ZoomIn, ZoomOut, Maximize2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Building, RotateCcw, Maximize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Job } from './types';
 
@@ -9,244 +9,195 @@ interface RealWorldMapProps {
   onJobSelect: (job: Job) => void;
 }
 
+interface MapPosition {
+  x: number;
+  y: number;
+}
+
+interface LocationGroup {
+  coordinates: [number, number];
+  jobs: Job[];
+  location: string;
+  position: MapPosition;
+}
+
 const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<any>(null);
+  const [selectedLocation, setSelectedLocation] = useState<LocationGroup | null>(null);
+  const [mapTransform, setMapTransform] = useState({ x: 0, y: 0, scale: 1 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+
+  // Convert longitude/latitude to pixel coordinates on the world map
+  const coordinateToPixel = (lng: number, lat: number): MapPosition => {
+    const mapWidth = 1000; // Reference map width
+    const mapHeight = 500; // Reference map height
+    
+    // Equirectangular projection
+    const x = ((lng + 180) / 360) * mapWidth;
+    const y = ((90 - lat) / 180) * mapHeight;
+    
+    return { x, y };
+  };
+
+  // Group jobs by location and calculate positions
+  const locationGroups: LocationGroup[] = React.useMemo(() => {
+    const groups = jobs.reduce((acc, job) => {
+      const [lng, lat] = job.coordinates;
+      const locationKey = `${lng},${lat}`;
+      
+      if (!acc[locationKey]) {
+        acc[locationKey] = {
+          coordinates: [lng, lat] as [number, number],
+          jobs: [],
+          location: job.location,
+          position: coordinateToPixel(lng, lat)
+        };
+      }
+      acc[locationKey].jobs.push(job);
+      return acc;
+    }, {} as Record<string, LocationGroup>);
+
+    return Object.values(groups);
+  }, [jobs]);
+
+  // Handle mouse/touch events for panning
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setDragStart({ x: e.clientX - mapTransform.x, y: e.clientY - mapTransform.y });
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    setMapTransform(prev => ({
+      ...prev,
+      x: e.clientX - dragStart.x,
+      y: e.clientY - dragStart.y
+    }));
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  // Reset view
+  const resetView = () => {
+    setMapTransform({ x: 0, y: 0, scale: 1 });
+    setSelectedLocation(null);
+  };
+
+  // Fit to show all markers
+  const fitToMarkers = () => {
+    if (locationGroups.length === 0) return;
+    
+    // Center the view to show all markers
+    const avgX = locationGroups.reduce((sum, group) => sum + group.position.x, 0) / locationGroups.length;
+    const avgY = locationGroups.reduce((sum, group) => sum + group.position.y, 0) / locationGroups.length;
+    
+    setMapTransform({
+      x: (500 - avgX) * 0.8, // Center with some padding
+      y: (250 - avgY) * 0.8,
+      scale: 1
+    });
+  };
 
   useEffect(() => {
-    if (!mapContainer.current) return;
-
-    // Dynamic import of mapbox-gl
-    import('mapbox-gl').then((mapboxgl) => {
-      if (map.current) return; // Initialize map only once
-
-      mapboxgl.default.accessToken = 'pk.eyJ1IjoiZHJhYmFpciIsImEiOiJjbWJ6YWllaXYxc29oMmxzMTljZmgxYTN3In0.UZdny1AZfXn1KdVM_eZgrQ';
-      
-      map.current = new mapboxgl.default.Map({
-        container: mapContainer.current!,
-        style: 'mapbox://styles/mapbox/light-v11',
-        zoom: 2,
-        center: [20, 20],
-        projection: 'mercator'
-      });
-
-      // Add navigation controls
-      map.current.addControl(new mapboxgl.default.NavigationControl());
-
-      // Wait for map to load before adding markers
-      map.current.on('load', () => {
-        console.log('Map loaded, adding markers for', jobs.length, 'jobs');
-
-        // Group jobs by location using exact coordinates
-        const locationGroups = jobs.reduce((acc, job) => {
-          const [lng, lat] = job.coordinates;
-          const locationKey = `${lng},${lat}`;
-          
-          if (!acc[locationKey]) {
-            acc[locationKey] = {
-              coordinates: [lng, lat] as [number, number],
-              jobs: [],
-              location: job.location
-            };
-          }
-          acc[locationKey].jobs.push(job);
-          return acc;
-        }, {} as Record<string, { coordinates: [number, number], jobs: Job[], location: string }>);
-
-        console.log('Location groups created:', Object.keys(locationGroups).length);
-
-        // Add markers for each location group
-        Object.values(locationGroups).forEach((group, index) => {
-          const [lng, lat] = group.coordinates;
-          console.log(`Adding marker ${index + 1} for ${group.location} at [${lng}, ${lat}] with ${group.jobs.length} jobs`);
-          
-          // Create custom marker element
-          const markerElement = document.createElement('div');
-          markerElement.innerHTML = `
-            <div style="position: relative;">
-              <div style="
-                width: 32px;
-                height: 32px;
-                background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-                border: 2px solid white;
-                transition: transform 0.2s ease;
-              " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                <svg width="16" height="16" fill="white" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <div style="
-                position: absolute;
-                top: -4px;
-                right: -4px;
-                width: 20px;
-                height: 20px;
-                background: #ef4444;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-                font-size: 10px;
-                font-weight: bold;
-                border: 2px solid white;
-              ">
-                ${group.jobs.length}
-              </div>
-            </div>
-          `;
-
-          // Create popup with job listings
-          const popupContent = `
-            <div style="padding: 12px; max-width: 300px;">
-              <h3 style="font-weight: bold; font-size: 14px; margin-bottom: 8px; color: #1f2937;">${group.location}</h3>
-              <div style="max-height: 160px; overflow-y: auto;">
-                ${group.jobs.map(job => `
-                  <div style="border-bottom: 1px solid #e5e7eb; padding-bottom: 8px; margin-bottom: 8px;">
-                    <h4 style="font-weight: 600; font-size: 12px; color: #111827; margin-bottom: 4px;">${job.title}</h4>
-                    <p style="font-size: 11px; color: #6b7280; margin-bottom: 4px;">${job.department} • ${job.salary}</p>
-                    <button 
-                      onclick="window.selectJob('${job.id}')"
-                      style="font-size: 11px; color: #2563eb; font-weight: 500; background: none; border: none; cursor: pointer; padding: 0;"
-                      onmouseover="this.style.color='#1d4ed8'"
-                      onmouseout="this.style.color='#2563eb'"
-                    >
-                      View Details →
-                    </button>
-                  </div>
-                `).join('')}
-              </div>
-            </div>
-          `;
-
-          const popup = new mapboxgl.default.Popup({
-            offset: 25,
-            closeButton: true,
-            closeOnClick: false,
-            maxWidth: '320px'
-          }).setHTML(popupContent);
-
-          // Create marker with standard settings
-          const marker = new mapboxgl.default.Marker({
-            element: markerElement
-          })
-            .setLngLat([lng, lat])
-            .setPopup(popup)
-            .addTo(map.current);
-
-          console.log(`Marker successfully added at coordinates [${lng}, ${lat}]`);
-        });
-
-        // Fit map to show all markers
-        if (jobs.length > 1) {
-          const bounds = new mapboxgl.default.LngLatBounds();
-          jobs.forEach(job => {
-            bounds.extend(job.coordinates);
-          });
-          map.current.fitBounds(bounds, {
-            padding: { top: 50, bottom: 50, left: 50, right: 50 },
-            maxZoom: 8
-          });
-        } else if (jobs.length === 1) {
-          map.current.setCenter(jobs[0].coordinates);
-          map.current.setZoom(6);
-        }
-
-        // Global function to handle job selection from popup
-        (window as any).selectJob = (jobId: string) => {
-          const job = jobs.find(j => j.id === jobId);
-          if (job) {
-            onJobSelect(job);
-          }
-        };
-      });
-
-    }).catch((error) => {
-      console.error('Error loading Mapbox:', error);
-    });
-
-    return () => {
-      if (map.current) {
-        map.current.remove();
-        map.current = null;
-      }
-    };
-  }, [jobs, onJobSelect]);
-
-  // Zoom functions
-  const handleZoomIn = () => {
-    if (map.current) {
-      map.current.zoomIn();
-    }
-  };
-
-  const handleZoomOut = () => {
-    if (map.current) {
-      map.current.zoomOut();
-    }
-  };
-
-  // Fit to all markers
-  const handleFitToMarkers = () => {
-    if (map.current && jobs.length > 0) {
-      import('mapbox-gl').then((mapboxgl) => {
-        const bounds = new mapboxgl.default.LngLatBounds();
-        
-        // Use actual job coordinates directly
-        jobs.forEach(job => {
-          bounds.extend(job.coordinates);
-        });
-        
-        if (map.current) {
-          map.current.fitBounds(bounds, {
-            padding: { top: 50, bottom: 50, left: 50, right: 50 },
-            maxZoom: 6
-          });
-        }
-      });
-    }
-  };
+    fitToMarkers();
+  }, [locationGroups]);
 
   return (
-    <div className="relative bg-white rounded-2xl p-6 shadow-lg overflow-hidden">
+    <div className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-6 shadow-2xl overflow-hidden">
+      {/* Header */}
       <div className="flex items-center gap-3 mb-6">
         <Building className="w-8 h-8 text-blue-600" />
         <h3 className="text-2xl font-bold text-gray-900 font-heading">Global Opportunities</h3>
       </div>
       
-      <div className="relative">
-        <div ref={mapContainer} className="w-full h-96 rounded-xl" />
+      {/* Map Container */}
+      <div className="relative w-full h-96 rounded-xl overflow-hidden bg-gradient-to-b from-sky-200 to-blue-300 shadow-inner">
+        {/* World Map Background */}
+        <div
+          className="absolute inset-0 cursor-grab active:cursor-grabbing"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 500'%3E%3Cdefs%3E%3ClinearGradient id='ocean' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23e0f2fe'/%3E%3Cstop offset='100%25' style='stop-color:%23b3e5fc'/%3E%3C/linearGradient%3E%3ClinearGradient id='land' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2366bb6a'/%3E%3Cstop offset='50%25' style='stop-color:%234caf50'/%3E%3Cstop offset='100%25' style='stop-color:%23388e3c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1000' height='500' fill='url(%23ocean)'/%3E%3C!-- Simplified continent shapes --%3E%3C!-- North America --%3E%3Cpath d='M120,80 L280,70 L320,120 L300,180 L200,200 L150,160 Z' fill='url(%23land)' stroke='%232e7d32' stroke-width='1'/%3E%3C!-- South America --%3E%3Cpath d='M220,220 L280,210 L300,320 L260,380 L200,350 L180,280 Z' fill='url(%23land)' stroke='%232e7d32' stroke-width='1'/%3E%3C!-- Europe --%3E%3Cpath d='M420,70 L520,65 L540,130 L480,140 L430,120 Z' fill='url(%23land)' stroke='%232e7d32' stroke-width='1'/%3E%3C!-- Africa --%3E%3Cpath d='M450,150 L550,140 L580,280 L520,380 L460,350 L430,220 Z' fill='url(%23land)' stroke='%232e7d32' stroke-width='1'/%3E%3C!-- Asia --%3E%3Cpath d='M550,60 L780,50 L820,180 L760,200 L580,160 L540,100 Z' fill='url(%23land)' stroke='%232e7d32' stroke-width='1'/%3E%3C!-- Australia --%3E%3Cpath d='M720,300 L820,290 L850,340 L800,370 L720,360 Z' fill='url(%23land)' stroke='%232e7d32' stroke-width='1'/%3E%3C/svg%3E")`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            transform: `translate(${mapTransform.x}px, ${mapTransform.y}px) scale(${mapTransform.scale})`,
+            transition: isDragging ? 'none' : 'transform 0.3s ease-out'
+          }}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+        >
+          {/* Job Markers */}
+          {locationGroups.map((group, index) => (
+            <div
+              key={index}
+              className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+              style={{
+                left: `${(group.position.x / 1000) * 100}%`,
+                top: `${(group.position.y / 500) * 100}%`
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedLocation(selectedLocation?.location === group.location ? null : group);
+              }}
+            >
+              {/* Pulse Animation */}
+              <div className="absolute inset-0 bg-blue-500 rounded-full animate-ping opacity-30" />
+              
+              {/* Main Marker */}
+              <div className="relative w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform border-2 border-white">
+                <div className="w-3 h-3 bg-white rounded-full" />
+              </div>
+              
+              {/* Job Count Badge */}
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold border-2 border-white">
+                {group.jobs.length}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Location Popup */}
+        {selectedLocation && (
+          <div className="absolute top-4 left-4 bg-white rounded-xl shadow-xl p-4 max-w-sm z-20 animate-scale-in">
+            <h4 className="font-bold text-lg text-gray-900 mb-3">{selectedLocation.location}</h4>
+            <div className="max-h-48 overflow-y-auto space-y-3">
+              {selectedLocation.jobs.map(job => (
+                <div key={job.id} className="border-b border-gray-100 pb-2 last:border-b-0">
+                  <h5 className="font-semibold text-sm text-gray-800">{job.title}</h5>
+                  <p className="text-xs text-gray-600 mb-2">{job.department} • {job.salary}</p>
+                  <button
+                    onClick={() => {
+                      onJobSelect(job);
+                      setSelectedLocation(null);
+                    }}
+                    className="text-xs text-blue-600 hover:text-blue-800 font-medium"
+                  >
+                    View Details →
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         
-        {/* Custom Map Controls */}
+        {/* Map Controls */}
         <div className="absolute top-4 right-4 flex flex-col gap-2 z-10">
           <Button
             size="icon"
             variant="outline"
-            onClick={handleZoomIn}
+            onClick={resetView}
             className="bg-white shadow-lg hover:bg-gray-50"
-            title="Zoom In"
+            title="Reset View"
           >
-            <ZoomIn className="w-4 h-4" />
+            <RotateCcw className="w-4 h-4" />
           </Button>
           <Button
             size="icon"
             variant="outline"
-            onClick={handleZoomOut}
-            className="bg-white shadow-lg hover:bg-gray-50"
-            title="Zoom Out"
-          >
-            <ZoomOut className="w-4 h-4" />
-          </Button>
-          <Button
-            size="icon"
-            variant="outline"
-            onClick={handleFitToMarkers}
+            onClick={fitToMarkers}
             className="bg-white shadow-lg hover:bg-gray-50"
             title="Fit to All Markers"
           >
@@ -255,10 +206,15 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
         </div>
       </div>
       
-      <div className="mt-4 flex flex-wrap gap-4 text-sm">
+      {/* Legend */}
+      <div className="mt-6 flex flex-wrap gap-4 text-sm">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600" />
+          <div className="w-4 h-4 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 border border-white" />
           <span className="text-gray-700">Job Locations ({jobs.length} total positions)</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 rounded-full bg-red-500 border border-white" />
+          <span className="text-gray-700">Number of positions</span>
         </div>
       </div>
     </div>
