@@ -13,12 +13,6 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<any>(null);
 
-  // Validate coordinates function
-  const validateCoordinates = (coords: [number, number]): boolean => {
-    const [lng, lat] = coords;
-    return lng >= -180 && lng <= 180 && lat >= -90 && lat <= 90;
-  };
-
   useEffect(() => {
     if (!mapContainer.current) return;
 
@@ -43,17 +37,14 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
       map.current.on('load', () => {
         console.log('Map loaded, adding markers for', jobs.length, 'jobs');
 
-        // Filter valid jobs and group by location
-        const validJobs = jobs.filter(job => validateCoordinates(job.coordinates));
-        console.log(`Valid jobs with coordinates: ${validJobs.length}/${jobs.length}`);
-
-        const locationGroups = validJobs.reduce((acc, job) => {
-          const coordinates: [number, number] = [job.coordinates[0], job.coordinates[1]];
-          const locationKey = `${coordinates[0]},${coordinates[1]}`;
+        // Group jobs by location using exact coordinates
+        const locationGroups = jobs.reduce((acc, job) => {
+          const [lng, lat] = job.coordinates;
+          const locationKey = `${lng},${lat}`;
           
           if (!acc[locationKey]) {
             acc[locationKey] = {
-              coordinates: coordinates,
+              coordinates: [lng, lat] as [number, number],
               jobs: [],
               location: job.location
             };
@@ -69,24 +60,8 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
           const [lng, lat] = group.coordinates;
           console.log(`Adding marker ${index + 1} for ${group.location} at [${lng}, ${lat}] with ${group.jobs.length} jobs`);
           
-          // Validate coordinates before creating marker
-          if (!validateCoordinates([lng, lat])) {
-            console.warn(`Invalid coordinates for ${group.location}: [${lng}, ${lat}]`);
-            return;
-          }
-          
           // Create custom marker element
           const markerElement = document.createElement('div');
-          markerElement.className = 'custom-marker';
-          markerElement.style.cssText = `
-            cursor: pointer;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          `;
-          
           markerElement.innerHTML = `
             <div style="position: relative;">
               <div style="
@@ -157,10 +132,9 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
             maxWidth: '320px'
           }).setHTML(popupContent);
 
-          // Create marker with bottom anchor for stable positioning
+          // Create marker with standard settings
           const marker = new mapboxgl.default.Marker({
-            element: markerElement,
-            anchor: 'bottom'
+            element: markerElement
           })
             .setLngLat([lng, lat])
             .setPopup(popup)
@@ -169,20 +143,18 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
           console.log(`Marker successfully added at coordinates [${lng}, ${lat}]`);
         });
 
-        // Fit map to show all valid markers
-        const allCoordinates = Object.values(locationGroups).map(group => group.coordinates);
-        if (allCoordinates.length > 1) {
+        // Fit map to show all markers
+        if (jobs.length > 1) {
           const bounds = new mapboxgl.default.LngLatBounds();
-          allCoordinates.forEach(coord => {
-            bounds.extend(coord);
+          jobs.forEach(job => {
+            bounds.extend(job.coordinates);
           });
           map.current.fitBounds(bounds, {
             padding: { top: 50, bottom: 50, left: 50, right: 50 },
             maxZoom: 8
           });
-        } else if (allCoordinates.length === 1) {
-          // If only one location, center on it
-          map.current.setCenter(allCoordinates[0]);
+        } else if (jobs.length === 1) {
+          map.current.setCenter(jobs[0].coordinates);
           map.current.setZoom(6);
         }
 
@@ -223,26 +195,12 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
   // Fit to all markers
   const handleFitToMarkers = () => {
     if (map.current && jobs.length > 0) {
-      // Dynamic import needed here too for proper typing
       import('mapbox-gl').then((mapboxgl) => {
         const bounds = new mapboxgl.default.LngLatBounds();
         
-        // Add all job coordinates to bounds
+        // Use actual job coordinates directly
         jobs.forEach(job => {
-          let coordinates: [number, number] = [...job.coordinates] as [number, number];
-          
-          // Handle remote positions
-          if (job.remote && job.location.includes('Global')) {
-            coordinates = [0, 30];
-          } else if (job.remote && job.location.includes('Americas')) {
-            coordinates = [-98.5795, 39.8283];
-          } else if (job.remote && job.location.includes('Asia-Pacific')) {
-            coordinates = [134.489563, -25.734968];
-          } else if (job.remote && job.location.includes('Africa/Europe')) {
-            coordinates = [15, 35];
-          }
-          
-          bounds.extend(coordinates);
+          bounds.extend(job.coordinates);
         });
         
         if (map.current) {
