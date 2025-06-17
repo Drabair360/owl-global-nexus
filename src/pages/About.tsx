@@ -134,7 +134,11 @@ const About = () => {
 
           {/* Dynamic Stats Section */}
           <div className="bg-gradient-to-r from-slate-800 via-blue-800 to-indigo-900 rounded-3xl p-12 text-white mb-16 relative overflow-hidden">
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.1\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+            <div className="absolute inset-0 opacity-20">
+              <div className="w-full h-full" style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+              }}></div>
+            </div>
             
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl font-bold text-center mb-12">
