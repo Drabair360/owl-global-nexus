@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Clock, Briefcase, DollarSign, Users, Heart, X, Monitor, Cpu, Zap } from 'lucide-react';
@@ -77,13 +78,7 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-      <DialogContent 
-        className={`max-w-5xl max-h-[90vh] overflow-y-auto ${themeClasses} relative`}
-        style={{ 
-          zIndex: 99999,
-          backgroundColor: isDarkMode ? '#0f172a' : '#ffffff'
-        }}
-      >
+      <DialogContent className={`max-w-5xl max-h-[90vh] overflow-y-auto ${themeClasses} relative`}>
         <div className="absolute inset-0 overflow-hidden">
           <RoleSketch role={job.department} className="w-full h-full absolute" />
         </div>
@@ -117,11 +112,16 @@ const JobDetailModal: React.FC<JobDetailModalProps> = ({ job, onClose }) => {
             </div>
           </div>
           
-          <DialogTitle className={`text-2xl font-bold font-heading flex items-center gap-3`}>
-            <Cpu className="w-6 h-6" />
-            {job.title}
-            <span className="text-xs font-mono opacity-60">#{job.id}</span>
-          </DialogTitle>
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold font-heading flex items-center gap-3">
+              <Cpu className="w-6 h-6" />
+              {job.title}
+              <span className="text-xs font-mono opacity-60">#{job.id}</span>
+            </DialogTitle>
+            <DialogDescription className="sr-only">
+              Job details for {job.title} position at {job.department} department
+            </DialogDescription>
+          </DialogHeader>
         </div>
 
         <div className="relative z-10 space-y-6">
