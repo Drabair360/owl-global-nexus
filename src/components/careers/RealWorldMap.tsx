@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Building, ZoomIn, ZoomOut } from 'lucide-react';
+import { Building, ZoomIn, ZoomOut, Maximize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Job } from './types';
 
@@ -25,8 +25,8 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
       map.current = new mapboxgl.default.Map({
         container: mapContainer.current!,
         style: 'mapbox://styles/mapbox/light-v11',
-        zoom: 2,
-        center: [10, 15], // Better center to show Africa and Europe
+        zoom: 1.5,
+        center: [20, 20], // Better global center
         projection: 'mercator'
       });
 
@@ -37,24 +37,26 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
       map.current.on('load', () => {
         console.log('Map loaded, adding markers for', jobs.length, 'jobs');
 
-        // Group jobs by location and fix coordinates
+        // Group jobs by location with proper coordinate handling
         const locationGroups = jobs.reduce((acc, job) => {
-          // Ensure coordinates are in [longitude, latitude] format
-          let [lng, lat] = job.coordinates;
+          // Get coordinates directly from job data - they should already be [lng, lat]
+          let coordinates = [...job.coordinates];
           
-          // Fix coordinate format based on known locations
-          if (job.location.includes('Abuja')) {
-            lng = 7.4951; lat = 9.0765;
-          } else if (job.location.includes('Abidjan')) {
-            lng = -4.0435; lat = 5.3599;
-          } else if (job.location.includes('Aix-en-Provence')) {
-            lng = 5.4474; lat = 43.5263;
+          // Fix specific coordinate issues for remote positions
+          if (job.remote && job.location.includes('Global')) {
+            coordinates = [0, 30]; // Center of Africa for global remote
+          } else if (job.remote && job.location.includes('Americas')) {
+            coordinates = [-98.5795, 39.8283]; // Center of USA
+          } else if (job.remote && job.location.includes('Asia-Pacific')) {
+            coordinates = [134.489563, -25.734968]; // Center of Australia
+          } else if (job.remote && job.location.includes('Africa/Europe')) {
+            coordinates = [15, 35]; // Mediterranean region
           }
           
-          const locationKey = `${lng},${lat}`;
+          const locationKey = `${coordinates[0]},${coordinates[1]}`;
           if (!acc[locationKey]) {
             acc[locationKey] = {
-              coordinates: [lng, lat],
+              coordinates: coordinates,
               jobs: [],
               location: job.location
             };
@@ -63,24 +65,63 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
           return acc;
         }, {} as Record<string, { coordinates: number[], jobs: Job[], location: string }>);
 
-        console.log('Location groups:', Object.keys(locationGroups).length);
+        console.log('Location groups created:', Object.keys(locationGroups).length);
+
+        // Collect all coordinates for bounds calculation
+        const allCoordinates = Object.values(locationGroups).map(group => group.coordinates);
 
         // Add markers for each location group
         Object.values(locationGroups).forEach((group, index) => {
-          console.log(`Adding marker ${index + 1} for ${group.location} at [${group.coordinates[0]}, ${group.coordinates[1]}] with ${group.jobs.length} jobs`);
+          const [lng, lat] = group.coordinates;
+          console.log(`Adding marker ${index + 1} for ${group.location} at [${lng}, ${lat}] with ${group.jobs.length} jobs`);
           
           // Create custom marker element
           const markerElement = document.createElement('div');
           markerElement.className = 'custom-marker';
-          markerElement.style.cursor = 'pointer';
+          markerElement.style.cssText = `
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          `;
+          
           markerElement.innerHTML = `
-            <div class="relative">
-              <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform shadow-lg border-2 border-white">
-                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <div style="position: relative;">
+              <div style="
+                width: 32px;
+                height: 32px;
+                background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+                border: 2px solid white;
+                transition: transform 0.2s ease;
+              " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="16" height="16" fill="white" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                 </svg>
               </div>
-              <div class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold border border-white">
+              <div style="
+                position: absolute;
+                top: -4px;
+                right: -4px;
+                width: 20px;
+                height: 20px;
+                background: #ef4444;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 10px;
+                font-weight: bold;
+                border: 2px solid white;
+              ">
                 ${group.jobs.length}
               </div>
             </div>
@@ -88,16 +129,18 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
 
           // Create popup with job listings
           const popupContent = `
-            <div class="p-3 max-w-xs">
-              <h3 class="font-bold text-sm mb-2">${group.location}</h3>
-              <div class="space-y-2 max-h-40 overflow-y-auto">
+            <div style="padding: 12px; max-width: 300px;">
+              <h3 style="font-weight: bold; font-size: 14px; margin-bottom: 8px; color: #1f2937;">${group.location}</h3>
+              <div style="max-height: 160px; overflow-y: auto;">
                 ${group.jobs.map(job => `
-                  <div class="border-b border-gray-200 pb-2 last:border-b-0">
-                    <h4 class="font-semibold text-xs text-gray-900">${job.title}</h4>
-                    <p class="text-xs text-gray-600">${job.department} • ${job.salary}</p>
+                  <div style="border-bottom: 1px solid #e5e7eb; padding-bottom: 8px; margin-bottom: 8px;">
+                    <h4 style="font-weight: 600; font-size: 12px; color: #111827; margin-bottom: 4px;">${job.title}</h4>
+                    <p style="font-size: 11px; color: #6b7280; margin-bottom: 4px;">${job.department} • ${job.salary}</p>
                     <button 
                       onclick="window.selectJob('${job.id}')"
-                      class="text-xs text-blue-600 hover:text-blue-800 mt-1 font-medium"
+                      style="font-size: 11px; color: #2563eb; font-weight: 500; background: none; border: none; cursor: pointer; padding: 0;"
+                      onmouseover="this.style.color='#1d4ed8'"
+                      onmouseout="this.style.color='#2563eb'"
                     >
                       View Details →
                     </button>
@@ -111,23 +154,30 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
             offset: 25,
             closeButton: true,
             closeOnClick: false,
-            maxWidth: '300px'
+            maxWidth: '320px'
           }).setHTML(popupContent);
 
-          // Ensure coordinates are properly typed as [number, number] tuple for Mapbox
-          const coordinates: [number, number] = [group.coordinates[0], group.coordinates[1]];
-
-          // Add marker to map with proper anchor
+          // Create marker with proper coordinate anchoring
           const marker = new mapboxgl.default.Marker({
             element: markerElement,
-            anchor: 'bottom' // Anchor the marker at the bottom for proper positioning
+            anchor: 'center' // Center anchor for more stable positioning
           })
-            .setLngLat(coordinates)
+            .setLngLat([lng, lat])
             .setPopup(popup)
             .addTo(map.current);
 
-          console.log(`Marker successfully added at coordinates [${coordinates[0]}, ${coordinates[1]}]`);
+          console.log(`Marker successfully added at coordinates [${lng}, ${lat}]`);
         });
+
+        // Fit map to show all markers if we have multiple locations
+        if (allCoordinates.length > 1) {
+          const bounds = new mapboxgl.default.LngLatBounds();
+          allCoordinates.forEach(coord => bounds.extend(coord));
+          map.current.fitBounds(bounds, {
+            padding: { top: 50, bottom: 50, left: 50, right: 50 },
+            maxZoom: 6
+          });
+        }
 
         // Global function to handle job selection from popup
         (window as any).selectJob = (jobId: string) => {
@@ -163,6 +213,36 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
     }
   };
 
+  // Fit to all markers
+  const handleFitToMarkers = () => {
+    if (map.current && jobs.length > 0) {
+      const bounds = new mapboxgl.default.LngLatBounds();
+      
+      // Add all job coordinates to bounds
+      jobs.forEach(job => {
+        let coordinates = [...job.coordinates];
+        
+        // Handle remote positions
+        if (job.remote && job.location.includes('Global')) {
+          coordinates = [0, 30];
+        } else if (job.remote && job.location.includes('Americas')) {
+          coordinates = [-98.5795, 39.8283];
+        } else if (job.remote && job.location.includes('Asia-Pacific')) {
+          coordinates = [134.489563, -25.734968];
+        } else if (job.remote && job.location.includes('Africa/Europe')) {
+          coordinates = [15, 35];
+        }
+        
+        bounds.extend(coordinates);
+      });
+      
+      map.current.fitBounds(bounds, {
+        padding: { top: 50, bottom: 50, left: 50, right: 50 },
+        maxZoom: 6
+      });
+    }
+  };
+
   return (
     <div className="relative bg-white rounded-2xl p-6 shadow-lg overflow-hidden">
       <div className="flex items-center gap-3 mb-6">
@@ -173,7 +253,7 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
       <div className="relative">
         <div ref={mapContainer} className="w-full h-96 rounded-xl" />
         
-        {/* Custom Zoom Controls */}
+        {/* Custom Map Controls */}
         <div className="absolute top-4 right-4 flex flex-col gap-2 z-10">
           <Button
             size="icon"
@@ -192,6 +272,15 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
             title="Zoom Out"
           >
             <ZoomOut className="w-4 h-4" />
+          </Button>
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={handleFitToMarkers}
+            className="bg-white shadow-lg hover:bg-gray-50"
+            title="Fit to All Markers"
+          >
+            <Maximize2 className="w-4 h-4" />
           </Button>
         </div>
       </div>
