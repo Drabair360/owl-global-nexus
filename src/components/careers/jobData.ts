@@ -1,8 +1,6 @@
-
 import { Job } from './types';
 
 export const jobData: Job[] = [
-  // Abuja, Nigeria - Fixed coordinates
   {
     id: '1',
     title: 'Regional Operations Director',
@@ -30,7 +28,6 @@ export const jobData: Job[] = [
     ],
     posted: '2 days ago'
   },
-  // Abidjan, Côte d'Ivoire - Fixed coordinates
   {
     id: '2',
     title: 'Senior Project Manager - CAOAGRO Industrial Projects',
@@ -91,13 +88,12 @@ export const jobData: Job[] = [
     ],
     posted: '5 days ago'
   },
-  // Aix-en-Provence, France - Fixed coordinates
   {
     id: '4',
     title: 'Senior Investment Analyst',
     department: 'Strategy',
     location: 'Aix-en-Provence, France',
-    coordinates: [5.4474, 43.5263], // [lng, lat] format
+    coordinates: [5.4474, 43.5263], // Corrected coordinates
     type: 'Full-time',
     experience: 'Senior',
     salary: '€70,000 - €95,000',
@@ -124,7 +120,7 @@ export const jobData: Job[] = [
     title: 'AI Research Engineer',
     department: 'Engineering',
     location: 'Aix-en-Provence, France',
-    coordinates: [5.4474, 43.5263], // [lng, lat] format
+    coordinates: [5.4474, 43.5263], // Corrected coordinates
     type: 'Full-time',
     experience: 'Senior',
     salary: '€65,000 - €85,000',
@@ -146,13 +142,12 @@ export const jobData: Job[] = [
     ],
     posted: '1 week ago'
   },
-  // Remote Positions - Fixed coordinates with meaningful centers
   {
     id: '6',
     title: 'Global Marketing Director',
     department: 'Marketing',
     location: 'Remote (Americas)',
-    coordinates: [-98.5795, 39.8283], // Center of USA
+    coordinates: [-95.7129, 37.0902], // Center of continental US
     type: 'Full-time',
     experience: 'Executive',
     salary: '€95,000 - €130,000',
@@ -179,7 +174,7 @@ export const jobData: Job[] = [
     title: 'Data Science Manager',
     department: 'Data Science',
     location: 'Remote (Asia-Pacific)',
-    coordinates: [134.489563, -25.734968], // Center of Australia
+    coordinates: [134.0, -25.0], // Center of Australia
     type: 'Full-time',
     experience: 'Senior',
     salary: '€75,000 - €100,000',
@@ -205,8 +200,8 @@ export const jobData: Job[] = [
     id: '8',
     title: 'Product Manager - AKOULA Platform',
     department: 'Engineering',
-    location: 'Remote (Africa/Europe)',
-    coordinates: [15, 35], // Mediterranean region center
+    location: 'Remote (Europe)',
+    coordinates: [10.4515, 51.1657], // Central Europe (Germany)
     type: 'Full-time',
     experience: 'Mid',
     salary: '€60,000 - €80,000',
@@ -233,7 +228,7 @@ export const jobData: Job[] = [
     title: 'Cybersecurity Specialist',
     department: 'Engineering',
     location: 'Remote (Global)',
-    coordinates: [20, 30], // Center of Africa for global remote
+    coordinates: [15, 30], // Central Mediterranean position
     type: 'Full-time',
     experience: 'Senior',
     salary: '€80,000 - €105,000',
@@ -260,7 +255,7 @@ export const jobData: Job[] = [
     title: 'Business Development Manager',
     department: 'Strategy',
     location: 'Remote (Americas)',
-    coordinates: [-122.4194, 37.7749], // San Francisco
+    coordinates: [-95.7129, 37.0902], // Center of continental US (same as other Americas remote)
     type: 'Full-time',
     experience: 'Mid',
     salary: '€65,000 - €85,000',
@@ -287,7 +282,7 @@ export const jobData: Job[] = [
     title: 'DevOps Engineer',
     department: 'Engineering',
     location: 'Remote (Asia-Pacific)',
-    coordinates: [151.2093, -33.8688], // Sydney
+    coordinates: [134.0, -25.0], // Center of Australia (same as other Asia-Pacific remote)
     type: 'Full-time',
     experience: 'Mid',
     salary: '€58,000 - €75,000',
@@ -314,7 +309,7 @@ export const jobData: Job[] = [
     title: 'Legal Counsel - Africa Operations',
     department: 'Operations',
     location: 'Remote (Africa/Europe)',
-    coordinates: [31.2357, -29.8587], // South Africa
+    coordinates: [10.4515, 51.1657], // Central Europe position
     type: 'Full-time',
     experience: 'Senior',
     salary: '€70,000 - €95,000',
