@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Building, ZoomIn, ZoomOut, Maximize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -26,7 +25,7 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
         container: mapContainer.current!,
         style: 'mapbox://styles/mapbox/light-v11',
         zoom: 1.5,
-        center: [20, 20], // Better global center
+        center: [20, 20],
         projection: 'mercator'
       });
 
@@ -39,8 +38,8 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
 
         // Group jobs by location with proper coordinate handling
         const locationGroups = jobs.reduce((acc, job) => {
-          // Get coordinates directly from job data - they should already be [lng, lat]
-          let coordinates = [...job.coordinates];
+          // Use coordinates directly from job data
+          let coordinates: [number, number] = [...job.coordinates] as [number, number];
           
           // Fix specific coordinate issues for remote positions
           if (job.remote && job.location.includes('Global')) {
@@ -63,12 +62,9 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
           }
           acc[locationKey].jobs.push(job);
           return acc;
-        }, {} as Record<string, { coordinates: number[], jobs: Job[], location: string }>);
+        }, {} as Record<string, { coordinates: [number, number], jobs: Job[], location: string }>);
 
         console.log('Location groups created:', Object.keys(locationGroups).length);
-
-        // Collect all coordinates for bounds calculation
-        const allCoordinates = Object.values(locationGroups).map(group => group.coordinates);
 
         // Add markers for each location group
         Object.values(locationGroups).forEach((group, index) => {
@@ -160,7 +156,7 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
           // Create marker with proper coordinate anchoring
           const marker = new mapboxgl.default.Marker({
             element: markerElement,
-            anchor: 'center' // Center anchor for more stable positioning
+            anchor: 'center'
           })
             .setLngLat([lng, lat])
             .setPopup(popup)
@@ -170,9 +166,12 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
         });
 
         // Fit map to show all markers if we have multiple locations
+        const allCoordinates = Object.values(locationGroups).map(group => group.coordinates);
         if (allCoordinates.length > 1) {
           const bounds = new mapboxgl.default.LngLatBounds();
-          allCoordinates.forEach(coord => bounds.extend(coord));
+          allCoordinates.forEach(coord => {
+            bounds.extend(coord as [number, number]);
+          });
           map.current.fitBounds(bounds, {
             padding: { top: 50, bottom: 50, left: 50, right: 50 },
             maxZoom: 6
@@ -216,29 +215,34 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
   // Fit to all markers
   const handleFitToMarkers = () => {
     if (map.current && jobs.length > 0) {
-      const bounds = new mapboxgl.default.LngLatBounds();
-      
-      // Add all job coordinates to bounds
-      jobs.forEach(job => {
-        let coordinates = [...job.coordinates];
+      // Dynamic import needed here too for proper typing
+      import('mapbox-gl').then((mapboxgl) => {
+        const bounds = new mapboxgl.default.LngLatBounds();
         
-        // Handle remote positions
-        if (job.remote && job.location.includes('Global')) {
-          coordinates = [0, 30];
-        } else if (job.remote && job.location.includes('Americas')) {
-          coordinates = [-98.5795, 39.8283];
-        } else if (job.remote && job.location.includes('Asia-Pacific')) {
-          coordinates = [134.489563, -25.734968];
-        } else if (job.remote && job.location.includes('Africa/Europe')) {
-          coordinates = [15, 35];
+        // Add all job coordinates to bounds
+        jobs.forEach(job => {
+          let coordinates: [number, number] = [...job.coordinates] as [number, number];
+          
+          // Handle remote positions
+          if (job.remote && job.location.includes('Global')) {
+            coordinates = [0, 30];
+          } else if (job.remote && job.location.includes('Americas')) {
+            coordinates = [-98.5795, 39.8283];
+          } else if (job.remote && job.location.includes('Asia-Pacific')) {
+            coordinates = [134.489563, -25.734968];
+          } else if (job.remote && job.location.includes('Africa/Europe')) {
+            coordinates = [15, 35];
+          }
+          
+          bounds.extend(coordinates);
+        });
+        
+        if (map.current) {
+          map.current.fitBounds(bounds, {
+            padding: { top: 50, bottom: 50, left: 50, right: 50 },
+            maxZoom: 6
+          });
         }
-        
-        bounds.extend(coordinates);
-      });
-      
-      map.current.fitBounds(bounds, {
-        padding: { top: 50, bottom: 50, left: 50, right: 50 },
-        maxZoom: 6
       });
     }
   };
