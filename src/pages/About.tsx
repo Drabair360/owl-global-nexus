@@ -57,7 +57,7 @@ const About = () => {
               <p className="text-2xl md:text-3xl lg:text-4xl font-light text-slate-700 leading-relaxed mb-8">
                 We are not just building companies.
                 <span className="block mt-2 font-semibold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
-                  We are architecting humanity's next chapter.
+                  We are architecting humanity&apos;s next chapter.
                 </span>
               </p>
               
@@ -108,7 +108,7 @@ const About = () => {
                   <h3 className="text-2xl font-bold text-slate-800">The Catalyst Effect</h3>
                 </div>
                 <p className="text-lg text-slate-600 leading-relaxed">
-                  We don't just invest in ventures—we <strong>ignite movements</strong>. 
+                  We don&apos;t just invest in ventures—we <strong>ignite movements</strong>. 
                   Each portfolio company is a beacon, each innovation a ripple that 
                   becomes a wave. Together, we are creating an ecosystem where 
                   breakthrough solutions multiply exponentially across the continent.
@@ -134,11 +134,11 @@ const About = () => {
 
           {/* Dynamic Stats Section */}
           <div className="bg-gradient-to-r from-slate-800 via-blue-800 to-indigo-900 rounded-3xl p-12 text-white mb-16 relative overflow-hidden">
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.1\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
             
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl font-bold text-center mb-12">
-                The Africa We're Building Together
+                The Africa We&apos;re Building Together
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -155,7 +155,7 @@ const About = () => {
                     $10T+
                   </div>
                   <div className="text-lg font-semibold mb-2">Economic Potential</div>
-                  <div className="text-blue-200">Unlocking Africa's unprecedented growth trajectory</div>
+                  <div className="text-blue-200">Unlocking Africa&apos;s unprecedented growth trajectory</div>
                 </div>
                 
                 <div className="text-center group hover:scale-110 transition-transform duration-300">
@@ -173,10 +173,10 @@ const About = () => {
           <div className="text-center max-w-4xl mx-auto">
             <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-12 shadow-3xl border border-white/50">
               <blockquote className="text-2xl md:text-3xl font-light text-slate-700 leading-relaxed italic mb-8">
-                "We stand at the intersection of what has been and what could be. 
-                Africa's time is not coming—it is <strong>here</strong>. 
-                The question is not whether you'll witness this transformation, 
-                but whether you'll <strong>lead it</strong>."
+                &quot;We stand at the intersection of what has been and what could be. 
+                Africa&apos;s time is not coming—it is <strong>here</strong>. 
+                The question is not whether you&apos;ll witness this transformation, 
+                but whether you&apos;ll <strong>lead it</strong>.&quot;
               </blockquote>
               
               <div className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer">
@@ -266,7 +266,7 @@ const About = () => {
           <div>
             <h2 className="text-section text-slate-800 mb-6 text-center font-brand">OUR TEAM</h2>
             <p className="text-body-large text-slate-600 max-w-3xl mx-auto text-center mb-12 font-body">
-              Meet the dedicated individuals driving OWL International's mission, bringing diverse expertise and a shared passion for transformative change.
+              Meet the dedicated individuals driving OWL International&apos;s mission, bringing diverse expertise and a shared passion for transformative change.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Team Member 1 */}
