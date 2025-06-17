@@ -24,34 +24,42 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
       map.current = new mapboxgl.default.Map({
         container: mapContainer.current!,
         style: 'mapbox://styles/mapbox/light-v11',
-        zoom: 2,
-        center: [20, 20],
+        zoom: 1,
+        center: [0, 20],
         projection: 'mercator'
       });
 
       // Add navigation controls
       map.current.addControl(new mapboxgl.default.NavigationControl());
 
-      // Group jobs by location
-      const locationGroups = jobs.reduce((acc, job) => {
-        const locationKey = `${job.coordinates[0]},${job.coordinates[1]}`;
-        if (!acc[locationKey]) {
-          acc[locationKey] = {
-            coordinates: job.coordinates,
-            jobs: [],
-            location: job.location
-          };
-        }
-        acc[locationKey].jobs.push(job);
-        return acc;
-      }, {} as Record<string, { coordinates: number[], jobs: Job[], location: string }>);
+      // Wait for map to load before adding markers
+      map.current.on('load', () => {
+        console.log('Map loaded, adding markers for', jobs.length, 'jobs');
 
-      // Add markers for each location group
-      Object.values(locationGroups).forEach((group) => {
-        if (group.coordinates[0] !== 0 || group.coordinates[1] !== 0) {
+        // Group jobs by location
+        const locationGroups = jobs.reduce((acc, job) => {
+          const locationKey = `${job.coordinates[0]},${job.coordinates[1]}`;
+          if (!acc[locationKey]) {
+            acc[locationKey] = {
+              coordinates: job.coordinates,
+              jobs: [],
+              location: job.location
+            };
+          }
+          acc[locationKey].jobs.push(job);
+          return acc;
+        }, {} as Record<string, { coordinates: number[], jobs: Job[], location: string }>);
+
+        console.log('Location groups:', Object.keys(locationGroups).length);
+
+        // Add markers for each location group
+        Object.values(locationGroups).forEach((group, index) => {
+          console.log(`Adding marker ${index + 1} for ${group.location} with ${group.jobs.length} jobs`);
+          
           // Create custom marker element
           const markerElement = document.createElement('div');
           markerElement.className = 'custom-marker';
+          markerElement.style.cursor = 'pointer';
           markerElement.innerHTML = `
             <div class="relative">
               <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform shadow-lg border-2 border-white">
@@ -93,24 +101,26 @@ const RealWorldMap: React.FC<RealWorldMapProps> = ({ jobs, onJobSelect }) => {
             maxWidth: '300px'
           }).setHTML(popupContent);
 
-          // Fix: Ensure coordinates are properly typed as [number, number] tuple
+          // Ensure coordinates are properly typed as [number, number] tuple
           const coordinates: [number, number] = [group.coordinates[0], group.coordinates[1]];
 
           // Add marker to map
-          new mapboxgl.default.Marker(markerElement)
+          const marker = new mapboxgl.default.Marker(markerElement)
             .setLngLat(coordinates)
             .setPopup(popup)
             .addTo(map.current);
-        }
-      });
 
-      // Global function to handle job selection from popup
-      (window as any).selectJob = (jobId: string) => {
-        const job = jobs.find(j => j.id === jobId);
-        if (job) {
-          onJobSelect(job);
-        }
-      };
+          console.log(`Marker added at coordinates:`, coordinates);
+        });
+
+        // Global function to handle job selection from popup
+        (window as any).selectJob = (jobId: string) => {
+          const job = jobs.find(j => j.id === jobId);
+          if (job) {
+            onJobSelect(job);
+          }
+        };
+      });
 
     }).catch((error) => {
       console.error('Error loading Mapbox:', error);
