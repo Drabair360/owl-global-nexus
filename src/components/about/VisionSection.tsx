@@ -16,7 +16,6 @@ const VisionSection = () => {
         style={{
           '--char-index': index,
           animationDelay: `${index * 0.15}s`,
-          animationFillMode: 'forwards'
         } as React.CSSProperties}
       >
         {char === ' ' ? '\u00A0' : char}
@@ -49,107 +48,78 @@ const VisionSection = () => {
 
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-      {/* Enhanced CSS for sequential letter animation with synchronized pauses */}
+      {/* Enhanced CSS for sequential letter animation with proper timing */}
       <style>
         {`
-        @keyframes letterRotate360 {
+        @keyframes singleLetterRotate {
           0% { 
             transform: translateZ(0) rotateY(0deg) scale(1);
-            color: #1e293b;
           }
           25% { 
             transform: translateZ(20px) rotateY(90deg) scale(1.1);
-            color: #3b82f6;
           }
           50% { 
             transform: translateZ(30px) rotateY(180deg) scale(1.15);
-            color: #10b981;
           }
           75% { 
             transform: translateZ(20px) rotateY(270deg) scale(1.1);
-            color: #f59e0b;
           }
           100% { 
             transform: translateZ(0) rotateY(360deg) scale(1);
-            color: #1e293b;
           }
         }
         
         @keyframes masterCycle {
-          0% { opacity: 1; }
-          70% { opacity: 1; }
-          75% { opacity: 1; }
-          100% { opacity: 1; }
-        }
-        
-        @keyframes fadeInScale {
-          from {
-            opacity: 0;
-            transform: scale(0.95);
+          0% { 
+            --animation-state: 'running';
           }
-          to {
-            opacity: 1;
-            transform: scale(1);
+          60% { 
+            --animation-state: 'running';
+          }
+          61% { 
+            --animation-state: 'paused';
+          }
+          100% { 
+            --animation-state: 'paused';
           }
         }
         
+        /* Base state - show gradient */
         .animate-text-visible {
-          animation: fadeInScale 0.6s ease-out forwards;
-        }
-        
-        .animate-text-visible.animate-domino-active {
-          perspective: 2000px;
-          transform-style: preserve-3d;
-          animation: masterCycle 12s infinite;
-        }
-        
-        .animate-text-visible.animate-domino-active span {
-          animation: letterRotate360 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-          animation-delay: calc(var(--char-index) * 0.15s);
-          transform-style: preserve-3d;
-          display: inline-block;
-          backface-visibility: visible;
-          transform-origin: center center;
-          will-change: transform, color;
-          font-weight: 600;
-          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          animation-iteration-count: 1;
-          animation-fill-mode: forwards;
-        }
-        
-        /* Master cycle timing for both texts */
-        .animate-text-visible.animate-domino-active {
-          animation-duration: 12s;
-          animation-iteration-count: infinite;
-          animation-timing-function: linear;
-        }
-        
-        /* Reset animation every cycle */
-        .animate-text-visible.animate-domino-active span {
-          animation: letterRotate360 1s cubic-bezier(0.4, 0, 0.2, 1);
-          animation-delay: calc(var(--char-index) * 0.15s);
-          animation-iteration-count: 1;
-          animation-fill-mode: forwards;
-          animation-play-state: running;
-        }
-        
-        /* Restart the letter animations every 12 seconds */
-        .animate-text-visible.animate-domino-active span {
-          animation: 
-            letterRotate360 1s cubic-bezier(0.4, 0, 0.2, 1) calc(var(--char-index) * 0.15s),
-            letterRotate360 1s cubic-bezier(0.4, 0, 0.2, 1) calc(12s + var(--char-index) * 0.15s),
-            letterRotate360 1s cubic-bezier(0.4, 0, 0.2, 1) calc(24s + var(--char-index) * 0.15s),
-            letterRotate360 1s cubic-bezier(0.4, 0, 0.2, 1) calc(36s + var(--char-index) * 0.15s);
-          animation-iteration-count: infinite;
-          animation-fill-mode: forwards;
-        }
-        
-        /* Static gradient styles - applied when not actively rotating */
-        .animate-text-visible:not(.animate-domino-active) {
+          opacity: 1;
           background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+          perspective: 2000px;
+          transform-style: preserve-3d;
+        }
+        
+        /* Active animation state */
+        .animate-text-visible.animate-domino-active {
+          animation: masterCycle 10s infinite;
+        }
+        
+        .animate-text-visible.animate-domino-active span {
+          animation: singleLetterRotate 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          animation-delay: calc(var(--char-index) * 0.15s);
+          animation-play-state: var(--animation-state, running);
+          transform-style: preserve-3d;
+          display: inline-block;
+          backface-visibility: visible;
+          transform-origin: center center;
+          will-change: transform;
+          font-weight: 600;
+        }
+        
+        /* Restart animation every 10 seconds */
+        .animate-text-visible.animate-domino-active span {
+          animation: 
+            singleLetterRotate 1s cubic-bezier(0.4, 0, 0.2, 1) calc(var(--char-index) * 0.15s) forwards,
+            singleLetterRotate 1s cubic-bezier(0.4, 0, 0.2, 1) calc(10s + var(--char-index) * 0.15s) forwards,
+            singleLetterRotate 1s cubic-bezier(0.4, 0, 0.2, 1) calc(20s + var(--char-index) * 0.15s) forwards,
+            singleLetterRotate 1s cubic-bezier(0.4, 0, 0.2, 1) calc(30s + var(--char-index) * 0.15s) forwards;
+          animation-iteration-count: infinite;
         }
         `}
       </style>
@@ -226,6 +196,7 @@ const VisionSection = () => {
           </div>
         </div>
 
+        
         <div className="mb-20">
           <h3 className="text-2xl font-semibold text-slate-800 text-center mb-12 font-body">Portfolio Synergy Impact</h3>
           
@@ -258,6 +229,7 @@ const VisionSection = () => {
           </div>
         </div>
 
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
           <div>
             <h3 className="text-2xl font-semibold text-slate-800 mb-6 font-body">Our Vision Statement</h3>
