@@ -6,6 +6,21 @@ const VisionSection = () => {
   const euroRef = useRef<HTMLSpanElement>(null);
   const billionRef = useRef<HTMLSpanElement>(null);
 
+  // Utility function to wrap each character in a span for individual animation
+  const wrapLettersInSpans = (text: string, className: string = '') => {
+    return text.split('').map((char, index) => (
+      <span
+        key={index}
+        className={`inline-block ${className}`}
+        style={{
+          animationDelay: `${index * 0.1}s`
+        }}
+      >
+        {char === ' ' ? '\u00A0' : char}
+      </span>
+    ));
+  };
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -15,7 +30,7 @@ const VisionSection = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-text-revolve');
+          entry.target.classList.add('animate-domino-cascade');
         }
       });
     }, observerOptions);
@@ -28,26 +43,100 @@ const VisionSection = () => {
 
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-      {/* Custom CSS for text animation */}
+      {/* Enhanced CSS for domino-effect animation */}
       <style>
         {`
-        @keyframes textRevolve {
-          0% { transform: rotateY(0deg); }
-          25% { transform: rotateY(90deg); }
-          50% { transform: rotateY(180deg); }
-          75% { transform: rotateY(270deg); }
-          100% { transform: rotateY(360deg); }
+        @keyframes dominoCascade {
+          0% { 
+            transform: rotateY(0deg); 
+          }
+          15% { 
+            transform: rotateY(90deg); 
+          }
+          30% { 
+            transform: rotateY(180deg); 
+          }
+          45% { 
+            transform: rotateY(270deg); 
+          }
+          60% { 
+            transform: rotateY(360deg); 
+          }
+          100% { 
+            transform: rotateY(360deg); 
+          }
         }
         
-        .animate-text-revolve {
-          animation: textRevolve 3s ease-in-out infinite;
+        @keyframes dominoCycle {
+          0% { 
+            transform: rotateY(0deg); 
+          }
+          8% { 
+            transform: rotateY(90deg); 
+          }
+          16% { 
+            transform: rotateY(180deg); 
+          }
+          24% { 
+            transform: rotateY(270deg); 
+          }
+          32% { 
+            transform: rotateY(360deg); 
+          }
+          40% { 
+            transform: rotateY(360deg); 
+          }
+          100% { 
+            transform: rotateY(360deg); 
+          }
+        }
+        
+        .animate-domino-cascade span {
+          animation: dominoCycle 12s ease-in-out infinite;
+          transform-style: preserve-3d;
           display: inline-block;
-          animation-delay: 1s;
         }
         
-        .animate-text-revolve:nth-child(2) {
-          animation-delay: 1.5s;
-        }
+        .animate-domino-cascade span:nth-child(1) { animation-delay: 2s; }
+        .animate-domino-cascade span:nth-child(2) { animation-delay: 2.1s; }
+        .animate-domino-cascade span:nth-child(3) { animation-delay: 2.2s; }
+        .animate-domino-cascade span:nth-child(4) { animation-delay: 2.3s; }
+        .animate-domino-cascade span:nth-child(5) { animation-delay: 2.4s; }
+        .animate-domino-cascade span:nth-child(6) { animation-delay: 2.5s; }
+        .animate-domino-cascade span:nth-child(7) { animation-delay: 2.6s; }
+        .animate-domino-cascade span:nth-child(8) { animation-delay: 2.7s; }
+        .animate-domino-cascade span:nth-child(9) { animation-delay: 2.8s; }
+        .animate-domino-cascade span:nth-child(10) { animation-delay: 2.9s; }
+        .animate-domino-cascade span:nth-child(11) { animation-delay: 3.0s; }
+        .animate-domino-cascade span:nth-child(12) { animation-delay: 3.1s; }
+        .animate-domino-cascade span:nth-child(13) { animation-delay: 3.2s; }
+        .animate-domino-cascade span:nth-child(14) { animation-delay: 3.3s; }
+        .animate-domino-cascade span:nth-child(15) { animation-delay: 3.4s; }
+        .animate-domino-cascade span:nth-child(16) { animation-delay: 3.5s; }
+        .animate-domino-cascade span:nth-child(17) { animation-delay: 3.6s; }
+        .animate-domino-cascade span:nth-child(18) { animation-delay: 3.7s; }
+        .animate-domino-cascade span:nth-child(19) { animation-delay: 3.8s; }
+        .animate-domino-cascade span:nth-child(20) { animation-delay: 3.9s; }
+        .animate-domino-cascade span:nth-child(21) { animation-delay: 4.0s; }
+        .animate-domino-cascade span:nth-child(22) { animation-delay: 4.1s; }
+        .animate-domino-cascade span:nth-child(23) { animation-delay: 4.2s; }
+        .animate-domino-cascade span:nth-child(24) { animation-delay: 4.3s; }
+        .animate-domino-cascade span:nth-child(25) { animation-delay: 4.4s; }
+        .animate-domino-cascade span:nth-child(26) { animation-delay: 4.5s; }
+        .animate-domino-cascade span:nth-child(27) { animation-delay: 4.6s; }
+        .animate-domino-cascade span:nth-child(28) { animation-delay: 4.7s; }
+        .animate-domino-cascade span:nth-child(29) { animation-delay: 4.8s; }
+        .animate-domino-cascade span:nth-child(30) { animation-delay: 4.9s; }
+        .animate-domino-cascade span:nth-child(31) { animation-delay: 5.0s; }
+        .animate-domino-cascade span:nth-child(32) { animation-delay: 5.1s; }
+        .animate-domino-cascade span:nth-child(33) { animation-delay: 5.2s; }
+        .animate-domino-cascade span:nth-child(34) { animation-delay: 5.3s; }
+        .animate-domino-cascade span:nth-child(35) { animation-delay: 5.4s; }
+        .animate-domino-cascade span:nth-child(36) { animation-delay: 5.5s; }
+        .animate-domino-cascade span:nth-child(37) { animation-delay: 5.6s; }
+        .animate-domino-cascade span:nth-child(38) { animation-delay: 5.7s; }
+        .animate-domino-cascade span:nth-child(39) { animation-delay: 5.8s; }
+        .animate-domino-cascade span:nth-child(40) { animation-delay: 5.9s; }
         `}
       </style>
 
@@ -83,9 +172,16 @@ const VisionSection = () => {
           
           <div className="max-w-5xl mx-auto">
             <p className="text-2xl md:text-3xl font-light text-slate-700 leading-relaxed mb-8 font-body">
-              Building a <span ref={euroRef} className="font-semibold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">€5B+ portfolio ecosystem by 2030</span>, 
+              Building a{' '}
+              <span ref={euroRef} className="font-semibold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
+                {wrapLettersInSpans('€5B+ portfolio ecosystem by 2030')}
+              </span>, 
               <span className="block mt-2">
-                connecting <span ref={billionRef} className="font-semibold bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent">1 billion Africans</span> through our integrated AI-powered platforms
+                connecting{' '}
+                <span ref={billionRef} className="font-semibold bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent">
+                  {wrapLettersInSpans('1 billion Africans')}
+                </span>{' '}
+                through our integrated AI-powered platforms
               </span>
               <span className="block mt-2 text-xl text-slate-600">
                 across fintech, agritech, real estate, and creative industries.
