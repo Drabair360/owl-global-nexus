@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Target, TrendingUp, Users, Globe, Lightbulb, Shield, Cpu, Network, Zap } from 'lucide-react';
 
@@ -13,7 +12,7 @@ const VisionSection = () => {
         key={index}
         className={`inline-block ${className}`}
         style={{
-          animationDelay: `${index * 0.1}s`
+          animationDelay: `${index * 0.15}s`
         }}
       >
         {char === ' ' ? '\u00A0' : char}
@@ -23,8 +22,8 @@ const VisionSection = () => {
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -43,100 +42,93 @@ const VisionSection = () => {
 
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-      {/* Enhanced CSS for domino-effect animation */}
+      {/* Enhanced CSS for persistent domino-effect animation */}
       <style>
         {`
-        @keyframes dominoCascade {
+        @keyframes dominoRotate {
           0% { 
-            transform: rotateY(0deg); 
+            transform: rotateY(0deg) rotateZ(0deg);
+            opacity: 1;
           }
           15% { 
-            transform: rotateY(90deg); 
+            transform: rotateY(90deg) rotateZ(5deg);
+            opacity: 0.8;
           }
           30% { 
-            transform: rotateY(180deg); 
+            transform: rotateY(180deg) rotateZ(0deg);
+            opacity: 0.9;
           }
           45% { 
-            transform: rotateY(270deg); 
+            transform: rotateY(270deg) rotateZ(-5deg);
+            opacity: 0.8;
           }
           60% { 
-            transform: rotateY(360deg); 
+            transform: rotateY(360deg) rotateZ(0deg);
+            opacity: 1;
           }
           100% { 
-            transform: rotateY(360deg); 
+            transform: rotateY(360deg) rotateZ(0deg);
+            opacity: 1;
           }
         }
         
-        @keyframes dominoCycle {
-          0% { 
-            transform: rotateY(0deg); 
-          }
-          8% { 
-            transform: rotateY(90deg); 
-          }
-          16% { 
-            transform: rotateY(180deg); 
-          }
-          24% { 
-            transform: rotateY(270deg); 
-          }
-          32% { 
-            transform: rotateY(360deg); 
-          }
-          40% { 
-            transform: rotateY(360deg); 
-          }
-          100% { 
-            transform: rotateY(360deg); 
-          }
+        .animate-domino-cascade {
+          perspective: 1000px;
+          transform-style: preserve-3d;
         }
         
         .animate-domino-cascade span {
-          animation: dominoCycle 12s ease-in-out infinite;
+          animation: dominoRotate 3s ease-in-out infinite;
           transform-style: preserve-3d;
           display: inline-block;
+          backface-visibility: visible;
+          transform-origin: center center;
+          will-change: transform, opacity;
+          animation-delay: calc(var(--animation-index, 0) * 0.15s + 1s);
+          animation-iteration-count: infinite;
+          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .animate-domino-cascade span:nth-child(1) { animation-delay: 2s; }
-        .animate-domino-cascade span:nth-child(2) { animation-delay: 2.1s; }
-        .animate-domino-cascade span:nth-child(3) { animation-delay: 2.2s; }
-        .animate-domino-cascade span:nth-child(4) { animation-delay: 2.3s; }
-        .animate-domino-cascade span:nth-child(5) { animation-delay: 2.4s; }
-        .animate-domino-cascade span:nth-child(6) { animation-delay: 2.5s; }
-        .animate-domino-cascade span:nth-child(7) { animation-delay: 2.6s; }
-        .animate-domino-cascade span:nth-child(8) { animation-delay: 2.7s; }
-        .animate-domino-cascade span:nth-child(9) { animation-delay: 2.8s; }
-        .animate-domino-cascade span:nth-child(10) { animation-delay: 2.9s; }
-        .animate-domino-cascade span:nth-child(11) { animation-delay: 3.0s; }
-        .animate-domino-cascade span:nth-child(12) { animation-delay: 3.1s; }
-        .animate-domino-cascade span:nth-child(13) { animation-delay: 3.2s; }
-        .animate-domino-cascade span:nth-child(14) { animation-delay: 3.3s; }
-        .animate-domino-cascade span:nth-child(15) { animation-delay: 3.4s; }
-        .animate-domino-cascade span:nth-child(16) { animation-delay: 3.5s; }
-        .animate-domino-cascade span:nth-child(17) { animation-delay: 3.6s; }
-        .animate-domino-cascade span:nth-child(18) { animation-delay: 3.7s; }
-        .animate-domino-cascade span:nth-child(19) { animation-delay: 3.8s; }
-        .animate-domino-cascade span:nth-child(20) { animation-delay: 3.9s; }
-        .animate-domino-cascade span:nth-child(21) { animation-delay: 4.0s; }
-        .animate-domino-cascade span:nth-child(22) { animation-delay: 4.1s; }
-        .animate-domino-cascade span:nth-child(23) { animation-delay: 4.2s; }
-        .animate-domino-cascade span:nth-child(24) { animation-delay: 4.3s; }
-        .animate-domino-cascade span:nth-child(25) { animation-delay: 4.4s; }
-        .animate-domino-cascade span:nth-child(26) { animation-delay: 4.5s; }
-        .animate-domino-cascade span:nth-child(27) { animation-delay: 4.6s; }
-        .animate-domino-cascade span:nth-child(28) { animation-delay: 4.7s; }
-        .animate-domino-cascade span:nth-child(29) { animation-delay: 4.8s; }
-        .animate-domino-cascade span:nth-child(30) { animation-delay: 4.9s; }
-        .animate-domino-cascade span:nth-child(31) { animation-delay: 5.0s; }
-        .animate-domino-cascade span:nth-child(32) { animation-delay: 5.1s; }
-        .animate-domino-cascade span:nth-child(33) { animation-delay: 5.2s; }
-        .animate-domino-cascade span:nth-child(34) { animation-delay: 5.3s; }
-        .animate-domino-cascade span:nth-child(35) { animation-delay: 5.4s; }
-        .animate-domino-cascade span:nth-child(36) { animation-delay: 5.5s; }
-        .animate-domino-cascade span:nth-child(37) { animation-delay: 5.6s; }
-        .animate-domino-cascade span:nth-child(38) { animation-delay: 5.7s; }
-        .animate-domino-cascade span:nth-child(39) { animation-delay: 5.8s; }
-        .animate-domino-cascade span:nth-child(40) { animation-delay: 5.9s; }
+        .animate-domino-cascade span:nth-child(1) { --animation-index: 0; animation-delay: 1s; }
+        .animate-domino-cascade span:nth-child(2) { --animation-index: 1; animation-delay: 1.15s; }
+        .animate-domino-cascade span:nth-child(3) { --animation-index: 2; animation-delay: 1.3s; }
+        .animate-domino-cascade span:nth-child(4) { --animation-index: 3; animation-delay: 1.45s; }
+        .animate-domino-cascade span:nth-child(5) { --animation-index: 4; animation-delay: 1.6s; }
+        .animate-domino-cascade span:nth-child(6) { --animation-index: 5; animation-delay: 1.75s; }
+        .animate-domino-cascade span:nth-child(7) { --animation-index: 6; animation-delay: 1.9s; }
+        .animate-domino-cascade span:nth-child(8) { --animation-index: 7; animation-delay: 2.05s; }
+        .animate-domino-cascade span:nth-child(9) { --animation-index: 8; animation-delay: 2.2s; }
+        .animate-domino-cascade span:nth-child(10) { --animation-index: 9; animation-delay: 2.35s; }
+        .animate-domino-cascade span:nth-child(11) { --animation-index: 10; animation-delay: 2.5s; }
+        .animate-domino-cascade span:nth-child(12) { --animation-index: 11; animation-delay: 2.65s; }
+        .animate-domino-cascade span:nth-child(13) { --animation-index: 12; animation-delay: 2.8s; }
+        .animate-domino-cascade span:nth-child(14) { --animation-index: 13; animation-delay: 2.95s; }
+        .animate-domino-cascade span:nth-child(15) { --animation-index: 14; animation-delay: 3.1s; }
+        .animate-domino-cascade span:nth-child(16) { --animation-index: 15; animation-delay: 3.25s; }
+        .animate-domino-cascade span:nth-child(17) { --animation-index: 16; animation-delay: 3.4s; }
+        .animate-domino-cascade span:nth-child(18) { --animation-index: 17; animation-delay: 3.55s; }
+        .animate-domino-cascade span:nth-child(19) { --animation-index: 18; animation-delay: 3.7s; }
+        .animate-domino-cascade span:nth-child(20) { --animation-index: 19; animation-delay: 3.85s; }
+        .animate-domino-cascade span:nth-child(21) { --animation-index: 20; animation-delay: 4.0s; }
+        .animate-domino-cascade span:nth-child(22) { --animation-index: 21; animation-delay: 4.15s; }
+        .animate-domino-cascade span:nth-child(23) { --animation-index: 22; animation-delay: 4.3s; }
+        .animate-domino-cascade span:nth-child(24) { --animation-index: 23; animation-delay: 4.45s; }
+        .animate-domino-cascade span:nth-child(25) { --animation-index: 24; animation-delay: 4.6s; }
+        .animate-domino-cascade span:nth-child(26) { --animation-index: 25; animation-delay: 4.75s; }
+        .animate-domino-cascade span:nth-child(27) { --animation-index: 26; animation-delay: 4.9s; }
+        .animate-domino-cascade span:nth-child(28) { --animation-index: 27; animation-delay: 5.05s; }
+        .animate-domino-cascade span:nth-child(29) { --animation-index: 28; animation-delay: 5.2s; }
+        .animate-domino-cascade span:nth-child(30) { --animation-index: 29; animation-delay: 5.35s; }
+        .animate-domino-cascade span:nth-child(31) { --animation-index: 30; animation-delay: 5.5s; }
+        .animate-domino-cascade span:nth-child(32) { --animation-index: 31; animation-delay: 5.65s; }
+        .animate-domino-cascade span:nth-child(33) { --animation-index: 32; animation-delay: 5.8s; }
+        .animate-domino-cascade span:nth-child(34) { --animation-index: 33; animation-delay: 5.95s; }
+        .animate-domino-cascade span:nth-child(35) { --animation-index: 34; animation-delay: 6.1s; }
+        .animate-domino-cascade span:nth-child(36) { --animation-index: 35; animation-delay: 6.25s; }
+        .animate-domino-cascade span:nth-child(37) { --animation-index: 36; animation-delay: 6.4s; }
+        .animate-domino-cascade span:nth-child(38) { --animation-index: 37; animation-delay: 6.55s; }
+        .animate-domino-cascade span:nth-child(39) { --animation-index: 38; animation-delay: 6.7s; }
+        .animate-domino-cascade span:nth-child(40) { --animation-index: 39; animation-delay: 6.85s; }
         `}
       </style>
 
@@ -173,12 +165,12 @@ const VisionSection = () => {
           <div className="max-w-5xl mx-auto">
             <p className="text-2xl md:text-3xl font-light text-slate-700 leading-relaxed mb-8 font-body">
               Building a{' '}
-              <span ref={euroRef} className="font-semibold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
+              <span ref={euroRef} className="font-semibold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent relative" style={{ perspective: '1000px' }}>
                 {wrapLettersInSpans('€5B+ portfolio ecosystem by 2030')}
               </span>, 
               <span className="block mt-2">
                 connecting{' '}
-                <span ref={billionRef} className="font-semibold bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent">
+                <span ref={billionRef} className="font-semibold bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent relative" style={{ perspective: '1000px' }}>
                   {wrapLettersInSpans('1 billion Africans')}
                 </span>{' '}
                 through our integrated AI-powered platforms
