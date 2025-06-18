@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { Target, TrendingUp, Users, Globe, Lightbulb, Shield, Cpu, Network, Zap } from 'lucide-react';
 
@@ -47,7 +48,7 @@ const VisionSection = () => {
 
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-      {/* Enhanced Animation CSS */}
+      {/* Enhanced Animation CSS with Extended Pause */}
       <style>
         {`
         @keyframes letterCycle {
@@ -59,35 +60,35 @@ const VisionSection = () => {
             background-clip: text;
             filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3));
           }
-          7% { 
+          5% { 
             transform: rotateY(90deg);
             color: #3b82f6;
             -webkit-text-fill-color: #3b82f6;
             background: none;
             filter: none;
           }
-          14% { 
+          10% { 
             transform: rotateY(180deg);
             color: #10b981;
             -webkit-text-fill-color: #10b981;
             background: none;
             filter: none;
           }
-          21% { 
+          15% { 
             transform: rotateY(270deg);
             color: #f59e0b;
             -webkit-text-fill-color: #f59e0b;
             background: none;
             filter: none;
           }
-          28% { 
+          20% { 
             transform: rotateY(360deg);
             color: #8b5cf6;
             -webkit-text-fill-color: #8b5cf6;
             background: none;
             filter: none;
           }
-          35% {
+          25% {
             transform: rotateY(360deg);
             background: linear-gradient(135deg, #3b82f6 0%, #10b981 50%, #f59e0b 100%);
             -webkit-background-clip: text;
@@ -125,7 +126,7 @@ const VisionSection = () => {
         .gradient-text-animated span {
           display: inline-block;
           transform-style: preserve-3d;
-          animation: letterCycle 7s infinite;
+          animation: letterCycle 10s infinite;
           animation-delay: calc(var(--char-index) * 0.1s);
           animation-fill-mode: both;
         }
