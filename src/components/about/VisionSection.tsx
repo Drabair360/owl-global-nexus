@@ -14,9 +14,10 @@ const VisionSection = () => {
         key={index}
         className={`inline-block ${className}`}
         style={{
+          '--char-index': index,
           animationDelay: `${index * 0.15}s`,
           animationFillMode: 'forwards'
-        }}
+        } as React.CSSProperties}
       >
         {char === ' ' ? '\u00A0' : char}
       </span>
@@ -48,50 +49,37 @@ const VisionSection = () => {
 
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-      {/* Enhanced CSS for visible domino-effect animation */}
+      {/* Enhanced CSS for sequential letter animation with synchronized pauses */}
       <style>
         {`
-        @keyframes visibleDominoRotate {
+        @keyframes letterRotate360 {
           0% { 
             transform: translateZ(0) rotateY(0deg) scale(1);
-            opacity: 1;
             color: #1e293b;
           }
-          15% { 
-            transform: translateZ(20px) rotateY(45deg) scale(1.05);
-            opacity: 1;
+          25% { 
+            transform: translateZ(20px) rotateY(90deg) scale(1.1);
             color: #3b82f6;
           }
-          30% { 
-            transform: translateZ(30px) rotateY(90deg) scale(1.1);
-            opacity: 1;
+          50% { 
+            transform: translateZ(30px) rotateY(180deg) scale(1.15);
             color: #10b981;
-          }
-          45% { 
-            transform: translateZ(20px) rotateY(135deg) scale(1.05);
-            opacity: 1;
-            color: #f59e0b;
-          }
-          60% { 
-            transform: translateZ(0) rotateY(180deg) scale(1);
-            opacity: 1;
-            color: #1e293b;
           }
           75% { 
-            transform: translateZ(20px) rotateY(225deg) scale(1.05);
-            opacity: 1;
-            color: #3b82f6;
-          }
-          90% { 
-            transform: translateZ(30px) rotateY(270deg) scale(1.1);
-            opacity: 1;
-            color: #10b981;
+            transform: translateZ(20px) rotateY(270deg) scale(1.1);
+            color: #f59e0b;
           }
           100% { 
             transform: translateZ(0) rotateY(360deg) scale(1);
-            opacity: 1;
             color: #1e293b;
           }
+        }
+        
+        @keyframes masterCycle {
+          0% { opacity: 1; }
+          70% { opacity: 1; }
+          75% { opacity: 1; }
+          100% { opacity: 1; }
         }
         
         @keyframes fadeInScale {
@@ -112,11 +100,12 @@ const VisionSection = () => {
         .animate-text-visible.animate-domino-active {
           perspective: 2000px;
           transform-style: preserve-3d;
+          animation: masterCycle 12s infinite;
         }
         
         .animate-text-visible.animate-domino-active span {
-          animation: visibleDominoRotate 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-          animation-delay: calc(var(--char-index) * 0.15s + 1s);
+          animation: letterRotate360 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          animation-delay: calc(var(--char-index) * 0.15s);
           transform-style: preserve-3d;
           display: inline-block;
           backface-visibility: visible;
@@ -124,50 +113,38 @@ const VisionSection = () => {
           will-change: transform, color;
           font-weight: 600;
           text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
         }
         
-        .animate-text-visible.animate-domino-active span:nth-child(1) { --char-index: 0; }
-        .animate-text-visible.animate-domino-active span:nth-child(2) { --char-index: 1; }
-        .animate-text-visible.animate-domino-active span:nth-child(3) { --char-index: 2; }
-        .animate-text-visible.animate-domino-active span:nth-child(4) { --char-index: 3; }
-        .animate-text-visible.animate-domino-active span:nth-child(5) { --char-index: 4; }
-        .animate-text-visible.animate-domino-active span:nth-child(6) { --char-index: 5; }
-        .animate-text-visible.animate-domino-active span:nth-child(7) { --char-index: 6; }
-        .animate-text-visible.animate-domino-active span:nth-child(8) { --char-index: 7; }
-        .animate-text-visible.animate-domino-active span:nth-child(9) { --char-index: 8; }
-        .animate-text-visible.animate-domino-active span:nth-child(10) { --char-index: 9; }
-        .animate-text-visible.animate-domino-active span:nth-child(11) { --char-index: 10; }
-        .animate-text-visible.animate-domino-active span:nth-child(12) { --char-index: 11; }
-        .animate-text-visible.animate-domino-active span:nth-child(13) { --char-index: 12; }
-        .animate-text-visible.animate-domino-active span:nth-child(14) { --char-index: 13; }
-        .animate-text-visible.animate-domino-active span:nth-child(15) { --char-index: 14; }
-        .animate-text-visible.animate-domino-active span:nth-child(16) { --char-index: 15; }
-        .animate-text-visible.animate-domino-active span:nth-child(17) { --char-index: 16; }
-        .animate-text-visible.animate-domino-active span:nth-child(18) { --char-index: 17; }
-        .animate-text-visible.animate-domino-active span:nth-child(19) { --char-index: 18; }
-        .animate-text-visible.animate-domino-active span:nth-child(20) { --char-index: 19; }
-        .animate-text-visible.animate-domino-active span:nth-child(21) { --char-index: 20; }
-        .animate-text-visible.animate-domino-active span:nth-child(22) { --char-index: 21; }
-        .animate-text-visible.animate-domino-active span:nth-child(23) { --char-index: 22; }
-        .animate-text-visible.animate-domino-active span:nth-child(24) { --char-index: 23; }
-        .animate-text-visible.animate-domino-active span:nth-child(25) { --char-index: 24; }
-        .animate-text-visible.animate-domino-active span:nth-child(26) { --char-index: 25; }
-        .animate-text-visible.animate-domino-active span:nth-child(27) { --char-index: 26; }
-        .animate-text-visible.animate-domino-active span:nth-child(28) { --char-index: 27; }
-        .animate-text-visible.animate-domino-active span:nth-child(29) { --char-index: 28; }
-        .animate-text-visible.animate-domino-active span:nth-child(30) { --char-index: 29; }
-        .animate-text-visible.animate-domino-active span:nth-child(31) { --char-index: 30; }
-        .animate-text-visible.animate-domino-active span:nth-child(32) { --char-index: 31; }
-        .animate-text-visible.animate-domino-active span:nth-child(33) { --char-index: 32; }
-        .animate-text-visible.animate-domino-active span:nth-child(34) { --char-index: 33; }
-        .animate-text-visible.animate-domino-active span:nth-child(35) { --char-index: 34; }
-        .animate-text-visible.animate-domino-active span:nth-child(36) { --char-index: 35; }
-        .animate-text-visible.animate-domino-active span:nth-child(37) { --char-index: 36; }
-        .animate-text-visible.animate-domino-active span:nth-child(38) { --char-index: 37; }
-        .animate-text-visible.animate-domino-active span:nth-child(39) { --char-index: 38; }
-        .animate-text-visible.animate-domino-active span:nth-child(40) { --char-index: 39; }
+        /* Master cycle timing for both texts */
+        .animate-text-visible.animate-domino-active {
+          animation-duration: 12s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+        }
         
-        /* Static gradient styles - only applied when not animating */
+        /* Reset animation every cycle */
+        .animate-text-visible.animate-domino-active span {
+          animation: letterRotate360 1s cubic-bezier(0.4, 0, 0.2, 1);
+          animation-delay: calc(var(--char-index) * 0.15s);
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
+          animation-play-state: running;
+        }
+        
+        /* Restart the letter animations every 12 seconds */
+        .animate-text-visible.animate-domino-active span {
+          animation: 
+            letterRotate360 1s cubic-bezier(0.4, 0, 0.2, 1) calc(var(--char-index) * 0.15s),
+            letterRotate360 1s cubic-bezier(0.4, 0, 0.2, 1) calc(12s + var(--char-index) * 0.15s),
+            letterRotate360 1s cubic-bezier(0.4, 0, 0.2, 1) calc(24s + var(--char-index) * 0.15s),
+            letterRotate360 1s cubic-bezier(0.4, 0, 0.2, 1) calc(36s + var(--char-index) * 0.15s);
+          animation-iteration-count: infinite;
+          animation-fill-mode: forwards;
+        }
+        
+        /* Static gradient styles - applied when not actively rotating */
         .animate-text-visible:not(.animate-domino-active) {
           background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
           -webkit-background-clip: text;
@@ -249,7 +226,6 @@ const VisionSection = () => {
           </div>
         </div>
 
-        {/* Portfolio Impact Multiplier */}
         <div className="mb-20">
           <h3 className="text-2xl font-semibold text-slate-800 text-center mb-12 font-body">Portfolio Synergy Impact</h3>
           
@@ -282,7 +258,6 @@ const VisionSection = () => {
           </div>
         </div>
 
-        {/* Vision Statement & Philosophy */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
           <div>
             <h3 className="text-2xl font-semibold text-slate-800 mb-6 font-body">Our Vision Statement</h3>
@@ -353,7 +328,6 @@ const VisionSection = () => {
           </div>
         </div>
 
-        {/* Impact Targets */}
         <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl p-12 mb-16">
           <h3 className="text-2xl font-semibold text-slate-800 text-center mb-12 font-body">
             Milestone Trajectory to 2030
@@ -394,7 +368,6 @@ const VisionSection = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
         <div className="text-center max-w-3xl mx-auto">
           <h3 className="text-2xl font-semibold text-slate-800 mb-6 font-body">
             Join Africa's Transformation
