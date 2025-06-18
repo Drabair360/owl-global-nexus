@@ -4,9 +4,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/about/HeroSection';
 import VisionSection from '@/components/about/VisionSection';
-import CoreValuesSection from '@/components/about/CoreValuesSection';
 import OurStorySection from '@/components/about/OurStorySection';
-import OurTeamSection from '@/components/about/OurTeamSection';
+import CEOSection from '@/components/about/CEOSection';
 
 const About = () => {
   return (
@@ -19,9 +18,8 @@ const About = () => {
       {/* Content */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <CoreValuesSection />
           <OurStorySection />
-          <OurTeamSection />
+          <CEOSection />
         </div>
       </section>
 

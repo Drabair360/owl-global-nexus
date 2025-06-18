@@ -1,10 +1,57 @@
-
-import React from 'react';
-import { Target, TrendingUp, Users, Globe, Lightbulb, Shield, Cpu, Network, Zap } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { Target, TrendingUp, Users, Globe, Lightbulb, Shield, Cpu, Network, Zap, Mail } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 const VisionSection = () => {
+  const euroRef = useRef<HTMLSpanElement>(null);
+  const billionRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-text-revolve');
+        }
+      });
+    }, observerOptions);
+
+    if (euroRef.current) observer.observe(euroRef.current);
+    if (billionRef.current) observer.observe(billionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="py-20 bg-white relative overflow-hidden">
+      {/* Custom CSS for text animation */}
+      <style jsx>{`
+        @keyframes textRevolve {
+          0% { transform: rotateY(0deg); }
+          25% { transform: rotateY(90deg); }
+          50% { transform: rotateY(180deg); }
+          75% { transform: rotateY(270deg); }
+          100% { transform: rotateY(360deg); }
+        }
+        
+        .animate-text-revolve {
+          animation: textRevolve 3s ease-in-out infinite;
+          display: inline-block;
+          animation-delay: 1s;
+        }
+        
+        .animate-text-revolve:nth-child(2) {
+          animation-delay: 1.5s;
+        }
+      `}</style>
+
       {/* Subtle geometric background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full" style={{
@@ -37,9 +84,9 @@ const VisionSection = () => {
           
           <div className="max-w-5xl mx-auto">
             <p className="text-2xl md:text-3xl font-light text-slate-700 leading-relaxed mb-8 font-body">
-              Building a <span className="font-semibold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">$5B+ portfolio ecosystem by 2030</span>, 
+              Building a <span ref={euroRef} className="font-semibold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">€5B+ portfolio ecosystem by 2030</span>, 
               <span className="block mt-2">
-                connecting <span className="font-semibold bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent">1 billion Africans</span> through our integrated AI-powered platforms
+                connecting <span ref={billionRef} className="font-semibold bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent">1 billion Africans</span> through our integrated AI-powered platforms
               </span>
               <span className="block mt-2 text-xl text-slate-600">
                 across fintech, agritech, real estate, and creative industries.
@@ -95,8 +142,8 @@ const VisionSection = () => {
                 we're positioned to exceed every projection.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed font-body">
-                By 2027, we'll hit our <span className="font-semibold text-amber-600">$1B portfolio milestone</span>. 
-                By 2030, we'll surpass <span className="font-semibold text-blue-600">$5B in total portfolio value</span>, 
+                By 2027, we'll hit our <span className="font-semibold text-amber-600">€1B portfolio milestone</span>. 
+                By 2030, we'll surpass <span className="font-semibold text-blue-600">€5B in total portfolio value</span>, 
                 having created over <span className="font-semibold text-emerald-600">500,000 direct jobs</span> and 
                 transformed how a billion people work, trade, and thrive across Africa.
               </p>
@@ -163,7 +210,7 @@ const VisionSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center group">
               <div className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                $5B+
+                €5B+
               </div>
               <div className="text-lg font-semibold text-slate-800 mb-2">Portfolio Value</div>
               <div className="text-slate-600 font-body">Total ecosystem valuation by 2030</div>
