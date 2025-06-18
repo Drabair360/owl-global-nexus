@@ -1,9 +1,6 @@
+
 import React, { useEffect, useRef } from 'react';
-import { Target, TrendingUp, Users, Globe, Lightbulb, Shield, Cpu, Network, Zap, Mail } from 'lucide-react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { Target, TrendingUp, Users, Globe, Lightbulb, Shield, Cpu, Network, Zap } from 'lucide-react';
 
 const VisionSection = () => {
   const euroRef = useRef<HTMLSpanElement>(null);
@@ -32,7 +29,8 @@ const VisionSection = () => {
   return (
     <section className="py-20 bg-white relative overflow-hidden">
       {/* Custom CSS for text animation */}
-      <style jsx>{`
+      <style>
+        {`
         @keyframes textRevolve {
           0% { transform: rotateY(0deg); }
           25% { transform: rotateY(90deg); }
@@ -50,7 +48,8 @@ const VisionSection = () => {
         .animate-text-revolve:nth-child(2) {
           animation-delay: 1.5s;
         }
-      `}</style>
+        `}
+      </style>
 
       {/* Subtle geometric background pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -105,7 +104,7 @@ const VisionSection = () => {
             <div className="group">
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 backdrop-blur-sm">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Cpu className="w-7 h-7 text-white" stroke="url(#blueGradient)" />
+                  <Cpu className="w-7 h-7 text-white" />
                 </div>
                 <h4 className="text-xl font-semibold text-slate-800 mb-4 font-body">AI-Powered Ecosystem</h4>
                 <p className="text-slate-600 leading-relaxed font-body">
@@ -118,7 +117,7 @@ const VisionSection = () => {
             <div className="group">
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 backdrop-blur-sm">
                 <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Network className="w-7 h-7 text-white" stroke="url(#emeraldGradient)" />
+                  <Network className="w-7 h-7 text-white" />
                 </div>
                 <h4 className="text-xl font-semibold text-slate-800 mb-4 font-body">Integrated Value Chain</h4>
                 <p className="text-slate-600 leading-relaxed font-body">
@@ -161,7 +160,7 @@ const VisionSection = () => {
             <div className="space-y-6">
               <div className="flex items-start gap-4 group">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-110 transition-all duration-300 shadow-lg">
-                  <Target className="w-6 h-6 text-white" stroke="url(#blueGradient)" />
+                  <Target className="w-6 h-6 text-white" />
                 </div>
                 <div className="group-hover:-translate-y-1 transition-transform duration-300">
                   <h4 className="font-semibold text-slate-800 mb-2 font-body text-lg">Strategic Intelligence</h4>
@@ -174,7 +173,7 @@ const VisionSection = () => {
 
               <div className="flex items-start gap-4 group">
                 <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-xl flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-110 transition-all duration-300 shadow-lg">
-                  <Users className="w-6 h-6 text-white" stroke="url(#emeraldGradient)" />
+                  <Users className="w-6 h-6 text-white" />
                 </div>
                 <div className="group-hover:-translate-y-1 transition-transform duration-300">
                   <h4 className="font-semibold text-slate-800 mb-2 font-body text-lg">Local Leadership Excellence</h4>
@@ -187,7 +186,7 @@ const VisionSection = () => {
 
               <div className="flex items-start gap-4 group">
                 <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-700 rounded-xl flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-110 transition-all duration-300 shadow-lg">
-                  <Zap className="w-6 h-6 text-white" stroke="url(#amberGradient)" />
+                  <Zap className="w-6 h-6 text-white" />
                 </div>
                 <div className="group-hover:-translate-y-1 transition-transform duration-300">
                   <h4 className="font-semibold text-slate-800 mb-2 font-body text-lg">Exponential Impact</h4>
