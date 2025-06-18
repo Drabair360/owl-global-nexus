@@ -47,47 +47,72 @@ const VisionSection = () => {
 
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-      {/* Clean Animation CSS */}
+      {/* Enhanced Animation CSS */}
       <style>
         {`
         @keyframes letterCycle {
           0% { 
             transform: rotateY(0deg);
-            color: #3b82f6;
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3));
           }
-          8.33% { 
+          7% { 
             transform: rotateY(90deg);
-            color: #10b981;
+            color: #3b82f6;
+            -webkit-text-fill-color: #3b82f6;
+            background: none;
+            filter: none;
           }
-          16.66% { 
+          14% { 
             transform: rotateY(180deg);
-            color: #f59e0b;
+            color: #10b981;
+            -webkit-text-fill-color: #10b981;
+            background: none;
+            filter: none;
           }
-          25% { 
+          21% { 
             transform: rotateY(270deg);
+            color: #f59e0b;
+            -webkit-text-fill-color: #f59e0b;
+            background: none;
+            filter: none;
+          }
+          28% { 
+            transform: rotateY(360deg);
             color: #8b5cf6;
+            -webkit-text-fill-color: #8b5cf6;
+            background: none;
+            filter: none;
           }
-          33.33% { 
+          35% {
             transform: rotateY(360deg);
-            color: #3b82f6;
-          }
-          58.33% {
-            transform: rotateY(360deg);
-            color: #3b82f6;
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3));
           }
           100% { 
             transform: rotateY(360deg);
-            color: #3b82f6;
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3));
           }
         }
         
-        /* Base gradient text - always visible */
+        /* Base gradient text - enhanced vibrancy */
         .gradient-text-base {
-          background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+          background: linear-gradient(135deg, #3b82f6 0%, #10b981 50%, #f59e0b 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           font-weight: 600;
+          filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3));
         }
         
         /* Animation state */
@@ -100,8 +125,8 @@ const VisionSection = () => {
         .gradient-text-animated span {
           display: inline-block;
           transform-style: preserve-3d;
-          animation: letterCycle 12s infinite;
-          animation-delay: calc(var(--char-index) * 0.2s);
+          animation: letterCycle 7s infinite;
+          animation-delay: calc(var(--char-index) * 0.1s);
           animation-fill-mode: both;
         }
         `}
