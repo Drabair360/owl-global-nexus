@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Target, TrendingUp, Users, Globe, Lightbulb, Shield, Cpu, Network, Zap } from 'lucide-react';
 
 const VisionSection = () => {
   const euroRef = useRef<HTMLSpanElement>(null);
   const billionRef = useRef<HTMLSpanElement>(null);
+  const [isEuroVisible, setIsEuroVisible] = useState(false);
+  const [isBillionVisible, setIsBillionVisible] = useState(false);
 
   // Utility function to wrap each character in a span for individual animation
   const wrapLettersInSpans = (text: string, className: string = '') => {
@@ -12,7 +14,8 @@ const VisionSection = () => {
         key={index}
         className={`inline-block ${className}`}
         style={{
-          animationDelay: `${index * 0.15}s`
+          animationDelay: `${index * 0.1}s`,
+          animationFillMode: 'forwards'
         }}
       >
         {char === ' ' ? '\u00A0' : char}
@@ -22,14 +25,17 @@ const VisionSection = () => {
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.3,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.2,
+      rootMargin: '50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-domino-cascade');
+        if (entry.target === euroRef.current) {
+          setIsEuroVisible(entry.isIntersecting);
+        }
+        if (entry.target === billionRef.current) {
+          setIsBillionVisible(entry.isIntersecting);
         }
       });
     }, observerOptions);
@@ -45,90 +51,99 @@ const VisionSection = () => {
       {/* Enhanced CSS for persistent domino-effect animation */}
       <style>
         {`
-        @keyframes dominoRotate {
+        @keyframes visibleDominoRotate {
           0% { 
-            transform: rotateY(0deg) rotateZ(0deg);
+            transform: rotateY(0deg) scale(1);
             opacity: 1;
           }
-          15% { 
-            transform: rotateY(90deg) rotateZ(5deg);
-            opacity: 0.8;
-          }
-          30% { 
-            transform: rotateY(180deg) rotateZ(0deg);
+          25% { 
+            transform: rotateY(90deg) scale(0.9);
             opacity: 0.9;
           }
-          45% { 
-            transform: rotateY(270deg) rotateZ(-5deg);
-            opacity: 0.8;
-          }
-          60% { 
-            transform: rotateY(360deg) rotateZ(0deg);
+          50% { 
+            transform: rotateY(180deg) scale(1);
             opacity: 1;
           }
+          75% { 
+            transform: rotateY(270deg) scale(0.9);
+            opacity: 0.9;
+          }
           100% { 
-            transform: rotateY(360deg) rotateZ(0deg);
+            transform: rotateY(360deg) scale(1);
             opacity: 1;
           }
         }
         
-        .animate-domino-cascade {
+        @keyframes fadeInScale {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        
+        .animate-text-visible {
+          animation: fadeInScale 0.6s ease-out forwards;
+        }
+        
+        .animate-text-visible.animate-domino-active {
           perspective: 1000px;
           transform-style: preserve-3d;
         }
         
-        .animate-domino-cascade span {
-          animation: dominoRotate 3s ease-in-out infinite;
+        .animate-text-visible.animate-domino-active span {
+          animation: visibleDominoRotate 2s ease-in-out infinite;
+          animation-delay: calc(var(--char-index) * 0.1s + 0.5s);
           transform-style: preserve-3d;
           display: inline-block;
           backface-visibility: visible;
           transform-origin: center center;
-          will-change: transform, opacity;
-          animation-delay: calc(var(--animation-index, 0) * 0.15s + 1s);
-          animation-iteration-count: infinite;
-          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          will-change: transform;
         }
         
-        .animate-domino-cascade span:nth-child(1) { --animation-index: 0; animation-delay: 1s; }
-        .animate-domino-cascade span:nth-child(2) { --animation-index: 1; animation-delay: 1.15s; }
-        .animate-domino-cascade span:nth-child(3) { --animation-index: 2; animation-delay: 1.3s; }
-        .animate-domino-cascade span:nth-child(4) { --animation-index: 3; animation-delay: 1.45s; }
-        .animate-domino-cascade span:nth-child(5) { --animation-index: 4; animation-delay: 1.6s; }
-        .animate-domino-cascade span:nth-child(6) { --animation-index: 5; animation-delay: 1.75s; }
-        .animate-domino-cascade span:nth-child(7) { --animation-index: 6; animation-delay: 1.9s; }
-        .animate-domino-cascade span:nth-child(8) { --animation-index: 7; animation-delay: 2.05s; }
-        .animate-domino-cascade span:nth-child(9) { --animation-index: 8; animation-delay: 2.2s; }
-        .animate-domino-cascade span:nth-child(10) { --animation-index: 9; animation-delay: 2.35s; }
-        .animate-domino-cascade span:nth-child(11) { --animation-index: 10; animation-delay: 2.5s; }
-        .animate-domino-cascade span:nth-child(12) { --animation-index: 11; animation-delay: 2.65s; }
-        .animate-domino-cascade span:nth-child(13) { --animation-index: 12; animation-delay: 2.8s; }
-        .animate-domino-cascade span:nth-child(14) { --animation-index: 13; animation-delay: 2.95s; }
-        .animate-domino-cascade span:nth-child(15) { --animation-index: 14; animation-delay: 3.1s; }
-        .animate-domino-cascade span:nth-child(16) { --animation-index: 15; animation-delay: 3.25s; }
-        .animate-domino-cascade span:nth-child(17) { --animation-index: 16; animation-delay: 3.4s; }
-        .animate-domino-cascade span:nth-child(18) { --animation-index: 17; animation-delay: 3.55s; }
-        .animate-domino-cascade span:nth-child(19) { --animation-index: 18; animation-delay: 3.7s; }
-        .animate-domino-cascade span:nth-child(20) { --animation-index: 19; animation-delay: 3.85s; }
-        .animate-domino-cascade span:nth-child(21) { --animation-index: 20; animation-delay: 4.0s; }
-        .animate-domino-cascade span:nth-child(22) { --animation-index: 21; animation-delay: 4.15s; }
-        .animate-domino-cascade span:nth-child(23) { --animation-index: 22; animation-delay: 4.3s; }
-        .animate-domino-cascade span:nth-child(24) { --animation-index: 23; animation-delay: 4.45s; }
-        .animate-domino-cascade span:nth-child(25) { --animation-index: 24; animation-delay: 4.6s; }
-        .animate-domino-cascade span:nth-child(26) { --animation-index: 25; animation-delay: 4.75s; }
-        .animate-domino-cascade span:nth-child(27) { --animation-index: 26; animation-delay: 4.9s; }
-        .animate-domino-cascade span:nth-child(28) { --animation-index: 27; animation-delay: 5.05s; }
-        .animate-domino-cascade span:nth-child(29) { --animation-index: 28; animation-delay: 5.2s; }
-        .animate-domino-cascade span:nth-child(30) { --animation-index: 29; animation-delay: 5.35s; }
-        .animate-domino-cascade span:nth-child(31) { --animation-index: 30; animation-delay: 5.5s; }
-        .animate-domino-cascade span:nth-child(32) { --animation-index: 31; animation-delay: 5.65s; }
-        .animate-domino-cascade span:nth-child(33) { --animation-index: 32; animation-delay: 5.8s; }
-        .animate-domino-cascade span:nth-child(34) { --animation-index: 33; animation-delay: 5.95s; }
-        .animate-domino-cascade span:nth-child(35) { --animation-index: 34; animation-delay: 6.1s; }
-        .animate-domino-cascade span:nth-child(36) { --animation-index: 35; animation-delay: 6.25s; }
-        .animate-domino-cascade span:nth-child(37) { --animation-index: 36; animation-delay: 6.4s; }
-        .animate-domino-cascade span:nth-child(38) { --animation-index: 37; animation-delay: 6.55s; }
-        .animate-domino-cascade span:nth-child(39) { --animation-index: 38; animation-delay: 6.7s; }
-        .animate-domino-cascade span:nth-child(40) { --animation-index: 39; animation-delay: 6.85s; }
+        .animate-text-visible.animate-domino-active span:nth-child(1) { --char-index: 0; }
+        .animate-text-visible.animate-domino-active span:nth-child(2) { --char-index: 1; }
+        .animate-text-visible.animate-domino-active span:nth-child(3) { --char-index: 2; }
+        .animate-text-visible.animate-domino-active span:nth-child(4) { --char-index: 3; }
+        .animate-text-visible.animate-domino-active span:nth-child(5) { --char-index: 4; }
+        .animate-text-visible.animate-domino-active span:nth-child(6) { --char-index: 5; }
+        .animate-text-visible.animate-domino-active span:nth-child(7) { --char-index: 6; }
+        .animate-text-visible.animate-domino-active span:nth-child(8) { --char-index: 7; }
+        .animate-text-visible.animate-domino-active span:nth-child(9) { --char-index: 8; }
+        .animate-text-visible.animate-domino-active span:nth-child(10) { --char-index: 9; }
+        .animate-text-visible.animate-domino-active span:nth-child(11) { --char-index: 10; }
+        .animate-text-visible.animate-domino-active span:nth-child(12) { --char-index: 11; }
+        .animate-text-visible.animate-domino-active span:nth-child(13) { --char-index: 12; }
+        .animate-text-visible.animate-domino-active span:nth-child(14) { --char-index: 13; }
+        .animate-text-visible.animate-domino-active span:nth-child(15) { --char-index: 14; }
+        .animate-text-visible.animate-domino-active span:nth-child(16) { --char-index: 15; }
+        .animate-text-visible.animate-domino-active span:nth-child(17) { --char-index: 16; }
+        .animate-text-visible.animate-domino-active span:nth-child(18) { --char-index: 17; }
+        .animate-text-visible.animate-domino-active span:nth-child(19) { --char-index: 18; }
+        .animate-text-visible.animate-domino-active span:nth-child(20) { --char-index: 19; }
+        .animate-text-visible.animate-domino-active span:nth-child(21) { --char-index: 20; }
+        .animate-text-visible.animate-domino-active span:nth-child(22) { --char-index: 21; }
+        .animate-text-visible.animate-domino-active span:nth-child(23) { --char-index: 22; }
+        .animate-text-visible.animate-domino-active span:nth-child(24) { --char-index: 23; }
+        .animate-text-visible.animate-domino-active span:nth-child(25) { --char-index: 24; }
+        .animate-text-visible.animate-domino-active span:nth-child(26) { --char-index: 25; }
+        .animate-text-visible.animate-domino-active span:nth-child(27) { --char-index: 26; }
+        .animate-text-visible.animate-domino-active span:nth-child(28) { --char-index: 27; }
+        .animate-text-visible.animate-domino-active span:nth-child(29) { --char-index: 28; }
+        .animate-text-visible.animate-domino-active span:nth-child(30) { --char-index: 29; }
+        .animate-text-visible.animate-domino-active span:nth-child(31) { --char-index: 30; }
+        .animate-text-visible.animate-domino-active span:nth-child(32) { --char-index: 31; }
+        .animate-text-visible.animate-domino-active span:nth-child(33) { --char-index: 32; }
+        .animate-text-visible.animate-domino-active span:nth-child(34) { --char-index: 33; }
+        .animate-text-visible.animate-domino-active span:nth-child(35) { --char-index: 34; }
+        .animate-text-visible.animate-domino-active span:nth-child(36) { --char-index: 35; }
+        .animate-text-visible.animate-domino-active span:nth-child(37) { --char-index: 36; }
+        .animate-text-visible.animate-domino-active span:nth-child(38) { --char-index: 37; }
+        .animate-text-visible.animate-domino-active span:nth-child(39) { --char-index: 38; }
+        .animate-text-visible.animate-domino-active span:nth-child(40) { --char-index: 39; }
         `}
       </style>
 
@@ -165,12 +180,32 @@ const VisionSection = () => {
           <div className="max-w-5xl mx-auto">
             <p className="text-2xl md:text-3xl font-light text-slate-700 leading-relaxed mb-8 font-body">
               Building a{' '}
-              <span ref={euroRef} className="font-semibold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent relative" style={{ perspective: '1000px' }}>
+              <span 
+                ref={euroRef} 
+                className={`font-semibold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent relative transition-all duration-300 ${
+                  isEuroVisible ? 'animate-text-visible animate-domino-active' : 'animate-text-visible'
+                }`}
+                style={{ 
+                  perspective: '1000px',
+                  zIndex: 10,
+                  position: 'relative'
+                }}
+              >
                 {wrapLettersInSpans('€5B+ portfolio ecosystem by 2030')}
               </span>, 
               <span className="block mt-2">
                 connecting{' '}
-                <span ref={billionRef} className="font-semibold bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent relative" style={{ perspective: '1000px' }}>
+                <span 
+                  ref={billionRef} 
+                  className={`font-semibold bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent relative transition-all duration-300 ${
+                    isBillionVisible ? 'animate-text-visible animate-domino-active' : 'animate-text-visible'
+                  }`}
+                  style={{ 
+                    perspective: '1000px',
+                    zIndex: 10,
+                    position: 'relative'
+                  }}
+                >
                   {wrapLettersInSpans('1 billion Africans')}
                 </span>{' '}
                 through our integrated AI-powered platforms
