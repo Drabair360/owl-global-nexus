@@ -14,7 +14,7 @@ const VisionSection = () => {
         key={index}
         className={`inline-block ${className}`}
         style={{
-          animationDelay: `${index * 0.1}s`,
+          animationDelay: `${index * 0.15}s`,
           animationFillMode: 'forwards'
         }}
       >
@@ -25,8 +25,8 @@ const VisionSection = () => {
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.2,
-      rootMargin: '50px 0px'
+      threshold: 0.3,
+      rootMargin: '0px 0px -100px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -48,29 +48,49 @@ const VisionSection = () => {
 
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-      {/* Enhanced CSS for persistent domino-effect animation */}
+      {/* Enhanced CSS for visible domino-effect animation */}
       <style>
         {`
         @keyframes visibleDominoRotate {
           0% { 
-            transform: rotateY(0deg) scale(1);
+            transform: translateZ(0) rotateY(0deg) scale(1);
             opacity: 1;
+            color: #1e293b;
           }
-          25% { 
-            transform: rotateY(90deg) scale(0.9);
-            opacity: 0.9;
-          }
-          50% { 
-            transform: rotateY(180deg) scale(1);
+          15% { 
+            transform: translateZ(20px) rotateY(45deg) scale(1.05);
             opacity: 1;
+            color: #3b82f6;
+          }
+          30% { 
+            transform: translateZ(30px) rotateY(90deg) scale(1.1);
+            opacity: 1;
+            color: #10b981;
+          }
+          45% { 
+            transform: translateZ(20px) rotateY(135deg) scale(1.05);
+            opacity: 1;
+            color: #f59e0b;
+          }
+          60% { 
+            transform: translateZ(0) rotateY(180deg) scale(1);
+            opacity: 1;
+            color: #1e293b;
           }
           75% { 
-            transform: rotateY(270deg) scale(0.9);
-            opacity: 0.9;
+            transform: translateZ(20px) rotateY(225deg) scale(1.05);
+            opacity: 1;
+            color: #3b82f6;
+          }
+          90% { 
+            transform: translateZ(30px) rotateY(270deg) scale(1.1);
+            opacity: 1;
+            color: #10b981;
           }
           100% { 
-            transform: rotateY(360deg) scale(1);
+            transform: translateZ(0) rotateY(360deg) scale(1);
             opacity: 1;
+            color: #1e293b;
           }
         }
         
@@ -90,18 +110,20 @@ const VisionSection = () => {
         }
         
         .animate-text-visible.animate-domino-active {
-          perspective: 1000px;
+          perspective: 2000px;
           transform-style: preserve-3d;
         }
         
         .animate-text-visible.animate-domino-active span {
-          animation: visibleDominoRotate 2s ease-in-out infinite;
-          animation-delay: calc(var(--char-index) * 0.1s + 0.5s);
+          animation: visibleDominoRotate 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          animation-delay: calc(var(--char-index) * 0.15s + 1s);
           transform-style: preserve-3d;
           display: inline-block;
           backface-visibility: visible;
           transform-origin: center center;
-          will-change: transform;
+          will-change: transform, color;
+          font-weight: 600;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
         .animate-text-visible.animate-domino-active span:nth-child(1) { --char-index: 0; }
@@ -144,6 +166,14 @@ const VisionSection = () => {
         .animate-text-visible.animate-domino-active span:nth-child(38) { --char-index: 37; }
         .animate-text-visible.animate-domino-active span:nth-child(39) { --char-index: 38; }
         .animate-text-visible.animate-domino-active span:nth-child(40) { --char-index: 39; }
+        
+        /* Static gradient styles - only applied when not animating */
+        .animate-text-visible:not(.animate-domino-active) {
+          background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
         `}
       </style>
 
@@ -182,11 +212,11 @@ const VisionSection = () => {
               Building a{' '}
               <span 
                 ref={euroRef} 
-                className={`font-semibold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent relative transition-all duration-300 ${
+                className={`font-semibold relative transition-all duration-500 ${
                   isEuroVisible ? 'animate-text-visible animate-domino-active' : 'animate-text-visible'
                 }`}
                 style={{ 
-                  perspective: '1000px',
+                  perspective: '2000px',
                   zIndex: 10,
                   position: 'relative'
                 }}
@@ -197,11 +227,11 @@ const VisionSection = () => {
                 connecting{' '}
                 <span 
                   ref={billionRef} 
-                  className={`font-semibold bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent relative transition-all duration-300 ${
+                  className={`font-semibold relative transition-all duration-500 ${
                     isBillionVisible ? 'animate-text-visible animate-domino-active' : 'animate-text-visible'
                   }`}
                   style={{ 
-                    perspective: '1000px',
+                    perspective: '2000px',
                     zIndex: 10,
                     position: 'relative'
                   }}
