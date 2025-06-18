@@ -15,7 +15,6 @@ const VisionSection = () => {
         className={`inline-block ${className}`}
         style={{
           '--char-index': index,
-          animationDelay: `${index * 0.15}s`,
         } as React.CSSProperties}
       >
         {char === ' ' ? '\u00A0' : char}
@@ -48,78 +47,89 @@ const VisionSection = () => {
 
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-      {/* Enhanced CSS for sequential letter animation with proper timing */}
+      {/* Fixed CSS for visible letter animation */}
       <style>
         {`
         @keyframes singleLetterRotate {
           0% { 
-            transform: translateZ(0) rotateY(0deg) scale(1);
+            transform: translateZ(0) rotateY(0deg);
+            color: #3b82f6;
           }
           25% { 
-            transform: translateZ(20px) rotateY(90deg) scale(1.1);
+            transform: translateZ(20px) rotateY(90deg);
+            color: #06b6d4;
           }
           50% { 
-            transform: translateZ(30px) rotateY(180deg) scale(1.15);
+            transform: translateZ(30px) rotateY(180deg);
+            color: #10b981;
           }
           75% { 
-            transform: translateZ(20px) rotateY(270deg) scale(1.1);
+            transform: translateZ(20px) rotateY(270deg);
+            color: #06b6d4;
           }
           100% { 
-            transform: translateZ(0) rotateY(360deg) scale(1);
+            transform: translateZ(0) rotateY(360deg);
+            color: #3b82f6;
           }
         }
         
-        @keyframes masterCycle {
+        @keyframes cycleControl {
           0% { 
-            --animation-state: 'running';
+            opacity: 1;
           }
           60% { 
-            --animation-state: 'running';
+            opacity: 1;
           }
           61% { 
-            --animation-state: 'paused';
+            opacity: 1;
           }
           100% { 
-            --animation-state: 'paused';
+            opacity: 1;
           }
         }
         
-        /* Base state - show gradient */
-        .animate-text-visible {
-          opacity: 1;
+        /* Base state - show gradient text */
+        .animate-text-base {
           background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+          font-weight: 600;
           perspective: 2000px;
           transform-style: preserve-3d;
         }
         
-        /* Active animation state */
-        .animate-text-visible.animate-domino-active {
-          animation: masterCycle 10s infinite;
+        /* Animation active state - remove gradient, use solid colors */
+        .animate-text-active {
+          background: none !important;
+          -webkit-background-clip: unset !important;
+          -webkit-text-fill-color: unset !important;
+          background-clip: unset !important;
+          color: #3b82f6;
+          font-weight: 600;
+          perspective: 2000px;
+          transform-style: preserve-3d;
+          animation: cycleControl 10s infinite;
         }
         
-        .animate-text-visible.animate-domino-active span {
-          animation: singleLetterRotate 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        .animate-text-active span {
+          animation: singleLetterRotate 1s ease-in-out forwards;
           animation-delay: calc(var(--char-index) * 0.15s);
-          animation-play-state: var(--animation-state, running);
+          animation-iteration-count: infinite;
+          animation-duration: 1s;
+          animation-delay: calc(10s * var(--cycle-count, 0) + var(--char-index) * 0.15s);
           transform-style: preserve-3d;
           display: inline-block;
+          will-change: transform, color;
           backface-visibility: visible;
-          transform-origin: center center;
-          will-change: transform;
-          font-weight: 600;
         }
         
         /* Restart animation every 10 seconds */
-        .animate-text-visible.animate-domino-active span {
+        .animate-text-active span {
           animation: 
-            singleLetterRotate 1s cubic-bezier(0.4, 0, 0.2, 1) calc(var(--char-index) * 0.15s) forwards,
-            singleLetterRotate 1s cubic-bezier(0.4, 0, 0.2, 1) calc(10s + var(--char-index) * 0.15s) forwards,
-            singleLetterRotate 1s cubic-bezier(0.4, 0, 0.2, 1) calc(20s + var(--char-index) * 0.15s) forwards,
-            singleLetterRotate 1s cubic-bezier(0.4, 0, 0.2, 1) calc(30s + var(--char-index) * 0.15s) forwards;
-          animation-iteration-count: infinite;
+            singleLetterRotate 1s ease-in-out calc(var(--char-index) * 0.15s) infinite,
+            singleLetterRotate 1s ease-in-out calc(10s + var(--char-index) * 0.15s) infinite,
+            singleLetterRotate 1s ease-in-out calc(20s + var(--char-index) * 0.15s) infinite;
         }
         `}
       </style>
@@ -160,7 +170,7 @@ const VisionSection = () => {
               <span 
                 ref={euroRef} 
                 className={`font-semibold relative transition-all duration-500 ${
-                  isEuroVisible ? 'animate-text-visible animate-domino-active' : 'animate-text-visible'
+                  isEuroVisible ? 'animate-text-active' : 'animate-text-base'
                 }`}
                 style={{ 
                   perspective: '2000px',
@@ -175,7 +185,7 @@ const VisionSection = () => {
                 <span 
                   ref={billionRef} 
                   className={`font-semibold relative transition-all duration-500 ${
-                    isBillionVisible ? 'animate-text-visible animate-domino-active' : 'animate-text-visible'
+                    isBillionVisible ? 'animate-text-active' : 'animate-text-base'
                   }`}
                   style={{ 
                     perspective: '2000px',
@@ -300,6 +310,7 @@ const VisionSection = () => {
           </div>
         </div>
 
+        
         <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl p-12 mb-16">
           <h3 className="text-2xl font-semibold text-slate-800 text-center mb-12 font-body">
             Milestone Trajectory to 2030
