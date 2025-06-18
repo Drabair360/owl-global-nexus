@@ -47,49 +47,29 @@ const VisionSection = () => {
 
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-      {/* Fixed CSS for visible letter animation */}
+      {/* Enhanced CSS for proper gradient animation */}
       <style>
         {`
-        @keyframes singleLetterRotate {
+        @keyframes letterRotate360 {
           0% { 
             transform: translateZ(0) rotateY(0deg);
-            color: #3b82f6;
           }
           25% { 
             transform: translateZ(20px) rotateY(90deg);
-            color: #06b6d4;
           }
           50% { 
             transform: translateZ(30px) rotateY(180deg);
-            color: #10b981;
           }
           75% { 
             transform: translateZ(20px) rotateY(270deg);
-            color: #06b6d4;
           }
           100% { 
             transform: translateZ(0) rotateY(360deg);
-            color: #3b82f6;
           }
         }
         
-        @keyframes cycleControl {
-          0% { 
-            opacity: 1;
-          }
-          60% { 
-            opacity: 1;
-          }
-          61% { 
-            opacity: 1;
-          }
-          100% { 
-            opacity: 1;
-          }
-        }
-        
-        /* Base state - show gradient text */
-        .animate-text-base {
+        /* Base gradient text - always visible */
+        .gradient-text-base {
           background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -99,37 +79,58 @@ const VisionSection = () => {
           transform-style: preserve-3d;
         }
         
-        /* Animation active state - remove gradient, use solid colors */
-        .animate-text-active {
-          background: none !important;
-          -webkit-background-clip: unset !important;
-          -webkit-text-fill-color: unset !important;
-          background-clip: unset !important;
-          color: #3b82f6;
+        /* Animation state - preserve gradient and add rotation */
+        .gradient-text-animated {
+          background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
           font-weight: 600;
           perspective: 2000px;
           transform-style: preserve-3d;
-          animation: cycleControl 10s infinite;
         }
         
-        .animate-text-active span {
-          animation: singleLetterRotate 1s ease-in-out forwards;
-          animation-delay: calc(var(--char-index) * 0.15s);
-          animation-iteration-count: infinite;
-          animation-duration: 1s;
-          animation-delay: calc(10s * var(--cycle-count, 0) + var(--char-index) * 0.15s);
+        .gradient-text-animated span {
           transform-style: preserve-3d;
           display: inline-block;
-          will-change: transform, color;
+          will-change: transform;
           backface-visibility: visible;
+          /* Single 360° rotation with sequential delay */
+          animation: letterRotate360 1s ease-in-out calc(var(--char-index) * 0.2s) 1;
         }
         
-        /* Restart animation every 10 seconds */
-        .animate-text-active span {
+        /* Cycling animation every 12 seconds */
+        .gradient-text-animated.cycle-1 span {
+          animation: letterRotate360 1s ease-in-out calc(0s + var(--char-index) * 0.2s) 1;
+        }
+        
+        .gradient-text-animated.cycle-2 span {
+          animation: letterRotate360 1s ease-in-out calc(12s + var(--char-index) * 0.2s) 1;
+        }
+        
+        .gradient-text-animated.cycle-3 span {
+          animation: letterRotate360 1s ease-in-out calc(24s + var(--char-index) * 0.2s) 1;
+        }
+        
+        .gradient-text-animated.cycle-4 span {
+          animation: letterRotate360 1s ease-in-out calc(36s + var(--char-index) * 0.2s) 1;
+        }
+        
+        .gradient-text-animated.cycle-5 span {
+          animation: letterRotate360 1s ease-in-out calc(48s + var(--char-index) * 0.2s) 1;
+        }
+        
+        /* Infinite cycling */
+        .gradient-text-animated span {
           animation: 
-            singleLetterRotate 1s ease-in-out calc(var(--char-index) * 0.15s) infinite,
-            singleLetterRotate 1s ease-in-out calc(10s + var(--char-index) * 0.15s) infinite,
-            singleLetterRotate 1s ease-in-out calc(20s + var(--char-index) * 0.15s) infinite;
+            letterRotate360 1s ease-in-out calc(var(--char-index) * 0.2s) infinite,
+            letterRotate360 1s ease-in-out calc(12s + var(--char-index) * 0.2s) infinite,
+            letterRotate360 1s ease-in-out calc(24s + var(--char-index) * 0.2s) infinite,
+            letterRotate360 1s ease-in-out calc(36s + var(--char-index) * 0.2s) infinite,
+            letterRotate360 1s ease-in-out calc(48s + var(--char-index) * 0.2s) infinite;
+          animation-duration: 1s, 1s, 1s, 1s, 1s;
+          animation-iteration-count: 1, 1, 1, 1, 1;
+          animation-fill-mode: forwards;
         }
         `}
       </style>
@@ -170,7 +171,7 @@ const VisionSection = () => {
               <span 
                 ref={euroRef} 
                 className={`font-semibold relative transition-all duration-500 ${
-                  isEuroVisible ? 'animate-text-active' : 'animate-text-base'
+                  isEuroVisible ? 'gradient-text-animated' : 'gradient-text-base'
                 }`}
                 style={{ 
                   perspective: '2000px',
@@ -185,7 +186,7 @@ const VisionSection = () => {
                 <span 
                   ref={billionRef} 
                   className={`font-semibold relative transition-all duration-500 ${
-                    isBillionVisible ? 'animate-text-active' : 'animate-text-base'
+                    isBillionVisible ? 'gradient-text-animated' : 'gradient-text-base'
                   }`}
                   style={{ 
                     perspective: '2000px',
