@@ -71,9 +71,7 @@ const Scouts = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-section text-slate-800 mb-4 font-brand">EXCLUSIVE ADVANTAGES</h2>
-            <p className="text-body-large text-slate-600 max-w-3xl mx-auto font-body">
-              Join the most sophisticated business intelligence network in Africa with unparalleled access and rewards.
-            </p>
+            <p className="text-body-large text-slate-600 max-w-3xl mx-auto font-body">Join a fascinating business intelligence network in Africa with unparalleled access and rewards.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
