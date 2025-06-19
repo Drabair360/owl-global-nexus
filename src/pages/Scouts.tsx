@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -6,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Search, Target, Users, Award, Globe, TrendingUp, Mail, Upload, LinkedinIcon, Phone, DollarSign, Shield, Star } from 'lucide-react';
-
 const Scouts = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -17,22 +15,18 @@ const Scouts = () => {
     linkedinUrl: '',
     message: ''
   });
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Handle form submission
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-100">
+  return <div className="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-100">
       <Navbar />
       
       {/* Hero Section */}
@@ -50,10 +44,7 @@ const Scouts = () => {
               </span>
             </h1>
             
-            <p className="text-body-large text-purple-100 mb-8 max-w-3xl mx-auto font-body">
-              Join Africa's most exclusive network of business intelligence professionals. 
-              Scout transformative opportunities across our €5B+ portfolio ecosystem and shape the future of continental commerce.
-            </p>
+            <p className="text-body-large text-purple-100 mb-8 max-w-3xl mx-auto font-body">Join Africa's most exclusive network of business intelligence professionals. Scout transformative opportunities across our portfolio ecosystem and shape the future of continental commerce.</p>
           </div>
         </div>
       </section>
@@ -248,9 +239,7 @@ const Scouts = () => {
             {/* Testimonial 1 */}
             <div className="bg-white rounded-xl p-8 border shadow-sm">
               <div className="flex items-center mb-4">
-                {[1,2,3,4,5].map(i => (
-                  <Star key={i} className="w-5 h-5 text-amber-500 fill-current" />
-                ))}
+                {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-5 h-5 text-amber-500 fill-current" />)}
               </div>
               <p className="text-muted-foreground font-body italic mb-6 leading-relaxed">
                 "In 18 months, I've sourced 3 deals worth €47M for Owl's portfolio. The finder's fees alone exceeded my previous annual income, 
@@ -267,9 +256,7 @@ const Scouts = () => {
             {/* Testimonial 2 */}
             <div className="bg-white rounded-xl p-8 border shadow-sm">
               <div className="flex items-center mb-4">
-                {[1,2,3,4,5].map(i => (
-                  <Star key={i} className="w-5 h-5 text-amber-500 fill-current" />
-                ))}
+                {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-5 h-5 text-amber-500 fill-current" />)}
               </div>
               <p className="text-muted-foreground font-body italic mb-6 leading-relaxed">
                 "Owl's intelligence resources are unmatched. Their AI-powered due diligence tools helped me identify a fintech gem in Kenya 
@@ -286,9 +273,7 @@ const Scouts = () => {
             {/* Testimonial 3 */}
             <div className="bg-white rounded-xl p-8 border shadow-sm">
               <div className="flex items-center mb-4">
-                {[1,2,3,4,5].map(i => (
-                  <Star key={i} className="w-5 h-5 text-amber-500 fill-current" />
-                ))}
+                {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-5 h-5 text-amber-500 fill-current" />)}
               </div>
               <p className="text-muted-foreground font-body italic mb-6 leading-relaxed">
                 "The professional recognition alone is worth joining. I now speak at Davos, advise African governments, 
@@ -325,21 +310,12 @@ const Scouts = () => {
               <div className="space-y-6">
                 <h3 className="text-xl font-subtitle font-semibold text-foreground mb-4">Quick Application Options</h3>
                 
-                <Button 
-                  size="lg" 
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-subtitle font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105"
-                  onClick={() => window.open('mailto:scouts@owlinternational.com?subject=Business Scout Application - Executive Track&body=Dear Owl International Team,%0D%0A%0D%0AI am interested in joining your elite business scout network. Please find my preliminary information below:%0D%0A%0D%0AName: %0D%0AExperience: %0D%0ARegional Expertise: %0D%0ANotable Deals: %0D%0ALinkedIn: %0D%0A%0D%0AI look forward to discussing this prestigious opportunity.%0D%0A%0D%0ABest regards')}
-                >
+                <Button size="lg" className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-subtitle font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105" onClick={() => window.open('mailto:scouts@owlinternational.com?subject=Business Scout Application - Executive Track&body=Dear Owl International Team,%0D%0A%0D%0AI am interested in joining your elite business scout network. Please find my preliminary information below:%0D%0A%0D%0AName: %0D%0AExperience: %0D%0ARegional Expertise: %0D%0ANotable Deals: %0D%0ALinkedIn: %0D%0A%0D%0AI look forward to discussing this prestigious opportunity.%0D%0A%0D%0ABest regards')}>
                   <Mail className="w-5 h-5 mr-2" />
                   Send Direct Email
                 </Button>
 
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="w-full border-2 border-slate-300 text-slate-700 font-subtitle font-bold py-4 rounded-xl hover:border-blue-400 hover:bg-blue-50 transition-all duration-300"
-                  onClick={() => window.open('https://calendly.com/owlinternational/business-scout-screening', '_blank')}
-                >
+                <Button size="lg" variant="outline" className="w-full border-2 border-slate-300 text-slate-700 font-subtitle font-bold py-4 rounded-xl hover:border-blue-400 hover:bg-blue-50 transition-all duration-300" onClick={() => window.open('https://calendly.com/owlinternational/business-scout-screening', '_blank')}>
                   <Phone className="w-5 h-5 mr-2" />
                   Schedule Screening Call
                 </Button>
@@ -359,104 +335,44 @@ const Scouts = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="name" className="text-sm font-medium">Full Name *</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Your full name"
-                        required
-                        className="mt-1"
-                      />
+                      <Input id="name" name="name" value={formData.name} onChange={handleInputChange} placeholder="Your full name" required className="mt-1" />
                     </div>
                     <div>
                       <Label htmlFor="email" className="text-sm font-medium">Email Address *</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="your.email@company.com"
-                        required
-                        className="mt-1"
-                      />
+                      <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="your.email@company.com" required className="mt-1" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="phone" className="text-sm font-medium">Phone Number</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="+1 (555) 123-4567"
-                        className="mt-1"
-                      />
+                      <Input id="phone" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="+1 (555) 123-4567" className="mt-1" />
                     </div>
                     <div>
                       <Label htmlFor="experience" className="text-sm font-medium">Years of Experience *</Label>
-                      <Input
-                        id="experience"
-                        name="experience"
-                        value={formData.experience}
-                        onChange={handleInputChange}
-                        placeholder="15+ years"
-                        required
-                        className="mt-1"
-                      />
+                      <Input id="experience" name="experience" value={formData.experience} onChange={handleInputChange} placeholder="15+ years" required className="mt-1" />
                     </div>
                   </div>
 
                   <div>
                     <Label htmlFor="expertise" className="text-sm font-medium">Industry Expertise *</Label>
-                    <Input
-                      id="expertise"
-                      name="expertise"
-                      value={formData.expertise}
-                      onChange={handleInputChange}
-                      placeholder="Fintech, Agritech, Real Estate, Creative Industries"
-                      required
-                      className="mt-1"
-                    />
+                    <Input id="expertise" name="expertise" value={formData.expertise} onChange={handleInputChange} placeholder="Fintech, Agritech, Real Estate, Creative Industries" required className="mt-1" />
                   </div>
 
                   <div>
                     <Label htmlFor="linkedinUrl" className="text-sm font-medium">LinkedIn Profile URL</Label>
                     <div className="relative mt-1">
                       <LinkedinIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
-                      <Input
-                        id="linkedinUrl"
-                        name="linkedinUrl"
-                        value={formData.linkedinUrl}
-                        onChange={handleInputChange}
-                        placeholder="https://linkedin.com/in/yourprofile"
-                        className="pl-10"
-                      />
+                      <Input id="linkedinUrl" name="linkedinUrl" value={formData.linkedinUrl} onChange={handleInputChange} placeholder="https://linkedin.com/in/yourprofile" className="pl-10" />
                     </div>
                   </div>
 
                   <div>
                     <Label htmlFor="message" className="text-sm font-medium">Notable Deals & Achievements *</Label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Brief description of your most significant deals, their value, and impact..."
-                      required
-                      rows={4}
-                      className="mt-1 flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                    />
+                    <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Brief description of your most significant deals, their value, and impact..." required rows={4} className="mt-1 flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" />
                   </div>
 
-                  <Button 
-                    type="submit"
-                    size="lg" 
-                    className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-subtitle font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105"
-                  >
+                  <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-subtitle font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105">
                     Submit Elite Application
                   </Button>
                 </form>
@@ -471,8 +387,6 @@ const Scouts = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Scouts;
