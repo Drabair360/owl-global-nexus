@@ -60,10 +60,7 @@ const Scouts = () => {
                 to join our exclusive scout network. You'll identify and evaluate high-impact opportunities across fintech, 
                 agritech, real estate, and creative industries throughout Africa.
               </p>
-              <p className="text-lg text-slate-600 font-body">
-                This is not just consulting—it's strategic partnership with Africa's most ambitious investment platform, 
-                connecting 1 billion people through transformative business solutions.
-              </p>
+              <p className="text-lg text-slate-600 font-body">This is not just consulting—it's strategic partnership with Africa's most ambitious investment platform, connecting 1+ billion people through transformative business solutions.</p>
             </div>
           </div>
         </div>
