@@ -235,13 +235,12 @@ const Scouts = () => {
                 {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-5 h-5 text-amber-500 fill-current" />)}
               </div>
               <p className="text-muted-foreground font-body italic mb-6 leading-relaxed">
-                "In 18 months, I've sourced 3 deals worth €47M for Owl's portfolio. The finder's fees alone exceeded my previous annual income, 
-                and the network access has transformed my career trajectory completely."
+                "Over 12 months, I've identified 3 promising agritech startups in Lagos and Abuja. My introduction of FarmTech Solutions led to their €2.3M Series A funding. The €22K in finder's fees plus quarterly strategy calls with Owl's partners have significantly enhanced my network."
               </p>
               <div className="flex items-center">
                 <div>
                   <span className="font-subtitle font-semibold text-foreground block">Dr. Amara Okonkwo</span>
-                  <span className="text-sm text-muted-foreground">Former Goldman Sachs VP, Nigeria</span>
+                  <span className="text-sm text-muted-foreground">Agricultural Finance Specialist, Nigeria</span>
                 </div>
               </div>
             </div>
@@ -252,13 +251,12 @@ const Scouts = () => {
                 {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-5 h-5 text-amber-500 fill-current" />)}
               </div>
               <p className="text-muted-foreground font-body italic mb-6 leading-relaxed">
-                "Owl's intelligence resources are unmatched. Their AI-powered due diligence tools helped me identify a fintech gem in Kenya 
-                that's now valued at $200M. The strategic impact is beyond financial—it's transformational."
+                "My banking connections helped me identify mobile money opportunities across Francophone West Africa. I connected Owl with a fintech serving rural communities in Burkina Faso and Mali, facilitating their initial €800K investment. The market intelligence access is invaluable."
               </p>
               <div className="flex items-center">
                 <div>
                   <span className="font-subtitle font-semibold text-foreground block">Jean-Baptiste Kouassi</span>
-                  <span className="text-sm text-muted-foreground">Ex-BCG Partner, Côte d'Ivoire</span>
+                  <span className="text-sm text-muted-foreground">Financial Services Consultant, Côte d'Ivoire</span>
                 </div>
               </div>
             </div>
@@ -269,13 +267,12 @@ const Scouts = () => {
                 {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-5 h-5 text-amber-500 fill-current" />)}
               </div>
               <p className="text-muted-foreground font-body italic mb-6 leading-relaxed">
-                "The professional recognition alone is worth joining. I now speak at Davos, advise African governments, 
-                and my LinkedIn shows 'Owl International Business Scout'—doors open that were previously impossible."
+                "My renewable energy expertise helped identify solar projects in Morocco and Tunisia. I assisted Owl in evaluating €5M in infrastructure opportunities. The professional development workshops and regional conference speaking opportunities have elevated my industry standing significantly."
               </p>
               <div className="flex items-center">
                 <div>
                   <span className="font-subtitle font-semibold text-foreground block">Sarah Al-Rashid</span>
-                  <span className="text-sm text-muted-foreground">Former McKinsey Director, Morocco</span>
+                  <span className="text-sm text-muted-foreground">Renewable Energy Advisor, Morocco</span>
                 </div>
               </div>
             </div>
