@@ -293,7 +293,7 @@ const Scouts = () => {
               Don't miss your opportunity to join Africa's most prestigious business intelligence network.
             </p>
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 max-w-2xl mx-auto mb-8">
-              <p className="text-amber-800 font-semibold">⚡ Limited Time: First 25 approved scouts receive €10,000 signing bonus</p>
+              <p className="text-amber-800 font-semibold">⚡ Limited Time: First 25 approved scouts receive signing bonus</p>
             </div>
           </div>
 
