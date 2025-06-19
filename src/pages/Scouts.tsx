@@ -163,7 +163,7 @@ const Scouts = () => {
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-muted-foreground font-body">Proven success in identifying and closing deals worth $10M+ in emerging markets</p>
+                  <p className="text-muted-foreground font-body">Proven success in identifying and closing deals worth EUR 5M+ in emerging markets</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></div>
@@ -171,7 +171,7 @@ const Scouts = () => {
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-muted-foreground font-body">Regional expertise in African markets or strong emerging market experience</p>
+                  <p className="text-muted-foreground font-body">Regional expertise in American, European, African markets or strong emerging market experience</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></div>
