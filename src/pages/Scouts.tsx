@@ -81,9 +81,7 @@ const Scouts = () => {
                 <Globe className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-subtitle font-semibold mb-4 text-foreground">Elite Network Access</h3>
-              <p className="text-muted-foreground mb-4 font-body">
-                Direct access to our €5B+ portfolio ecosystem, C-suite executives, sovereign wealth funds, and institutional investors across Africa and Europe.
-              </p>
+              <p className="text-muted-foreground mb-4 font-body">Direct access to our portfolio ecosystem, C-suite executives, sovereign wealth funds, and institutional investors across Africa and Europe.</p>
             </div>
 
             {/* Lucrative Compensation */}
