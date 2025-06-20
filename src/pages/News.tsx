@@ -39,48 +39,48 @@ const News = () => {
     }
   };
 
-  // Enhanced news segments with comprehensive summaries and proper ID mapping
+  // Condensed news segments with synthetic summaries (6-8 words each)
   const newsSegments = [
     {
       id: 'akoula-ai-platform-2025',
       entity: 'AKOULA',
-      text: 'AKOULA launches revolutionary AI-powered agro-industrial platforms targeting West & Central Africa with advanced automation and predictive analytics transforming traditional farming into smart agriculture',
+      text: 'AKOULA launches AI agro-industrial platforms',
       newsItem: newsData.find(item => item.id === 'akoula-ai-platform-2025')
     },
     {
       id: 'caoagro-shea-butter-contract-2025',
       entity: 'CAOAGRO.COM',
-      text: 'CAOAGRO.COM secures major industrial contract for Côte d\'Ivoire\'s first large-scale Shea Butter production plant, establishing West Africa as a global processing hub with sustainable extraction technologies',
+      text: 'CAOAGRO.COM wins Shea Butter plant contract',
       newsItem: newsData.find(item => item.id === 'caoagro-shea-butter-contract-2025')
     },
     {
       id: 'kidz-lab-ai-matching-2025',
       entity: 'KIDZ LAB',
-      text: 'KIDZ LAB revolutionizes talent matching ecosystem with cutting-edge AI automation and strategic Charlie iteration pilot program launching September 2025, connecting young professionals with premier opportunities',
+      text: 'KIDZ LAB revolutionizes talent matching AI',
       newsItem: newsData.find(item => item.id === 'kidz-lab-ai-matching-2025')
     },
     {
       id: 'owloma-launch-announcement-2025',
       entity: 'OWLOMA',
-      text: 'OWLOMA set to launch as OWL International\'s groundbreaking real estate division in S1 2026, specifically designed to support emerging businesses and young entrepreneurs with innovative property solutions',
+      text: 'OWLOMA launches real estate division 2026',
       newsItem: newsData.find(item => item.id === 'owloma-launch-announcement-2025')
     },
     {
       id: 'caoagro-truck-dealership-2025',
       entity: 'CAOAGRO.COM',
-      text: 'CAOAGRO.COM finalizes exclusive strategic discussions for establishing West Africa\'s premier truck dealership headquarters in Abidjan, positioning for regional commercial vehicle dominance',
+      text: 'CAOAGRO.COM finalizes truck dealership talks',
       newsItem: newsData.find(item => item.id === 'caoagro-truck-dealership-2025')
     },
     {
       id: 'kidz-lab-agency-acquisition-2025',
       entity: 'KIDZ LAB',
-      text: 'KIDZ LAB enters high-level exclusive negotiations to acquire Paris\' most prestigious children\'s modeling agency MY AGENCY KIDS, expanding European market presence and talent portfolio',
+      text: 'KIDZ LAB negotiates Paris agency acquisition',
       newsItem: newsData.find(item => item.id === 'kidz-lab-agency-acquisition-2025')
     },
     {
       id: 'caoagro-hevea-technology-2025',
       entity: 'CAOAGRO.COM',
-      text: 'CAOAGRO.COM pioneers breakthrough Hevea tree seed processing technology development, addressing massive agricultural waste streams while creating sustainable revenue opportunities',
+      text: 'CAOAGRO.COM pioneers Hevea processing tech',
       newsItem: newsData.find(item => item.id === 'caoagro-hevea-technology-2025')
     }
   ];
@@ -88,16 +88,6 @@ const News = () => {
   const handleTickerClick = (segment: typeof newsSegments[0]) => {
     if (segment.newsItem) {
       handleReadMore(segment.newsItem);
-    }
-  };
-
-  const getSegmentGradient = (entity: string) => {
-    switch (entity) {
-      case 'AKOULA': return 'bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 bg-clip-text text-transparent';
-      case 'CAOAGRO.COM': return 'bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent';
-      case 'KIDZ LAB': return 'bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent';
-      case 'OWLOMA': return 'bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-600 bg-clip-text text-transparent';
-      default: return 'bg-gradient-to-r from-slate-600 via-gray-600 to-slate-600 bg-clip-text text-transparent';
     }
   };
 
@@ -137,34 +127,29 @@ const News = () => {
               Explore the latest news, insights, and stories from OWL International and our portfolio companies.
             </p>
 
-            {/* Enhanced Interactive News Ticker */}
-            <div className="relative w-full overflow-hidden bg-gradient-to-r from-cyan-50 via-blue-50 via-purple-50 to-emerald-50 rounded-xl border border-slate-200 shadow-elegant mb-24">
-              <div className="py-6 px-4">
+            {/* Enhanced Interactive News Ticker with Diagonal Gradient */}
+            <div className="relative w-full overflow-hidden bg-gradient-to-br from-cyan-500 via-blue-600 via-purple-600 via-teal-500 to-emerald-500 rounded-xl border border-slate-200 shadow-elegant mb-24">
+              <div className="py-8 px-4">
                 <div className="animate-scroll-ticker whitespace-nowrap">
-                  <span className="text-lg font-semibold">
+                  <span className="text-lg font-semibold text-white drop-shadow-lg">
                     🔥 {newsSegments.map((segment, index) => (
                       <span key={segment.id}>
                         <button
                           onClick={() => handleTickerClick(segment)}
-                          className={`${getSegmentGradient(segment.entity)} cursor-pointer inline-block transition-opacity duration-200 hover:opacity-80`}
-                          style={{ 
-                            backgroundSize: '200% 200%',
-                            backgroundImage: `linear-gradient(to right, ${getSegmentGradient(segment.entity).split(' ').slice(-6).join(' ')})`,
-                            animation: 'gradient-flow 3s ease-in-out infinite'
-                          }}
+                          className="text-white cursor-pointer inline-block transition-opacity duration-200 hover:opacity-90 drop-shadow-md"
                         >
                           {segment.text}
                         </button>
                         {index < newsSegments.length - 1 && (
-                          <span className="mx-4 text-slate-400">•</span>
+                          <span className="mx-6 text-white/70">•</span>
                         )}
                       </span>
                     ))} 🔥
                   </span>
                 </div>
               </div>
-              <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10"></div>
-              <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10"></div>
+              <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-black/20 to-transparent z-10"></div>
+              <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-black/20 to-transparent z-10"></div>
             </div>
           </div>
 
