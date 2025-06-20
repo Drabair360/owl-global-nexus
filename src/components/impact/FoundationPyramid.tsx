@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Cpu, Tractor, Users, Building, ArrowRight, Zap } from 'lucide-react';
+import { Cpu, Tractor, Users, Building, Zap, ArrowRight } from 'lucide-react';
 
 const FoundationPyramid = () => {
   const pillars = [
@@ -12,9 +12,10 @@ const FoundationPyramid = () => {
       impact: 'Democratizing technology access across Africa',
       milestone: 'Platform integration across West Africa, AI literacy programs',
       icon: Cpu,
-      color: 'from-blue-500 to-blue-700',
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200'
+      color: 'from-cyan-400 via-blue-500 to-indigo-600',
+      bgColor: 'bg-gradient-to-br from-cyan-50 to-blue-100',
+      borderColor: 'border-cyan-300',
+      position: 'top-0 left-1/2 transform -translate-x-1/2'
     },
     {
       id: 'caoagro',
@@ -24,9 +25,10 @@ const FoundationPyramid = () => {
       impact: 'Food security, rural industrialization',
       milestone: 'Strategic partnerships with cooperative networks, processing facility expansion',
       icon: Tractor,
-      color: 'from-green-500 to-green-700',
-      bgColor: 'bg-green-50',
-      borderColor: 'border-green-200'
+      color: 'from-emerald-400 via-green-500 to-teal-600',
+      bgColor: 'bg-gradient-to-br from-emerald-50 to-green-100',
+      borderColor: 'border-emerald-300',
+      position: 'top-1/2 right-0 transform translate-x-4 -translate-y-1/2'
     },
     {
       id: 'kidzlab',
@@ -36,9 +38,10 @@ const FoundationPyramid = () => {
       impact: 'Youth empowerment, skills development',
       milestone: 'Regional talent hubs, creative industry partnerships',
       icon: Users,
-      color: 'from-purple-500 to-purple-700',
-      bgColor: 'bg-purple-50',
-      borderColor: 'border-purple-200'
+      color: 'from-violet-400 via-purple-500 to-fuchsia-600',
+      bgColor: 'bg-gradient-to-br from-violet-50 to-purple-100',
+      borderColor: 'border-violet-300',
+      position: 'bottom-0 left-1/2 transform -translate-x-1/2 translate-y-4'
     },
     {
       id: 'owloma',
@@ -48,146 +51,161 @@ const FoundationPyramid = () => {
       impact: 'Sustainable urbanization, housing accessibility',
       milestone: 'Smart housing pilot projects, urban development consulting',
       icon: Building,
-      color: 'from-amber-500 to-amber-700',
-      bgColor: 'bg-amber-50',
-      borderColor: 'border-amber-200'
+      color: 'from-orange-400 via-amber-500 to-yellow-600',
+      bgColor: 'bg-gradient-to-br from-orange-50 to-amber-100',
+      borderColor: 'border-orange-300',
+      position: 'top-1/2 left-0 transform -translate-x-4 -translate-y-1/2'
     }
   ];
 
   return (
     <div className="relative">
-      <div className="text-center mb-12">
-        <h3 className="text-2xl font-semibold text-slate-800 mb-4 font-body">The Four Pillars of Sustainable Development</h3>
+      <div className="text-center mb-16">
+        <h3 className="text-2xl font-semibold text-slate-800 mb-4 font-body">Foundation Ecosystem Web</h3>
         <p className="text-slate-600 font-body max-w-3xl mx-auto">
-          Our bottom-up approach builds sustainability into each foundational element, 
-          ensuring long-term success through interconnected, purpose-driven growth.
+          Our bottom-up approach weaves sustainability into each foundational element, 
+          creating an interconnected web of purpose-driven growth and lasting impact.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      {/* Dynamic Ecosystem Web Visualization */}
+      <div className="relative min-h-[600px] mb-16">
+        {/* Central Energy Core */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+          <div className="w-32 h-32 bg-gradient-to-br from-slate-800 via-blue-900 to-indigo-900 rounded-full flex items-center justify-center shadow-2xl border-4 border-white animate-pulse">
+            <div className="text-center">
+              <Zap className="w-12 h-12 text-lime-400 mx-auto mb-2" />
+              <span className="text-white font-bold text-lg">OWL</span>
+            </div>
+          </div>
+          
+          {/* Energy Rings */}
+          <div className="absolute inset-0 w-48 h-48 border-2 border-dashed border-lime-300 rounded-full opacity-30 animate-spin" style={{ animationDuration: '20s' }} />
+          <div className="absolute inset-0 w-64 h-64 border-2 border-dashed border-cyan-300 rounded-full opacity-20 animate-spin" style={{ animationDuration: '30s', animationDirection: 'reverse' }} />
+        </div>
+
+        {/* Pillar Nodes with Dynamic Positioning */}
         {pillars.map((pillar, index) => {
           const Icon = pillar.icon;
+          const angle = (index * 90);
+          const radius = 200;
+          const x = Math.cos(angle * Math.PI / 180) * radius;
+          const y = Math.sin(angle * Math.PI / 180) * radius;
+          
           return (
-            <div 
+            <div
               key={pillar.id}
-              className={`${pillar.bgColor} rounded-2xl p-8 border-2 ${pillar.borderColor} hover:shadow-xl transition-all duration-300 group hover:-translate-y-2`}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-10"
+              style={{ transform: `translate(${x}px, ${y}px) translate(-50%, -50%)` }}
             >
-              <div className="flex items-start gap-4 mb-6">
-                <div className={`w-16 h-16 bg-gradient-to-br ${pillar.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-8 h-8 text-white" />
-                </div>
-                <div className="flex-1">
-                  <div className="text-sm font-semibold text-slate-500 mb-1">{pillar.name}</div>
-                  <h4 className="text-xl font-semibold text-slate-800 font-body">{pillar.title}</h4>
-                </div>
+              {/* Connection Line to Center */}
+              <div 
+                className="absolute top-1/2 left-1/2 w-1 bg-gradient-to-r from-transparent via-lime-400 to-transparent opacity-60 group-hover:opacity-100 transition-all duration-500 animate-pulse"
+                style={{ 
+                  height: `${radius}px`,
+                  transform: `translate(-50%, -50%) rotate(${angle + 180}deg)`,
+                  transformOrigin: 'bottom center'
+                }}
+              />
+              
+              {/* Pillar Node */}
+              <div className={`w-24 h-24 bg-gradient-to-br ${pillar.color} rounded-2xl flex items-center justify-center shadow-xl border-4 border-white group-hover:scale-125 transition-all duration-300 relative overflow-hidden`}>
+                <Icon className="w-10 h-10 text-white relative z-10" />
+                
+                {/* Animated Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               
-              <div className="space-y-4">
-                <div>
-                  <div className="text-sm font-medium text-slate-600 mb-1">Industry Focus</div>
-                  <p className="text-slate-700 font-body text-sm">{pillar.industry}</p>
-                </div>
-                
-                <div>
-                  <div className="text-sm font-medium text-slate-600 mb-1">Current Impact</div>
-                  <p className="text-slate-700 font-body text-sm">{pillar.impact}</p>
-                </div>
-                
-                <div>
-                  <div className="text-sm font-medium text-slate-600 mb-1">Key Milestones</div>
-                  <p className="font-semibold text-slate-800 font-body text-sm">{pillar.milestone}</p>
+              {/* Interactive Info Panel */}
+              <div className="absolute top-28 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white rounded-xl shadow-xl p-4 min-w-64 z-30 border border-slate-200">
+                <div className="text-sm font-semibold text-slate-500 mb-1">{pillar.name}</div>
+                <h4 className="text-lg font-semibold text-slate-800 font-body mb-2">{pillar.title}</h4>
+                <p className="text-sm text-slate-600 mb-2">{pillar.impact}</p>
+                <div className="text-xs font-medium text-slate-700 bg-slate-50 rounded-lg p-2">
+                  <strong>Key Milestones:</strong> {pillar.milestone}
                 </div>
               </div>
             </div>
           );
         })}
+
+        {/* Floating Data Particles */}
+        {[...Array(12)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-gradient-to-r from-lime-400 to-cyan-400 rounded-full opacity-60 animate-bounce"
+            style={{
+              top: `${20 + (i * 7)}%`,
+              left: `${15 + (i * 6)}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${2 + (i % 3)}s`
+            }}
+          />
+        ))}
       </div>
 
-      {/* Enhanced Interactive Connection Visualization */}
-      <div className="relative bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl p-12">
-        <div className="text-center mb-8">
-          <h4 className="text-xl font-semibold text-slate-800 mb-4 font-body">Interconnected Impact Multiplier</h4>
-          <p className="text-slate-600 font-body">
-            Each pillar strengthens the others, creating exponential value across our ecosystem
-          </p>
-        </div>
+      {/* Living Ecosystem Visualization */}
+      <div className="relative bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 rounded-3xl p-12 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(34,197,94,0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(59,130,246,0.15),transparent_50%)]" />
         
-        <div className="flex justify-center items-center mb-8">
-          <div className="relative w-96 h-96">
-            {/* Central Hub with enhanced styling */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-slate-700 via-blue-700 to-slate-900 rounded-full flex items-center justify-center shadow-2xl border-4 border-white">
-              <span className="text-white font-bold text-lg">OWL</span>
-            </div>
-            
-            {/* Pillar Nodes with enhanced interactivity */}
-            {pillars.map((pillar, index) => {
-              const Icon = pillar.icon;
-              const angle = (index * 90) - 45;
-              const radius = 140;
-              const x = Math.cos(angle * Math.PI / 180) * radius;
-              const y = Math.sin(angle * Math.PI / 180) * radius;
-              
-              return (
-                <div
-                  key={pillar.id}
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer"
-                  style={{ transform: `translate(${x}px, ${y}px) translate(-50%, -50%)` }}
-                >
-                  <div className={`w-20 h-20 bg-gradient-to-br ${pillar.color} rounded-full flex items-center justify-center shadow-xl border-4 border-white group-hover:scale-125 transition-all duration-300 animate-pulse`}>
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  
-                  {/* Enhanced Connection Lines with gradients */}
-                  <div 
-                    className="absolute top-1/2 left-1/2 w-1 h-32 bg-gradient-to-t from-blue-400 via-purple-300 to-transparent origin-bottom opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ 
-                      transform: `translate(-50%, -50%) rotate(${angle + 180}deg)`,
-                      transformOrigin: 'bottom center'
-                    }}
-                  />
-                  
-                  {/* Hover effect tooltip */}
-                  <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white rounded-lg shadow-lg p-3 min-w-max z-10">
-                    <p className="text-sm font-semibold text-slate-800">{pillar.name}</p>
-                    <p className="text-xs text-slate-600">{pillar.impact}</p>
-                  </div>
+        <div className="relative z-10">
+          <div className="text-center mb-12">
+            <h4 className="text-2xl font-semibold text-white mb-6 font-body">Living Ecosystem Impact</h4>
+            <p className="text-blue-100 font-body text-lg max-w-3xl mx-auto">
+              Each pillar strengthens the others, creating exponential value across our ecosystem
+            </p>
+          </div>
+          
+          {/* Dynamic Impact Flow Visualization */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 group">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl flex items-center justify-center">
+                  <Users className="w-6 h-6 text-white" />
                 </div>
-              );
-            })}
+                <ArrowRight className="w-6 h-6 text-lime-400 group-hover:translate-x-2 transition-transform duration-300" />
+                <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-green-600 rounded-xl flex items-center justify-center">
+                  <Tractor className="w-6 h-6 text-white" />
+                </div>
+              </div>
+              <div className="text-white">
+                <div className="text-2xl font-bold text-lime-400 mb-2">1 → 20 → 100</div>
+                <p className="text-sm text-blue-100">Talent trained → Farms supported → Families empowered</p>
+              </div>
+            </div>
             
-            {/* Animated data flow indicators */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-2 border-dashed border-blue-300 rounded-full animate-spin opacity-20" style={{ animationDuration: '20s' }} />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-2 border-dashed border-purple-300 rounded-full animate-spin opacity-30" style={{ animationDuration: '15s', animationDirection: 'reverse' }} />
-          </div>
-        </div>
-        
-        {/* Multiplier Effect Examples */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-          <div className="bg-white rounded-xl p-4 shadow-sm">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <Users className="w-5 h-5 text-purple-600" />
-              <ArrowRight className="w-4 h-4 text-slate-400" />
-              <Tractor className="w-5 h-5 text-green-600" />
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 group">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-violet-400 to-purple-600 rounded-xl flex items-center justify-center">
+                  <Cpu className="w-6 h-6 text-white" />
+                </div>
+                <ArrowRight className="w-6 h-6 text-lime-400 group-hover:translate-x-2 transition-transform duration-300" />
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-600 rounded-xl flex items-center justify-center">
+                  <Building className="w-6 h-6 text-white" />
+                </div>
+              </div>
+              <div className="text-white">
+                <div className="text-2xl font-bold text-lime-400 mb-2">1 → 50 → 500</div>
+                <p className="text-sm text-blue-100">AI solution → Smart buildings → Lives enhanced</p>
+              </div>
             </div>
-            <p className="text-sm text-slate-600">1 talent trained → 5 farms supported → 20 families fed</p>
-          </div>
-          
-          <div className="bg-white rounded-xl p-4 shadow-sm">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <Cpu className="w-5 h-5 text-blue-600" />
-              <ArrowRight className="w-4 h-4 text-slate-400" />
-              <Building className="w-5 h-5 text-amber-600" />
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 group">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-600 rounded-xl flex items-center justify-center">
+                  <Building className="w-6 h-6 text-white" />
+                </div>
+                <ArrowRight className="w-6 h-6 text-lime-400 group-hover:translate-x-2 transition-transform duration-300" />
+                <div className="w-12 h-12 bg-gradient-to-br from-violet-400 to-purple-600 rounded-xl flex items-center justify-center">
+                  <Zap className="w-6 h-6 text-white" />
+                </div>
+              </div>
+              <div className="text-white">
+                <div className="text-2xl font-bold text-lime-400 mb-2">1 → 100 → 1K</div>
+                <p className="text-sm text-blue-100">Housing project → Jobs created → Dreams realized</p>
+              </div>
             </div>
-            <p className="text-sm text-slate-600">1 AI solution → 10 smart buildings → 100 residents empowered</p>
-          </div>
-          
-          <div className="bg-white rounded-xl p-4 shadow-sm">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <Building className="w-5 h-5 text-amber-600" />
-              <ArrowRight className="w-4 h-4 text-slate-400" />
-              <Zap className="w-5 h-5 text-blue-600" />
-            </div>
-            <p className="text-sm text-slate-600">1 housing project → 50 jobs created → 200 lives improved</p>
           </div>
         </div>
       </div>

@@ -14,7 +14,9 @@ const ContactModal = () => {
       title: 'For Investors',
       icon: Briefcase,
       description: 'Explore investment opportunities in sustainable African development',
-      color: 'from-blue-500 to-blue-700',
+      color: 'from-blue-400 via-cyan-500 to-teal-600',
+      hoverColor: 'hover:from-blue-500 hover:via-cyan-600 hover:to-teal-700',
+      shadowColor: 'hover:shadow-[0_20px_60px_rgba(59,130,246,0.4)]',
       fields: [
         { name: 'investmentRange', label: 'Investment Range', type: 'select', options: ['€100K - €500K', '€500K - €2M', '€2M - €10M', '€10M+'] },
         { name: 'sectorInterest', label: 'Sector Interest', type: 'select', options: ['AI & Technology', 'Agriculture & Food', 'Creative Industries', 'Real Estate & Urban Development', 'All Sectors'] },
@@ -27,7 +29,9 @@ const ContactModal = () => {
       title: 'For Partners',
       icon: Users,
       description: 'Build strategic partnerships for mutual growth and impact',
-      color: 'from-green-500 to-green-700',
+      color: 'from-emerald-400 via-green-500 to-lime-600',
+      hoverColor: 'hover:from-emerald-500 hover:via-green-600 hover:to-lime-700',
+      shadowColor: 'hover:shadow-[0_20px_60px_rgba(34,197,94,0.4)]',
       fields: [
         { name: 'organizationType', label: 'Organization Type', type: 'select', options: ['Corporation', 'NGO/Non-profit', 'Government Agency', 'Academic Institution', 'Startup/SME'] },
         { name: 'collaborationAreas', label: 'Collaboration Areas', type: 'select', options: ['Technology Transfer', 'Market Access', 'Funding & Investment', 'Research & Development', 'Training & Capacity Building'] },
@@ -40,7 +44,9 @@ const ContactModal = () => {
       title: 'For Communities',
       icon: Heart,
       description: 'Join our mission to create sustainable community development',
-      color: 'from-purple-500 to-purple-700',
+      color: 'from-violet-400 via-purple-500 to-fuchsia-600',
+      hoverColor: 'hover:from-violet-500 hover:via-purple-600 hover:to-fuchsia-700',
+      shadowColor: 'hover:shadow-[0_20px_60px_rgba(147,51,234,0.4)]',
       fields: [
         { name: 'communitySize', label: 'Community Size', type: 'select', options: ['Small (< 1,000)', 'Medium (1,000 - 10,000)', 'Large (10,000 - 100,000)', 'Very Large (100,000+)'] },
         { name: 'developmentNeeds', label: 'Development Needs', type: 'select', options: ['Digital Literacy', 'Economic Opportunities', 'Infrastructure', 'Education & Training', 'Healthcare Access'] },
@@ -137,19 +143,29 @@ const ContactModal = () => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+    <div className="flex flex-col sm:flex-row gap-6 justify-center">
       {contactTypes.map((contactType) => {
         const Icon = contactType.icon;
         return (
           <Dialog key={contactType.id} open={activeForm === contactType.id} onOpenChange={(open) => setActiveForm(open ? contactType.id : null)}>
             <DialogTrigger asChild>
-              <Button 
-                variant="outline" 
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:text-white transition-all duration-300 group"
-              >
-                <Icon className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                {contactType.title}
-              </Button>
+              <div className={`bg-gradient-to-br ${contactType.color} ${contactType.hoverColor} rounded-2xl p-6 cursor-pointer transition-all duration-500 transform hover:-translate-y-3 ${contactType.shadowColor} hover:scale-105 group relative overflow-hidden`}>
+                {/* Animated background effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10 text-center text-white">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{contactType.title}</h3>
+                  <p className="text-sm opacity-90 leading-relaxed">{contactType.description}</p>
+                  
+                  {/* Hover indicator */}
+                  <div className="mt-4 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/20 rounded-full px-3 py-1 inline-block">
+                    Click to connect →
+                  </div>
+                </div>
+              </div>
             </DialogTrigger>
             <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
               <DialogHeader>

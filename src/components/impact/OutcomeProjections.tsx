@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Target, Users, DollarSign, Zap, Leaf, Globe } from 'lucide-react';
+import { Target, Users, DollarSign, BookOpen, Heart, Globe } from 'lucide-react';
 
 const OutcomeProjections = () => {
   const outcomes = [
@@ -10,39 +10,39 @@ const OutcomeProjections = () => {
       value: "2M+",
       description: "People across Africa benefiting from our integrated platforms",
       color: "from-blue-500 to-blue-700",
-      progress: 32
+      progress: 1
     },
     {
       icon: DollarSign,
       title: "Economic Value Facilitated",
-      value: "€500M+",
+      value: "€200M+",
       description: "Total economic impact across all sectors and regions",
       color: "from-green-500 to-green-700",
-      progress: 28
+      progress: 15
+    },
+    {
+      icon: BookOpen,
+      title: "Skills Development Programs",
+      value: "25K+",
+      description: "Training initiatives and capacity building programs delivered",
+      color: "from-purple-500 to-purple-700",
+      progress: 22
     },
     {
       icon: Target,
-      title: "Employment Opportunities",
-      value: "100K+",
-      description: "Jobs created and supported across our ecosystem",
-      color: "from-purple-500 to-purple-700",
-      progress: 45
-    },
-    {
-      icon: Zap,
       title: "Digital Inclusion Events",
       value: "10M+",
       description: "Digital transactions and literacy programs facilitated",
       color: "from-amber-500 to-amber-700",
-      progress: 38
+      progress: 0
     },
     {
-      icon: Leaf,
-      title: "Sustainable Practices Adopted",
-      value: "50K+",
-      description: "Individuals and businesses adopting sustainable practices",
+      icon: Heart,
+      title: "Community Partnerships",
+      value: "500+",
+      description: "Local organizations and communities actively collaborating",
       color: "from-emerald-500 to-emerald-700",
-      progress: 41
+      progress: 18
     },
     {
       icon: Globe,

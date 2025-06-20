@@ -48,7 +48,7 @@ const Impact = () => {
             </p>
           </div>
 
-          {/* Foundation Pyramid - Four Pillars */}
+          {/* Foundation Ecosystem Web - Enhanced Four Pillars */}
           <FoundationPyramid />
 
           {/* Global Context */}
@@ -100,13 +100,13 @@ const Impact = () => {
 
           {/* Enhanced Call to Action with Interactive Contact Forms */}
           <div className="mt-20 text-center">
-            <div className="bg-gradient-to-r from-purple-900 via-blue-800 via-teal-700 to-green-600 rounded-3xl p-12 text-white relative overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.1),transparent_70%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.08),transparent_60%)]" />
+            <div className="bg-gradient-to-r from-blue-400 via-teal-400 via-green-400 to-lime-400 rounded-3xl p-12 text-slate-800 relative overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.2),transparent_70%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.15),transparent_60%)]" />
               
               <div className="relative z-10">
-                <h3 className="text-2xl font-semibold mb-6 font-body">Join the Sustainable Revolution</h3>
-                <p className="text-body-large text-blue-100 mb-8 max-w-3xl mx-auto font-body">
+                <h3 className="text-2xl font-semibold mb-6 font-body text-slate-900">Join the Sustainable Revolution</h3>
+                <p className="text-body-large text-slate-700 mb-8 max-w-3xl mx-auto font-body">
                   Partner with us to build Africa's most sustainable and inclusive economic ecosystem. 
                   Together, we're not just creating value—we're transforming lives.
                 </p>
