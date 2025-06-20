@@ -6,51 +6,51 @@ const OutcomeProjections = () => {
   const outcomes = [
     {
       icon: Users,
-      title: "Lives Directly Impacted",
-      value: "500M+",
+      title: "Lives Positively Impacted",
+      value: "2M+",
       description: "People across Africa benefiting from our integrated platforms",
       color: "from-blue-500 to-blue-700",
-      progress: 85
+      progress: 32
     },
     {
       icon: DollarSign,
-      title: "Economic Value Generated",
-      value: "€50B+",
+      title: "Economic Value Facilitated",
+      value: "€500M+",
       description: "Total economic impact across all sectors and regions",
       color: "from-green-500 to-green-700",
-      progress: 78
+      progress: 28
     },
     {
       icon: Target,
-      title: "Direct Jobs Created",
-      value: "10M+",
-      description: "Employment opportunities across our ecosystem",
+      title: "Employment Opportunities",
+      value: "100K+",
+      description: "Jobs created and supported across our ecosystem",
       color: "from-purple-500 to-purple-700",
-      progress: 92
+      progress: 45
     },
     {
       icon: Zap,
-      title: "Digital Transactions",
-      value: "1B+",
-      description: "Financial inclusion through our platforms",
+      title: "Digital Inclusion Events",
+      value: "10M+",
+      description: "Digital transactions and literacy programs facilitated",
       color: "from-amber-500 to-amber-700",
-      progress: 88
+      progress: 38
     },
     {
       icon: Leaf,
-      title: "CO₂ Emissions Reduced",
-      value: "100M+ tons",
-      description: "Environmental impact through sustainable practices",
+      title: "Sustainable Practices Adopted",
+      value: "50K+",
+      description: "Individuals and businesses adopting sustainable practices",
       color: "from-emerald-500 to-emerald-700",
-      progress: 76
+      progress: 41
     },
     {
       icon: Globe,
-      title: "Countries Covered",
-      value: "54/54",
-      description: "Complete African market presence by 2030",
+      title: "Market Presence",
+      value: "15+",
+      description: "African countries with active operations and partnerships",
       color: "from-cyan-500 to-cyan-700",
-      progress: 94
+      progress: 67
     }
   ];
 
@@ -59,7 +59,7 @@ const OutcomeProjections = () => {
       <div className="text-center mb-12">
         <h3 className="text-2xl font-semibold text-slate-800 mb-4 font-body">Concrete Outcomes by 2030</h3>
         <p className="text-slate-600 font-body max-w-3xl mx-auto">
-          Measurable impact projections based on current growth trajectories and sustainable development targets
+          Realistic impact projections based on current growth trajectories and sustainable development targets
         </p>
       </div>
 

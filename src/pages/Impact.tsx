@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -5,6 +6,7 @@ import FoundationPyramid from '@/components/impact/FoundationPyramid';
 import GlobalContext from '@/components/impact/GlobalContext';
 import OutcomeProjections from '@/components/impact/OutcomeProjections';
 import SuccessMultiplier from '@/components/impact/SuccessMultiplier';
+import ContactModal from '@/components/impact/ContactModal';
 
 const Impact = () => {
   return (
@@ -42,7 +44,7 @@ const Impact = () => {
             <p className="text-body-large text-slate-600 max-w-4xl mx-auto font-body leading-relaxed">
               We don't build sustainability as an afterthought. Every platform, every algorithm, every partnership 
               is designed from the ground up to create lasting positive impact. Our success is fundamentally 
-              tied to the success of the millions of individuals we serve across Africa.
+              tied to the success of the millions of individuals we serve directly or through our customers, across Africa.
             </p>
           </div>
 
@@ -96,24 +98,19 @@ const Impact = () => {
             </div>
           </div>
 
-          {/* Call to Action */}
+          {/* Enhanced Call to Action with Interactive Contact Forms */}
           <div className="mt-20 text-center">
-            <div className="bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 rounded-3xl p-12 text-white">
-              <h3 className="text-2xl font-semibold mb-6 font-body">Join the Sustainable Revolution</h3>
-              <p className="text-body-large text-blue-100 mb-8 max-w-3xl mx-auto font-body">
-                Partner with us to build Africa's most sustainable and inclusive economic ecosystem. 
-                Together, we're not just creating value—we're transforming lives.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
-                  <span className="text-white font-semibold">For Investors</span>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
-                  <span className="text-white font-semibold">For Partners</span>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
-                  <span className="text-white font-semibold">For Communities</span>
-                </div>
+            <div className="bg-gradient-to-r from-purple-900 via-blue-800 via-teal-700 to-green-600 rounded-3xl p-12 text-white relative overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.1),transparent_70%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.08),transparent_60%)]" />
+              
+              <div className="relative z-10">
+                <h3 className="text-2xl font-semibold mb-6 font-body">Join the Sustainable Revolution</h3>
+                <p className="text-body-large text-blue-100 mb-8 max-w-3xl mx-auto font-body">
+                  Partner with us to build Africa's most sustainable and inclusive economic ecosystem. 
+                  Together, we're not just creating value—we're transforming lives.
+                </p>
+                <ContactModal />
               </div>
             </div>
           </div>
