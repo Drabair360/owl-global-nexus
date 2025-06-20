@@ -39,7 +39,7 @@ const Impact = () => {
       </section>
 
       {/* Main Content Section - Redesigned with Bottom-Up Sustainability Approach */}
-      <section className="pt-20 pb-20 bg-white scroll-section" data-section="content">
+      <section className="pt-20 pb-0 bg-white scroll-section" data-section="content">
         <div className="container mx-auto px-4">
           {/* Core Philosophy Introduction */}
           <div className="text-center mb-16 scroll-trigger opacity-0 translate-y-8" data-delay="100">
@@ -74,7 +74,7 @@ const Impact = () => {
       </section>
 
       {/* Industry Deep Dive - Independent Section */}
-      <section className="pt-20 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200 scroll-section" data-section="industry">
+      <section className="pt-0 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200 scroll-section" data-section="industry">
         <div className="container mx-auto px-4">
           <div className="bg-white/40 backdrop-blur-sm rounded-t-3xl px-12 py-12 scroll-trigger opacity-0 translate-y-8" data-delay="600">
             <div className="text-center mb-12">
