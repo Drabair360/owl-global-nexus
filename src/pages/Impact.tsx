@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -108,31 +109,29 @@ const Impact = () => {
             </div>
           </div>
 
-          {/* Enhanced Call to Action - Dynamic Green Chameleon Text with Proper Spacing */}
-          <div className="mt-16 min-h-[30vh] flex items-center justify-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
-            <div className="text-center">
-              <div className="relative">
-                <h3 className="text-4xl md:text-5xl font-bold mb-8 font-body giraffe-spot-chameleon-text">
-                  Join OWL's Sustainable Endeavors
-                </h3>
-                <p className="text-xl text-slate-700 mb-12 max-w-4xl mx-auto font-body leading-relaxed hover:text-slate-900 transition-colors duration-300">
-                  Partner with us to build Africa's most sustainable and inclusive economic ecosystem. 
-                  Together, we're not just creating value—we're transforming lives.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-12 justify-center items-center">
-                  <div className="flex flex-wrap gap-12 justify-center">
-                    {contactModal.contactTypes.map((contactType, index) => (
-                      <div key={contactType.id} className={`flex flex-col items-center group scroll-trigger opacity-0 translate-y-4`} data-delay={950 + index * 50}>
-                        <div className="mb-4 text-emerald-600 group-hover:text-teal-600 transition-colors duration-300">
-                          {React.createElement(contactType.icon, {
-                            className: "w-8 h-8 animate-geometric-pulse group-hover:scale-110 transition-transform duration-300"
-                          })}
-                        </div>
-                        {contactModal.renderContactLink(contactType)}
+          {/* Enhanced Call to Action - Dynamic Green Chameleon Text with Proper Centering */}
+          <div className="mt-12 py-16 text-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
+            <div className="relative">
+              <h3 className="text-4xl md:text-5xl font-bold mb-8 font-body giraffe-spot-chameleon-text">
+                Join OWL's Sustainable Endeavors
+              </h3>
+              <p className="text-xl text-slate-700 mb-12 max-w-4xl mx-auto font-body leading-relaxed hover:text-slate-900 transition-colors duration-300">
+                Partner with us to build Africa's most sustainable and inclusive economic ecosystem. 
+                Together, we're not just creating value—we're transforming lives.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-12 justify-center items-center">
+                <div className="flex flex-wrap gap-12 justify-center">
+                  {contactModal.contactTypes.map((contactType, index) => (
+                    <div key={contactType.id} className={`flex flex-col items-center group scroll-trigger opacity-0 translate-y-4`} data-delay={950 + index * 50}>
+                      <div className="mb-4 text-emerald-600 group-hover:text-teal-600 transition-colors duration-300">
+                        {React.createElement(contactType.icon, {
+                          className: "w-8 h-8 animate-geometric-pulse group-hover:scale-110 transition-transform duration-300"
+                        })}
                       </div>
-                    ))}
-                  </div>
+                      {contactModal.renderContactLink(contactType)}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -146,3 +145,4 @@ const Impact = () => {
 };
 
 export default Impact;
+
