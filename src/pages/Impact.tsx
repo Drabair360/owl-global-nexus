@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -107,8 +108,8 @@ const Impact = () => {
             </div>
           </div>
 
-          {/* Enhanced Call to Action - Dynamic Green Chameleon Text with Refined Spacing */}
-          <div className="mt-4 min-h-[30vh] flex items-center justify-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
+          {/* Enhanced Call to Action - Dynamic Green Chameleon Text with Proper Spacing */}
+          <div className="mt-16 min-h-[30vh] flex items-center justify-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
             <div className="text-center">
               <div className="relative">
                 <h3 className="text-4xl md:text-5xl font-bold mb-8 font-body giraffe-spot-chameleon-text">
