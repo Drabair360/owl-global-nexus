@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
@@ -14,9 +13,9 @@ const ContactModal = () => {
       title: 'For Investors',
       icon: Briefcase,
       description: 'Explore investment opportunities in sustainable African development',
-      color: 'from-blue-400 via-cyan-500 to-teal-600',
-      hoverColor: 'hover:from-blue-500 hover:via-cyan-600 hover:to-teal-700',
-      shadowColor: 'hover:shadow-[0_20px_60px_rgba(59,130,246,0.4)]',
+      color: 'from-slate-600 via-blue-700 to-indigo-800',
+      hoverColor: 'hover:from-slate-700 hover:via-blue-800 hover:to-indigo-900',
+      shadowColor: 'hover:shadow-[0_20px_60px_rgba(59,130,246,0.3)]',
       fields: [
         { name: 'investmentRange', label: 'Investment Range', type: 'select', options: ['€100K - €500K', '€500K - €2M', '€2M - €10M', '€10M+'] },
         { name: 'sectorInterest', label: 'Sector Interest', type: 'select', options: ['AI & Technology', 'Agriculture & Food', 'Creative Industries', 'Real Estate & Urban Development', 'All Sectors'] },
@@ -29,9 +28,9 @@ const ContactModal = () => {
       title: 'For Partners',
       icon: Users,
       description: 'Build strategic partnerships for mutual growth and impact',
-      color: 'from-emerald-400 via-green-500 to-lime-600',
-      hoverColor: 'hover:from-emerald-500 hover:via-green-600 hover:to-lime-700',
-      shadowColor: 'hover:shadow-[0_20px_60px_rgba(34,197,94,0.4)]',
+      color: 'from-green-600 via-emerald-700 to-teal-800',
+      hoverColor: 'hover:from-green-700 hover:via-emerald-800 hover:to-teal-900',
+      shadowColor: 'hover:shadow-[0_20px_60px_rgba(34,197,94,0.3)]',
       fields: [
         { name: 'organizationType', label: 'Organization Type', type: 'select', options: ['Corporation', 'NGO/Non-profit', 'Government Agency', 'Academic Institution', 'Startup/SME'] },
         { name: 'collaborationAreas', label: 'Collaboration Areas', type: 'select', options: ['Technology Transfer', 'Market Access', 'Funding & Investment', 'Research & Development', 'Training & Capacity Building'] },
@@ -44,9 +43,9 @@ const ContactModal = () => {
       title: 'For Communities',
       icon: Heart,
       description: 'Join our mission to create sustainable community development',
-      color: 'from-violet-400 via-purple-500 to-fuchsia-600',
-      hoverColor: 'hover:from-violet-500 hover:via-purple-600 hover:to-fuchsia-700',
-      shadowColor: 'hover:shadow-[0_20px_60px_rgba(147,51,234,0.4)]',
+      color: 'from-indigo-500 via-purple-600 to-violet-700',
+      hoverColor: 'hover:from-indigo-600 hover:via-purple-700 hover:to-violet-800',
+      shadowColor: 'hover:shadow-[0_20px_60px_rgba(147,51,234,0.3)]',
       fields: [
         { name: 'communitySize', label: 'Community Size', type: 'select', options: ['Small (< 1,000)', 'Medium (1,000 - 10,000)', 'Large (10,000 - 100,000)', 'Very Large (100,000+)'] },
         { name: 'developmentNeeds', label: 'Development Needs', type: 'select', options: ['Digital Literacy', 'Economic Opportunities', 'Infrastructure', 'Education & Training', 'Healthcare Access'] },
@@ -77,7 +76,7 @@ const ContactModal = () => {
     }
 
     return (
-      <div className={`bg-gradient-to-br ${contactType.color} rounded-2xl p-8 backdrop-blur-sm`}>
+      <div className={`bg-gradient-to-br ${contactType.color} rounded-2xl p-8 backdrop-blur-sm shadow-2xl border border-white/10`}>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -152,7 +151,7 @@ const ContactModal = () => {
 
           <Button 
             type="submit" 
-            className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02] border border-white/20"
+            className="w-full bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02] border border-white/20 hover:border-white/30"
           >
             <Send className="w-4 h-4 mr-2" />
             Send Message to Owl International
@@ -167,9 +166,16 @@ const ContactModal = () => {
     renderContactLink: (contactType: typeof contactTypes[0]) => (
       <Dialog key={contactType.id} open={activeForm === contactType.id} onOpenChange={(open) => setActiveForm(open ? contactType.id : null)}>
         <DialogTrigger asChild>
-          <button className="text-white/90 hover:text-white font-semibold underline decoration-2 underline-offset-4 hover:decoration-white/60 transition-all duration-300">
-            {contactType.title}
-          </button>
+          <div className="flex flex-col items-center group cursor-pointer">
+            <div className="mb-3 animate-pulse">
+              {React.createElement(contactType.icon, {
+                className: "w-6 h-6 text-white/80 group-hover:text-white transition-colors duration-300"
+              })}
+            </div>
+            <button className="text-white/90 hover:text-white font-semibold underline decoration-2 underline-offset-4 hover:decoration-white/80 transition-all duration-300">
+              {contactType.title}
+            </button>
+          </div>
         </DialogTrigger>
         <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto border-0 bg-transparent p-0 shadow-none">
           <div className="relative">

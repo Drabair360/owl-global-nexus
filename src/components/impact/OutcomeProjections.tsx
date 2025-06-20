@@ -39,10 +39,10 @@ const OutcomeProjections = () => {
     {
       icon: Heart,
       title: "Community Partnerships",
-      value: "500+",
+      value: "20+",
       description: "Local organizations and communities actively collaborating",
       color: "from-emerald-500 to-emerald-700",
-      progress: 18
+      progress: 10
     },
     {
       icon: Globe,

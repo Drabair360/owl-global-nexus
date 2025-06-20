@@ -104,9 +104,9 @@ const Impact = () => {
 
           {/* Enhanced Call to Action - Join OWL's Sustainable Endeavors */}
           <div className="mt-20 text-center">
-            <div className="bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-600 rounded-3xl p-12 text-white relative overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.2),transparent_70%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.15),transparent_60%)]" />
+            <div className="bg-gradient-to-br from-emerald-600 via-teal-700 to-cyan-800 rounded-3xl p-12 text-white relative overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.15),transparent_70%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.1),transparent_60%)]" />
               <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-white/5" />
               
               <div className="relative z-10">
@@ -116,8 +116,8 @@ const Impact = () => {
                   Together, we're not just creating value—we're transforming lives.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                  <div className="flex flex-wrap gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+                  <div className="flex flex-wrap gap-8 justify-center">
                     {contactModal.contactTypes.map((contactType) => (
                       <div key={contactType.id}>
                         {contactModal.renderContactLink(contactType)}

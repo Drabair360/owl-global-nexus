@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Cpu, Tractor, Users, Building } from 'lucide-react';
 
@@ -12,10 +11,10 @@ const FoundationPyramid = () => {
       impact: 'Democratizing technology access across Africa',
       milestone: 'Platform integration across West Africa, AI literacy programs',
       icon: Cpu,
-      color: 'from-cyan-400 via-blue-500 to-indigo-600',
-      bgGradient: 'bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600',
-      textGradient: 'from-cyan-100 to-blue-50',
-      borderColor: 'border-cyan-200/30'
+      color: 'from-slate-700 via-blue-800 to-indigo-900',
+      bgGradient: 'bg-gradient-to-br from-slate-700 via-blue-800 to-indigo-900',
+      textGradient: 'from-slate-100 to-blue-50',
+      borderColor: 'border-slate-200/20'
     },
     {
       id: 'caoagro',
@@ -25,10 +24,10 @@ const FoundationPyramid = () => {
       impact: 'Food security, rural industrialization',
       milestone: 'Strategic partnerships with cooperative networks, processing facility expansion',
       icon: Tractor,
-      color: 'from-emerald-400 via-green-500 to-teal-600',
-      bgGradient: 'bg-gradient-to-br from-emerald-400 via-green-500 to-forest-green-600',
-      textGradient: 'from-emerald-100 to-green-50',
-      borderColor: 'border-emerald-200/30'
+      color: 'from-forest-600 via-emerald-700 to-teal-800',
+      bgGradient: 'bg-gradient-to-br from-green-700 via-emerald-800 to-teal-900',
+      textGradient: 'from-green-100 to-emerald-50',
+      borderColor: 'border-emerald-200/20'
     },
     {
       id: 'kidzlab',
@@ -38,10 +37,10 @@ const FoundationPyramid = () => {
       impact: 'Youth empowerment, skills development',
       milestone: 'Regional talent hubs, creative industry partnerships',
       icon: Users,
-      color: 'from-violet-400 via-purple-500 to-fuchsia-600',
-      bgGradient: 'bg-gradient-to-br from-violet-400 via-purple-500 to-fuchsia-600',
-      textGradient: 'from-violet-100 to-purple-50',
-      borderColor: 'border-violet-200/30'
+      color: 'from-indigo-600 via-purple-700 to-violet-800',
+      bgGradient: 'bg-gradient-to-br from-indigo-600 via-purple-700 to-violet-800',
+      textGradient: 'from-indigo-100 to-purple-50',
+      borderColor: 'border-purple-200/20'
     },
     {
       id: 'owloma',
@@ -51,10 +50,10 @@ const FoundationPyramid = () => {
       impact: 'Sustainable urbanization, housing accessibility',
       milestone: 'Smart housing pilot projects, urban development consulting',
       icon: Building,
-      color: 'from-orange-400 via-amber-500 to-yellow-600',
-      bgGradient: 'bg-gradient-to-br from-orange-400 via-amber-500 to-yellow-600',
-      textGradient: 'from-orange-100 to-amber-50',
-      borderColor: 'border-orange-200/30'
+      color: 'from-amber-600 via-orange-700 to-red-800',
+      bgGradient: 'bg-gradient-to-br from-amber-600 via-orange-700 to-red-800',
+      textGradient: 'from-amber-100 to-orange-50',
+      borderColor: 'border-orange-200/20'
     }
   ];
 
@@ -68,7 +67,7 @@ const FoundationPyramid = () => {
         </p>
       </div>
 
-      {/* Enhanced Grid Layout with Beautiful Gradients */}
+      {/* Enhanced Grid Layout with Sophisticated Gradients */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         {pillars.map((pillar) => {
           const Icon = pillar.icon;
@@ -77,15 +76,15 @@ const FoundationPyramid = () => {
               key={pillar.id}
               className={`${pillar.bgGradient} rounded-3xl p-8 border ${pillar.borderColor} hover:shadow-2xl transition-all duration-500 group hover:-translate-y-3 relative overflow-hidden backdrop-blur-sm`}
               style={{
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1) inset'
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset'
               }}
             >
               {/* Sophisticated shimmer effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/15 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
               
               <div className="relative z-10">
                 <div className="flex items-start gap-6 mb-6">
-                  <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg border border-white/20">
+                  <div className="w-20 h-20 bg-white/15 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg border border-white/20">
                     <Icon className="w-10 h-10 text-white" />
                   </div>
                   <div className="flex-1">
