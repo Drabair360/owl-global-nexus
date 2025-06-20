@@ -109,8 +109,8 @@ const Impact = () => {
         </div>
       </section>
 
-      {/* Enhanced Call to Action - Proper Centered Container */}
-      <section className="min-h-[400px] flex items-center justify-center bg-transparent">
+      {/* Enhanced Call to Action - Proper Vertical Centering Between Sections */}
+      <section className="min-h-[60vh] flex items-center justify-center bg-transparent py-20">
         <div className="container mx-auto px-4">
           <div className="text-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
             <div className="relative">
