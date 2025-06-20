@@ -1,5 +1,6 @@
 
 
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -108,9 +109,13 @@ const Impact = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Enhanced Call to Action - Dynamic Green Chameleon Text with Proper Centering */}
-          <div className="mt-12 py-16 text-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
+      {/* Enhanced Call to Action - Separate Section with Optimal Spacing */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
             <div className="relative">
               <h3 className="text-4xl md:text-5xl font-bold mb-8 font-body giraffe-spot-chameleon-text">
                 Join OWL's Sustainable Endeavors
@@ -145,4 +150,5 @@ const Impact = () => {
 };
 
 export default Impact;
+
 
