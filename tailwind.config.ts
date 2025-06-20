@@ -205,6 +205,14 @@ export default {
 					'100%': {
 						backgroundPosition: '0% 50%'
 					}
+				},
+				'gradient-flow': {
+					'0%': {
+						backgroundPosition: '200% 0%'
+					},
+					'100%': {
+						backgroundPosition: '-200% 0%'
+					}
 				}
 			},
 			animation: {
@@ -217,7 +225,8 @@ export default {
 				'particle-float': 'particle-float 6s ease-in-out infinite',
 				'geometric-pulse': 'geometric-pulse 4s ease-in-out infinite',
 				'scroll-ticker': 'scroll-ticker 25s linear infinite',
-				'gradient-shift': 'gradient-shift 8s ease-in-out infinite'
+				'gradient-shift': 'gradient-shift 8s ease-in-out infinite',
+				'gradient-flow': 'gradient-flow 3s ease-in-out infinite'
 			},
 			backdropBlur: {
 				'xs': '2px',
