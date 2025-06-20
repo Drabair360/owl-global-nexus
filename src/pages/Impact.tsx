@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -39,8 +40,8 @@ const Impact = () => {
         </div>
       </section>
 
-      {/* Redesigned Content with Bottom-Up Sustainability Approach */}
-      <section className="pt-20 pb-8 bg-white scroll-section" data-section="content">
+      {/* Main Content Section - Redesigned with Bottom-Up Sustainability Approach */}
+      <section className="pt-20 pb-20 bg-white scroll-section" data-section="content">
         <div className="container mx-auto px-4">
           {/* Core Philosophy Introduction */}
           <div className="text-center mb-16 scroll-trigger opacity-0 translate-y-8" data-delay="100">
@@ -71,9 +72,13 @@ const Impact = () => {
           <div className="scroll-trigger opacity-0 translate-y-8" data-delay="500">
             <OutcomeProjections />
           </div>
+        </div>
+      </section>
 
-          {/* Industry Deep Dive - Enhanced Background with reduced bottom padding */}
-          <div className="mt-20 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200 rounded-3xl px-12 pt-12 pb-6 backdrop-blur-sm scroll-trigger opacity-0 translate-y-8" data-delay="600">
+      {/* Industry Deep Dive - Independent Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200 scroll-section" data-section="industry">
+        <div className="container mx-auto px-4">
+          <div className="bg-white/40 backdrop-blur-sm rounded-3xl px-12 py-12 scroll-trigger opacity-0 translate-y-8" data-delay="600">
             <div className="text-center mb-12">
               <h3 className="text-2xl font-semibold text-slate-800 mb-4 font-body hover:text-shadow-sm transition-all duration-300">Industry Transformation Impact</h3>
               <p className="text-slate-600 font-body max-w-3xl mx-auto">
@@ -110,8 +115,8 @@ const Impact = () => {
         </div>
       </section>
 
-      {/* Enhanced Call to Action - Proper Vertical Centering Between Sections */}
-      <section className="min-h-[60vh] flex items-center justify-center bg-transparent pt-12 pb-20">
+      {/* Enhanced Call to Action - Properly Centered Between Sections */}
+      <section className="min-h-[60vh] flex items-center justify-center bg-white py-20">
         <div className="container mx-auto px-4">
           <div className="text-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
             <div className="relative">
@@ -148,3 +153,4 @@ const Impact = () => {
 };
 
 export default Impact;
+
