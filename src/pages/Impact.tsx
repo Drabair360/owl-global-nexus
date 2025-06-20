@@ -76,7 +76,7 @@ const Impact = () => {
       </section>
 
       {/* NEW Clean Industry Transformation Section */}
-      <section className="py-16 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200 scroll-section" data-section="industry">
+      <section className="pt-16 pb-0 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200 scroll-section" data-section="industry">
         <div className="container mx-auto px-4">
           <div className="scroll-trigger opacity-0 translate-y-8" data-delay="600">
             <div className="text-center mb-12">
@@ -116,7 +116,7 @@ const Impact = () => {
       </section>
 
       {/* NEW Clean Call to Action Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200">
+      <section className="pb-20 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200">
         <div className="container mx-auto px-4">
           <div className="text-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
             <div className="relative">
