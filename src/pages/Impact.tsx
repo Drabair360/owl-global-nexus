@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -110,8 +109,8 @@ const Impact = () => {
         </div>
       </section>
 
-      {/* Enhanced Call to Action - Separate Section with Optimal Spacing */}
-      <section className="pt-8 pb-16 bg-white">
+      {/* Enhanced Call to Action - Proper Centered Container */}
+      <section className="min-h-[400px] flex items-center justify-center bg-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
             <div className="relative">
