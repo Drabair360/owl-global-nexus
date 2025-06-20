@@ -116,8 +116,8 @@ const Impact = () => {
       </section>
 
       {/* Enhanced Call to Action - Properly Centered Between Sections */}
-      <section className="min-h-[60vh] flex items-center justify-center bg-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="min-h-[60vh] flex items-center justify-center bg-white py-0">
+        <div className="container mx-auto px-4 mt-[72px] mb-[72px]">
           <div className="text-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
             <div className="relative">
               <h3 className="text-4xl md:text-5xl font-bold mb-8 font-body giraffe-spot-chameleon-text">
