@@ -50,7 +50,7 @@ const News = () => {
     {
       id: 'caoagro-shea-butter-contract-2025',
       entity: 'CAOAGRO.COM',
-      text: 'CAOAGRO.COM wins Shea Butter plant contract',
+      text: 'CAOAGRO.COM wins Shea Butter contract',
       newsItem: newsData.find(item => item.id === 'caoagro-shea-butter-contract-2025')
     },
     {
@@ -62,7 +62,7 @@ const News = () => {
     {
       id: 'owloma-launch-announcement-2025',
       entity: 'OWLOMA',
-      text: 'OWLOMA launches real estate division 2026',
+      text: 'OWLOMA launches real estate division',
       newsItem: newsData.find(item => item.id === 'owloma-launch-announcement-2025')
     },
     {
@@ -129,7 +129,7 @@ const News = () => {
 
             {/* Enhanced Interactive News Ticker with Diagonal Gradient */}
             <div className="relative w-full overflow-hidden bg-gradient-to-br from-cyan-500 via-blue-600 via-purple-600 via-teal-500 to-emerald-500 rounded-xl border border-slate-200 shadow-elegant mb-24">
-              <div className="py-8 px-4">
+              <div className="py-5 px-4">
                 <div className="animate-scroll-ticker whitespace-nowrap">
                   <span className="text-lg font-semibold text-white drop-shadow-lg">
                     🔥 {newsSegments.map((segment, index) => (
