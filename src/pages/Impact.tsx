@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -41,8 +40,8 @@ const Impact = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           {/* Core Philosophy Introduction */}
-          <div className="text-center mb-16">
-            <h2 className="text-section text-slate-800 mb-6 font-brand">BOTTOM-UP SUSTAINABILITY</h2>
+          <div className="text-center mb-16 animate-institutional-rise">
+            <h2 className="text-section text-slate-800 mb-6 font-brand hover:text-shadow-md transition-all duration-300">BOTTOM-UP SUSTAINABILITY</h2>
             <p className="text-body-large text-slate-600 max-w-4xl mx-auto font-body leading-relaxed">
               We don't build sustainability as an afterthought. Every platform, every algorithm, every partnership 
               is designed from the ground up to create lasting positive impact. Our success is fundamentally 
@@ -51,25 +50,29 @@ const Impact = () => {
           </div>
 
           {/* Enhanced Foundation Ecosystem */}
-          <FoundationPyramid />
+          <div className="animate-elegant-scale">
+            <FoundationPyramid />
+          </div>
 
-          {/* Success Multiplier Philosophy - Moved above Global Context */}
-          <div className="my-20">
+          {/* Success Multiplier Philosophy - Enhanced Background */}
+          <div className="my-20 animate-institutional-rise">
             <SuccessMultiplier />
           </div>
 
           {/* Global Context */}
-          <div className="my-20">
+          <div className="my-20 animate-elegant-scale">
             <GlobalContext />
           </div>
 
-          {/* Concrete Outcomes by 2030 */}
-          <OutcomeProjections />
+          {/* Concrete Outcomes by 2030 - Enhanced with Vibrant Glows */}
+          <div className="animate-sophisticated-fade">
+            <OutcomeProjections />
+          </div>
 
-          {/* Industry Deep Dive */}
-          <div className="mt-20 bg-gradient-to-br from-slate-50 to-indigo-50 rounded-3xl p-12">
+          {/* Industry Deep Dive - Enhanced Background */}
+          <div className="mt-20 bg-gradient-to-br from-slate-100 via-blue-100 to-indigo-100 rounded-3xl p-12 animate-elegant-scale backdrop-blur-sm">
             <div className="text-center mb-12">
-              <h3 className="text-2xl font-semibold text-slate-800 mb-4 font-body">Industry Transformation Impact</h3>
+              <h3 className="text-2xl font-semibold text-slate-800 mb-4 font-body hover:text-shadow-sm transition-all duration-300">Industry Transformation Impact</h3>
               <p className="text-slate-600 font-body max-w-3xl mx-auto">
                 Our integrated approach addresses multiple UN Sustainable Development Goals simultaneously
               </p>
@@ -102,13 +105,17 @@ const Impact = () => {
             </div>
           </div>
 
-          {/* Enhanced Call to Action - Join OWL's Sustainable Endeavors with Chameleon Text */}
-          <div className="mt-20 text-center py-16">
+          {/* Enhanced Call to Action - Accentuated Chameleon Text */}
+          <div className="mt-20 text-center py-16 animate-sophisticated-fade">
             <div className="relative">
-              <h3 className="text-4xl md:text-5xl font-bold mb-8 font-body bg-gradient-to-r from-emerald-500 via-teal-600 to-cyan-700 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
+              <h3 className="text-4xl md:text-5xl font-bold mb-8 font-body bg-gradient-to-r from-emerald-400 via-teal-500 via-cyan-500 to-blue-600 bg-clip-text text-transparent animate-gradient-shift bg-[length:300%_300%] hover:scale-105 transition-all duration-500" 
+                  style={{
+                    textShadow: '0 2px 4px rgba(20, 184, 166, 0.1), 0 4px 8px rgba(6, 182, 212, 0.1)',
+                    animation: 'chameleon-text 4s ease-in-out infinite, gradient-shift 3s ease-in-out infinite'
+                  }}>
                 Join OWL's Sustainable Endeavors
               </h3>
-              <p className="text-xl text-slate-700 mb-12 max-w-4xl mx-auto font-body leading-relaxed">
+              <p className="text-xl text-slate-700 mb-12 max-w-4xl mx-auto font-body leading-relaxed hover:text-slate-900 transition-colors duration-300">
                 Partner with us to build Africa's most sustainable and inclusive economic ecosystem. 
                 Together, we're not just creating value—we're transforming lives.
               </p>
@@ -117,9 +124,9 @@ const Impact = () => {
                 <div className="flex flex-wrap gap-12 justify-center">
                   {contactModal.contactTypes.map((contactType) => (
                     <div key={contactType.id} className="flex flex-col items-center group">
-                      <div className="mb-4 text-slate-600 group-hover:text-slate-800 transition-colors duration-300">
+                      <div className="mb-4 text-emerald-600 group-hover:text-teal-600 transition-colors duration-300">
                         {React.createElement(contactType.icon, {
-                          className: "w-8 h-8 animate-geometric-pulse"
+                          className: "w-8 h-8 animate-geometric-pulse group-hover:scale-110 transition-transform duration-300"
                         })}
                       </div>
                       {contactModal.renderContactLink(contactType)}

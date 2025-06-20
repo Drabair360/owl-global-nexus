@@ -1,12 +1,11 @@
-
 import React from 'react';
 import { ArrowRight, Target, Users, Zap } from 'lucide-react';
 
 const SuccessMultiplier = () => {
   return (
-    <div className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-3xl p-12">
+    <div className="bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 rounded-3xl p-12 backdrop-blur-sm shadow-lg">
       <div className="text-center mb-12">
-        <h3 className="text-2xl font-semibold text-slate-800 mb-4 font-body">Success Multiplier Philosophy</h3>
+        <h3 className="text-2xl font-semibold text-slate-800 mb-4 font-body hover:text-shadow-sm transition-all duration-300">Success Multiplier Philosophy</h3>
         <p className="text-slate-600 font-body max-w-3xl mx-auto text-lg">
           Individual customer success equals company success. Our bottom-up approach ensures 
           that every individual we serve becomes a multiplier of prosperity.
@@ -41,7 +40,7 @@ const SuccessMultiplier = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl p-8 border border-purple-100">
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-purple-100 shadow-sm">
         <div className="text-center">
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full px-6 py-3 mb-6">
             <Target className="w-5 h-5 text-purple-600" />
