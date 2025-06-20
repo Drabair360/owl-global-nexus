@@ -102,28 +102,29 @@ const Impact = () => {
             </div>
           </div>
 
-          {/* Enhanced Call to Action - Join OWL's Sustainable Endeavors */}
-          <div className="mt-20 text-center">
-            <div className="bg-gradient-to-br from-emerald-600 via-teal-700 to-cyan-800 rounded-3xl p-12 text-white relative overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.15),transparent_70%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.1),transparent_60%)]" />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-white/5" />
+          {/* Enhanced Call to Action - Join OWL's Sustainable Endeavors with Chameleon Text */}
+          <div className="mt-20 text-center py-16">
+            <div className="relative">
+              <h3 className="text-4xl md:text-5xl font-bold mb-8 font-body bg-gradient-to-r from-emerald-500 via-teal-600 to-cyan-700 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">
+                Join OWL's Sustainable Endeavors
+              </h3>
+              <p className="text-xl text-slate-700 mb-12 max-w-4xl mx-auto font-body leading-relaxed">
+                Partner with us to build Africa's most sustainable and inclusive economic ecosystem. 
+                Together, we're not just creating value—we're transforming lives.
+              </p>
               
-              <div className="relative z-10">
-                <h3 className="text-3xl font-semibold mb-6 font-body">Join OWL's Sustainable Endeavors</h3>
-                <p className="text-lg text-white/90 mb-8 max-w-3xl mx-auto font-body leading-relaxed">
-                  Partner with us to build Africa's most sustainable and inclusive economic ecosystem. 
-                  Together, we're not just creating value—we're transforming lives.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-                  <div className="flex flex-wrap gap-8 justify-center">
-                    {contactModal.contactTypes.map((contactType) => (
-                      <div key={contactType.id}>
-                        {contactModal.renderContactLink(contactType)}
+              <div className="flex flex-col sm:flex-row gap-12 justify-center items-center">
+                <div className="flex flex-wrap gap-12 justify-center">
+                  {contactModal.contactTypes.map((contactType) => (
+                    <div key={contactType.id} className="flex flex-col items-center group">
+                      <div className="mb-4 text-slate-600 group-hover:text-slate-800 transition-colors duration-300">
+                        {React.createElement(contactType.icon, {
+                          className: "w-8 h-8 animate-geometric-pulse"
+                        })}
                       </div>
-                    ))}
-                  </div>
+                      {contactModal.renderContactLink(contactType)}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

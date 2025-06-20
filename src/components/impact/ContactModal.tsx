@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
@@ -13,8 +14,8 @@ const ContactModal = () => {
       title: 'For Investors',
       icon: Briefcase,
       description: 'Explore investment opportunities in sustainable African development',
-      color: 'from-slate-600 via-blue-700 to-indigo-800',
-      hoverColor: 'hover:from-slate-700 hover:via-blue-800 hover:to-indigo-900',
+      color: 'from-slate-700 via-blue-800 to-indigo-900',
+      hoverColor: 'hover:from-slate-800 hover:via-blue-900 hover:to-indigo-950',
       shadowColor: 'hover:shadow-[0_20px_60px_rgba(59,130,246,0.3)]',
       fields: [
         { name: 'investmentRange', label: 'Investment Range', type: 'select', options: ['€100K - €500K', '€500K - €2M', '€2M - €10M', '€10M+'] },
@@ -28,8 +29,8 @@ const ContactModal = () => {
       title: 'For Partners',
       icon: Users,
       description: 'Build strategic partnerships for mutual growth and impact',
-      color: 'from-green-600 via-emerald-700 to-teal-800',
-      hoverColor: 'hover:from-green-700 hover:via-emerald-800 hover:to-teal-900',
+      color: 'from-forest-600 via-emerald-700 to-teal-800',
+      hoverColor: 'hover:from-forest-700 hover:via-emerald-800 hover:to-teal-900',
       shadowColor: 'hover:shadow-[0_20px_60px_rgba(34,197,94,0.3)]',
       fields: [
         { name: 'organizationType', label: 'Organization Type', type: 'select', options: ['Corporation', 'NGO/Non-profit', 'Government Agency', 'Academic Institution', 'Startup/SME'] },
@@ -43,8 +44,8 @@ const ContactModal = () => {
       title: 'For Communities',
       icon: Heart,
       description: 'Join our mission to create sustainable community development',
-      color: 'from-indigo-500 via-purple-600 to-violet-700',
-      hoverColor: 'hover:from-indigo-600 hover:via-purple-700 hover:to-violet-800',
+      color: 'from-indigo-600 via-purple-700 to-violet-800',
+      hoverColor: 'hover:from-indigo-700 hover:via-purple-800 hover:to-violet-900',
       shadowColor: 'hover:shadow-[0_20px_60px_rgba(147,51,234,0.3)]',
       fields: [
         { name: 'communitySize', label: 'Community Size', type: 'select', options: ['Small (< 1,000)', 'Medium (1,000 - 10,000)', 'Large (10,000 - 100,000)', 'Very Large (100,000+)'] },
@@ -166,16 +167,9 @@ const ContactModal = () => {
     renderContactLink: (contactType: typeof contactTypes[0]) => (
       <Dialog key={contactType.id} open={activeForm === contactType.id} onOpenChange={(open) => setActiveForm(open ? contactType.id : null)}>
         <DialogTrigger asChild>
-          <div className="flex flex-col items-center group cursor-pointer">
-            <div className="mb-3 animate-pulse">
-              {React.createElement(contactType.icon, {
-                className: "w-6 h-6 text-white/80 group-hover:text-white transition-colors duration-300"
-              })}
-            </div>
-            <button className="text-white/90 hover:text-white font-semibold underline decoration-2 underline-offset-4 hover:decoration-white/80 transition-all duration-300">
-              {contactType.title}
-            </button>
-          </div>
+          <button className="text-slate-700 hover:text-slate-900 font-semibold text-lg underline decoration-2 underline-offset-4 hover:decoration-slate-600 transition-all duration-300 bg-gradient-to-r from-emerald-600/10 via-teal-600/10 to-cyan-600/10 px-6 py-3 rounded-xl hover:shadow-md">
+            {contactType.title}
+          </button>
         </DialogTrigger>
         <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto border-0 bg-transparent p-0 shadow-none">
           <div className="relative">
