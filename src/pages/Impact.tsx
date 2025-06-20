@@ -108,7 +108,7 @@ const Impact = () => {
           </div>
 
           {/* Enhanced Call to Action - Dynamic Green Chameleon Text */}
-          <div className="mt-20 text-center py-16 scroll-trigger opacity-0 translate-y-8" data-delay="900">
+          <div className="mt-12 text-center py-16 scroll-trigger opacity-0 translate-y-8" data-delay="900">
             <div className="relative">
               <h3 className="text-4xl md:text-5xl font-bold mb-8 font-body giraffe-spot-chameleon-text">
                 Join OWL's Sustainable Endeavors
