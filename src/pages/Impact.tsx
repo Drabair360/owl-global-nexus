@@ -9,6 +9,8 @@ import SuccessMultiplier from '@/components/impact/SuccessMultiplier';
 import ContactModal from '@/components/impact/ContactModal';
 
 const Impact = () => {
+  const contactModal = ContactModal();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-lime-50 via-green-50 to-emerald-100">
       <Navbar />
@@ -48,8 +50,13 @@ const Impact = () => {
             </p>
           </div>
 
-          {/* Simplified Foundation Ecosystem */}
+          {/* Enhanced Foundation Ecosystem */}
           <FoundationPyramid />
+
+          {/* Success Multiplier Philosophy - Moved above Global Context */}
+          <div className="my-20">
+            <SuccessMultiplier />
+          </div>
 
           {/* Global Context */}
           <div className="my-20">
@@ -58,9 +65,6 @@ const Impact = () => {
 
           {/* Concrete Outcomes by 2030 */}
           <OutcomeProjections />
-
-          {/* Success Multiplier Philosophy */}
-          <SuccessMultiplier />
 
           {/* Industry Deep Dive */}
           <div className="mt-20 bg-gradient-to-br from-slate-50 to-indigo-50 rounded-3xl p-12">
@@ -98,19 +102,29 @@ const Impact = () => {
             </div>
           </div>
 
-          {/* Enhanced Call to Action with Simplified Gradient */}
+          {/* Enhanced Call to Action - Join OWL's Sustainable Endeavors */}
           <div className="mt-20 text-center">
-            <div className="bg-gradient-to-r from-emerald-200 to-teal-200 rounded-3xl p-12 text-slate-800 relative overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.3),transparent_70%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.2),transparent_60%)]" />
+            <div className="bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-600 rounded-3xl p-12 text-white relative overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.2),transparent_70%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.15),transparent_60%)]" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-white/5" />
               
               <div className="relative z-10">
-                <h3 className="text-2xl font-semibold mb-6 font-body text-slate-900">Join the Sustainable Revolution</h3>
-                <p className="text-body-large text-slate-700 mb-8 max-w-3xl mx-auto font-body">
+                <h3 className="text-3xl font-semibold mb-6 font-body">Join OWL's Sustainable Endeavors</h3>
+                <p className="text-lg text-white/90 mb-8 max-w-3xl mx-auto font-body leading-relaxed">
                   Partner with us to build Africa's most sustainable and inclusive economic ecosystem. 
                   Together, we're not just creating value—we're transforming lives.
                 </p>
-                <ContactModal />
+                
+                <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                  <div className="flex flex-wrap gap-4 justify-center">
+                    {contactModal.contactTypes.map((contactType) => (
+                      <div key={contactType.id}>
+                        {contactModal.renderContactLink(contactType)}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

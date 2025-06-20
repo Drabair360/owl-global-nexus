@@ -13,8 +13,9 @@ const FoundationPyramid = () => {
       milestone: 'Platform integration across West Africa, AI literacy programs',
       icon: Cpu,
       color: 'from-cyan-400 via-blue-500 to-indigo-600',
-      bgColor: 'bg-gradient-to-br from-cyan-50 to-blue-100',
-      borderColor: 'border-cyan-300'
+      bgGradient: 'bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600',
+      textGradient: 'from-cyan-100 to-blue-50',
+      borderColor: 'border-cyan-200/30'
     },
     {
       id: 'caoagro',
@@ -25,8 +26,9 @@ const FoundationPyramid = () => {
       milestone: 'Strategic partnerships with cooperative networks, processing facility expansion',
       icon: Tractor,
       color: 'from-emerald-400 via-green-500 to-teal-600',
-      bgColor: 'bg-gradient-to-br from-emerald-50 to-green-100',
-      borderColor: 'border-emerald-300'
+      bgGradient: 'bg-gradient-to-br from-emerald-400 via-green-500 to-forest-green-600',
+      textGradient: 'from-emerald-100 to-green-50',
+      borderColor: 'border-emerald-200/30'
     },
     {
       id: 'kidzlab',
@@ -37,8 +39,9 @@ const FoundationPyramid = () => {
       milestone: 'Regional talent hubs, creative industry partnerships',
       icon: Users,
       color: 'from-violet-400 via-purple-500 to-fuchsia-600',
-      bgColor: 'bg-gradient-to-br from-violet-50 to-purple-100',
-      borderColor: 'border-violet-300'
+      bgGradient: 'bg-gradient-to-br from-violet-400 via-purple-500 to-fuchsia-600',
+      textGradient: 'from-violet-100 to-purple-50',
+      borderColor: 'border-violet-200/30'
     },
     {
       id: 'owloma',
@@ -49,8 +52,9 @@ const FoundationPyramid = () => {
       milestone: 'Smart housing pilot projects, urban development consulting',
       icon: Building,
       color: 'from-orange-400 via-amber-500 to-yellow-600',
-      bgColor: 'bg-gradient-to-br from-orange-50 to-amber-100',
-      borderColor: 'border-orange-300'
+      bgGradient: 'bg-gradient-to-br from-orange-400 via-amber-500 to-yellow-600',
+      textGradient: 'from-orange-100 to-amber-50',
+      borderColor: 'border-orange-200/30'
     }
   ];
 
@@ -64,43 +68,46 @@ const FoundationPyramid = () => {
         </p>
       </div>
 
-      {/* Simplified Grid Layout */}
+      {/* Enhanced Grid Layout with Beautiful Gradients */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         {pillars.map((pillar) => {
           const Icon = pillar.icon;
           return (
             <div
               key={pillar.id}
-              className={`${pillar.bgColor} rounded-3xl p-8 border ${pillar.borderColor} hover:shadow-xl transition-all duration-500 group hover:-translate-y-2 relative overflow-hidden`}
+              className={`${pillar.bgGradient} rounded-3xl p-8 border ${pillar.borderColor} hover:shadow-2xl transition-all duration-500 group hover:-translate-y-3 relative overflow-hidden backdrop-blur-sm`}
+              style={{
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1) inset'
+              }}
             >
-              {/* Subtle animated background effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Sophisticated shimmer effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
               
               <div className="relative z-10">
                 <div className="flex items-start gap-6 mb-6">
-                  <div className={`w-20 h-20 bg-gradient-to-br ${pillar.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg border border-white/20">
                     <Icon className="w-10 h-10 text-white" />
                   </div>
                   <div className="flex-1">
-                    <div className="text-sm font-semibold text-slate-500 mb-1">{pillar.name}</div>
-                    <h4 className="text-xl font-semibold text-slate-800 font-body mb-2">{pillar.title}</h4>
+                    <div className="text-sm font-semibold text-white/80 mb-1">{pillar.name}</div>
+                    <h4 className="text-xl font-semibold text-white font-body mb-2">{pillar.title}</h4>
                   </div>
                 </div>
                 
                 <div className="space-y-4">
                   <div>
-                    <div className="text-sm font-medium text-slate-700 mb-1">Industry Focus</div>
-                    <p className="text-sm text-slate-600">{pillar.industry}</p>
+                    <div className="text-sm font-medium text-white/90 mb-1">Industry Focus</div>
+                    <p className="text-sm text-white/80">{pillar.industry}</p>
                   </div>
                   
                   <div>
-                    <div className="text-sm font-medium text-slate-700 mb-1">Impact</div>
-                    <p className="text-sm text-slate-600">{pillar.impact}</p>
+                    <div className="text-sm font-medium text-white/90 mb-1">Impact</div>
+                    <p className="text-sm text-white/80">{pillar.impact}</p>
                   </div>
                   
                   <div>
-                    <div className="text-sm font-medium text-slate-700 mb-1">Key Milestones</div>
-                    <p className="text-sm text-slate-600">{pillar.milestone}</p>
+                    <div className="text-sm font-medium text-white/90 mb-1">Key Milestones</div>
+                    <p className="text-sm text-white/80">{pillar.milestone}</p>
                   </div>
                 </div>
               </div>
@@ -109,7 +116,7 @@ const FoundationPyramid = () => {
         })}
       </div>
 
-      {/* Core Philosophy Statement */}
+      {/* Integrated Impact Philosophy */}
       <div className="text-center bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl p-12">
         <h4 className="text-xl font-semibold text-slate-800 mb-4 font-body">Integrated Impact Philosophy</h4>
         <p className="text-lg text-slate-600 font-body max-w-3xl mx-auto mb-8">

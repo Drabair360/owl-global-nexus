@@ -77,123 +77,108 @@ const ContactModal = () => {
     }
 
     return (
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Full Name *</label>
-            <input 
-              required 
-              className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md" 
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Email *</label>
-            <input 
-              type="email" 
-              required 
-              className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md" 
-            />
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Organization</label>
-            <input className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md" />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Country</label>
-            <input className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md" />
-          </div>
-        </div>
-
-        {contactType.fields.map((field) => (
-          <div key={field.name}>
-            <label className="block text-sm font-medium text-slate-700 mb-1">{field.label}</label>
-            {field.type === 'select' ? (
-              <select className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md">
-                <option value="">Select an option</option>
-                {field.options?.map((option) => (
-                  <option key={option} value={option}>{option}</option>
-                ))}
-              </select>
-            ) : field.type === 'textarea' ? (
-              <textarea 
-                rows={3} 
-                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md resize-none"
-                placeholder={`Tell us about your ${field.label.toLowerCase()}...`}
-              />
-            ) : (
+      <div className={`bg-gradient-to-br ${contactType.color} rounded-2xl p-8 backdrop-blur-sm`}>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-white/90 mb-2">Full Name *</label>
               <input 
-                type={field.type} 
-                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md" 
+                required 
+                className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-200 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 hover:bg-white/15" 
+                placeholder="Enter your full name"
               />
-            )}
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-white/90 mb-2">Email *</label>
+              <input 
+                type="email" 
+                required 
+                className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-200 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 hover:bg-white/15" 
+                placeholder="Enter your email"
+              />
+            </div>
           </div>
-        ))}
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-white/90 mb-2">Organization</label>
+              <input 
+                className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-200 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 hover:bg-white/15" 
+                placeholder="Enter your organization"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-white/90 mb-2">Country</label>
+              <input 
+                className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-200 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 hover:bg-white/15" 
+                placeholder="Enter your country"
+              />
+            </div>
+          </div>
 
-        <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Additional Message</label>
-          <textarea 
-            rows={4} 
-            className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md resize-none"
-            placeholder="Share your ideas, vision, or questions about contributing to our sustainable ecosystem..."
-          />
-        </div>
+          {contactType.fields.map((field) => (
+            <div key={field.name}>
+              <label className="block text-sm font-medium text-white/90 mb-2">{field.label}</label>
+              {field.type === 'select' ? (
+                <select className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-200 bg-white/10 backdrop-blur-sm text-white hover:bg-white/15">
+                  <option value="" className="text-slate-800">Select an option</option>
+                  {field.options?.map((option) => (
+                    <option key={option} value={option} className="text-slate-800">{option}</option>
+                  ))}
+                </select>
+              ) : field.type === 'textarea' ? (
+                <textarea 
+                  rows={3} 
+                  className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-200 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 hover:bg-white/15 resize-none"
+                  placeholder={`Tell us about your ${field.label.toLowerCase()}...`}
+                />
+              ) : (
+                <input 
+                  type={field.type} 
+                  className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-200 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 hover:bg-white/15" 
+                />
+              )}
+            </div>
+          ))}
 
-        <Button 
-          type="submit" 
-          className={`w-full bg-gradient-to-r ${contactType.color} hover:opacity-90 text-white py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]`}
-        >
-          <Send className="w-4 h-4 mr-2" />
-          Send Message to Owl International
-        </Button>
-      </form>
+          <div>
+            <label className="block text-sm font-medium text-white/90 mb-2">Additional Message</label>
+            <textarea 
+              rows={4} 
+              className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all duration-200 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 hover:bg-white/15 resize-none"
+              placeholder="Share your ideas, vision, or questions about contributing to our sustainable ecosystem..."
+            />
+          </div>
+
+          <Button 
+            type="submit" 
+            className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02] border border-white/20"
+          >
+            <Send className="w-4 h-4 mr-2" />
+            Send Message to Owl International
+          </Button>
+        </form>
+      </div>
     );
   };
 
-  return (
-    <div className="flex flex-col sm:flex-row gap-6 justify-center">
-      {contactTypes.map((contactType) => {
-        const Icon = contactType.icon;
-        return (
-          <Dialog key={contactType.id} open={activeForm === contactType.id} onOpenChange={(open) => setActiveForm(open ? contactType.id : null)}>
-            <DialogTrigger asChild>
-              <div className={`bg-gradient-to-br ${contactType.color} ${contactType.hoverColor} rounded-2xl p-6 cursor-pointer transition-all duration-500 transform hover:-translate-y-3 ${contactType.shadowColor} hover:scale-105 group relative overflow-hidden`}>
-                {/* Animated background effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative z-10 text-center text-white">
-                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{contactType.title}</h3>
-                  <p className="text-sm opacity-90 leading-relaxed">{contactType.description}</p>
-                  
-                  {/* Hover indicator */}
-                  <div className="mt-4 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/20 rounded-full px-3 py-1 inline-block">
-                    Click to connect →
-                  </div>
-                </div>
-              </div>
-            </DialogTrigger>
-            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-              <DialogHeader>
-                <DialogTitle className="flex items-center gap-3 text-xl">
-                  <div className={`w-10 h-10 bg-gradient-to-br ${contactType.color} rounded-lg flex items-center justify-center`}>
-                    <Icon className="w-5 h-5 text-white" />
-                  </div>
-                  {contactType.title}
-                </DialogTitle>
-                <p className="text-slate-600">{contactType.description}</p>
-              </DialogHeader>
-              {renderForm(contactType)}
-            </DialogContent>
-          </Dialog>
-        );
-      })}
-    </div>
-  );
+  return {
+    contactTypes,
+    renderContactLink: (contactType: typeof contactTypes[0]) => (
+      <Dialog key={contactType.id} open={activeForm === contactType.id} onOpenChange={(open) => setActiveForm(open ? contactType.id : null)}>
+        <DialogTrigger asChild>
+          <button className="text-white/90 hover:text-white font-semibold underline decoration-2 underline-offset-4 hover:decoration-white/60 transition-all duration-300">
+            {contactType.title}
+          </button>
+        </DialogTrigger>
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto border-0 bg-transparent p-0 shadow-none">
+          <div className="relative">
+            {renderForm(contactType)}
+          </div>
+        </DialogContent>
+      </Dialog>
+    )
+  };
 };
 
 export default ContactModal;
