@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -13,7 +12,7 @@ const Impact = () => {
   const contactModal = ContactModal();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-lime-50 via-green-50 to-emerald-100">
+    <div className="min-h-screen bg-white">
       <ScrollTrigger />
       <Navbar />
       
