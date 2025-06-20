@@ -77,16 +77,16 @@ const Scouts = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {/* Elite Network Access */}
             <div className="bg-white rounded-xl p-8 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 via-emerald-500 to-teal-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 <Globe className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-subtitle font-semibold mb-4 text-foreground">Elite Network Access</h3>
-              <p className="text-muted-foreground mb-4 font-body">Direct access to our portfolio ecosystem, C-suite executives, sovereign wealth funds, and institutional investors across Africa and Europe.</p>
+              <p className="text-muted-foreground mb-4 font-body">Access to investment banks and elite West/East African networks through strategic pooling. Contribute your connections while gaining access to our collective intelligence and professional ecosystem.</p>
             </div>
 
             {/* Lucrative Compensation */}
             <div className="bg-white rounded-xl p-8 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-amber-400 via-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 <DollarSign className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-subtitle font-semibold mb-4 text-foreground">Lucrative Compensation</h3>
@@ -97,7 +97,7 @@ const Scouts = () => {
 
             {/* Strategic Impact */}
             <div className="bg-white rounded-xl p-8 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 via-indigo-500 to-purple-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 <TrendingUp className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-subtitle font-semibold mb-4 text-foreground">Strategic Impact</h3>
@@ -108,18 +108,18 @@ const Scouts = () => {
 
             {/* Professional Recognition */}
             <div className="bg-white rounded-xl p-8 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-400 via-violet-500 to-indigo-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 <Award className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-subtitle font-semibold mb-4 text-foreground">Professional Recognition</h3>
               <p className="text-muted-foreground mb-4 font-body">
-                Association with Africa's premier investment firm, thought leadership opportunities, speaking engagements, and recognition in international business circles.
+                Association with Africa's rising star of private investments in strategic sectors, thought leadership opportunities, speaking engagements, and recognition in international business circles.
               </p>
             </div>
 
             {/* Intelligence Resources */}
             <div className="bg-white rounded-xl p-8 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-red-400 via-pink-500 to-rose-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 <Shield className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-subtitle font-semibold mb-4 text-foreground">Strategic Resources</h3>
@@ -130,12 +130,12 @@ const Scouts = () => {
 
             {/* Exclusive Access */}
             <div className="bg-white rounded-xl p-8 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-indigo-400 via-blue-500 to-cyan-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 <Star className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-subtitle font-semibold mb-4 text-foreground">Exclusive Opportunities</h3>
               <p className="text-muted-foreground mb-4 font-body">
-                First access to pre-IPO opportunities, private equity deals, infrastructure projects, and sovereign investment initiatives across 54 African nations.
+                Collaborative platform to uncover the most exciting private equity deals, PPP infrastructure projects, and private + sovereign investment initiatives across all 54 African nations - built together as a common endeavor.
               </p>
             </div>
           </div>
@@ -284,13 +284,13 @@ const Scouts = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-section text-slate-800 mb-6 font-brand">READY TO JOIN THE ELITE?</h2>
+            <h2 className="text-section text-slate-800 mb-6 font-brand">READY TO JOIN OWL'S BUSINESS SCOUTS?</h2>
             <p className="text-body-large text-slate-600 max-w-3xl mx-auto font-body mb-8">
               Only 50 business scouts will be selected globally. Applications close when positions are filled. 
               Don't miss your opportunity to join Africa's most prestigious business intelligence network.
             </p>
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 max-w-2xl mx-auto mb-8">
-              <p className="text-amber-800 font-semibold">⚡ Limited Time: First 25 approved scouts receive signing bonus</p>
+              <p className="text-amber-800 font-semibold">⚡ Limited Time: First 25 approved scouts receive signing welcome package</p>
             </div>
           </div>
 
@@ -303,11 +303,6 @@ const Scouts = () => {
                 <Button size="lg" className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-subtitle font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105" onClick={() => window.open('mailto:scouts@owlinternational.com?subject=Business Scout Application - Executive Track&body=Dear Owl International Team,%0D%0A%0D%0AI am interested in joining your elite business scout network. Please find my preliminary information below:%0D%0A%0D%0AName: %0D%0AExperience: %0D%0ARegional Expertise: %0D%0ANotable Deals: %0D%0ALinkedIn: %0D%0A%0D%0AI look forward to discussing this prestigious opportunity.%0D%0A%0D%0ABest regards')}>
                   <Mail className="w-5 h-5 mr-2" />
                   Send Direct Email
-                </Button>
-
-                <Button size="lg" variant="outline" className="w-full border-2 border-slate-300 text-slate-700 font-subtitle font-bold py-4 rounded-xl hover:border-blue-400 hover:bg-blue-50 transition-all duration-300" onClick={() => window.open('https://calendly.com/owlinternational/business-scout-screening', '_blank')}>
-                  <Phone className="w-5 h-5 mr-2" />
-                  Schedule Screening Call
                 </Button>
 
                 <div className="border-2 border-dashed border-slate-300 rounded-xl p-6 text-center hover:border-blue-400 transition-colors cursor-pointer">
@@ -362,8 +357,13 @@ const Scouts = () => {
                     <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} placeholder="Brief description of your most significant deals, their value, and impact..." required rows={4} className="mt-1 flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-subtitle font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105">
-                    Submit Elite Application
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full relative overflow-hidden bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-subtitle font-bold py-4 rounded-xl transition-all duration-500 transform hover:scale-105 group"
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
+                    <span className="relative z-10">Submit Elite Application</span>
                   </Button>
                 </form>
 
