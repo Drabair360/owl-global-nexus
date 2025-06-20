@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FoundationPyramid from '@/components/impact/FoundationPyramid';
@@ -9,6 +10,30 @@ import ContactModal from '@/components/impact/ContactModal';
 
 const Impact = () => {
   const contactModal = ContactModal();
+
+  // Scroll trigger functionality
+  useEffect(() => {
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -10% 0px'
+    });
+
+    // Observe all scroll-trigger elements
+    const scrollElements = document.querySelectorAll('.scroll-trigger');
+    scrollElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      scrollElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-lime-50 via-green-50 to-emerald-100">
@@ -40,7 +65,7 @@ const Impact = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           {/* Core Philosophy Introduction */}
-          <div className="text-center mb-16 animate-institutional-rise">
+          <div className="text-center mb-16 animate-institutional-rise scroll-trigger opacity-0 translate-y-8">
             <h2 className="text-section text-slate-800 mb-6 font-brand hover:text-shadow-md transition-all duration-300">BOTTOM-UP SUSTAINABILITY</h2>
             <p className="text-body-large text-slate-600 max-w-4xl mx-auto font-body leading-relaxed">
               We don't build sustainability as an afterthought. Every platform, every algorithm, every partnership 
@@ -50,27 +75,27 @@ const Impact = () => {
           </div>
 
           {/* Enhanced Foundation Ecosystem */}
-          <div className="animate-elegant-scale">
+          <div className="animate-elegant-scale scroll-trigger opacity-0 translate-y-8">
             <FoundationPyramid />
           </div>
 
           {/* Success Multiplier Philosophy - Enhanced Background */}
-          <div className="my-20 animate-institutional-rise">
+          <div className="my-20 animate-institutional-rise scroll-trigger opacity-0 translate-y-8">
             <SuccessMultiplier />
           </div>
 
           {/* Global Context */}
-          <div className="my-20 animate-elegant-scale">
+          <div className="my-20 animate-elegant-scale scroll-trigger opacity-0 translate-y-8">
             <GlobalContext />
           </div>
 
           {/* Concrete Outcomes by 2030 - Enhanced with Vibrant Glows */}
-          <div className="animate-sophisticated-fade">
+          <div className="animate-sophisticated-fade scroll-trigger opacity-0 translate-y-8">
             <OutcomeProjections />
           </div>
 
           {/* Industry Deep Dive - Enhanced Background */}
-          <div className="mt-20 bg-gradient-to-br from-slate-100 via-blue-100 to-indigo-100 rounded-3xl p-12 animate-elegant-scale backdrop-blur-sm">
+          <div className="mt-20 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200 rounded-3xl p-12 animate-elegant-scale backdrop-blur-sm scroll-trigger opacity-0 translate-y-8">
             <div className="text-center mb-12">
               <h3 className="text-2xl font-semibold text-slate-800 mb-4 font-body hover:text-shadow-sm transition-all duration-300">Industry Transformation Impact</h3>
               <p className="text-slate-600 font-body max-w-3xl mx-auto">
@@ -105,14 +130,10 @@ const Impact = () => {
             </div>
           </div>
 
-          {/* Enhanced Call to Action - Accentuated Chameleon Text */}
-          <div className="mt-20 text-center py-16 animate-sophisticated-fade">
+          {/* Enhanced Call to Action - Dynamic Green Chameleon Text */}
+          <div className="mt-20 text-center py-16 animate-sophisticated-fade scroll-trigger opacity-0 translate-y-8">
             <div className="relative">
-              <h3 className="text-4xl md:text-5xl font-bold mb-8 font-body bg-gradient-to-r from-emerald-400 via-teal-500 via-cyan-500 to-blue-600 bg-clip-text text-transparent animate-gradient-shift bg-[length:300%_300%] hover:scale-105 transition-all duration-500" 
-                  style={{
-                    textShadow: '0 2px 4px rgba(20, 184, 166, 0.1), 0 4px 8px rgba(6, 182, 212, 0.1)',
-                    animation: 'chameleon-text 4s ease-in-out infinite, gradient-shift 3s ease-in-out infinite'
-                  }}>
+              <h3 className="text-4xl md:text-5xl font-bold mb-8 font-body chameleon-green-text hover:scale-105 transition-all duration-500">
                 Join OWL's Sustainable Endeavors
               </h3>
               <p className="text-xl text-slate-700 mb-12 max-w-4xl mx-auto font-body leading-relaxed hover:text-slate-900 transition-colors duration-300">
