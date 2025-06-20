@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -74,10 +75,10 @@ const Impact = () => {
         </div>
       </section>
 
-      {/* Industry Deep Dive - Independent Section */}
-      <section className="pt-20 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200 scroll-section" data-section="industry">
+      {/* NEW Clean Industry Transformation Section */}
+      <section className="py-16 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200 scroll-section" data-section="industry">
         <div className="container mx-auto px-4">
-          <div className="bg-white/40 backdrop-blur-sm px-12 pt-12 pb-0 scroll-trigger opacity-0 translate-y-8" data-delay="600">
+          <div className="scroll-trigger opacity-0 translate-y-8" data-delay="600">
             <div className="text-center mb-12">
               <h3 className="text-2xl font-semibold text-slate-800 mb-4 font-body hover:text-shadow-sm transition-all duration-300">Industry Transformation Impact</h3>
               <p className="text-slate-600 font-body max-w-3xl mx-auto">
@@ -114,9 +115,9 @@ const Impact = () => {
         </div>
       </section>
 
-      {/* Enhanced Call to Action - Properly Centered Between Sections */}
-      <section className="min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200 py-0">
-        <div className="container mx-auto px-4 mt-[72px] mb-[72px]">
+      {/* NEW Clean Call to Action Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200">
+        <div className="container mx-auto px-4">
           <div className="text-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
             <div className="relative">
               <h3 className="text-4xl md:text-5xl font-bold mb-8 font-body giraffe-spot-chameleon-text">
@@ -152,3 +153,4 @@ const Impact = () => {
 };
 
 export default Impact;
+
