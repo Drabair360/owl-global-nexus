@@ -23,30 +23,30 @@ const InvestorLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 pt-24 px-4 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.15),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(251,146,60,0.15),transparent_50%)]" />
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-800 via-purple-700 to-white pt-24 px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(99,102,241,0.15),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(168,85,247,0.12),transparent_50%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-heading font-semibold text-white mb-6 tracking-tight">
-            <span className="gradient-text-institutional">Investor</span> Portal
+            <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">Investor</span> Portal
           </h1>
           <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto font-body leading-relaxed">
             Access exclusive investment opportunities, portfolio insights, and strategic market intelligence 
             across our African and European operations.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mb-8">
-            <Badge variant="secondary" className="bg-blue-100/20 text-blue-200 border-blue-300/30 px-4 py-2 text-sm font-subtitle">
+            <Badge variant="secondary" className="bg-blue-500/25 text-blue-200 border-blue-400/40 px-4 py-2 text-sm font-subtitle">
               <BarChart3 className="w-4 h-4 mr-2" />
               Real-time Analytics
             </Badge>
-            <Badge variant="secondary" className="bg-amber-100/20 text-amber-200 border-amber-300/30 px-4 py-2 text-sm font-subtitle">
+            <Badge variant="secondary" className="bg-purple-500/25 text-purple-200 border-purple-400/40 px-4 py-2 text-sm font-subtitle">
               <Globe2 className="w-4 h-4 mr-2" />
               Global Markets
             </Badge>
-            <Badge variant="secondary" className="bg-purple-100/20 text-purple-200 border-purple-300/30 px-4 py-2 text-sm font-subtitle">
+            <Badge variant="secondary" className="bg-indigo-500/25 text-indigo-200 border-indigo-400/40 px-4 py-2 text-sm font-subtitle">
               <TrendingUp className="w-4 h-4 mr-2" />
               Growth Opportunities
             </Badge>
@@ -55,9 +55,9 @@ const InvestorLogin = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Login Form */}
-          <Card className="backdrop-blur-xl bg-white/10 border border-white/20 shadow-glow-amber hover:shadow-glow-blue transition-all duration-500">
+          <Card className="backdrop-blur-xl bg-white/15 border border-white/25 shadow-xl hover:shadow-2xl transition-all duration-500">
             <CardHeader className="text-center pb-8">
-              <div className="mx-auto w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center mb-6">
+              <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mb-6 shadow-lg">
                 <Shield className="w-8 h-8 text-white" />
               </div>
               <CardTitle className="text-2xl font-heading text-white">Secure Access</CardTitle>
@@ -80,7 +80,7 @@ const InvestorLogin = () => {
                       placeholder="investor@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-blue-300 focus:border-amber-400 transition-all duration-300"
+                      className="pl-10 bg-white/15 border-white/25 text-white placeholder:text-blue-300 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-300"
                       required
                     />
                   </div>
@@ -98,7 +98,7 @@ const InvestorLogin = () => {
                       placeholder="••••••••"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-blue-300 focus:border-amber-400 transition-all duration-300"
+                      className="pl-10 bg-white/15 border-white/25 text-white placeholder:text-blue-300 focus:border-blue-400 focus:ring-blue-400/50 transition-all duration-300"
                       required
                     />
                   </div>
@@ -123,9 +123,9 @@ const InvestorLogin = () => {
                 </Button>
 
                 <div className="text-center">
-                  <a href="#" className="text-sm text-blue-300 hover:text-amber-300 transition-colors font-subtitle relative group">
+                  <a href="#" className="text-sm text-blue-300 hover:text-purple-300 transition-colors font-subtitle relative group">
                     Forgot your password?
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </div>
               </form>
@@ -136,7 +136,7 @@ const InvestorLogin = () => {
           <div className="space-y-8">
             <div className="text-center lg:text-left">
               <h2 className="text-3xl font-heading font-semibold text-white mb-6">
-                Investment <span className="gradient-text-institutional">Intelligence</span>
+                Investment <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">Intelligence</span>
               </h2>
               <p className="text-blue-200 font-body text-lg leading-relaxed">
                 Access comprehensive market analytics, portfolio performance metrics, and exclusive 
@@ -145,11 +145,11 @@ const InvestorLogin = () => {
             </div>
 
             <div className="grid grid-cols-1 gap-6">
-              <Card className="bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:shadow-glow-blue">
+              <Card className="bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/15 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mr-4">
-                      <BarChart3 className="w-6 h-6 text-blue-400" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-4 shadow-lg">
+                      <BarChart3 className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="text-xl font-heading text-white">Portfolio Analytics</h3>
                   </div>
@@ -159,11 +159,11 @@ const InvestorLogin = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:shadow-glow-amber">
+              <Card className="bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/15 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center mr-4">
-                      <TrendingUp className="w-6 h-6 text-amber-400" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mr-4 shadow-lg">
+                      <TrendingUp className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="text-xl font-heading text-white">Market Insights</h3>
                   </div>
@@ -173,11 +173,11 @@ const InvestorLogin = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:shadow-glow-purple">
+              <Card className="bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/15 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/20">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mr-4">
-                      <Users className="w-6 h-6 text-purple-400" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center mr-4 shadow-lg">
+                      <Users className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="text-xl font-heading text-white">Network Access</h3>
                   </div>
