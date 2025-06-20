@@ -1,6 +1,3 @@
-
-
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -42,7 +39,7 @@ const Impact = () => {
       </section>
 
       {/* Redesigned Content with Bottom-Up Sustainability Approach */}
-      <section className="py-20 bg-white scroll-section" data-section="content">
+      <section className="pt-20 pb-8 bg-white scroll-section" data-section="content">
         <div className="container mx-auto px-4">
           {/* Core Philosophy Introduction */}
           <div className="text-center mb-16 scroll-trigger opacity-0 translate-y-8" data-delay="100">
@@ -113,7 +110,7 @@ const Impact = () => {
       </section>
 
       {/* Enhanced Call to Action - Separate Section with Optimal Spacing */}
-      <section className="py-12 bg-white">
+      <section className="pt-4 pb-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
             <div className="relative">
@@ -150,5 +147,3 @@ const Impact = () => {
 };
 
 export default Impact;
-
-
