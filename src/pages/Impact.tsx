@@ -110,7 +110,7 @@ const Impact = () => {
       </section>
 
       {/* Enhanced Call to Action - Separate Section with Optimal Spacing */}
-      <section className="pt-4 pb-12 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
             <div className="relative">
