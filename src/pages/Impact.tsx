@@ -1,7 +1,10 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Leaf, Users, Globe, TrendingUp, Heart, Lightbulb } from 'lucide-react';
+import FoundationPyramid from '@/components/impact/FoundationPyramid';
+import GlobalContext from '@/components/impact/GlobalContext';
+import OutcomeProjections from '@/components/impact/OutcomeProjections';
+import SuccessMultiplier from '@/components/impact/SuccessMultiplier';
 
 const Impact = () => {
   return (
@@ -30,116 +33,89 @@ const Impact = () => {
         </div>
       </section>
 
-      {/* Content */}
-      <section className="py-16 bg-white">
-        {/* Section Header */}
+      {/* Redesigned Content with Bottom-Up Sustainability Approach */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-section text-slate-800 mb-4 font-brand">SUSTAINABLE DEVELOPMENT</h2>
-            <p className="text-body-large text-slate-600 max-w-3xl mx-auto font-body">
-              Our commitment to sustainable development is at the core of everything we do. We strive to create
-              lasting positive change in the communities we serve.
+          {/* Core Philosophy Introduction */}
+          <div className="text-center mb-16">
+            <h2 className="text-section text-slate-800 mb-6 font-brand">BOTTOM-UP SUSTAINABILITY</h2>
+            <p className="text-body-large text-slate-600 max-w-4xl mx-auto font-body leading-relaxed">
+              We don't build sustainability as an afterthought. Every platform, every algorithm, every partnership 
+              is designed from the ground up to create lasting positive impact. Our success is fundamentally 
+              tied to the success of the millions of individuals we serve across Africa.
             </p>
           </div>
 
-          {/* Impact Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Job Creation */}
-            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Users className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Job Creation</h3>
-              <p className="text-muted-foreground mb-4 font-body">
-                Creating sustainable employment opportunities for local communities.
-              </p>
-              <div className="flex items-center justify-between">
-                <span className="text-2xl font-bold text-blue-700">5,000+</span>
-                <span className="text-sm text-blue-600 font-subtitle">Jobs Created</span>
-              </div>
-            </div>
+          {/* Foundation Pyramid - Four Pillars */}
+          <FoundationPyramid />
 
-            {/* Environmental Impact */}
-            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(34,197,94,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Leaf className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Environmental Impact</h3>
-              <p className="text-muted-foreground mb-4 font-body">
-                Reducing our carbon footprint and promoting eco-friendly practices.
-              </p>
-              <div className="flex items-center justify-between">
-                <span className="text-2xl font-bold text-green-700">30%</span>
-                <span className="text-sm text-green-600 font-subtitle">Reduced Emissions</span>
-              </div>
-            </div>
-
-            {/* Community Empowerment */}
-            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(251,146,60,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Globe className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Community Empowerment</h3>
-              <p className="text-muted-foreground mb-4 font-body">
-                Empowering local communities through education, training, and resources.
-              </p>
-              <div className="flex items-center justify-between">
-                <span className="text-2xl font-bold text-amber-700">10,000+</span>
-                <span className="text-sm text-amber-600 font-subtitle">Lives Impacted</span>
-              </div>
-            </div>
-
-            {/* Economic Growth */}
-            <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(147,51,234,0.3)] transition-all duration-300 group hover:-translate-y-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <TrendingUp className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Economic Growth</h3>
-              <p className="text-muted-foreground mb-4 font-body">
-                Driving economic growth and prosperity through strategic investments.
-              </p>
-              <div className="flex items-center justify-between">
-                <span className="text-2xl font-bold text-purple-700">15%</span>
-                <span className="text-sm text-purple-600 font-subtitle">GDP Contribution</span>
-              </div>
-            </div>
+          {/* Global Context */}
+          <div className="my-20">
+            <GlobalContext />
           </div>
 
-          {/* Impact Stories */}
-          <div className="mt-16">
-            <h2 className="text-section text-slate-800 mb-6 text-center font-brand">IMPACT STORIES</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Story 1 */}
-              <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(59,130,246,0.3)] transition-all duration-300 group hover:-translate-y-2">
-                <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Empowering Women in Agriculture</h3>
-                <p className="text-muted-foreground mb-4 font-body">
-                  Through our CAOAGRO initiative, we've provided training and resources to over 500 women farmers,
-                  increasing their yields and improving their livelihoods.
-                </p>
-                <a href="#" className="text-blue-600 hover:text-blue-700 font-subtitle font-semibold">Read More</a>
-              </div>
+          {/* Concrete Outcomes by 2030 */}
+          <OutcomeProjections />
 
-              {/* Story 2 */}
-              <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-[0_10px_40px_rgba(34,197,94,0.3)] transition-all duration-300 group hover:-translate-y-2">
-                <h3 className="text-xl font-subtitle font-semibold mb-3 text-foreground">Digital Literacy for All</h3>
-                <p className="text-muted-foreground mb-4 font-body">
-                  Our AKOULA platform has enabled digital literacy programs in underserved communities, providing
-                  access to education and technology for thousands of individuals.
-                </p>
-                <a href="#" className="text-green-600 hover:text-green-700 font-subtitle font-semibold">Read More</a>
+          {/* Success Multiplier Philosophy */}
+          <SuccessMultiplier />
+
+          {/* Industry Deep Dive */}
+          <div className="mt-20 bg-gradient-to-br from-slate-50 to-indigo-50 rounded-3xl p-12">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl font-semibold text-slate-800 mb-4 font-body">Industry Transformation Impact</h3>
+              <p className="text-slate-600 font-body max-w-3xl mx-auto">
+                Our integrated approach addresses multiple UN Sustainable Development Goals simultaneously
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 mb-2">SDG 1, 8, 10</div>
+                <div className="text-sm font-semibold text-slate-700 mb-2">Economic Empowerment</div>
+                <p className="text-xs text-slate-600">Poverty reduction, decent work, reduced inequalities</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-600 mb-2">SDG 2, 12, 15</div>
+                <div className="text-sm font-semibold text-slate-700 mb-2">Sustainable Agriculture</div>
+                <p className="text-xs text-slate-600">Zero hunger, responsible consumption, life on land</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-600 mb-2">SDG 4, 5, 9</div>
+                <div className="text-sm font-semibold text-slate-700 mb-2">Digital Inclusion</div>
+                <p className="text-xs text-slate-600">Quality education, gender equality, innovation</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="text-3xl font-bold text-amber-600 mb-2">SDG 11, 13, 17</div>
+                <div className="text-sm font-semibold text-slate-700 mb-2">Smart Cities</div>
+                <p className="text-xs text-slate-600">Sustainable cities, climate action, partnerships</p>
               </div>
             </div>
           </div>
 
           {/* Call to Action */}
-          <div className="mt-16 text-center">
-            <p className="text-body-large text-slate-600 mb-8 font-body">
-              Join us in our mission to create a better future for Africa.
-            </p>
-            {/*<Button size="lg" className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-subtitle font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-sophisticated">
-              Get Involved
-            </Button>*/}
+          <div className="mt-20 text-center">
+            <div className="bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 rounded-3xl p-12 text-white">
+              <h3 className="text-2xl font-semibold mb-6 font-body">Join the Sustainable Revolution</h3>
+              <p className="text-body-large text-blue-100 mb-8 max-w-3xl mx-auto font-body">
+                Partner with us to build Africa's most sustainable and inclusive economic ecosystem. 
+                Together, we're not just creating value—we're transforming lives.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
+                  <span className="text-white font-semibold">For Investors</span>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
+                  <span className="text-white font-semibold">For Partners</span>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
+                  <span className="text-white font-semibold">For Communities</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
