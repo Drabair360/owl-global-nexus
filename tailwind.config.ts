@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -195,6 +194,17 @@ export default {
 					'100%': {
 						transform: 'translateX(-100%)'
 					}
+				},
+				'gradient-shift': {
+					'0%': {
+						backgroundPosition: '0% 50%'
+					},
+					'50%': {
+						backgroundPosition: '100% 50%'
+					},
+					'100%': {
+						backgroundPosition: '0% 50%'
+					}
 				}
 			},
 			animation: {
@@ -206,7 +216,8 @@ export default {
 				'elegant-scale': 'elegant-scale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
 				'particle-float': 'particle-float 6s ease-in-out infinite',
 				'geometric-pulse': 'geometric-pulse 4s ease-in-out infinite',
-				'scroll-ticker': 'scroll-ticker 60s linear infinite'
+				'scroll-ticker': 'scroll-ticker 25s linear infinite',
+				'gradient-shift': 'gradient-shift 8s ease-in-out infinite'
 			},
 			backdropBlur: {
 				'xs': '2px',
