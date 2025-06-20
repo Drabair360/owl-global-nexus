@@ -71,9 +71,22 @@ const News = () => {
           {/* Section Header */}
           <div className="text-center mb-12">
             <h2 className="text-section text-slate-800 mb-4 font-brand">LATEST NEWS</h2>
-            <p className="text-body-large text-slate-600 max-w-3xl mx-auto font-body">
+            <p className="text-body-large text-slate-600 max-w-3xl mx-auto font-body mb-8">
               Explore the latest news, insights, and stories from OWL International and our portfolio companies.
             </p>
+
+            {/* Animated News Ticker */}
+            <div className="relative w-full overflow-hidden bg-gradient-to-r from-cyan-50 via-blue-50 to-purple-50 rounded-xl border border-slate-200 shadow-sm mb-12">
+              <div className="py-4 px-4">
+                <div className="animate-scroll-ticker whitespace-nowrap">
+                  <span className="bg-gradient-to-r from-cyan-600 via-blue-600 via-purple-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent font-semibold text-lg">
+                    🔥 AKOULA launches revolutionary AI-powered agro-industrial platforms targeting West & Central Africa • CAOAGRO.COM wins major contract for Côte d'Ivoire's first industrial Shea Butter production plant • KIDZ LAB revolutionizes talent matching with AI automation and Charlie iteration pilot launching September 2025 • OWLOMA set to launch as OWL's new real estate entity S1 2026 supporting young businesses • CAOAGRO.COM finalizes exclusive discussions for West Africa truck dealership headquarters in Abidjan • KIDZ LAB enters exclusive talks to acquire Paris' premier children's modeling agency MY AGENCY KIDS • CAOAGRO.COM pioneers Hevea tree seed processing technology development addressing massive waste streams 🔥
+                  </span>
+                </div>
+              </div>
+              <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-white to-transparent z-10"></div>
+              <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-white to-transparent z-10"></div>
+            </div>
           </div>
 
           {/* News Carousel */}

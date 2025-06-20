@@ -187,6 +187,14 @@ export default {
 						opacity: '0.7',
 						transform: 'scale(1.05)'
 					}
+				},
+				'scroll-ticker': {
+					'0%': {
+						transform: 'translateX(100%)'
+					},
+					'100%': {
+						transform: 'translateX(-100%)'
+					}
 				}
 			},
 			animation: {
@@ -197,7 +205,8 @@ export default {
 				'institutional-rise': 'institutional-rise 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
 				'elegant-scale': 'elegant-scale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
 				'particle-float': 'particle-float 6s ease-in-out infinite',
-				'geometric-pulse': 'geometric-pulse 4s ease-in-out infinite'
+				'geometric-pulse': 'geometric-pulse 4s ease-in-out infinite',
+				'scroll-ticker': 'scroll-ticker 60s linear infinite'
 			},
 			backdropBlur: {
 				'xs': '2px',
