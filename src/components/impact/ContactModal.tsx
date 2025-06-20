@@ -81,22 +81,29 @@ const ContactModal = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">Full Name *</label>
-            <input required className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <input 
+              required 
+              className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md" 
+            />
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">Email *</label>
-            <input type="email" required className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <input 
+              type="email" 
+              required 
+              className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md" 
+            />
           </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">Organization</label>
-            <input className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <input className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md" />
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">Country</label>
-            <input className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <input className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md" />
           </div>
         </div>
 
@@ -104,7 +111,7 @@ const ContactModal = () => {
           <div key={field.name}>
             <label className="block text-sm font-medium text-slate-700 mb-1">{field.label}</label>
             {field.type === 'select' ? (
-              <select className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <select className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md">
                 <option value="">Select an option</option>
                 {field.options?.map((option) => (
                   <option key={option} value={option}>{option}</option>
@@ -113,13 +120,13 @@ const ContactModal = () => {
             ) : field.type === 'textarea' ? (
               <textarea 
                 rows={3} 
-                className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md resize-none"
                 placeholder={`Tell us about your ${field.label.toLowerCase()}...`}
               />
             ) : (
               <input 
                 type={field.type} 
-                className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md" 
               />
             )}
           </div>
@@ -129,12 +136,15 @@ const ContactModal = () => {
           <label className="block text-sm font-medium text-slate-700 mb-1">Additional Message</label>
           <textarea 
             rows={4} 
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gradient-to-r from-white to-slate-50 hover:shadow-md resize-none"
             placeholder="Share your ideas, vision, or questions about contributing to our sustainable ecosystem..."
           />
         </div>
 
-        <Button type="submit" className={`w-full bg-gradient-to-r ${contactType.color} hover:opacity-90 text-white`}>
+        <Button 
+          type="submit" 
+          className={`w-full bg-gradient-to-r ${contactType.color} hover:opacity-90 text-white py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]`}
+        >
           <Send className="w-4 h-4 mr-2" />
           Send Message to Owl International
         </Button>

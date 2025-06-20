@@ -48,7 +48,7 @@ const Impact = () => {
             </p>
           </div>
 
-          {/* Foundation Ecosystem Web - Enhanced Four Pillars */}
+          {/* Simplified Foundation Ecosystem */}
           <FoundationPyramid />
 
           {/* Global Context */}
@@ -98,11 +98,11 @@ const Impact = () => {
             </div>
           </div>
 
-          {/* Enhanced Call to Action with Interactive Contact Forms */}
+          {/* Enhanced Call to Action with Simplified Gradient */}
           <div className="mt-20 text-center">
-            <div className="bg-gradient-to-r from-blue-400 via-teal-400 via-green-400 to-lime-400 rounded-3xl p-12 text-slate-800 relative overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.2),transparent_70%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.15),transparent_60%)]" />
+            <div className="bg-gradient-to-r from-emerald-200 to-teal-200 rounded-3xl p-12 text-slate-800 relative overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.3),transparent_70%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.2),transparent_60%)]" />
               
               <div className="relative z-10">
                 <h3 className="text-2xl font-semibold mb-6 font-body text-slate-900">Join the Sustainable Revolution</h3>
