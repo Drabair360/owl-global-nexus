@@ -74,7 +74,7 @@ const Impact = () => {
       </section>
 
       {/* Combined Industry Transformation & Call to Action Section */}
-      <section className="pt-16 pb-20 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200 scroll-section" data-section="industry">
+      <section className="pt-16 pb-0 bg-gradient-to-br from-slate-200 via-blue-200 to-indigo-200 scroll-section" data-section="industry">
         <div className="container mx-auto px-4">
           {/* Industry Transformation Content */}
           <div className="scroll-trigger opacity-0 translate-y-8" data-delay="600">
@@ -85,7 +85,7 @@ const Impact = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
               <div className="text-center scroll-trigger opacity-0 translate-y-4" data-delay="700">
                 <div className="text-3xl font-bold text-blue-600 mb-2">SDG 1, 8, 10</div>
                 <div className="text-sm font-semibold text-slate-700 mb-2">Economic Empowerment</div>
@@ -113,7 +113,7 @@ const Impact = () => {
           </div>
 
           {/* Call to Action Content */}
-          <div className="text-center scroll-trigger opacity-0 translate-y-8" data-delay="900">
+          <div className="text-center scroll-trigger opacity-0 translate-y-8 pb-20" data-delay="900">
             <div className="relative">
               <h3 className="text-4xl md:text-5xl font-bold mb-8 font-body giraffe-spot-chameleon-text">
                 Join OWL's Sustainable Endeavors
