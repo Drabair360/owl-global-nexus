@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -39,7 +40,7 @@ const Impact = () => {
       </section>
 
       {/* Main Content Section - Redesigned with Bottom-Up Sustainability Approach */}
-      <section className="pt-20 pb-0 bg-white scroll-section" data-section="content">
+      <section className="pt-20 pb-20 bg-white scroll-section" data-section="content">
         <div className="container mx-auto px-4">
           {/* Core Philosophy Introduction */}
           <div className="text-center mb-16 scroll-trigger opacity-0 translate-y-8" data-delay="100">
