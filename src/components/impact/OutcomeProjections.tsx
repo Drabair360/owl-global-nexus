@@ -67,7 +67,7 @@ const OutcomeProjections = () => {
   ];
 
   return (
-    <div className="mb-0">
+    <div className="pb-20">
       <div className="text-center mb-12">
         <h3 className="text-2xl font-semibold text-slate-800 mb-4 font-body hover:text-shadow-sm transition-all duration-300">Concrete Outcomes by 2030</h3>
         <p className="text-slate-600 font-body max-w-3xl mx-auto">
