@@ -55,16 +55,18 @@ const Footer = () => {
               <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide" style={{
               fontFamily: 'Avenir Next, sans-serif'
             }}>STAY CONNECTED</h3>
-              <p className="text-gray-300 mb-4 text-sm">
-                Get updates on our latest projects and investment opportunities.
-              </p>
-              <div className="flex gap-3 max-w-md">
-                <input type="email" placeholder="Enter your email" className="flex-1 px-4 py-2 bg-slate-800/60 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 text-sm backdrop-blur-sm transition-all duration-300" />
-                <button className="px-6 py-2 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-600 hover:from-yellow-500 hover:via-amber-600 hover:to-orange-700 text-white rounded-lg transition-all duration-300 text-sm font-semibold shadow-lg hover:shadow-xl hover:shadow-amber-500/25 transform hover:scale-105 active:scale-95" style={{
-                fontFamily: 'Avenir Next, sans-serif'
-              }}>
-                  Subscribe
-                </button>
+              <div className="flex items-center gap-4 mb-4">
+                <p className="text-gray-300 text-sm">
+                  Get updates on our latest projects and investment opportunities.
+                </p>
+                <div className="flex gap-3">
+                  <input type="email" placeholder="Enter your email" className="px-4 py-2 bg-slate-800/60 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 text-sm backdrop-blur-sm transition-all duration-300" />
+                  <button className="px-6 py-2 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-600 hover:from-yellow-500 hover:via-amber-600 hover:to-orange-700 text-white rounded-lg transition-all duration-300 text-sm font-semibold shadow-lg hover:shadow-xl hover:shadow-amber-500/25 transform hover:scale-105 active:scale-95" style={{
+                  fontFamily: 'Avenir Next, sans-serif'
+                }}>
+                    Subscribe
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -74,7 +76,7 @@ const Footer = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-right">
               {/* Column 1: Company */}
               <div className="group relative cursor-pointer">
-                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide relative" style={{
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide relative inline-block" style={{
                   fontFamily: 'Avenir Next, sans-serif'
                 }}>
                   COMPANY
@@ -113,50 +115,54 @@ const Footer = () => {
               </div>
 
               {/* Column 2: Portfolio & Investors */}
-              <div className="group relative cursor-pointer">
-                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide relative" style={{
-                  fontFamily: 'Avenir Next, sans-serif'
-                }}>
-                  PORTFOLIO
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-500 ease-out"></span>
-                </h3>
-                <ul className="space-y-3 mb-8">
-                  <li>
-                    <Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+              <div>
+                <div className="group relative cursor-pointer mb-8">
+                  <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide relative inline-block" style={{
                     fontFamily: 'Avenir Next, sans-serif'
-                  }} onClick={() => window.scrollTo(0, 0)}>
-                      Investments
-                    </Link>
-                  </li>
-                </ul>
+                  }}>
+                    PORTFOLIO
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-500 ease-out"></span>
+                  </h3>
+                  <ul className="space-y-3">
+                    <li>
+                      <Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+                      fontFamily: 'Avenir Next, sans-serif'
+                    }} onClick={() => window.scrollTo(0, 0)}>
+                        Investments
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
 
-                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide relative" style={{
-                  fontFamily: 'Avenir Next, sans-serif'
-                }}>
-                  INVESTORS
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-500 ease-out"></span>
-                </h3>
-                <ul className="space-y-3">
-                  <li>
-                    <Link to="/investors" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+                <div className="group relative cursor-pointer">
+                  <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide relative inline-block" style={{
                     fontFamily: 'Avenir Next, sans-serif'
-                  }} onClick={() => window.scrollTo(0, 0)}>
-                      Investor Portal
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/scouts" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
-                    fontFamily: 'Avenir Next, sans-serif'
-                  }} onClick={() => window.scrollTo(0, 0)}>
-                      Scouts
-                    </Link>
-                  </li>
-                </ul>
+                  }}>
+                    INVESTORS
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-500 ease-out"></span>
+                  </h3>
+                  <ul className="space-y-3">
+                    <li>
+                      <Link to="/investors" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+                      fontFamily: 'Avenir Next, sans-serif'
+                    }} onClick={() => window.scrollTo(0, 0)}>
+                        Investor Portal
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/scouts" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
+                      fontFamily: 'Avenir Next, sans-serif'
+                    }} onClick={() => window.scrollTo(0, 0)}>
+                        Scouts
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
               {/* Column 3: Quick Links */}
               <div className="group relative cursor-pointer">
-                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide relative" style={{
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent tracking-wide relative inline-block" style={{
                   fontFamily: 'Avenir Next, sans-serif'
                 }}>
                   QUICK LINKS
@@ -220,7 +226,7 @@ const Footer = () => {
               <button onClick={() => setIsDoNotSellModalOpen(true)} className="text-gray-400 hover:text-white transition-colors duration-300 text-sm font-semibold" style={{
               fontFamily: 'Avenir Next, sans-serif'
             }}>
-                Do Not Sell My Info
+                Do Not Share or Sell My Info
               </button>
             </div>
 

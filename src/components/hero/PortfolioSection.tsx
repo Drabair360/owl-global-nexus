@@ -45,6 +45,30 @@ const PortfolioSection = () => {
       </svg>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Strategic Investment Sectors Title */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight font-heading">
+            Strategic
+            <span className="block mt-4">
+              <svg width="0" height="0" className="absolute">
+                <defs>
+                  <linearGradient id="sectorsTextGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#d97706" />
+                    <stop offset="25%" stopColor="#f97316" />
+                    <stop offset="50%" stopColor="#fbbf24" />
+                    <stop offset="75%" stopColor="#eab308" />
+                    <stop offset="100%" stopColor="#facc15" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span style={{ WebkitTextFillColor: 'transparent', backgroundImage: 'linear-gradient(45deg, #d97706, #f97316, #fbbf24, #eab308, #facc15)', WebkitBackgroundClip: 'text' }} className="font-bold drop-shadow-2xl">
+                Investment
+              </span>
+            </span>
+            <span className="block mt-4">Sectors</span>
+          </h2>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-20">
           
           <PortfolioCard
