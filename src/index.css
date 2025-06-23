@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -347,6 +348,14 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
+  /* Navbar Shadow Class */
+  .navbar-shadow {
+    box-shadow: 0 1px 0 0 transparent, 
+                0 4px 12px -2px rgba(245,158,11,0.4), 
+                0 8px 24px -4px rgba(217,119,6,0.3), 
+                0 12px 32px -6px rgba(251,191,36,0.2);
+  }
+
   /* Enhanced Glow Effects - Mobile Optimized */
   .shadow-glow-amber {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -359,17 +368,6 @@
       0 10px 30px rgba(249, 115, 22, 0.2),
       0 4px 12px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
-  }
-
-  /* Mobile-specific optimizations for amber glow */
-  @media (max-width: 768px) {
-    .shadow-glow-amber:hover {
-      box-shadow: 
-        0 8px 20px rgba(251, 146, 60, 0.15),
-        0 4px 12px rgba(249, 115, 22, 0.1),
-        0 2px 6px rgba(0, 0, 0, 0.05);
-      transform: translateY(-1px);
-    }
   }
 
   .shadow-glow-blue {
@@ -440,12 +438,12 @@
 
   /* Mobile-specific optimizations */
   @media (max-width: 768px) {
-    /* Adjust navbar shadow intensity on mobile - more visible but not overpowering */
-    nav {
+    /* Mobile navbar shadow - subtle but visible */
+    .navbar-shadow {
       box-shadow: 0 1px 0 0 transparent, 
-                  0 3px 8px -1px rgba(245,158,11,0.3), 
-                  0 6px 16px -2px rgba(217,119,6,0.25), 
-                  0 8px 20px -3px rgba(251,191,36,0.15) !important;
+                  0 2px 6px -1px rgba(245,158,11,0.15), 
+                  0 4px 12px -2px rgba(217,119,6,0.1), 
+                  0 6px 16px -3px rgba(251,191,36,0.08) !important;
     }
 
     /* Optimize button gradient effects for mobile */
@@ -461,7 +459,7 @@
     .bg-gradient-to-r.from-rose-50.to-amber-50,
     .bg-gradient-to-r.from-slate-50.to-emerald-50,
     .bg-gradient-to-r.from-blue-50.to-purple-50 {
-      background: linear-gradient(135deg, rgba(248, 250, 252, 0.3) 0%, rgba(241, 245, 249, 0.3) 100%) !important;
+      background: linear-gradient(135deg, rgba(248, 250, 252, 0.5) 0%, rgba(241, 245, 249, 0.5) 100%) !important;
     }
 
     /* Optimize hover effects for mobile */
@@ -494,6 +492,15 @@
     /* Optimize animated shadows for mobile performance */
     .animate-pulse-glow {
       animation: none !important;
+    }
+
+    /* Fix mobile gradient button opacity */
+    .group .absolute.inset-0.bg-gradient-to-r {
+      opacity: 0.8 !important;
+    }
+
+    .group:hover .absolute.inset-0.bg-gradient-to-r {
+      opacity: 0.9 !important;
     }
   }
 }
