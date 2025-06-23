@@ -1,12 +1,15 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Cpu, Factory, Users, Calculator, Target, Eye, ExternalLink, Building2, Globe, ShoppingCart, GraduationCap, FileCode, DollarSign, Search } from 'lucide-react';
+import { Cpu, Factory, Users, Calculator, Target, Eye, ExternalLink, Building2, Globe, ShoppingCart, GraduationCap, FileCode, DollarSign, Search, TrendingUp, Network } from 'lucide-react';
 import GeometricPattern from '@/components/GeometricPattern';
+
 const Solutions = () => {
-  return <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-amber-50 dark:from-slate-900 dark:via-blue-900 dark:to-purple-900">
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-amber-50 dark:from-slate-900 dark:via-blue-900 dark:to-purple-900">
       <Navbar />
       
       {/* Hero Section */}
@@ -150,9 +153,30 @@ const Solutions = () => {
                   <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200/40 hover:border-amber-400/60 transition-all duration-300 hover:shadow-glow-amber">
                     <div className="flex items-center mb-2">
                       <Globe className="w-5 h-5 text-amber-600 mr-3" />
-                      <h4 className="font-heading font-semibold">Global Network</h4>
+                      <h4 className="font-heading font-semibold">Global Network of Talents</h4>
                     </div>
-                    <p className="text-sm text-muted-foreground font-body">Connecting Africa to worldwide entertainment markets</p>
+                    <p className="text-sm text-muted-foreground font-body">Connecting Africa to worldwide talents</p>
+                  </div>
+                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200/40 hover:border-amber-400/60 transition-all duration-300 hover:shadow-glow-amber">
+                    <div className="flex items-center mb-2">
+                      <TrendingUp className="w-5 h-5 text-amber-600 mr-3" />
+                      <h4 className="font-heading font-semibold">Talent Cost Calculator & Salary Benchmarking</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground font-body">AI-powered salary benchmarking and talent cost analysis for entertainment and creative industries</p>
+                  </div>
+                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200/40 hover:border-amber-400/60 transition-all duration-300 hover:shadow-glow-amber">
+                    <div className="flex items-center mb-2">
+                      <GraduationCap className="w-5 h-5 text-amber-600 mr-3" />
+                      <h4 className="font-heading font-semibold">Skills Marketplace & Training Hub</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground font-body">Comprehensive skills development platform connecting talents with training opportunities and certifications</p>
+                  </div>
+                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200/40 hover:border-amber-400/60 transition-all duration-300 hover:shadow-glow-amber">
+                    <div className="flex items-center mb-2">
+                      <Network className="w-5 h-5 text-amber-600 mr-3" />
+                      <h4 className="font-heading font-semibold">Creative Consultant & Expert Network</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground font-body">Connect with creative directors, producers, and entertainment industry experts across Africa and globally</p>
                   </div>
                 </div>
                 <Button className="w-full mt-6 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 font-subtitle font-semibold transition-all duration-300 hover:scale-105 shadow-glow-amber" asChild>
@@ -176,6 +200,8 @@ const Solutions = () => {
       </section>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Solutions;
