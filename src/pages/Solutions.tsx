@@ -4,10 +4,12 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Cpu, Factory, Users, Zap, Target, Eye, ExternalLink, Building2, Globe } from 'lucide-react';
+import { Cpu, Factory, Users, Calculator, Target, Eye, ExternalLink, Building2, Globe, ShoppingCart, GraduationCap, FileCode, DollarSign, Search } from 'lucide-react';
 import GeometricPattern from '@/components/GeometricPattern';
+
 const Solutions = () => {
-  return <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-amber-50 dark:from-slate-900 dark:via-blue-900 dark:to-purple-900">
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-amber-50 dark:from-slate-900 dark:via-blue-900 dark:to-purple-900">
       <Navbar />
       
       {/* Hero Section */}
@@ -73,24 +75,45 @@ const Solutions = () => {
                 <div className="space-y-4">
                   <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-blue-200/40 hover:border-blue-400/60 transition-all duration-300 hover:shadow-glow-blue">
                     <div className="flex items-center mb-2">
-                      <Zap className="w-5 h-5 text-blue-600 mr-3" />
-                      <h4 className="font-heading font-semibold">AI Quote Builder</h4>
+                      <Calculator className="w-5 h-5 text-blue-600 mr-3" />
+                      <h4 className="font-heading font-semibold">Industrial Quote Builder SaaS for Agro-Industry</h4>
                     </div>
-                    <p className="text-sm text-muted-foreground font-body">Intelligent cost estimation and project planning</p>
+                    <p className="text-sm text-muted-foreground font-body">Automated quotation system for agricultural equipment and services</p>
                   </div>
                   <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-blue-200/40 hover:border-blue-400/60 transition-all duration-300 hover:shadow-glow-blue">
                     <div className="flex items-center mb-2">
-                      <Globe className="w-5 h-5 text-blue-600 mr-3" />
-                      <h4 className="font-heading font-semibold">Equipment Marketplace</h4>
+                      <ShoppingCart className="w-5 h-5 text-blue-600 mr-3" />
+                      <h4 className="font-heading font-semibold">Africa-Ready Equipment Marketplace (Niche B2B Amazon)</h4>
                     </div>
-                    <p className="text-sm text-muted-foreground font-body">Global sourcing with local expertise</p>
+                    <p className="text-sm text-muted-foreground font-body">Specialized B2B platform for African agricultural equipment sourcing</p>
                   </div>
                   <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-blue-200/40 hover:border-blue-400/60 transition-all duration-300 hover:shadow-glow-blue">
                     <div className="flex items-center mb-2">
-                      <Users className="w-5 h-5 text-blue-600 mr-3" />
-                      <h4 className="font-heading font-semibold">Training Platform</h4>
+                      <GraduationCap className="w-5 h-5 text-blue-600 mr-3" />
+                      <h4 className="font-heading font-semibold">Micro-Course Platform: "Train Your Factory Staff"</h4>
                     </div>
-                    <p className="text-sm text-muted-foreground font-body">Skills development and certification programs</p>
+                    <p className="text-sm text-muted-foreground font-body">Bite-sized training modules for industrial workforce development</p>
+                  </div>
+                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-blue-200/40 hover:border-blue-400/60 transition-all duration-300 hover:shadow-glow-blue">
+                    <div className="flex items-center mb-2">
+                      <FileCode className="w-5 h-5 text-blue-600 mr-3" />
+                      <h4 className="font-heading font-semibold">Technical Spec Sheet Generator (AI-Assisted)</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground font-body">AI-powered technical documentation and specification creation</p>
+                  </div>
+                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-blue-200/40 hover:border-blue-400/60 transition-all duration-300 hover:shadow-glow-blue">
+                    <div className="flex items-center mb-2">
+                      <DollarSign className="w-5 h-5 text-blue-600 mr-3" />
+                      <h4 className="font-heading font-semibold">Factory Cost Estimator (CapEx + OpEx Calculator)</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground font-body">Comprehensive cost analysis for capital and operational expenses</p>
+                  </div>
+                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-blue-200/40 hover:border-blue-400/60 transition-all duration-300 hover:shadow-glow-blue">
+                    <div className="flex items-center mb-2">
+                      <Search className="w-5 h-5 text-blue-600 mr-3" />
+                      <h4 className="font-heading font-semibold">Local Tech Consultant Finder (Matching Marketplace)</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground font-body">Connect with local technical experts and consultants</p>
                   </div>
                 </div>
               </CardContent>
@@ -156,6 +179,8 @@ const Solutions = () => {
       </section>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Solutions;
