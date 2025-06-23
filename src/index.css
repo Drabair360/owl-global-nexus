@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -445,85 +446,41 @@
                   0 6px 16px -3px rgba(251,191,36,0.08) !important;
     }
 
-    /* Fix Mobile Bright Yellow/Amber Gradient Issues */
+    /* Target Only Problematic Bright Yellow/Amber Backgrounds */
     
-    /* Override all bright amber/yellow gradient backgrounds */
-    .bg-gradient-to-r.from-amber-50,
-    .bg-gradient-to-r.from-amber-100,
-    .bg-gradient-to-r.from-yellow-50,
-    .bg-gradient-to-r.from-yellow-100,
-    .bg-gradient-to-br.from-amber-50,
-    .bg-gradient-to-br.from-yellow-50 {
-      background: rgba(248, 250, 252, 0.8) !important;
-    }
-
-    .bg-gradient-to-r.to-amber-50,
-    .bg-gradient-to-r.to-amber-100,
-    .bg-gradient-to-r.to-yellow-50,
-    .bg-gradient-to-r.to-yellow-100,
-    .bg-gradient-to-br.to-amber-50,
-    .bg-gradient-to-br.to-yellow-50 {
-      background: rgba(248, 250, 252, 0.8) !important;
-    }
-
-    /* Fix bright amber/orange button gradients */
-    .bg-gradient-to-r.from-amber-500,
-    .bg-gradient-to-r.from-amber-600,
-    .bg-gradient-to-r.from-orange-500,
-    .bg-gradient-to-r.from-orange-600 {
-      background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%) !important;
-    }
-
-    /* Fix form field gradient backgrounds */
-    .bg-gradient-to-r.from-blue-50.to-slate-50,
-    .bg-gradient-to-r.from-emerald-50.to-blue-50,
+    /* Fix specific gradient combinations that cause bright yellow issue */
+    .bg-gradient-to-r.from-amber-50.to-blue-50,
     .bg-gradient-to-r.from-amber-50.to-emerald-50,
-    .bg-gradient-to-r.from-purple-50.to-blue-50,
-    .bg-gradient-to-r.from-rose-50.to-amber-50,
-    .bg-gradient-to-r.from-slate-50.to-emerald-50,
-    .bg-gradient-to-r.from-blue-50.to-purple-50 {
-      background: #ffffff !important;
+    .bg-gradient-to-r.from-yellow-50.to-blue-50,
+    .bg-gradient-to-br.from-amber-50.to-blue-50 {
+      background: rgba(248, 250, 252, 0.9) !important;
     }
 
-    /* Fix bright background containers */
-    .bg-amber-50,
-    .bg-yellow-50,
-    .bg-amber-100,
-    .bg-yellow-100 {
-      background-color: rgba(248, 250, 252, 0.6) !important;
+    /* Fix form notification boxes with bright amber backgrounds */
+    .bg-amber-50\/60,
+    .bg-amber-50\/40 {
+      background-color: rgba(248, 250, 252, 0.8) !important;
     }
 
-    /* Fix border colors that might appear bright */
-    .border-amber-200,
-    .border-yellow-200,
-    .border-amber-300,
-    .border-yellow-300 {
-      border-color: rgb(226, 232, 240) !important;
+    /* Keep form inputs clean and white */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      background-color: #ffffff !important;
     }
 
-    /* Fix text colors that might be too bright */
-    .text-amber-800,
-    .text-yellow-800,
-    .text-amber-700,
-    .text-yellow-700 {
-      color: rgb(51, 65, 85) !important;
+    /* Reduce brightness of notification borders */
+    .border-amber-200 {
+      border-color: rgb(203, 213, 224) !important;
     }
 
-    /* Fix gradient text effects */
-    .gradient-text-institutional,
-    .gradient-amber-soft {
-      background: linear-gradient(135deg, #64748b 0%, #475569 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
+    /* Tone down bright amber text in notifications */
+    .text-amber-800 {
+      color: rgb(71, 85, 105) !important;
     }
 
-    /* Optimize button gradient effects for mobile */
-    .bg-gradient-to-r {
-      background-size: 200% 100% !important;
-    }
-
-    /* Optimize hover effects for mobile */
+    /* Optimize hover effects for mobile performance */
     .hover\:scale-105:hover {
       transform: scale(1.02) !important;
     }
@@ -532,7 +489,7 @@
       transform: translateY(-0.5px) !important;
     }
 
-    /* Reduce blur effects on mobile */
+    /* Reduce blur effects on mobile for performance */
     .backdrop-blur-md {
       backdrop-filter: blur(4px) !important;
     }
@@ -541,7 +498,7 @@
       backdrop-filter: blur(6px) !important;
     }
 
-    /* Mobile-specific optimizations for amber glow */
+    /* Mobile-optimized amber glow effects */
     .shadow-glow-amber:hover {
       box-shadow: 
         0 8px 20px rgba(251, 146, 60, 0.15),
@@ -550,43 +507,9 @@
       transform: translateY(-1px);
     }
 
-    /* Optimize animated shadows for mobile performance */
+    /* Disable heavy animations on mobile for performance */
     .animate-pulse-glow {
       animation: none !important;
-    }
-
-    /* Fix mobile gradient button opacity */
-    .group .absolute.inset-0.bg-gradient-to-r {
-      opacity: 0.8 !important;
-    }
-
-    .group:hover .absolute.inset-0.bg-gradient-to-r {
-      opacity: 0.9 !important;
-    }
-
-    /* Override any remaining bright backgrounds */
-    .bg-gradient-to-br.from-violet-50.via-purple-50.to-indigo-100 {
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%) !important;
-    }
-
-    /* Fix CEO section and similar gradient boxes */
-    .bg-gradient-to-br {
-      background: rgba(248, 250, 252, 0.8) !important;
-    }
-
-    /* Ensure white backgrounds for forms and inputs */
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea,
-    .bg-white {
-      background-color: #ffffff !important;
-    }
-
-    /* Fix any remaining yellow/amber elements */
-    [class*="amber"],
-    [class*="yellow"] {
-      filter: saturate(0.7) brightness(0.9) !important;
     }
   }
 }
