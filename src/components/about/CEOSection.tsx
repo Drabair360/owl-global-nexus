@@ -27,7 +27,7 @@ const CEOSection = () => {
       {/* Arthur's Story */}
       <div className="space-y-8 mb-12">
         {/* The Journey Begins */}
-        <div className="bg-gradient-to-r from-blue-50 to-slate-50 rounded-2xl p-8">
+        <div className="bg-gradient-to-r from-blue-50 to-slate-50 md:from-blue-50 md:to-slate-50 from-blue-50/30 to-slate-50/30 rounded-2xl p-8">
           <h4 className="text-xl font-semibold text-slate-800 mb-4 font-body">The Journey Begins (2010)</h4>
           <p className="text-slate-700 leading-relaxed font-body">
             Arthur's transformative journey began 15 years ago with a deep passion for geopolitics and human conflicts. 
@@ -38,7 +38,7 @@ const CEOSection = () => {
         </div>
 
         {/* The Awakening */}
-        <div className="bg-gradient-to-r from-emerald-50 to-blue-50 rounded-2xl p-8">
+        <div className="bg-gradient-to-r from-emerald-50 to-blue-50 md:from-emerald-50 md:to-blue-50 from-emerald-50/30 to-blue-50/30 rounded-2xl p-8">
           <h4 className="text-xl font-semibold text-slate-800 mb-4 font-body">The Awakening</h4>
           <p className="text-slate-700 leading-relaxed font-body">
             What they discovered was profound—an unbelievable understanding of local cultures, tensions, and the human stories 
@@ -49,7 +49,7 @@ const CEOSection = () => {
         </div>
 
         {/* The Mission Expands */}
-        <div className="bg-gradient-to-r from-amber-50 to-emerald-50 rounded-2xl p-8">
+        <div className="bg-gradient-to-r from-amber-50 to-emerald-50 md:from-amber-50 md:to-emerald-50 from-amber-50/30 to-emerald-50/30 rounded-2xl p-8">
           <h4 className="text-xl font-semibold text-slate-800 mb-4 font-body">The Mission Expands</h4>
           <p className="text-slate-700 leading-relaxed font-body">
             The following year, armed with smartphone cameras and a vision to create a web documentary, Arthur and his team 
@@ -61,7 +61,7 @@ const CEOSection = () => {
         </div>
 
         {/* The Business Epiphany */}
-        <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8">
+        <div className="bg-gradient-to-r from-purple-50 to-blue-50 md:from-purple-50 md:to-blue-50 from-purple-50/30 to-blue-50/30 rounded-2xl p-8">
           <h4 className="text-xl font-semibold text-slate-800 mb-4 font-body">The Business Epiphany</h4>
           <p className="text-slate-700 leading-relaxed font-body">
             In the DRC, Arthur experienced a shocking revelation—the dramatic economic development gap between Uganda and Rwanda 
@@ -72,7 +72,7 @@ const CEOSection = () => {
         </div>
 
         {/* The Entrepreneur Born */}
-        <div className="bg-gradient-to-r from-rose-50 to-amber-50 rounded-2xl p-8">
+        <div className="bg-gradient-to-r from-rose-50 to-amber-50 md:from-rose-50 md:to-amber-50 from-rose-50/30 to-amber-50/30 rounded-2xl p-8">
           <h4 className="text-xl font-semibold text-slate-800 mb-4 font-body">The Entrepreneur Born</h4>
           <p className="text-slate-700 leading-relaxed font-body">
             Within months of returning home, Arthur and his associate had crafted a comprehensive business plan and secured a 
@@ -83,7 +83,7 @@ const CEOSection = () => {
         </div>
 
         {/* The Resilience Test */}
-        <div className="bg-gradient-to-r from-slate-50 to-emerald-50 rounded-2xl p-8">
+        <div className="bg-gradient-to-r from-slate-50 to-emerald-50 md:from-slate-50 md:to-emerald-50 from-slate-50/30 to-emerald-50/30 rounded-2xl p-8">
           <h4 className="text-xl font-semibold text-slate-800 mb-4 font-body">The Resilience Test</h4>
           <p className="text-slate-700 leading-relaxed font-body">
             In May 2012, war erupted in East Africa, hitting the region hard. Arthur was forced to seek refuge in Uganda, 
@@ -95,7 +95,7 @@ const CEOSection = () => {
         </div>
 
         {/* The Vision Crystallized */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 md:from-blue-50 md:to-purple-50 from-blue-50/30 to-purple-50/30 rounded-2xl p-8">
           <h4 className="text-xl font-semibold text-slate-800 mb-4 font-body">The Vision Crystallized</h4>
           <p className="text-slate-700 leading-relaxed font-body">
             Arthur's passion for building powerful businesses and transforming Africa only grew stronger. He went on to gain 
@@ -107,7 +107,7 @@ const CEOSection = () => {
       </div>
 
       {/* Contact Section */}
-      <div className="text-center bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl p-12">
+      <div className="text-center bg-gradient-to-br from-slate-50 to-blue-50 md:from-slate-50 md:to-blue-50 from-slate-50/40 to-blue-50/40 rounded-3xl p-12">
         <h4 className="text-2xl font-semibold text-slate-800 mb-6 font-body">Get in Touch with Arthur</h4>
         <p className="text-lg text-slate-600 mb-8 font-body">
           Ready to be part of Africa's transformation? Connect with Arthur directly to explore partnership opportunities.
@@ -115,7 +115,7 @@ const CEOSection = () => {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button 
-            className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+            className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 md:hover:scale-105 hover:scale-102 md:hover:-translate-y-1 hover:-translate-y-0.5"
             onClick={() => window.open('mailto:business@internationalowl.com')}
           >
             <Mail className="w-5 h-5 mr-2" />
@@ -126,7 +126,7 @@ const CEOSection = () => {
             <DialogTrigger asChild>
               <Button 
                 variant="outline" 
-                className="border-2 border-slate-300 text-slate-700 px-8 py-3 rounded-xl font-semibold hover:border-blue-400 hover:bg-blue-50 transition-all duration-300 hover:scale-105"
+                className="border-2 border-slate-300 text-slate-700 px-8 py-3 rounded-xl font-semibold hover:border-blue-400 hover:bg-blue-50 transition-all duration-300 md:hover:scale-105 hover:scale-102"
               >
                 <Send className="w-5 h-5 mr-2" />
                 Contact Form

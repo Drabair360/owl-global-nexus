@@ -38,7 +38,7 @@ const ApplicationSection = () => {
             Only 50 business scouts will be selected globally. Applications close when positions are filled. 
             Don't miss your opportunity to join Africa's most prestigious business intelligence network.
           </p>
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 max-w-2xl mx-auto mb-8">
+          <div className="bg-amber-50 md:bg-amber-50 bg-amber-50/60 border border-amber-200 rounded-lg p-4 max-w-2xl mx-auto mb-8">
             <p className="text-amber-800 font-semibold">⚡ Limited Time: First 25 approved scouts receive signing welcome package</p>
           </div>
         </div>
@@ -49,7 +49,7 @@ const ApplicationSection = () => {
             <div className="space-y-6">
               <h3 className="text-xl font-subtitle font-semibold text-foreground mb-4">Quick Application Options</h3>
               
-              <Button size="lg" className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-subtitle font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105" onClick={() => window.open('mailto:scouts@owlinternational.com?subject=Business Scout Application - Executive Track&body=Dear Owl International Team,%0D%0A%0D%0AI am interested in joining your elite business scout network. Please find my preliminary information below:%0D%0A%0D%0AName: %0D%0AExperience: %0D%0ARegional Expertise: %0D%0ANotable Deals: %0D%0ALinkedIn: %0D%0A%0D%0AI look forward to discussing this prestigious opportunity.%0D%0A%0D%0ABest regards')}>
+              <Button size="lg" className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-subtitle font-bold py-4 rounded-xl transition-all duration-300 md:transform md:hover:scale-105 transform hover:scale-102" onClick={() => window.open('mailto:scouts@owlinternational.com?subject=Business Scout Application - Executive Track&body=Dear Owl International Team,%0D%0A%0D%0AI am interested in joining your elite business scout network. Please find my preliminary information below:%0D%0A%0D%0AName: %0D%0AExperience: %0D%0ARegional Expertise: %0D%0ANotable Deals: %0D%0ALinkedIn: %0D%0A%0D%0AI look forward to discussing this prestigious opportunity.%0D%0A%0D%0ABest regards')}>
                 <Mail className="w-5 h-5 mr-2" />
                 Send Direct Email
               </Button>
@@ -109,9 +109,9 @@ const ApplicationSection = () => {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full relative overflow-hidden bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-subtitle font-bold py-4 rounded-xl transition-all duration-500 transform hover:scale-105 group"
+                  className="w-full relative overflow-hidden bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-subtitle font-bold py-4 rounded-xl transition-all duration-500 md:transform md:hover:scale-105 transform hover:scale-102 group"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out md:opacity-100 opacity-70"></span>
                   <span className="relative z-10">Submit Elite Application</span>
                 </Button>
               </form>
