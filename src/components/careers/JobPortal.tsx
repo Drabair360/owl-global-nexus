@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo, useEffect } from 'react';
 import { Search, MapPin, Briefcase, Clock, Filter, X, Grid3X3, List, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -93,7 +92,7 @@ const JobPortal = () => {
     <div className="space-y-8">
       {/* Section Header */}
       <div className="text-center">
-        <h2 className="text-section text-slate-800 mb-4 font-brand">OPEN POSITIONS</h2>
+        <h2 className="text-section text-slate-800 mb-4 font-brand">POSITIONS OPENING S2 2025 & 2026 - APPLY NOW</h2>
         <p className="text-body-large text-slate-600 max-w-3xl mx-auto font-body">
           Discover exciting opportunities to join our mission of transforming Africa through strategic investments and innovative technology.
         </p>
