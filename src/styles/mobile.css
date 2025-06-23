@@ -7,80 +7,58 @@
       box-shadow: 0 1px 0 0 transparent, 
                   0 2px 6px -1px rgba(245,158,11,0.15), 
                   0 4px 12px -2px rgba(217,119,6,0.1), 
-                  0 6px 16px -3px rgba(251,191,36,0.08) !important;
+                  0 6px 16px -3px rgba(251,191,36,0.08);
     }
 
-    /* SURGICAL TARGETING - Only Fix Problematic Bright Yellow Backgrounds */
+    /* SURGICAL TARGETING - Only Fix Specific Problematic Elements */
     
-    /* Target specific notification box in ApplicationSection that causes bright yellow issue */
-    section div.bg-amber-50\/60,
-    .bg-amber-50\/60,
-    [class*="bg-amber-50/60"] {
-      background-color: rgba(248, 250, 252, 0.8) !important;
+    /* Target only the specific notification box in ApplicationSection */
+    .bg-amber-50\/60 {
+      background-color: rgba(254, 252, 232, 0.6);
     }
     
-    /* Target only amber-50 background containers (not buttons or text) */
-    div.bg-amber-50,
-    section.bg-amber-50,
-    .bg-amber-50:not(button):not(span):not(p) {
-      background-color: rgba(248, 250, 252, 0.9) !important;
+    /* Target specific amber backgrounds only in notification contexts */
+    section .bg-amber-50 {
+      background-color: rgba(254, 252, 232, 0.9);
     }
     
-    /* Target amber-50 with opacity variations in containers only */
-    div.bg-amber-50\/40,
-    section.bg-amber-50\/40,
-    .bg-amber-50\/40:not(button):not(span):not(p) {
-      background-color: rgba(248, 250, 252, 0.7) !important;
+    /* Target amber text only in notification areas */
+    .bg-amber-50 .text-amber-800 {
+      color: rgb(146, 64, 14);
     }
     
-    /* Target only problematic gradient background combinations in containers */
-    div.bg-gradient-to-r.from-amber-50.to-blue-50,
-    section.bg-gradient-to-r.from-amber-50.to-emerald-50,
-    div.bg-gradient-to-r.from-yellow-50.to-blue-50,
-    section.bg-gradient-to-br.from-amber-50.to-blue-50 {
-      background: rgba(248, 250, 252, 0.9) !important;
-    }
-
-    /* Target amber borders that might be too bright in notification boxes */
-    div.bg-amber-50 .border-amber-200,
-    section.bg-amber-50 .border-amber-200 {
-      border-color: rgb(203, 213, 224) !important;
-    }
-    
-    /* Target amber text that might be too bright in notification areas only */
-    div.bg-amber-50 .text-amber-800,
-    section.bg-amber-50 .text-amber-800 {
-      color: rgb(71, 85, 105) !important;
+    /* Target amber borders only in notification areas */
+    .bg-amber-50 .border-amber-200 {
+      border-color: rgb(254, 215, 170);
     }
     
     /* Ensure form inputs stay clean and readable */
     input[type="text"],
     input[type="email"],
     input[type="tel"],
-    textarea,
-    .bg-white {
-      background-color: #ffffff !important;
+    textarea {
+      background-color: #ffffff;
     }
 
     /* Optimize hover effects for mobile performance */
     .hover\:scale-105:hover {
-      transform: scale(1.02) !important;
+      transform: scale(1.02);
     }
 
     .hover\:-translate-y-1:hover {
-      transform: translateY(-0.5px) !important;
+      transform: translateY(-0.5px);
     }
 
     /* Reduce blur effects on mobile for performance */
     .backdrop-blur-md {
-      backdrop-filter: blur(4px) !important;
+      backdrop-filter: blur(4px);
     }
 
     .backdrop-blur-xl {
-      backdrop-filter: blur(6px) !important;
+      backdrop-filter: blur(6px);
     }
 
-    /* Mobile-optimized amber glow effects */
+    /* Mobile-optimized shadow effects */
     .shadow-glow-amber:hover {
       box-shadow: 
         0 8px 20px rgba(251, 146, 60, 0.15),
@@ -91,7 +69,7 @@
 
     /* Disable heavy animations on mobile for performance */
     .animate-pulse-glow {
-      animation: none !important;
+      animation: none;
     }
   }
 }
