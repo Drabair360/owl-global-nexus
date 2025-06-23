@@ -446,38 +446,80 @@
                   0 6px 16px -3px rgba(251,191,36,0.08) !important;
     }
 
-    /* Target Only Problematic Bright Yellow/Amber Backgrounds */
+    /* HIGH SPECIFICITY OVERRIDES FOR PRODUCTION DEPLOYMENT */
     
-    /* Fix specific gradient combinations that cause bright yellow issue */
+    /* Target specific notification box in ApplicationSection */
+    section div.bg-amber-50\/60,
+    .bg-amber-50\/60,
+    [class*="bg-amber-50/60"] {
+      background-color: rgba(248, 250, 252, 0.8) !important;
+    }
+    
+    /* Target amber gradient backgrounds in buttons and containers */
+    button.bg-gradient-to-r.from-amber-500.to-orange-500,
+    .bg-gradient-to-r.from-amber-500.to-orange-500,
+    [class*="from-amber-500"][class*="to-orange-500"] {
+      background: linear-gradient(to right, rgb(120, 113, 108), rgb(154, 122, 102)) !important;
+    }
+    
+    /* Target all amber-50 background variations */
+    div.bg-amber-50,
+    .bg-amber-50,
+    [class*="bg-amber-50"] {
+      background-color: rgba(248, 250, 252, 0.9) !important;
+    }
+    
+    /* Target amber-50 with opacity variations */
+    .bg-amber-50\/40,
+    [class*="bg-amber-50/40"] {
+      background-color: rgba(248, 250, 252, 0.7) !important;
+    }
+    
+    /* Target problematic gradient combinations */
     .bg-gradient-to-r.from-amber-50.to-blue-50,
     .bg-gradient-to-r.from-amber-50.to-emerald-50,
     .bg-gradient-to-r.from-yellow-50.to-blue-50,
-    .bg-gradient-to-br.from-amber-50.to-blue-50 {
+    .bg-gradient-to-br.from-amber-50.to-blue-50,
+    [class*="from-amber-50"][class*="to-blue-50"],
+    [class*="from-amber-50"][class*="to-emerald-50"],
+    [class*="from-yellow-50"][class*="to-blue-50"] {
       background: rgba(248, 250, 252, 0.9) !important;
     }
 
-    /* Fix form notification boxes with bright amber backgrounds */
-    .bg-amber-50\/60,
-    .bg-amber-50\/40 {
-      background-color: rgba(248, 250, 252, 0.8) !important;
+    /* Target amber borders that might be too bright */
+    .border-amber-200,
+    [class*="border-amber-200"] {
+      border-color: rgb(203, 213, 224) !important;
     }
-
-    /* Keep form inputs clean and white */
+    
+    /* Target amber text that might be too bright */
+    .text-amber-800,
+    [class*="text-amber-800"] {
+      color: rgb(71, 85, 105) !important;
+    }
+    
+    /* Ensure form inputs stay clean and readable */
     input[type="text"],
     input[type="email"],
     input[type="tel"],
-    textarea {
+    textarea,
+    .bg-white {
       background-color: #ffffff !important;
     }
-
-    /* Reduce brightness of notification borders */
-    .border-amber-200 {
-      border-color: rgb(203, 213, 224) !important;
+    
+    /* Target any remaining yellow/amber gradient buttons */
+    button[class*="amber"],
+    button[class*="yellow"],
+    .bg-gradient-to-r[class*="amber"],
+    .bg-gradient-to-r[class*="yellow"] {
+      background: linear-gradient(to right, rgb(120, 113, 108), rgb(154, 122, 102)) !important;
     }
-
-    /* Tone down bright amber text in notifications */
-    .text-amber-800 {
-      color: rgb(71, 85, 105) !important;
+    
+    /* Emergency override for any missed bright yellow/amber backgrounds */
+    *[style*="background"][style*="amber"],
+    *[class*="bg-amber"]:not(.text-amber):not(.border-amber),
+    *[class*="bg-yellow"]:not(.text-yellow):not(.border-yellow) {
+      background-color: rgba(248, 250, 252, 0.8) !important;
     }
 
     /* Optimize hover effects for mobile performance */
