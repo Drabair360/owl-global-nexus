@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -6,10 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Cpu, Factory, Users, Calculator, Target, Eye, ExternalLink, Building2, Globe, ShoppingCart, GraduationCap, FileCode, DollarSign, Search } from 'lucide-react';
 import GeometricPattern from '@/components/GeometricPattern';
-
 const Solutions = () => {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-amber-50 dark:from-slate-900 dark:via-blue-900 dark:to-purple-900">
+  return <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-amber-50 dark:from-slate-900 dark:via-blue-900 dark:to-purple-900">
       <Navbar />
       
       {/* Hero Section */}
@@ -43,7 +40,7 @@ const Solutions = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-6xl font-heading font-semibold mb-8 tracking-tight">
-              <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-rose-600 bg-clip-text text-transparent">AKOULA: an AI-Powered Ecosystem</span>
+              <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-rose-600 bg-clip-text text-transparent">AKOULA: a cross-integrated Ecosystem</span>
             </h2>
             <div className="bg-gradient-to-r from-blue-100/80 via-purple-100/80 to-amber-100/80 dark:from-blue-900/30 dark:via-purple-900/30 dark:to-amber-900/30 p-8 rounded-2xl border border-amber-200/50 max-w-4xl mx-auto mb-12 shadow-glow-amber">
               <p className="text-blue-800 dark:text-blue-200 font-body font-medium italic text-lg leading-relaxed">
@@ -179,8 +176,6 @@ const Solutions = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Solutions;
