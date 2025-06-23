@@ -57,7 +57,7 @@ const Footer = () => {
               fontFamily: 'Avenir Next, sans-serif'
             }}>STAY CONNECTED</h3>
               <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 mb-4">
-                <p className="text-gray-300 text-sm leading-relaxed flex-1 max-w-[200px]">
+                <p className="text-gray-300 text-sm leading-relaxed flex-1 max-w-[320px]">
                   Get updates on our latest projects and investment opportunities.
                 </p>
                 <div className="flex gap-3 flex-shrink-0 lg:ml-auto">
