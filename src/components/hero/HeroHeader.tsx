@@ -75,7 +75,7 @@ const HeroHeader = () => {
             />
             <HeroFeatureCard
               icon={TrendingUp}
-              title="OWL'S ECOSYSTEM"
+              title="AI-POWERED ECOSYSTEM"
               description="Pioneering AI-powered platforms and industrial solutions"
             />
             <HeroFeatureCard
