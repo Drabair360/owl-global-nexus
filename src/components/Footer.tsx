@@ -57,10 +57,10 @@ const Footer = () => {
               fontFamily: 'Avenir Next, sans-serif'
             }}>STAY CONNECTED</h3>
               <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 mb-4">
-                <p className="text-gray-300 text-sm leading-relaxed lg:max-w-xs">
+                <p className="text-gray-300 text-sm leading-relaxed flex-1 max-w-[200px]">
                   Get updates on our latest projects and investment opportunities.
                 </p>
-                <div className="flex gap-3 flex-shrink-0 ml-auto">
+                <div className="flex gap-3 flex-shrink-0 lg:ml-auto">
                   <input type="email" placeholder="Enter your email" className="px-4 py-2 bg-slate-800/60 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 text-sm backdrop-blur-sm transition-all duration-300" />
                   <button className="px-6 py-2 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-600 hover:from-yellow-500 hover:via-amber-600 hover:to-orange-700 text-white rounded-lg transition-all duration-300 text-sm font-semibold shadow-lg hover:shadow-xl hover:shadow-amber-500/25 transform hover:scale-105 active:scale-95" style={{
                   fontFamily: 'Avenir Next, sans-serif'
