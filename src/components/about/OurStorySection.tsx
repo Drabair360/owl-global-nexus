@@ -18,9 +18,9 @@ const OurStorySection = () => {
         </div>
         <div>
           <img
-            src="/placeholder-image.jpg"
-            alt="OWL International Team"
-            className="rounded-xl shadow-lg"
+            src="/lovable-uploads/f67a8625-1570-4afa-aebc-ff28ebd9f7b7.png"
+            alt="OWL International Team working in modern office environment"
+            className="rounded-xl shadow-lg w-full h-auto object-cover"
           />
         </div>
       </div>

@@ -13,8 +13,12 @@ const CEOSection = () => {
       
       {/* CEO Introduction */}
       <div className="text-center mb-12">
-        <div className="w-32 h-32 rounded-full mx-auto mb-6 bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center">
-          <span className="text-white text-4xl font-bold">AD</span>
+        <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden shadow-lg">
+          <img
+            src="/lovable-uploads/8b56d712-9028-4dab-a685-1b13bec3e715.png"
+            alt="Arthur Draber - Founder & CEO of OWL International"
+            className="w-full h-full object-cover"
+          />
         </div>
         <h3 className="text-3xl font-semibold text-slate-800 mb-4 font-body">Arthur Draber</h3>
         <p className="text-xl text-slate-600 font-body">Founder & CEO, OWL International</p>
