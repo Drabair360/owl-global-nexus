@@ -180,7 +180,7 @@ const Solutions = () => {
                   </div>
                 </div>
                 <Button className="w-full mt-6 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 font-subtitle font-semibold transition-all duration-300 hover:scale-105 shadow-glow-amber" asChild>
-                  <a href="https://www.kidzlabmodels.com/premium" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.kidzlabmodels.com" target="_blank" rel="noopener noreferrer">
                     Explore KIDZ LAB <ExternalLink className="ml-2 w-4 h-4" />
                   </a>
                 </Button>
@@ -192,8 +192,10 @@ const Solutions = () => {
             <p className="text-lg text-muted-foreground mb-8 font-body leading-relaxed">
               Transforming Africa's industrial landscape through intelligent automation and human-centered design
             </p>
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 via-purple-600 to-amber-600 hover:from-blue-700 hover:via-purple-700 hover:to-amber-700 text-white font-subtitle font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-glow-amber">
-              Learn More About AKOULA
+            <Button size="lg" className="bg-gradient-to-r from-blue-600 via-purple-600 to-amber-600 hover:from-blue-700 hover:via-purple-700 hover:to-amber-700 text-white font-subtitle font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-glow-amber" asChild>
+              <a href="https://www.akoulala.com" target="_blank" rel="noopener noreferrer">
+                Learn More About AKOULA
+              </a>
             </Button>
           </div>
         </div>
