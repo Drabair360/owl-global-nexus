@@ -18,11 +18,11 @@ const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
 
   return (
     <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border/50 animate-sophisticated-fade">
-      <div className="px-4 pt-2 pb-3 space-y-1">
+      <div className="px-4 pt-2 pb-3 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
         <Link 
           to="/solutions" 
           onClick={handleLinkClick}
-          className="block px-3 py-2 text-foreground hover:text-primary font-subtitle text-sm transition-colors duration-300"
+          className="block px-3 py-3 text-foreground hover:text-primary font-subtitle text-base transition-colors duration-300 border-b border-border/30"
         >
           Solutions
         </Link>
@@ -31,28 +31,28 @@ const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
           <Link 
             to="/about" 
             onClick={handleLinkClick}
-            className="block px-6 py-2 text-sm text-foreground hover:text-primary font-subtitle transition-colors duration-300"
+            className="block px-6 py-3 text-base text-foreground hover:text-primary font-subtitle transition-colors duration-300"
           >
             About Owl
           </Link>
           <Link 
             to="/careers" 
             onClick={handleLinkClick}
-            className="block px-6 py-2 text-sm text-foreground hover:text-primary font-subtitle transition-colors duration-300"
+            className="block px-6 py-3 text-base text-foreground hover:text-primary font-subtitle transition-colors duration-300"
           >
             Careers
           </Link>
           <Link 
             to="/news" 
             onClick={handleLinkClick}
-            className="block px-6 py-2 text-sm text-foreground hover:text-primary font-subtitle transition-colors duration-300"
+            className="block px-6 py-3 text-base text-foreground hover:text-primary font-subtitle transition-colors duration-300"
           >
             Hot News
           </Link>
           <Link 
             to="/impact" 
             onClick={handleLinkClick}
-            className="block px-6 py-2 text-sm text-foreground hover:text-primary font-subtitle transition-colors duration-300"
+            className="block px-6 py-3 text-base text-foreground hover:text-primary font-subtitle transition-colors duration-300"
           >
             Impact
           </Link>
@@ -60,7 +60,7 @@ const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
         <Link 
           to="/portfolio" 
           onClick={handleLinkClick}
-          className="block px-3 py-2 text-muted-foreground hover:text-primary font-subtitle text-sm transition-colors duration-300"
+          className="block px-3 py-3 text-muted-foreground hover:text-primary font-subtitle text-base transition-colors duration-300 border-b border-border/30"
         >
           Portfolio
         </Link>
@@ -69,20 +69,20 @@ const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
           <Link 
             to="/investors" 
             onClick={handleLinkClick}
-            className="block px-6 py-2 text-sm text-foreground hover:text-primary font-subtitle transition-colors duration-300"
+            className="block px-6 py-3 text-base text-foreground hover:text-primary font-subtitle transition-colors duration-300"
           >
             Investor Portal
           </Link>
           <Link 
             to="/scouts" 
             onClick={handleLinkClick}
-            className="block px-6 py-2 text-sm text-foreground hover:text-primary font-subtitle transition-colors duration-300"
+            className="block px-6 py-3 text-base text-foreground hover:text-primary font-subtitle transition-colors duration-300"
           >
             Scouts
           </Link>
         </div>
-        <div className="px-3 py-2">
-          <Button variant="outline" className="w-full font-subtitle text-sm" asChild>
+        <div className="px-3 py-4">
+          <Button variant="outline" className="w-full font-subtitle text-base py-3" asChild>
             <Link to="/investors" onClick={handleLinkClick}>Investor Portal</Link>
           </Button>
         </div>

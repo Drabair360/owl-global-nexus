@@ -14,14 +14,14 @@ const Navbar = () => {
     <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-md z-50 border-b border-border/50 shadow-[0_1px_0_0_transparent,0_4px_12px_-2px_rgba(245,158,11,0.4),0_8px_24px_-4px_rgba(217,119,6,0.3),0_12px_32px_-6px_rgba(251,191,36,0.2)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center space-x-3 group" onClick={() => window.scrollTo(0, 0)}>
+          <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group" onClick={() => window.scrollTo(0, 0)}>
             <img 
               src="/lovable-uploads/4d7f9a85-a58b-4911-9097-b446f027e04a.png" 
               alt="OWL International Logo" 
-              className="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
+              className="w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-300 group-hover:scale-110"
             />
             <div>
-              <span className="text-xl font-brand text-foreground tracking-wide">
+              <span className="text-lg sm:text-xl font-brand text-foreground tracking-wide">
                 OWL INTERNATIONAL
               </span>
             </div>
@@ -65,7 +65,8 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground hover:text-primary transition-colors duration-300"
+              className="text-foreground hover:text-primary transition-colors duration-300 p-2 -mr-2"
+              aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
