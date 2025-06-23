@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -446,55 +445,46 @@
                   0 6px 16px -3px rgba(251,191,36,0.08) !important;
     }
 
-    /* HIGH SPECIFICITY OVERRIDES FOR PRODUCTION DEPLOYMENT */
+    /* SURGICAL TARGETING - Only Fix Problematic Bright Yellow Backgrounds */
     
-    /* Target specific notification box in ApplicationSection */
+    /* Target specific notification box in ApplicationSection that causes bright yellow issue */
     section div.bg-amber-50\/60,
     .bg-amber-50\/60,
     [class*="bg-amber-50/60"] {
       background-color: rgba(248, 250, 252, 0.8) !important;
     }
     
-    /* Target amber gradient backgrounds in buttons and containers */
-    button.bg-gradient-to-r.from-amber-500.to-orange-500,
-    .bg-gradient-to-r.from-amber-500.to-orange-500,
-    [class*="from-amber-500"][class*="to-orange-500"] {
-      background: linear-gradient(to right, rgb(120, 113, 108), rgb(154, 122, 102)) !important;
-    }
-    
-    /* Target all amber-50 background variations */
+    /* Target only amber-50 background containers (not buttons or text) */
     div.bg-amber-50,
-    .bg-amber-50,
-    [class*="bg-amber-50"] {
+    section.bg-amber-50,
+    .bg-amber-50:not(button):not(span):not(p) {
       background-color: rgba(248, 250, 252, 0.9) !important;
     }
     
-    /* Target amber-50 with opacity variations */
-    .bg-amber-50\/40,
-    [class*="bg-amber-50/40"] {
+    /* Target amber-50 with opacity variations in containers only */
+    div.bg-amber-50\/40,
+    section.bg-amber-50\/40,
+    .bg-amber-50\/40:not(button):not(span):not(p) {
       background-color: rgba(248, 250, 252, 0.7) !important;
     }
     
-    /* Target problematic gradient combinations */
-    .bg-gradient-to-r.from-amber-50.to-blue-50,
-    .bg-gradient-to-r.from-amber-50.to-emerald-50,
-    .bg-gradient-to-r.from-yellow-50.to-blue-50,
-    .bg-gradient-to-br.from-amber-50.to-blue-50,
-    [class*="from-amber-50"][class*="to-blue-50"],
-    [class*="from-amber-50"][class*="to-emerald-50"],
-    [class*="from-yellow-50"][class*="to-blue-50"] {
+    /* Target only problematic gradient background combinations in containers */
+    div.bg-gradient-to-r.from-amber-50.to-blue-50,
+    section.bg-gradient-to-r.from-amber-50.to-emerald-50,
+    div.bg-gradient-to-r.from-yellow-50.to-blue-50,
+    section.bg-gradient-to-br.from-amber-50.to-blue-50 {
       background: rgba(248, 250, 252, 0.9) !important;
     }
 
-    /* Target amber borders that might be too bright */
-    .border-amber-200,
-    [class*="border-amber-200"] {
+    /* Target amber borders that might be too bright in notification boxes */
+    div.bg-amber-50 .border-amber-200,
+    section.bg-amber-50 .border-amber-200 {
       border-color: rgb(203, 213, 224) !important;
     }
     
-    /* Target amber text that might be too bright */
-    .text-amber-800,
-    [class*="text-amber-800"] {
+    /* Target amber text that might be too bright in notification areas only */
+    div.bg-amber-50 .text-amber-800,
+    section.bg-amber-50 .text-amber-800 {
       color: rgb(71, 85, 105) !important;
     }
     
@@ -505,21 +495,6 @@
     textarea,
     .bg-white {
       background-color: #ffffff !important;
-    }
-    
-    /* Target any remaining yellow/amber gradient buttons */
-    button[class*="amber"],
-    button[class*="yellow"],
-    .bg-gradient-to-r[class*="amber"],
-    .bg-gradient-to-r[class*="yellow"] {
-      background: linear-gradient(to right, rgb(120, 113, 108), rgb(154, 122, 102)) !important;
-    }
-    
-    /* Emergency override for any missed bright yellow/amber backgrounds */
-    *[style*="background"][style*="amber"],
-    *[class*="bg-amber"]:not(.text-amber):not(.border-amber),
-    *[class*="bg-yellow"]:not(.text-yellow):not(.border-yellow) {
-      background-color: rgba(248, 250, 252, 0.8) !important;
     }
 
     /* Optimize hover effects for mobile performance */
