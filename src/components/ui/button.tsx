@@ -1,4 +1,3 @@
-
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -10,12 +9,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "text-white",
-        destructive: "text-white",
-        outline: "border text-gray-800 hover:text-gray-900",
-        secondary: "text-gray-800",
-        ghost: "hover:text-gray-800",
-        link: "text-blue-600 underline-offset-4 hover:underline",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -38,72 +40,11 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, style, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
-    
-    // Direct Safari-compatible styles with hardcoded values
-    const getVariantStyles = () => {
-      const baseStyle = {
-        WebkitAppearance: 'none' as const,
-        MozAppearance: 'none' as const,
-        appearance: 'none' as const,
-        ...style
-      };
-
-      switch (variant) {
-        case 'default':
-          return {
-            ...baseStyle,
-            backgroundColor: '#1e293b',
-            color: '#ffffff',
-            border: 'none'
-          };
-        case 'destructive':
-          return {
-            ...baseStyle,
-            backgroundColor: '#ef4444',
-            color: '#ffffff',
-            border: 'none'
-          };
-        case 'outline':
-          return {
-            ...baseStyle,
-            backgroundColor: '#ffffff',
-            borderColor: '#cbd5e1',
-            borderWidth: '1px',
-            borderStyle: 'solid',
-            color: '#1e293b'
-          };
-        case 'secondary':
-          return {
-            ...baseStyle,
-            backgroundColor: '#f1f5f9',
-            color: '#1e293b',
-            border: 'none'
-          };
-        case 'ghost':
-          return {
-            ...baseStyle,
-            backgroundColor: 'transparent',
-            color: '#1e293b',
-            border: 'none'
-          };
-        case 'link':
-          return {
-            ...baseStyle,
-            backgroundColor: 'transparent',
-            color: '#2563eb',
-            border: 'none'
-          };
-        default:
-          return baseStyle;
-      }
-    };
-
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
-        style={getVariantStyles()}
         ref={ref}
         {...props}
       />
