@@ -12,9 +12,10 @@ const DropdownMenuItem = ({ to, children }: DropdownMenuItemProps) => {
     <Link 
       to={to} 
       onClick={() => window.scrollTo(0, 0)}
-      className="block px-6 py-4 text-sm text-slate-800 hover:bg-gray-50 hover:text-slate-900 transition-all duration-300 font-subtitle hover:translate-x-1 hover:shadow-sm"
+      className="block px-6 py-4 text-sm text-slate-800 hover:bg-gray-50 hover:text-slate-900 transition-all duration-300 font-subtitle relative group"
     >
       {children}
+      <span className="absolute bottom-0 left-6 w-0 h-0.5 gradient-amber-soft transition-all duration-500 group-hover:w-full"></span>
     </Link>
   );
 };

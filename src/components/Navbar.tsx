@@ -54,11 +54,14 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="hover-glow" asChild>
-              <Link to="/investors" onClick={() => window.scrollTo(0, 0)}>
-                Investor Portal
-              </Link>
-            </Button>
+            <Link 
+              to="/investors" 
+              onClick={() => window.scrollTo(0, 0)}
+              className="border border-slate-300 hover:border-slate-400 text-slate-600 hover:text-slate-800 px-4 py-2 rounded-md transition-all duration-300 relative group font-subtitle text-sm font-medium"
+            >
+              Investor Portal
+              <span className="absolute bottom-0 left-4 w-0 h-0.5 gradient-amber-soft transition-all duration-500 group-hover:w-full"></span>
+            </Link>
           </div>
 
           <div className="md:hidden">
