@@ -54,14 +54,14 @@ const InvestorLogin = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Login Form */}
-          <Card className="backdrop-blur-xl bg-white/15 border border-white/25 shadow-xl hover:shadow-2xl hover:shadow-blue-500/30 hover:scale-105 transition-all duration-500">
+          {/* Login Form - Removed backdrop-blur, using solid background */}
+          <Card className="bg-white/95 border border-white/30 shadow-xl hover:shadow-2xl hover:shadow-blue-500/30 hover:scale-105 transition-all duration-500">
             <CardHeader className="text-center pb-8">
               <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mb-6 shadow-lg">
                 <Shield className="w-8 h-8 text-white" />
               </div>
-              <CardTitle className="text-2xl font-heading text-white">Secure Access</CardTitle>
-              <CardDescription className="text-blue-200 font-body">
+              <CardTitle className="text-2xl font-heading text-slate-800">Secure Access</CardTitle>
+              <CardDescription className="text-slate-600 font-body">
                 Enter your credentials to access your investment dashboard
               </CardDescription>
             </CardHeader>
@@ -69,36 +69,36 @@ const InvestorLogin = () => {
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-subtitle text-blue-200">
+                  <label htmlFor="email" className="text-sm font-subtitle text-slate-700">
                     Email Address
                   </label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-300 w-5 h-5" />
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-5 h-5" />
                     <Input
                       id="email"
                       type="email"
                       placeholder="investor@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="pl-10 bg-white/15 border-white/25 text-white placeholder:text-blue-300 focus:border-blue-400 focus:ring-blue-400/50 focus:shadow-lg focus:shadow-blue-500/20 transition-all duration-300"
+                      className="pl-10 bg-white/90 border-slate-300 text-slate-800 placeholder:text-slate-500 focus:border-blue-400 focus:ring-blue-400/50 focus:shadow-lg focus:shadow-blue-500/20 transition-all duration-300"
                       required
                     />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
-                  <label htmlFor="password" className="text-sm font-subtitle text-blue-200">
+                  <label htmlFor="password" className="text-sm font-subtitle text-slate-700">
                     Password
                   </label>
                   <div className="relative">
-                    <Key className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-300 w-5 h-5" />
+                    <Key className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-5 h-5" />
                     <Input
                       id="password"
                       type="password"
                       placeholder="••••••••"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="pl-10 bg-white/15 border-white/25 text-white placeholder:text-blue-300 focus:border-blue-400 focus:ring-blue-400/50 focus:shadow-lg focus:shadow-blue-500/20 transition-all duration-300"
+                      className="pl-10 bg-white/90 border-slate-300 text-slate-800 placeholder:text-slate-500 focus:border-blue-400 focus:ring-blue-400/50 focus:shadow-lg focus:shadow-blue-500/20 transition-all duration-300"
                       required
                     />
                   </div>
@@ -123,7 +123,7 @@ const InvestorLogin = () => {
                 </Button>
 
                 <div className="text-center">
-                  <a href="#" className="text-sm text-blue-300 hover:text-purple-300 transition-colors font-subtitle relative group">
+                  <a href="#" className="text-sm text-blue-600 hover:text-purple-600 transition-colors font-subtitle relative group">
                     Forgot your password?
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-300 group-hover:w-full"></span>
                   </a>
@@ -145,43 +145,43 @@ const InvestorLogin = () => {
             </div>
 
             <div className="grid grid-cols-1 gap-6">
-              <Card className="bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/15 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/50">
+              <Card className="bg-white/90 border border-white/20 hover:bg-white/95 hover:border-white/30 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/50">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mr-4 shadow-lg">
                       <BarChart3 className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-xl font-heading text-white">Portfolio Analytics</h3>
+                    <h3 className="text-xl font-heading text-slate-800">Portfolio Analytics</h3>
                   </div>
-                  <p className="text-blue-200 font-body">
+                  <p className="text-slate-600 font-body">
                     Real-time performance tracking and detailed investment analytics across all holdings.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/15 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/50">
+              <Card className="bg-white/90 border border-white/20 hover:bg-white/95 hover:border-white/30 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/50">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center mr-4 shadow-lg">
                       <TrendingUp className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-xl font-heading text-white">Market Insights</h3>
+                    <h3 className="text-xl font-heading text-slate-800">Market Insights</h3>
                   </div>
-                  <p className="text-blue-200 font-body">
+                  <p className="text-slate-600 font-body">
                     Strategic market intelligence and emerging opportunities in African and European markets.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/15 hover:border-white/25 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/50">
+              <Card className="bg-white/90 border border-white/20 hover:bg-white/95 hover:border-white/30 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/50">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-lg flex items-center justify-center mr-4 shadow-lg">
                       <Users className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-xl font-heading text-white">Network Access</h3>
+                    <h3 className="text-xl font-heading text-slate-800">Network Access</h3>
                   </div>
-                  <p className="text-blue-200 font-body">
+                  <p className="text-slate-600 font-body">
                     Connect with our global network of investors, partners, and industry leaders.
                   </p>
                 </CardContent>
