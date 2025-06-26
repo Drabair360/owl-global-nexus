@@ -41,49 +41,62 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, style, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     
-    // Safari-compatible explicit styles
+    // Direct Safari-compatible styles with hardcoded values
     const getVariantStyles = () => {
+      const baseStyle = {
+        WebkitAppearance: 'none' as const,
+        MozAppearance: 'none' as const,
+        appearance: 'none' as const,
+        ...style
+      };
+
       switch (variant) {
         case 'default':
           return {
+            ...baseStyle,
             backgroundColor: '#1e293b',
             color: '#ffffff',
-            ...style
+            border: 'none'
           };
         case 'destructive':
           return {
+            ...baseStyle,
             backgroundColor: '#ef4444',
             color: '#ffffff',
-            ...style
+            border: 'none'
           };
         case 'outline':
           return {
+            ...baseStyle,
             backgroundColor: '#ffffff',
             borderColor: '#cbd5e1',
             borderWidth: '1px',
-            color: '#1e293b',
-            ...style
+            borderStyle: 'solid',
+            color: '#1e293b'
           };
         case 'secondary':
           return {
+            ...baseStyle,
             backgroundColor: '#f1f5f9',
             color: '#1e293b',
-            ...style
+            border: 'none'
           };
         case 'ghost':
           return {
+            ...baseStyle,
             backgroundColor: 'transparent',
             color: '#1e293b',
-            ...style
+            border: 'none'
           };
         case 'link':
           return {
+            ...baseStyle,
             backgroundColor: 'transparent',
             color: '#2563eb',
-            ...style
+            border: 'none'
           };
         default:
-          return style;
+          return baseStyle;
       }
     };
 

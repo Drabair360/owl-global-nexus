@@ -16,49 +16,110 @@ const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
 
   if (!isOpen) return null;
 
+  const menuStyle = {
+    backgroundColor: '#ffffff',
+    borderBottom: '1px solid #e5e7eb'
+  };
+
+  const linkStyle = {
+    display: 'block',
+    paddingLeft: '0.75rem',
+    paddingRight: '0.75rem',
+    paddingTop: '0.75rem',
+    paddingBottom: '0.75rem',
+    color: '#1e293b',
+    fontFamily: 'var(--font-subtitle)',
+    fontSize: '1rem',
+    fontWeight: '500',
+    transition: 'color 0.3s ease',
+    borderBottom: '1px solid #e5e7eb',
+    textDecoration: 'none'
+  };
+
+  const subLinkStyle = {
+    display: 'block',
+    paddingLeft: '1.5rem',
+    paddingRight: '1.5rem',
+    paddingTop: '0.75rem',
+    paddingBottom: '0.75rem',
+    fontSize: '1rem',
+    color: '#1e293b',
+    fontFamily: 'var(--font-subtitle)',
+    fontWeight: '500',
+    transition: 'color 0.3s ease',
+    textDecoration: 'none'
+  };
+
+  const sectionHeaderStyle = {
+    paddingLeft: '0.75rem',
+    paddingRight: '0.75rem',
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem',
+    fontSize: '0.875rem',
+    fontWeight: '500',
+    color: '#475569',
+    fontFamily: 'var(--font-brand)',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '0.05em'
+  };
+
+  const buttonContainerStyle = {
+    paddingLeft: '0.75rem',
+    paddingRight: '0.75rem',
+    paddingTop: '1rem',
+    paddingBottom: '1rem'
+  };
+
   return (
     <div 
-      className="md:hidden border-b border-gray-200 animate-sophisticated-fade" 
-      style={{ 
-        backgroundColor: '#ffffff', 
-        borderColor: '#e5e7eb' 
-      }}
+      className="md:hidden animate-sophisticated-fade" 
+      style={menuStyle}
     >
       <div className="px-4 pt-2 pb-3 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
         <Link 
           to="/solutions" 
           onClick={handleLinkClick}
-          className="block px-3 py-3 text-slate-800 hover:text-slate-600 font-subtitle text-base transition-colors duration-300 border-b border-gray-200"
+          style={linkStyle}
+          onMouseEnter={(e) => e.currentTarget.style.color = '#475569'}
+          onMouseLeave={(e) => e.currentTarget.style.color = '#1e293b'}
         >
           Solutions
         </Link>
         <div className="space-y-1">
-          <div className="px-3 py-2 text-sm font-medium text-slate-600 font-brand">Company</div>
+          <div style={sectionHeaderStyle}>Company</div>
           <Link 
             to="/about" 
             onClick={handleLinkClick}
-            className="block px-6 py-3 text-base text-slate-800 hover:text-slate-600 font-subtitle transition-colors duration-300"
+            style={subLinkStyle}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#475569'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#1e293b'}
           >
             About Owl
           </Link>
           <Link 
             to="/careers" 
             onClick={handleLinkClick}
-            className="block px-6 py-3 text-base text-slate-800 hover:text-slate-600 font-subtitle transition-colors duration-300"
+            style={subLinkStyle}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#475569'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#1e293b'}
           >
             Careers
           </Link>
           <Link 
             to="/news" 
             onClick={handleLinkClick}
-            className="block px-6 py-3 text-base text-slate-800 hover:text-slate-600 font-subtitle transition-colors duration-300"
+            style={subLinkStyle}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#475569'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#1e293b'}
           >
             Hot News
           </Link>
           <Link 
             to="/impact" 
             onClick={handleLinkClick}
-            className="block px-6 py-3 text-base text-slate-800 hover:text-slate-600 font-subtitle transition-colors duration-300"
+            style={subLinkStyle}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#475569'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#1e293b'}
           >
             Impact
           </Link>
@@ -66,35 +127,46 @@ const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
         <Link 
           to="/portfolio" 
           onClick={handleLinkClick}
-          className="block px-3 py-3 text-slate-800 hover:text-slate-600 font-subtitle text-base transition-colors duration-300 border-b border-gray-200"
+          style={linkStyle}
+          onMouseEnter={(e) => e.currentTarget.style.color = '#475569'}
+          onMouseLeave={(e) => e.currentTarget.style.color = '#1e293b'}
         >
           Portfolio
         </Link>
         <div className="space-y-1">
-          <div className="px-3 py-2 text-sm font-medium text-slate-600 font-brand">Investors</div>
+          <div style={sectionHeaderStyle}>Investors</div>
           <Link 
             to="/investors" 
             onClick={handleLinkClick}
-            className="block px-6 py-3 text-base text-slate-800 hover:text-slate-600 font-subtitle transition-colors duration-300"
+            style={subLinkStyle}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#475569'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#1e293b'}
           >
             Investor Portal
           </Link>
           <Link 
             to="/scouts" 
             onClick={handleLinkClick}
-            className="block px-6 py-3 text-base text-slate-800 hover:text-slate-600 font-subtitle transition-colors duration-300"
+            style={subLinkStyle}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#475569'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#1e293b'}
           >
             Scouts
           </Link>
         </div>
-        <div className="px-3 py-4">
+        <div style={buttonContainerStyle}>
           <Button 
             variant="outline" 
-            className="w-full font-subtitle text-base py-3" 
+            className="w-full py-3" 
             style={{ 
               backgroundColor: '#ffffff',
               borderColor: '#cbd5e1',
-              color: '#1e293b'
+              borderWidth: '1px',
+              borderStyle: 'solid',
+              color: '#1e293b',
+              fontFamily: 'var(--font-subtitle)',
+              fontSize: '1rem',
+              fontWeight: '500'
             }} 
             asChild
           >
