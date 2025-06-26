@@ -1,21 +1,12 @@
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ChevronDown } from 'lucide-react';
+import React from 'react';
+import { useDropdownHover } from './hooks/useDropdownHover';
+import DropdownButton from './DropdownButton';
+import DropdownMenu from './DropdownMenu';
+import DropdownMenuItem from './DropdownMenuItem';
 
 const CompanyDropdown = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
-
-  const handleMouseEnter = () => {
-    if (hoverTimeout) clearTimeout(hoverTimeout);
-    setIsOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    const timeout = setTimeout(() => setIsOpen(false), 300);
-    setHoverTimeout(timeout);
-  };
+  const { isOpen, handleMouseEnter, handleMouseLeave } = useDropdownHover();
 
   return (
     <div 
@@ -23,47 +14,17 @@ const CompanyDropdown = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button className="flex items-center text-slate-600 hover:text-slate-800 transition-all duration-300 font-subtitle text-sm font-medium relative py-2">
-        Company
-        <ChevronDown className="ml-1 w-4 h-4 transition-all duration-300 group-hover:rotate-180" />
-        <span className="absolute bottom-0 left-0 w-0 h-0.5 gradient-amber-soft transition-all duration-500 group-hover:w-full"></span>
-      </button>
+      <DropdownButton>Company</DropdownButton>
       {isOpen && (
-        <div 
-          className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-xl py-3 z-50 shadow-sophisticated"
+        <DropdownMenu 
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="absolute -top-1 left-6 w-2 h-2 bg-white border-l border-t border-gray-200 rotate-45"></div>
-          <Link 
-            to="/about" 
-            onClick={() => window.scrollTo(0, 0)}
-            className="block px-6 py-4 text-sm text-slate-800 hover:bg-gray-50 transition-colors font-subtitle"
-          >
-            About Owl
-          </Link>
-          <Link 
-            to="/careers" 
-            onClick={() => window.scrollTo(0, 0)}
-            className="block px-6 py-4 text-sm text-slate-800 hover:bg-gray-50 transition-colors font-subtitle"
-          >
-            Careers
-          </Link>
-          <Link 
-            to="/news" 
-            onClick={() => window.scrollTo(0, 0)}
-            className="block px-6 py-4 text-sm text-slate-800 hover:bg-gray-50 transition-colors font-subtitle"
-          >
-            Hot News
-          </Link>
-          <Link 
-            to="/impact" 
-            onClick={() => window.scrollTo(0, 0)}
-            className="block px-6 py-4 text-sm text-slate-800 hover:bg-gray-50 transition-colors font-subtitle"
-          >
-            Impact
-          </Link>
-        </div>
+          <DropdownMenuItem to="/about">About Owl</DropdownMenuItem>
+          <DropdownMenuItem to="/careers">Careers</DropdownMenuItem>
+          <DropdownMenuItem to="/news">Hot News</DropdownMenuItem>
+          <DropdownMenuItem to="/impact">Impact</DropdownMenuItem>
+        </DropdownMenu>
       )}
     </div>
   );
