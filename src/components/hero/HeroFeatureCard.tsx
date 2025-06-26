@@ -15,7 +15,7 @@ const HeroFeatureCard = ({ icon: Icon, title, description }: HeroFeatureCardProp
         <Icon className="w-12 h-12 transition-transform duration-300 group-hover:scale-110" stroke="url(#iconGradient)" strokeWidth="2" />
       </div>
       <h3 className="text-xl font-brand font-semibold text-slate-800 mb-4 tracking-wide">{title}</h3>
-      <p className="text-slate-600 font-body">{description}</p>
+      <p className="text-slate-800 font-body">{description}</p>
     </div>
   );
 };

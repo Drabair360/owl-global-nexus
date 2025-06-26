@@ -17,135 +17,37 @@ const InvestorsDropdown = () => {
     setHoverTimeout(timeout);
   };
 
-  const buttonStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    color: '#475569',
-    transition: 'all 0.3s ease',
-    fontFamily: 'var(--font-subtitle)',
-    fontSize: '0.875rem',
-    fontWeight: '500',
-    position: 'relative' as const,
-    padding: '0.5rem',
-    background: 'none',
-    border: 'none',
-    cursor: 'pointer'
-  };
-
-  const dropdownStyle = {
-    position: 'absolute' as const,
-    top: '100%',
-    left: 0,
-    marginTop: '0.5rem',
-    width: '14rem',
-    backgroundColor: '#ffffff',
-    border: '1px solid #e5e7eb',
-    borderRadius: '0.75rem',
-    paddingTop: '0.75rem',
-    paddingBottom: '0.75rem',
-    zIndex: 50,
-    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)',
-    WebkitBoxShadow: '0 10px 40px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)',
-    MozBoxShadow: '0 10px 40px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)'
-  };
-
-  const linkStyle = {
-    display: 'block',
-    paddingLeft: '1.5rem',
-    paddingRight: '1.5rem',
-    paddingTop: '1rem',
-    paddingBottom: '1rem',
-    fontSize: '0.875rem',
-    color: '#1e293b',
-    transition: 'all 0.3s ease',
-    fontFamily: 'var(--font-subtitle)',
-    textDecoration: 'none',
-    backgroundColor: 'transparent'
-  };
-
   return (
     <div 
       className="relative group"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button 
-        style={buttonStyle}
-        onMouseEnter={(e) => e.currentTarget.style.color = '#1e293b'}
-        onMouseLeave={(e) => e.currentTarget.style.color = '#475569'}
-      >
+      <button className="flex items-center text-slate-600 hover:text-slate-800 transition-all duration-300 font-subtitle text-sm font-medium relative py-2">
         Investors
-        <ChevronDown className="ml-1 w-4 h-4 transition-all duration-300 group-hover:rotate-180" style={{ color: 'inherit' }} />
-        <span 
-          className="absolute bottom-0 h-0.5 transition-all duration-500 group-hover:w-[calc(100%-1rem)]"
-          style={{
-            left: '0.5rem',
-            width: '0',
-            background: 'linear-gradient(to right, #f59e0b, #ea580c)'
-          }}
-        ></span>
+        <ChevronDown className="ml-1 w-4 h-4 transition-all duration-300 group-hover:rotate-180" />
+        <span className="absolute bottom-0 left-0 w-0 h-0.5 gradient-amber-soft transition-all duration-500 group-hover:w-full"></span>
       </button>
       {isOpen && (
         <div 
-          style={dropdownStyle}
+          className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-xl py-3 z-50 shadow-sophisticated"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div 
-            className="absolute -top-1 left-6 w-2 h-2 rotate-45"
-            style={{ 
-              backgroundColor: '#ffffff',
-              borderLeft: '1px solid #e5e7eb',
-              borderTop: '1px solid #e5e7eb'
-            }}
-          ></div>
+          <div className="absolute -top-1 left-6 w-2 h-2 bg-white border-l border-t border-gray-200 rotate-45"></div>
           <Link 
             to="/investors" 
             onClick={() => window.scrollTo(0, 0)}
-            style={linkStyle}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#f9fafb';
-              e.currentTarget.style.color = '#1e293b';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = '#1e293b';
-            }}
+            className="block px-6 py-4 text-sm text-slate-800 hover:bg-gray-50 transition-colors font-subtitle"
           >
-            <span className="relative">
-              Investor Portal
-              <span 
-                className="absolute bottom-0 left-0 h-0.5 transition-all duration-300 group-hover/item:w-full"
-                style={{
-                  width: '0',
-                  background: 'linear-gradient(to right, #f59e0b, #ea580c)'
-                }}
-              ></span>
-            </span>
+            Investor Portal
           </Link>
           <Link 
             to="/scouts" 
             onClick={() => window.scrollTo(0, 0)}
-            style={linkStyle}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#f9fafb';
-              e.currentTarget.style.color = '#1e293b';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = '#1e293b';
-            }}
+            className="block px-6 py-4 text-sm text-slate-800 hover:bg-gray-50 transition-colors font-subtitle"
           >
-            <span className="relative">
-              Scouts
-              <span 
-                className="absolute bottom-0 left-0 h-0.5 transition-all duration-300 group-hover/item:w-full"
-                style={{
-                  width: '0',
-                  background: 'linear-gradient(to right, #f59e0b, #ea580c)'
-                }}
-              ></span>
-            </span>
+            Scouts
           </Link>
         </div>
       )}
