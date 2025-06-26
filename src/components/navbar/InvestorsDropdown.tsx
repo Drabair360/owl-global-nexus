@@ -30,16 +30,26 @@ const InvestorsDropdown = () => {
       </button>
       {isOpen && (
         <div 
-          className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-xl py-3 z-50 animate-elegant-scale"
-          style={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb', boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)' }}
+          className="absolute top-full left-0 mt-2 w-56 border border-gray-200 rounded-xl py-3 z-50 animate-elegant-scale"
+          style={{ 
+            backgroundColor: '#ffffff', 
+            borderColor: '#e5e7eb', 
+            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)' 
+          }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="absolute -top-1 left-6 w-2 h-2 bg-white border-l border-t border-gray-200 rotate-45"></div>
+          <div 
+            className="absolute -top-1 left-6 w-2 h-2 border-l border-t border-gray-200 rotate-45"
+            style={{ backgroundColor: '#ffffff' }}
+          ></div>
           <Link 
             to="/investors" 
             onClick={() => window.scrollTo(0, 0)}
-            className="block px-6 py-4 text-sm text-slate-800 hover:bg-gray-50 hover:text-slate-900 transition-all duration-300 font-subtitle relative group/item"
+            className="block px-6 py-4 text-sm text-slate-800 hover:text-slate-900 transition-all duration-300 font-subtitle relative group/item"
+            style={{ backgroundColor: 'transparent' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f9fafb'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
           >
             <span className="relative">
               Investor Portal
@@ -49,7 +59,10 @@ const InvestorsDropdown = () => {
           <Link 
             to="/scouts" 
             onClick={() => window.scrollTo(0, 0)}
-            className="block px-6 py-4 text-sm text-slate-800 hover:bg-gray-50 hover:text-slate-900 transition-all duration-300 font-subtitle relative group/item"
+            className="block px-6 py-4 text-sm text-slate-800 hover:text-slate-900 transition-all duration-300 font-subtitle relative group/item"
+            style={{ backgroundColor: 'transparent' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f9fafb'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
           >
             <span className="relative">
               Scouts

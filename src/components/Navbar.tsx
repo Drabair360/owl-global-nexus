@@ -11,7 +11,13 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full bg-white z-50 border-b border-gray-200" style={{ backgroundColor: '#ffffff', boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)' }}>
+    <nav 
+      className="fixed top-0 w-full bg-white z-50 border-b border-gray-200" 
+      style={{ 
+        backgroundColor: '#ffffff',
+        boxShadow: '0 4px 20px rgba(251, 146, 60, 0.15), 0 2px 8px rgba(249, 115, 22, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1)'
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group" onClick={() => window.scrollTo(0, 0)}>
@@ -54,9 +60,18 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="group overflow-hidden relative border-2 border-slate-300 hover:border-slate-500 transition-all duration-500 font-subtitle bg-white" style={{ backgroundColor: '#ffffff', borderColor: '#cbd5e1' }} asChild>
+            <Button 
+              variant="outline" 
+              className="group overflow-hidden relative border-2 transition-all duration-500 font-subtitle" 
+              style={{ 
+                backgroundColor: '#ffffff', 
+                borderColor: '#cbd5e1',
+                color: '#1e293b'
+              }} 
+              asChild
+            >
               <Link to="/investors" onClick={() => window.scrollTo(0, 0)} className="text-sm font-medium">
-                <span className="relative z-10 transition-colors duration-500 text-slate-800 group-hover:text-white">Investor Portal</span>
+                <span className="relative z-10 transition-colors duration-500 group-hover:text-white">Investor Portal</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
               </Link>
             </Button>

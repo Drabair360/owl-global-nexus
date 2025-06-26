@@ -17,7 +17,13 @@ const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="md:hidden bg-white border-b border-gray-200 animate-sophisticated-fade" style={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb' }}>
+    <div 
+      className="md:hidden border-b border-gray-200 animate-sophisticated-fade" 
+      style={{ 
+        backgroundColor: '#ffffff', 
+        borderColor: '#e5e7eb' 
+      }}
+    >
       <div className="px-4 pt-2 pb-3 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
         <Link 
           to="/solutions" 
@@ -82,7 +88,16 @@ const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
           </Link>
         </div>
         <div className="px-3 py-4">
-          <Button variant="outline" className="w-full font-subtitle text-base py-3 bg-white" style={{ backgroundColor: '#ffffff' }} asChild>
+          <Button 
+            variant="outline" 
+            className="w-full font-subtitle text-base py-3" 
+            style={{ 
+              backgroundColor: '#ffffff',
+              borderColor: '#cbd5e1',
+              color: '#1e293b'
+            }} 
+            asChild
+          >
             <Link to="/investors" onClick={handleLinkClick}>Investor Portal</Link>
           </Button>
         </div>

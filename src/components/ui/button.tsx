@@ -11,10 +11,10 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "text-white",
-        destructive: "bg-red-500 text-white hover:bg-red-600",
-        outline: "border border-gray-300 bg-white text-gray-800 hover:bg-gray-50 hover:text-gray-900",
-        secondary: "bg-gray-100 text-gray-800 hover:bg-gray-200",
-        ghost: "hover:bg-gray-100 hover:text-gray-800",
+        destructive: "text-white",
+        outline: "border text-gray-800 hover:text-gray-900",
+        secondary: "text-gray-800",
+        ghost: "hover:text-gray-800",
         link: "text-blue-600 underline-offset-4 hover:underline",
       },
       size: {
@@ -41,22 +41,56 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, style, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     
-    // Add explicit styles for cross-browser compatibility
-    const defaultStyles = variant === 'default' ? {
-      backgroundColor: '#1e293b',
-      color: '#ffffff',
-      ...style
-    } : variant === 'outline' ? {
-      backgroundColor: '#ffffff',
-      borderColor: '#cbd5e1',
-      color: '#1e293b',
-      ...style
-    } : style;
+    // Safari-compatible explicit styles
+    const getVariantStyles = () => {
+      switch (variant) {
+        case 'default':
+          return {
+            backgroundColor: '#1e293b',
+            color: '#ffffff',
+            ...style
+          };
+        case 'destructive':
+          return {
+            backgroundColor: '#ef4444',
+            color: '#ffffff',
+            ...style
+          };
+        case 'outline':
+          return {
+            backgroundColor: '#ffffff',
+            borderColor: '#cbd5e1',
+            borderWidth: '1px',
+            color: '#1e293b',
+            ...style
+          };
+        case 'secondary':
+          return {
+            backgroundColor: '#f1f5f9',
+            color: '#1e293b',
+            ...style
+          };
+        case 'ghost':
+          return {
+            backgroundColor: 'transparent',
+            color: '#1e293b',
+            ...style
+          };
+        case 'link':
+          return {
+            backgroundColor: 'transparent',
+            color: '#2563eb',
+            ...style
+          };
+        default:
+          return style;
+      }
+    };
 
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
-        style={defaultStyles}
+        style={getVariantStyles()}
         ref={ref}
         {...props}
       />
