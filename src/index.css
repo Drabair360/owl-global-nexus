@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* Restored to pure white for cross-browser consistency */
+    --background: 0 0% 100%; /* Pure white for cross-browser consistency */
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -98,7 +98,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-slate-900;
     font-family: var(--font-body);
     font-optical-sizing: auto;
     font-feature-settings: "liga" 1, "kern" 1;
@@ -106,7 +106,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
-    background-color: #ffffff; /* Explicit white background for cross-browser consistency */
+    background-color: #ffffff !important; /* Explicit white background for all browsers */
   }
 
   /* Enhanced Typography System */
