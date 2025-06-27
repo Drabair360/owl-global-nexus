@@ -11,7 +11,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-md z-50 border-b border-border/50 shadow-[0_1px_0_0_transparent,0_4px_12px_-2px_rgba(245,158,11,0.4),0_8px_24px_-4px_rgba(217,119,6,0.3),0_12px_32px_-6px_rgba(251,191,36,0.2)]">
+    <nav className="fixed top-0 w-full bg-background border-b border-border shadow-lg z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-3 group" onClick={() => window.scrollTo(0, 0)}>
@@ -35,7 +35,7 @@ const Navbar = () => {
                 className="text-muted-foreground hover:text-primary transition-all duration-300 font-subtitle text-sm font-medium relative group py-2"
               >
                 Solutions
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-500 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-500 group-hover:w-full"></span>
               </Link>
               
               <CompanyDropdown />
@@ -46,7 +46,7 @@ const Navbar = () => {
                 className="text-muted-foreground hover:text-primary transition-all duration-300 font-subtitle text-sm font-medium relative group py-2"
               >
                 Portfolio
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-500 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-500 group-hover:w-full"></span>
               </Link>
 
               <InvestorsDropdown />
@@ -54,10 +54,10 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="group overflow-hidden relative border-2 border-primary/20 hover:border-primary/50 transition-all duration-500 hover-institutional font-subtitle" asChild>
+            <Button variant="outline" className="group overflow-hidden relative border-2 border-primary/20 hover:border-primary transition-all duration-500 hover-institutional font-subtitle" asChild>
               <Link to="/investors" onClick={() => window.scrollTo(0, 0)} className="text-sm font-medium">
                 <span className="relative z-10 transition-colors duration-500 group-hover:text-white">Investor Portal</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+                <span className="absolute inset-0 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
               </Link>
             </Button>
           </div>

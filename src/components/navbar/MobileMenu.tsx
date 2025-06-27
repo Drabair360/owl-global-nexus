@@ -17,7 +17,7 @@ const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border/50 animate-sophisticated-fade">
+    <div className="md:hidden bg-background border-b border-border animate-sophisticated-fade">
       <div className="px-4 pt-2 pb-3 space-y-1">
         <Link 
           to="/solutions" 
