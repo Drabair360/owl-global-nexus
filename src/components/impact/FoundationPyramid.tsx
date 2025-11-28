@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, Tractor, Users, Building } from 'lucide-react';
+import { Cpu, Tractor, Building } from 'lucide-react';
 
 const FoundationPyramid = () => {
   const pillars = [
@@ -28,19 +28,6 @@ const FoundationPyramid = () => {
       bgGradient: 'bg-gradient-to-br from-green-700 via-emerald-800 to-teal-900',
       textGradient: 'from-green-100 to-emerald-50',
       borderColor: 'border-emerald-200/20'
-    },
-    {
-      id: 'kidzlab',
-      name: 'KIDZ LAB',
-      title: 'Human Capital & Creative Economy',
-      industry: 'Talent matching, creative industries, entertainment',
-      impact: 'Youth empowerment, skills development',
-      milestone: 'Regional talent hubs, creative industry partnerships',
-      icon: Users,
-      color: 'from-indigo-600 via-purple-700 to-violet-800',
-      bgGradient: 'bg-gradient-to-br from-indigo-600 via-purple-700 to-violet-800',
-      textGradient: 'from-indigo-100 to-purple-50',
-      borderColor: 'border-purple-200/20'
     },
     {
       id: 'owloma',

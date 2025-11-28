@@ -28,8 +28,7 @@ const PortfolioSynergy = () => {
             </div>
             <h4 className="text-xl font-semibold text-slate-800 mb-4 font-body">Integrated Value Chain</h4>
             <p className="text-slate-600 leading-relaxed font-body">
-              From CAOAGRO's <span className="font-semibold text-emerald-600">€10M+ industrial projects</span> to KIDZ LAB's 
-              <span className="font-semibold text-emerald-600"> 95% talent matching</span>, our platforms create multiplying value across industries.
+              From CAOAGRO's <span className="font-semibold text-emerald-600">€10M+ industrial projects</span> to OWLOMA's strategic real estate investments, our platforms create multiplying value across industries.
             </p>
           </div>
         </div>

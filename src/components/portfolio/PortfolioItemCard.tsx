@@ -64,7 +64,7 @@ const PortfolioItemCard = ({ item, index }: PortfolioItemCardProps) => {
         <Button className={`${item.buttonColor} text-white font-subtitle group/btn relative overflow-hidden`} asChild>
           <a href={item.website} target="_blank" rel="noopener noreferrer">
             <span className="relative z-10 flex items-center">
-              {item.title === "OWLOMA" ? "Discover More" : item.title === "AKOULA" ? "Explore Platform" : item.title === "KIDZ LAB" ? "Visit Platform" : "Learn More"}
+              {item.title === "OWLOMA" ? "Discover More" : item.title === "AKOULA" ? "Explore Platform" : "Learn More"}
               <ArrowRight className="ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" size={16} />
             </span>
           </a>

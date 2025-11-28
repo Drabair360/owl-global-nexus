@@ -55,7 +55,7 @@ const Solutions = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+          <div className="max-w-4xl mx-auto mb-20">
             <Card className="group hover:shadow-glow-amber transition-all duration-500 border-2 hover:border-amber-300/50 bg-gradient-to-br from-blue-50/90 via-indigo-50/90 to-purple-50/90 dark:from-blue-950/30 dark:via-indigo-950/30 dark:to-purple-950/30 backdrop-blur-sm hover-institutional">
               <CardHeader className="pb-6">
                 <div className="flex items-center justify-between">
@@ -116,74 +116,6 @@ const Solutions = () => {
                     <p className="text-sm text-muted-foreground font-body">Connect with local technical experts and consultants</p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-glow-amber transition-all duration-500 border-2 hover:border-amber-300/50 bg-gradient-to-br from-amber-50/90 via-orange-50/90 to-rose-50/90 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-rose-950/30 backdrop-blur-sm hover-institutional">
-              <CardHeader className="pb-6">
-                <div className="flex items-center justify-between">
-                  <Users className="w-14 h-14 text-amber-600 transition-transform duration-300 group-hover:scale-110" />
-                  <Eye className="w-8 h-8 text-blue-500" />
-                </div>
-                <CardTitle className="text-3xl font-heading font-semibold tracking-tight">Talent Discovery</CardTitle>
-                <CardDescription className="text-lg font-subtitle text-amber-700 dark:text-amber-300 font-semibold tracking-wide">
-                  KIDZ LAB ENTERTAINMENT
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <p className="text-muted-foreground font-body text-lg leading-relaxed">
-                  AI-powered talent discovery and booking platform connecting emerging artists 
-                  with global opportunities in entertainment and media.
-                </p>
-                <div className="space-y-4">
-                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200/40 hover:border-amber-400/60 transition-all duration-300 hover:shadow-glow-amber">
-                    <div className="flex items-center mb-2">
-                      <Cpu className="w-5 h-5 text-amber-600 mr-3" />
-                      <h4 className="font-heading font-semibold">AI Talent Matching</h4>
-                    </div>
-                    <p className="text-sm text-muted-foreground font-body">Smart pairing of talent with opportunities</p>
-                  </div>
-                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200/40 hover:border-amber-400/60 transition-all duration-300 hover:shadow-glow-amber">
-                    <div className="flex items-center mb-2">
-                      <Building2 className="w-5 h-5 text-amber-600 mr-3" />
-                      <h4 className="font-heading font-semibold">Booking Platform</h4>
-                    </div>
-                    <p className="text-sm text-muted-foreground font-body">Streamlined booking and management system</p>
-                  </div>
-                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200/40 hover:border-amber-400/60 transition-all duration-300 hover:shadow-glow-amber">
-                    <div className="flex items-center mb-2">
-                      <Globe className="w-5 h-5 text-amber-600 mr-3" />
-                      <h4 className="font-heading font-semibold">Global Network of Talents</h4>
-                    </div>
-                    <p className="text-sm text-muted-foreground font-body">Connecting Africa to worldwide talents</p>
-                  </div>
-                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200/40 hover:border-amber-400/60 transition-all duration-300 hover:shadow-glow-amber">
-                    <div className="flex items-center mb-2">
-                      <TrendingUp className="w-5 h-5 text-amber-600 mr-3" />
-                      <h4 className="font-heading font-semibold">Talent Cost Calculator & Salary Benchmarking</h4>
-                    </div>
-                    <p className="text-sm text-muted-foreground font-body">AI-powered salary benchmarking and talent cost analysis for entertainment and creative industries</p>
-                  </div>
-                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200/40 hover:border-amber-400/60 transition-all duration-300 hover:shadow-glow-amber">
-                    <div className="flex items-center mb-2">
-                      <GraduationCap className="w-5 h-5 text-amber-600 mr-3" />
-                      <h4 className="font-heading font-semibold">Skills Marketplace & Training Hub</h4>
-                    </div>
-                    <p className="text-sm text-muted-foreground font-body">Comprehensive skills development platform connecting talents with training opportunities and certifications</p>
-                  </div>
-                  <div className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200/40 hover:border-amber-400/60 transition-all duration-300 hover:shadow-glow-amber">
-                    <div className="flex items-center mb-2">
-                      <Network className="w-5 h-5 text-amber-600 mr-3" />
-                      <h4 className="font-heading font-semibold">Creative Consultant & Expert Network</h4>
-                    </div>
-                    <p className="text-sm text-muted-foreground font-body">Connect with creative directors, producers, and entertainment industry experts across Africa and globally</p>
-                  </div>
-                </div>
-                <Button className="w-full mt-6 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 font-subtitle font-semibold transition-all duration-300 hover:scale-105 shadow-glow-amber" asChild>
-                  <a href="https://www.kidzlabmodels.com" target="_blank" rel="noopener noreferrer">
-                    Explore KIDZ LAB <ExternalLink className="ml-2 w-4 h-4" />
-                  </a>
-                </Button>
               </CardContent>
             </Card>
           </div>

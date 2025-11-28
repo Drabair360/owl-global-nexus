@@ -1,6 +1,7 @@
 
+
 import React from 'react';
-import { Factory, Building2, Cpu, Network, Users, Zap, Wrench, Target, Globe, TrendingUp } from 'lucide-react';
+import { Factory, Building2, Cpu, Network, Zap, Wrench, Target, Globe } from 'lucide-react';
 import PortfolioCard from './PortfolioCard';
 
 const PortfolioSection = () => {
@@ -28,11 +29,6 @@ const PortfolioSection = () => {
             <stop offset="0%" stopColor="#8b5cf6" />
             <stop offset="50%" stopColor="#a855f7" />
             <stop offset="100%" stopColor="#d946ef" />
-          </linearGradient>
-          <linearGradient id="financialGradient5" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#ec4899" />
-            <stop offset="50%" stopColor="#f43f5e" />
-            <stop offset="100%" stopColor="#ef4444" />
           </linearGradient>
           <filter id="glow">
             <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
@@ -69,7 +65,7 @@ const PortfolioSection = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           
           <PortfolioCard
             icon={Factory}
@@ -131,23 +127,6 @@ const PortfolioSection = () => {
               <div className="relative">
                 <div className="w-8 h-8 border border-purple-400 rounded-full animate-ping" />
                 <div className="absolute inset-2 bg-purple-400 rounded-full animate-pulse" />
-              </div>
-            }
-          />
-
-          <PortfolioCard
-            icon={Users}
-            title="Future of Talent Discovery"
-            description="AI-driven talent platforms connecting the world's creative and technical professionals with global opportunities for skills matching and development."
-            gradientId="financialGradient5"
-            colorScheme="rose"
-            tagIcon={TrendingUp}
-            tagText="Global talent pipeline"
-            animationComponent={
-              <div className="flex items-center space-x-1">
-                <div className="w-2 h-2 bg-rose-400 rounded-full animate-bounce" style={{animationDelay: '0s'}} />
-                <div className="w-2 h-2 bg-rose-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}} />
-                <div className="w-2 h-2 bg-rose-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}} />
               </div>
             }
           />

@@ -191,13 +191,6 @@ const Footer = () => {
                       OWLOMA <span className="ml-1 text-xs">↗</span>
                     </a>
                   </li>
-                  <li>
-                    <a href="https://www.kidzlabmodels.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm font-semibold flex items-center justify-end" style={{
-                    fontFamily: 'Avenir Next, sans-serif'
-                  }}>
-                      KIDZ LAB <span className="ml-1 text-xs">↗</span>
-                    </a>
-                  </li>
                 </ul>
               </div>
             </div>

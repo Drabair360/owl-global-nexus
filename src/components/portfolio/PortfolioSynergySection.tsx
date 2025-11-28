@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Brain, Leaf, Palette } from 'lucide-react';
+import { Brain, Leaf } from 'lucide-react';
 import GeometricPattern from '@/components/GeometricPattern';
 
 const PortfolioSynergySection = () => {
@@ -22,7 +22,7 @@ const PortfolioSynergySection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="group text-center transform transition-all duration-500 hover:scale-105">
             <div className="relative mb-6">
               <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-lg animate-pulse" />
@@ -46,19 +46,6 @@ const PortfolioSynergySection = () => {
             <h3 className="text-xl font-semibold mb-4 font-subtitle bg-gradient-to-r from-emerald-300 to-emerald-100 bg-clip-text text-transparent">Sustainable Development</h3>
             <p className="text-slate-300 text-sm font-body leading-relaxed">
               CAOAGRO's sustainable practices inform our approach to eco-friendly real estate development.
-            </p>
-          </div>
-
-          <div className="group text-center transform transition-all duration-500 hover:scale-105">
-            <div className="relative mb-6">
-              <div className="absolute inset-0 bg-purple-500/20 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }} />
-              <div className="relative w-20 h-20 bg-gradient-to-br from-purple-500/20 via-purple-600/30 to-purple-700/20 backdrop-blur-xl rounded-full flex items-center justify-center mx-auto border border-purple-400/30">
-                <Palette className="w-10 h-10 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
-              </div>
-            </div>
-            <h3 className="text-xl font-semibold mb-4 font-subtitle bg-gradient-to-r from-purple-300 to-purple-100 bg-clip-text text-transparent">Talent Ecosystem</h3>
-            <p className="text-slate-300 text-sm font-body leading-relaxed">
-              KIDZ LAB's talent discovery fuels creative campaigns for all our portfolio companies.
             </p>
           </div>
         </div>

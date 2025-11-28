@@ -9,7 +9,7 @@ const FlagshipHeader = () => {
       </h2>
       <p className="text-lg text-slate-300 max-w-4xl mx-auto font-body leading-relaxed">
         Our integrated portfolio creates a powerful AI-driven ecosystem where AKOULA's industrial intelligence platform 
-        powers transformative solutions across agro-industry, real estate, and talent discovery, driving Africa's digital future.
+        powers transformative solutions across agro-industry and real estate, driving Africa's digital future.
       </p>
     </div>
   );

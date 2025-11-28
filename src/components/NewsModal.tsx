@@ -17,7 +17,6 @@ const NewsModal: React.FC<NewsModalProps> = ({ news, isOpen, onClose }) => {
     switch (entity) {
       case 'AKOULA': return 'text-blue-600';
       case 'CAOAGRO.COM': return 'text-green-600';
-      case 'KIDZ LAB': return 'text-purple-600';
       case 'OWLOMA': return 'text-orange-600';
       default: return 'text-slate-600';
     }
