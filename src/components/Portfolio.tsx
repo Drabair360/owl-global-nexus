@@ -1,7 +1,8 @@
 
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Brain, Settings, Building, Users, ExternalLink, Globe } from 'lucide-react';
+import { ArrowRight, Brain, Settings, Building, ExternalLink, Globe } from 'lucide-react';
 import SVGGradients from './portfolio/SVGGradients';
 import FlagshipHeader from './portfolio/FlagshipHeader';
 import PortfolioCarousel from './portfolio/PortfolioCarousel';
@@ -25,7 +26,6 @@ const Portfolio = () => {
       ],
       synergies: [
         "Powers CAOAGRO's industrial project intelligence and optimization",
-        "Enhances KIDZ LAB's talent matching algorithms and booking automation",
         "Provides OWLOMA with smart property analytics and market intelligence",
         "Creates unified data ecosystem across all portfolio platforms"
       ]
@@ -47,7 +47,6 @@ const Portfolio = () => {
       ],
       synergies: [
         "Leverages AKOULA's AI developments for project cost optimization, management and marketplace scalability",
-        "Benefits from KIDZ LAB's app pilot to customize and tailor its talent network for specialized industrial roles",
         "Collaborates with OWLOMA for industrial real estate development",
         "Shares market intelligence across the African industrial ecosystem"
       ]
@@ -70,30 +69,7 @@ const Portfolio = () => {
       synergies: [
         "Future AKOULA integration for predictive property analytics and market intelligence",
         "Partners with CAOAGRO for industrial facility development and expansion",
-        "Utilizes KIDZ LAB experience and developments for property marketing and creative campaigns",
         "Creates comprehensive business growth ecosystem across real estate and industry"
-      ]
-    },
-    {
-      title: "KIDZ LAB",
-      subtitle: "Instantaneous Global Talent Booking - AKOULA-Powered Creative Intelligence",
-      description: "Breakthrough talent booking platform powered by AKOULA's AI algorithm developments. Transforming the global creative industry through intelligent talent matching, automated booking systems, and predictive talent development tools, connecting agencies worldwide with any type of talent one can think of.",
-      icon: Users,
-      features: ["AI Talent Matching", "Global Network", "Automated Booking", "Career Development"],
-      primaryColor: "purple",
-      website: "https://www.kidzlabmodels.com/",
-      poweredBy: "Powered by AKOULA AI",
-      statistics: [
-        { value: "95%", label: "Match Success Rate" },
-        { value: "5 min", label: "Avg. Booking Time" },
-        { value: "2,000+", label: "Global Talent Pool (Pilot 1)" },
-        { value: "50+", label: "Partner Agencies" }
-      ],
-      synergies: [
-        "Uses AKOULA's AI for advanced talent-opportunity matching, booking and development",
-        "Provides the infrastructure for CAOAGRO's industrial talent pool",
-        "Supports OWLOMA's property marketing with professional talent and campaigns",
-        "Creates talent pipeline for all portfolio companies' creative and technical needs and soon open to anyone"
       ]
     }
   ];

@@ -1,8 +1,9 @@
 
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Brain, Leaf, Building, Palette } from 'lucide-react';
+import { Brain, Leaf, Building } from 'lucide-react';
 import GeometricPattern from '@/components/GeometricPattern';
 import PortfolioItemCard from '@/components/portfolio/PortfolioItemCard';
 import PortfolioSynergySection from '@/components/portfolio/PortfolioSynergySection';
@@ -65,23 +66,6 @@ const PortfolioPage = () => {
       glowColor: "shadow-[0_8px_32px_rgba(59,130,246,0.15)]",
       iconBg: "bg-blue-700",
       buttonColor: "bg-blue-700 hover:bg-blue-800"
-    },
-    {
-      title: "KIDZ LAB",
-      subtitle: "AI-Powered Future of Talent Discovery",
-      description: "Our AI-powered platform has transformed how agencies discover, match, and book talent. Revolutionizing the creative industry through intelligent talent discovery and seamless booking solutions.",
-      icon: Palette,
-      features: [
-        "AI-powered talent matching algorithms",
-        "Seamless booking and management platform",
-        "Creative industry transformation tools"
-      ],
-      website: "https://www.kidzlabmodels.com/",
-      gradient: "from-purple-900/90 via-violet-900/80 to-purple-800/90",
-      borderColor: "border-purple-500/30",
-      glowColor: "shadow-[0_8px_32px_rgba(147,51,234,0.15)]",
-      iconBg: "bg-purple-700",
-      buttonColor: "bg-purple-700 hover:bg-purple-800"
     }
   ];
 

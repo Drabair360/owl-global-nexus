@@ -33,7 +33,6 @@ const News = () => {
     switch (entity) {
       case 'AKOULA': return 'bg-blue-100 text-blue-800';
       case 'CAOAGRO.COM': return 'bg-green-100 text-green-800';
-      case 'KIDZ LAB': return 'bg-purple-100 text-purple-800';
       case 'OWLOMA': return 'bg-orange-100 text-orange-800';
       default: return 'bg-slate-100 text-slate-800';
     }
@@ -54,12 +53,6 @@ const News = () => {
       newsItem: newsData.find(item => item.id === 'caoagro-shea-butter-contract-2025')
     },
     {
-      id: 'kidz-lab-ai-matching-2025',
-      entity: 'KIDZ LAB',
-      text: 'KIDZ LAB revolutionizes talent matching AI',
-      newsItem: newsData.find(item => item.id === 'kidz-lab-ai-matching-2025')
-    },
-    {
       id: 'owloma-launch-announcement-2025',
       entity: 'OWLOMA',
       text: 'OWLOMA launches real estate division',
@@ -70,12 +63,6 @@ const News = () => {
       entity: 'CAOAGRO.COM',
       text: 'CAOAGRO.COM finalizes truck dealership talks',
       newsItem: newsData.find(item => item.id === 'caoagro-truck-dealership-2025')
-    },
-    {
-      id: 'kidz-lab-agency-acquisition-2025',
-      entity: 'KIDZ LAB',
-      text: 'KIDZ LAB negotiates Paris agency acquisition',
-      newsItem: newsData.find(item => item.id === 'kidz-lab-agency-acquisition-2025')
     },
     {
       id: 'caoagro-hevea-technology-2025',
