@@ -11,9 +11,25 @@ const Index = () => {
 
   return (
     <PageShell
-      title={`${t('home.hero.title')} — Owl International`}
-      description={t('home.hero.subtitle')}
+      title="Owl International — Holding d’investissement industriel, technologique et patrimonial"
+      description="Owl International, holding basée à Paris, structure un groupe intégré entre l’Europe et l’Afrique : ingénierie industrielle clé en main (EPC), logiciels propriétaires et immobilier patrimonial de long terme."
+      keywords="Owl International, holding Paris, investissement France Afrique, EPC industriel, logiciel propriétaire, immobilier patrimonial, Arthur Draber, groupe intégré"
+      jsonLd={{
+        '@context': 'https://schema.org',
+        '@type': 'FinancialService',
+        name: 'Owl International',
+        url: 'https://owl-global-nexus.lovable.app',
+        areaServed: ['FR', 'EU', 'Africa'],
+        serviceType: [
+          'Holding d’investissement',
+          'Ingénierie industrielle EPC',
+          'Édition de logiciels propriétaires',
+          'Immobilier patrimonial',
+        ],
+        provider: { '@type': 'Organization', name: 'Owl International' },
+      }}
     >
+
       {/* ==================== HERO ==================== */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-b from-slate-900 via-blue-900 to-indigo-900 -mt-16 pt-16">
         <GeometricPattern variant="prominent" />

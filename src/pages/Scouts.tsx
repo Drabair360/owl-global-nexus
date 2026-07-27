@@ -72,9 +72,12 @@ const Scouts = () => {
 
   return (
     <PageShell
-      title={`${t('scouts.title')} — Owl Scouts`}
-      description={t('scouts.subtitle')}
+      title={`${t('scouts.title')} — Owl Scouts | Programme de repérage Owl International`}
+      description="Le programme Owl Scouts : détectez, en Europe et en Afrique, les projets industriels, immobiliers et logiciels qui rejoindront le portefeuille d’Owl International."
+      keywords="Owl Scouts, apporteur d’affaires, deal sourcing, France Afrique, projets industriels, immobilier, logiciel"
+      breadcrumbs={[{ name: t('scouts.title'), path: '/scouts' }]}
     >
+
       {/* Hero */}
       <section className="bg-slate-900 text-white py-24 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.15),transparent_60%)]" />

@@ -13,9 +13,12 @@ const Engagements = () => {
   ];
   return (
     <PageShell
-      title={`${t('engagements.title')} — Owl International`}
-      description={t('engagements.1.b')}
+      title={`${t('engagements.title')} — Owl International | Responsabilité et gouvernance`}
+      description="Les engagements d’Owl International : gouvernance, responsabilité sociale et environnementale, éthique des affaires entre l’Europe et l’Afrique."
+      keywords="engagements Owl International, ESG, gouvernance holding, responsabilité"
+      breadcrumbs={[{ name: t('engagements.title'), path: '/engagements' }]}
     >
+
       <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Eyebrow>{t('engagements.eyebrow')}</Eyebrow>

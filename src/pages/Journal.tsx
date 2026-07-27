@@ -16,9 +16,12 @@ const Journal = () => {
 
   return (
     <PageShell
-      title={`${t('journal.title')} — Owl International`}
-      description={t('journal.body')}
+      title={`${t('journal.title')} — Owl International | Journal du groupe`}
+      description="Journal factuel d’Owl International : jalons, immatriculations, ouvertures de filiales et étapes structurantes du groupe entre l’Europe et l’Afrique."
+      keywords="journal Owl International, actualités holding, jalons, immatriculations, France Afrique"
+      breadcrumbs={[{ name: t('journal.title'), path: '/journal' }]}
     >
+
       <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Eyebrow>{t('journal.eyebrow')}</Eyebrow>

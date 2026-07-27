@@ -13,7 +13,7 @@ const Block = ({ title, body }: { title: string; body: string }) => (
 const Privacy = () => {
   const { t } = useI18n();
   return (
-    <PageShell title={`${t('privacy.title')} — Owl International`} description={t('privacy.intro')}>
+    <PageShell title={`${t('privacy.title')} — Owl International`} description="Politique de confidentialité d’Owl International : traitement des données personnelles, base légale, droits des utilisateurs (RGPD)." breadcrumbs={[{ name: t('privacy.title'), path: '/privacy' }]}>
       <section className="bg-slate-50 py-24 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Eyebrow>{t('privacy.eyebrow')}</Eyebrow>

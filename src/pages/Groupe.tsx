@@ -7,9 +7,18 @@ const Groupe = () => {
   const { t } = useI18n();
   return (
     <PageShell
-      title={`${t('groupe.title')} — Owl International`}
-      description={t('groupe.intro').slice(0, 155)}
+      title={`${t('groupe.title')} — Owl International | Holding Paris`}
+      description="Découvrez Owl International : gouvernance, ancrage parisien, doctrine d’investissement long terme entre l’Europe et l’Afrique. Une holding indépendante fondée par Arthur Draber."
+      keywords="Owl International groupe, gouvernance holding, Arthur Draber, holding Paris, investissement France Afrique"
+      breadcrumbs={[{ name: t('groupe.title'), path: '/groupe' }]}
+      jsonLd={{
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        name: t('groupe.title'),
+        about: { '@type': 'Organization', name: 'Owl International' },
+      }}
     >
+
       {/* Hero */}
       <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

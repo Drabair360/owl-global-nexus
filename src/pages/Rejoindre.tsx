@@ -10,9 +10,12 @@ const Rejoindre = () => {
   const { t } = useI18n();
   return (
     <PageShell
-      title={`${t('rejoindre.title')} — Owl International`}
-      description={t('rejoindre.body')}
+      title={`${t('rejoindre.title')} — Owl International | Carrières et candidatures`}
+      description="Rejoindre Owl International : opportunités de carrière, candidatures spontanées et partenariats professionnels au sein d’une holding intégrée France-Afrique."
+      keywords="carrières Owl International, rejoindre, candidatures, emploi holding, Paris"
+      breadcrumbs={[{ name: t('rejoindre.title'), path: '/rejoindre' }]}
     >
+
       <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Eyebrow>{t('rejoindre.eyebrow')}</Eyebrow>
