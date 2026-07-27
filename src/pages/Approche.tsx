@@ -13,9 +13,12 @@ const Approche = () => {
 
   return (
     <PageShell
-      title={`${t('approche.title')} — Owl International`}
-      description={t('approche.p1.b')}
+      title={`${t('approche.title')} — Owl International | Doctrine d’investissement`}
+      description="Doctrine d’Owl International : construire dans l’ordre, financer par le résultat, ancrer le capital dans le temps long. La méthode d’une holding intégrée France-Afrique."
+      keywords="doctrine investissement, approche Owl International, holding long terme, France Afrique"
+      breadcrumbs={[{ name: t('approche.title'), path: '/approche' }]}
     >
+
       <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Eyebrow>{t('approche.eyebrow')}</Eyebrow>

@@ -28,9 +28,22 @@ const Contact = () => {
   ];
   return (
     <PageShell
-      title={`${t('contact.title')} — Owl International`}
-      description={t('contact.intro')}
+      title={`${t('contact.title')} — Owl International | Contact Paris`}
+      description="Contactez Owl International : partenaires bancaires et notariaux, clients industriels, partenariats. Holding basée à Paris, contact@internationalowl.com."
+      keywords="contact Owl International, holding Paris, partenaires bancaires, notaires, clients industriels"
+      breadcrumbs={[{ name: t('contact.title'), path: '/contact' }]}
+      jsonLd={{
+        '@context': 'https://schema.org',
+        '@type': 'ContactPage',
+        name: t('contact.title'),
+        mainEntity: {
+          '@type': 'Organization',
+          name: 'Owl International',
+          email: 'contact@internationalowl.com',
+        },
+      }}
     >
+
       <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Eyebrow>{t('contact.eyebrow')}</Eyebrow>
