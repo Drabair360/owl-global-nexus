@@ -69,9 +69,13 @@ const Portefeuille = () => {
 
   return (
     <PageShell
-      title={`${t('portfolio.title')} — Owl International`}
-      description={t('portfolio.intro')}
+      title={`${t('portfolio.title')} — Owl International | CAO, Drabair, Line Builder, Weavme, Owl Real Estate`}
+      description="Le portefeuille d’Owl International : CAO Industries (EPC), Drabair Labs (technologies), Line Builder (configuration d’usines), Weavme (logiciel) et Owl Real Estate (immobilier patrimonial)."
+      keywords="portefeuille Owl International, CAO Industries, Drabair Labs, Line Builder, Weavme, Owl Real Estate, EPC, immobilier patrimonial"
+      breadcrumbs={[{ name: t('portfolio.title'), path: '/portefeuille' }]}
+      jsonLd={portfolioSchema}
     >
+
       <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Eyebrow>{t('portfolio.eyebrow')}</Eyebrow>

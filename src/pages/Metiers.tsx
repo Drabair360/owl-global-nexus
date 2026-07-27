@@ -16,9 +16,12 @@ const Metiers = () => {
 
   return (
     <PageShell
-      title={`${t('metiers.title')} — Owl International`}
-      description={t('metiers.epc.body')}
+      title={`${t('metiers.title')} — Owl International | Ingénierie EPC, logiciels, immobilier`}
+      description="Les trois métiers d’Owl International : ingénierie industrielle clé en main (EPC), édition de logiciels propriétaires et immobilier patrimonial de long terme."
+      keywords="métiers Owl International, EPC industriel, logiciel propriétaire, immobilier patrimonial, ingénierie clé en main"
+      breadcrumbs={[{ name: t('metiers.title'), path: '/metiers' }]}
     >
+
       <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Eyebrow>{t('metiers.eyebrow')}</Eyebrow>
