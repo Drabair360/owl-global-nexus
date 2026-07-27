@@ -32,13 +32,15 @@ const Engagements = () => {
       <EditorialSection className="bg-white">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {items.map((it, i) => (
-            <div key={i}>
+            <Reveal key={i} delay={i * 70}>
+            <div>
               <div className="text-xs font-subtitle tracking-widest uppercase text-primary/70 mb-3">
                 {String(i + 1).padStart(2, '0')}
               </div>
               <h2 className="font-heading text-xl md:text-2xl text-slate-900 mb-4">{t(it.tKey)}</h2>
               <p className="text-slate-700 font-body leading-relaxed">{t(it.bKey)}</p>
             </div>
+            </Reveal>
           ))}
         </div>
       </EditorialSection>
