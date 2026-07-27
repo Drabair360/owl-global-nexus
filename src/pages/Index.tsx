@@ -5,6 +5,7 @@ import PageShell from '@/components/PageShell';
 import GeometricPattern from '@/components/GeometricPattern';
 import { SectionNumber, EditorialTitle } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
+import Reveal from '@/components/Reveal';
 
 const Index = () => {
   const { t } = useI18n();
@@ -103,13 +104,15 @@ const Index = () => {
               { year: '2026', body: t('home.milestones.2026c') },
               { year: '—', body: t('home.milestones.next'), muted: true },
             ].map((m, i) => (
-              <li key={i} className="relative">
+              <Reveal key={i} delay={i * 60}>
+              <li className="relative">
                 <span className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-white border-2 border-amber-400" />
                 <div className="text-xs font-subtitle tracking-widest uppercase text-primary mb-2">{m.year}</div>
                 <p className={`text-base md:text-lg font-body leading-relaxed ${m.muted ? 'text-slate-500 italic' : 'text-slate-800'}`}>
                   {m.body}
                 </p>
               </li>
+              </Reveal>
             ))}
           </ol>
         </div>
@@ -121,10 +124,11 @@ const Index = () => {
           <SectionNumber n={t('home.poles.number')} label={t('home.poles.section')} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Reveal>
             <Link
               to="/portefeuille"
               onClick={() => window.scrollTo(0, 0)}
-              className="group border border-slate-200 hover:border-primary/40 rounded-sm p-10 transition-colors bg-slate-50/40"
+              className="group border border-slate-200 hover:border-primary/40 rounded-sm p-10 transition-colors bg-slate-50/40 block h-full"
             >
               <h3 className="font-heading text-2xl md:text-3xl text-slate-900 mb-4">{t('home.poles.operational.title')}</h3>
               <p className="text-slate-600 font-body leading-relaxed mb-8">{t('home.poles.operational.body')}</p>
@@ -132,11 +136,13 @@ const Index = () => {
                 {t('home.poles.cta1')} <ArrowRight size={16} />
               </span>
             </Link>
+            </Reveal>
 
+            <Reveal delay={120}>
             <Link
               to="/metiers"
               onClick={() => window.scrollTo(0, 0)}
-              className="group border border-slate-200 hover:border-primary/40 rounded-sm p-10 transition-colors bg-slate-50/40"
+              className="group border border-slate-200 hover:border-primary/40 rounded-sm p-10 transition-colors bg-slate-50/40 block h-full"
             >
               <h3 className="font-heading text-2xl md:text-3xl text-slate-900 mb-4">{t('home.poles.patrimonial.title')}</h3>
               <p className="text-slate-600 font-body leading-relaxed mb-8">{t('home.poles.patrimonial.body')}</p>
@@ -144,6 +150,7 @@ const Index = () => {
                 {t('home.poles.cta2')} <ArrowRight size={16} />
               </span>
             </Link>
+            </Reveal>
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import React from 'react';
 import PageShell from '@/components/PageShell';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
+import Reveal from '@/components/Reveal';
 
 interface Entity {
   name: string;
@@ -91,8 +92,8 @@ const Portefeuille = () => {
       <EditorialSection className="bg-white">
         <div className="space-y-12">
           {entities.map((e, i) => (
+            <Reveal key={e.name} delay={i * 60}>
             <article
-              key={e.name}
               className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-200 last:border-0"
             >
               <div className="md:col-span-4">
@@ -119,6 +120,7 @@ const Portefeuille = () => {
                 </ul>
               </div>
             </article>
+            </Reveal>
           ))}
         </div>
       </EditorialSection>

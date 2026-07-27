@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import PageShell from '@/components/PageShell';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
+import Reveal from '@/components/Reveal';
 
 const Metiers = () => {
   const { t } = useI18n();
@@ -33,9 +34,9 @@ const Metiers = () => {
 
       <EditorialSection className="bg-white">
         <div className="space-y-20">
-          {blocks.map((b) => (
+          {blocks.map((b, i) => (
+            <Reveal key={b.n} delay={i * 80}>
             <article
-              key={b.n}
               className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start"
             >
               <div className="md:col-span-3">
@@ -53,6 +54,7 @@ const Metiers = () => {
                 </Link>
               </div>
             </article>
+            </Reveal>
           ))}
         </div>
       </EditorialSection>
