@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://owl-global-nexus.lovable.app/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://owl-global-nexus.lovable.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://owl-global-nexus.lovable.app/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://owl-global-nexus.lovable.app/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  <url><loc>https://owl-global-nexus.lovable.app/groupe</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://owl-global-nexus.lovable.app/portefeuille</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://owl-global-nexus.lovable.app/metiers</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://owl-global-nexus.lovable.app/scouts</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://owl-global-nexus.lovable.app/groupe</loc><xhtml:link rel="alternate" hreflang="fr" href="https://owl-global-nexus.lovable.app/groupe"/><xhtml:link rel="alternate" hreflang="en" href="https://owl-global-nexus.lovable.app/groupe"/><xhtml:link rel="alternate" hreflang="x-default" href="https://owl-global-nexus.lovable.app/groupe"/><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://owl-global-nexus.lovable.app/portefeuille</loc><xhtml:link rel="alternate" hreflang="fr" href="https://owl-global-nexus.lovable.app/portefeuille"/><xhtml:link rel="alternate" hreflang="en" href="https://owl-global-nexus.lovable.app/portefeuille"/><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://owl-global-nexus.lovable.app/metiers</loc><xhtml:link rel="alternate" hreflang="fr" href="https://owl-global-nexus.lovable.app/metiers"/><xhtml:link rel="alternate" hreflang="en" href="https://owl-global-nexus.lovable.app/metiers"/><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://owl-global-nexus.lovable.app/scouts</loc><xhtml:link rel="alternate" hreflang="fr" href="https://owl-global-nexus.lovable.app/scouts"/><xhtml:link rel="alternate" hreflang="en" href="https://owl-global-nexus.lovable.app/scouts"/><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://owl-global-nexus.lovable.app/journal</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://owl-global-nexus.lovable.app/approche</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
   <url><loc>https://owl-global-nexus.lovable.app/rejoindre</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
