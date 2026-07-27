@@ -4,21 +4,16 @@ interface Props {
   children: ReactNode;
   delay?: number;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
 }
 
-/**
- * Lightweight scroll-reveal: subtle fade + translate on first intersection.
- * Respects prefers-reduced-motion.
- */
-const Reveal = ({ children, delay = 0, className = '', as: Tag = 'div' }: Props) => {
-  const ref = useRef<HTMLElement | null>(null);
+/** Lightweight scroll-reveal: subtle fade + translate. Respects prefers-reduced-motion. */
+const Reveal = ({ children, delay = 0, className = '' }: Props) => {
+  const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setVisible(true);
       return;
     }
@@ -40,8 +35,8 @@ const Reveal = ({ children, delay = 0, className = '', as: Tag = 'div' }: Props)
   }, []);
 
   return (
-    <Tag
-      ref={ref as React.RefObject<HTMLDivElement>}
+    <div
+      ref={ref}
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(16px)',
@@ -51,7 +46,7 @@ const Reveal = ({ children, delay = 0, className = '', as: Tag = 'div' }: Props)
       className={className}
     >
       {children}
-    </Tag>
+    </div>
   );
 };
 
