@@ -13,7 +13,7 @@ const LegalBlock = ({ title, body }: { title: string; body: string }) => (
 const MentionsLegales = () => {
   const { t } = useI18n();
   return (
-    <PageShell title={`${t('legal.title')} — Owl International`} description={t('legal.editor.body')}>
+    <PageShell title={`${t('legal.title')} — Owl International`} description="Mentions légales d’Owl International SAS, holding basée à Paris. Éditeur, hébergeur, propriété intellectuelle." breadcrumbs={[{ name: t('legal.title'), path: '/mentions-legales' }]}>
       <section className="bg-slate-50 py-24 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Eyebrow>{t('legal.eyebrow')}</Eyebrow>
