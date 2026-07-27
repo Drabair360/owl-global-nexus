@@ -5,6 +5,7 @@ import PageShell from '@/components/PageShell';
 import GeometricPattern from '@/components/GeometricPattern';
 import { SectionNumber, EditorialTitle } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
+import Reveal from '@/components/Reveal';
 
 const Index = () => {
   const { t } = useI18n();
