@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import PageShell from '@/components/PageShell';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
+import Reveal from '@/components/Reveal';
 
 const Metiers = () => {
   const { t } = useI18n();
