@@ -14,6 +14,21 @@ interface Entity {
 const Portefeuille = () => {
   const { t } = useI18n();
 
+  const portfolioSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Portefeuille Owl International',
+    hasPart: [
+      { '@type': 'Organization', name: 'CAO Industries', description: 'Ingénierie industrielle EPC' },
+      { '@type': 'Organization', name: 'Drabair Labs', description: 'Technologies propriétaires du groupe' },
+      { '@type': 'Organization', name: 'Line Builder', description: 'Configuration d’usines dès l’avant-projet' },
+      { '@type': 'Organization', name: 'Weavme', description: 'Plateforme logicielle' },
+      { '@type': 'Organization', name: 'Owl Real Estate', description: 'Immobilier patrimonial long terme' },
+    ],
+  };
+
+
+
   const entities: Entity[] = [
     {
       name: 'CAO Industries',
