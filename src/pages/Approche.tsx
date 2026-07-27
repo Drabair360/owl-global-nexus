@@ -31,8 +31,9 @@ const Approche = () => {
 
       <EditorialSection className="bg-white">
         <div className="space-y-16 max-w-4xl">
-          {principles.map((p) => (
-            <div key={p.n} className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          {principles.map((p, i) => (
+            <Reveal key={p.n} delay={i * 90}>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
               <div className="md:col-span-3">
                 <div className="font-brand text-5xl md:text-6xl text-amber-400 leading-none">{p.n}</div>
               </div>
@@ -41,6 +42,7 @@ const Approche = () => {
                 <p className="text-lg text-slate-700 font-body leading-relaxed">{t(p.bKey)}</p>
               </div>
             </div>
+            </Reveal>
           ))}
         </div>
       </EditorialSection>
