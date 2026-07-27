@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import PageShell from '@/components/PageShell';
 import GeometricPattern from '@/components/GeometricPattern';
-import { Eyebrow, SectionNumber, EditorialTitle } from '@/components/editorial';
+import { SectionNumber, EditorialTitle } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 
 const Index = () => {
@@ -11,17 +11,11 @@ const Index = () => {
 
   return (
     <PageShell
-      title={
-        useI18nDoc('home')
-          ? ''
-          : ''
-      }
-      description=""
+      title={`${t('home.hero.title')} — Owl International`}
+      description={t('home.hero.subtitle')}
     >
-      <HeadHelper />
-
       {/* ==================== HERO ==================== */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-b from-slate-900 via-blue-900 to-indigo-900">
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-b from-slate-900 via-blue-900 to-indigo-900 -mt-16 pt-16">
         <GeometricPattern variant="prominent" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(251,191,36,0.08),transparent_55%)]" />
@@ -54,8 +48,7 @@ const Index = () => {
             {t('home.model.body')}
           </p>
 
-          {/* Schéma vertical mobile / horizontal desktop */}
-          <ol className="relative border-l border-slate-200 md:border-l-0 md:grid md:grid-cols-5 md:gap-6 md:border-t md:pt-8 md:border-slate-200 space-y-8 md:space-y-0 pl-6 md:pl-0">
+          <ol className="relative border-l border-slate-200 md:border-l-0 md:grid md:grid-cols-5 md:gap-6 md:border-t md:pt-10 md:border-slate-200 space-y-8 md:space-y-0 pl-6 md:pl-0">
             {[
               t('home.model.node.cao'),
               t('home.model.node.line'),
@@ -64,7 +57,7 @@ const Index = () => {
               t('home.model.node.holding'),
             ].map((node, i) => (
               <li key={i} className="relative">
-                <div className="hidden md:block absolute -top-8 left-0 w-8 h-8 rounded-full border-2 border-amber-400 bg-white flex items-center justify-center text-xs font-brand text-primary">
+                <div className="hidden md:flex absolute -top-[38px] left-0 w-8 h-8 rounded-full border-2 border-amber-400 bg-white items-center justify-center text-xs font-brand text-primary">
                   {String(i + 1).padStart(2, '0')}
                 </div>
                 <div className="md:hidden absolute -left-9 top-0 w-6 h-6 rounded-full border-2 border-amber-400 bg-white flex items-center justify-center text-[10px] font-brand text-primary">
@@ -150,29 +143,6 @@ const Index = () => {
       </section>
     </PageShell>
   );
-};
-
-// Petit helper pour éviter d'appeler useI18n deux fois dans le composant parent
-const useI18nDoc = (_k: string) => true;
-const HeadHelper = () => {
-  const { t } = useI18n();
-  useDocMeta(
-    `${t('home.hero.title')} — Owl International`,
-    t('home.hero.subtitle')
-  );
-  return null;
-};
-const useDocMeta = (title: string, description: string) => {
-  React.useEffect(() => {
-    document.title = title;
-    let m = document.head.querySelector<HTMLMetaElement>('meta[name="description"]');
-    if (!m) {
-      m = document.createElement('meta');
-      m.setAttribute('name', 'description');
-      document.head.appendChild(m);
-    }
-    m.setAttribute('content', description);
-  }, [title, description]);
 };
 
 export default Index;
