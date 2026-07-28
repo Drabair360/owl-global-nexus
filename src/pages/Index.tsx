@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import PageShell from '@/components/PageShell';
 import GeometricPattern from '@/components/GeometricPattern';
-import { SectionNumber, EditorialTitle } from '@/components/editorial';
+import { SectionNumber, EditorialTitle, SectionWatermark } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
 
@@ -32,33 +32,45 @@ const Index = () => {
     >
 
       {/* ==================== HERO ==================== */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-b from-slate-900 via-blue-900 to-indigo-900 -mt-16 pt-16">
-        <GeometricPattern variant="prominent" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(251,191,36,0.08),transparent_55%)]" />
+      <section className="relative min-h-[94vh] flex items-center overflow-hidden ink-surface paper-noise -mt-16 pt-16">
+        <GeometricPattern variant="subtle" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--gold)/0.10),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_85%,hsl(var(--gold-deep)/0.06),transparent_60%)]" />
+        <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-          <p className="text-xs md:text-sm font-subtitle tracking-[0.3em] text-amber-300/90 uppercase mb-8">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
+          <p className="text-[11px] md:text-xs font-subtitle tracking-[0.35em] text-gold/90 uppercase mb-10">
             {t('home.eyebrow')}
           </p>
-          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-white mb-8 max-w-5xl">
+          <h1 className="font-display text-display-xl text-white mb-10 max-w-5xl">
             {t('home.hero.title')}
           </h1>
-          <p className="text-lg md:text-xl text-blue-100 max-w-3xl leading-relaxed font-body mb-12">
+          <p className="text-lg md:text-xl text-slate-300 max-w-2xl leading-relaxed font-body mb-14">
             {t('home.hero.subtitle')}
           </p>
-          <a
-            href="#modele"
-            className="inline-flex items-center gap-3 text-white border-b border-amber-400/60 hover:border-amber-400 pb-1 text-sm font-subtitle tracking-wider uppercase transition-colors"
-          >
-            {t('common.readMore')} <ArrowRight size={16} />
-          </a>
+          <div className="flex flex-wrap items-center gap-8">
+            <a
+              href="#modele"
+              className="link-gold inline-flex items-center gap-3 text-white pb-1 text-sm font-subtitle tracking-wider uppercase"
+            >
+              {t('common.readMore')} <ArrowRight size={16} />
+            </a>
+          </div>
+        </div>
+
+        <div className="absolute bottom-8 left-0 right-0 z-10">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-4 text-[10px] md:text-xs font-subtitle tracking-[0.4em] text-white/50 uppercase">
+            <span className="h-px w-8 bg-gold/60" />
+            <span>Paris - Abidjan - Douala</span>
+          </div>
         </div>
       </section>
 
+
       {/* ==================== 01 - LE MODÈLE ==================== */}
-      <section id="modele" className="relative py-24 md:py-32 bg-white overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="modele" className="relative py-24 md:py-32 bg-white overflow-hidden paper-noise">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionWatermark n={t('home.model.number')} />
           <SectionNumber n={t('home.model.number')} label={t('home.model.section')} />
           <EditorialTitle className="mb-8 max-w-3xl">{t('home.model.title')}</EditorialTitle>
           <p className="text-lg text-slate-600 font-body leading-relaxed max-w-3xl mb-16">
@@ -88,8 +100,9 @@ const Index = () => {
       </section>
 
       {/* ==================== 02 - JALONS ==================== */}
-      <section className="py-24 md:py-32 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 md:py-32 bg-slate-50 overflow-hidden paper-noise">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionWatermark n={t('home.milestones.number')} />
           <SectionNumber n={t('home.milestones.number')} label={t('home.milestones.section')} />
           <EditorialTitle className="mb-6 max-w-3xl">{t('home.milestones.title')}</EditorialTitle>
           <p className="text-lg text-slate-600 font-body leading-relaxed max-w-2xl mb-16">
@@ -119,8 +132,9 @@ const Index = () => {
       </section>
 
       {/* ==================== 03 - DEUX PÔLES ==================== */}
-      <section className="py-24 md:py-32 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 md:py-32 bg-white overflow-hidden paper-noise">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionWatermark n={t('home.poles.number')} />
           <SectionNumber n={t('home.poles.number')} label={t('home.poles.section')} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -156,10 +170,11 @@ const Index = () => {
       </section>
 
       {/* ==================== CITATION ==================== */}
-      <section className="py-24 md:py-32 bg-slate-950 text-white relative overflow-hidden">
+      <section className="py-28 md:py-36 ink-surface paper-noise relative overflow-hidden">
         <GeometricPattern variant="subtle" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="font-heading text-2xl md:text-4xl leading-relaxed italic text-white">
+          <div className="rule-gold mx-auto mb-10" />
+          <p className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.15] italic text-white">
             {t('home.quote')}
           </p>
         </div>

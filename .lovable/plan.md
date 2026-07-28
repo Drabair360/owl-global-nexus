@@ -1,49 +1,91 @@
-# Ce qui reste à implémenter du plan complet
+# Owl International - Achèvement + effet "Wow"
 
-État actuel : la structure de base est en place (13 pages, i18n FR/EN, formulaire Scouts branché sur la base, redirections 301, sitemap, `index.html` SEO de base, footer/mentions). Il reste principalement des finitions de contenu, de design « wow » et de SEO institutionnel.
+Tirets longs "—" remplacés par "-" partout (18 fichiers : pages, composants, i18n, SEO, index.html). Voici la suite.
 
-## 1. SEO institutionnel avancé
-- Balises `hreflang` FR/EN sur chaque page (actuellement absentes).
-- `og:image` dédiée (visuel institutionnel 1200×630) — actuellement aucune image sociale.
-- JSON-LD étendu : `BreadcrumbList` par page, `WebSite` + `SearchAction`, `Person` pour Arthur Draber (dirigeant), `Organization` enrichi avec `sameAs` (LinkedIn), `foundingDate`, `founder`.
-- `<title>` et meta description spécifiques par page injectés via `useSEO` avec mots-clés cibles (holding France-Afrique, EPC industriel, immobilier patrimonial, logiciel propriétaire).
-- Génération dynamique du `sitemap.xml` avec balises `xhtml:link` hreflang.
+## Reste du plan approuvé
 
-## 2. Finitions design « wow » (Phase 4 du plan)
-- Micro-animations éditoriales : apparitions au scroll (fade/translate discret) sur les sections clés, sans surcharge.
-- Traitement typographique renforcé sur les titres de page (kerning, filets, numéros de section) — Playfair + filet doré déjà partiel, à généraliser.
-- Cohérence des hero : `Groupe`, `Portefeuille`, `Metiers`, `Approche`, `Engagements` utilisent un hero clair ; unifier avec un traitement plus institutionnel (fond sombre ou visuel abstrait cohérent avec Scouts et Index).
-- Visuels : intégrer 3–5 photographies institutionnelles (Paris, chantier, atelier, portrait) pour casser le tout-typographique. À valider avec toi (photos à fournir ou générées).
-- Cartes portefeuille : passer d'une liste simple à des fiches structurées (statut, périmètre, géographie, année) avec un système visuel commun.
+### R1. Emails transactionnels Scouts (en attente sous-domaine)
+- Sous-domaine d'envoi dédié (ex. `notify.internationalowl.com`) coexistant avec la messagerie root.
+- Edge function `scout-application-notify` : notification à `contact@internationalowl.com` + accusé de réception FR/EN au candidat.
+- Trigger DB sur `scout_applications` (insert).
+- Templates HTML sobres (Playfair + Inter, filet or, signature Owl).
 
-## 3. Contenu à approfondir
-- **Journal** : n'a que 5 entrées types ; enrichir avec les jalons réels manquants (à fournir).
-- **Portefeuille** : chaque entité mérite une fiche dédiée (une section par filiale) plutôt qu'une liste ; mention systématique du statut juridique.
-- **Approche / Engagements** : contenu court, à étoffer avec la doctrine d'investissement, les critères de sélection, la gouvernance ESG.
-- **Contact** : ajouter un vrai formulaire (aujourd'hui probablement infos statiques) avec insertion en base + notification email.
+### R2. Contenus renforcés
+- Fiches détaillées AKOULA, CAOAGRO.COM, OWLOMA : thèse, contexte, jalons, KPI factuels.
+- Groupe : bio Arthur enrichie, gouvernance.
+- Journal : 2-3 jalons antérieurs (constitution, premiers mandats).
 
-## 4. Emails transactionnels
-- Notification email quand un dossier Scout est soumis (destinataire `contact@internationalowl.com`).
-- Accusé de réception automatique au candidat (FR/EN selon `locale`).
-- Nécessite la configuration du domaine d'envoi (via `notify.internationalowl.com` ou équivalent).
+### R3. i18n EN complet
+- Audit clés manquantes, tonalité institutionnelle EN.
+- Vérifier hreflang + sitemap alt-langue sur toutes les pages.
 
-## 5. Accessibilité et performance
-- Audit `alt` sur toutes les images (logo, photos, patterns).
-- Contraste AA vérifié sur les textes ambre/slate.
-- Lazy-loading systématique des images en dessous du pli.
-- Preload de la police Playfair Display (fichier critique du hero).
+### R4. SEO institutionnel avancé
+- JSON-LD `Person` (Arthur) sur Groupe, `BreadcrumbList` partout, `FAQPage` sur Approche/Métiers.
+- Open Graph images dédiées par pilier.
+- `sitemap.xml` avec `lastmod` réel, priorités affinées.
+- Audit Lighthouse SEO/Perf/A11y ciblé.
 
-## 6. Points bloqués en attente de ton input
-- Photo institutionnelle pour `og:image` et hero.
-- Numéros RCS des filiales à mesure des immatriculations.
-- Liens sociaux réels (LinkedIn du groupe / d'Arthur) pour `sameAs`.
-- Liste enrichie du Journal.
+---
 
-## Ordre d'exécution proposé
-1. SEO institutionnel (hreflang, JSON-LD étendu, meta par page) — impact référencement immédiat.
-2. Emails transactionnels Scouts — impact opérationnel immédiat.
-3. Finitions design (hero unifiés, animations scroll, fiches portefeuille).
-4. Approfondissement contenu (Approche, Engagements, Journal, Contact formulaire).
-5. Audit accessibilité / performance final avant republication.
+## Montée "Wow" - direction éditoriale premium
 
-Dis-moi par quel lot tu veux commencer, ou si je prends l'ordre ci-dessus tel quel.
+Objectif : densité et tension d'un rapport annuel de holding (Lazard, Wendel, Eurazeo) plutôt qu'un site vitrine.
+
+### W1. Système typographique dramatisé
+- H1/H2 en `clamp()` plus radical (jusqu'à 96px desktop), kerning négatif serré.
+- Display serif de contraste pour hero (Fraunces ou Instrument Serif) ; Playfair conservé sur H2.
+- Numérotation section (01, 02...) en filigrane géant derrière contenu (parallax léger).
+- Filets or 1px systématiques comme signature.
+
+### W2. Hero d'accueil repensé
+- Plein écran, fond encre `#0B0F1A`, titre editorial massif, sous-titre petites capitales espacées.
+- Cartographie France-Afrique SVG animée au scroll (traits d'or) OU loop vidéo discret.
+- Ligne "Paris - Abidjan - Douala" en bas de hero.
+
+### W3. Scroll-driven storytelling
+- Sections `sticky` : numéro chapitre figé à gauche pendant lecture.
+- Reveal enrichi : split-text sur H2, images en `clip-path` qui s'ouvrent.
+- Curseur custom discret (point + label contextuel).
+- Marquee lente en pied de sections ("Ingénierie. Logiciel. Immobilier.").
+
+### W4. Traitement image et data
+- Portrait Arthur en duotone or/encre, pleine hauteur sur Groupe.
+- Photos "matière" (chantier, béton, terre) N&B contrasté sur Métiers.
+- Timeline Journal renforcée (courbe SVG animée reliant jalons).
+- Carte France-Afrique interactive SVG (sans lib externe) sur Groupe.
+- Composant `<KPI/>` : chiffres clés en très grande typo sur Approche et Engagements.
+
+### W5. Palette et matière
+- Noir encre `#0B0F1A` sur sections signature (plus profond que slate-950).
+- Or Owl unifié via un seul token `--gold` (amber-400/500 aujourd'hui mélangés).
+- Texture papier subtile (noise SVG 2%) sur fonds clairs.
+- Liens : underline gradient or dessiné en 400ms `cubic-bezier(.2,.7,.2,1)`.
+
+### W6. Navigation et transitions
+- Navbar : compression au scroll (hauteur -30%, logo réduit) en transition fluide.
+- Transitions de page : fondu + translate Y (Framer Motion ou View Transitions API).
+- Menu mobile plein écran éditorial (liste numérotée, filets or, langue en bas).
+
+### W7. Pages nouvelles
+- Ventures dédiées : `/portefeuille/akoula`, `/portefeuille/caoagro`, `/portefeuille/owloma` (hero, thèse, jalons).
+- Approche : Charte téléchargeable PDF.
+- Contact : bloc adresse avec carte statique sobre (SVG Paris).
+
+### W8. Performance et polish
+- Préchargement fonts critiques, `display: swap`.
+- Images AVIF + `<picture>` fallback JPG, lazy hors hero.
+- CLS < 0.05, LCP < 2s.
+- Audit contrastes AA/AAA sur tout texte or.
+
+---
+
+## Ordre proposé
+1. **W1 + W5** - fondation visuelle (typo + palette or unifié) : impact immédiat.
+2. **W2 + W6** - hero + navigation : premier "wow" visiteur.
+3. **W3 + W4** - storytelling + traitement image : profondeur éditoriale.
+4. **W7** - pages ventures : densité contenu.
+5. **R2 + R3 + R4** - contenus, i18n, SEO avancé.
+6. **R1** - emails Scouts dès sous-domaine fourni.
+7. **W8** - perf finale avant relivraison.
+
+Dis-moi par quel lot je commence - W1+W5 enchaînables tout de suite pour un saut visuel dès le prochain tour.

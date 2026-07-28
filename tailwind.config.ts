@@ -19,13 +19,15 @@ export default {
 		},
 		extend: {
 			fontFamily: {
+				'display': ['Instrument Serif', 'Playfair Display', 'serif'],
 				'heading': ['Playfair Display', 'Oswald', 'serif'],
 				'body': ['Inter', 'system-ui', 'sans-serif'],
 				'condensed': ['Oswald', 'Inter', 'sans-serif'],
 			},
 			fontSize: {
-				'display': ['clamp(2.5rem, 8vw, 6rem)', { lineHeight: '0.9', letterSpacing: '-0.04em' }],
-				'hero': ['clamp(2rem, 6vw, 4.5rem)', { lineHeight: '1.1', letterSpacing: '-0.03em' }],
+				'display': ['clamp(3rem, 10vw, 8rem)', { lineHeight: '0.92', letterSpacing: '-0.035em' }],
+				'display-xl': ['clamp(3.5rem, 11vw, 9.5rem)', { lineHeight: '0.88', letterSpacing: '-0.045em' }],
+				'hero': ['clamp(2.25rem, 7vw, 5.5rem)', { lineHeight: '1.05', letterSpacing: '-0.035em' }],
 				'section': ['clamp(1.5rem, 4vw, 3rem)', { lineHeight: '1.2', letterSpacing: '0.05em' }],
 				'body-large': ['clamp(1.125rem, 2.5vw, 1.5rem)', { lineHeight: '1.6', letterSpacing: '-0.01em' }],
 				'institutional': ['0.875rem', { lineHeight: '1.4', letterSpacing: '0.025em' }],
@@ -36,6 +38,15 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				gold: {
+					DEFAULT: 'hsl(var(--gold))',
+					deep: 'hsl(var(--gold-deep))',
+					soft: 'hsl(var(--gold-soft))',
+				},
+				ink: {
+					DEFAULT: 'hsl(var(--ink))',
+					soft: 'hsl(var(--ink-soft))',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
