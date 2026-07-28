@@ -278,6 +278,32 @@
   }
   .link-gold:hover::after { transform: scaleX(1); }
 
+  /* Cartographie hero - dessin des arcs + apparition villes */
+  @keyframes drawArc {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes fadeCity {
+    to { opacity: 1; }
+  }
+
+  /* Navbar compression - annonces sur l'élément */
+  .nav-shell {
+    transition: height 300ms cubic-bezier(.2,.7,.2,1),
+                background-color 300ms ease,
+                box-shadow 300ms ease,
+                border-color 300ms ease;
+    will-change: height, background-color;
+  }
+  .nav-brand {
+    transition: font-size 300ms cubic-bezier(.2,.7,.2,1),
+                letter-spacing 300ms ease;
+  }
+  .nav-logo {
+    transition: width 300ms cubic-bezier(.2,.7,.2,1),
+                height 300ms cubic-bezier(.2,.7,.2,1);
+  }
+
+
 
   .animate-sophisticated-fade {
     animation: sophisticatedFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
