@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import PageShell from '@/components/PageShell';
 import GeometricPattern from '@/components/GeometricPattern';
+import HeroCartography from '@/components/HeroCartography';
 import { SectionNumber, EditorialTitle, SectionWatermark } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
@@ -32,16 +33,24 @@ const Index = () => {
     >
 
       {/* ==================== HERO ==================== */}
-      <section className="relative min-h-[94vh] flex items-center overflow-hidden ink-surface paper-noise -mt-16 pt-16">
+      <section className="relative min-h-[96vh] flex items-center overflow-hidden ink-surface paper-noise -mt-16 pt-16">
         <GeometricPattern variant="subtle" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--gold)/0.10),transparent_55%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_85%,hsl(var(--gold-deep)/0.06),transparent_60%)]" />
-        <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+
+        {/* Cartographie Europe-Afrique en trame de fond */}
+        <div className="absolute inset-y-0 right-0 w-full md:w-[62%] lg:w-1/2 pointer-events-none opacity-60 md:opacity-80">
+          <HeroCartography className="w-full h-full" />
+        </div>
+        <div className="absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-ink via-ink/95 to-transparent" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
-          <p className="text-[11px] md:text-xs font-subtitle tracking-[0.35em] text-gold/90 uppercase mb-10">
-            {t('home.eyebrow')}
-          </p>
+          <div className="flex items-center gap-4 mb-10">
+            <span className="h-px w-12 bg-gold/70" />
+            <p className="text-[11px] md:text-xs font-subtitle tracking-[0.35em] text-gold/90 uppercase">
+              {t('home.eyebrow')}
+            </p>
+          </div>
           <h1 className="font-display text-display-xl text-white mb-10 max-w-5xl">
             {t('home.hero.title')}
           </h1>
@@ -58,13 +67,24 @@ const Index = () => {
           </div>
         </div>
 
+        {/* Baseline institutionnelle en bas de hero */}
         <div className="absolute bottom-8 left-0 right-0 z-10">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-4 text-[10px] md:text-xs font-subtitle tracking-[0.4em] text-white/50 uppercase">
-            <span className="h-px w-8 bg-gold/60" />
-            <span>Paris - Abidjan - Douala</span>
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4 text-[10px] md:text-xs font-subtitle tracking-[0.35em] text-white/50 uppercase">
+            <div className="flex items-center gap-4">
+              <span className="h-px w-8 bg-gold/60" />
+              <span>Paris - Abidjan - Douala</span>
+            </div>
+            <div className="hidden md:flex items-center gap-6 text-white/40">
+              <span>Industrie</span>
+              <span className="h-1 w-1 rounded-full bg-gold/60" />
+              <span>Logiciel</span>
+              <span className="h-1 w-1 rounded-full bg-gold/60" />
+              <span>Patrimoine</span>
+            </div>
           </div>
         </div>
       </section>
+
 
 
       {/* ==================== 01 - LE MODÈLE ==================== */}

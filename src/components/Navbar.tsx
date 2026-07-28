@@ -19,7 +19,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -29,20 +29,40 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        scrolled ? 'bg-white border-b border-border shadow-sm' : 'bg-white/95 border-b border-transparent'
+      className={`nav-shell fixed top-0 left-0 right-0 z-50 ${
+        scrolled
+          ? 'bg-white border-b border-border shadow-[0_1px_0_hsl(var(--gold)/0.4)]'
+          : 'bg-white/95 border-b border-transparent'
       }`}
-      style={{ backgroundColor: scrolled ? '#ffffff' : 'rgba(255,255,255,0.95)' }}
+      style={{
+        backgroundColor: scrolled ? '#ffffff' : 'rgba(255,255,255,0.96)',
+        height: scrolled ? '3.25rem' : '4.5rem',
+      }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      {/* Filet or subtil qui s'illumine au scroll */}
+      <span
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-px transition-opacity duration-500"
+        style={{
+          background: 'linear-gradient(90deg, transparent, hsl(43 96% 56% / 0.6), transparent)',
+          opacity: scrolled ? 1 : 0,
+        }}
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex items-center justify-between h-full">
           <Link to="/" onClick={scrollTop} className="flex items-center gap-3 group">
             <img
               src="/lovable-uploads/4d7f9a85-a58b-4911-9097-b446f027e04a.png"
               alt="Owl International"
-              className="w-9 h-9 transition-transform duration-300 group-hover:scale-105"
+              className="nav-logo transition-transform duration-300 group-hover:scale-105"
+              style={{ width: scrolled ? '1.75rem' : '2.25rem', height: scrolled ? '1.75rem' : '2.25rem' }}
             />
-            <span className="text-lg font-brand tracking-wide text-foreground">OWL INTERNATIONAL</span>
+            <span
+              className="nav-brand font-brand tracking-wide text-foreground"
+              style={{ fontSize: scrolled ? '0.95rem' : '1.125rem', letterSpacing: scrolled ? '0.06em' : '0.04em' }}
+            >
+              OWL INTERNATIONAL
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
