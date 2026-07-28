@@ -47,10 +47,18 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
 
     /* Enhanced Typography Variables */
+    --font-display: 'Instrument Serif', 'Playfair Display', serif;
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', system-ui, sans-serif;
     --font-brand: 'Montserrat', 'Avenir Next', sans-serif;
     --font-condensed: 'Oswald', sans-serif;
+
+    /* Owl signature tokens */
+    --gold: 43 96% 56%;              /* Or Owl unifié (amber-400) */
+    --gold-deep: 38 92% 50%;         /* Or profond (amber-500) */
+    --gold-soft: 45 96% 72%;         /* Or clair */
+    --ink: 222 47% 6%;               /* Encre profonde */
+    --ink-soft: 222 40% 11%;         /* Encre secondaire */
   }
 
   .dark {
