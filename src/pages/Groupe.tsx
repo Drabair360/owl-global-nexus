@@ -56,63 +56,63 @@ const Groupe = () => {
         </div>
       </EditorialSection>
 
-      {/* Organigramme */}
-      <EditorialSection className="bg-slate-50">
-        <h2 className="font-heading text-3xl md:text-4xl text-slate-900 mb-12 text-center">{t('groupe.orga.title')}</h2>
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <div className="inline-block border-2 border-primary px-8 py-4 bg-white">
-              <div className="text-xs font-subtitle tracking-widest uppercase text-primary mb-1">Holding</div>
-              <div className="font-heading text-xl text-slate-900">{t('groupe.orga.holding')}</div>
-            </div>
-          </div>
-          <div className="flex justify-center mb-8">
-            <div className="w-px h-12 bg-slate-300" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="border border-slate-300 p-6 bg-white">
-              <div className="text-xs font-subtitle tracking-widest uppercase text-primary mb-3">01</div>
-              <div className="font-heading text-lg text-slate-900 mb-4">{t('groupe.orga.op')}</div>
-              <ul className="space-y-1 text-sm text-slate-700 font-body">
-                <li>CAO Industries</li>
-                <li>Drabair Labs</li>
-                <li>Line Builder</li>
-                <li>Weavme</li>
-              </ul>
-            </div>
-            <div className="border border-slate-300 p-6 bg-white">
-              <div className="text-xs font-subtitle tracking-widest uppercase text-primary mb-3">02</div>
-              <div className="font-heading text-lg text-slate-900 mb-4">{t('groupe.orga.pat')}</div>
-              <ul className="space-y-1 text-sm text-slate-700 font-body">
-                <li>Owl Real Estate</li>
-              </ul>
+      {/* Organigramme + data-viz interactive */}
+      <EditorialSection className="bg-slate-50 relative">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-heading text-3xl md:text-4xl text-slate-900 mb-4">{t('groupe.orga.title')}</h2>
+          <div className="rule-gold mb-12" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <PolesViz />
+            <div className="space-y-6">
+              <div className="border border-slate-300 p-6 bg-white">
+                <div className="text-xs font-subtitle tracking-widest uppercase text-primary mb-1">Holding</div>
+                <div className="font-heading text-xl text-slate-900">{t('groupe.orga.holding')}</div>
+              </div>
+              <div className="border border-slate-300 p-6 bg-white">
+                <div className="text-xs font-subtitle tracking-widest uppercase text-primary mb-3">A - {t('groupe.orga.op')}</div>
+                <ul className="space-y-1 text-sm text-slate-700 font-body columns-2">
+                  <li>CAO Industries</li>
+                  <li>Drabair Labs</li>
+                  <li>Line Builder</li>
+                  <li>Weavme</li>
+                </ul>
+              </div>
+              <div className="border border-slate-300 p-6 bg-white">
+                <div className="text-xs font-subtitle tracking-widest uppercase text-primary mb-3">B - {t('groupe.orga.pat')}</div>
+                <ul className="space-y-1 text-sm text-slate-700 font-body">
+                  <li>Owl Real Estate</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </EditorialSection>
 
-      {/* Lettre du Président */}
+      {/* Lettre du Président - sticky chapter + duotone */}
       <EditorialSection className="bg-white">
-        <div className="max-w-4xl mx-auto">
-          <Eyebrow>{t('groupe.ceo.eyebrow')}</Eyebrow>
-          <div className="flex items-center gap-6 mb-8">
-            <img
+        <StickyChapter number="03" label={t('groupe.ceo.eyebrow')} title={t('groupe.ceo.name')}>
+          <div className="flex items-start gap-6 mb-2">
+            <Duotone
               src="/lovable-uploads/8b56d712-9028-4dab-a685-1b13bec3e715.png"
               alt="Arthur Draber, Président d'Owl International"
-              className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border border-slate-200"
+              tone="gold"
+              className="w-28 h-28 md:w-36 md:h-36 rounded-sm shrink-0 border border-slate-200"
             />
-            <div>
-              <div className="font-heading text-2xl text-slate-900">{t('groupe.ceo.name')}</div>
-              <div className="text-sm text-slate-500 font-subtitle tracking-wider uppercase mt-1">
+            <div className="pt-2">
+              <div className="text-sm text-slate-500 font-subtitle tracking-[0.2em] uppercase">
                 {t('groupe.ceo.role')}
               </div>
+              <div className="rule-gold mt-4" />
             </div>
           </div>
-          <p className="text-lg text-slate-700 font-body leading-relaxed italic">« {t('groupe.ceo.body')} »</p>
-        </div>
+          <p className="font-display text-2xl md:text-3xl leading-[1.35] italic text-slate-900">
+            « {t('groupe.ceo.body')} »
+          </p>
+        </StickyChapter>
       </EditorialSection>
     </PageShell>
   );
+
 };
 
 export default Groupe;
