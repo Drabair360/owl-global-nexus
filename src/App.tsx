@@ -30,6 +30,8 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <InstitutionalCursor />
+          <PageTransition>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/groupe" element={<Groupe />} />
