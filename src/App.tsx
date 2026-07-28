@@ -18,6 +18,8 @@ import MentionsLegales from './pages/MentionsLegales';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import NotFound from './pages/NotFound';
+import PageTransition from './components/PageTransition';
+import InstitutionalCursor from './components/InstitutionalCursor';
 
 const queryClient = new QueryClient();
 
@@ -28,6 +30,8 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <InstitutionalCursor />
+          <PageTransition>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/groupe" element={<Groupe />} />
@@ -55,6 +59,7 @@ const App = () => (
 
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </PageTransition>
         </BrowserRouter>
       </TooltipProvider>
     </LanguageProvider>
