@@ -14,7 +14,7 @@ const Approche = () => {
 
   return (
     <PageShell
-      title={`${t('approche.title')} — Owl International | Doctrine d’investissement`}
+      title={`${t('approche.title')} - Owl International | Doctrine d’investissement`}
       description="Doctrine d’Owl International : construire dans l’ordre, financer par le résultat, ancrer le capital dans le temps long. La méthode d’une holding intégrée France-Afrique."
       keywords="doctrine investissement, approche Owl International, holding long terme, France Afrique"
       breadcrumbs={[{ name: t('approche.title'), path: '/approche' }]}

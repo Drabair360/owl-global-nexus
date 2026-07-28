@@ -11,24 +11,24 @@ const Contact = () => {
       tKey: 'contact.bank.t',
       bKey: 'contact.bank.b',
       ctaKey: 'contact.bank.cta',
-      subject: 'Contact — Partenaires bancaires et notariaux',
+      subject: 'Contact - Partenaires bancaires et notariaux',
     },
     {
       tKey: 'contact.client.t',
       bKey: 'contact.client.b',
       ctaKey: 'contact.client.cta',
-      subject: 'Contact — Clients industriels',
+      subject: 'Contact - Clients industriels',
     },
     {
       tKey: 'contact.partner.t',
       bKey: 'contact.partner.b',
       ctaKey: 'contact.partner.cta',
-      subject: 'Contact — Partenariats et opportunités',
+      subject: 'Contact - Partenariats et opportunités',
     },
   ];
   return (
     <PageShell
-      title={`${t('contact.title')} — Owl International | Contact Paris`}
+      title={`${t('contact.title')} - Owl International | Contact Paris`}
       description="Contactez Owl International : partenaires bancaires et notariaux, clients industriels, partenariats. Holding basée à Paris, contact@internationalowl.com."
       keywords="contact Owl International, holding Paris, partenaires bancaires, notaires, clients industriels"
       breadcrumbs={[{ name: t('contact.title'), path: '/contact' }]}

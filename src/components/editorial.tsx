@@ -14,7 +14,7 @@ export const SectionNumber = ({ n, label }: { n: string; label: string }) => (
     <span className="text-6xl md:text-7xl font-brand text-slate-200 leading-none select-none" aria-hidden>
       {n}
     </span>
-    <span className="text-sm font-subtitle tracking-[0.2em] uppercase text-muted-foreground">— {label}</span>
+    <span className="text-sm font-subtitle tracking-[0.2em] uppercase text-muted-foreground">- {label}</span>
   </div>
 );
 

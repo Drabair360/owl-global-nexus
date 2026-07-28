@@ -70,7 +70,7 @@ const Portefeuille = () => {
 
   return (
     <PageShell
-      title={`${t('portfolio.title')} — Owl International | CAO, Drabair, Line Builder, Weavme, Owl Real Estate`}
+      title={`${t('portfolio.title')} - Owl International | CAO, Drabair, Line Builder, Weavme, Owl Real Estate`}
       description="Le portefeuille d’Owl International : CAO Industries (EPC), Drabair Labs (technologies), Line Builder (configuration d’usines), Weavme (logiciel) et Owl Real Estate (immobilier patrimonial)."
       keywords="portefeuille Owl International, CAO Industries, Drabair Labs, Line Builder, Weavme, Owl Real Estate, EPC, immobilier patrimonial"
       breadcrumbs={[{ name: t('portfolio.title'), path: '/portefeuille' }]}
@@ -98,7 +98,7 @@ const Portefeuille = () => {
             >
               <div className="md:col-span-4">
                 <div className="text-xs font-subtitle tracking-widest uppercase text-primary/70 mb-2">
-                  {String(i + 1).padStart(2, '0')} — {e.name.split(' ')[0]}
+                  {String(i + 1).padStart(2, '0')} - {e.name.split(' ')[0]}
                 </div>
                 <h2 className="font-heading text-2xl md:text-3xl text-slate-900">{e.name}</h2>
                 {e.statusKey && (

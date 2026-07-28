@@ -7,7 +7,7 @@ const Groupe = () => {
   const { t } = useI18n();
   return (
     <PageShell
-      title={`${t('groupe.title')} — Owl International | Holding Paris`}
+      title={`${t('groupe.title')} - Owl International | Holding Paris`}
       description="Découvrez Owl International : gouvernance, ancrage parisien, doctrine d’investissement long terme entre l’Europe et l’Afrique. Une holding indépendante fondée par Arthur Draber."
       keywords="Owl International groupe, gouvernance holding, Arthur Draber, holding Paris, investissement France Afrique"
       breadcrumbs={[{ name: t('groupe.title'), path: '/groupe' }]}

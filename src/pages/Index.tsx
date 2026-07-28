@@ -12,7 +12,7 @@ const Index = () => {
 
   return (
     <PageShell
-      title="Owl International — Holding d’investissement industriel, technologique et patrimonial"
+      title="Owl International - Holding d’investissement industriel, technologique et patrimonial"
       description="Owl International, holding basée à Paris, structure un groupe intégré entre l’Europe et l’Afrique : ingénierie industrielle clé en main (EPC), logiciels propriétaires et immobilier patrimonial de long terme."
       keywords="Owl International, holding Paris, investissement France Afrique, EPC industriel, logiciel propriétaire, immobilier patrimonial, Arthur Draber, groupe intégré"
       jsonLd={{
@@ -56,7 +56,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ==================== 01 — LE MODÈLE ==================== */}
+      {/* ==================== 01 - LE MODÈLE ==================== */}
       <section id="modele" className="relative py-24 md:py-32 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionNumber n={t('home.model.number')} label={t('home.model.section')} />
@@ -87,7 +87,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ==================== 02 — JALONS ==================== */}
+      {/* ==================== 02 - JALONS ==================== */}
       <section className="py-24 md:py-32 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionNumber n={t('home.milestones.number')} label={t('home.milestones.section')} />
@@ -102,7 +102,7 @@ const Index = () => {
               { year: '2026', body: t('home.milestones.2026a') },
               { year: '2026', body: t('home.milestones.2026b') },
               { year: '2026', body: t('home.milestones.2026c') },
-              { year: '—', body: t('home.milestones.next'), muted: true },
+              { year: '-', body: t('home.milestones.next'), muted: true },
             ].map((m, i) => (
               <Reveal key={i} delay={i * 60}>
               <li className="relative">
@@ -118,7 +118,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ==================== 03 — DEUX PÔLES ==================== */}
+      {/* ==================== 03 - DEUX PÔLES ==================== */}
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionNumber n={t('home.poles.number')} label={t('home.poles.section')} />
