@@ -156,20 +156,35 @@
   }
 
   /* Institutional Typography Hierarchy */
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    font-feature-settings: "ss01" 1, "liga" 1;
+  }
+
   .text-display {
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 8vw, 6rem);
-    font-weight: 700;
-    letter-spacing: -0.04em;
-    line-height: 0.9;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+  }
+
+  .text-display-xl {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 11vw, 9.5rem);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    line-height: 0.88;
   }
 
   .text-hero {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 6vw, 4.5rem);
+    font-size: clamp(2.25rem, 7vw, 5.5rem);
     font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
   }
 
   .text-section {
@@ -194,6 +209,18 @@
     font-weight: 500;
     letter-spacing: 0.025em;
     text-transform: uppercase;
+  }
+
+  /* Section number filigrane (parallax léger via CSS) */
+  .section-number-watermark {
+    font-family: var(--font-display);
+    font-size: clamp(6rem, 18vw, 16rem);
+    font-weight: 400;
+    line-height: 0.8;
+    color: hsl(var(--gold) / 0.08);
+    letter-spacing: -0.04em;
+    user-select: none;
+    pointer-events: none;
   }
 }
 
