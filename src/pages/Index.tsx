@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import PageShell from '@/components/PageShell';
 import GeometricPattern from '@/components/GeometricPattern';
 import HeroCartography from '@/components/HeroCartography';
+import PolesViz from '@/components/PolesViz';
 import { SectionNumber, EditorialTitle, SectionWatermark } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
@@ -157,7 +158,12 @@ const Index = () => {
           <SectionWatermark n={t('home.poles.number')} />
           <SectionNumber n={t('home.poles.number')} label={t('home.poles.section')} />
 
+          <div className="mb-16">
+            <PolesViz />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
             <Reveal>
             <Link
               to="/portefeuille"
