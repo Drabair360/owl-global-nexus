@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import PageShell from '@/components/PageShell';
 import GeometricPattern from '@/components/GeometricPattern';
-import { SectionNumber, EditorialTitle } from '@/components/editorial';
+import { SectionNumber, EditorialTitle, SectionWatermark } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
 
@@ -68,8 +68,9 @@ const Index = () => {
 
 
       {/* ==================== 01 - LE MODÈLE ==================== */}
-      <section id="modele" className="relative py-24 md:py-32 bg-white overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="modele" className="relative py-24 md:py-32 bg-white overflow-hidden paper-noise">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionWatermark n={t('home.model.number')} />
           <SectionNumber n={t('home.model.number')} label={t('home.model.section')} />
           <EditorialTitle className="mb-8 max-w-3xl">{t('home.model.title')}</EditorialTitle>
           <p className="text-lg text-slate-600 font-body leading-relaxed max-w-3xl mb-16">
@@ -99,8 +100,9 @@ const Index = () => {
       </section>
 
       {/* ==================== 02 - JALONS ==================== */}
-      <section className="py-24 md:py-32 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 md:py-32 bg-slate-50 overflow-hidden paper-noise">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionWatermark n={t('home.milestones.number')} />
           <SectionNumber n={t('home.milestones.number')} label={t('home.milestones.section')} />
           <EditorialTitle className="mb-6 max-w-3xl">{t('home.milestones.title')}</EditorialTitle>
           <p className="text-lg text-slate-600 font-body leading-relaxed max-w-2xl mb-16">
@@ -130,8 +132,9 @@ const Index = () => {
       </section>
 
       {/* ==================== 03 - DEUX PÔLES ==================== */}
-      <section className="py-24 md:py-32 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 md:py-32 bg-white overflow-hidden paper-noise">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionWatermark n={t('home.poles.number')} />
           <SectionNumber n={t('home.poles.number')} label={t('home.poles.section')} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -167,10 +170,11 @@ const Index = () => {
       </section>
 
       {/* ==================== CITATION ==================== */}
-      <section className="py-24 md:py-32 bg-slate-950 text-white relative overflow-hidden">
+      <section className="py-28 md:py-36 ink-surface paper-noise relative overflow-hidden">
         <GeometricPattern variant="subtle" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="font-heading text-2xl md:text-4xl leading-relaxed italic text-white">
+          <div className="rule-gold mx-auto mb-10" />
+          <p className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.15] italic text-white">
             {t('home.quote')}
           </p>
         </div>
