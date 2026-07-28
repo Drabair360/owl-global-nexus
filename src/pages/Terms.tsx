@@ -13,7 +13,7 @@ const Block = ({ title, body }: { title: string; body: string }) => (
 const Terms = () => {
   const { t } = useI18n();
   return (
-    <PageShell title={`${t('terms.title')} — Owl International`} description="Conditions générales d’utilisation du site Owl International : objet, responsabilité, droit applicable." breadcrumbs={[{ name: t('terms.title'), path: '/terms' }]}>
+    <PageShell title={`${t('terms.title')} - Owl International`} description="Conditions générales d’utilisation du site Owl International : objet, responsabilité, droit applicable." breadcrumbs={[{ name: t('terms.title'), path: '/terms' }]}>
       <section className="bg-slate-50 py-24 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Eyebrow>{t('terms.eyebrow')}</Eyebrow>

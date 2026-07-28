@@ -72,7 +72,7 @@ const Scouts = () => {
 
   return (
     <PageShell
-      title={`${t('scouts.title')} — Owl Scouts | Programme de repérage Owl International`}
+      title={`${t('scouts.title')} - Owl Scouts | Programme de repérage Owl International`}
       description="Le programme Owl Scouts : détectez, en Europe et en Afrique, les projets industriels, immobiliers et logiciels qui rejoindront le portefeuille d’Owl International."
       keywords="Owl Scouts, apporteur d’affaires, deal sourcing, France Afrique, projets industriels, immobilier, logiciel"
       breadcrumbs={[{ name: t('scouts.title'), path: '/scouts' }]}
@@ -191,7 +191,7 @@ const Scouts = () => {
                   className="mt-2 flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   required
                 >
-                  <option value="">—</option>
+                  <option value="">-</option>
                   <option value="industrial">{t('scouts.form.domain.industrial')}</option>
                   <option value="realestate">{t('scouts.form.domain.realestate')}</option>
                   <option value="software">{t('scouts.form.domain.software')}</option>

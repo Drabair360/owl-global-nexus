@@ -56,7 +56,7 @@ const Footer = () => {
 
         <div className="border-t border-slate-800 mt-12 pt-8 text-xs text-slate-500 flex flex-col md:flex-row gap-2 md:justify-between">
           <div>
-            OWL INTERNATIONAL — {t('footer.form')} · {t('footer.siege')} : 47 boulevard de Courcelles, 75008 Paris ·
+            OWL INTERNATIONAL - {t('footer.form')} · {t('footer.siege')} : 47 boulevard de Courcelles, 75008 Paris ·
             RCS Paris 978 849 230 · {t('footer.president')} : Arthur Draber
           </div>
           <div>© Owl International {year}. {t('footer.rights')}</div>

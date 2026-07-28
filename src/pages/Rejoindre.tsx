@@ -10,7 +10,7 @@ const Rejoindre = () => {
   const { t } = useI18n();
   return (
     <PageShell
-      title={`${t('rejoindre.title')} — Owl International | Carrières et candidatures`}
+      title={`${t('rejoindre.title')} - Owl International | Carrières et candidatures`}
       description="Rejoindre Owl International : opportunités de carrière, candidatures spontanées et partenariats professionnels au sein d’une holding intégrée France-Afrique."
       keywords="carrières Owl International, rejoindre, candidatures, emploi holding, Paris"
       breadcrumbs={[{ name: t('rejoindre.title'), path: '/rejoindre' }]}

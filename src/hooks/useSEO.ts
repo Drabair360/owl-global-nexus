@@ -16,7 +16,7 @@ interface SEOOptions {
 
 /**
  * Injects title/description/canonical/OG/Twitter/hreflang and page-scoped JSON-LD.
- * Direct <head> mutation — no react-helmet dependency.
+ * Direct <head> mutation - no react-helmet dependency.
  */
 export const useSEO = ({ title, description, jsonLd, keywords }: SEOOptions) => {
   const { pathname } = useLocation();
@@ -98,7 +98,7 @@ export const useSEO = ({ title, description, jsonLd, keywords }: SEOOptions) => 
       canonicalUrl,
     );
 
-    // hreflang alternates (FR/EN + x-default) — same URL, language chosen client-side.
+    // hreflang alternates (FR/EN + x-default) - same URL, language chosen client-side.
     const setAlt = (hreflang: string) => {
       const sel = `link[rel="alternate"][hreflang="${hreflang}"]`;
       const el = upsert(
