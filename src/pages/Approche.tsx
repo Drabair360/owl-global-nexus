@@ -1,6 +1,8 @@
 import React from 'react';
 import PageShell from '@/components/PageShell';
 import { Eyebrow, EditorialSection, Rule } from '@/components/editorial';
+import StickyChapter from '@/components/StickyChapter';
+import SplitText from '@/components/SplitText';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
 
@@ -23,29 +25,30 @@ const Approche = () => {
       <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Eyebrow>{t('approche.eyebrow')}</Eyebrow>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl leading-tight text-slate-900">
-            {t('approche.title')}
-          </h1>
+          <SplitText
+            as="h1"
+            text={t('approche.title')}
+            className="font-display text-hero text-slate-900"
+            stagger={60}
+          />
         </div>
       </section>
 
       <EditorialSection className="bg-white">
-        <div className="space-y-16 max-w-4xl">
-          {principles.map((p, i) => (
-            <Reveal key={p.n} delay={i * 90}>
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-              <div className="md:col-span-3">
-                <div className="font-brand text-5xl md:text-6xl text-amber-400 leading-none">{p.n}</div>
-              </div>
-              <div className="md:col-span-9">
-                <h2 className="font-heading text-2xl md:text-3xl text-slate-900 mb-4">{t(p.tKey)}</h2>
-                <p className="text-lg text-slate-700 font-body leading-relaxed">{t(p.bKey)}</p>
-              </div>
-            </div>
-            </Reveal>
+        <div className="space-y-24">
+          {principles.map((p) => (
+            <StickyChapter key={p.n} number={p.n} label={`Principe ${p.n}`} title={t(p.tKey)}>
+              <SplitText
+                as="p"
+                text={t(p.bKey)}
+                className="text-xl md:text-2xl font-body leading-relaxed text-slate-700 block"
+                stagger={18}
+              />
+            </StickyChapter>
           ))}
         </div>
       </EditorialSection>
+
 
       <EditorialSection className="bg-slate-950 text-white">
         <div className="max-w-3xl">
