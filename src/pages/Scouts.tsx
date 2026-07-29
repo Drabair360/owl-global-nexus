@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { z } from 'zod';
 import PageShell from '@/components/PageShell';
+import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
