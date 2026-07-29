@@ -127,11 +127,23 @@ const Scouts = () => {
           <h2 className="font-heading text-3xl md:text-4xl text-slate-900 mb-10">{t('scouts.form.title')}</h2>
 
           {status === 'success' ? (
-            <div className="border border-emerald-200 bg-emerald-50 p-8 text-center">
-              <p className="text-emerald-900 font-body text-lg">{t('scouts.form.success')}</p>
+            <div className="border-t-2 border-emerald-600 bg-emerald-50/60 p-8">
+              <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-emerald-700 mb-3">
+                {locale === 'fr' ? 'Confirmation' : 'Confirmation'}
+              </div>
+              <h3 className="font-heading text-2xl text-slate-900 mb-3">{t('scouts.form.successTitle')}</h3>
+              <p className="text-slate-700 font-body leading-relaxed mb-6">{t('scouts.form.successBody')}</p>
+              <button
+                type="button"
+                onClick={() => setStatus('idle')}
+                className="text-sm font-subtitle tracking-[0.2em] uppercase text-emerald-700 hover:text-emerald-900 border-b border-emerald-600/40 hover:border-emerald-800 pb-1 transition-colors"
+              >
+                {t('scouts.form.successAgain')}
+              </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+            <form onSubmit={handleSubmit} className="space-y-6" noValidate aria-busy={status === 'sending'}>
+              <fieldset disabled={status === 'sending'} className="space-y-6 disabled:opacity-70">
               <div>
                 <Label htmlFor="full_name">{t('scouts.form.name')} *</Label>
                 <Input
@@ -140,6 +152,7 @@ const Scouts = () => {
                   onChange={(e) => setForm({ ...form, full_name: e.target.value })}
                   className="mt-2 bg-white"
                   maxLength={200}
+                  aria-invalid={!!errors.full_name}
                   required
                 />
                 {errors.full_name && <p className="text-xs text-destructive mt-1">{errors.full_name}</p>}
@@ -155,6 +168,7 @@ const Scouts = () => {
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className="mt-2 bg-white"
                     maxLength={320}
+                    aria-invalid={!!errors.email}
                     required
                   />
                   {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
@@ -189,6 +203,7 @@ const Scouts = () => {
                   value={form.domain}
                   onChange={(e) => setForm({ ...form, domain: e.target.value })}
                   className="mt-2 flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  aria-invalid={!!errors.domain}
                   required
                 >
                   <option value="">-</option>
@@ -209,6 +224,7 @@ const Scouts = () => {
                   className="mt-2 bg-white"
                   rows={5}
                   maxLength={5000}
+                  aria-invalid={!!errors.message}
                   required
                 />
                 {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
@@ -228,18 +244,47 @@ const Scouts = () => {
               {errors.consent && <p className="text-xs text-destructive">{errors.consent}</p>}
 
               {status === 'error' && (
-                <p className="text-sm text-destructive border border-destructive/20 bg-destructive/5 p-3">
-                  {t('scouts.form.error')}
-                </p>
+                <div
+                  role="alert"
+                  className="border-t-2 border-destructive bg-destructive/5 p-5"
+                >
+                  <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-destructive mb-2">
+                    {t('scouts.form.errorTitle')}
+                  </div>
+                  <p className="text-sm text-slate-700 font-body mb-3">{t('scouts.form.error')}</p>
+                  <a
+                    href="mailto:contact@internationalowl.com"
+                    className="text-xs font-subtitle tracking-[0.2em] uppercase text-destructive hover:text-destructive/80 border-b border-destructive/40 pb-1"
+                  >
+                    {t('scouts.form.writeUs')} -&gt;
+                  </a>
+                </div>
               )}
 
-              <Button type="submit" size="lg" disabled={status === 'sending'} className="w-full">
-                {status === 'sending' ? t('scouts.form.sending') : t('scouts.form.submit')}
+              <Button
+                type="submit"
+                size="lg"
+                disabled={status === 'sending'}
+                className="w-full relative"
+              >
+                {status === 'sending' ? (
+                  <span className="inline-flex items-center gap-3">
+                    <span
+                      aria-hidden
+                      className="inline-block w-3 h-3 border-2 border-current border-t-transparent rounded-full animate-spin"
+                    />
+                    {t('scouts.form.sending')}
+                  </span>
+                ) : (
+                  t('scouts.form.submit')
+                )}
               </Button>
+              </fieldset>
             </form>
           )}
         </div>
       </EditorialSection>
+
     </PageShell>
   );
 };

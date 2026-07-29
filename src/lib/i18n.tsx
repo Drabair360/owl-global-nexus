@@ -186,6 +186,22 @@ const dict: Record<Locale, Record<string, string>> = {
     'scouts.form.required': 'Ce champ est requis.',
     'scouts.form.invalidEmail': 'Adresse email invalide.',
     'scouts.form.consentRequired': 'Merci de cocher la case de consentement.',
+    'scouts.form.successTitle': 'Candidature reçue.',
+    'scouts.form.successBody': 'Nous accusons réception manuellement. Une réponse individuelle vous parviendra sous quelques jours ouvrés.',
+    'scouts.form.successAgain': 'Soumettre une autre candidature',
+    'scouts.form.errorTitle': 'Envoi impossible.',
+    'scouts.form.retry': 'Réessayer',
+    'scouts.form.writeUs': 'Nous écrire directement',
+
+    // ---- 404 ----
+    'nf.eyebrow': 'ERREUR 404 - PAGE INTROUVABLE',
+    'nf.title': 'Cette page n\'existe pas dans notre registre.',
+    'nf.body': 'L\'adresse demandée ne correspond à aucune des pages que nous publions. Cela peut venir d\'un lien ancien, d\'une faute de saisie, ou d\'une page retirée du site.',
+    'nf.path': 'Adresse demandée',
+    'nf.actions': 'Que faire',
+    'nf.home': 'Retour à l\'accueil',
+    'nf.portfolio': 'Consulter le portefeuille',
+    'nf.contact': 'Nous écrire',
 
     // ---- Journal ----
     'journal.eyebrow': 'JOURNAL DE CONSTRUCTION',
@@ -488,6 +504,22 @@ const dict: Record<Locale, Record<string, string>> = {
     'scouts.form.required': 'This field is required.',
     'scouts.form.invalidEmail': 'Invalid email address.',
     'scouts.form.consentRequired': 'Please tick the consent box.',
+    'scouts.form.successTitle': 'Application received.',
+    'scouts.form.successBody': 'We acknowledge receipt manually. An individual reply will reach you within a few working days.',
+    'scouts.form.successAgain': 'Submit another application',
+    'scouts.form.errorTitle': 'Submission failed.',
+    'scouts.form.retry': 'Try again',
+    'scouts.form.writeUs': 'Write to us directly',
+
+    // ---- 404 ----
+    'nf.eyebrow': 'ERROR 404 - PAGE NOT FOUND',
+    'nf.title': 'This page is not part of our record.',
+    'nf.body': 'The requested address does not match any of the pages we publish. It may be an old link, a typo, or a page that has been retired.',
+    'nf.path': 'Requested address',
+    'nf.actions': 'What to do',
+    'nf.home': 'Back to home',
+    'nf.portfolio': 'View the portfolio',
+    'nf.contact': 'Write to us',
 
     // ---- Journal ----
     'journal.eyebrow': 'CONSTRUCTION JOURNAL',
