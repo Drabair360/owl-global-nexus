@@ -191,7 +191,7 @@ const Index = () => {
 
       {/* ==================== CITATION ==================== */}
       <section className="py-28 md:py-36 ink-surface paper-noise relative overflow-hidden">
-        <GeometricPattern variant="subtle" />
+        
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="rule-gold mx-auto mb-10" />
           <p className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.15] italic text-white">
