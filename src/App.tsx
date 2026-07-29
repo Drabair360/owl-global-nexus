@@ -19,7 +19,6 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import NotFound from './pages/NotFound';
 import PageTransition from './components/PageTransition';
-import InstitutionalCursor from './components/InstitutionalCursor';
 
 const queryClient = new QueryClient();
 
@@ -30,7 +29,6 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <InstitutionalCursor />
           <PageTransition>
           <Routes>
             <Route path="/" element={<Index />} />
