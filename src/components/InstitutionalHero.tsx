@@ -35,7 +35,7 @@ const InstitutionalHero = ({
         </div>
 
         <h1
-          className="font-display text-display-lg text-white mb-8 max-w-5xl"
+          className="font-display text-hero text-white mb-8 max-w-5xl"
           style={{ textWrap: 'balance', hyphens: 'manual' } as React.CSSProperties}
         >
           {title}
