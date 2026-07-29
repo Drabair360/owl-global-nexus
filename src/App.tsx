@@ -18,6 +18,7 @@ import MentionsLegales from './pages/MentionsLegales';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import NotFound from './pages/NotFound';
+import Venture from './pages/ventures/Venture';
 import PageTransition from './components/PageTransition';
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/groupe" element={<Groupe />} />
             <Route path="/portefeuille" element={<Portefeuille />} />
+            <Route path="/portefeuille/:slug" element={<Venture />} />
             <Route path="/metiers" element={<Metiers />} />
             <Route path="/scouts" element={<Scouts />} />
             <Route path="/journal" element={<Journal />} />
