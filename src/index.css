@@ -298,9 +298,20 @@
     background: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--gold-deep)));
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 400ms cubic-bezier(.2,.7,.2,1);
+    transition: transform var(--motion-std) var(--ease-in);
   }
-  .link-gold:hover::after { transform: scaleX(1); }
+  .link-gold:hover::after,
+  .link-gold:focus-visible::after { transform: scaleX(1); }
+
+  /* Sélection & focus institutionnels */
+  .paper-bg { background-color: hsl(var(--paper)); color: hsl(var(--text-primary)); }
+  .ink-raised { background-color: hsl(var(--ink-raised)); color: hsl(var(--text-inverse)); }
+  .tabular { font-variant-numeric: tabular-nums; }
+  .smallcaps {
+    font-variant-caps: small-caps;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+  }
 
 
   /* Navbar compression - annonces sur l'élément */
