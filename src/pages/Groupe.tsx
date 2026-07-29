@@ -1,5 +1,6 @@
 import React from 'react';
 import PageShell from '@/components/PageShell';
+import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialTitle, EditorialSection, Rule } from '@/components/editorial';
 import StickyChapter from '@/components/StickyChapter';
 import Duotone from '@/components/Duotone';
@@ -24,20 +25,11 @@ const Groupe = () => {
     >
 
       {/* Hero */}
-      <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Eyebrow>{t('groupe.eyebrow')}</Eyebrow>
-          <SplitText
-            as="h1"
-            text={t('groupe.title')}
-            className="font-display text-hero text-slate-900 mb-8"
-            stagger={55}
-          />
-          <p className="text-lg md:text-xl text-slate-700 font-body leading-relaxed max-w-3xl">
-            {t('groupe.intro')}
-          </p>
-        </div>
-      </section>
+      <InstitutionalHero
+        eyebrow={t('groupe.eyebrow')}
+        title={t('groupe.title')}
+        subtitle={t('groupe.intro')}
+      />
 
 
       {/* Gouvernance + Ancrage */}

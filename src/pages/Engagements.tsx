@@ -1,5 +1,6 @@
 import React from 'react';
 import PageShell from '@/components/PageShell';
+import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
@@ -20,14 +21,10 @@ const Engagements = () => {
       breadcrumbs={[{ name: t('engagements.title'), path: '/engagements' }]}
     >
 
-      <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Eyebrow>{t('engagements.eyebrow')}</Eyebrow>
-          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl leading-tight text-slate-900">
-            {t('engagements.title')}
-          </h1>
-        </div>
-      </section>
+      <InstitutionalHero
+        eyebrow={t('engagements.eyebrow')}
+        title={t('engagements.title')}
+      />
 
       <EditorialSection className="bg-white">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

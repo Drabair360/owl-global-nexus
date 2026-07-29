@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { z } from 'zod';
 import PageShell from '@/components/PageShell';
+import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -79,21 +80,11 @@ const Scouts = () => {
     >
 
       {/* Hero */}
-      <section className="bg-slate-900 text-white py-24 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.15),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(251,191,36,0.08),transparent_55%)]" />
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-subtitle tracking-[0.3em] text-amber-300/90 uppercase mb-6">
-            {t('scouts.eyebrow')}
-          </p>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl leading-tight mb-8">
-            {t('scouts.title')}
-          </h1>
-          <p className="text-lg md:text-xl text-blue-100 font-body leading-relaxed max-w-3xl">
-            {t('scouts.subtitle')}
-          </p>
-        </div>
-      </section>
+      <InstitutionalHero
+        eyebrow={t('scouts.eyebrow')}
+        title={t('scouts.title')}
+        subtitle={t('scouts.subtitle')}
+      />
 
       {/* Comment ça marche */}
       <EditorialSection className="bg-white">
