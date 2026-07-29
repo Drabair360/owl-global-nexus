@@ -54,11 +54,35 @@
     --font-condensed: 'Oswald', sans-serif;
 
     /* Owl signature tokens */
-    --gold: 43 96% 56%;              /* Or Owl unifié (amber-400) */
-    --gold-deep: 38 92% 50%;         /* Or profond (amber-500) */
+    --gold: 43 96% 56%;              /* Or Owl unifié - filets, puces, accents */
+    --gold-deep: 38 92% 44%;         /* Or profond - texte or sur papier (AA) */
     --gold-soft: 45 96% 72%;         /* Or clair */
     --ink: 222 47% 6%;               /* Encre profonde */
-    --ink-soft: 222 40% 11%;         /* Encre secondaire */
+    --ink-raised: 222 44% 10%;       /* Encre +4% - surfaces sur encre */
+    --ink-soft: 222 40% 11%;         /* Alias legacy */
+    --paper: 40 30% 96%;             /* Papier chaud */
+    --paper-shade: 40 24% 92%;       /* Papier -3% */
+    --text-primary: 222 47% 6%;
+    --text-secondary: 222 20% 32%;
+    --text-inverse: 40 30% 96%;
+
+    /* Échelle typographique modulaire (ratio 1.25, base 16) */
+    --text-xs:  0.8rem;      --text-sm:  1rem;       --text-base: 1.25rem;
+    --text-md:  1.5625rem;   --text-lg:  1.953rem;   --text-xl:   2.441rem;
+    --text-2xl: 3.052rem;    --text-3xl: 3.815rem;   --text-4xl:  4.768rem;
+    --text-5xl: 5.96rem;
+
+    /* Espacement 4px */
+    --space-1: 0.25rem;  --space-2: 0.5rem;  --space-3: 0.75rem; --space-4: 1rem;
+    --space-5: 1.25rem;  --space-6: 1.5rem;  --space-7: 1.75rem; --space-8: 2rem;
+    --space-10: 2.5rem;  --space-12: 3rem;   --space-14: 5rem;   --space-16: 6rem;
+
+    /* Motion - courbes uniques */
+    --motion-micro: 150ms;
+    --motion-std: 250ms;
+    --motion-section: 450ms;
+    --ease-in: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out: cubic-bezier(0.33, 0, 0.2, 1);
   }
 
   .dark {
@@ -222,6 +246,21 @@
     user-select: none;
     pointer-events: none;
   }
+
+  ::selection { background: hsl(var(--gold)); color: hsl(var(--ink)); }
+  :focus-visible {
+    outline: 2px solid hsl(var(--gold));
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 /* Advanced Animation System */
@@ -274,9 +313,20 @@
     background: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--gold-deep)));
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 400ms cubic-bezier(.2,.7,.2,1);
+    transition: transform var(--motion-std) var(--ease-in);
   }
-  .link-gold:hover::after { transform: scaleX(1); }
+  .link-gold:hover::after,
+  .link-gold:focus-visible::after { transform: scaleX(1); }
+
+  /* Sélection & focus institutionnels */
+  .paper-bg { background-color: hsl(var(--paper)); color: hsl(var(--text-primary)); }
+  .ink-raised { background-color: hsl(var(--ink-raised)); color: hsl(var(--text-inverse)); }
+  .tabular { font-variant-numeric: tabular-nums; }
+  .smallcaps {
+    font-variant-caps: small-caps;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+  }
 
 
   /* Navbar compression - annonces sur l'élément */
