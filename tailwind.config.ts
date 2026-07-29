@@ -20,7 +20,7 @@ export default {
 		extend: {
 			fontFamily: {
 				'display': ['Instrument Serif', 'Playfair Display', 'serif'],
-				'heading': ['Playfair Display', 'Oswald', 'serif'],
+				'heading': ['Instrument Serif', 'Playfair Display', 'serif'],
 				'body': ['Inter', 'system-ui', 'sans-serif'],
 				'condensed': ['Oswald', 'Inter', 'sans-serif'],
 			},
