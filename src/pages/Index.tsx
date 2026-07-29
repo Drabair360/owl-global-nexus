@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import PageShell from '@/components/PageShell';
-import GeometricPattern from '@/components/GeometricPattern';
-import HeroCartography from '@/components/HeroCartography';
 import PolesViz from '@/components/PolesViz';
 import { SectionNumber, EditorialTitle, SectionWatermark } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
@@ -33,17 +31,13 @@ const Index = () => {
       }}
     >
 
-      {/* ==================== HERO ==================== */}
-      <section className="relative min-h-[96vh] flex items-center overflow-hidden ink-surface paper-noise -mt-16 pt-16">
-        <GeometricPattern variant="subtle" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--gold)/0.10),transparent_55%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_85%,hsl(var(--gold-deep)/0.06),transparent_60%)]" />
-
-        {/* Cartographie Europe-Afrique en trame de fond */}
-        <div className="absolute inset-y-0 right-0 w-full md:w-[62%] lg:w-1/2 pointer-events-none opacity-60 md:opacity-80">
-          <HeroCartography className="w-full h-full" />
-        </div>
-        <div className="absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-ink via-ink/95 to-transparent" />
+      {/* ==================== HERO — encre pur, pure typographie ==================== */}
+      <section className="relative min-h-[88vh] flex items-center overflow-hidden ink-surface paper-noise -mt-16 pt-16">
+        {/* Filet or vertical, 40% de hauteur, aligné grille */}
+        <div
+          aria-hidden
+          className="hidden md:block absolute left-8 lg:left-24 top-1/2 -translate-y-1/2 w-px h-[40vh] bg-gradient-to-b from-transparent via-gold/60 to-transparent"
+        />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
           <div className="flex items-center gap-4 mb-10">
@@ -52,13 +46,19 @@ const Index = () => {
               {t('home.eyebrow')}
             </p>
           </div>
-          <h1 className="font-display text-display-xl text-white mb-10 max-w-5xl">
+
+          <h1
+            className="font-display text-display-xl text-white mb-10 max-w-5xl"
+            style={{ textWrap: 'balance', hyphens: 'manual' } as React.CSSProperties}
+          >
             {t('home.hero.title')}
           </h1>
+
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl leading-relaxed font-body mb-14">
             {t('home.hero.subtitle')}
           </p>
-          <div className="flex flex-wrap items-center gap-8">
+
+          <div>
             <a
               href="#modele"
               className="link-gold inline-flex items-center gap-3 text-white pb-1 text-sm font-subtitle tracking-wider uppercase"
@@ -68,20 +68,14 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Baseline institutionnelle en bas de hero */}
+        {/* Baseline institutionnelle : filet or + Paris + EST. 2023 */}
         <div className="absolute bottom-8 left-0 right-0 z-10">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4 text-[10px] md:text-xs font-subtitle tracking-[0.35em] text-white/50 uppercase">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4 text-[10px] md:text-xs font-subtitle tracking-[0.35em] text-white/60 uppercase">
             <div className="flex items-center gap-4">
               <span className="h-px w-8 bg-gold/60" />
-              <span>Paris - Abidjan - Douala</span>
+              <span>Paris</span>
             </div>
-            <div className="hidden md:flex items-center gap-6 text-white/40">
-              <span>Industrie</span>
-              <span className="h-1 w-1 rounded-full bg-gold/60" />
-              <span>Logiciel</span>
-              <span className="h-1 w-1 rounded-full bg-gold/60" />
-              <span>Patrimoine</span>
-            </div>
+            <div className="text-white/50">EST. 2023</div>
           </div>
         </div>
       </section>
@@ -197,7 +191,7 @@ const Index = () => {
 
       {/* ==================== CITATION ==================== */}
       <section className="py-28 md:py-36 ink-surface paper-noise relative overflow-hidden">
-        <GeometricPattern variant="subtle" />
+        
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="rule-gold mx-auto mb-10" />
           <p className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.15] italic text-white">
