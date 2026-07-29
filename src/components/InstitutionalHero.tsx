@@ -6,6 +6,7 @@ interface Props {
   subtitle?: string;
   place?: string;
   year?: string;
+  children?: React.ReactNode;
 }
 
 /**
