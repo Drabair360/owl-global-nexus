@@ -23,14 +23,10 @@ const Metiers = () => {
       breadcrumbs={[{ name: t('metiers.title'), path: '/metiers' }]}
     >
 
-      <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Eyebrow>{t('metiers.eyebrow')}</Eyebrow>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl leading-tight text-slate-900">
-            {t('metiers.title')}
-          </h1>
-        </div>
-      </section>
+      <InstitutionalHero
+        eyebrow={t('metiers.eyebrow')}
+        title={t('metiers.title')}
+      />
 
       <EditorialSection className="bg-white">
         <div className="space-y-20">

@@ -22,17 +22,10 @@ const Approche = () => {
       breadcrumbs={[{ name: t('approche.title'), path: '/approche' }]}
     >
 
-      <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Eyebrow>{t('approche.eyebrow')}</Eyebrow>
-          <SplitText
-            as="h1"
-            text={t('approche.title')}
-            className="font-display text-hero text-slate-900"
-            stagger={60}
-          />
-        </div>
-      </section>
+      <InstitutionalHero
+        eyebrow={t('approche.eyebrow')}
+        title={t('approche.title')}
+      />
 
       <EditorialSection className="bg-white">
         <div className="space-y-24">

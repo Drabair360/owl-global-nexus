@@ -44,15 +44,11 @@ const Contact = () => {
       }}
     >
 
-      <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Eyebrow>{t('contact.eyebrow')}</Eyebrow>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl leading-tight text-slate-900 mb-6">
-            {t('contact.title')}
-          </h1>
-          <p className="text-lg text-slate-700 font-body">{t('contact.intro')}</p>
-        </div>
-      </section>
+      <InstitutionalHero
+        eyebrow={t('contact.eyebrow')}
+        title={t('contact.title')}
+        subtitle={t('contact.intro')}
+      />
 
       <EditorialSection className="bg-white">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

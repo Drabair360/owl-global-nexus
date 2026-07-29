@@ -31,17 +31,11 @@ const Portefeuille = () => {
       jsonLd={portfolioSchema}
     >
 
-      <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Eyebrow>{t('portfolio.eyebrow')}</Eyebrow>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl leading-tight text-slate-900 mb-8">
-            {t('portfolio.title')}
-          </h1>
-          <p className="text-lg md:text-xl text-slate-700 font-body leading-relaxed max-w-3xl">
-            {t('portfolio.intro')}
-          </p>
-        </div>
-      </section>
+      <InstitutionalHero
+        eyebrow={t('portfolio.eyebrow')}
+        title={t('portfolio.title')}
+        subtitle={t('portfolio.intro')}
+      />
 
       <EditorialSection className="bg-white">
         <div className="space-y-12">
