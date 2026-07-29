@@ -19,6 +19,7 @@ const InstitutionalHero = ({
   subtitle,
   place = 'Paris',
   year = 'EST. 2023',
+  children,
 }: Props) => {
   return (
     <section className="relative min-h-[62vh] md:min-h-[68vh] flex items-center overflow-hidden ink-surface paper-noise">
@@ -47,6 +48,8 @@ const InstitutionalHero = ({
             {subtitle}
           </p>
         )}
+
+        {children && <div className="mt-10">{children}</div>}
       </div>
 
       <div className="absolute bottom-6 left-0 right-0 z-10">
