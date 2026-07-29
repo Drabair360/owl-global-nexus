@@ -48,7 +48,7 @@
 
     /* Enhanced Typography Variables */
     --font-display: 'Instrument Serif', 'Playfair Display', serif;
-    --font-heading: 'Playfair Display', serif;
+    --font-heading: 'Instrument Serif', 'Playfair Display', serif;
     --font-body: 'Inter', system-ui, sans-serif;
     --font-brand: 'Montserrat', 'Avenir Next', sans-serif;
     --font-condensed: 'Oswald', sans-serif;
