@@ -31,7 +31,7 @@ const Index = () => {
       }}
     >
 
-      {/* ==================== HERO — encre pur, pure typographie ==================== */}
+      {/* ==================== HERO - encre pur, pure typographie ==================== */}
       <section className="relative min-h-[88vh] flex items-center overflow-hidden ink-surface paper-noise -mt-16 pt-16">
         {/* Filet or vertical, 40% de hauteur, aligné grille */}
         <div
