@@ -52,7 +52,7 @@ const InstitutionalHero = ({
         {children && <div className="mt-10">{children}</div>}
       </div>
 
-      <div className="absolute bottom-6 left-0 right-0 z-10">
+      <div className="absolute inset-x-0 bottom-6 z-10 self-end">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4 text-[10px] md:text-xs font-subtitle tracking-[0.35em] text-white/60 uppercase">
           <div className="flex items-center gap-4">
             <span className="h-px w-8 bg-gold/60" />
