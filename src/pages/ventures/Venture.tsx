@@ -77,7 +77,10 @@ const Venture = () => {
                 />
                 <Legende>
                   <div
-                    style={{ transform: `translate3d(0, ${parallax.offset}px, 0)`, willChange: 'transform' }}
+                    style={{
+                      transform: `translate3d(0, ${parallax.offset}px, 0) scale(1.06)`,
+                      willChange: 'transform',
+                    }}
                   >
                   <Duotone
                     src={tex.src}
