@@ -27,7 +27,7 @@ const Legende = ({ children, text, className = '', hoverOnly = false }: Props) =
       <figcaption
         className={`mt-3 text-[11px] font-subtitle tracking-[0.2em] uppercase text-slate-500 transition-opacity duration-500 ${
           hoverOnly
-            ? 'opacity-0 group-hover:opacity-60 group-focus:opacity-60 group-focus-visible:opacity-60 group-focus-within:opacity-60 motion-reduce:transition-none'
+            ? 'opacity-0 group-hover:opacity-60 group-focus-within:opacity-60 [.group:hover_&]:opacity-60 [.group:focus-visible_&]:opacity-60 [.group:focus-within_&]:opacity-60 motion-reduce:transition-none'
             : 'opacity-60'
         }`}
       >
