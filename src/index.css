@@ -778,3 +778,66 @@
   .page-transition-content { transition: opacity 120ms linear; }
 }
 
+
+/* ==========================================================================
+   PHASE V - Moments de signature
+   ========================================================================== */
+
+/* 1. Seuil d'accueil : séquence typo 3 temps (0 / 120 / 240 ms).
+   Les éléments partent d'opacité 0 : jamais affichés puis rejoués. */
+.threshold-step {
+  opacity: 0;
+  animation: threshold-in 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.threshold-step-1 { animation-delay: 0ms; }
+.threshold-step-2 { animation-delay: 120ms; }
+.threshold-step-3 { animation-delay: 240ms; }
+
+@keyframes threshold-in {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .threshold-step {
+    animation: threshold-fade 240ms linear forwards;
+    animation-delay: 0ms !important;
+  }
+  @keyframes threshold-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+/* 2. Organigramme vivant : tracé stroke-dashoffset 1200 ms, stagger 80 ms. */
+.diagram-draw {
+  stroke-dasharray: var(--draw-length, 1000);
+  stroke-dashoffset: var(--draw-length, 1000);
+  transition: stroke-dashoffset 1200ms cubic-bezier(0.22, 0.7, 0.2, 1);
+}
+.diagram-draw.is-drawn {
+  stroke-dashoffset: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .diagram-draw {
+    stroke-dashoffset: 0;
+    transition: opacity 240ms linear;
+    opacity: 0;
+  }
+  .diagram-draw.is-drawn { opacity: 1; }
+}
+
+/* 4. Navigation : fondu 200 ms via View Transitions, dégradation propre. */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 200ms;
+    animation-timing-function: cubic-bezier(0.33, 0, 0.2, 1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
