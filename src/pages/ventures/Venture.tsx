@@ -5,12 +5,14 @@ import Reveal from '@/components/Reveal';
 import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
 import { textures } from '@/assets/textures';
+import { useParallax } from '@/hooks/useParallax';
 import { useI18n } from '@/lib/i18n';
 import { getVenture, ventures } from './data';
 
 const Venture = () => {
   const { slug } = useParams<{ slug: string }>();
   const { t, locale } = useI18n();
+  const parallax = useParallax(10);
   const venture = slug ? getVenture(slug) : undefined;
 
   if (!venture) {
@@ -67,13 +69,19 @@ const Venture = () => {
           </div>
           <div className="md:col-span-5">
             <Reveal>
-              <div className="relative pl-6">
+              <div className="relative pl-6 overflow-hidden" ref={parallax.ref}>
                 {/* Filet or vertical, tracé à la révélation */}
                 <span
                   aria-hidden
                   className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-gold/70 via-gold/30 to-transparent origin-top rule-draw"
                 />
                 <Legende>
+                  <div
+                    style={{
+                      transform: `translate3d(0, ${parallax.offset}px, 0) scale(1.06)`,
+                      willChange: 'transform',
+                    }}
+                  >
                   <Duotone
                     src={tex.src}
                     alt={tex.alt}
@@ -82,6 +90,7 @@ const Venture = () => {
                     height={tex.height}
                     className="aspect-[4/5] w-full"
                   />
+                  </div>
                 </Legende>
               </div>
             </Reveal>
