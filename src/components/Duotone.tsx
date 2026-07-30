@@ -95,7 +95,7 @@ const Duotone = ({
         width={width}
         height={height}
         loading={eager ? 'eager' : 'lazy'}
-        fetchPriority={eager ? 'high' : undefined}
+        {...(eager ? { fetchpriority: 'high' } : {})}
         decoding="async"
         className="w-full h-full object-cover"
         style={{ filter: `url(#duo-${id}) contrast(1.05)`, backgroundColor: '#0B0F1A' }}
