@@ -294,6 +294,16 @@
     .film-grain { opacity: 0.09; }
   }
 
+  /* Respiration : une seule fois au premier affichage, jamais en boucle. */
+  .band-breathe { animation: band-breathe 18s linear 1 forwards; }
+  @keyframes band-breathe {
+    from { scale: 1; }
+    to { scale: 1.035; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .band-breathe { animation: none; }
+  }
+
   .ink-surface {
     background-color: hsl(var(--ink));
     color: hsl(0 0% 100%);
