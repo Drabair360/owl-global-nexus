@@ -131,17 +131,30 @@ const Duotone = ({
           )}
         </filter>
       </svg>
-      <img
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        loading={eager ? 'eager' : 'lazy'}
-        {...(eager ? { fetchpriority: 'high' } : {})}
-        decoding="async"
-        className="w-full h-full object-cover"
-        style={{ filter: `url(#duo-${id}) contrast(1.05)`, backgroundColor: '#0B0F1A', objectPosition }}
-      />
+      <picture>
+        {sources &&
+          Object.entries(sources).map(([format, srcSet]) => (
+            <source
+              key={format}
+              type={`image/${format === 'jpg' ? 'jpeg' : format}`}
+              srcSet={srcSet}
+              sizes={sizes}
+            />
+          ))}
+        <img
+          src={src}
+          alt={alt}
+          sizes={sizes}
+          width={width}
+          height={height}
+          loading={eager ? 'eager' : 'lazy'}
+          {...(eager ? { fetchpriority: 'high' } : {})}
+          decoding="async"
+          className="w-full h-full object-cover"
+          style={{ filter: `url(#duo-${id}) contrast(1.05)`, backgroundColor: '#0B0F1A', objectPosition }}
+        />
+      </picture>
+
       {hasVignette && (
         <div
           aria-hidden
