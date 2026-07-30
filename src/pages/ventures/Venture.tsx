@@ -6,7 +6,7 @@ import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
 import GroupDiagram from '@/components/GroupDiagram';
 
-import { textures } from '@/assets/textures';
+import { textures, SIZES } from '@/assets/textures';
 import { useParallax } from '@/hooks/useParallax';
 import { useI18n } from '@/lib/i18n';
 import { getVenture, ventures } from './data';
@@ -86,6 +86,8 @@ const Venture = () => {
                   >
                   <Duotone
                     src={tex.src}
+                    sources={tex.sources}
+                    sizes={SIZES.column}
                     alt={tex.alt}
                     tone={venture.tone}
                     width={tex.width}

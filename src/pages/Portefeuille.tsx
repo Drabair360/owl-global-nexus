@@ -8,7 +8,7 @@ import Reveal from '@/components/Reveal';
 import { ventures } from './ventures/data';
 import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
-import { textures } from '@/assets/textures';
+import { textures, SIZES } from '@/assets/textures';
 
 const Portefeuille = () => {
   const { t, locale } = useI18n();
@@ -53,6 +53,8 @@ const Portefeuille = () => {
                   <div className="overflow-hidden">
                     <Duotone
                       src={textures[e.texture].src}
+                      sources={textures[e.texture].sources}
+                      sizes={SIZES.thumb}
                       alt={textures[e.texture].alt}
                       tone={e.tone}
                       width={textures[e.texture].width}
