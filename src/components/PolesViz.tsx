@@ -109,11 +109,12 @@ const PolesViz = () => {
 
             <div
               className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-xs font-subtitle tracking-[0.15em] uppercase transition-opacity duration-300"
-              style={{ opacity: active === i ? 1 : 0.55 }}
+              style={{ opacity: active === i ? 1 : 0.85 }}
             >
               {p.entities.map((e) => (
-                <span key={e} className="text-slate-600">{e}</span>
+                <span key={e} className="text-slate-700">{e}</span>
               ))}
+
             </div>
           </div>
         ))}
