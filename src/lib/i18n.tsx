@@ -289,7 +289,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'legal.contact.title': 'Contact',
     'legal.contact.body': 'contact@internationalowl.com',
     'legal.host.title': 'Hébergement',
-    'legal.host.body': 'Vercel Inc. - 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis.',
+    'legal.host.body': 'Vercel Inc. - [ADRESSE ET COORDONNÉES DE L’HÉBERGEUR À CONFIRMER]',
     'legal.ip.title': 'Propriété intellectuelle',
     'legal.ip.body':
       'L’ensemble des contenus de ce site (textes, images, structure, code) est la propriété d’Owl International ou de ses ayants droit. Toute reproduction sans autorisation écrite est interdite.',
@@ -312,7 +312,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'Consentement explicite de la personne concernée, matérialisé par la case à cocher obligatoire du formulaire (article 6.1.a du RGPD).',
     'privacy.storage.title': 'Durée de conservation',
     'privacy.storage.body':
-      'Les données sont conservées jusqu’à trente-six (36) mois après leur collecte, puis supprimées, sauf mise en relation contractuelle formalisée.',
+      'Durée de conservation : [DURÉE À CONFIRMER PAR OWL INTERNATIONAL]. Les données sont supprimées à l’issue de cette durée, sauf mise en relation contractuelle formalisée.',
     'privacy.share.title': 'Destinataires',
     'privacy.share.body':
       'Les données sont accessibles aux seules équipes internes d’Owl International et à ses prestataires techniques nécessaires au fonctionnement du site (hébergeur, base de données). Aucun transfert commercial à un tiers n’est effectué.',
@@ -328,7 +328,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'L’accès et l’utilisation de ce site impliquent l’acceptation pleine et entière des présentes conditions.',
     'terms.object.title': 'Objet',
     'terms.object.body':
-      'Le site owl-international.com présente les activités du groupe Owl International à titre d’information. Il ne constitue ni une offre au public de titres financiers, ni une sollicitation d’investissement.',
+      'Le présent site présente les activités du groupe Owl International à titre d’information. Il ne constitue ni une offre au public de titres financiers, ni une sollicitation d’investissement.',
     'terms.responsibility.title': 'Responsabilité',
     'terms.responsibility.body':
       'Owl International s’efforce d’assurer l’exactitude des informations diffusées mais ne peut en garantir l’exhaustivité à tout instant. La responsabilité d’Owl International ne saurait être engagée en cas d’erreur, d’omission ou d’indisponibilité du service.',
@@ -605,7 +605,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'legal.contact.title': 'Contact',
     'legal.contact.body': 'contact@internationalowl.com',
     'legal.host.title': 'Hosting',
-    'legal.host.body': 'Vercel Inc. - 340 S Lemon Ave #4133, Walnut, CA 91789, United States.',
+    'legal.host.body': 'Vercel Inc. - [HOSTING PROVIDER ADDRESS AND CONTACT TO BE CONFIRMED]',
     'legal.ip.title': 'Intellectual property',
     'legal.ip.body':
       'All content on this website (text, images, structure, code) is the property of Owl International or its rights-holders. Any reproduction without prior written consent is prohibited.',
@@ -628,7 +628,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'Explicit consent of the data subject, materialised by the mandatory tick box of the form (Article 6.1.a of the GDPR).',
     'privacy.storage.title': 'Retention',
     'privacy.storage.body':
-      'Data is retained for up to thirty-six (36) months after collection, then deleted, unless a formal contractual relationship is established.',
+      'Retention period: [DURATION TO BE CONFIRMED BY OWL INTERNATIONAL]. Data is deleted at the end of that period, unless a formal contractual relationship is established.',
     'privacy.share.title': 'Recipients',
     'privacy.share.body':
       'The data is accessible only to Owl International’s internal teams and to the technical providers required to operate the site (hosting, database). No commercial transfer to a third party takes place.',
@@ -643,7 +643,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'terms.intro': 'Accessing and using this site implies full acceptance of these terms.',
     'terms.object.title': 'Purpose',
     'terms.object.body':
-      'The owl-international.com website presents the activities of the Owl International group for information purposes. It does not constitute a public offering of financial securities, nor a solicitation to invest.',
+      'This website presents the activities of the Owl International group for information purposes. It does not constitute a public offering of financial securities, nor a solicitation to invest.',
     'terms.responsibility.title': 'Responsibility',
     'terms.responsibility.body':
       'Owl International strives to ensure the accuracy of the information published but cannot guarantee its exhaustiveness at all times. Owl International’s liability cannot be engaged for any error, omission or service unavailability.',
