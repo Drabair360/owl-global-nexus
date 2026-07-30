@@ -49,7 +49,7 @@ const Groupe = () => {
         </div>
       </EditorialSection>
 
-      <CinemaBand texture="skyline" tone="nocturne" />
+      <CinemaBand texture="skyline" tone="nocturne" className="mb-16" />
 
       {/* Organigramme + data-viz interactive */}
       <EditorialSection className="bg-slate-50 relative">
