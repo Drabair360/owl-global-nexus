@@ -98,14 +98,17 @@ const Duotone = ({
   const hasHalation = tone === 'prestige';
 
   return (
+    /* Le conteneur observé ne porte JAMAIS le clip-path : un élément clippé a une aire
+       d'intersection nulle, l'IntersectionObserver ne se déclencherait jamais (image invisible). */
+    <div ref={wrapRef} className={`relative ${className}`}>
     <div
-      ref={wrapRef}
-      className={`relative overflow-hidden ${className}`}
+      className="relative w-full h-full overflow-hidden"
       style={{
         clipPath: shown ? 'inset(0 0 0 0)' : 'inset(0 100% 0 0)',
         transition: 'clip-path 900ms cubic-bezier(0.16,1,0.3,1)',
       }}
     >
+
       <svg className="absolute w-0 h-0" aria-hidden focusable="false">
         <filter id={`duo-${id}`} colorInterpolationFilters="sRGB">
           <feColorMatrix
