@@ -6,6 +6,9 @@ import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
 import { ventures } from './ventures/data';
+import Duotone from '@/components/Duotone';
+import Legende from '@/components/Legende';
+import { textures } from '@/assets/textures';
 
 const Portefeuille = () => {
   const { t, locale } = useI18n();
@@ -43,9 +46,21 @@ const Portefeuille = () => {
           {ventures.map((e, i) => (
             <Reveal key={e.slug} delay={i * 60}>
             <article
-              className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-200 last:border-0"
+              className="group grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-200 last:border-0"
             >
               <div className="md:col-span-4">
+                <Legende hoverOnly className="mb-6 block">
+                  <div className="overflow-hidden">
+                    <Duotone
+                      src={textures[e.texture].src}
+                      alt={textures[e.texture].alt}
+                      tone={e.tone}
+                      width={textures[e.texture].width}
+                      height={textures[e.texture].height}
+                      className="aspect-[4/5] w-full transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02] group-focus-within:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    />
+                  </div>
+                </Legende>
                 <div className="text-xs font-subtitle tracking-widest uppercase text-primary/70 mb-2">
                   {e.order} - {e.pole[locale]}
                 </div>

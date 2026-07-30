@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import PageShell from '@/components/PageShell';
 import { Eyebrow } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
+import Duotone from '@/components/Duotone';
+import { textures } from '@/assets/textures';
 
 const NotFound = () => {
   const location = useLocation();
@@ -19,8 +21,18 @@ const NotFound = () => {
       description="La page demandée ne fait pas partie de ce que publie Owl International. Retour à l'accueil, au portefeuille ou à la page contact."
       breadcrumbs={[{ name: '404', path: location.pathname }]}
     >
-      <section className="bg-slate-50 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-36">
+      <section className="relative bg-slate-50 border-b border-slate-200 overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-20 hidden md:block">
+          <Duotone
+            src={textures.vide.src}
+            alt=""
+            tone="ink"
+            width={textures.vide.width}
+            height={textures.vide.height}
+            className="w-full h-full"
+          />
+        </div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-36">
           <Eyebrow>{t('nf.eyebrow')}</Eyebrow>
           <div className="flex items-baseline gap-6 mb-8">
             <span className="font-display text-7xl md:text-9xl leading-none text-slate-200 select-none tabular" aria-hidden>

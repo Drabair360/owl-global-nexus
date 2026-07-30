@@ -52,6 +52,8 @@ const Contact = () => {
         subtitle={t('contact.intro')}
       />
 
+      <CinemaBand texture="corridor" tone="nocturne" />
+
       <EditorialSection className="bg-white">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {doors.map((d, i) => (
