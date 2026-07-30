@@ -1,4 +1,5 @@
 import type { TextureKey } from '@/assets/textures';
+import type { DuotoneTone } from '@/components/Duotone';
 
 export type VentureSlug =
   | 'cao-industries'
@@ -24,7 +25,7 @@ export interface Venture {
   operating: { fr: string; en: string };
   /** Texture (illustration honnête, jamais un actif du groupe). */
   texture: TextureKey;
-  tone: 'gold' | 'ink' | 'sepia';
+  tone: DuotoneTone;
   /** Numéro d'ordre éditorial (§6). */
   order: string; // '01' à '05'
 }
@@ -45,7 +46,7 @@ export const ventures: Venture[] = [
       fr: "Premier terrain de déploiement : Afrique de l'Ouest. Ingénierie et pilotage depuis la France.",
       en: "First operating ground: West Africa. Engineering and management from France.",
     },
-    texture: 'concrete',
+    texture: 'industrial',
     tone: 'gold',
     order: '01',
   },
@@ -64,7 +65,7 @@ export const ventures: Venture[] = [
       fr: "Équipe en formation. Socles logiciels partagés en priorité avec le pôle industriel.",
       en: "Team in formation. Software foundations shared first with the industrial division.",
     },
-    texture: 'metal',
+    texture: 'lab',
     tone: 'ink',
     order: '02',
   },
@@ -83,7 +84,7 @@ export const ventures: Venture[] = [
       fr: "Application en développement. Utilisée en interne pour accélérer les avant-projets industriels.",
       en: "Application under development. Used in-house to accelerate industrial pre-projects.",
     },
-    texture: 'light',
+    texture: 'studio',
     tone: 'gold',
     order: '03',
   },
@@ -102,7 +103,7 @@ export const ventures: Venture[] = [
       fr: "Marché : agences et métiers du booking. Gouvernance partagée avec le partenaire opérationnel.",
       en: "Market: agencies and booking professions. Governance shared with the operational partner.",
     },
-    texture: 'stone',
+    texture: 'atelier',
     tone: 'sepia',
     order: '04',
   },
@@ -121,7 +122,7 @@ export const ventures: Venture[] = [
       fr: "Première opération en cours de structuration dans le sud de la France. Détention longue.",
       en: "First operation being structured in the south of France. Long-term ownership.",
     },
-    texture: 'paris',
+    texture: 'prestige',
     tone: 'gold',
     order: '05',
   },
