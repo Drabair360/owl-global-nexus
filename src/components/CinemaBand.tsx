@@ -92,6 +92,8 @@ const CinemaBand = ({ texture, tone = 'prestige', eager = false, objectPosition,
               eager={eager}
               width={tex.width}
               height={tex.height}
+              objectPosition={objectPosition}
+              reveal={false}
               className="w-full h-[calc(100%+24px)] -mt-3"
             />
           </div>

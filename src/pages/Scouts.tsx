@@ -87,7 +87,7 @@ const Scouts = () => {
         subtitle={t('scouts.subtitle')}
       />
 
-      <CinemaBand texture="industrial" tone="prestige" />
+      <CinemaBand texture="terrain" tone="prestige" objectPosition="20% 50%" />
 
       {/* Comment ça marche */}
       <EditorialSection className="bg-white">
