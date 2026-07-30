@@ -9,7 +9,7 @@ import { imagetools } from "vite-imagetools";
 const SITE_URL = (process.env.VITE_SITE_URL || "https://www.internationalowl.com").replace(/\/+$/, "");
 
 const read = (file: string) => fs.readFileSync(path.resolve(__dirname, file), "utf-8");
-const withSite = (file: string) => read(file).split("%SITE_URL%").join(SITE_URL);
+const withSite = (file: string) => read(file).split("__SITE_URL__").join(SITE_URL);
 
 /**
  * Injecte SITE_URL dans index.html et génère robots.txt / sitemap.xml
@@ -17,7 +17,7 @@ const withSite = (file: string) => read(file).split("%SITE_URL%").join(SITE_URL)
  */
 const seoUrls = (): Plugin => ({
   name: "owl-seo-urls",
-  transformIndexHtml: (html) => html.split("%SITE_URL%").join(SITE_URL),
+  transformIndexHtml: (html) => html.split("__SITE_URL__").join(SITE_URL),
   configureServer(server) {
     server.middlewares.use((req, res, next) => {
       if (req.url === "/robots.txt") {
