@@ -3,7 +3,25 @@ import { useLocation } from 'react-router-dom';
 import { useI18n } from '@/lib/i18n';
 
 const BASE_URL = 'https://owl-global-nexus.lovable.app';
-const OG_IMAGE = `${BASE_URL}/og-image.jpg`;
+
+/** Cartes sociales par pilier (1200x630, générées sur la base ogBase). */
+const OG_BY_PILLAR: Record<string, string> = {
+  '': 'home',
+  groupe: 'groupe',
+  portefeuille: 'portefeuille',
+  metiers: 'metiers',
+  approche: 'approche',
+  scouts: 'scouts',
+  engagements: 'engagements',
+  journal: 'journal',
+  contact: 'contact',
+  rejoindre: 'rejoindre',
+};
+
+const ogImageFor = (pathname: string) => {
+  const seg = pathname.split('/').filter(Boolean)[0] ?? '';
+  return `${BASE_URL}/og/${OG_BY_PILLAR[seg] ?? 'home'}.jpg`;
+};
 
 interface SEOOptions {
   title: string;
@@ -12,7 +30,10 @@ interface SEOOptions {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   /** Keywords for SEO (comma-separated). */
   keywords?: string;
+  /** Override de la carte sociale (URL absolue). */
+  ogImage?: string;
 }
+
 
 /**
  * Injects title/description/canonical/OG/Twitter/hreflang and page-scoped JSON-LD.
