@@ -45,7 +45,7 @@ const PolesViz = () => {
   return (
     <div ref={ref} className="w-full max-w-4xl">
       <div className="flex items-baseline justify-between mb-6">
-        <span className="text-xs font-subtitle tracking-[0.3em] uppercase text-gold">Répartition</span>
+        <span className="text-xs font-subtitle tracking-[0.3em] uppercase text-gold-ink">Répartition</span>
         <span className="text-xs font-subtitle tracking-[0.2em] uppercase text-muted-foreground">
           Structure du groupe
         </span>

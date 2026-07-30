@@ -106,7 +106,7 @@ const Venture = () => {
       <EditorialSection className="bg-white">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
-            <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-gold mb-3">
+            <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-gold-ink mb-3">
               {locale === 'fr' ? 'Mission' : 'Mission'}
             </div>
             <p className="text-sm text-slate-500 italic font-body">{t(venture.statusKey)}</p>
@@ -159,7 +159,7 @@ const Venture = () => {
             <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-slate-500 mb-2">
               {locale === 'fr' ? 'Précédent' : 'Previous'}
             </div>
-            <div className="font-heading text-xl text-slate-900 group-hover:text-amber-600 transition-colors">
+            <div className="font-heading text-xl text-slate-900 group-hover:text-amber-700 transition-colors">
               {prev.name}
             </div>
           </Link>
@@ -170,7 +170,7 @@ const Venture = () => {
             <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-slate-500 mb-2">
               {locale === 'fr' ? 'Retour' : 'Back'}
             </div>
-            <div className="font-heading text-xl text-slate-900 group-hover:text-amber-600 transition-colors">
+            <div className="font-heading text-xl text-slate-900 group-hover:text-amber-700 transition-colors">
               {t('portfolio.title').split(',')[0]}
             </div>
           </Link>
@@ -181,7 +181,7 @@ const Venture = () => {
             <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-slate-500 mb-2">
               {locale === 'fr' ? 'Suivant' : 'Next'}
             </div>
-            <div className="font-heading text-xl text-slate-900 group-hover:text-amber-600 transition-colors">
+            <div className="font-heading text-xl text-slate-900 group-hover:text-amber-700 transition-colors">
               {next.name}
             </div>
           </Link>

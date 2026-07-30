@@ -37,7 +37,7 @@ const Metiers = () => {
               className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start"
             >
               <div className="md:col-span-3">
-                <div className="font-brand text-5xl md:text-6xl text-slate-200 leading-none">{b.n}</div>
+                <div className="font-brand text-5xl md:text-6xl text-slate-500 leading-none">{b.n}</div>
               </div>
               <div className="md:col-span-9">
                 <h2 className="font-heading text-2xl md:text-3xl text-slate-900 mb-4">{t(b.tKey)}</h2>

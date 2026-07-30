@@ -67,7 +67,7 @@ const Portefeuille = () => {
                   {e.order} - {e.pole[locale]}
                 </div>
                 <h2 className="font-heading text-2xl md:text-3xl text-slate-900">
-                  <Link to={`/portefeuille/${e.slug}`} className="hover:text-amber-600 transition-colors">
+                  <Link to={`/portefeuille/${e.slug}`} className="hover:text-amber-700 transition-colors">
                     {e.name}
                   </Link>
                 </h2>
@@ -88,7 +88,7 @@ const Portefeuille = () => {
                 </ul>
                 <Link
                   to={`/portefeuille/${e.slug}`}
-                  className="inline-flex items-center gap-2 text-sm font-subtitle tracking-[0.2em] uppercase text-amber-600 hover:text-amber-700 border-b border-amber-500/40 hover:border-amber-600 pb-1 transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-subtitle tracking-[0.2em] uppercase text-amber-700 hover:text-amber-800 border-b border-amber-500/40 hover:border-amber-600 pb-1 transition-colors"
                 >
                   {locale === 'fr' ? 'Lire la fiche' : 'Read the profile'} <span aria-hidden>-&gt;</span>
                 </Link>
