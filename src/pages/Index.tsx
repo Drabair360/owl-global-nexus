@@ -7,9 +7,13 @@ import { SectionNumber, EditorialTitle, SectionWatermark } from '@/components/ed
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
 import CinemaBand from '@/components/CinemaBand';
+import { useThreshold } from '@/hooks/useThreshold';
+
 
 const Index = () => {
   const { t } = useI18n();
+  const { step } = useThreshold();
+
 
   return (
     <PageShell
@@ -41,7 +45,7 @@ const Index = () => {
         />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
-          <div className="flex items-center gap-4 mb-10">
+          <div className={`flex items-center gap-4 mb-10 ${step(1)}`}>
             <span className="h-px w-12 bg-gold/70" />
             <p className="text-[11px] md:text-xs font-subtitle tracking-[0.35em] text-gold/90 uppercase">
               {t('home.eyebrow')}
@@ -49,17 +53,17 @@ const Index = () => {
           </div>
 
           <h1
-            className="font-display text-display-xl text-white mb-10 max-w-5xl"
+            className={`font-display text-display-xl text-white mb-10 max-w-5xl ${step(2)}`}
             style={{ textWrap: 'balance', hyphens: 'manual' } as React.CSSProperties}
           >
             {t('home.hero.title')}
           </h1>
 
-          <p className="text-lg md:text-xl text-slate-300 max-w-2xl leading-relaxed font-body mb-14">
+          <p className={`text-lg md:text-xl text-slate-300 max-w-2xl leading-relaxed font-body mb-14 ${step(2)}`}>
             {t('home.hero.subtitle')}
           </p>
 
-          <div>
+          <div className={step(3)}>
             <a
               href="#modele"
               className="link-gold inline-flex items-center gap-3 text-white pb-1 text-sm font-subtitle tracking-wider uppercase"
@@ -71,7 +75,7 @@ const Index = () => {
 
         {/* Baseline institutionnelle : filet or + Paris + EST. 2023 */}
         <div className="absolute inset-x-0 bottom-8 z-10 self-end">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4 text-[10px] md:text-xs font-subtitle tracking-[0.35em] text-white/60 uppercase">
+          <div className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4 text-[10px] md:text-xs font-subtitle tracking-[0.35em] text-white/60 uppercase ${step(3)}`}>
             <div className="flex items-center gap-4">
               <span className="h-px w-8 bg-gold/60" />
               <span>Paris</span>
@@ -79,6 +83,7 @@ const Index = () => {
             <div className="text-white/50">EST. 2023</div>
           </div>
         </div>
+
       </section>
 
 
