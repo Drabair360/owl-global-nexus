@@ -33,7 +33,10 @@ interface Props {
 const Duotone = ({
   src,
   alt,
+  sources,
+  sizes,
   tone = 'gold',
+
   className = '',
   eager = false,
   width,
