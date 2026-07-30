@@ -8,6 +8,7 @@ import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
 import CinemaBand from '@/components/CinemaBand';
 import { useThreshold } from '@/hooks/useThreshold';
+import { SITE_URL } from '@/config/site';
 
 
 const Index = () => {
@@ -24,7 +25,7 @@ const Index = () => {
         '@context': 'https://schema.org',
         '@type': 'FinancialService',
         name: 'Owl International',
-        url: 'https://owl-global-nexus.lovable.app',
+        url: SITE_URL,
         areaServed: ['FR', 'EU', 'Africa'],
         serviceType: [
           'Holding d’investissement',

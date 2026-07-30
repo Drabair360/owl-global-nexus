@@ -3,8 +3,9 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import { useSEO } from '@/hooks/useSEO';
 import { useLocation } from 'react-router-dom';
+import { SITE_URL as BASE_URL } from '@/config/site';
 
-const BASE_URL = 'https://owl-global-nexus.lovable.app';
+
 
 interface Props {
   title: string;

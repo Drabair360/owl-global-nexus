@@ -10,6 +10,7 @@ import { textures, SIZES } from '@/assets/textures';
 import { useParallax } from '@/hooks/useParallax';
 import { useI18n } from '@/lib/i18n';
 import { getVenture, ventures } from './data';
+import { absoluteUrl } from '@/config/site';
 
 const Venture = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -33,10 +34,10 @@ const Venture = () => {
     parentOrganization: {
       '@type': 'Organization',
       name: 'Owl International',
-      url: 'https://owl-global-nexus.lovable.app/',
+      url: absoluteUrl('/'),
     },
     description: t(venture.missionKey),
-    url: `https://owl-global-nexus.lovable.app/portefeuille/${venture.slug}`,
+    url: absoluteUrl(`/portefeuille/${venture.slug}`),
   };
 
   const idx = ventures.findIndex((v) => v.slug === venture.slug);
