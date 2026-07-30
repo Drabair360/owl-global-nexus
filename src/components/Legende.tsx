@@ -16,8 +16,8 @@ interface Props {
  * Aucune légende ne mentionne un lieu précis.
  */
 const Legende = ({ children, text, className = '', hoverOnly = false }: Props) => {
-  const { lang } = useI18n() as { lang?: string };
-  const fallback = lang === 'en' ? 'Illustrative imagery' : "Image d'illustration";
+  const { locale } = useI18n();
+  const fallback = locale === 'en' ? 'Illustrative imagery' : "Image d'illustration";
 
   return (
     <figure className={`group m-0 ${className}`}>
