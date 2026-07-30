@@ -9,6 +9,8 @@ interface Props {
   tone?: DuotoneTone;
   /** Bande cinéma proche du fold (LCP) : chargement prioritaire. */
   eager?: boolean;
+  /** Cadrage de l'image, permet de différencier deux bandes issues du même visuel. */
+  objectPosition?: string;
   className?: string;
 }
 
@@ -19,7 +21,7 @@ interface Props {
  * - Micro-parallaxe (24px max) + respiration unique, désactivées < 768px
  *   et sous prefers-reduced-motion.
  */
-const CinemaBand = ({ texture, tone = 'prestige', eager = false, className = '' }: Props) => {
+const CinemaBand = ({ texture, tone = 'prestige', eager = false, objectPosition, className = '' }: Props) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = React.useState(false);
   const [offset, setOffset] = React.useState(0);
@@ -90,6 +92,8 @@ const CinemaBand = ({ texture, tone = 'prestige', eager = false, className = '' 
               eager={eager}
               width={tex.width}
               height={tex.height}
+              objectPosition={objectPosition}
+              reveal={false}
               className="w-full h-[calc(100%+24px)] -mt-3"
             />
           </div>
