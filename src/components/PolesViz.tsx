@@ -76,15 +76,37 @@ const PolesViz = () => {
               </span>
             </div>
             <div className="h-[2px] w-full bg-slate-200 relative overflow-hidden">
-              <div
-                className="absolute inset-y-0 left-0 transition-all duration-[1400ms] ease-[cubic-bezier(.2,.7,.2,1)]"
-                style={{
-                  width: visible ? `${p.weight}%` : '0%',
-                  background: 'linear-gradient(90deg, hsl(43 96% 56%), hsl(38 92% 50%))',
-                  transitionDelay: `${i * 250}ms`,
-                }}
-              />
+              <svg
+                aria-hidden
+                viewBox="0 0 100 2"
+                preserveAspectRatio="none"
+                className="absolute inset-0 w-full h-full"
+              >
+                <defs>
+                  <linearGradient id={`poles-grad-${p.code}`} x1="0" x2="1" y1="0" y2="0">
+                    <stop offset="0%" stopColor="hsl(43 96% 56%)" />
+                    <stop offset="100%" stopColor="hsl(38 92% 50%)" />
+                  </linearGradient>
+                </defs>
+                <line
+                  x1="0"
+                  y1="1"
+                  x2={p.weight}
+                  y2="1"
+                  stroke={`url(#poles-grad-${p.code})`}
+                  strokeWidth="2"
+                  vectorEffect="non-scaling-stroke"
+                  className={`diagram-draw ${visible ? 'is-drawn' : ''}`}
+                  style={
+                    {
+                      '--draw-length': p.weight,
+                      transitionDelay: `${i * 80}ms`,
+                    } as React.CSSProperties
+                  }
+                />
+              </svg>
             </div>
+
             <div
               className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-xs font-subtitle tracking-[0.15em] uppercase transition-opacity duration-300"
               style={{ opacity: active === i ? 1 : 0.55 }}
