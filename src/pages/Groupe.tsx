@@ -5,6 +5,7 @@ import { Eyebrow, EditorialTitle, EditorialSection, Rule } from '@/components/ed
 import StickyChapter from '@/components/StickyChapter';
 import Duotone from '@/components/Duotone';
 import PolesViz from '@/components/PolesViz';
+import CinemaBand from '@/components/CinemaBand';
 import SplitText from '@/components/SplitText';
 import { useI18n } from '@/lib/i18n';
 
@@ -47,6 +48,8 @@ const Groupe = () => {
           </div>
         </div>
       </EditorialSection>
+
+      <CinemaBand texture="skyline" tone="nocturne" />
 
       {/* Organigramme + data-viz interactive */}
       <EditorialSection className="bg-slate-50 relative">

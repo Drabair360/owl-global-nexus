@@ -95,7 +95,7 @@ const Duotone = ({
         width={width}
         height={height}
         loading={eager ? 'eager' : 'lazy'}
-        fetchPriority={eager ? 'high' : undefined}
+        {...(eager ? { fetchpriority: 'high' } : {})}
         decoding="async"
         className="w-full h-full object-cover"
         style={{ filter: `url(#duo-${id}) contrast(1.05)`, backgroundColor: '#0B0F1A' }}
@@ -110,8 +110,8 @@ const Duotone = ({
           }}
         />
       )}
-      {/* Grain film pour l'effet impression */}
-      <div className="absolute inset-0 pointer-events-none mix-blend-soft-light opacity-[0.16] paper-noise" />
+      {/* Grain film pour l'effet impression (atténué sous 768px) */}
+      <div aria-hidden className="absolute inset-0 film-grain" />
     </div>
   );
 };

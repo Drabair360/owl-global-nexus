@@ -4,6 +4,7 @@ import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
+import CinemaBand from '@/components/CinemaBand';
 
 const Contact = () => {
   const { t } = useI18n();
@@ -50,6 +51,8 @@ const Contact = () => {
         title={t('contact.title')}
         subtitle={t('contact.intro')}
       />
+
+      <CinemaBand texture="corridor" tone="nocturne" />
 
       <EditorialSection className="bg-white">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

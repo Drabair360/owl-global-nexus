@@ -6,13 +6,15 @@ interface Props {
   /** Texte de légende personnalisé ; par défaut « Image d'illustration ». */
   text?: string;
   className?: string;
-  /** Légende révélée seulement au hover (grille Portefeuille). */
+  /** Légende révélée au survol ET au focus clavier (grille Portefeuille). */
   hoverOnly?: boolean;
 }
 
 /**
  * Figure institutionnelle : image + légende d'honnêteté.
  * Sémantique <figure>/<figcaption> pour les lecteurs d'écran.
+ * En mode hoverOnly, la légende reste dans le flux (opacity: 0, jamais display:none)
+ * et se révèle au survol comme au focus clavier - aucun mode de navigation ne peut la manquer.
  * Aucune légende ne mentionne un lieu précis.
  */
 const Legende = ({ children, text, className = '', hoverOnly = false }: Props) => {
@@ -24,7 +26,9 @@ const Legende = ({ children, text, className = '', hoverOnly = false }: Props) =
       {children}
       <figcaption
         className={`mt-3 text-[11px] font-subtitle tracking-[0.2em] uppercase text-slate-500 transition-opacity duration-500 ${
-          hoverOnly ? 'opacity-0 group-hover:opacity-60' : 'opacity-60'
+          hoverOnly
+            ? 'opacity-0 group-hover:opacity-60 group-focus-within:opacity-60 [.group:hover_&]:opacity-60 [.group:focus-visible_&]:opacity-60 [.group:focus-within_&]:opacity-60 motion-reduce:transition-none'
+            : 'opacity-60'
         }`}
       >
         {text ?? fallback}

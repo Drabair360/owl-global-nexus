@@ -10,6 +10,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Textarea } from '@/components/ui/textarea';
 import { supabase } from '@/integrations/supabase/client';
 import { useI18n } from '@/lib/i18n';
+import CinemaBand from '@/components/CinemaBand';
 
 const Scouts = () => {
   const { t, locale } = useI18n();
@@ -85,6 +86,8 @@ const Scouts = () => {
         title={t('scouts.title')}
         subtitle={t('scouts.subtitle')}
       />
+
+      <CinemaBand texture="terrain" tone="nocturne" />
 
       {/* Comment ça marche */}
       <EditorialSection className="bg-white">

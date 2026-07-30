@@ -6,6 +6,9 @@ import StickyChapter from '@/components/StickyChapter';
 import SplitText from '@/components/SplitText';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
+import Duotone from '@/components/Duotone';
+import Legende from '@/components/Legende';
+import { textures } from '@/assets/textures';
 
 const Approche = () => {
   const { t } = useI18n();
@@ -53,11 +56,27 @@ const Approche = () => {
       </EditorialSection>
 
       <section className="bg-white py-16 border-t border-slate-200">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-right">
-          <p className="font-heading text-xl text-slate-900">{t('approche.sig.name')}</p>
-          <p className="text-sm text-slate-500 font-subtitle tracking-wider uppercase mt-1">
-            {t('approche.sig.role')}
-          </p>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-10 items-end">
+          <div className="md:col-span-7 order-2 md:order-1 text-right md:text-left">
+            <p className="font-heading text-xl text-slate-900">{t('approche.sig.name')}</p>
+            <p className="text-sm text-slate-500 font-subtitle tracking-wider uppercase mt-1">
+              {t('approche.sig.role')}
+            </p>
+          </div>
+          <div className="md:col-span-5 order-1 md:order-2">
+            <Reveal>
+              <Legende>
+                <Duotone
+                  src={textures.signature.src}
+                  alt={textures.signature.alt}
+                  tone="prestige"
+                  width={textures.signature.width}
+                  height={textures.signature.height}
+                  className="aspect-[4/5] w-full"
+                />
+              </Legende>
+            </Reveal>
+          </div>
         </div>
       </section>
     </PageShell>

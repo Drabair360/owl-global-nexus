@@ -3,6 +3,7 @@ import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
+import CinemaBand from '@/components/CinemaBand';
 
 const Journal = () => {
   const { t } = useI18n();
@@ -28,6 +29,8 @@ const Journal = () => {
         title={t('journal.title')}
         subtitle={t('journal.body')}
       />
+
+      <CinemaBand texture="archive" tone="prestige" />
 
       <EditorialSection className="bg-white">
         <ol className="relative border-l-2 border-amber-400/40 pl-8 space-y-12 max-w-3xl">

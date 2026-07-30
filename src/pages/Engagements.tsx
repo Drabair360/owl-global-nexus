@@ -4,6 +4,7 @@ import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
+import CinemaBand from '@/components/CinemaBand';
 
 const Engagements = () => {
   const { t } = useI18n();
@@ -25,6 +26,8 @@ const Engagements = () => {
         eyebrow={t('engagements.eyebrow')}
         title={t('engagements.title')}
       />
+
+      <CinemaBand texture="terrain" tone="nocturne" />
 
       <EditorialSection className="bg-white">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

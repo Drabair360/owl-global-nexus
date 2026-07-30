@@ -3,6 +3,7 @@ import PageShell from '@/components/PageShell';
 import { Eyebrow, EditorialSection, Rule } from '@/components/editorial';
 import Reveal from '@/components/Reveal';
 import Duotone from '@/components/Duotone';
+import Legende from '@/components/Legende';
 import { textures } from '@/assets/textures';
 import { useI18n } from '@/lib/i18n';
 import { getVenture, ventures } from './data';
@@ -66,12 +67,23 @@ const Venture = () => {
           </div>
           <div className="md:col-span-5">
             <Reveal>
-              <Duotone
-                src={tex.src}
-                alt={tex.alt}
-                tone={venture.tone}
-                className="aspect-[4/5] w-full"
-              />
+              <div className="relative pl-6">
+                {/* Filet or vertical, tracé à la révélation */}
+                <span
+                  aria-hidden
+                  className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-gold/70 via-gold/30 to-transparent origin-top rule-draw"
+                />
+                <Legende>
+                  <Duotone
+                    src={tex.src}
+                    alt={tex.alt}
+                    tone={venture.tone}
+                    width={tex.width}
+                    height={tex.height}
+                    className="aspect-[4/5] w-full"
+                  />
+                </Legende>
+              </div>
             </Reveal>
           </div>
         </div>

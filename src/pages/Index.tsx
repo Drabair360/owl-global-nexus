@@ -6,6 +6,7 @@ import PolesViz from '@/components/PolesViz';
 import { SectionNumber, EditorialTitle, SectionWatermark } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
+import CinemaBand from '@/components/CinemaBand';
 
 const Index = () => {
   const { t } = useI18n();
@@ -69,7 +70,7 @@ const Index = () => {
         </div>
 
         {/* Baseline institutionnelle : filet or + Paris + EST. 2023 */}
-        <div className="absolute bottom-8 left-0 right-0 z-10">
+        <div className="absolute inset-x-0 bottom-8 z-10 self-end">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4 text-[10px] md:text-xs font-subtitle tracking-[0.35em] text-white/60 uppercase">
             <div className="flex items-center gap-4">
               <span className="h-px w-8 bg-gold/60" />
@@ -83,8 +84,9 @@ const Index = () => {
 
 
       {/* ==================== 01 - LE MODÈLE ==================== */}
-      <section id="modele" className="relative py-24 md:py-32 bg-white overflow-hidden paper-noise">
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="modele" className="relative bg-white overflow-hidden paper-noise">
+        <CinemaBand texture="prestigeWide" tone="prestige" eager className="mb-16 md:mb-24" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 md:pb-32">
           <SectionWatermark n={t('home.model.number')} />
           <SectionNumber n={t('home.model.number')} label={t('home.model.section')} />
           <EditorialTitle className="mb-8 max-w-3xl">{t('home.model.title')}</EditorialTitle>
