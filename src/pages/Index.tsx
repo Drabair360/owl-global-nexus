@@ -6,6 +6,7 @@ import PolesViz from '@/components/PolesViz';
 import { SectionNumber, EditorialTitle, SectionWatermark } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
+import CinemaBand from '@/components/CinemaBand';
 
 const Index = () => {
   const { t } = useI18n();
@@ -83,8 +84,9 @@ const Index = () => {
 
 
       {/* ==================== 01 - LE MODÈLE ==================== */}
-      <section id="modele" className="relative py-24 md:py-32 bg-white overflow-hidden paper-noise">
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="modele" className="relative bg-white overflow-hidden paper-noise">
+        <CinemaBand texture="prestigeWide" tone="prestige" eager className="mb-16 md:mb-24" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 md:pb-32">
           <SectionWatermark n={t('home.model.number')} />
           <SectionNumber n={t('home.model.number')} label={t('home.model.section')} />
           <EditorialTitle className="mb-8 max-w-3xl">{t('home.model.title')}</EditorialTitle>

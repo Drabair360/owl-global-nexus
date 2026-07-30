@@ -4,6 +4,7 @@ import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
+import CinemaBand from '@/components/CinemaBand';
 
 const Contact = () => {
   const { t } = useI18n();
