@@ -111,8 +111,7 @@ const Duotone = ({
         />
       )}
       {/* Grain film pour l'effet impression (atténué sous 768px) */}
-      <div aria-hidden
-      <div className="absolute inset-0 film-grain" />
+      <div aria-hidden className="absolute inset-0 film-grain" />
     </div>
   );
 };
