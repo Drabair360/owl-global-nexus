@@ -56,9 +56,10 @@ const GroupDiagram = ({ name, pole, holding = 'Owl International', label }: Prop
               fill="none"
               stroke="hsl(43 96% 50%)"
               strokeWidth="1"
+              pathLength={100}
               className={`diagram-draw ${drawn ? 'is-drawn' : ''}`}
               style={
-                { '--draw-length': s.length, transitionDelay: `${i * 80}ms` } as React.CSSProperties
+                { '--draw-length': 100, transitionDelay: `${i * 80}ms` } as React.CSSProperties
               }
             />
           ))}

@@ -95,11 +95,12 @@ const PolesViz = () => {
                   y2="1"
                   stroke={`url(#poles-grad-${p.code})`}
                   strokeWidth="2"
+                  pathLength={100}
                   vectorEffect="non-scaling-stroke"
                   className={`diagram-draw ${visible ? 'is-drawn' : ''}`}
                   style={
                     {
-                      '--draw-length': p.weight,
+                      '--draw-length': 100,
                       transitionDelay: `${i * 80}ms`,
                     } as React.CSSProperties
                   }
