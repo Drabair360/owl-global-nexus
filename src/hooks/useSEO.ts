@@ -3,7 +3,25 @@ import { useLocation } from 'react-router-dom';
 import { useI18n } from '@/lib/i18n';
 
 const BASE_URL = 'https://owl-global-nexus.lovable.app';
-const OG_IMAGE = `${BASE_URL}/og-image.jpg`;
+
+/** Cartes sociales par pilier (1200x630, générées sur la base ogBase). */
+const OG_BY_PILLAR: Record<string, string> = {
+  '': 'home',
+  groupe: 'groupe',
+  portefeuille: 'portefeuille',
+  metiers: 'metiers',
+  approche: 'approche',
+  scouts: 'scouts',
+  engagements: 'engagements',
+  journal: 'journal',
+  contact: 'contact',
+  rejoindre: 'rejoindre',
+};
+
+const ogImageFor = (pathname: string) => {
+  const seg = pathname.split('/').filter(Boolean)[0] ?? '';
+  return `${BASE_URL}/og/${OG_BY_PILLAR[seg] ?? 'home'}.jpg`;
+};
 
 interface SEOOptions {
   title: string;
@@ -12,13 +30,16 @@ interface SEOOptions {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   /** Keywords for SEO (comma-separated). */
   keywords?: string;
+  /** Override de la carte sociale (URL absolue). */
+  ogImage?: string;
 }
+
 
 /**
  * Injects title/description/canonical/OG/Twitter/hreflang and page-scoped JSON-LD.
  * Direct <head> mutation - no react-helmet dependency.
  */
-export const useSEO = ({ title, description, jsonLd, keywords }: SEOOptions) => {
+export const useSEO = ({ title, description, jsonLd, keywords, ogImage }: SEOOptions) => {
   const { pathname } = useLocation();
   const { locale } = useI18n();
 
@@ -67,6 +88,7 @@ export const useSEO = ({ title, description, jsonLd, keywords }: SEOOptions) => 
 
     const path = pathname === '/' ? '' : pathname;
     const canonicalUrl = `${BASE_URL}${path}`;
+    const socialImage = ogImage ?? ogImageFor(pathname);
 
     setMeta('description', description);
     if (keywords) setMeta('keywords', keywords);
@@ -78,14 +100,14 @@ export const useSEO = ({ title, description, jsonLd, keywords }: SEOOptions) => 
     setProp('og:site_name', 'Owl International');
     setProp('og:locale', locale === 'fr' ? 'fr_FR' : 'en_US');
     setProp('og:locale:alternate', locale === 'fr' ? 'en_US' : 'fr_FR');
-    setProp('og:image', OG_IMAGE);
+    setProp('og:image', socialImage);
     setProp('og:image:width', '1200');
     setProp('og:image:height', '630');
 
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', title);
     setMeta('twitter:description', description);
-    setMeta('twitter:image', OG_IMAGE);
+    setMeta('twitter:image', socialImage);
 
     upsert(
       'link[rel="canonical"]',
@@ -135,5 +157,5 @@ export const useSEO = ({ title, description, jsonLd, keywords }: SEOOptions) => 
     return () => {
       scripts.forEach((s) => s.remove());
     };
-  }, [title, description, pathname, locale, keywords, JSON.stringify(jsonLd)]);
+  }, [title, description, pathname, locale, keywords, ogImage, JSON.stringify(jsonLd)]);
 };

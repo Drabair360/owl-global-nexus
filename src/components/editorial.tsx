@@ -6,7 +6,7 @@ import React, { ReactNode } from 'react';
  */
 
 export const Eyebrow = ({ children }: { children: ReactNode }) => (
-  <p className="text-xs font-subtitle tracking-[0.28em] text-gold uppercase mb-4">{children}</p>
+  <p className="text-xs font-subtitle tracking-[0.28em] text-gold-ink uppercase mb-4">{children}</p>
 );
 
 export const SectionNumber = ({ n, label }: { n: string; label: string }) => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import Duotone, { type DuotoneTone } from '@/components/Duotone';
 import Legende from '@/components/Legende';
-import { textures, type TextureKey } from '@/assets/textures';
+import { textures, SIZES, type TextureKey } from '@/assets/textures';
 
 interface Props {
   /** Clé du manifest de textures. */
@@ -91,6 +91,8 @@ const CinemaBand = ({ texture, tone = 'prestige', eager = false, objectPosition,
           >
             <Duotone
               src={tex.src}
+              sources={tex.sources}
+              sizes={SIZES.band}
               alt={tex.alt}
               tone={tone}
               eager={eager}

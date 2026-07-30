@@ -17,9 +17,9 @@ interface Props {
  */
 const StickyChapter = ({ number, label, title, children, className = '' }: Props) => (
   <div className={`grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 ${className}`}>
-    <aside className="lg:col-span-4">
+    <div className="lg:col-span-4">
       <div className="lg:sticky lg:top-32">
-        <div className="font-display text-[8rem] md:text-[10rem] leading-[0.85] text-gold/90 mb-4 select-none">
+        <div className="font-display text-[8rem] md:text-[10rem] leading-[0.85] text-gold-num mb-4 select-none">
           {number}
         </div>
         <div className="rule-gold mb-6" />
@@ -30,7 +30,7 @@ const StickyChapter = ({ number, label, title, children, className = '' }: Props
           {title}
         </h2>
       </div>
-    </aside>
+    </div>
     <div className="lg:col-span-8 lg:pt-6 space-y-8 text-lg font-body leading-relaxed text-slate-700">
       {children}
     </div>

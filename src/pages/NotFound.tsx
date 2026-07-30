@@ -4,7 +4,7 @@ import PageShell from '@/components/PageShell';
 import { Eyebrow } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Duotone from '@/components/Duotone';
-import { textures } from '@/assets/textures';
+import { textures, SIZES } from '@/assets/textures';
 
 const NotFound = () => {
   const location = useLocation();
@@ -25,6 +25,8 @@ const NotFound = () => {
         <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-[0.14] hidden md:block [mask-image:linear-gradient(to_right,transparent,black_45%)]">
           <Duotone
             src={textures.vide.src}
+            sources={textures.vide.sources}
+            sizes={SIZES.column}
             alt=""
             tone="ink"
             width={textures.vide.width}
@@ -74,7 +76,7 @@ const NotFound = () => {
                 to={a.to}
                 className="group border-t border-slate-300 pt-4 hover:border-amber-500 transition-colors"
               >
-                <div className="font-heading text-xl text-slate-900 group-hover:text-amber-600 transition-colors flex items-center justify-between">
+                <div className="font-heading text-xl text-slate-900 group-hover:text-amber-700 transition-colors flex items-center justify-between">
                   <span>{a.label}</span>
                   <span aria-hidden className="text-amber-500 group-hover:translate-x-1 transition-transform">-&gt;</span>
                 </div>

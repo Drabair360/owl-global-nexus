@@ -8,7 +8,7 @@ import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
 import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
-import { textures } from '@/assets/textures';
+import { textures, SIZES } from '@/assets/textures';
 
 const Approche = () => {
   const { t } = useI18n();
@@ -68,6 +68,8 @@ const Approche = () => {
               <Legende>
                 <Duotone
                   src={textures.signature.src}
+                  sources={textures.signature.sources}
+                  sizes={SIZES.column}
                   alt={textures.signature.alt}
                   tone="prestige"
                   width={textures.signature.width}

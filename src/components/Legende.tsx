@@ -25,10 +25,10 @@ const Legende = ({ children, text, className = '', hoverOnly = false }: Props) =
     <figure className={`group m-0 ${className}`}>
       {children}
       <figcaption
-        className={`mt-3 text-[11px] font-subtitle tracking-[0.2em] uppercase text-slate-500 transition-opacity duration-500 ${
+        className={`mt-3 text-[11px] font-subtitle tracking-[0.2em] uppercase text-slate-600 transition-opacity duration-500 ${
           hoverOnly
-            ? 'opacity-0 group-hover:opacity-60 group-focus-within:opacity-60 [.group:hover_&]:opacity-60 [.group:focus-visible_&]:opacity-60 [.group:focus-within_&]:opacity-60 motion-reduce:transition-none'
-            : 'opacity-60'
+            ? 'opacity-0 group-hover:opacity-95 group-focus-within:opacity-100 [.group:hover_&]:opacity-95 [.group:focus-visible_&]:opacity-100 [.group:focus-within_&]:opacity-100 motion-reduce:transition-none'
+            : 'opacity-90'
         }`}
       >
         {text ?? fallback}

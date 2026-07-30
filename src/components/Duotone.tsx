@@ -5,6 +5,10 @@ export type DuotoneTone = 'gold' | 'ink' | 'sepia' | 'prestige' | 'nocturne';
 interface Props {
   src: string;
   alt: string;
+  /** srcset par format (`{ avif, jpg }`) issu du manifest de textures. */
+  sources?: Record<string, string>;
+  /** Attribut `sizes` - utiliser les constantes SIZES du manifest. */
+  sizes?: string;
   /** Palette de grading. 'prestige' et 'nocturne' ajoutent vignette (et halation pour prestige). */
   tone?: DuotoneTone;
   className?: string;
@@ -18,6 +22,7 @@ interface Props {
   reveal?: boolean;
 }
 
+
 /**
  * Grading duotone institutionnel V2 (filtre SVG, compatible partout).
  * - Noirs relevés à l'encre #0B0F1A (jamais 0,0,0) pour l'effet impression.
@@ -28,7 +33,10 @@ interface Props {
 const Duotone = ({
   src,
   alt,
+  sources,
+  sizes,
   tone = 'gold',
+
   className = '',
   eager = false,
   width,
@@ -126,17 +134,30 @@ const Duotone = ({
           )}
         </filter>
       </svg>
-      <img
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        loading={eager ? 'eager' : 'lazy'}
-        {...(eager ? { fetchpriority: 'high' } : {})}
-        decoding="async"
-        className="w-full h-full object-cover"
-        style={{ filter: `url(#duo-${id}) contrast(1.05)`, backgroundColor: '#0B0F1A', objectPosition }}
-      />
+      <picture>
+        {sources &&
+          Object.entries(sources).map(([format, srcSet]) => (
+            <source
+              key={format}
+              type={`image/${format === 'jpg' ? 'jpeg' : format}`}
+              srcSet={srcSet}
+              sizes={sizes}
+            />
+          ))}
+        <img
+          src={src}
+          alt={alt}
+          sizes={sizes}
+          width={width}
+          height={height}
+          loading={eager ? 'eager' : 'lazy'}
+          {...(eager ? { fetchpriority: 'high' } : {})}
+          decoding="async"
+          className="w-full h-full object-cover"
+          style={{ filter: `url(#duo-${id}) contrast(1.05)`, backgroundColor: '#0B0F1A', objectPosition }}
+        />
+      </picture>
+
       {hasVignette && (
         <div
           aria-hidden

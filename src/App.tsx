@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react';
 import { Toaster } from '@/components/ui/toaster';
 import { Toaster as Sonner } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -5,21 +6,23 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { LanguageProvider } from '@/lib/i18n';
 import Index from './pages/Index';
-import Groupe from './pages/Groupe';
-import Portefeuille from './pages/Portefeuille';
-import Metiers from './pages/Metiers';
-import Scouts from './pages/Scouts';
-import Journal from './pages/Journal';
-import Approche from './pages/Approche';
-import Rejoindre from './pages/Rejoindre';
-import Engagements from './pages/Engagements';
-import Contact from './pages/Contact';
-import MentionsLegales from './pages/MentionsLegales';
-import Privacy from './pages/Privacy';
-import Terms from './pages/Terms';
-import NotFound from './pages/NotFound';
-import Venture from './pages/ventures/Venture';
 import PageTransition from './components/PageTransition';
+
+// Découpage par route : seule l'accueil est dans le bundle initial (LCP).
+const Groupe = lazy(() => import('./pages/Groupe'));
+const Portefeuille = lazy(() => import('./pages/Portefeuille'));
+const Metiers = lazy(() => import('./pages/Metiers'));
+const Scouts = lazy(() => import('./pages/Scouts'));
+const Journal = lazy(() => import('./pages/Journal'));
+const Approche = lazy(() => import('./pages/Approche'));
+const Rejoindre = lazy(() => import('./pages/Rejoindre'));
+const Engagements = lazy(() => import('./pages/Engagements'));
+const Contact = lazy(() => import('./pages/Contact'));
+const MentionsLegales = lazy(() => import('./pages/MentionsLegales'));
+const Privacy = lazy(() => import('./pages/Privacy'));
+const Terms = lazy(() => import('./pages/Terms'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const Venture = lazy(() => import('./pages/ventures/Venture'));
 
 const queryClient = new QueryClient();
 
@@ -31,6 +34,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <PageTransition>
+          <Suspense fallback={<div className="min-h-screen bg-background" aria-busy="true" />}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/groupe" element={<Groupe />} />
@@ -59,6 +63,7 @@ const App = () => (
 
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
           </PageTransition>
         </BrowserRouter>
       </TooltipProvider>

@@ -95,7 +95,7 @@ const Scouts = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {['01', '02', '03'].map((n) => (
             <div key={n}>
-              <div className="font-brand text-5xl text-amber-400 mb-4">{n}</div>
+              <div className="font-brand text-5xl text-gold-num mb-4">{n}</div>
               <h3 className="font-heading text-xl text-slate-900 mb-3">{t(`scouts.how.${n}.t`)}</h3>
               <p className="text-slate-600 font-body leading-relaxed">{t(`scouts.how.${n}.b`)}</p>
             </div>
