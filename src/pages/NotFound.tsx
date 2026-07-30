@@ -22,7 +22,7 @@ const NotFound = () => {
       breadcrumbs={[{ name: '404', path: location.pathname }]}
     >
       <section className="relative bg-slate-50 border-b border-slate-200 overflow-hidden">
-        <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-20 hidden md:block">
+        <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-[0.14] hidden md:block [mask-image:linear-gradient(to_right,transparent,black_45%)]">
           <Duotone
             src={textures.vide.src}
             alt=""
