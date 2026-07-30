@@ -1,9 +1,15 @@
 import { useEffect, useState, ReactNode } from 'react';
+import { flushSync } from 'react-dom';
 import { useLocation } from 'react-router-dom';
 
+type DocWithVT = Document & {
+  startViewTransition?: (cb: () => void) => { finished: Promise<void> };
+};
+
 /**
- * Transition inter-routes : fondu opacité seul, 200 ms.
- * Aucune translation, aucun voile. Navigation instantanée, non théâtrale.
+ * Transition inter-routes : fondu 200 ms.
+ * - Utilise ::view-transition (fondu natif) quand le navigateur le supporte.
+ * - Dégradation propre : fondu opacité JS identique sinon.
  */
 export const PageTransition = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
@@ -12,12 +18,23 @@ export const PageTransition = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     if (location.pathname === displayLocation.pathname) return;
-    setOut(true);
-    const t = window.setTimeout(() => {
+
+    const doc = document as DocWithVT;
+    const commit = () => {
       setDisplayLocation(location);
       window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
       setOut(false);
-    }, 200);
+    };
+
+    if (typeof doc.startViewTransition === 'function') {
+      doc.startViewTransition(() => {
+        flushSync(commit);
+      });
+      return;
+    }
+
+    setOut(true);
+    const t = window.setTimeout(commit, 200);
     return () => window.clearTimeout(t);
   }, [location, displayLocation]);
 
