@@ -5,6 +5,10 @@ export type DuotoneTone = 'gold' | 'ink' | 'sepia' | 'prestige' | 'nocturne';
 interface Props {
   src: string;
   alt: string;
+  /** srcset par format (`{ avif, jpg }`) issu du manifest de textures. */
+  sources?: Record<string, string>;
+  /** Attribut `sizes` - utiliser les constantes SIZES du manifest. */
+  sizes?: string;
   /** Palette de grading. 'prestige' et 'nocturne' ajoutent vignette (et halation pour prestige). */
   tone?: DuotoneTone;
   className?: string;
@@ -17,6 +21,7 @@ interface Props {
   /** Dévoilement clip-path à l'entrée dans le viewport. Désactiver si le parent le gère. */
   reveal?: boolean;
 }
+
 
 /**
  * Grading duotone institutionnel V2 (filtre SVG, compatible partout).
