@@ -110,8 +110,9 @@ const Duotone = ({
           }}
         />
       )}
-      {/* Grain film pour l'effet impression */}
-      <div className="absolute inset-0 pointer-events-none mix-blend-soft-light opacity-[0.16] paper-noise" />
+      {/* Grain film pour l'effet impression (atténué sous 768px) */}
+      <div aria-hidden
+      <div className="absolute inset-0 film-grain" />
     </div>
   );
 };
