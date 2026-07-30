@@ -4,6 +4,8 @@ import { Eyebrow, EditorialSection, Rule } from '@/components/editorial';
 import Reveal from '@/components/Reveal';
 import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
+import GroupDiagram from '@/components/GroupDiagram';
+
 import { textures } from '@/assets/textures';
 import { useParallax } from '@/hooks/useParallax';
 import { useI18n } from '@/lib/i18n';

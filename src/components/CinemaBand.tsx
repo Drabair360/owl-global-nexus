@@ -70,8 +70,12 @@ const CinemaBand = ({ texture, tone = 'prestige', eager = false, objectPosition,
 
   return (
     <div className={`relative w-full ${className}`} ref={ref}>
-      {/* Ligne d'horizon or, pleine largeur */}
-      <div aria-hidden className="h-px w-full bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+      {/* Ligne d'horizon or, prolongée sur toute la largeur de la fenêtre (100vw) */}
+      <div
+        aria-hidden
+        className="relative left-1/2 -translate-x-1/2 w-screen max-w-[100vw] h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent"
+      />
+
       <Legende className="w-full">
         <div
           className="relative w-full overflow-hidden h-64 md:h-96"
