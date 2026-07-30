@@ -83,7 +83,7 @@ const PolesViz = () => {
                 className="absolute inset-0 w-full h-full"
               >
                 <defs>
-                  <linearGradient id={`poles-grad-${p.code}`} x1="0" x2="1" y1="0" y2="0">
+                  <linearGradient id={`poles-grad-${p.code}`} gradientUnits="userSpaceOnUse" x1="0" x2="100" y1="0" y2="0">
                     <stop offset="0%" stopColor="hsl(43 96% 56%)" />
                     <stop offset="100%" stopColor="hsl(38 92% 50%)" />
                   </linearGradient>
