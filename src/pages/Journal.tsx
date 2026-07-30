@@ -10,7 +10,6 @@ const Journal = () => {
 
   const entries = [
     { year: '2023', tKey: 'journal.2023.title', bKey: 'journal.2023.body' },
-    { year: '2025', tKey: 'journal.2025.title', bKey: 'journal.2025.body' },
     { year: '2026', tKey: 'journal.2026a.title', bKey: 'journal.2026a.body' },
     { year: '2026', tKey: 'journal.2026b.title', bKey: 'journal.2026b.body' },
     { year: '2026', tKey: 'journal.2026c.title', bKey: 'journal.2026c.body' },

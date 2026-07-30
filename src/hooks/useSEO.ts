@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useI18n } from '@/lib/i18n';
+import { SITE_URL as BASE_URL } from '@/config/site';
 
-const BASE_URL = 'https://owl-global-nexus.lovable.app';
+
 
 /** Cartes sociales par pilier (1200x630, générées sur la base ogBase). */
 const OG_BY_PILLAR: Record<string, string> = {

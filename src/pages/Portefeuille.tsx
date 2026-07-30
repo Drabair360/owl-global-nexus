@@ -9,6 +9,7 @@ import { ventures } from './ventures/data';
 import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
 import { textures, SIZES } from '@/assets/textures';
+import { absoluteUrl } from '@/config/site';
 
 const Portefeuille = () => {
   const { t, locale } = useI18n();
@@ -20,7 +21,7 @@ const Portefeuille = () => {
     hasPart: ventures.map((v) => ({
       '@type': 'Organization',
       name: v.name,
-      url: `https://owl-global-nexus.lovable.app/portefeuille/${v.slug}`,
+      url: absoluteUrl(`/portefeuille/${v.slug}`),
       description: v.context[locale],
     })),
   };
