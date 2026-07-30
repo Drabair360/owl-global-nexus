@@ -209,10 +209,8 @@ const dict: Record<Locale, Record<string, string>> = {
     'journal.body': 'Chaque entrée correspond à un fait vérifiable. Peu d’entrées, assumé.',
     'journal.2023.title': 'Immatriculation d’Owl International',
     'journal.2023.body': 'Création de la holding au RCS de Paris (978 849 230).',
-    'journal.2025.title': 'Structuration du groupe en deux pôles',
-    'journal.2025.body': 'Formalisation d’un pôle opérationnel (ingénierie industrielle et logiciel) et d’un pôle patrimonial (immobilier).',
-    'journal.2026a.title': 'Constitution de CAO Industries',
-    'journal.2026a.body': 'Lancement de la constitution du contractant général de projets industriels clé en main du groupe.',
+    'journal.2026a.title': 'Structuration du groupe en deux pôles',
+    'journal.2026a.body': 'Structuration du groupe en deux pôles ; constitution de CAO Industries engagée.',
     'journal.2026b.title': 'Structuration d’Owl Real Estate',
     'journal.2026b.body': 'Ouverture du chantier d’Owl Real Estate et lancement d’une première opération dans le sud de la France.',
     'journal.2026c.title': 'Ouverture du programme Owl Scouts',
@@ -312,7 +310,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'Consentement explicite de la personne concernée, matérialisé par la case à cocher obligatoire du formulaire (article 6.1.a du RGPD).',
     'privacy.storage.title': 'Durée de conservation',
     'privacy.storage.body':
-      'Durée de conservation : [DURÉE À CONFIRMER PAR OWL INTERNATIONAL]. Les données sont supprimées à l’issue de cette durée, sauf mise en relation contractuelle formalisée.',
+      'Les données sont conservées vingt-quatre (24) mois à compter du dernier contact, puis supprimées.',
     'privacy.share.title': 'Destinataires',
     'privacy.share.body':
       'Les données sont accessibles aux seules équipes internes d’Owl International et à ses prestataires techniques nécessaires au fonctionnement du site (hébergeur, base de données). Aucun transfert commercial à un tiers n’est effectué.',
@@ -334,7 +332,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'Owl International s’efforce d’assurer l’exactitude des informations diffusées mais ne peut en garantir l’exhaustivité à tout instant. La responsabilité d’Owl International ne saurait être engagée en cas d’erreur, d’omission ou d’indisponibilité du service.',
     'terms.law.title': 'Droit applicable',
     'terms.law.body':
-      'Les présentes conditions sont soumises au droit français. Tout litige relève de la compétence des tribunaux du ressort de Paris.',
+      'Les présentes conditions sont soumises au droit français. Tout litige relève de la compétence des tribunaux du ressort de Paris, sous réserve des dispositions impératives applicables aux consommateurs.',
   },
   en: {
     // ---- Nav / Footer / Global ----
@@ -527,10 +525,8 @@ const dict: Record<Locale, Record<string, string>> = {
     'journal.body': 'Each entry corresponds to a verifiable fact. Few entries - by design.',
     'journal.2023.title': 'Registration of Owl International',
     'journal.2023.body': 'Creation of the holding at the Paris Commercial Register (978 849 230).',
-    'journal.2025.title': 'Structuring of the group into two divisions',
-    'journal.2025.body': 'Formalisation of an operational division (industrial engineering and software) and a real-estate division.',
-    'journal.2026a.title': 'Incorporation of CAO Industries',
-    'journal.2026a.body': 'Launch of the incorporation of the group’s turnkey industrial general contractor.',
+    'journal.2026a.title': 'Structuring of the group into two divisions',
+    'journal.2026a.body': 'Structuring of the group into two divisions; incorporation of CAO Industries under way.',
     'journal.2026b.title': 'Structuring of Owl Real Estate',
     'journal.2026b.body': 'Structuring of Owl Real Estate and launch of a first operation in the south of France.',
     'journal.2026c.title': 'Launch of the Owl Scouts programme',
@@ -628,7 +624,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'Explicit consent of the data subject, materialised by the mandatory tick box of the form (Article 6.1.a of the GDPR).',
     'privacy.storage.title': 'Retention',
     'privacy.storage.body':
-      'Retention period: [DURATION TO BE CONFIRMED BY OWL INTERNATIONAL]. Data is deleted at the end of that period, unless a formal contractual relationship is established.',
+      'Data is retained for twenty-four (24) months from the last contact, then deleted.',
     'privacy.share.title': 'Recipients',
     'privacy.share.body':
       'The data is accessible only to Owl International’s internal teams and to the technical providers required to operate the site (hosting, database). No commercial transfer to a third party takes place.',
@@ -649,7 +645,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'Owl International strives to ensure the accuracy of the information published but cannot guarantee its exhaustiveness at all times. Owl International’s liability cannot be engaged for any error, omission or service unavailability.',
     'terms.law.title': 'Applicable law',
     'terms.law.body':
-      'These terms are governed by French law. Any dispute falls under the jurisdiction of the courts of Paris.',
+      'These terms are governed by French law. Any dispute falls under the jurisdiction of the courts of Paris, subject to the mandatory provisions applicable to consumers.',
   },
 };
 
