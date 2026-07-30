@@ -96,7 +96,6 @@ const PolesViz = () => {
                   stroke={`url(#poles-grad-${p.code})`}
                   strokeWidth="2"
                   pathLength={100}
-                  vectorEffect="non-scaling-stroke"
                   className={`diagram-draw ${visible ? 'is-drawn' : ''}`}
                   style={
                     {
