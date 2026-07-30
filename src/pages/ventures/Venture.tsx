@@ -4,6 +4,8 @@ import { Eyebrow, EditorialSection, Rule } from '@/components/editorial';
 import Reveal from '@/components/Reveal';
 import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
+import GroupDiagram from '@/components/GroupDiagram';
+
 import { textures } from '@/assets/textures';
 import { useParallax } from '@/hooks/useParallax';
 import { useI18n } from '@/lib/i18n';
@@ -106,7 +108,15 @@ const Venture = () => {
               {locale === 'fr' ? 'Mission' : 'Mission'}
             </div>
             <p className="text-sm text-slate-500 italic font-body">{t(venture.statusKey)}</p>
+            <div className="mt-10">
+              <GroupDiagram
+                name={venture.name}
+                pole={pole}
+                label={locale === 'fr' ? 'Place dans le groupe' : 'Place within the group'}
+              />
+            </div>
           </div>
+
           <div className="md:col-span-8">
             <p className="font-display text-2xl md:text-3xl leading-snug text-slate-900">
               {t(venture.missionKey)}
