@@ -12,6 +12,10 @@ interface Props {
   eager?: boolean;
   width?: number;
   height?: number;
+  /** Cadrage de l'image (object-position), ex. '30% 50%'. */
+  objectPosition?: string;
+  /** Dévoilement clip-path à l'entrée dans le viewport. Désactiver si le parent le gère. */
+  reveal?: boolean;
 }
 
 /**
@@ -19,6 +23,7 @@ interface Props {
  * - Noirs relevés à l'encre #0B0F1A (jamais 0,0,0) pour l'effet impression.
  * - Vignette radiale douce -15% sur prestige / nocturne uniquement.
  * - Halation 1px sur les hautes lumières, prestige uniquement : doit se sentir, pas se voir.
+ * - Dévoilement clip-path (Phase IV) commun à toutes les routes.
  */
 const Duotone = ({
   src,
@@ -28,8 +33,33 @@ const Duotone = ({
   eager = false,
   width,
   height,
+  objectPosition,
+  reveal = true,
 }: Props) => {
   const id = React.useId().replace(/:/g, '');
+  const wrapRef = React.useRef<HTMLDivElement>(null);
+  const [shown, setShown] = React.useState(!reveal);
+
+  React.useEffect(() => {
+    if (!reveal) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setShown(true);
+      return;
+    }
+    const el = wrapRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [reveal]);
 
   const palettes: Record<DuotoneTone, { dark: string; light: string; mid?: string }> = {
     gold: { dark: '#0B0F1A', light: '#F5C34D' },
