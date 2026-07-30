@@ -294,6 +294,16 @@
     .film-grain { opacity: 0.09; }
   }
 
+  /* Filet or vertical : tracé 900ms à la révélation. */
+  .rule-draw { animation: rule-draw 900ms cubic-bezier(0.16,1,0.3,1) both; }
+  @keyframes rule-draw {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rule-draw { animation: none; }
+  }
+
   /* Respiration : une seule fois au premier affichage, jamais en boucle. */
   .band-breathe { animation: band-breathe 18s linear 1 forwards; }
   @keyframes band-breathe {
