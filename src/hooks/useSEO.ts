@@ -39,7 +39,7 @@ interface SEOOptions {
  * Injects title/description/canonical/OG/Twitter/hreflang and page-scoped JSON-LD.
  * Direct <head> mutation - no react-helmet dependency.
  */
-export const useSEO = ({ title, description, jsonLd, keywords }: SEOOptions) => {
+export const useSEO = ({ title, description, jsonLd, keywords, ogImage }: SEOOptions) => {
   const { pathname } = useLocation();
   const { locale } = useI18n();
 
@@ -88,6 +88,7 @@ export const useSEO = ({ title, description, jsonLd, keywords }: SEOOptions) => 
 
     const path = pathname === '/' ? '' : pathname;
     const canonicalUrl = `${BASE_URL}${path}`;
+    const socialImage = ogImage ?? ogImageFor(pathname);
 
     setMeta('description', description);
     if (keywords) setMeta('keywords', keywords);
@@ -99,14 +100,14 @@ export const useSEO = ({ title, description, jsonLd, keywords }: SEOOptions) => 
     setProp('og:site_name', 'Owl International');
     setProp('og:locale', locale === 'fr' ? 'fr_FR' : 'en_US');
     setProp('og:locale:alternate', locale === 'fr' ? 'en_US' : 'fr_FR');
-    setProp('og:image', OG_IMAGE);
+    setProp('og:image', socialImage);
     setProp('og:image:width', '1200');
     setProp('og:image:height', '630');
 
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', title);
     setMeta('twitter:description', description);
-    setMeta('twitter:image', OG_IMAGE);
+    setMeta('twitter:image', socialImage);
 
     upsert(
       'link[rel="canonical"]',
@@ -156,5 +157,5 @@ export const useSEO = ({ title, description, jsonLd, keywords }: SEOOptions) => 
     return () => {
       scripts.forEach((s) => s.remove());
     };
-  }, [title, description, pathname, locale, keywords, JSON.stringify(jsonLd)]);
+  }, [title, description, pathname, locale, keywords, ogImage, JSON.stringify(jsonLd)]);
 };
