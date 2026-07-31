@@ -74,9 +74,11 @@ const Scouts = () => {
       locale,
     });
     if (error) {
-      // 23505 = contrainte d'unicité sur l'email : candidature déjà enregistrée.
+      // 23505 = contrainte d'unicité sur l'email. Réponse neutre, identique au succès :
+      // le site ne doit jamais révéler qu'une adresse est déjà en base (oracle d'énumération).
       if (error.code === '23505') {
-        setStatus('duplicate');
+        setStatus('success');
+        setForm({ full_name: '', email: '', phone: '', country: '', domain: '', message: '', consent: false });
         return;
       }
       console.error(error);

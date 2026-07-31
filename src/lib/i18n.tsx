@@ -187,7 +187,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'scouts.form.invalidEmail': 'Adresse email invalide.',
     'scouts.form.consentRequired': 'Merci de cocher la case de consentement.',
     'scouts.form.successTitle': 'Candidature reçue.',
-    'scouts.form.successBody': 'Nous accusons réception manuellement. Une réponse individuelle vous parviendra sous quelques jours ouvrés.',
+    'scouts.form.successBody': 'Si une demande existait déjà pour cette adresse, elle reste valable. Nous accusons réception manuellement : une réponse individuelle vous parviendra sous quelques jours ouvrés.',
     'scouts.form.successAgain': 'Soumettre une autre candidature',
     'scouts.form.duplicateTitle': 'Candidature déjà enregistrée',
     'scouts.form.duplicateBody':
@@ -516,7 +516,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'scouts.form.invalidEmail': 'Invalid email address.',
     'scouts.form.consentRequired': 'Please tick the consent box.',
     'scouts.form.successTitle': 'Application received.',
-    'scouts.form.successBody': 'We acknowledge receipt manually. An individual reply will reach you within a few working days.',
+    'scouts.form.successBody': 'If an application already existed for this address, it remains valid. We acknowledge receipt manually: an individual reply will reach you within a few working days.',
     'scouts.form.successAgain': 'Submit another application',
     'scouts.form.duplicateTitle': 'Application already received',
     'scouts.form.duplicateBody':
@@ -694,7 +694,13 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   const setLocale = (l: Locale) => {
     setLocaleState(l);
-    if (typeof window !== 'undefined') window.localStorage.setItem(STORAGE_KEY, l);
+    if (typeof window === 'undefined') return;
+    window.localStorage.setItem(STORAGE_KEY, l);
+    // L'URL porte l'état de langue : EN = ?lang=en, FR = URL nue (partageable, rechargeable).
+    const url = new URL(window.location.href);
+    if (l === 'en') url.searchParams.set('lang', 'en');
+    else url.searchParams.delete('lang');
+    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`);
   };
 
   const t = (key: string) => dict[locale][key] ?? dict.fr[key] ?? key;
