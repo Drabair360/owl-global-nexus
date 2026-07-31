@@ -33,6 +33,8 @@ interface SEOOptions {
   keywords?: string;
   /** Override de la carte sociale (URL absolue). */
   ogImage?: string;
+  /** Empêche l'indexation de la page (ex. 404). */
+  noindex?: boolean;
 }
 
 
