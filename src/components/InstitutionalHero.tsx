@@ -23,10 +23,8 @@ const InstitutionalHero = ({
 }: Props) => {
   return (
     <section className="relative min-h-[62vh] md:min-h-[68vh] flex items-center overflow-hidden ink-surface paper-noise">
-      <div
-        aria-hidden
-        className="hidden md:block absolute left-8 lg:left-24 top-1/2 -translate-y-1/2 w-px h-[40vh] bg-gradient-to-b from-transparent via-gold/60 to-transparent"
-      />
+      <GutterRule />
+
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-28 w-full">
         <div className="flex items-center gap-4 mb-8">
