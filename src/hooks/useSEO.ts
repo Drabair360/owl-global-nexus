@@ -90,7 +90,10 @@ export const useSEO = ({ title, description, jsonLd, keywords, ogImage, noindex 
       );
 
     const path = pathname === '/' ? '' : pathname;
-    const canonicalUrl = `${BASE_URL}${path}`;
+    const frUrl = `${BASE_URL}${path}`;
+    const enUrl = `${frUrl || `${BASE_URL}/`}?lang=en`;
+    // Canonical auto-referent PAR VARIANTE : la version EN se canonise sur ?lang=en.
+    const canonicalUrl = locale === 'en' ? enUrl : frUrl;
     const socialImage = ogImage ?? ogImageFor(pathname);
 
     setMeta('description', description);
@@ -116,22 +119,28 @@ export const useSEO = ({ title, description, jsonLd, keywords, ogImage, noindex 
     setMeta('twitter:description', description);
     setMeta('twitter:image', socialImage);
 
-    upsert(
-      'link[rel="canonical"]',
-      () => {
-        const l = document.createElement('link');
-        l.setAttribute('rel', 'canonical');
-        return l;
-      },
-      'href',
-      canonicalUrl,
-    );
+    // Page non indexable (404) : aucun canonical auto-referent.
+    const existingCanonical = document.head.querySelector('link[rel="canonical"]');
+    if (noindex) {
+      existingCanonical?.remove();
+    } else {
+      upsert(
+        'link[rel="canonical"]',
+        () => {
+          const l = document.createElement('link');
+          l.setAttribute('rel', 'canonical');
+          return l;
+        },
+        'href',
+        canonicalUrl,
+      );
+    }
 
     // hreflang alternates : FR = URL nue, EN = ?lang=en, x-default = URL nue.
     const altHref: Record<string, string> = {
-      fr: canonicalUrl,
-      en: `${canonicalUrl || `${BASE_URL}/`}${canonicalUrl.includes('?') ? '&' : '?'}lang=en`,
-      'x-default': canonicalUrl,
+      fr: frUrl,
+      en: enUrl,
+      'x-default': frUrl,
     };
     const setAlt = (hreflang: string) => {
       const sel = `link[rel="alternate"][hreflang="${hreflang}"]`;
