@@ -157,9 +157,15 @@ export const useSEO = ({ title, description, jsonLd, keywords, ogImage, noindex 
       );
       return el;
     };
-    setAlt('fr');
-    setAlt('en');
-    setAlt('x-default');
+    if (noindex) {
+      document.head
+        .querySelectorAll('link[rel="alternate"][hreflang]')
+        .forEach((el) => el.remove());
+    } else {
+      setAlt('fr');
+      setAlt('en');
+      setAlt('x-default');
+    }
 
 
     // Page-scoped JSON-LD (removed on unmount / re-render).
