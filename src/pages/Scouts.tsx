@@ -27,7 +27,7 @@ const Scouts = () => {
   const [website, setWebsite] = useState('');
   // Horodatage d'ouverture : un envoi en moins de 3 s n'est pas humain.
   const [openedAt] = useState(() => Date.now());
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'duplicate'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const schema = z.object({
@@ -74,9 +74,11 @@ const Scouts = () => {
       locale,
     });
     if (error) {
-      // 23505 = contrainte d'unicité sur l'email : candidature déjà enregistrée.
+      // 23505 = contrainte d'unicité sur l'email. Réponse neutre, identique au succès :
+      // le site ne doit jamais révéler qu'une adresse est déjà en base (oracle d'énumération).
       if (error.code === '23505') {
-        setStatus('duplicate');
+        setStatus('success');
+        setForm({ full_name: '', email: '', phone: '', country: '', domain: '', message: '', consent: false });
         return;
       }
       console.error(error);
@@ -90,8 +92,8 @@ const Scouts = () => {
 
   return (
     <PageShell
-      title={`${t('scouts.title')} - Owl Scouts | Programme de repérage Owl International`}
-      description="Le programme Owl Scouts : détectez, en Europe et en Afrique, les projets industriels, immobiliers et logiciels qui rejoindront le portefeuille d’Owl International."
+      title={t('seo.scouts.title')}
+      description={t('seo.scouts.desc')}
       keywords="Owl Scouts, apporteur d’affaires, deal sourcing, France Afrique, projets industriels, immobilier, logiciel"
       breadcrumbs={[{ name: t('scouts.title'), path: '/scouts' }]}
     >
@@ -264,20 +266,22 @@ const Scouts = () => {
               </div>
 
               <div className="flex items-start gap-3">
-                <Checkbox
-                  id="consent"
-                  checked={form.consent}
-                  onCheckedChange={(v) => setForm({ ...form, consent: !!v })}
-                  className="mt-1"
-                  required
-                  aria-labelledby="consent-label"
-                  aria-describedby={errors.consent ? 'consent-error' : undefined}
-                  aria-invalid={!!errors.consent}
-                />
+                {/* Cible tactile >= 24x24 px (WCAG 2.5.8) : boîte de 16px centrée dans 24px. */}
+                <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center">
+                  <Checkbox
+                    id="consent"
+                    checked={form.consent}
+                    onCheckedChange={(v) => setForm({ ...form, consent: !!v })}
+                    required
+                    aria-labelledby="consent-label"
+                    aria-describedby={errors.consent ? 'consent-error' : undefined}
+                    aria-invalid={!!errors.consent}
+                  />
+                </span>
                 <Label
                   id="consent-label"
                   htmlFor="consent"
-                  className="text-sm text-slate-600 font-body font-normal cursor-pointer leading-relaxed"
+                  className="text-sm text-slate-600 font-body font-normal cursor-pointer leading-relaxed py-1"
                 >
                   {t('scouts.form.consent')}
                 </Label>
@@ -288,14 +292,7 @@ const Scouts = () => {
                 </p>
               )}
 
-              {status === 'duplicate' && (
-                <div role="alert" className="border-t-2 border-amber-500 bg-amber-50 p-5">
-                  <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-amber-700 mb-2">
-                    {t('scouts.form.duplicateTitle')}
-                  </div>
-                  <p className="text-sm text-slate-700 font-body">{t('scouts.form.duplicateBody')}</p>
-                </div>
-              )}
+
 
 
               {status === 'error' && (

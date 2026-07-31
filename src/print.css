@@ -1,0 +1,70 @@
+/**
+ * Impression : /groupe, /approche et les fiches du portefeuille doivent sortir
+ * en document institutionnel lisible - fond blanc, encre noire, pas de décor.
+ */
+@media print {
+  :root {
+    --background: 0 0% 100%;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* Décor : bandes cinéma, filets or, textures, vidéos, nav et pied de page. */
+  nav,
+  footer,
+  video,
+  .film-grain,
+  .paper-noise,
+  [data-print="hide"],
+  [aria-hidden="true"] {
+    display: none !important;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+
+  section {
+    break-inside: avoid;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+    background: #fff !important;
+    border-color: #ccc !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+    color: #000 !important;
+  }
+
+  p,
+  li,
+  figcaption {
+    color: #111 !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  img {
+    max-width: 100% !important;
+    filter: none !important;
+    break-inside: avoid;
+  }
+
+  /* Les liens internes n'ont pas de valeur sur papier ; les externes, si. */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    color: #444;
+  }
+
+  @page {
+    margin: 18mm 16mm;
+  }
+}

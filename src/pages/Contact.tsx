@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Mail } from 'lucide-react';
 import PageShell from '@/components/PageShell';
+import { SITE_URL } from '@/config/site';
 import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
@@ -30,19 +31,15 @@ const Contact = () => {
   ];
   return (
     <PageShell
-      title={`${t('contact.title')} - Owl International | Contact Paris`}
-      description="Contactez Owl International : partenaires bancaires et notariaux, clients industriels, partenariats. Holding basée à Paris, contact@internationalowl.com."
+      title={t('seo.contact.title')}
+      description={t('seo.contact.desc')}
       keywords="contact Owl International, holding Paris, partenaires bancaires, notaires, clients industriels"
       breadcrumbs={[{ name: t('contact.title'), path: '/contact' }]}
       jsonLd={{
         '@context': 'https://schema.org',
         '@type': 'ContactPage',
         name: t('contact.title'),
-        mainEntity: {
-          '@type': 'Organization',
-          name: 'Owl International',
-          email: 'contact@internationalowl.com',
-        },
+        mainEntity: { '@id': `${SITE_URL}/#organization` },
       }}
     >
 

@@ -18,6 +18,36 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
  */
 const dict: Record<Locale, Record<string, string>> = {
   fr: {
+    // ---- SEO (titles <= 60, descriptions <= 160) ----
+    'seo.home.title': 'Owl International - Holding d’investissement, Paris',
+    'seo.home.desc': 'Owl International, holding parisienne : ingénierie industrielle clé en main, logiciels propriétaires et immobilier patrimonial entre l’Europe et l’Afrique.',
+    'seo.groupe.title': 'Le Groupe - Owl International',
+    'seo.groupe.desc': 'Gouvernance, ancrage parisien et doctrine d’investissement long terme d’Owl International, holding indépendante fondée par Arthur Draber.',
+    'seo.portefeuille.title': 'Portefeuille - Owl International',
+    'seo.portefeuille.desc': 'CAO Industries, Drabair Labs, Line Builder, Weavme et Owl Real Estate : les sociétés qui composent le portefeuille d’Owl International.',
+    'seo.metiers.title': 'Métiers - Owl International',
+    'seo.metiers.desc': 'Ingénierie industrielle clé en main (EPC), édition de logiciels propriétaires et immobilier patrimonial de long terme : les trois métiers du groupe.',
+    'seo.scouts.title': 'Owl Scouts - Owl International',
+    'seo.scouts.desc': 'Le programme Owl Scouts : repérer, en Europe et en Afrique, les projets industriels, immobiliers et logiciels qui rejoindront le portefeuille.',
+    'seo.journal.title': 'Journal - Owl International',
+    'seo.journal.desc': 'Journal factuel du groupe : jalons, immatriculations, ouvertures de filiales et étapes structurantes d’Owl International entre l’Europe et l’Afrique.',
+    'seo.approche.title': 'Approche - Owl International',
+    'seo.approche.desc': 'Construire dans l’ordre, financer par le résultat, ancrer le capital dans le temps long : la doctrine d’investissement d’Owl International.',
+    'seo.rejoindre.title': 'Rejoindre - Owl International',
+    'seo.rejoindre.desc': 'Carrières, candidatures spontanées et partenariats professionnels au sein d’Owl International, holding intégrée entre l’Europe et l’Afrique.',
+    'seo.engagements.title': 'Engagements - Owl International',
+    'seo.engagements.desc': 'Gouvernance, responsabilité sociale et environnementale, éthique des affaires : les engagements d’Owl International entre l’Europe et l’Afrique.',
+    'seo.contact.title': 'Contact - Owl International',
+    'seo.contact.desc': 'Contacter Owl International : partenaires bancaires et notariaux, clients industriels, partenariats. Holding basée à Paris, contact@internationalowl.com.',
+    'seo.legal.title': 'Mentions légales - Owl International',
+    'seo.legal.desc': 'Mentions légales d’Owl International SASU, holding basée à Paris : éditeur, hébergeur, propriété intellectuelle.',
+    'seo.privacy.title': 'Confidentialité - Owl International',
+    'seo.privacy.desc': 'Politique de confidentialité d’Owl International : données traitées, base légale, cookies de l’hébergeur, conservation et droits RGPD.',
+    'seo.terms.title': 'CGU - Owl International',
+    'seo.terms.desc': 'Conditions générales d’utilisation du site Owl International : objet, responsabilité, droit applicable.',
+    'seo.nf.title': 'Page introuvable - Owl International',
+    'seo.nf.desc': 'La page demandée ne fait pas partie de ce que publie Owl International. Retour à l’accueil, au portefeuille ou à la page contact.',
+
     // ---- Nav / Footer / Global ----
     'nav.groupe': 'Groupe',
     'nav.portefeuille': 'Portefeuille',
@@ -35,7 +65,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'footer.terms': 'CGU',
     'footer.president': 'Président',
     'footer.rights': 'Tous droits réservés.',
-    'footer.form': 'Société par actions simplifiée',
+    'footer.form': 'Société par actions simplifiée unipersonnelle',
     'footer.siege': 'Siège social',
     'common.readMore': 'Comprendre notre modèle',
     'common.status.registration': '(en cours d’immatriculation)',
@@ -187,7 +217,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'scouts.form.invalidEmail': 'Adresse email invalide.',
     'scouts.form.consentRequired': 'Merci de cocher la case de consentement.',
     'scouts.form.successTitle': 'Candidature reçue.',
-    'scouts.form.successBody': 'Nous accusons réception manuellement. Une réponse individuelle vous parviendra sous quelques jours ouvrés.',
+    'scouts.form.successBody': 'Si une demande existait déjà pour cette adresse, elle reste valable. Nous accusons réception manuellement : une réponse individuelle vous parviendra sous quelques jours ouvrés.',
     'scouts.form.successAgain': 'Soumettre une autre candidature',
     'scouts.form.duplicateTitle': 'Candidature déjà enregistrée',
     'scouts.form.duplicateBody':
@@ -211,7 +241,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'journal.title': 'Ce que nous construisons, à la date près.',
     'journal.body': 'Chaque entrée correspond à un fait vérifiable. Peu d’entrées, assumé.',
     'journal.2023.title': 'Immatriculation d’Owl International',
-    'journal.2023.body': 'Création de la holding au RCS de Paris (978 849 230).',
+    'journal.2023.body': 'Création de la holding au RCS de Paris (978 849 230), le 23 août 2023.',
     'journal.2026a.title': 'Structuration du groupe en deux pôles',
     'journal.2026a.body': 'Structuration du groupe en deux pôles ; constitution de CAO Industries engagée.',
     'journal.2026b.title': 'Structuration d’Owl Real Estate',
@@ -301,10 +331,10 @@ const dict: Record<Locale, Record<string, string>> = {
     'privacy.eyebrow': 'CONFIDENTIALITÉ',
     'privacy.title': 'Politique de confidentialité',
     'privacy.intro':
-      'Owl International attache la plus grande importance au respect de vos données personnelles. Cette page décrit précisément le seul traitement mis en œuvre sur ce site.',
-    'privacy.tracking.title': 'Aucun cookie de traçage, aucun analytics',
+      'Owl International attache la plus grande importance au respect de vos données personnelles. Cette page décrit précisément les traitements mis en œuvre sur ce site, y compris ceux relevant de son hébergeur.',
+    'privacy.tracking.title': 'Cookies et mesure d’audience',
     'privacy.tracking.body':
-      'Ce site n’utilise aucun cookie de traçage, aucun outil d’analyse d’audience tiers, aucun pixel publicitaire. Aucune bannière n’est donc nécessaire.',
+      'Owl International n’installe aucun cookie publicitaire, aucun pixel de reciblage et n’exploite aucun outil d’analyse d’audience à des fins marketing. La plateforme d’hébergement du site (Lovable Labs AB) dépose toutefois, pour son propre compte, deux cookies strictement techniques et de mesure d’audience de l’infrastructure : « session-id » (identifiant de session anonyme, durée de la session) et « __dpl » (identification du déploiement servi, durée de la session). Ces cookies alimentent une mesure d’audience agrégée de l’hébergeur ; ils ne sont recoupés avec aucune autre donnée, ne servent ni au profilage ni à la publicité, et ne sont pas utilisés par Owl International pour identifier un visiteur. Vous pouvez les bloquer ou les effacer depuis les réglages de votre navigateur, sans altérer le fonctionnement du site.',
     'privacy.data.title': 'Données collectées via le programme Owl Scouts',
     'privacy.data.body':
       'La seule collecte de données personnelles concerne le formulaire de candidature au programme Owl Scouts. Sont collectés : nom complet, adresse email, téléphone (facultatif), pays/région, domaine d’opportunités, message libre et horodatage de la candidature.',
@@ -331,7 +361,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'Vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité de vos données. Pour exercer ces droits, écrivez à contact@internationalowl.com. Vous pouvez également introduire une réclamation auprès de la CNIL.',
     'privacy.update.title': 'Mise à jour',
     'privacy.update.body':
-      'Version 1.1 - 31 juillet 2026. Cette politique peut être mise à jour ; la version en ligne, datée ci-dessus, fait foi.',
+      'Version 1.2 - 31 juillet 2026. Cette politique peut être mise à jour ; la version en ligne, datée ci-dessus, fait foi.',
 
     'terms.eyebrow': 'CGU',
     'terms.title': 'Conditions générales d’utilisation',
@@ -348,6 +378,36 @@ const dict: Record<Locale, Record<string, string>> = {
       'Les présentes conditions sont soumises au droit français. Tout litige relève de la compétence des tribunaux du ressort de Paris, sous réserve des dispositions impératives applicables aux consommateurs.',
   },
   en: {
+    // ---- SEO (titles <= 60, descriptions <= 160) ----
+    'seo.home.title': 'Owl International - Investment holding, Paris',
+    'seo.home.desc': 'Owl International, a Paris-based holding: turnkey industrial engineering, proprietary software and long-term real estate between Europe and Africa.',
+    'seo.groupe.title': 'The Group - Owl International',
+    'seo.groupe.desc': 'Governance, Paris roots and long-term investment doctrine of Owl International, an independent holding founded by Arthur Draber.',
+    'seo.portefeuille.title': 'Portfolio - Owl International',
+    'seo.portefeuille.desc': 'CAO Industries, Drabair Labs, Line Builder, Weavme and Owl Real Estate: the companies that make up Owl International’s portfolio.',
+    'seo.metiers.title': 'Businesses - Owl International',
+    'seo.metiers.desc': 'Turnkey industrial engineering (EPC), proprietary software publishing and long-term real estate: the group’s three lines of business.',
+    'seo.scouts.title': 'Owl Scouts - Owl International',
+    'seo.scouts.desc': 'The Owl Scouts programme: spotting, across Europe and Africa, the industrial, real-estate and software projects that will join the portfolio.',
+    'seo.journal.title': 'The Record - Owl International',
+    'seo.journal.desc': 'A factual record of the group: milestones, incorporations, subsidiary openings and structuring steps of Owl International across Europe and Africa.',
+    'seo.approche.title': 'Approach - Owl International',
+    'seo.approche.desc': 'Build in order, fund from results, anchor capital in the long run: the investment doctrine of Owl International.',
+    'seo.rejoindre.title': 'Join us - Owl International',
+    'seo.rejoindre.desc': 'Careers, speculative applications and professional partnerships within Owl International, an integrated holding between Europe and Africa.',
+    'seo.engagements.title': 'Commitments - Owl International',
+    'seo.engagements.desc': 'Governance, social and environmental responsibility, business ethics: the commitments of Owl International across Europe and Africa.',
+    'seo.contact.title': 'Contact - Owl International',
+    'seo.contact.desc': 'Contact Owl International: banking and notarial partners, industrial clients, partnerships. Paris-based holding, contact@internationalowl.com.',
+    'seo.legal.title': 'Legal notice - Owl International',
+    'seo.legal.desc': 'Legal notice of Owl International SASU, a Paris-based holding: publisher, host, intellectual property.',
+    'seo.privacy.title': 'Privacy - Owl International',
+    'seo.privacy.desc': 'Owl International’s privacy policy: data processed, legal basis, host cookies, retention periods and GDPR rights.',
+    'seo.terms.title': 'Terms - Owl International',
+    'seo.terms.desc': 'Terms of use of the Owl International website: purpose, liability, applicable law.',
+    'seo.nf.title': 'Page not found - Owl International',
+    'seo.nf.desc': 'The page requested is not part of what Owl International publishes. Back to the home page, the portfolio or the contact page.',
+
     // ---- Nav / Footer / Global ----
     'nav.groupe': 'Group',
     'nav.portefeuille': 'Portfolio',
@@ -365,7 +425,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'footer.terms': 'Terms',
     'footer.president': 'President',
     'footer.rights': 'All rights reserved.',
-    'footer.form': 'Société par actions simplifiée',
+    'footer.form': 'Société par actions simplifiée unipersonnelle',
     'footer.siege': 'Registered office',
     'common.readMore': 'Understand our model',
     'common.status.registration': '(registration under way)',
@@ -516,7 +576,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'scouts.form.invalidEmail': 'Invalid email address.',
     'scouts.form.consentRequired': 'Please tick the consent box.',
     'scouts.form.successTitle': 'Application received.',
-    'scouts.form.successBody': 'We acknowledge receipt manually. An individual reply will reach you within a few working days.',
+    'scouts.form.successBody': 'If an application already existed for this address, it remains valid. We acknowledge receipt manually: an individual reply will reach you within a few working days.',
     'scouts.form.successAgain': 'Submit another application',
     'scouts.form.duplicateTitle': 'Application already received',
     'scouts.form.duplicateBody':
@@ -540,7 +600,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'journal.title': 'What we are building, to the date.',
     'journal.body': 'Each entry corresponds to a verifiable fact. Few entries - by design.',
     'journal.2023.title': 'Registration of Owl International',
-    'journal.2023.body': 'Creation of the holding at the Paris Commercial Register (978 849 230).',
+    'journal.2023.body': 'Creation of the holding at the Paris Commercial Register (978 849 230), on 23 August 2023.',
     'journal.2026a.title': 'Structuring of the group into two divisions',
     'journal.2026a.body': 'Structuring of the group into two divisions; incorporation of CAO Industries under way.',
     'journal.2026b.title': 'Structuring of Owl Real Estate',
@@ -628,10 +688,10 @@ const dict: Record<Locale, Record<string, string>> = {
     'privacy.eyebrow': 'PRIVACY',
     'privacy.title': 'Privacy policy',
     'privacy.intro':
-      'Owl International attaches the utmost importance to the protection of your personal data. This page describes precisely the only processing operation carried out on this site.',
-    'privacy.tracking.title': 'No tracking cookies, no analytics',
+      'Owl International attaches the utmost importance to the protection of your personal data. This page describes precisely the processing operations carried out on this site, including those performed by its host.',
+    'privacy.tracking.title': 'Cookies and audience measurement',
     'privacy.tracking.body':
-      'This site uses no tracking cookies, no third-party analytics tool, no advertising pixel. No banner is therefore required.',
+      'Owl International sets no advertising cookie, no retargeting pixel and operates no audience analytics tool for marketing purposes. The site’s hosting platform (Lovable Labs AB) does however set, on its own behalf, two strictly technical infrastructure-measurement cookies: “session-id” (anonymous session identifier, session duration) and “__dpl” (identifies the deployment being served, session duration). These cookies feed the host’s aggregated infrastructure audience measurement; they are not cross-referenced with any other data, are not used for profiling or advertising, and are not used by Owl International to identify a visitor. You may block or delete them from your browser settings without affecting how the site works.',
     'privacy.data.title': 'Data collected through the Owl Scouts programme',
     'privacy.data.body':
       'The only collection of personal data concerns the application form of the Owl Scouts programme. The following data is collected: full name, email address, phone number (optional), country/region, opportunity area, free-text message, and application timestamp.',
@@ -658,7 +718,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'You have a right of access, rectification, erasure, restriction, objection and portability of your data. To exercise these rights, write to contact@internationalowl.com. You may also lodge a complaint with the CNIL.',
     'privacy.update.title': 'Update',
     'privacy.update.body':
-      'Version 1.1 - 31 July 2026. This policy may be updated; the online version, dated above, prevails.',
+      'Version 1.2 - 31 July 2026. This policy may be updated; the online version, dated above, prevails.',
 
     'terms.eyebrow': 'TERMS',
     'terms.title': 'Terms of use',
@@ -694,7 +754,13 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   const setLocale = (l: Locale) => {
     setLocaleState(l);
-    if (typeof window !== 'undefined') window.localStorage.setItem(STORAGE_KEY, l);
+    if (typeof window === 'undefined') return;
+    window.localStorage.setItem(STORAGE_KEY, l);
+    // L'URL porte l'état de langue : EN = ?lang=en, FR = URL nue (partageable, rechargeable).
+    const url = new URL(window.location.href);
+    if (l === 'en') url.searchParams.set('lang', 'en');
+    else url.searchParams.delete('lang');
+    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`);
   };
 
   const t = (key: string) => dict[locale][key] ?? dict.fr[key] ?? key;

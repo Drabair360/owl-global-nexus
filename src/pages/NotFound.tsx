@@ -17,8 +17,8 @@ const NotFound = () => {
 
   return (
     <PageShell
-      title="404 - Page introuvable | Owl International"
-      description="La page demandée ne fait pas partie de ce que publie Owl International. Retour à l'accueil, au portefeuille ou à la page contact."
+      title={t('seo.nf.title')}
+      description={t('seo.nf.desc')}
       noindex
       breadcrumbs={[{ name: '404', path: location.pathname }]}
     >
