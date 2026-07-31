@@ -47,6 +47,7 @@ const PageShell = ({ title, description, keywords, jsonLd, breadcrumbs, noindex,
     title,
     description,
     keywords,
+    noindex,
     jsonLd: schemas.length ? schemas : undefined,
   });
 
