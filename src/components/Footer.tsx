@@ -15,11 +15,24 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <img
-                src="/assets/owl-international-logo.png"
-                alt="Owl International"
-                className="w-9 h-9 brightness-0 invert"
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet="/assets/owl-international-logo-96.webp 96w, /assets/owl-international-logo-192.webp 192w"
+                  sizes="36px"
+                />
+                <img
+                  src="/assets/owl-international-logo-96.png"
+                  srcSet="/assets/owl-international-logo-96.png 96w, /assets/owl-international-logo-192.png 192w"
+                  sizes="36px"
+                  width={96}
+                  height={98}
+                  loading="lazy"
+                  decoding="async"
+                  alt="Owl International"
+                  className="w-9 h-9 brightness-0 invert"
+                />
+              </picture>
               <span className="text-lg font-brand tracking-wide text-white">OWL INTERNATIONAL</span>
             </div>
             <p className="text-sm leading-relaxed max-w-md text-slate-400">{t('footer.tagline')}</p>

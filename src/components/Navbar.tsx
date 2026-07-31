@@ -51,12 +51,24 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center justify-between h-full">
           <Link to="/" onClick={scrollTop} className="flex items-center gap-3 group">
-            <img
-              src="/assets/owl-international-logo.png"
-              alt=""
-              className="nav-logo transition-transform duration-300 group-hover:scale-105"
-              style={{ width: scrolled ? '1.75rem' : '2.25rem', height: scrolled ? '1.75rem' : '2.25rem' }}
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/assets/owl-international-logo-96.webp 96w, /assets/owl-international-logo-192.webp 192w"
+                sizes="36px"
+              />
+              <img
+                src="/assets/owl-international-logo-96.png"
+                srcSet="/assets/owl-international-logo-96.png 96w, /assets/owl-international-logo-192.png 192w"
+                sizes="36px"
+                width={96}
+                height={98}
+                alt=""
+                decoding="async"
+                className="nav-logo transition-transform duration-300 group-hover:scale-105"
+                style={{ width: scrolled ? '1.75rem' : '2.25rem', height: scrolled ? '1.75rem' : '2.25rem' }}
+              />
+            </picture>
             <span
               className="nav-brand font-brand tracking-wide text-foreground"
               style={{ fontSize: scrolled ? '0.95rem' : '1.125rem', letterSpacing: scrolled ? '0.06em' : '0.04em' }}
