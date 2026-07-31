@@ -43,9 +43,9 @@ export default {
 				'6xl': ['7.478rem', { lineHeight: '0.94', letterSpacing: '-0.04em' }],
 				'7xl': ['9.97rem', { lineHeight: '0.9', letterSpacing: '-0.045em' }],
 				// Tokens editoriaux (memes pas, fluides)
-				'display': ['clamp(3.157rem, 10vw, 7.478rem)', { lineHeight: '0.92', letterSpacing: '-0.035em' }],
-				'display-xl': ['clamp(4.209rem, 11vw, 9.97rem)', { lineHeight: '0.88', letterSpacing: '-0.045em' }],
-				'hero': ['clamp(2.369rem, 7vw, 5.61rem)', { lineHeight: '1.05', letterSpacing: '-0.035em' }],
+				'display': ['clamp(2.369rem, 10vw, 7.478rem)', { lineHeight: '0.92', letterSpacing: '-0.035em' }],
+				'display-xl': ['clamp(3.157rem, 11vw, 9.97rem)', { lineHeight: '0.88', letterSpacing: '-0.045em' }],
+				'hero': ['clamp(1.777rem, 7vw, 5.61rem)', { lineHeight: '1.05', letterSpacing: '-0.035em' }],
 				'section': ['clamp(1.777rem, 4vw, 3.157rem)', { lineHeight: '1.2', letterSpacing: '0.02em' }],
 				'body-large': ['clamp(1rem, 2.5vw, 1.333rem)', { lineHeight: '1.6', letterSpacing: '-0.01em' }],
 				'institutional': ['0.75rem', { lineHeight: '1.4', letterSpacing: '0.05em' }],
