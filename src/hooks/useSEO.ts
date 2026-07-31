@@ -121,7 +121,12 @@ export const useSEO = ({ title, description, jsonLd, keywords, ogImage }: SEOOpt
       canonicalUrl,
     );
 
-    // hreflang alternates (FR/EN + x-default) - same URL, language chosen client-side.
+    // hreflang alternates : FR = URL nue, EN = ?lang=en, x-default = URL nue.
+    const altHref: Record<string, string> = {
+      fr: canonicalUrl,
+      en: `${canonicalUrl || `${BASE_URL}/`}${canonicalUrl.includes('?') ? '&' : '?'}lang=en`,
+      'x-default': canonicalUrl,
+    };
     const setAlt = (hreflang: string) => {
       const sel = `link[rel="alternate"][hreflang="${hreflang}"]`;
       const el = upsert(
@@ -133,13 +138,14 @@ export const useSEO = ({ title, description, jsonLd, keywords, ogImage }: SEOOpt
           return l;
         },
         'href',
-        canonicalUrl,
+        altHref[hreflang],
       );
       return el;
     };
     setAlt('fr');
     setAlt('en');
     setAlt('x-default');
+
 
     // Page-scoped JSON-LD (removed on unmount / re-render).
     const scripts: HTMLScriptElement[] = [];
