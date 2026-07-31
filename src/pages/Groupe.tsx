@@ -3,7 +3,6 @@ import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialTitle, EditorialSection, Rule } from '@/components/editorial';
 import StickyChapter from '@/components/StickyChapter';
-import Duotone from '@/components/Duotone';
 import PresidentPortrait from '@/components/PresidentPortrait';
 import PolesViz from '@/components/PolesViz';
 import CinemaBand from '@/components/CinemaBand';
