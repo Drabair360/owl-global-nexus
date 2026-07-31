@@ -85,7 +85,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'groupe.eyebrow': 'LE GROUPE',
     'groupe.title': 'Une holding animatrice, deux pôles complémentaires.',
     'groupe.intro':
-      'Owl International est une société par actions simplifiée de droit français, immatriculée au Registre du commerce et des sociétés de Paris. Holding animatrice du groupe, elle définit la stratégie, pilote les filiales et conduit la politique d’investissement, autour de deux pôles complémentaires : un pôle opérationnel (ingénierie industrielle et logiciel) et un pôle patrimonial (immobilier de long terme).',
+      'Owl International est une société par actions simplifiée unipersonnelle (SASU) de droit français, immatriculée au Registre du commerce et des sociétés de Paris. Holding animatrice du groupe, elle définit la stratégie, pilote les filiales et conduit la politique d’investissement, autour de deux pôles complémentaires : un pôle opérationnel (ingénierie industrielle et logiciel) et un pôle patrimonial (immobilier de long terme).',
     'groupe.gouv.title': 'Gouvernance',
     'groupe.gouv.body':
       'Le groupe est dirigé par son fondateur, Arthur Draber, Président d’Owl International. La gouvernance privilégie des structures simples, des responsabilités claires et une grande rigueur juridique et comptable, avec l’appui de conseils externes - notaire, juristes, expertise comptable.',
@@ -189,6 +189,9 @@ const dict: Record<Locale, Record<string, string>> = {
     'scouts.form.successTitle': 'Candidature reçue.',
     'scouts.form.successBody': 'Nous accusons réception manuellement. Une réponse individuelle vous parviendra sous quelques jours ouvrés.',
     'scouts.form.successAgain': 'Soumettre une autre candidature',
+    'scouts.form.duplicateTitle': 'Candidature déjà enregistrée',
+    'scouts.form.duplicateBody':
+      'Une candidature a déjà été déposée avec cette adresse email. Inutile de la renvoyer : nous revenons vers chaque candidat. Pour compléter votre dossier, écrivez à contact@internationalowl.com.',
     'scouts.form.errorTitle': 'Envoi impossible.',
     'scouts.form.retry': 'Réessayer',
     'scouts.form.writeUs': 'Nous écrire directement',
@@ -283,11 +286,13 @@ const dict: Record<Locale, Record<string, string>> = {
     'legal.title': 'Mentions légales',
     'legal.editor.title': 'Éditeur du site',
     'legal.editor.body':
-      'Owl International, société par actions simplifiée immatriculée au RCS de Paris sous le numéro 978 849 230. Siège social : 47 boulevard de Courcelles, 75008 Paris, France. Président et directeur de la publication : Arthur Draber.',
+      'Owl International, société par actions simplifiée unipersonnelle (SASU) immatriculée au RCS de Paris sous le numéro 978 849 230. Siège social : 47 boulevard de Courcelles, 75008 Paris, France. Président et directeur de la publication : Arthur Draber.',
     'legal.contact.title': 'Contact',
     'legal.contact.body': 'contact@internationalowl.com',
     'legal.host.title': 'Hébergement',
-    'legal.host.body': 'Vercel Inc. - [ADRESSE ET COORDONNÉES DE L’HÉBERGEUR À CONFIRMER]',
+    'legal.host.body': '[HÉBERGEUR À CONFIRMER - bascule DNS en cours]',
+    'legal.capital.title': 'Capital social',
+    'legal.capital.body': 'Capital social : 1 000 euros. Numéro de TVA intracommunautaire : FR63978849230.',
     'legal.ip.title': 'Propriété intellectuelle',
     'legal.ip.body':
       'L’ensemble des contenus de ce site (textes, images, structure, code) est la propriété d’Owl International ou de ses ayants droit. Toute reproduction sans autorisation écrite est interdite.',
@@ -313,12 +318,19 @@ const dict: Record<Locale, Record<string, string>> = {
       'Les données sont conservées vingt-quatre (24) mois à compter du dernier contact, puis supprimées.',
     'privacy.share.title': 'Destinataires',
     'privacy.share.body':
-      'Les données sont accessibles aux seules équipes internes d’Owl International et à ses prestataires techniques nécessaires au fonctionnement du site (hébergeur, base de données). Aucun transfert commercial à un tiers n’est effectué.',
+      'Les données sont accessibles aux seules équipes internes d’Owl International et aux sous-traitants techniques nécessaires au fonctionnement du site : l’hébergeur du site et Supabase (base de données, sous-traitant au sens de l’article 28 du RGPD). Aucun transfert commercial à un tiers n’est effectué.',
+    'privacy.transfers.title': 'Transferts hors Union européenne',
+    'privacy.transfers.body':
+      'La base de données Supabase qui héberge les candidatures Owl Scouts est localisée dans l’Union européenne (région AWS eu-west-1, Irlande). Les fontes du site sont auto-hébergées : aucune requête n’est adressée à un serveur tiers lors de votre navigation. À ce jour, aucun transfert de données personnelles hors de l’Union européenne n’est donc réalisé dans le cadre de ce site. Toute évolution serait encadrée par les clauses contractuelles types de la Commission européenne et signalée sur cette page.',
+    'privacy.local.title': 'Stockage local dans votre navigateur',
+    'privacy.local.body':
+      'Deux informations techniques sont enregistrées dans votre navigateur, sans finalité de traçage et sans transmission à un serveur : « owl.locale » (localStorage) mémorise la langue choisie, et « owl:threshold-seen » (sessionStorage) évite de rejouer l’animation d’accueil pendant la session. Vous pouvez les effacer à tout moment via les réglages de votre navigateur.',
     'privacy.rights.title': 'Vos droits',
     'privacy.rights.body':
       'Vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité de vos données. Pour exercer ces droits, écrivez à contact@internationalowl.com. Vous pouvez également introduire une réclamation auprès de la CNIL.',
     'privacy.update.title': 'Mise à jour',
-    'privacy.update.body': 'Cette politique peut être mise à jour. La version en ligne fait foi.',
+    'privacy.update.body':
+      'Version 1.1 - 31 juillet 2026. Cette politique peut être mise à jour ; la version en ligne, datée ci-dessus, fait foi.',
 
     'terms.eyebrow': 'CGU',
     'terms.title': 'Conditions générales d’utilisation',
@@ -402,7 +414,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'groupe.eyebrow': 'THE GROUP',
     'groupe.title': 'A holding company at the helm - two complementary divisions.',
     'groupe.intro':
-      'Owl International is a French société par actions simplifiée, registered at the Paris Commercial Register. As the group holding company, it sets strategy, oversees the subsidiaries and leads the investment policy across two complementary divisions: an operational one (industrial engineering and software) and a real-estate one (long-term property).',
+      'Owl International is a French société par actions simplifiée unipersonnelle (SASU), registered at the Paris Commercial Register. As the group holding company, it sets strategy, oversees the subsidiaries and leads the investment policy across two complementary divisions: an operational one (industrial engineering and software) and a real-estate one (long-term property).',
     'groupe.gouv.title': 'Governance',
     'groupe.gouv.body':
       'The group is led by its founder, Arthur Draber, President of Owl International. Governance favours simple structures, clear responsibilities and strict legal and accounting discipline, with the support of external advisors - notary, lawyers, chartered accountants.',
@@ -505,6 +517,9 @@ const dict: Record<Locale, Record<string, string>> = {
     'scouts.form.successTitle': 'Application received.',
     'scouts.form.successBody': 'We acknowledge receipt manually. An individual reply will reach you within a few working days.',
     'scouts.form.successAgain': 'Submit another application',
+    'scouts.form.duplicateTitle': 'Application already received',
+    'scouts.form.duplicateBody':
+      'An application has already been submitted with this email address. No need to resend it: we get back to every applicant. To complete your file, write to contact@internationalowl.com.',
     'scouts.form.errorTitle': 'Submission failed.',
     'scouts.form.retry': 'Try again',
     'scouts.form.writeUs': 'Write to us directly',
@@ -597,11 +612,13 @@ const dict: Record<Locale, Record<string, string>> = {
     'legal.title': 'Legal notice',
     'legal.editor.title': 'Publisher',
     'legal.editor.body':
-      'Owl International, a French société par actions simplifiée registered at the Paris Commercial Register under number 978 849 230. Registered office: 47 boulevard de Courcelles, 75008 Paris, France. President and publication director: Arthur Draber.',
+      'Owl International, a French société par actions simplifiée unipersonnelle (SASU) registered at the Paris Commercial Register under number 978 849 230. Registered office: 47 boulevard de Courcelles, 75008 Paris, France. President and publication director: Arthur Draber.',
     'legal.contact.title': 'Contact',
     'legal.contact.body': 'contact@internationalowl.com',
     'legal.host.title': 'Hosting',
-    'legal.host.body': 'Vercel Inc. - [HOSTING PROVIDER ADDRESS AND CONTACT TO BE CONFIRMED]',
+    'legal.host.body': '[HOSTING PROVIDER TO BE CONFIRMED - DNS migration in progress]',
+    'legal.capital.title': 'Share capital',
+    'legal.capital.body': 'Share capital: EUR 1,000. Intra-EU VAT number: FR63978849230.',
     'legal.ip.title': 'Intellectual property',
     'legal.ip.body':
       'All content on this website (text, images, structure, code) is the property of Owl International or its rights-holders. Any reproduction without prior written consent is prohibited.',
@@ -627,12 +644,19 @@ const dict: Record<Locale, Record<string, string>> = {
       'Data is retained for twenty-four (24) months from the last contact, then deleted.',
     'privacy.share.title': 'Recipients',
     'privacy.share.body':
-      'The data is accessible only to Owl International’s internal teams and to the technical providers required to operate the site (hosting, database). No commercial transfer to a third party takes place.',
+      'The data is accessible only to Owl International’s internal teams and to the technical processors required to operate the site: the website host and Supabase (database, processor within the meaning of Article 28 GDPR). No commercial transfer to a third party takes place.',
+    'privacy.transfers.title': 'Transfers outside the European Union',
+    'privacy.transfers.body':
+      'The Supabase database hosting Owl Scouts applications is located in the European Union (AWS eu-west-1 region, Ireland). The site’s fonts are self-hosted: no request is sent to a third-party server while you browse. As of today, no personal data is therefore transferred outside the European Union through this website. Any change would be governed by the European Commission’s standard contractual clauses and disclosed on this page.',
+    'privacy.local.title': 'Local storage in your browser',
+    'privacy.local.body':
+      'Two technical items are stored in your browser, with no tracking purpose and no transmission to a server: “owl.locale” (localStorage) remembers the chosen language, and “owl:threshold-seen” (sessionStorage) prevents the opening animation from replaying during the session. You can clear them at any time from your browser settings.',
     'privacy.rights.title': 'Your rights',
     'privacy.rights.body':
       'You have a right of access, rectification, erasure, restriction, objection and portability of your data. To exercise these rights, write to contact@internationalowl.com. You may also lodge a complaint with the CNIL.',
     'privacy.update.title': 'Update',
-    'privacy.update.body': 'This policy may be updated. The online version prevails.',
+    'privacy.update.body':
+      'Version 1.1 - 31 July 2026. This policy may be updated; the online version, dated above, prevails.',
 
     'terms.eyebrow': 'TERMS',
     'terms.title': 'Terms of use',

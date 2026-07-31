@@ -23,7 +23,11 @@ const Scouts = () => {
     message: '',
     consent: false,
   });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  // Honeypot : champ invisible des humains, souvent rempli par les robots.
+  const [website, setWebsite] = useState('');
+  // Horodatage d'ouverture : un envoi en moins de 3 s n'est pas humain.
+  const [openedAt] = useState(() => Date.now());
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'duplicate'>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const schema = z.object({
@@ -42,7 +46,13 @@ const Scouts = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === 'sending') return;
     setErrors({});
+    // Anti-abus silencieux : honeypot rempli ou envoi trop rapide.
+    if (website.trim() !== '' || Date.now() - openedAt < 3000) {
+      setStatus('success');
+      return;
+    }
     const parsed = schema.safeParse(form);
     if (!parsed.success) {
       const errs: Record<string, string> = {};
@@ -64,6 +74,11 @@ const Scouts = () => {
       locale,
     });
     if (error) {
+      // 23505 = contrainte d'unicité sur l'email : candidature déjà enregistrée.
+      if (error.code === '23505') {
+        setStatus('duplicate');
+        return;
+      }
       console.error(error);
       setStatus('error');
     } else {
@@ -71,6 +86,7 @@ const Scouts = () => {
       setForm({ full_name: '', email: '', phone: '', country: '', domain: '', message: '', consent: false });
     }
   };
+
 
   return (
     <PageShell
@@ -136,12 +152,14 @@ const Scouts = () => {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6" noValidate aria-busy={status === 'sending'}>
+            <form onSubmit={handleSubmit} className="space-y-6 relative" noValidate aria-busy={status === 'sending'}>
               <fieldset disabled={status === 'sending'} className="space-y-6 disabled:opacity-70">
               <div>
                 <Label htmlFor="full_name">{t('scouts.form.name')} *</Label>
                 <Input
                   id="full_name"
+                  name="full_name"
+                  autoComplete="name"
                   value={form.full_name}
                   onChange={(e) => setForm({ ...form, full_name: e.target.value })}
                   className="mt-2 bg-white"
@@ -157,7 +175,9 @@ const Scouts = () => {
                   <Label htmlFor="email">{t('scouts.form.email')} *</Label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
+                    autoComplete="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className="mt-2 bg-white"
@@ -171,6 +191,9 @@ const Scouts = () => {
                   <Label htmlFor="phone">{t('scouts.form.phone')}</Label>
                   <Input
                     id="phone"
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     className="mt-2 bg-white"
@@ -183,6 +206,8 @@ const Scouts = () => {
                 <Label htmlFor="country">{t('scouts.form.country')}</Label>
                 <Input
                   id="country"
+                  name="country"
+                  autoComplete="country-name"
                   value={form.country}
                   onChange={(e) => setForm({ ...form, country: e.target.value })}
                   className="mt-2 bg-white"
@@ -224,18 +249,54 @@ const Scouts = () => {
                 {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
               </div>
 
+              {/* Honeypot anti-robot : hors flux, hors tabulation, ignoré des lecteurs d'écran. */}
+              <div aria-hidden="true" className="absolute w-px h-px -left-[9999px] overflow-hidden">
+                <label htmlFor="website">Ne pas remplir</label>
+                <input
+                  id="website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                />
+              </div>
+
               <div className="flex items-start gap-3">
                 <Checkbox
                   id="consent"
                   checked={form.consent}
                   onCheckedChange={(v) => setForm({ ...form, consent: !!v })}
                   className="mt-1"
+                  required
+                  aria-labelledby="consent-label"
+                  aria-describedby={errors.consent ? 'consent-error' : undefined}
+                  aria-invalid={!!errors.consent}
                 />
-                <Label htmlFor="consent" className="text-sm text-slate-600 font-body font-normal cursor-pointer leading-relaxed">
+                <Label
+                  id="consent-label"
+                  htmlFor="consent"
+                  className="text-sm text-slate-600 font-body font-normal cursor-pointer leading-relaxed"
+                >
                   {t('scouts.form.consent')}
                 </Label>
               </div>
-              {errors.consent && <p className="text-xs text-destructive">{errors.consent}</p>}
+              {errors.consent && (
+                <p id="consent-error" className="text-xs text-destructive">
+                  {errors.consent}
+                </p>
+              )}
+
+              {status === 'duplicate' && (
+                <div role="alert" className="border-t-2 border-amber-500 bg-amber-50 p-5">
+                  <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-amber-700 mb-2">
+                    {t('scouts.form.duplicateTitle')}
+                  </div>
+                  <p className="text-sm text-slate-700 font-body">{t('scouts.form.duplicateBody')}</p>
+                </div>
+              )}
+
 
               {status === 'error' && (
                 <div

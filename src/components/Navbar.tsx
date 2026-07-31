@@ -52,7 +52,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-full">
           <Link to="/" onClick={scrollTop} className="flex items-center gap-3 group">
             <img
-              src="/lovable-uploads/4d7f9a85-a58b-4911-9097-b446f027e04a.png"
+              src="/assets/owl-international-logo.png"
               alt=""
               className="nav-logo transition-transform duration-300 group-hover:scale-105"
               style={{ width: scrolled ? '1.75rem' : '2.25rem', height: scrolled ? '1.75rem' : '2.25rem' }}
