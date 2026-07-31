@@ -23,7 +23,11 @@ const Scouts = () => {
     message: '',
     consent: false,
   });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  // Honeypot : champ invisible des humains, souvent rempli par les robots.
+  const [website, setWebsite] = useState('');
+  // Horodatage d'ouverture : un envoi en moins de 3 s n'est pas humain.
+  const [openedAt] = useState(() => Date.now());
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'duplicate'>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const schema = z.object({
@@ -42,7 +46,13 @@ const Scouts = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === 'sending') return;
     setErrors({});
+    // Anti-abus silencieux : honeypot rempli ou envoi trop rapide.
+    if (website.trim() !== '' || Date.now() - openedAt < 3000) {
+      setStatus('success');
+      return;
+    }
     const parsed = schema.safeParse(form);
     if (!parsed.success) {
       const errs: Record<string, string> = {};
@@ -64,6 +74,11 @@ const Scouts = () => {
       locale,
     });
     if (error) {
+      // 23505 = contrainte d'unicité sur l'email : candidature déjà enregistrée.
+      if (error.code === '23505') {
+        setStatus('duplicate');
+        return;
+      }
       console.error(error);
       setStatus('error');
     } else {
@@ -71,6 +86,7 @@ const Scouts = () => {
       setForm({ full_name: '', email: '', phone: '', country: '', domain: '', message: '', consent: false });
     }
   };
+
 
   return (
     <PageShell
