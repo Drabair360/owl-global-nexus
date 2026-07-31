@@ -318,12 +318,19 @@ const dict: Record<Locale, Record<string, string>> = {
       'Les données sont conservées vingt-quatre (24) mois à compter du dernier contact, puis supprimées.',
     'privacy.share.title': 'Destinataires',
     'privacy.share.body':
-      'Les données sont accessibles aux seules équipes internes d’Owl International et à ses prestataires techniques nécessaires au fonctionnement du site (hébergeur, base de données). Aucun transfert commercial à un tiers n’est effectué.',
+      'Les données sont accessibles aux seules équipes internes d’Owl International et aux sous-traitants techniques nécessaires au fonctionnement du site : l’hébergeur du site et Supabase (base de données, sous-traitant au sens de l’article 28 du RGPD). Aucun transfert commercial à un tiers n’est effectué.',
+    'privacy.transfers.title': 'Transferts hors Union européenne',
+    'privacy.transfers.body':
+      'La base de données Supabase qui héberge les candidatures Owl Scouts est localisée dans l’Union européenne (région AWS eu-west-1, Irlande). Les fontes du site sont auto-hébergées : aucune requête n’est adressée à un serveur tiers lors de votre navigation. À ce jour, aucun transfert de données personnelles hors de l’Union européenne n’est donc réalisé dans le cadre de ce site. Toute évolution serait encadrée par les clauses contractuelles types de la Commission européenne et signalée sur cette page.',
+    'privacy.local.title': 'Stockage local dans votre navigateur',
+    'privacy.local.body':
+      'Deux informations techniques sont enregistrées dans votre navigateur, sans finalité de traçage et sans transmission à un serveur : « owl.locale » (localStorage) mémorise la langue choisie, et « owl:threshold-seen » (sessionStorage) évite de rejouer l’animation d’accueil pendant la session. Vous pouvez les effacer à tout moment via les réglages de votre navigateur.',
     'privacy.rights.title': 'Vos droits',
     'privacy.rights.body':
       'Vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité de vos données. Pour exercer ces droits, écrivez à contact@internationalowl.com. Vous pouvez également introduire une réclamation auprès de la CNIL.',
     'privacy.update.title': 'Mise à jour',
-    'privacy.update.body': 'Cette politique peut être mise à jour. La version en ligne fait foi.',
+    'privacy.update.body':
+      'Version 1.1 - 31 juillet 2026. Cette politique peut être mise à jour ; la version en ligne, datée ci-dessus, fait foi.',
 
     'terms.eyebrow': 'CGU',
     'terms.title': 'Conditions générales d’utilisation',
@@ -637,12 +644,19 @@ const dict: Record<Locale, Record<string, string>> = {
       'Data is retained for twenty-four (24) months from the last contact, then deleted.',
     'privacy.share.title': 'Recipients',
     'privacy.share.body':
-      'The data is accessible only to Owl International’s internal teams and to the technical providers required to operate the site (hosting, database). No commercial transfer to a third party takes place.',
+      'The data is accessible only to Owl International’s internal teams and to the technical processors required to operate the site: the website host and Supabase (database, processor within the meaning of Article 28 GDPR). No commercial transfer to a third party takes place.',
+    'privacy.transfers.title': 'Transfers outside the European Union',
+    'privacy.transfers.body':
+      'The Supabase database hosting Owl Scouts applications is located in the European Union (AWS eu-west-1 region, Ireland). The site’s fonts are self-hosted: no request is sent to a third-party server while you browse. As of today, no personal data is therefore transferred outside the European Union through this website. Any change would be governed by the European Commission’s standard contractual clauses and disclosed on this page.',
+    'privacy.local.title': 'Local storage in your browser',
+    'privacy.local.body':
+      'Two technical items are stored in your browser, with no tracking purpose and no transmission to a server: “owl.locale” (localStorage) remembers the chosen language, and “owl:threshold-seen” (sessionStorage) prevents the opening animation from replaying during the session. You can clear them at any time from your browser settings.',
     'privacy.rights.title': 'Your rights',
     'privacy.rights.body':
       'You have a right of access, rectification, erasure, restriction, objection and portability of your data. To exercise these rights, write to contact@internationalowl.com. You may also lodge a complaint with the CNIL.',
     'privacy.update.title': 'Update',
-    'privacy.update.body': 'This policy may be updated. The online version prevails.',
+    'privacy.update.body':
+      'Version 1.1 - 31 July 2026. This policy may be updated; the online version, dated above, prevails.',
 
     'terms.eyebrow': 'TERMS',
     'terms.title': 'Terms of use',
