@@ -25,18 +25,19 @@ const Index = () => {
       keywords="Owl International, holding Paris, investissement France Afrique, EPC industriel, logiciel propriétaire, immobilier patrimonial, Arthur Draber, groupe intégré"
       jsonLd={{
         '@context': 'https://schema.org',
-        '@type': 'FinancialService',
+        '@type': 'Organization',
         name: 'Owl International',
+        legalName: 'OWL INTERNATIONAL',
         url: SITE_URL,
         areaServed: ['FR', 'EU', 'Africa'],
-        serviceType: [
+        knowsAbout: [
           'Holding d’investissement',
           'Ingénierie industrielle EPC',
           'Édition de logiciels propriétaires',
           'Immobilier patrimonial',
         ],
-        provider: { '@type': 'Organization', name: 'Owl International' },
       }}
+
     >
 
       {/* ==================== HERO - encre pur, pure typographie ==================== */}
