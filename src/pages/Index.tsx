@@ -7,6 +7,8 @@ import { SectionNumber, EditorialTitle, SectionWatermark } from '@/components/ed
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
 import CinemaBand from '@/components/CinemaBand';
+import GutterRule from '@/components/GutterRule';
+
 import { useThreshold } from '@/hooks/useThreshold';
 import { SITE_URL } from '@/config/site';
 
