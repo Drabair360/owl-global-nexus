@@ -39,11 +39,9 @@ const Index = () => {
 
       {/* ==================== HERO - encre pur, pure typographie ==================== */}
       <section className="relative min-h-[88vh] flex items-center overflow-hidden ink-surface paper-noise -mt-16 pt-16">
-        {/* Filet or vertical, 40% de hauteur, aligné grille */}
-        <div
-          aria-hidden
-          className="hidden md:block absolute left-8 lg:left-24 top-1/2 -translate-y-1/2 w-px h-[40vh] bg-gradient-to-b from-transparent via-gold/60 to-transparent"
-        />
+        {/* Filet or vertical, ancre sur la gouttiere du conteneur (>= xl) */}
+        <GutterRule />
+
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
           <div className={`flex items-center gap-4 mb-10 ${step(1)}`}>
