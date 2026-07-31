@@ -96,6 +96,10 @@ export const useSEO = ({ title, description, jsonLd, keywords, ogImage, noindex 
     setMeta('description', description);
     if (keywords) setMeta('keywords', keywords);
 
+    // Indexation : noindex sur les pages non indexables (404), sinon index par defaut.
+    setMeta('robots', noindex ? 'noindex, follow' : 'index, follow');
+    setMeta('googlebot', noindex ? 'noindex, follow' : 'index, follow');
+
     setProp('og:title', title);
     setProp('og:description', description);
     setProp('og:url', canonicalUrl);
