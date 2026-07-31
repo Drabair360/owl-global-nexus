@@ -3,26 +3,145 @@
   <url>
     <loc>__SITE_URL__/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  <url><loc>__SITE_URL__/groupe</loc><xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/groupe"/><xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/groupe"/><xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/groupe"/><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>__SITE_URL__/portefeuille</loc><xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/portefeuille"/><xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/portefeuille"/><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>__SITE_URL__/portefeuille/cao-industries</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>__SITE_URL__/portefeuille/drabair-labs</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>__SITE_URL__/portefeuille/line-builder</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>__SITE_URL__/portefeuille/weavme</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>__SITE_URL__/portefeuille/owl-real-estate</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>__SITE_URL__/metiers</loc><xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/metiers"/><xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/metiers"/><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>__SITE_URL__/scouts</loc><xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/scouts"/><xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/scouts"/><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>__SITE_URL__/journal</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>__SITE_URL__/approche</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
-  <url><loc>__SITE_URL__/rejoindre</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>__SITE_URL__/engagements</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>__SITE_URL__/contact</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>__SITE_URL__/mentions-legales</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>__SITE_URL__/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>__SITE_URL__/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url>
+    <loc>__SITE_URL__/groupe</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/groupe"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/groupe?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/groupe"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/portefeuille</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/portefeuille"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/portefeuille?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/portefeuille"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/portefeuille/cao-industries</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/portefeuille/cao-industries"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/portefeuille/cao-industries?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/portefeuille/cao-industries"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/portefeuille/drabair-labs</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/portefeuille/drabair-labs"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/portefeuille/drabair-labs?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/portefeuille/drabair-labs"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/portefeuille/line-builder</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/portefeuille/line-builder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/portefeuille/line-builder?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/portefeuille/line-builder"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/portefeuille/weavme</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/portefeuille/weavme"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/portefeuille/weavme?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/portefeuille/weavme"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/portefeuille/owl-real-estate</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/portefeuille/owl-real-estate"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/portefeuille/owl-real-estate?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/portefeuille/owl-real-estate"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/metiers</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/metiers"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/metiers?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/metiers"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/scouts</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/scouts"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/scouts?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/scouts"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/journal</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/journal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/journal?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/journal"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/approche</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/approche"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/approche?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/approche"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/rejoindre</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/rejoindre"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/rejoindre?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/rejoindre"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/engagements</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/engagements"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/engagements?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/engagements"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/contact?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/contact"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/mentions-legales</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/mentions-legales"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/mentions-legales?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/mentions-legales"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/privacy?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/privacy"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>__SITE_URL__/terms</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="__SITE_URL__/terms"/>
+    <xhtml:link rel="alternate" hreflang="en" href="__SITE_URL__/terms?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="__SITE_URL__/terms"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
