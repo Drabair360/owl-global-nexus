@@ -170,5 +170,5 @@ export const useSEO = ({ title, description, jsonLd, keywords, ogImage, noindex 
     return () => {
       scripts.forEach((s) => s.remove());
     };
-  }, [title, description, pathname, locale, keywords, ogImage, JSON.stringify(jsonLd)]);
+  }, [title, description, pathname, locale, keywords, ogImage, noindex, JSON.stringify(jsonLd)]);
 };
