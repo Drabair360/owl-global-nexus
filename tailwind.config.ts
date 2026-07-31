@@ -24,14 +24,33 @@ export default {
 				'body': ['Inter', 'system-ui', 'sans-serif'],
 				'condensed': ['Oswald', 'Inter', 'sans-serif'],
 			},
+			/**
+			 * Echelle typographique stricte, quarte juste (ratio 1.333),
+			 * ancree sur 1rem = 16px. Aucune taille hybride 1.25.
+			 * Pas : 0.563 - 0.75 - 1 - 1.333 - 1.777 - 2.369 - 3.157 - 4.209 - 5.61 - 7.478 - 9.97
+			 */
 			fontSize: {
-				'display': ['clamp(3rem, 10vw, 8rem)', { lineHeight: '0.92', letterSpacing: '-0.035em' }],
-				'display-xl': ['clamp(3.5rem, 11vw, 9.5rem)', { lineHeight: '0.88', letterSpacing: '-0.045em' }],
-				'hero': ['clamp(2.25rem, 7vw, 5.5rem)', { lineHeight: '1.05', letterSpacing: '-0.035em' }],
-				'section': ['clamp(1.5rem, 4vw, 3rem)', { lineHeight: '1.2', letterSpacing: '0.05em' }],
-				'body-large': ['clamp(1.125rem, 2.5vw, 1.5rem)', { lineHeight: '1.6', letterSpacing: '-0.01em' }],
-				'institutional': ['0.875rem', { lineHeight: '1.4', letterSpacing: '0.025em' }],
+				// Echelle utilitaire (remplace l'echelle Tailwind par defaut)
+				'xs': ['0.563rem', { lineHeight: '1.5', letterSpacing: '0.06em' }],
+				'sm': ['0.75rem', { lineHeight: '1.55', letterSpacing: '0.02em' }],
+				'base': ['1rem', { lineHeight: '1.65' }],
+				'lg': ['1.333rem', { lineHeight: '1.5', letterSpacing: '-0.005em' }],
+				'xl': ['1.777rem', { lineHeight: '1.35', letterSpacing: '-0.012em' }],
+				'2xl': ['2.369rem', { lineHeight: '1.22', letterSpacing: '-0.018em' }],
+				'3xl': ['3.157rem', { lineHeight: '1.12', letterSpacing: '-0.025em' }],
+				'4xl': ['4.209rem', { lineHeight: '1.04', letterSpacing: '-0.03em' }],
+				'5xl': ['5.61rem', { lineHeight: '0.98', letterSpacing: '-0.035em' }],
+				'6xl': ['7.478rem', { lineHeight: '0.94', letterSpacing: '-0.04em' }],
+				'7xl': ['9.97rem', { lineHeight: '0.9', letterSpacing: '-0.045em' }],
+				// Tokens editoriaux (memes pas, fluides)
+				'display': ['clamp(3.157rem, 10vw, 7.478rem)', { lineHeight: '0.92', letterSpacing: '-0.035em' }],
+				'display-xl': ['clamp(4.209rem, 11vw, 9.97rem)', { lineHeight: '0.88', letterSpacing: '-0.045em' }],
+				'hero': ['clamp(2.369rem, 7vw, 5.61rem)', { lineHeight: '1.05', letterSpacing: '-0.035em' }],
+				'section': ['clamp(1.777rem, 4vw, 3.157rem)', { lineHeight: '1.2', letterSpacing: '0.02em' }],
+				'body-large': ['clamp(1rem, 2.5vw, 1.333rem)', { lineHeight: '1.6', letterSpacing: '-0.01em' }],
+				'institutional': ['0.75rem', { lineHeight: '1.4', letterSpacing: '0.05em' }],
 			},
+
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
