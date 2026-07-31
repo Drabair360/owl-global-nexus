@@ -266,20 +266,22 @@ const Scouts = () => {
               </div>
 
               <div className="flex items-start gap-3">
-                <Checkbox
-                  id="consent"
-                  checked={form.consent}
-                  onCheckedChange={(v) => setForm({ ...form, consent: !!v })}
-                  className="mt-1"
-                  required
-                  aria-labelledby="consent-label"
-                  aria-describedby={errors.consent ? 'consent-error' : undefined}
-                  aria-invalid={!!errors.consent}
-                />
+                {/* Cible tactile >= 24x24 px (WCAG 2.5.8) : boîte de 16px centrée dans 24px. */}
+                <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center">
+                  <Checkbox
+                    id="consent"
+                    checked={form.consent}
+                    onCheckedChange={(v) => setForm({ ...form, consent: !!v })}
+                    required
+                    aria-labelledby="consent-label"
+                    aria-describedby={errors.consent ? 'consent-error' : undefined}
+                    aria-invalid={!!errors.consent}
+                  />
+                </span>
                 <Label
                   id="consent-label"
                   htmlFor="consent"
-                  className="text-sm text-slate-600 font-body font-normal cursor-pointer leading-relaxed"
+                  className="text-sm text-slate-600 font-body font-normal cursor-pointer leading-relaxed py-1"
                 >
                   {t('scouts.form.consent')}
                 </Label>
@@ -290,14 +292,7 @@ const Scouts = () => {
                 </p>
               )}
 
-              {status === 'duplicate' && (
-                <div role="alert" className="border-t-2 border-amber-500 bg-amber-50 p-5">
-                  <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-amber-700 mb-2">
-                    {t('scouts.form.duplicateTitle')}
-                  </div>
-                  <p className="text-sm text-slate-700 font-body">{t('scouts.form.duplicateBody')}</p>
-                </div>
-              )}
+
 
 
               {status === 'error' && (
