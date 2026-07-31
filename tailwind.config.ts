@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'display': ['Instrument Serif', 'Playfair Display', 'serif'],
-				'heading': ['Instrument Serif', 'Playfair Display', 'serif'],
+				'display': ['Instrument Serif', 'Georgia', 'serif'],
+				'heading': ['Instrument Serif', 'Georgia', 'serif'],
 				'body': ['Inter', 'system-ui', 'sans-serif'],
 				'condensed': ['Oswald', 'Inter', 'sans-serif'],
 			},
