@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <img
-                src="/lovable-uploads/4d7f9a85-a58b-4911-9097-b446f027e04a.png"
+                src="/assets/owl-international-logo.png"
                 alt="Owl International"
                 className="w-9 h-9 brightness-0 invert"
               />
