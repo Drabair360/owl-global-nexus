@@ -33,6 +33,8 @@ interface SEOOptions {
   keywords?: string;
   /** Override de la carte sociale (URL absolue). */
   ogImage?: string;
+  /** Empêche l'indexation de la page (ex. 404). */
+  noindex?: boolean;
 }
 
 
@@ -40,7 +42,7 @@ interface SEOOptions {
  * Injects title/description/canonical/OG/Twitter/hreflang and page-scoped JSON-LD.
  * Direct <head> mutation - no react-helmet dependency.
  */
-export const useSEO = ({ title, description, jsonLd, keywords, ogImage }: SEOOptions) => {
+export const useSEO = ({ title, description, jsonLd, keywords, ogImage, noindex }: SEOOptions) => {
   const { pathname } = useLocation();
   const { locale } = useI18n();
 
@@ -93,6 +95,10 @@ export const useSEO = ({ title, description, jsonLd, keywords, ogImage }: SEOOpt
 
     setMeta('description', description);
     if (keywords) setMeta('keywords', keywords);
+
+    // Indexation : noindex sur les pages non indexables (404), sinon index par defaut.
+    setMeta('robots', noindex ? 'noindex, follow' : 'index, follow');
+    setMeta('googlebot', noindex ? 'noindex, follow' : 'index, follow');
 
     setProp('og:title', title);
     setProp('og:description', description);
@@ -164,5 +170,5 @@ export const useSEO = ({ title, description, jsonLd, keywords, ogImage }: SEOOpt
     return () => {
       scripts.forEach((s) => s.remove());
     };
-  }, [title, description, pathname, locale, keywords, ogImage, JSON.stringify(jsonLd)]);
+  }, [title, description, pathname, locale, keywords, ogImage, noindex, JSON.stringify(jsonLd)]);
 };
