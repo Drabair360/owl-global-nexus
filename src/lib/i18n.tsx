@@ -290,7 +290,8 @@ const dict: Record<Locale, Record<string, string>> = {
     'legal.contact.title': 'Contact',
     'legal.contact.body': 'contact@internationalowl.com',
     'legal.host.title': 'Hébergement',
-    'legal.host.body': '[HÉBERGEUR À CONFIRMER - bascule DNS en cours]',
+    'legal.host.body': "Hébergeur : Lovable Labs AB - Regeringsgatan 25, 111 53 Stockholm, Suède - coordonnées : lovable.dev/legal.",
+    'groupe.ceo.portraitAlt': "Arthur Draber, Président d'Owl International",
     'legal.capital.title': 'Capital social',
     'legal.capital.body': 'Capital social : 1 000 euros. Numéro de TVA intracommunautaire : FR63978849230.',
     'legal.ip.title': 'Propriété intellectuelle',
@@ -318,7 +319,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'Les données sont conservées vingt-quatre (24) mois à compter du dernier contact, puis supprimées.',
     'privacy.share.title': 'Destinataires',
     'privacy.share.body':
-      'Les données sont accessibles aux seules équipes internes d’Owl International et aux sous-traitants techniques nécessaires au fonctionnement du site : l’hébergeur du site et Supabase (base de données, sous-traitant au sens de l’article 28 du RGPD). Aucun transfert commercial à un tiers n’est effectué.',
+      'Les données sont accessibles aux seules équipes internes d’Owl International et aux sous-traitants techniques nécessaires au fonctionnement du site : Lovable Labs AB (hébergement du site, Suède, Union européenne) et Supabase (base de données, sous-traitant au sens de l’article 28 du RGPD). Aucun transfert commercial à un tiers n’est effectué.',
     'privacy.transfers.title': 'Transferts hors Union européenne',
     'privacy.transfers.body':
       'La base de données Supabase qui héberge les candidatures Owl Scouts est localisée dans l’Union européenne (région AWS eu-west-1, Irlande). Les fontes du site sont auto-hébergées : aucune requête n’est adressée à un serveur tiers lors de votre navigation. À ce jour, aucun transfert de données personnelles hors de l’Union européenne n’est donc réalisé dans le cadre de ce site. Toute évolution serait encadrée par les clauses contractuelles types de la Commission européenne et signalée sur cette page.',
@@ -616,7 +617,8 @@ const dict: Record<Locale, Record<string, string>> = {
     'legal.contact.title': 'Contact',
     'legal.contact.body': 'contact@internationalowl.com',
     'legal.host.title': 'Hosting',
-    'legal.host.body': '[HOSTING PROVIDER TO BE CONFIRMED - DNS migration in progress]',
+    'legal.host.body': 'Hosting provider: Lovable Labs AB - Regeringsgatan 25, 111 53 Stockholm, Sweden - contact details: lovable.dev/legal.',
+    'groupe.ceo.portraitAlt': 'Arthur Draber, President of Owl International',
     'legal.capital.title': 'Share capital',
     'legal.capital.body': 'Share capital: EUR 1,000. Intra-EU VAT number: FR63978849230.',
     'legal.ip.title': 'Intellectual property',
@@ -644,7 +646,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'Data is retained for twenty-four (24) months from the last contact, then deleted.',
     'privacy.share.title': 'Recipients',
     'privacy.share.body':
-      'The data is accessible only to Owl International’s internal teams and to the technical processors required to operate the site: the website host and Supabase (database, processor within the meaning of Article 28 GDPR). No commercial transfer to a third party takes place.',
+      'The data is accessible only to Owl International’s internal teams and to the technical processors required to operate the site: Lovable Labs AB (website hosting, Sweden, European Union) and Supabase (database, processor within the meaning of Article 28 GDPR). No commercial transfer to a third party takes place.',
     'privacy.transfers.title': 'Transfers outside the European Union',
     'privacy.transfers.body':
       'The Supabase database hosting Owl Scouts applications is located in the European Union (AWS eu-west-1 region, Ireland). The site’s fonts are self-hosted: no request is sent to a third-party server while you browse. As of today, no personal data is therefore transferred outside the European Union through this website. Any change would be governed by the European Commission’s standard contractual clauses and disclosed on this page.',

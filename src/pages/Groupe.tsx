@@ -87,7 +87,7 @@ const Groupe = () => {
       <EditorialSection className="bg-white">
         <StickyChapter number="03" label={t('groupe.ceo.eyebrow')} title={t('groupe.ceo.name')}>
           <div className="flex items-start gap-6 mb-2">
-            <PresidentPortrait alt="Arthur Draber, Président d'Owl International" />
+            <PresidentPortrait alt={t('groupe.ceo.portraitAlt')} />
 
             <div className="pt-2">
               <div className="text-sm text-slate-500 font-subtitle tracking-[0.2em] uppercase">
