@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Mail } from 'lucide-react';
 import PageShell from '@/components/PageShell';
+import { SITE_URL } from '@/config/site';
 import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
@@ -38,11 +39,7 @@ const Contact = () => {
         '@context': 'https://schema.org',
         '@type': 'ContactPage',
         name: t('contact.title'),
-        mainEntity: {
-          '@type': 'Organization',
-          name: 'Owl International',
-          email: 'contact@internationalowl.com',
-        },
+        mainEntity: { '@id': `${SITE_URL}/#organization` },
       }}
     >
 

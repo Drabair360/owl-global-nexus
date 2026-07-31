@@ -31,11 +31,7 @@ const Venture = () => {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: venture.name,
-    parentOrganization: {
-      '@type': 'Organization',
-      name: 'Owl International',
-      url: absoluteUrl('/'),
-    },
+    parentOrganization: { '@id': `${absoluteUrl('/')}#organization` },
     description: t(venture.missionKey),
     url: absoluteUrl(`/portefeuille/${venture.slug}`),
   };

@@ -26,6 +26,7 @@ const Index = () => {
       jsonLd={{
         '@context': 'https://schema.org',
         '@type': 'Organization',
+        '@id': `${SITE_URL}/#organization`,
         name: 'Owl International',
         legalName: 'OWL INTERNATIONAL',
         url: SITE_URL,
