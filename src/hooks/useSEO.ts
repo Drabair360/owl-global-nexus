@@ -42,7 +42,7 @@ interface SEOOptions {
  * Injects title/description/canonical/OG/Twitter/hreflang and page-scoped JSON-LD.
  * Direct <head> mutation - no react-helmet dependency.
  */
-export const useSEO = ({ title, description, jsonLd, keywords, ogImage }: SEOOptions) => {
+export const useSEO = ({ title, description, jsonLd, keywords, ogImage, noindex }: SEOOptions) => {
   const { pathname } = useLocation();
   const { locale } = useI18n();
 

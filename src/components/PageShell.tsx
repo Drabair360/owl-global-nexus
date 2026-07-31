@@ -14,10 +14,12 @@ interface Props {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   /** Breadcrumb trail (label + relative path). Home is added automatically. */
   breadcrumbs?: { name: string; path: string }[];
+  /** Empêche l'indexation de la page (ex. 404). */
+  noindex?: boolean;
   children: ReactNode;
 }
 
-const PageShell = ({ title, description, keywords, jsonLd, breadcrumbs, children }: Props) => {
+const PageShell = ({ title, description, keywords, jsonLd, breadcrumbs, noindex, children }: Props) => {
   const { pathname } = useLocation();
 
   const trail = breadcrumbs && breadcrumbs.length > 0
