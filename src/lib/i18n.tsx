@@ -189,6 +189,12 @@ const dict: Record<Locale, Record<string, string>> = {
     'scouts.form.successTitle': 'Candidature reçue.',
     'scouts.form.successBody': 'Nous accusons réception manuellement. Une réponse individuelle vous parviendra sous quelques jours ouvrés.',
     'scouts.form.successAgain': 'Soumettre une autre candidature',
+    'scouts.form.duplicateTitle': 'Candidature déjà enregistrée',
+    'scouts.form.duplicateBody':
+      'Une candidature a déjà été déposée avec cette adresse email. Inutile de la renvoyer : nous revenons vers chaque candidat. Pour compléter votre dossier, écrivez à contact@internationalowl.com.',
+    'scouts.form.duplicateTitle': 'Application already received',
+    'scouts.form.duplicateBody':
+      'An application has already been submitted with this email address. No need to resend it: we get back to every applicant. To complete your file, write to contact@internationalowl.com.',
     'scouts.form.errorTitle': 'Envoi impossible.',
     'scouts.form.retry': 'Réessayer',
     'scouts.form.writeUs': 'Nous écrire directement',
@@ -283,11 +289,13 @@ const dict: Record<Locale, Record<string, string>> = {
     'legal.title': 'Mentions légales',
     'legal.editor.title': 'Éditeur du site',
     'legal.editor.body':
-      'Owl International, société par actions simplifiée immatriculée au RCS de Paris sous le numéro 978 849 230. Siège social : 47 boulevard de Courcelles, 75008 Paris, France. Président et directeur de la publication : Arthur Draber.',
+      'Owl International, société par actions simplifiée unipersonnelle (SASU) immatriculée au RCS de Paris sous le numéro 978 849 230. Siège social : 47 boulevard de Courcelles, 75008 Paris, France. Président et directeur de la publication : Arthur Draber.',
     'legal.contact.title': 'Contact',
     'legal.contact.body': 'contact@internationalowl.com',
     'legal.host.title': 'Hébergement',
-    'legal.host.body': 'Vercel Inc. - [ADRESSE ET COORDONNÉES DE L’HÉBERGEUR À CONFIRMER]',
+    'legal.host.body': '[HÉBERGEUR À CONFIRMER - bascule DNS en cours]',
+    'legal.capital.title': 'Capital social',
+    'legal.capital.body': 'Capital social : 1 000 euros. Numéro de TVA intracommunautaire : FR63978849230.',
     'legal.ip.title': 'Propriété intellectuelle',
     'legal.ip.body':
       'L’ensemble des contenus de ce site (textes, images, structure, code) est la propriété d’Owl International ou de ses ayants droit. Toute reproduction sans autorisation écrite est interdite.',
@@ -597,11 +605,13 @@ const dict: Record<Locale, Record<string, string>> = {
     'legal.title': 'Legal notice',
     'legal.editor.title': 'Publisher',
     'legal.editor.body':
-      'Owl International, a French société par actions simplifiée registered at the Paris Commercial Register under number 978 849 230. Registered office: 47 boulevard de Courcelles, 75008 Paris, France. President and publication director: Arthur Draber.',
+      'Owl International, a French société par actions simplifiée unipersonnelle (SASU) registered at the Paris Commercial Register under number 978 849 230. Registered office: 47 boulevard de Courcelles, 75008 Paris, France. President and publication director: Arthur Draber.',
     'legal.contact.title': 'Contact',
     'legal.contact.body': 'contact@internationalowl.com',
     'legal.host.title': 'Hosting',
-    'legal.host.body': 'Vercel Inc. - [HOSTING PROVIDER ADDRESS AND CONTACT TO BE CONFIRMED]',
+    'legal.host.body': '[HOSTING PROVIDER TO BE CONFIRMED - DNS migration in progress]',
+    'legal.capital.title': 'Share capital',
+    'legal.capital.body': 'Share capital: EUR 1,000. Intra-EU VAT number: FR63978849230.',
     'legal.ip.title': 'Intellectual property',
     'legal.ip.body':
       'All content on this website (text, images, structure, code) is the property of Owl International or its rights-holders. Any reproduction without prior written consent is prohibited.',

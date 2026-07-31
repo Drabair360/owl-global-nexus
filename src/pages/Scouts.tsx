@@ -152,12 +152,14 @@ const Scouts = () => {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6" noValidate aria-busy={status === 'sending'}>
+            <form onSubmit={handleSubmit} className="space-y-6 relative" noValidate aria-busy={status === 'sending'}>
               <fieldset disabled={status === 'sending'} className="space-y-6 disabled:opacity-70">
               <div>
                 <Label htmlFor="full_name">{t('scouts.form.name')} *</Label>
                 <Input
                   id="full_name"
+                  name="full_name"
+                  autoComplete="name"
                   value={form.full_name}
                   onChange={(e) => setForm({ ...form, full_name: e.target.value })}
                   className="mt-2 bg-white"
@@ -173,7 +175,9 @@ const Scouts = () => {
                   <Label htmlFor="email">{t('scouts.form.email')} *</Label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
+                    autoComplete="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className="mt-2 bg-white"
@@ -187,6 +191,9 @@ const Scouts = () => {
                   <Label htmlFor="phone">{t('scouts.form.phone')}</Label>
                   <Input
                     id="phone"
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     className="mt-2 bg-white"
@@ -199,6 +206,8 @@ const Scouts = () => {
                 <Label htmlFor="country">{t('scouts.form.country')}</Label>
                 <Input
                   id="country"
+                  name="country"
+                  autoComplete="country-name"
                   value={form.country}
                   onChange={(e) => setForm({ ...form, country: e.target.value })}
                   className="mt-2 bg-white"
