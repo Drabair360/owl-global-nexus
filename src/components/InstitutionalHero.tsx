@@ -1,4 +1,6 @@
 import React from 'react';
+import GutterRule from './GutterRule';
+
 
 interface Props {
   eyebrow: string;
