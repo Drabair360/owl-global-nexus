@@ -27,7 +27,7 @@ const Scouts = () => {
   const [website, setWebsite] = useState('');
   // Horodatage d'ouverture : un envoi en moins de 3 s n'est pas humain.
   const [openedAt] = useState(() => Date.now());
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'duplicate'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const schema = z.object({
