@@ -23,6 +23,7 @@ const MentionsLegales = () => {
       <EditorialSection className="bg-white">
         <div className="max-w-3xl">
           <LegalBlock title={t('legal.editor.title')} body={t('legal.editor.body')} />
+          <LegalBlock title={t('legal.capital.title')} body={t('legal.capital.body')} />
           <LegalBlock title={t('legal.contact.title')} body={t('legal.contact.body')} />
           <LegalBlock title={t('legal.host.title')} body={t('legal.host.body')} />
           <LegalBlock title={t('legal.ip.title')} body={t('legal.ip.body')} />

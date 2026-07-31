@@ -29,6 +29,8 @@ const Privacy = () => {
           <Block title={t('privacy.basis.title')} body={t('privacy.basis.body')} />
           <Block title={t('privacy.storage.title')} body={t('privacy.storage.body')} />
           <Block title={t('privacy.share.title')} body={t('privacy.share.body')} />
+          <Block title={t('privacy.transfers.title')} body={t('privacy.transfers.body')} />
+          <Block title={t('privacy.local.title')} body={t('privacy.local.body')} />
           <Block title={t('privacy.rights.title')} body={t('privacy.rights.body')} />
           <Block title={t('privacy.update.title')} body={t('privacy.update.body')} />
         </div>
