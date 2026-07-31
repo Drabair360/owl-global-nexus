@@ -85,7 +85,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'groupe.eyebrow': 'LE GROUPE',
     'groupe.title': 'Une holding animatrice, deux pôles complémentaires.',
     'groupe.intro':
-      'Owl International est une société par actions simplifiée de droit français, immatriculée au Registre du commerce et des sociétés de Paris. Holding animatrice du groupe, elle définit la stratégie, pilote les filiales et conduit la politique d’investissement, autour de deux pôles complémentaires : un pôle opérationnel (ingénierie industrielle et logiciel) et un pôle patrimonial (immobilier de long terme).',
+      'Owl International est une société par actions simplifiée unipersonnelle (SASU) de droit français, immatriculée au Registre du commerce et des sociétés de Paris. Holding animatrice du groupe, elle définit la stratégie, pilote les filiales et conduit la politique d’investissement, autour de deux pôles complémentaires : un pôle opérationnel (ingénierie industrielle et logiciel) et un pôle patrimonial (immobilier de long terme).',
     'groupe.gouv.title': 'Gouvernance',
     'groupe.gouv.body':
       'Le groupe est dirigé par son fondateur, Arthur Draber, Président d’Owl International. La gouvernance privilégie des structures simples, des responsabilités claires et une grande rigueur juridique et comptable, avec l’appui de conseils externes - notaire, juristes, expertise comptable.',
@@ -414,7 +414,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'groupe.eyebrow': 'THE GROUP',
     'groupe.title': 'A holding company at the helm - two complementary divisions.',
     'groupe.intro':
-      'Owl International is a French société par actions simplifiée, registered at the Paris Commercial Register. As the group holding company, it sets strategy, oversees the subsidiaries and leads the investment policy across two complementary divisions: an operational one (industrial engineering and software) and a real-estate one (long-term property).',
+      'Owl International is a French société par actions simplifiée unipersonnelle (SASU), registered at the Paris Commercial Register. As the group holding company, it sets strategy, oversees the subsidiaries and leads the investment policy across two complementary divisions: an operational one (industrial engineering and software) and a real-estate one (long-term property).',
     'groupe.gouv.title': 'Governance',
     'groupe.gouv.body':
       'The group is led by its founder, Arthur Draber, President of Owl International. Governance favours simple structures, clear responsibilities and strict legal and accounting discipline, with the support of external advisors - notary, lawyers, chartered accountants.',
