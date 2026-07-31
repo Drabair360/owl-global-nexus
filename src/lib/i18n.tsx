@@ -646,7 +646,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'Data is retained for twenty-four (24) months from the last contact, then deleted.',
     'privacy.share.title': 'Recipients',
     'privacy.share.body':
-      'The data is accessible only to Owl International’s internal teams and to the technical processors required to operate the site: the website host and Supabase (database, processor within the meaning of Article 28 GDPR). No commercial transfer to a third party takes place.',
+      'The data is accessible only to Owl International’s internal teams and to the technical processors required to operate the site: Lovable Labs AB (website hosting, Sweden, European Union) and Supabase (database, processor within the meaning of Article 28 GDPR). No commercial transfer to a third party takes place.',
     'privacy.transfers.title': 'Transfers outside the European Union',
     'privacy.transfers.body':
       'The Supabase database hosting Owl Scouts applications is located in the European Union (AWS eu-west-1 region, Ireland). The site’s fonts are self-hosted: no request is sent to a third-party server while you browse. As of today, no personal data is therefore transferred outside the European Union through this website. Any change would be governed by the European Commission’s standard contractual clauses and disclosed on this page.',
