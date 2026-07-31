@@ -652,9 +652,13 @@ const dict: Record<Locale, Record<string, string>> = {
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [locale, setLocaleState] = useState<Locale>(() => {
     if (typeof window === 'undefined') return 'fr';
+    // Le paramètre ?lang= prime : il rend les URL hreflang réellement différenciées.
+    const param = new URLSearchParams(window.location.search).get('lang');
+    if (param === 'en' || param === 'fr') return param;
     const stored = window.localStorage.getItem(STORAGE_KEY) as Locale | null;
     return stored === 'en' || stored === 'fr' ? stored : 'fr';
   });
+
 
   useEffect(() => {
     if (typeof document !== 'undefined') {
