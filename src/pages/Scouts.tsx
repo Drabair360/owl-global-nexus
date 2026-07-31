@@ -240,18 +240,54 @@ const Scouts = () => {
                 {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
               </div>
 
+              {/* Honeypot anti-robot : hors flux, hors tabulation, ignoré des lecteurs d'écran. */}
+              <div aria-hidden="true" className="absolute w-px h-px -left-[9999px] overflow-hidden">
+                <label htmlFor="website">Ne pas remplir</label>
+                <input
+                  id="website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                />
+              </div>
+
               <div className="flex items-start gap-3">
                 <Checkbox
                   id="consent"
                   checked={form.consent}
                   onCheckedChange={(v) => setForm({ ...form, consent: !!v })}
                   className="mt-1"
+                  required
+                  aria-labelledby="consent-label"
+                  aria-describedby={errors.consent ? 'consent-error' : undefined}
+                  aria-invalid={!!errors.consent}
                 />
-                <Label htmlFor="consent" className="text-sm text-slate-600 font-body font-normal cursor-pointer leading-relaxed">
+                <Label
+                  id="consent-label"
+                  htmlFor="consent"
+                  className="text-sm text-slate-600 font-body font-normal cursor-pointer leading-relaxed"
+                >
                   {t('scouts.form.consent')}
                 </Label>
               </div>
-              {errors.consent && <p className="text-xs text-destructive">{errors.consent}</p>}
+              {errors.consent && (
+                <p id="consent-error" className="text-xs text-destructive">
+                  {errors.consent}
+                </p>
+              )}
+
+              {status === 'duplicate' && (
+                <div role="alert" className="border-t-2 border-amber-500 bg-amber-50 p-5">
+                  <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-amber-700 mb-2">
+                    {t('scouts.form.duplicateTitle')}
+                  </div>
+                  <p className="text-sm text-slate-700 font-body">{t('scouts.form.duplicateBody')}</p>
+                </div>
+              )}
+
 
               {status === 'error' && (
                 <div
