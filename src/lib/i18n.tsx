@@ -35,7 +35,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'footer.terms': 'CGU',
     'footer.president': 'Président',
     'footer.rights': 'Tous droits réservés.',
-    'footer.form': 'Société par actions simplifiée',
+    'footer.form': 'Société par actions simplifiée unipersonnelle',
     'footer.siege': 'Siège social',
     'common.readMore': 'Comprendre notre modèle',
     'common.status.registration': '(en cours d’immatriculation)',
@@ -301,10 +301,10 @@ const dict: Record<Locale, Record<string, string>> = {
     'privacy.eyebrow': 'CONFIDENTIALITÉ',
     'privacy.title': 'Politique de confidentialité',
     'privacy.intro':
-      'Owl International attache la plus grande importance au respect de vos données personnelles. Cette page décrit précisément le seul traitement mis en œuvre sur ce site.',
-    'privacy.tracking.title': 'Aucun cookie de traçage, aucun analytics',
+      'Owl International attache la plus grande importance au respect de vos données personnelles. Cette page décrit précisément les traitements mis en œuvre sur ce site, y compris ceux relevant de son hébergeur.',
+    'privacy.tracking.title': 'Cookies et mesure d’audience',
     'privacy.tracking.body':
-      'Ce site n’utilise aucun cookie de traçage, aucun outil d’analyse d’audience tiers, aucun pixel publicitaire. Aucune bannière n’est donc nécessaire.',
+      'Owl International n’installe aucun cookie publicitaire, aucun pixel de reciblage et n’exploite aucun outil d’analyse d’audience à des fins marketing. La plateforme d’hébergement du site (Lovable Labs AB) dépose toutefois, pour son propre compte, deux cookies strictement techniques et de mesure d’audience de l’infrastructure : « session-id » (identifiant de session anonyme, durée de la session) et « __dpl » (identification du déploiement servi, durée de la session). Ces cookies alimentent une mesure d’audience agrégée de l’hébergeur ; ils ne sont recoupés avec aucune autre donnée, ne servent ni au profilage ni à la publicité, et ne sont pas utilisés par Owl International pour identifier un visiteur. Vous pouvez les bloquer ou les effacer depuis les réglages de votre navigateur, sans altérer le fonctionnement du site.',
     'privacy.data.title': 'Données collectées via le programme Owl Scouts',
     'privacy.data.body':
       'La seule collecte de données personnelles concerne le formulaire de candidature au programme Owl Scouts. Sont collectés : nom complet, adresse email, téléphone (facultatif), pays/région, domaine d’opportunités, message libre et horodatage de la candidature.',
@@ -331,7 +331,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'Vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité de vos données. Pour exercer ces droits, écrivez à contact@internationalowl.com. Vous pouvez également introduire une réclamation auprès de la CNIL.',
     'privacy.update.title': 'Mise à jour',
     'privacy.update.body':
-      'Version 1.1 - 31 juillet 2026. Cette politique peut être mise à jour ; la version en ligne, datée ci-dessus, fait foi.',
+      'Version 1.2 - 31 juillet 2026. Cette politique peut être mise à jour ; la version en ligne, datée ci-dessus, fait foi.',
 
     'terms.eyebrow': 'CGU',
     'terms.title': 'Conditions générales d’utilisation',
@@ -365,7 +365,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'footer.terms': 'Terms',
     'footer.president': 'President',
     'footer.rights': 'All rights reserved.',
-    'footer.form': 'Société par actions simplifiée',
+    'footer.form': 'Société par actions simplifiée unipersonnelle',
     'footer.siege': 'Registered office',
     'common.readMore': 'Understand our model',
     'common.status.registration': '(registration under way)',
@@ -628,10 +628,10 @@ const dict: Record<Locale, Record<string, string>> = {
     'privacy.eyebrow': 'PRIVACY',
     'privacy.title': 'Privacy policy',
     'privacy.intro':
-      'Owl International attaches the utmost importance to the protection of your personal data. This page describes precisely the only processing operation carried out on this site.',
-    'privacy.tracking.title': 'No tracking cookies, no analytics',
+      'Owl International attaches the utmost importance to the protection of your personal data. This page describes precisely the processing operations carried out on this site, including those performed by its host.',
+    'privacy.tracking.title': 'Cookies and audience measurement',
     'privacy.tracking.body':
-      'This site uses no tracking cookies, no third-party analytics tool, no advertising pixel. No banner is therefore required.',
+      'Owl International sets no advertising cookie, no retargeting pixel and operates no audience analytics tool for marketing purposes. The site’s hosting platform (Lovable Labs AB) does however set, on its own behalf, two strictly technical infrastructure-measurement cookies: “session-id” (anonymous session identifier, session duration) and “__dpl” (identifies the deployment being served, session duration). These cookies feed the host’s aggregated infrastructure audience measurement; they are not cross-referenced with any other data, are not used for profiling or advertising, and are not used by Owl International to identify a visitor. You may block or delete them from your browser settings without affecting how the site works.',
     'privacy.data.title': 'Data collected through the Owl Scouts programme',
     'privacy.data.body':
       'The only collection of personal data concerns the application form of the Owl Scouts programme. The following data is collected: full name, email address, phone number (optional), country/region, opportunity area, free-text message, and application timestamp.',
@@ -658,7 +658,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'You have a right of access, rectification, erasure, restriction, objection and portability of your data. To exercise these rights, write to contact@internationalowl.com. You may also lodge a complaint with the CNIL.',
     'privacy.update.title': 'Update',
     'privacy.update.body':
-      'Version 1.1 - 31 July 2026. This policy may be updated; the online version, dated above, prevails.',
+      'Version 1.2 - 31 July 2026. This policy may be updated; the online version, dated above, prevails.',
 
     'terms.eyebrow': 'TERMS',
     'terms.title': 'Terms of use',

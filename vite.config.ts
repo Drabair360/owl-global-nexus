@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 import { imagetools } from "vite-imagetools";
 
 /** URL absolue du site (surchargeable via VITE_SITE_URL). */
-const SITE_URL = (process.env.VITE_SITE_URL || "https://www.internationalowl.com").replace(/\/+$/, "");
+const SITE_URL = (process.env.VITE_SITE_URL || "https://internationalowl.com").replace(/\/+$/, "");
 
 const read = (file: string) => fs.readFileSync(path.resolve(__dirname, file), "utf-8");
 const withSite = (file: string) => read(file).split("__SITE_URL__").join(SITE_URL);

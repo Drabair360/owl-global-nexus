@@ -10,7 +10,7 @@
  * de cette constante (les fichiers statiques via le plugin de build).
  */
 export const SITE_URL: string = (
-  (import.meta.env?.VITE_SITE_URL as string | undefined) ?? 'https://www.internationalowl.com'
+  (import.meta.env?.VITE_SITE_URL as string | undefined) ?? 'https://internationalowl.com'
 ).replace(/\/+$/, '');
 
 /** Construit une URL absolue à partir d'un chemin relatif. */
