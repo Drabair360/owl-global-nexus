@@ -319,7 +319,7 @@ const dict: Record<Locale, Record<string, string>> = {
       'Les données sont conservées vingt-quatre (24) mois à compter du dernier contact, puis supprimées.',
     'privacy.share.title': 'Destinataires',
     'privacy.share.body':
-      'Les données sont accessibles aux seules équipes internes d’Owl International et aux sous-traitants techniques nécessaires au fonctionnement du site : l’hébergeur du site et Supabase (base de données, sous-traitant au sens de l’article 28 du RGPD). Aucun transfert commercial à un tiers n’est effectué.',
+      'Les données sont accessibles aux seules équipes internes d’Owl International et aux sous-traitants techniques nécessaires au fonctionnement du site : Lovable Labs AB (hébergement du site, Suède, Union européenne) et Supabase (base de données, sous-traitant au sens de l’article 28 du RGPD). Aucun transfert commercial à un tiers n’est effectué.',
     'privacy.transfers.title': 'Transferts hors Union européenne',
     'privacy.transfers.body':
       'La base de données Supabase qui héberge les candidatures Owl Scouts est localisée dans l’Union européenne (région AWS eu-west-1, Irlande). Les fontes du site sont auto-hébergées : aucune requête n’est adressée à un serveur tiers lors de votre navigation. À ce jour, aucun transfert de données personnelles hors de l’Union européenne n’est donc réalisé dans le cadre de ce site. Toute évolution serait encadrée par les clauses contractuelles types de la Commission européenne et signalée sur cette page.',
