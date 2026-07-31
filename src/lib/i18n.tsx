@@ -192,9 +192,6 @@ const dict: Record<Locale, Record<string, string>> = {
     'scouts.form.duplicateTitle': 'Candidature déjà enregistrée',
     'scouts.form.duplicateBody':
       'Une candidature a déjà été déposée avec cette adresse email. Inutile de la renvoyer : nous revenons vers chaque candidat. Pour compléter votre dossier, écrivez à contact@internationalowl.com.',
-    'scouts.form.duplicateTitle': 'Application already received',
-    'scouts.form.duplicateBody':
-      'An application has already been submitted with this email address. No need to resend it: we get back to every applicant. To complete your file, write to contact@internationalowl.com.',
     'scouts.form.errorTitle': 'Envoi impossible.',
     'scouts.form.retry': 'Réessayer',
     'scouts.form.writeUs': 'Nous écrire directement',
@@ -513,6 +510,9 @@ const dict: Record<Locale, Record<string, string>> = {
     'scouts.form.successTitle': 'Application received.',
     'scouts.form.successBody': 'We acknowledge receipt manually. An individual reply will reach you within a few working days.',
     'scouts.form.successAgain': 'Submit another application',
+    'scouts.form.duplicateTitle': 'Application already received',
+    'scouts.form.duplicateBody':
+      'An application has already been submitted with this email address. No need to resend it: we get back to every applicant. To complete your file, write to contact@internationalowl.com.',
     'scouts.form.errorTitle': 'Submission failed.',
     'scouts.form.retry': 'Try again',
     'scouts.form.writeUs': 'Write to us directly',
