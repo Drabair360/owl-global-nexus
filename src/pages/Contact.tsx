@@ -30,8 +30,8 @@ const Contact = () => {
   ];
   return (
     <PageShell
-      title={`${t('contact.title')} - Owl International | Contact Paris`}
-      description="Contactez Owl International : partenaires bancaires et notariaux, clients industriels, partenariats. Holding basée à Paris, contact@internationalowl.com."
+      title={t('seo.contact.title')}
+      description={t('seo.contact.desc')}
       keywords="contact Owl International, holding Paris, partenaires bancaires, notaires, clients industriels"
       breadcrumbs={[{ name: t('contact.title'), path: '/contact' }]}
       jsonLd={{

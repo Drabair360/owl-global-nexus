@@ -92,8 +92,8 @@ const Scouts = () => {
 
   return (
     <PageShell
-      title={`${t('scouts.title')} - Owl Scouts | Programme de repérage Owl International`}
-      description="Le programme Owl Scouts : détectez, en Europe et en Afrique, les projets industriels, immobiliers et logiciels qui rejoindront le portefeuille d’Owl International."
+      title={t('seo.scouts.title')}
+      description={t('seo.scouts.desc')}
       keywords="Owl Scouts, apporteur d’affaires, deal sourcing, France Afrique, projets industriels, immobilier, logiciel"
       breadcrumbs={[{ name: t('scouts.title'), path: '/scouts' }]}
     >

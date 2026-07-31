@@ -18,8 +18,8 @@ const Metiers = () => {
 
   return (
     <PageShell
-      title={`${t('metiers.title')} - Owl International | Ingénierie EPC, logiciels, immobilier`}
-      description="Les trois métiers d’Owl International : ingénierie industrielle clé en main (EPC), édition de logiciels propriétaires et immobilier patrimonial de long terme."
+      title={t('seo.metiers.title')}
+      description={t('seo.metiers.desc')}
       keywords="métiers Owl International, EPC industriel, logiciel propriétaire, immobilier patrimonial, ingénierie clé en main"
       breadcrumbs={[{ name: t('metiers.title'), path: '/metiers' }]}
     >

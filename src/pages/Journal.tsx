@@ -17,8 +17,8 @@ const Journal = () => {
 
   return (
     <PageShell
-      title={`${t('journal.title')} - Owl International | Journal du groupe`}
-      description="Journal factuel d’Owl International : jalons, immatriculations, ouvertures de filiales et étapes structurantes du groupe entre l’Europe et l’Afrique."
+      title={t('seo.journal.title')}
+      description={t('seo.journal.desc')}
       keywords="journal Owl International, actualités holding, jalons, immatriculations, France Afrique"
       breadcrumbs={[{ name: t('journal.title'), path: '/journal' }]}
     >

@@ -16,8 +16,8 @@ const Engagements = () => {
   ];
   return (
     <PageShell
-      title={`${t('engagements.title')} - Owl International | Responsabilité et gouvernance`}
-      description="Les engagements d’Owl International : gouvernance, responsabilité sociale et environnementale, éthique des affaires entre l’Europe et l’Afrique."
+      title={t('seo.engagements.title')}
+      description={t('seo.engagements.desc')}
       keywords="engagements Owl International, ESG, gouvernance holding, responsabilité"
       breadcrumbs={[{ name: t('engagements.title'), path: '/engagements' }]}
     >
