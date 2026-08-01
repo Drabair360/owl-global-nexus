@@ -63,6 +63,7 @@ export default {
 					deep: 'hsl(var(--gold-deep))',
 					soft: 'hsl(var(--gold-soft))',
 				},
+				oxyde: 'hsl(var(--oxyde))',
 				ink: {
 					DEFAULT: 'hsl(var(--ink))',
 					soft: 'hsl(var(--ink-soft))',
