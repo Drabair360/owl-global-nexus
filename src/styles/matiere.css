@@ -48,6 +48,7 @@
 
   --mat-banche: 8.5rem;
   --mat-grain-tile: 180px;
+  --mat-relief-tile: 300px;
 }
 
 /* --- Surfaces ---------------------------------------------- */
@@ -274,5 +275,5 @@
    Un seul recalibrage autorisé, après migration complète des surfaces
    claires. Ne jamais retoucher page par page : le grain qui dérive par
    petites touches finit sale. */
-:root { --mat-grain-1x: 0.065; }
+:root { --mat-grain-1x: 0.115; }
 @media (max-resolution: 1dppx) { .mat-grain::after { opacity: var(--mat-grain-1x); } }
