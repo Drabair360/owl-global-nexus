@@ -27,7 +27,7 @@ const Engagements = () => {
         title={t('engagements.title')}
       />
 
-      <CinemaBand texture="terrain" tone="nocturne" objectPosition="50% 50%" />
+      <CinemaBand texture="terrain" tone="encre" objectPosition="50% 50%" />
 
       <EditorialSection className="mat-gres mat-grain">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

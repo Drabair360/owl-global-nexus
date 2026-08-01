@@ -48,6 +48,7 @@
 
   --mat-banche: 8.5rem;
   --mat-grain-tile: 180px;
+  --mat-relief-tile: 240px;
 }
 
 /* --- Surfaces ---------------------------------------------- */
@@ -77,7 +78,12 @@
 /* Bloc secondaire : filet de laiton en tête, jamais un creux simulé */
 .mat-serti { border-top: 1px solid hsl(var(--mat-laiton) / 0.55); box-shadow: var(--mat-elev-1); }
 
-/* --- M2 : grain ------------------------------------------- */
+/* --- M2 : grain + relief -----------------------------------
+   Deux couches sur un seul pseudo-élément :
+   1. relief (feDiffuseLighting, lumière unique azimut 90 = x 0, M1),
+      fondu en soft-light : c'est lui qui donne l'envie de toucher ;
+   2. grain fin (fractalNoise haute fréquence) en multiply : la poussière
+      de matière. Jamais l'un sans l'autre - le grain seul reste plat. */
 .mat-grain { position: relative; }
 .mat-grain::after {
   content: '';
@@ -85,19 +91,22 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.105;
+  opacity: 0.23;
   mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
-  background-size: var(--mat-grain-tile) var(--mat-grain-tile);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.24' numOctaves='4' seed='11' stitchTiles='stitch' result='n'/%3E%3CfeDiffuseLighting in='n' surfaceScale='3.2' diffuseConstant='1.05' lighting-color='%23ffffff'%3E%3CfeDistantLight azimuth='90' elevation='56'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23r)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: var(--mat-relief-tile) var(--mat-relief-tile), var(--mat-grain-tile) var(--mat-grain-tile);
+  background-blend-mode: soft-light, normal;
 }
 .mat-beton.mat-grain::after,
-.mat-beton-2.mat-grain::after { mix-blend-mode: screen; opacity: 0.13; }
+.mat-beton-2.mat-grain::after { mix-blend-mode: screen; opacity: 0.2; }
 .mat-grain > * { position: relative; z-index: 1; }
 @media (max-resolution: 1dppx) {
-  .mat-grain::after { opacity: 0.065; }
-  .mat-beton.mat-grain::after, .mat-beton-2.mat-grain::after { opacity: 0.085; }
+  .mat-grain::after { opacity: 0.115; }
+  .mat-beton.mat-grain::after, .mat-beton-2.mat-grain::after { opacity: 0.135; }
 }
-@media (max-width: 767px) { .mat-grain::after { opacity: 0.075; } }
+@media (max-width: 767px) { .mat-grain::after { opacity: 0.13; } }
 @media print { .mat-grain::after, .mat-coffrage::before { display: none !important; } }
 
 /* --- Béton coffré ------------------------------------------ */
@@ -266,5 +275,5 @@
    Un seul recalibrage autorisé, après migration complète des surfaces
    claires. Ne jamais retoucher page par page : le grain qui dérive par
    petites touches finit sale. */
-:root { --mat-grain-1x: 0.065; }
+:root { --mat-grain-1x: 0.115; }
 @media (max-resolution: 1dppx) { .mat-grain::after { opacity: var(--mat-grain-1x); } }
