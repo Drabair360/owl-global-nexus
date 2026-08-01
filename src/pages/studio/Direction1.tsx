@@ -1,12 +1,17 @@
 import React from 'react';
 import { useSEO } from '@/hooks/useSEO';
+import { ventures } from '@/pages/ventures/data';
 import '@/studio/gravure.css';
 
 /* =================================================================
    DOSSIER DE DIRECTION ARTISTIQUE N°1 - « GRAVURE »
    Route privée, non liée, noindex. Aucun contenu nouveau : toutes
-   les données factuelles proviennent du set fermé déjà publié.
+   les données factuelles proviennent du set fermé déjà publié et
+   sont citées telles quelles depuis src/pages/ventures/data.ts.
    ================================================================= */
+
+const cao = ventures.find((v) => v.slug === 'cao-industries')!;
+
 
 const Folio = ({ n, label }: { n: string; label: string }) => (
   <span className="g-folio text-sm">
