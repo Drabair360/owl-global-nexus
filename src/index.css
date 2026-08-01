@@ -257,6 +257,18 @@
     outline-offset: 2px;
     border-radius: 2px;
   }
+
+  /* Scrollbar aux couleurs de la marque */
+  html { scrollbar-color: hsl(var(--gold) / 0.55) hsl(var(--background)); scrollbar-width: thin; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--background)); }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--gold) / 0.5);
+    border: 3px solid hsl(var(--background));
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--gold) / 0.8); }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.001ms !important;
