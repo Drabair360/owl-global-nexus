@@ -66,7 +66,7 @@ const Journal = () => {
                       {year}
                     </span>
                     <span className="text-xs font-subtitle tracking-[0.18em] uppercase text-slate-500">
-                      {String(list.length).padStart(2, '0')} {t('journal.entries')}
+                      {String(list.length).padStart(2, '0')} {t(list.length > 1 ? 'journal.entries' : 'journal.entry')}
                     </span>
                   </a>
                 </li>
