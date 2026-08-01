@@ -174,7 +174,11 @@ const Duotone = ({
           {...(eager ? { fetchpriority: 'high' } : {})}
           decoding="async"
           className="w-full h-full object-cover"
-          style={{ filter: `url(#duo-${id}) contrast(1.05)`, backgroundColor: '#0B0F1A', objectPosition }}
+          style={{
+            filter: `url(#duo-${id}) contrast(${isMatiere ? 1.02 : 1.05})`,
+            backgroundColor: isMatiere ? dark : '#0B0F1A',
+            objectPosition,
+          }}
         />
       </picture>
 
@@ -182,10 +186,7 @@ const Duotone = ({
         <div
           aria-hidden
           className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(ellipse at center, rgba(11,15,26,0) 45%, rgba(11,15,26,0.15) 78%, rgba(11,15,26,0.3) 100%)',
-          }}
+          style={{ background: vignette }}
         />
       )}
       {/* Grain film pour l'effet impression (atténué sous 768px) */}
