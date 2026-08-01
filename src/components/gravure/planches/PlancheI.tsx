@@ -355,7 +355,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
 
     {/* — calque 11 : PASTILLES — l'ordre ①→⑩ suit le chemin des charges — */}
     <Pastille x={A - 52} y={TETE + 4} n={1} />
-    <Pastille x={B + 118} y={traverse(B + 118) - 30} n={2} />
+    <Pastille x={A + 150} y={traverse(A + 150) - 32} n={2} />
     <Pastille x={C - 62} y={traverse(C - 62) - 28} n={3} />
     <Pastille x={A + 108} y={TETE + 2} n={4} />
     <Pastille x={A + 34} y={470} n={5} />
@@ -386,12 +386,12 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     {[178, 205, 232].map((y, i) => (
       <g key={y}>
         <line x1={980} y1={y} x2={1160} y2={y} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="9 3 2 3" opacity="0.7" />
-        <text className="gravure-lettrage" x={1152} y={y + 4} fontSize="11" textAnchor="end">
+        <text className="gravure-lettrage" x={1152} y={y - 6} fontSize="11" textAnchor="end">
           {i + 1}
         </text>
       </g>
     ))}
-    <ChaineCotes y={940} points={[178, 205, 232]} labels={['T', 'T']} attache={978} vertical />
+    <ChaineCotes y={908} points={[178, 205, 232]} labels={['T', 'T']} attache={978} vertical />
     {/* §B8 — ligne de coupe A-A normalisée */}
     <LigneDeCoupe x1={966} x2={1174} y={205} label="A" dir={-1} />
 
