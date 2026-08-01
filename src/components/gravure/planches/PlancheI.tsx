@@ -14,7 +14,7 @@ export const PLANCHE_I = {
   title: "Coupe transversale d'une unité industrielle type",
   desc:
     "Gravure au trait. Coupe verticale d'un bâtiment industriel générique. En bas, le terrain figuré par de fines horizontales espacées ; deux massifs de fondation hachurés à 45 degrés portent les poteaux ; entre eux, un dallage en coupe de matière figuré par des hachures croisées. La ligne de sol, rehaussée de laiton, traverse toute la planche : c'est le plan de pose. Deux poteaux montent jusqu'à une charpente en treillis triangulé qui couvre la portée. À mi-hauteur, deux chemins de roulement portent un pont roulant, dessiné en caisson avec son treuil et son crochet. Au-dessus, un réseau technique figuré en pointillé indique les tracés projetés, non encore posés. Des cotations symboliques, sans valeur chiffrée, portent les lettres A, B et H. Un cartouche d'angle porte le numéro de planche, son titre et le sceau du registre.",
-  viewBox: '0 0 1200 700',
+  viewBox: '0 0 1200 760',
   detailViewBox: '620 235 440 275',
 };
 
@@ -25,7 +25,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => {
       <GravureDefs p={p} />
 
       {/* — TERRAIN : horizontales espacées = sol (grammaire §1) — */}
-      <rect x="0" y={SOL} width="1200" height="180" fill={`url(#${p}-hsol)`} opacity="0.9" />
+      <rect x="0" y={SOL} width="1200" height="240" fill={`url(#${p}-hsol)`} opacity="0.9" />
 
       {/* — DALLAGE en coupe de matière : hachures croisées — */}
       <rect x="200" y={SOL} width="780" height="26" fill={`url(#${p}-hx)`} stroke={ENCRE} strokeWidth={MOYEN} />
@@ -114,20 +114,20 @@ export const PlancheIDrawing = ({ p }: { p: string }) => {
       </text>
 
       {/* — COTATIONS SYMBOLIQUES (jamais de valeur réelle) — */}
-      <Cote p={p} x1={206} y1={636} x2={994} y2={636} label="A" />
-      <Cote p={p} x1={470} y1={604} x2={730} y2={604} label="B" />
+      <Cote p={p} x1={206} y1={634} x2={994} y2={634} label="A" />
+      <Cote p={p} x1={470} y1={600} x2={730} y2={600} label="B" />
       <g>
         <line x1="1120" y1="104" x2="1120" y2={SOL} stroke={OXYDE} strokeWidth={FIN} markerStart={`url(#${p}-cote)`} markerEnd={`url(#${p}-cote)`} />
         <text className="gravure-lettrage" x="1134" y="312" fontSize="13">H</text>
       </g>
-      <text className="gravure-lettrage" x="170" y={SOL + 118} fontSize="13">
+      <text className="gravure-lettrage" x="40" y={SOL + 74} fontSize="13">
         Fondations
       </text>
 
       {/* — CARTOUCHE (composant unique, §1) — */}
       <Cartouche
         x={40}
-        y={600}
+        y={672}
         numeral="I"
         title="Unité industrielle — coupe"
         echelle="Éch. symb."
