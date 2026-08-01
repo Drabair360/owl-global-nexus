@@ -79,7 +79,13 @@ const Duotone = ({
     sepia: { dark: '#2D1E0F', light: '#F5E9D3' },
     prestige: { dark: '#0B0F1A', light: '#F2CE86', mid: '#6B5433' },
     nocturne: { dark: '#0B0F1A', light: '#DCE6F2', mid: '#2A3C57' },
+    /* G3 - Matière. Point noir jamais sous ~6 % (le béton n'est pas un trou),
+       hautes lumières plafonnées à ~92 % (le laiton ne brûle pas). */
+    gres:   { dark: '#241E18', light: '#E0D0AE', mid: '#6B5A45' },
+    laiton: { dark: '#1A1512', light: '#E8C783', mid: '#7A5C2E' },
+    encre:  { dark: '#14110E', light: '#D6CFC1', mid: '#4A4741' },
   };
+  const isMatiere = tone === 'gres' || tone === 'laiton' || tone === 'encre';
   const { dark, light, mid } = palettes[tone];
 
   const toRgb = (hex: string) => {
@@ -98,8 +104,15 @@ const Duotone = ({
   const table = (c: 'r' | 'g' | 'b') =>
     m ? `${d[c]} ${m[c]} ${l[c]}` : `${d[c]} ${l[c]}`;
 
-  const hasVignette = tone === 'prestige' || tone === 'nocturne';
-  const hasHalation = tone === 'prestige';
+  /* Vignettage : v2 sur prestige/nocturne ; Matière sur laiton/encre uniquement,
+     jamais sur grès (assombrir une surface claire salit la matière), et réduit
+     de 20 % par rapport à v2 - la matière n'est pas éclairée au projecteur. */
+  const hasVignette = tone === 'prestige' || tone === 'nocturne' || tone === 'laiton' || tone === 'encre';
+  /* Halation : réservée au laiton. Jamais sur grès (halo sur fond clair = voile sale). */
+  const hasHalation = tone === 'prestige' || tone === 'laiton';
+  const vignette = isMatiere
+    ? 'radial-gradient(ellipse at center, rgba(20,17,14,0) 45%, rgba(20,17,14,0.12) 78%, rgba(20,17,14,0.24) 100%)'
+    : 'radial-gradient(ellipse at center, rgba(11,15,26,0) 45%, rgba(11,15,26,0.15) 78%, rgba(11,15,26,0.3) 100%)';
 
   return (
     /* Le conteneur observé ne porte JAMAIS le clip-path : un élément clippé a une aire
