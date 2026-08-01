@@ -53,7 +53,7 @@
     --font-heading: 'Instrument Serif', Georgia, serif;
     --font-body: 'Inter', system-ui, sans-serif;
     --font-brand: 'Montserrat', 'Avenir Next', sans-serif;
-    --font-condensed: 'Oswald', sans-serif;
+    --font-condensed: 'Inter', system-ui, sans-serif;
 
     /* Owl signature tokens */
     --gold: 43 96% 56%;              /* Or Owl unifié - filets, puces, accents */
