@@ -9,6 +9,8 @@ import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
 import GroupDiagram from '@/components/GroupDiagram';
 import VentureNotice from '@/components/VentureNotice';
+import Planche from '@/components/gravure/Planche';
+import { PLANCHE_I, PlancheIDrawing } from '@/components/gravure/planches/PlancheI';
 
 import { textures, SIZES } from '@/assets/textures';
 import { useParallax } from '@/hooks/useParallax';
