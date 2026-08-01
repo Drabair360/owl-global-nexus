@@ -29,7 +29,7 @@ const Metiers = () => {
         title={t('metiers.title')}
       />
 
-      <EditorialSection className="bg-white">
+      <EditorialSection className="mat-gres mat-grain">
         <div className="space-y-20">
           {blocks.map((b, i) => (
             <Reveal key={b.n} delay={i * 80}>
@@ -37,15 +37,15 @@ const Metiers = () => {
               className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start"
             >
               <div className="md:col-span-3">
-                <div className="font-brand text-5xl md:text-6xl text-slate-500 leading-none">{b.n}</div>
+                <div className="font-brand text-5xl md:text-6xl mat-ink-2 leading-none">{b.n}</div>
               </div>
               <div className="md:col-span-9">
-                <h2 className="font-heading text-2xl md:text-3xl text-slate-900 mb-4">{t(b.tKey)}</h2>
-                <p className="text-lg text-slate-700 font-body leading-relaxed mb-6">{t(b.bKey)}</p>
+                <h2 className="font-heading text-2xl md:text-3xl mat-ink-1 mb-4">{t(b.tKey)}</h2>
+                <p className="text-lg mat-ink-2 font-body leading-relaxed mb-6">{t(b.bKey)}</p>
                 <Link
                   to="/portefeuille"
                   onClick={() => window.scrollTo(0, 0)}
-                  className="inline-flex items-center gap-2 text-sm font-subtitle tracking-wider uppercase text-primary hover:gap-3 transition-all border-b border-primary/40 pb-1"
+                  className="inline-flex items-center gap-2 text-sm font-subtitle tracking-wider uppercase mat-ink-accent hover:gap-3 transition-all border-b border-[hsl(var(--mat-laiton))] pb-1"
                 >
                   {t(b.ctaKey)} <ArrowRight size={14} />
                 </Link>

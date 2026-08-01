@@ -108,43 +108,43 @@ const Scouts = () => {
       <CinemaBand texture="terrain" tone="prestige" objectPosition="20% 50%" />
 
       {/* Comment ça marche */}
-      <EditorialSection className="bg-white">
-        <h2 className="font-heading text-3xl md:text-4xl text-slate-900 mb-16">{t('scouts.how.title')}</h2>
+      <EditorialSection className="mat-gres mat-grain">
+        <h2 className="font-heading text-3xl md:text-4xl mat-ink-1 mb-16">{t('scouts.how.title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {['01', '02', '03'].map((n) => (
             <div key={n}>
               <div className="font-brand text-5xl text-gold-num mb-4">{n}</div>
-              <h3 className="font-heading text-xl text-slate-900 mb-3">{t(`scouts.how.${n}.t`)}</h3>
-              <p className="text-slate-600 font-body leading-relaxed">{t(`scouts.how.${n}.b`)}</p>
+              <h3 className="font-heading text-xl mat-ink-1 mb-3">{t(`scouts.how.${n}.t`)}</h3>
+              <p className="mat-ink-2 font-body leading-relaxed">{t(`scouts.how.${n}.b`)}</p>
             </div>
           ))}
         </div>
       </EditorialSection>
 
       {/* Encadré honnêteté */}
-      <section className="py-16 bg-slate-50 border-y border-slate-200">
+      <section className="py-16 mat-gres-2 mat-grain border-y border-[hsl(var(--mat-on-gres-1)/0.22)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="border-l-4 border-amber-400 pl-6 py-2">
-            <div className="text-xs font-subtitle tracking-widest uppercase text-primary mb-2">
+            <div className="text-xs font-subtitle tracking-widest uppercase mat-ink-accent mb-2">
               {t('scouts.honest.title')}
             </div>
-            <p className="text-slate-700 font-body leading-relaxed">{t('scouts.honest.body')}</p>
+            <p className="mat-ink-2 font-body leading-relaxed">{t('scouts.honest.body')}</p>
           </div>
         </div>
       </section>
 
       {/* Formulaire */}
-      <EditorialSection className="bg-white" id="rejoindre">
+      <EditorialSection className="mat-gres mat-grain" id="rejoindre">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-heading text-3xl md:text-4xl text-slate-900 mb-10">{t('scouts.form.title')}</h2>
+          <h2 className="font-heading text-3xl md:text-4xl mat-ink-1 mb-10">{t('scouts.form.title')}</h2>
 
           {status === 'success' ? (
             <div className="border-t-2 border-emerald-600 bg-emerald-50/60 p-8">
               <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-emerald-700 mb-3">
                 {locale === 'fr' ? 'Confirmation' : 'Confirmation'}
               </div>
-              <h3 className="font-heading text-2xl text-slate-900 mb-3">{t('scouts.form.successTitle')}</h3>
-              <p className="text-slate-700 font-body leading-relaxed mb-6">{t('scouts.form.successBody')}</p>
+              <h3 className="font-heading text-2xl mat-ink-1 mb-3">{t('scouts.form.successTitle')}</h3>
+              <p className="mat-ink-2 font-body leading-relaxed mb-6">{t('scouts.form.successBody')}</p>
               <button
                 type="button"
                 onClick={() => setStatus('idle')}
@@ -164,7 +164,7 @@ const Scouts = () => {
                   autoComplete="name"
                   value={form.full_name}
                   onChange={(e) => setForm({ ...form, full_name: e.target.value })}
-                  className="mt-2 bg-white"
+                  className="mt-2 mat-gres mat-grain"
                   maxLength={200}
                   aria-invalid={!!errors.full_name}
                   required
@@ -182,7 +182,7 @@ const Scouts = () => {
                     autoComplete="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="mt-2 bg-white"
+                    className="mt-2 mat-gres mat-grain"
                     maxLength={320}
                     aria-invalid={!!errors.email}
                     required
@@ -198,7 +198,7 @@ const Scouts = () => {
                     autoComplete="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="mt-2 bg-white"
+                    className="mt-2 mat-gres mat-grain"
                     maxLength={50}
                   />
                 </div>
@@ -212,7 +212,7 @@ const Scouts = () => {
                   autoComplete="country-name"
                   value={form.country}
                   onChange={(e) => setForm({ ...form, country: e.target.value })}
-                  className="mt-2 bg-white"
+                  className="mt-2 mat-gres mat-grain"
                   maxLength={120}
                 />
               </div>
@@ -223,7 +223,7 @@ const Scouts = () => {
                   id="domain"
                   value={form.domain}
                   onChange={(e) => setForm({ ...form, domain: e.target.value })}
-                  className="mt-2 flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="mt-2 flex h-10 w-full rounded-md border border-input mat-gres mat-grain px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   aria-invalid={!!errors.domain}
                   required
                 >
@@ -242,7 +242,7 @@ const Scouts = () => {
                   id="message"
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="mt-2 bg-white"
+                  className="mt-2 mat-gres mat-grain"
                   rows={5}
                   maxLength={5000}
                   aria-invalid={!!errors.message}
@@ -281,7 +281,7 @@ const Scouts = () => {
                 <Label
                   id="consent-label"
                   htmlFor="consent"
-                  className="text-sm text-slate-600 font-body font-normal cursor-pointer leading-relaxed py-1"
+                  className="text-sm mat-ink-2 font-body font-normal cursor-pointer leading-relaxed py-1"
                 >
                   {t('scouts.form.consent')}
                 </Label>
@@ -303,7 +303,7 @@ const Scouts = () => {
                   <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-destructive mb-2">
                     {t('scouts.form.errorTitle')}
                   </div>
-                  <p className="text-sm text-slate-700 font-body mb-3">{t('scouts.form.error')}</p>
+                  <p className="text-sm mat-ink-2 font-body mb-3">{t('scouts.form.error')}</p>
                   <a
                     href="mailto:contact@internationalowl.com"
                     className="text-xs font-subtitle tracking-[0.2em] uppercase text-destructive hover:text-destructive/80 border-b border-destructive/40 pb-1"
