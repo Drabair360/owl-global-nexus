@@ -97,6 +97,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'home.milestones.title': 'Nous publions notre construction telle qu’elle est.',
     'home.milestones.body': 'Ce que vous lisez ici est vérifiable au registre du commerce.',
     'home.milestones.2023': 'Immatriculation d’Owl International au RCS de Paris (978 849 230).',
+    'home.milestones.2024': 'Premier exercice clos : chiffre d’affaires de 141 k€, résultat net de 130 k€. Comptes déposés au greffe.',
     'home.milestones.2026a': 'Structuration du groupe en deux pôles ; constitution de CAO Industries engagée.',
     'home.milestones.2026b': 'Lancement de la structuration d’Owl Real Estate et de sa première opération dans le sud de la France.',
     'home.milestones.2026c': 'Ouverture du programme Owl Scouts.',
@@ -242,7 +243,7 @@ const dict: Record<Locale, Record<string, string>> = {
     // ---- Journal ----
     'journal.eyebrow': 'JOURNAL DE CONSTRUCTION',
     'journal.title': 'Ce que nous construisons, à la date près.',
-    'journal.body': 'Chaque entrée correspond à un fait vérifiable. Peu d’entrées, assumé.',
+    'journal.body': 'Chaque entrée correspond à un fait vérifiable ; les dates exactes sont indiquées lorsqu’elles sont arrêtées.',
     'journal.2023.title': 'Immatriculation d’Owl International',
     'journal.2023.body': 'Création de la holding au RCS de Paris (978 849 230), le 23 août 2023.',
     'journal.2026a.title': 'Structuration du groupe en deux pôles',
@@ -483,6 +484,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'home.milestones.title': 'We publish our construction as it stands.',
     'home.milestones.body': 'What you read here is verifiable at the commercial registry.',
     'home.milestones.2023': 'Registration of Owl International at the Paris Commercial Register (978 849 230).',
+    'home.milestones.2024': 'First financial year closed: revenue of EUR 141k, net income of EUR 130k. Accounts filed with the commercial court registry.',
     'home.milestones.2026a': 'Structuring of the group into two divisions; incorporation of CAO Industries engaged.',
     'home.milestones.2026b': 'Structuring of Owl Real Estate and launch of its first operation in the south of France.',
     'home.milestones.2026c': 'Launch of the Owl Scouts programme.',
@@ -627,7 +629,7 @@ const dict: Record<Locale, Record<string, string>> = {
     // ---- Journal ----
     'journal.eyebrow': 'CONSTRUCTION JOURNAL',
     'journal.title': 'What we are building, to the date.',
-    'journal.body': 'Each entry corresponds to a verifiable fact. Few entries - by design.',
+    'journal.body': 'Each entry corresponds to a verifiable fact; exact dates are given where they are settled.',
     'journal.2023.title': 'Registration of Owl International',
     'journal.2023.body': 'Creation of the holding at the Paris Commercial Register (978 849 230), on 23 August 2023.',
     'journal.2026a.title': 'Structuring of the group into two divisions',
