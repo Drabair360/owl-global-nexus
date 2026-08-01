@@ -52,6 +52,8 @@ const App = () => (
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/studio/direction-1" element={<StudioDirection1 />} />
+
 
             {/* Redirections des anciennes routes (préservent le référencement) */}
             <Route path="/about" element={<Navigate to="/groupe" replace />} />
