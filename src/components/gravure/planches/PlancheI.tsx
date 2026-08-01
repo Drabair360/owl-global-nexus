@@ -166,8 +166,18 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
 
     {/* — calque 4 : ±0,00 — L'UNIQUE REHAUT DE LAITON (sol + arase dallage) — */}
     <line x1="60" y1={SOL} x2="880" y2={SOL} stroke={LAITON} strokeWidth={FORT} />
-    <line x1={C} y1={540} x2={C + 26} y2={540} stroke={LAITON} strokeWidth={FIN} />
-    <line x1={C + 26} y1={540} x2={C + 26} y2={SOL} stroke={LAITON} strokeWidth={FIN} strokeDasharray="5 4" />
+    {/* l'arase du dallage se raccorde au rehaut : le fil de rappel reste encre */}
+    <path
+      d={`M${C} 540 H${C + 26} V${SOL}`}
+      fill="none"
+      stroke={ENCRE}
+      strokeWidth={FIN}
+      strokeDasharray="5 4"
+      opacity="0.8"
+    />
+    <text className="gravure-lettrage" x={C + 30} y={534} fontSize="11">
+      Arase dallage
+    </text>
     <RepereNiveau x={852} y={SOL} label="±0,00" rappel={812} or />
 
     {/* — calque 5 : POTEAUX, PLATINES, CALAGE, ANCRAGES CACHÉS — */}
@@ -186,7 +196,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
         <Cadre x={x - 30} y={SOL - 13} w={60} h={9} weight={MOYEN} over={1.5} />
         {/* §B1 — calage au mortier : couche fine, pochée distincte */}
         <rect x={x - 30} y={SOL - 4} width={60} height={4} fill="hsl(var(--gravure-fond))" />
-        <rect x={x - 30} y={SOL - 4} width={60} height={4} fill={poche(p, 'pierre')} opacity="0.85" />
+        <rect x={x - 30} y={SOL - 4} width={60} height={4} fill={poche(p, 'beton')} opacity="0.9" />
         <Cadre x={x - 30} y={SOL - 4} w={60} h={4} weight={FIN} over={1.2} />
         {/* écrous et rondelles au-dessus de la platine */}
         <EcrouRondelle x={x - 22} y={SOL - 13} />
