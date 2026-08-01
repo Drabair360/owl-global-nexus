@@ -197,7 +197,7 @@ export const RepereNiveau = ({
       )}
       <path d={`M${x - 8} ${y - 12} L${x + 8} ${y - 12} L${x} ${y} z`} fill="none" stroke={c} strokeWidth={MOYEN} />
       <line x1={x - 22} y1={y} x2={x + 22} y2={y} stroke={c} strokeWidth={MOYEN} />
-      <text className="gravure-lettrage" x={x + 26} y={y - 4} fontSize="13" fill={or ? LAITON : OXYDE}>
+      <text className="gravure-lettrage" x={x + 26} y={y - 4} fontSize="12" fill={or ? LAITON : OXYDE}>
         {label}
       </text>
     </g>
@@ -260,13 +260,13 @@ export const ChaineCotes = ({
             className="gravure-lettrage"
             x={y + 12}
             y={m}
-            fontSize="13"
+            fontSize="11"
             textAnchor="start"
           >
             {lb}
           </text>
         ) : (
-          <text key={lb + i} className="gravure-lettrage" x={m} y={y - 8} fontSize="13" textAnchor="middle">
+          <text key={lb + i} className="gravure-lettrage" x={m} y={y - 8} fontSize="11" textAnchor="middle">
             {lb}
           </text>
         );
@@ -304,7 +304,7 @@ export const Attache = ({
         className="gravure-lettrage"
         x={anchor === 'end' ? ex - 4 : ex + 4}
         y={my - 5}
-        fontSize="12"
+        fontSize="11"
         textAnchor={anchor}
       >
         {label}
@@ -399,7 +399,7 @@ export const CercleDetail = ({
 }) => (
   <g>
     <circle cx={cx} cy={cy} r={r} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
-    <text className="gravure-lettrage" x={cx + r * 0.72} y={cy - r * 0.72} fontSize="12">
+    <text className="gravure-lettrage" x={cx + r * 0.72} y={cy - r * 0.72} fontSize="11">
       {label}
     </text>
   </g>
@@ -516,7 +516,7 @@ export const FlechePente = ({
     <g>
       <line x1={x} y1={y} x2={ex} y2={ey} stroke={OXYDE} strokeWidth={FIN} />
       <path d={`M${ex} ${ey} L${p1[0]} ${p1[1]} M${ex} ${ey} L${p2[0]} ${p2[1]}`} stroke={OXYDE} strokeWidth={FIN} fill="none" />
-      <text className="gravure-lettrage" x={(x + ex) / 2} y={(y + ey) / 2 - 7} fontSize="12" textAnchor="middle">
+      <text className="gravure-lettrage" x={(x + ex) / 2} y={(y + ey) / 2 - 7} fontSize="11" textAnchor="middle">
         {label}
       </text>
     </g>
@@ -649,3 +649,293 @@ export const ArcRegulateur = ({ cx, cy, r }: { cx: number; cy: number; r: number
 );
 
 export { D as DEPASSEMENT_VAR, DEPASSEMENT };
+
+/* ================================================================== *
+ * §C — LA QUATRIÈME FAMILLE DE TRAIT ET L'OUTILLAGE D'EXÉCUTION
+ * (Planche I v3. Ajouts disponibles pour la série II-XII.)
+ *
+ * FAMILLES DE TRAIT, gelées :
+ *   continu    fort 1 / moyen 0,75 / fin 0,5      → vu
+ *   interrompu fin, tirets courts                  → caché
+ *   mixte      ultrafin, tiret-point               → axes, régulateurs
+ *   rupture    zigzag                              → limite d'étendue
+ * ================================================================== */
+
+export const CACHE_DASH = '6 4';
+export const MIXTE_DASH = '14 4 3 4';
+
+/** Trait CACHÉ : tout élément masqué mais structurant. Jamais fort. */
+export const TraitCache = ({
+  x1,
+  y1,
+  x2,
+  y2,
+  opacity = 0.8,
+}: {
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+  opacity?: number;
+}) => (
+  <line
+    x1={x1}
+    y1={y1}
+    x2={x2}
+    y2={y2}
+    stroke={ENCRE}
+    strokeWidth={FIN}
+    strokeDasharray={CACHE_DASH}
+    opacity={opacity}
+  />
+);
+
+/** Tracé caché quelconque (ancrages, bêches, semelles arrière). */
+export const TraceCache = ({ d, opacity = 0.8 }: { d: string; opacity?: number }) => (
+  <path d={d} fill="none" stroke={ENCRE} strokeWidth={FIN} strokeDasharray={CACHE_DASH} opacity={opacity} />
+);
+
+/** Trait MIXTE : axe de pièce, axe d'assemblage, axe de rangée de boulons. */
+export const AxeMixte = ({
+  x1,
+  y1,
+  x2,
+  y2,
+  opacity = 0.7,
+}: {
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+  opacity?: number;
+}) => (
+  <line
+    x1={x1}
+    y1={y1}
+    x2={x2}
+    y2={y2}
+    stroke={ENCRE}
+    strokeWidth={ULTRAFIN}
+    strokeDasharray={MIXTE_DASH}
+    opacity={opacity}
+  />
+);
+
+/**
+ * RAIDISSEUR transversal de poteau, en coupe : poché acier.
+ * Le décalage fin figure la seconde tôle de la paire.
+ */
+export const Raidisseur = ({
+  p,
+  x,
+  y,
+  w,
+  h,
+}: {
+  p: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}) => (
+  <g>
+    <rect x={x} y={y} width={w} height={h} fill="hsl(var(--gravure-fond))" />
+    <rect x={x} y={y} width={w} height={h} fill={poche(p, 'acier')} />
+    <Cadre x={x} y={y} w={w} h={h} weight={FIN} over={1.2} />
+    <line x1={x + 2} y1={y + h + 2.5} x2={x + w - 2} y2={y + h + 2.5} stroke={ENCRE} strokeWidth={FIN} opacity="0.5" />
+  </g>
+);
+
+/** CRAPAUD de fixation de rail : deux clips de part et d'autre du champignon. */
+export const Crapaud = ({ x, y, s = 1 }: { x: number; y: number; s?: number }) => (
+  <path
+    d={`M${x} ${y} l${6 * s} 0 l0 -5 l${3 * s} 0 l0 3`}
+    fill="none"
+    stroke={ENCRE}
+    strokeWidth={FIN}
+  />
+);
+
+/** ÉCHANTIGNOLE : la cale d'appui qui tient la panne sur la traverse. */
+export const Echantignole = ({ x, y, a = 0 }: { x: number; y: number; a?: number }) => (
+  <g transform={`rotate(${a} ${x} ${y})`}>
+    <path d={`M${x - 7} ${y} h14 v-9 h-4`} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+  </g>
+);
+
+/** PANNE en Z, posée inclinée sur la traverse (jamais un rectangle à plat). */
+export const PanneZ = ({ x, y, a = 0, s = 1 }: { x: number; y: number; a?: number; s?: number }) => (
+  <g transform={`rotate(${a} ${x} ${y}) translate(${x} ${y}) scale(${s})`}>
+    <path d="M7 -7 H-2 V7 H-9" fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+    <path d="M7 -4.5 H0.5 V9.5 H-9" fill="none" stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
+  </g>
+);
+
+/** LISSE en C, support du bardage. */
+export const LisseC = ({ x, y, s = 1 }: { x: number; y: number; s?: number }) => (
+  <g>
+    <path d={`M${x + 6 * s} ${y - 6} H${x} V${y + 6} H${x + 6 * s}`} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+    <path d={`M${x + 6 * s} ${y - 3.5} H${x + 2.5 * s} V${y + 3.5} H${x + 6 * s}`} fill="none" stroke={ENCRE} strokeWidth={FIN} opacity="0.7" />
+  </g>
+);
+
+/**
+ * SOUDURE, symbolisation de bureau d'études : ligne de repère fléchée,
+ * ligne de référence horizontale, triangle de cordon d'angle, gorge
+ * symbolique. `periph` ajoute le cercle de soudure périphérique au coude.
+ */
+export const SoudureISO = ({
+  x,
+  y,
+  dx,
+  dy,
+  gorge = 'a',
+  periph = false,
+  dir = 1,
+  len = 40,
+}: {
+  x: number;
+  y: number;
+  dx: number;
+  dy: number;
+  gorge?: string;
+  periph?: boolean;
+  dir?: number;
+  len?: number;
+}) => {
+  const ex = x + dx;
+  const ey = y + dy;
+  const sens = Math.sign(dx) || 1;
+  const fx = ex + len * sens;
+  const a = Math.atan2(dy, dx);
+  const p1 = [x + 9 * Math.cos(a - 0.32), y + 9 * Math.sin(a - 0.32)];
+  const p2 = [x + 9 * Math.cos(a + 0.32), y + 9 * Math.sin(a + 0.32)];
+  return (
+    <g>
+      {/* ligne de repère fléchée : la flèche touche la soudure */}
+      <line x1={x} y1={y} x2={ex} y2={ey} stroke={OXYDE} strokeWidth={FIN} />
+      <path d={`M${x} ${y} L${p1[0]} ${p1[1]} L${p2[0]} ${p2[1]} z`} fill={OXYDE} />
+      {/* ligne de référence */}
+      <line x1={ex} y1={ey} x2={fx} y2={ey} stroke={OXYDE} strokeWidth={FIN} />
+      {/* triangle de cordon d'angle */}
+      <path
+        d={`M${ex + 12 * sens} ${ey} l${9 * sens} 0 l${-9 * sens} ${-8 * dir} z`}
+        fill={OXYDE}
+      />
+      <text className="gravure-lettrage" x={ex + 6 * sens} y={ey - 3 * dir} fontSize="11" textAnchor="middle">
+        {gorge}
+      </text>
+      {periph && <circle cx={ex} cy={ey} r="3.4" fill="none" stroke={OXYDE} strokeWidth={FIN} />}
+    </g>
+  );
+};
+
+/** BOULON D'ANCRAGE À CROCHET, noyé : donc dessiné en trait interrompu. */
+export const AncrageCrochet = ({
+  x,
+  y,
+  h,
+  hook = 11,
+  dir = 1,
+}: {
+  x: number;
+  y: number;
+  h: number;
+  hook?: number;
+  dir?: number;
+}) => (
+  <TraceCache d={`M${x} ${y} v${h} q0 7 ${7 * dir} 7 h${(hook - 7) * dir}`} />
+);
+
+/** ÉCROU ET RONDELLE au-dessus de la platine, évoqués. */
+export const EcrouRondelle = ({ x, y }: { x: number; y: number }) => (
+  <g stroke={ENCRE} strokeWidth={FIN} fill="none">
+    <line x1={x - 6} y1={y} x2={x + 6} y2={y} />
+    <rect x={x - 4} y={y - 5} width={8} height={5} />
+  </g>
+);
+
+/**
+ * LIGNE DE COUPE normalisée : mixte FORT aux extrémités, fin au milieu,
+ * flèches de sens du regard, lettre repère aux deux bouts.
+ */
+export const LigneDeCoupe = ({
+  x1,
+  x2,
+  y,
+  label = 'A',
+  dir = -1,
+}: {
+  x1: number;
+  x2: number;
+  y: number;
+  label?: string;
+  dir?: number;
+}) => {
+  const bout = 26;
+  return (
+    <g>
+      <line x1={x1} y1={y} x2={x1 + bout} y2={y} stroke={OXYDE} strokeWidth={FORT} />
+      <line x1={x2 - bout} y1={y} x2={x2} y2={y} stroke={OXYDE} strokeWidth={FORT} />
+      <line
+        x1={x1 + bout}
+        y1={y}
+        x2={x2 - bout}
+        y2={y}
+        stroke={OXYDE}
+        strokeWidth={FIN}
+        strokeDasharray={MIXTE_DASH}
+        opacity="0.8"
+      />
+      {[x1 + bout, x2 - bout].map((bx, i) => (
+        <g key={bx}>
+          <line x1={bx} y1={y} x2={bx} y2={y + 13 * dir} stroke={OXYDE} strokeWidth={MOYEN} />
+          <path
+            d={`M${bx} ${y + 13 * dir} l${i ? 8 : -8} 0 l${i ? -4 : 4} ${5 * dir} z`}
+            fill={OXYDE}
+          />
+        </g>
+      ))}
+      <text className="gravure-lettrage" x={x1 - 6} y={y + 4} fontSize="12" textAnchor="end">
+        {label}
+      </text>
+      <text className="gravure-lettrage" x={x2 + 6} y={y + 4} fontSize="12">
+        {label}
+      </text>
+    </g>
+  );
+};
+
+/** PASTILLE À LETTRE ⓐ : nomenclature secondaire, réservée aux détails. */
+export const PastilleLettre = ({ x, y, l, r = 8 }: { x: number; y: number; l: string; r?: number }) => (
+  <g>
+    <circle cx={x} cy={y} r={r} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
+    <text className="gravure-lettrage" x={x} y={y + 4} fontSize="10" textAnchor="middle" fill={ENCRE}>
+      {l}
+    </text>
+  </g>
+);
+
+/** Nomenclature secondaire d'un cercle de détail : ⓐ → ⓗ. */
+export const NomenclatureLettres = ({
+  x,
+  y,
+  items,
+  lineHeight = 21,
+}: {
+  x: number;
+  y: number;
+  items: string[];
+  lineHeight?: number;
+}) => (
+  <g>
+    {items.map((it, i) => (
+      <g key={it}>
+        <PastilleLettre x={x} y={y + i * lineHeight} l={String.fromCharCode(97 + i)} />
+        <text className="gravure-lettrage" x={x + 16} y={y + i * lineHeight + 4} fontSize="12">
+          {it}
+        </text>
+      </g>
+    ))}
+  </g>
+);

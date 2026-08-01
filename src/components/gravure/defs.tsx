@@ -15,6 +15,21 @@ import React from 'react';
  *   poche-pierre  45° + points
  *   poche-bois    madrures fines
  *
+ * FAMILLES DE TRAIT §C (Planche I v3) — quatre, documentées une fois :
+ *   continu    fort 1 / moyen 0,75 / fin 0,5  → arêtes vues, pièces coupées
+ *   interrompu fin + tirets courts (CACHE_DASH) → élément masqué mais
+ *              structurant : ancrages noyés, bêche, semelle arrière, liernes
+ *   mixte      ultrafin, tiret-point (MIXTE_DASH) → axes de pièce, axes de
+ *              rangée de boulons, files et trames, tracés régulateurs
+ *   rupture    zigzag → limite d'étendue du dessin
+ * Représentation des boulons (cercle + croix) et symbolisation des soudures
+ * (repère fléché, ligne de référence, triangle de cordon, gorge symbolique)
+ * suivent l'usage des bureaux d'études ; aucune norme n'est citée au dessin.
+ *
+ * ÉCRITURES §C — hauteurs hiérarchisées, jamais deux fonctions à la même :
+ *   14 titres de figure et de nomenclature · 12 nomenclature et niveaux
+ *   11 cotes, attaches, annotations · 10 lettres de détail
+ *
  * STRATES DE SOL §1.10 : remblai (points) / terrain (45° espacé) / bon sol (45° serré).
  * Aucune hachure décorative : si elle n'a pas de sens, elle n'existe pas.
  */
@@ -38,7 +53,7 @@ export const GravureDefs = ({ p }: { p: string }) => (
       <line x1="0" y1="0" x2="6" y2="0" stroke="hsl(var(--gravure-encre))" strokeWidth="var(--trait-fin)" opacity="0.62" />
     </pattern>
     <pattern id={`${p}-poche-acier`} width="4" height="4" patternUnits="userSpaceOnUse">
-      <rect width="4" height="4" fill="hsl(var(--gravure-encre))" opacity="0.55" />
+      <rect width="4" height="4" fill="hsl(var(--gravure-encre))" opacity="0.42" />
     </pattern>
     <pattern id={`${p}-poche-pierre`} width="11" height="11" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
       <line x1="0" y1="0" x2="0" y2="11" stroke="hsl(var(--gravure-encre))" strokeWidth="var(--trait-fin)" opacity="0.6" />
