@@ -53,7 +53,7 @@ export const GravureDefs = ({ p }: { p: string }) => (
       <line x1="0" y1="0" x2="6" y2="0" stroke="hsl(var(--gravure-encre))" strokeWidth="var(--trait-fin)" opacity="0.62" />
     </pattern>
     <pattern id={`${p}-poche-acier`} width="4" height="4" patternUnits="userSpaceOnUse">
-      <rect width="4" height="4" fill="hsl(var(--gravure-encre))" opacity="0.55" />
+      <rect width="4" height="4" fill="hsl(var(--gravure-encre))" opacity="0.42" />
     </pattern>
     <pattern id={`${p}-poche-pierre`} width="11" height="11" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
       <line x1="0" y1="0" x2="0" y2="11" stroke="hsl(var(--gravure-encre))" strokeWidth="var(--trait-fin)" opacity="0.6" />
