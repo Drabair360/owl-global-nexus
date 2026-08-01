@@ -26,6 +26,8 @@ const Venture = lazy(() => import('./pages/ventures/Venture'));
 // Routes de studio : dossiers de direction artistique, non liées, noindex.
 const StudioDirection1 = lazy(() => import('./pages/studio/Direction1'));
 const StudioDirection2 = lazy(() => import('./pages/studio/Direction2'));
+const StudioDirection3 = lazy(() => import('./pages/studio/Direction3'));
+const StudioComparatif = lazy(() => import('./pages/studio/Comparatif'));
 
 const queryClient = new QueryClient();
 
