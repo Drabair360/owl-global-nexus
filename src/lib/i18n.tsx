@@ -40,7 +40,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'seo.contact.title': 'Contact - Owl International',
     'seo.contact.desc': 'Contacter Owl International : partenaires bancaires et notariaux, clients industriels, partenariats. Holding basée à Paris, contact@internationalowl.com.',
     'seo.legal.title': 'Mentions légales - Owl International',
-    'seo.legal.desc': 'Mentions légales d’Owl International SASU, holding basée à Paris : éditeur, hébergeur, propriété intellectuelle.',
+    'seo.legal.desc': 'Mentions légales d’Owl International, holding basée à Paris : éditeur, hébergeur, propriété intellectuelle.',
     'seo.privacy.title': 'Confidentialité - Owl International',
     'seo.privacy.desc': 'Politique de confidentialité d’Owl International : données traitées, base légale, cookies de l’hébergeur, conservation et droits RGPD.',
     'seo.terms.title': 'CGU - Owl International',
@@ -65,7 +65,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'footer.terms': 'CGU',
     'footer.president': 'Président',
     'footer.rights': 'Tous droits réservés.',
-    'footer.form': 'Société par actions simplifiée unipersonnelle',
+    'footer.form': 'Société par actions simplifiée',
     'footer.siege': 'Siège social',
     'footer.verifiable': 'Ce que vous lisez ici est vérifiable au registre du commerce.',
     'common.readMore': 'Comprendre notre modèle',
@@ -116,7 +116,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'groupe.eyebrow': 'LE GROUPE',
     'groupe.title': 'Une holding animatrice, deux pôles complémentaires.',
     'groupe.intro':
-      'Owl International est une société par actions simplifiée unipersonnelle (SASU) de droit français, immatriculée au Registre du commerce et des sociétés de Paris. Holding animatrice du groupe, elle définit la stratégie, pilote les filiales et conduit la politique d’investissement, autour de deux pôles complémentaires : un pôle opérationnel (ingénierie industrielle et logiciel) et un pôle patrimonial (immobilier de long terme).',
+      'Owl International est une société par actions simplifiée de droit français, immatriculée au Registre du commerce et des sociétés de Paris. Holding animatrice du groupe, elle définit la stratégie, pilote les filiales et conduit la politique d’investissement, autour de deux pôles complémentaires : un pôle opérationnel (ingénierie industrielle et logiciel) et un pôle patrimonial (immobilier de long terme).',
     'groupe.gouv.title': 'Gouvernance',
     'groupe.gouv.body':
       'Le groupe est dirigé par son fondateur, Arthur Draber, Président d’Owl International. La gouvernance privilégie des structures simples, des responsabilités claires et une grande rigueur juridique et comptable, avec l’appui de conseils externes - notaire, juristes, expertise comptable.',
@@ -340,7 +340,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'legal.title': 'Mentions légales',
     'legal.editor.title': 'Éditeur du site',
     'legal.editor.body':
-      'Owl International, société par actions simplifiée unipersonnelle (SASU) immatriculée au RCS de Paris sous le numéro 978 849 230. Siège social : 47 boulevard de Courcelles, 75008 Paris, France. Président et directeur de la publication : Arthur Draber.',
+      'Owl International, société par actions simplifiée immatriculée au RCS de Paris sous le numéro 978 849 230. Siège social : 47 boulevard de Courcelles, 75008 Paris, France. Président et directeur de la publication : Arthur Draber.',
     'legal.contact.title': 'Contact',
     'legal.contact.body': 'contact@internationalowl.com',
     'legal.host.title': 'Hébergement',
@@ -424,7 +424,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'seo.contact.title': 'Contact - Owl International',
     'seo.contact.desc': 'Contact Owl International: banking and notarial partners, industrial clients, partnerships. Paris-based holding, contact@internationalowl.com.',
     'seo.legal.title': 'Legal notice - Owl International',
-    'seo.legal.desc': 'Legal notice of Owl International SASU, a Paris-based holding: publisher, host, intellectual property.',
+    'seo.legal.desc': 'Legal notice of Owl International, a Paris-based holding: publisher, host, intellectual property.',
     'seo.privacy.title': 'Privacy - Owl International',
     'seo.privacy.desc': 'Owl International’s privacy policy: data processed, legal basis, host cookies, retention periods and GDPR rights.',
     'seo.terms.title': 'Terms - Owl International',
@@ -449,7 +449,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'footer.terms': 'Terms',
     'footer.president': 'President',
     'footer.rights': 'All rights reserved.',
-    'footer.form': 'Société par actions simplifiée unipersonnelle',
+    'footer.form': 'Simplified joint-stock company',
     'footer.siege': 'Registered office',
     'footer.verifiable': 'What you read here is verifiable at the commercial registry.',
     'common.readMore': 'Understand our model',
@@ -500,7 +500,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'groupe.eyebrow': 'THE GROUP',
     'groupe.title': 'A holding company at the helm - two complementary divisions.',
     'groupe.intro':
-      'Owl International is a French société par actions simplifiée unipersonnelle (SASU), registered at the Paris Commercial Register. As the group holding company, it sets strategy, oversees the subsidiaries and leads the investment policy across two complementary divisions: an operational one (industrial engineering and software) and a real-estate one (long-term property).',
+      'Owl International is a French simplified joint-stock company (société par actions simplifiée), registered at the Paris Commercial Register. As the group holding company, it sets strategy, oversees the subsidiaries and leads the investment policy across two complementary divisions: an operational one (industrial engineering and software) and a real-estate one (long-term property).',
     'groupe.gouv.title': 'Governance',
     'groupe.gouv.body':
       'The group is led by its founder, Arthur Draber, President of Owl International. Governance favours simple structures, clear responsibilities and strict legal and accounting discipline, with the support of external advisors - notary, lawyers, chartered accountants.',
@@ -721,7 +721,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'legal.title': 'Legal notice',
     'legal.editor.title': 'Publisher',
     'legal.editor.body':
-      'Owl International, a French société par actions simplifiée unipersonnelle (SASU) registered at the Paris Commercial Register under number 978 849 230. Registered office: 47 boulevard de Courcelles, 75008 Paris, France. President and publication director: Arthur Draber.',
+      'Owl International, a French simplified joint-stock company (société par actions simplifiée) registered at the Paris Commercial Register under number 978 849 230. Registered office: 47 boulevard de Courcelles, 75008 Paris, France. President and publication director: Arthur Draber.',
     'legal.contact.title': 'Contact',
     'legal.contact.body': 'contact@internationalowl.com',
     'legal.host.title': 'Hosting',
