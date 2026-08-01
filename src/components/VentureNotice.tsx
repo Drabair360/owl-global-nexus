@@ -32,7 +32,7 @@ const VentureNotice = ({ fields }: { fields: NoticeField[] }) => {
               {f.label}
             </dt>
 
-            <dd className="sm:col-span-2 mat-ink-1 font-body mat-tnum">{f.value}</dd>
+            <dd className="min-w-0 break-words mat-ink-1 font-body mat-tnum">{f.value}</dd>
           </div>
         ))}
       </dl>
