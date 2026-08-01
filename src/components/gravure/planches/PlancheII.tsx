@@ -76,7 +76,7 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
     </g>
     <Pastille x={352} y={Y - 206} n={1} />
     <Pastille x={122} y={Y - 96} n={2} />
-    <Attache x={188} y={Y - 172} dx={-70} dy={-52} label="Épure" anchor="end" />
+    <Attache x={188} y={Y - 172} dx={-76} dy={-8} label="Épure" anchor="end" />
 
     {/* ================= FIG. 2 — PROCUREMENT ================= */}
     <RepereFigure x={470} y={96} n="2" title="Procurement - la caisse cotée" w={280} />
@@ -148,11 +148,11 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
     <rect x={932} y={Y + 84} width={40} height={12} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
     <rect x={1108} y={Y + 84} width={40} height={12} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
     {/* la travée suivante, pas encore montée : trait interrompu */}
-    <TraceCache d="M1128 268 L1200 250 M1200 250 L1200 384" />
-    <Rupture x={1200} y={300} length={84} vertical />
+    <TraceCache d="M1128 268 L1180 254 M1180 254 L1180 384" />
+    <Rupture x={1180} y={300} length={84} vertical />
     <Pastille x={1040} y={232} n={6} />
     <Pastille x={952} y={378} n={7} />
-    <Pastille x={1200} y={300} n={8} />
+    <Pastille x={1180} y={330} n={8} />
     <Attache x={952} y={300} dx={-72} dy={-54} label="Assemblage" anchor="end" />
 
     {/* ============ LE FIL CONDUCTEUR — unique rehaut de laiton ============ */}
