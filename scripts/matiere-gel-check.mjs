@@ -44,13 +44,21 @@ for (const [t, expected] of Object.entries(GEL_LEGACY)) {
   const got = value(legacy, t);
   if (got !== expected) errors.push(`${t} : attendu ${expected}, trouvé ${got}`);
 }
-// Le letterpress de production est en force SOBRE et sur béton uniquement (§5).
-if (!/\.mat-beton-2 \.v3-letterpress/.test(v3)) errors.push('letterpress : portée béton perdue');
-if (!/0 -0\.5px 0 hsl\(0 0% 0% \/ 0\.30\)/.test(v3)) errors.push('letterpress : force sobre altérée');
+// Lot Z9 : le letterpress est SUPPRIMÉ. Sa réapparition est une régression.
+if (/\.v3-letterpress[-\d]*\s*\{/.test(v3)) errors.push('letterpress : classe réintroduite (supprimée en Z9)');
+
+// Lot Z3 : deux jetons de focus, un par famille de surface.
+for (const token of ['--focus-on-gres', '--focus-on-beton']) {
+  if (!value(legacy, token)) errors.push(`${token} : jeton de focus manquant`);
+}
+// Lot Z5 : plancher typographique — le cachet ne redescend pas sous 11 px.
+if (!/--mat-corps-plancher\s*:\s*0\.6875rem;/.test(legacy)) errors.push('plancher typographique 11px : perdu');
+// Lot Z12 : trois ors, pas sept.
+if (!/--mat-encre-or\s*:/.test(legacy)) errors.push('consolidation des ors : --mat-encre-or manquant');
 
 if (errors.length) {
   console.error('GEL MATIÈRE v3 — DÉRIVE DÉTECTÉE :');
   errors.forEach((e) => console.error(' -', e));
   process.exit(1);
 }
-console.log('GEL MATIÈRE v3 — conforme (grès, béton, laiton, letterpress sobre, grain 1x 0.07).');
+console.log('GEL MATIÈRE v3 — conforme (grès, béton, laiton, grain 1x 0.07, focus, plancher 11px, trois ors).');
