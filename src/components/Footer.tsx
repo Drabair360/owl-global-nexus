@@ -3,14 +3,23 @@ import { Link } from 'react-router-dom';
 import { MapPin, Mail } from 'lucide-react';
 import { useI18n } from '@/lib/i18n';
 
+/**
+ * FOOTER - béton coffré (G2.3).
+ * C'est le socle du bâtiment : matière la plus dense du site, banches
+ * visibles, grain commun. Le cachet de registre (signature M7 n°2) y scelle
+ * chaque page, et la mention de vérifiabilité y devient gravure.
+ */
 const Footer = () => {
   const { t } = useI18n();
   const year = new Date().getFullYear();
 
   const scrollTop = () => window.scrollTo(0, 0);
 
+  const link =
+    'transition-colors mat-ink-2 hover:text-[hsl(var(--mat-accent-beton))]';
+
   return (
-    <footer className="bg-slate-950 text-slate-300">
+    <footer className="mat-beton-2 mat-grain mat-coffrage">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
@@ -33,17 +42,17 @@ const Footer = () => {
                   className="w-9 h-9 brightness-0 invert"
                 />
               </picture>
-              <span className="text-lg font-brand tracking-wide text-white">OWL INTERNATIONAL</span>
+              <span className="text-lg font-brand tracking-wide mat-ink-1">OWL INTERNATIONAL</span>
             </div>
-            <p className="text-sm leading-relaxed max-w-md text-slate-400">{t('footer.tagline')}</p>
-            <div className="mt-6 space-y-2 text-sm">
+            <p className="text-sm leading-relaxed max-w-md mat-ink-2">{t('footer.tagline')}</p>
+            <div className="mt-6 space-y-2 text-sm mat-ink-2">
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 mt-0.5 text-amber-400 flex-shrink-0" />
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'hsl(var(--mat-laiton-lit))' }} />
                 <span>47 boulevard de Courcelles, 75008 Paris, France</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <a href="mailto:contact@internationalowl.com" className="hover:text-white transition-colors">
+                <Mail className="w-4 h-4 flex-shrink-0" style={{ color: 'hsl(var(--mat-laiton-lit))' }} />
+                <a href="mailto:contact@internationalowl.com" className={link}>
                   contact@internationalowl.com
                 </a>
               </div>
@@ -52,27 +61,35 @@ const Footer = () => {
 
           <div>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/approche" onClick={scrollTop} className="hover:text-white transition-colors">{t('footer.approche')}</Link></li>
-              <li><Link to="/rejoindre" onClick={scrollTop} className="hover:text-white transition-colors">{t('footer.rejoindre')}</Link></li>
-              <li><Link to="/engagements" onClick={scrollTop} className="hover:text-white transition-colors">{t('footer.engagements')}</Link></li>
+              <li><Link to="/approche" onClick={scrollTop} className={link}>{t('footer.approche')}</Link></li>
+              <li><Link to="/rejoindre" onClick={scrollTop} className={link}>{t('footer.rejoindre')}</Link></li>
+              <li><Link to="/engagements" onClick={scrollTop} className={link}>{t('footer.engagements')}</Link></li>
             </ul>
           </div>
 
           <div>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/privacy" onClick={scrollTop} className="hover:text-white transition-colors">{t('footer.privacy')}</Link></li>
-              <li><Link to="/mentions-legales" onClick={scrollTop} className="hover:text-white transition-colors">{t('footer.mentions')}</Link></li>
-              <li><Link to="/terms" onClick={scrollTop} className="hover:text-white transition-colors">{t('footer.terms')}</Link></li>
+              <li><Link to="/privacy" onClick={scrollTop} className={link}>{t('footer.privacy')}</Link></li>
+              <li><Link to="/mentions-legales" onClick={scrollTop} className={link}>{t('footer.mentions')}</Link></li>
+              <li><Link to="/terms" onClick={scrollTop} className={link}>{t('footer.terms')}</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-slate-800 mt-12 pt-8 text-xs text-slate-400 flex flex-col md:flex-row gap-2 md:justify-between">
-          <div>
-            OWL INTERNATIONAL - {t('footer.form')} · {t('footer.siege')} : 47 boulevard de Courcelles, 75008 Paris ·
-            RCS Paris 978 849 230 · {t('footer.president')} : Arthur Draber
-          </div>
-          <div>© Owl International {year}. {t('footer.rights')}</div>
+        {/* Gravure : la mention de vérifiabilité est creusée dans le béton */}
+        <p className="mt-14 mb-8 mat-gravure font-display text-lg md:text-xl max-w-2xl">
+          {t('footer.verifiable')}
+        </p>
+
+        {/* Cachet de registre - signature M7 n°2, il scelle chaque page */}
+        <div className="mat-cachet mat-ink-2">
+          <span className="mat-cachet-seal">RCS Paris 978 849 230</span>
+          <span>OWL INTERNATIONAL</span>
+          <span>{t('footer.form')}</span>
+          <span>{t('footer.siege')} : 47 boulevard de Courcelles, 75008 Paris</span>
+          <span>{t('footer.president')} : Arthur Draber</span>
+          <span className="mat-tnum">© {year}</span>
+          <span>{t('footer.rights')}</span>
         </div>
       </div>
     </footer>
