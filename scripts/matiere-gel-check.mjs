@@ -73,6 +73,7 @@ for (const [t, expected] of Object.entries(TRAITS)) {
 if (!/vector-effect:\s*non-scaling-stroke/.test(gravure)) errors.push('gravure : non-scaling-stroke perdu');
 // Grammaire des hachures : quatre sens, pas un de plus.
 const defs = read('src/components/gravure/defs.tsx');
+const prim0 = read('src/components/gravure/primitives.tsx');
 for (const h of ['-h45', '-hx', '-hsol']) {
   if (!defs.includes(h)) errors.push(`hachure ${h} : motif manquant`);
 }
@@ -86,6 +87,15 @@ for (const m of ['beton', 'acier', 'pierre', 'bois']) {
 // Planche I (ossature métallique sur fondations béton) : ni pierre ni bois.
 if (/poche\(p,\s*'(pierre|bois)'\)/.test(read('src/components/gravure/planches/PlancheI.tsx'))) {
   errors.push('planche I : poché pierre/bois employé sur une matière absente');
+}
+
+// §C (Planche I v3) — la quatrième famille de trait et l'outillage d'exécution
+// entrent au gel : ils sont désormais disponibles pour la série II-XII.
+if (!/CACHE_DASH/.test(prim0) || !/MIXTE_DASH/.test(prim0)) {
+  errors.push('§C : familles de trait caché / mixte non gelées');
+}
+for (const nom of ['TraitCache', 'TraceCache', 'AxeMixte', 'Raidisseur', 'Crapaud', 'Echantignole', 'PanneZ', 'LisseC', 'SoudureISO', 'AncrageCrochet', 'EcrouRondelle', 'LigneDeCoupe', 'PastilleLettre', 'NomenclatureLettres']) {
+  if (!new RegExp(`export const ${nom}\\b`).test(prim0)) errors.push(`primitive §C ${nom} : manquante`);
 }
 
 // §1.10 — strates de sol.
@@ -131,6 +141,11 @@ for (const fig of ['n="1"', 'n="2"', 'n="3"']) {
   if (!pl1.includes(fig)) errors.push(`planche I : ${fig} manquante`);
 }
 if (!/Nomenclature/.test(pl1)) errors.push('planche I : nomenclature manquante');
+// Planche I v3 : le nœud est un détail d'exécution nommé ⓐ-ⓗ.
+if (!/NomenclatureLettres/.test(pl1)) errors.push('planche I : nomenclature secondaire du cercle manquante');
+if (!/AncrageCrochet/.test(pl1) || !/Crapaud/.test(pl1) || !/Raidisseur/.test(pl1)) {
+  errors.push('planche I : ancrages cachés, crapauds ou raidisseurs absents');
+}
 
 
 if (errors.length) {
