@@ -249,7 +249,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
       {/* couverture : peau posée sur les pannes */}
       <Trait x1={A - 6} y1={TETE - 16} x2={B} y2={FAITAGE - 16} w={MOYEN} />
       <Trait x1={C + 6} y1={TETE - 16} x2={B} y2={FAITAGE - 16} w={MOYEN} />
-      <FlechePente x={620} y={traverse(620) - 36} dx={78} dy={28} label="Pente symb." />
+      <FlechePente x={606} y={traverse(606) - 48} dx={78} dy={28} label="Pente symb." />
     </g>
 
     {/* — calque 9 : RÉSEAUX PROJETÉS — */}
