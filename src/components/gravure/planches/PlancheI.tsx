@@ -61,7 +61,7 @@ export const PLANCHE_I = {
     "Gravure au trait, planche à trois figures. FIGURE 1, coupe transversale d'un bâtiment industriel générique, du bon sol au faîtage : le terrain est figuré en trois strates - remblai pointé, terrain hachuré large, bon sol hachuré serré - séparées par des interfaces irrégulières. Deux semelles isolées, en poché béton de hachures croisées serrées, reposent sur un béton de propreté et sont reliées par une longrine ; leurs armatures sont évoquées en U. Au-dessus, le dallage se lit en couches : hérisson pointé, isolant en double trait, dalle pochée, avec un joint de dilatation repéré en son milieu. La ligne de sol, rehaussée de laiton et cotée au niveau zéro, traverse la planche : c'est le plan de pose. Deux poteaux en I, âme et semelles lisibles, montent sur des platines de pied boulonnées munies d'une bêche. Ils portent un portique à jarrets : les traverses, renforcées par des goussets triangulaires, montent au faîtage ; les pannes sont évoquées en section, un contreventement en croix occupe une travée de versant, interrompu par une ligne de rupture. À mi-hauteur, un corbeau soudé porte le chemin de roulement, rail sur poutre, sur lequel roule un pont à galets équipé d'un palan et d'un crochet ; le gabarit de levage est figuré en pointillé, car projeté. L'enveloppe est un bardage double peau, interrompu par des lignes de rupture ; la couverture porte une flèche de pente, un chéneau et une descente d'eaux pluviales en rive. Un réseau technique en pointillé porte la mention PROJETÉ. Les trames A, B et C sont repérées par des bulles d'axe à trait mixte ; une chaîne de cotes symboliques court en pied, et trois repères de niveau donnent le zéro, le niveau de roulement et le faîtage. Dix pastilles numérotées renvoient à la nomenclature. FIGURE 2, dans un cercle de détail, le nœud jarret-traverse à quatre fois l'échelle : gousset, file de boulons et symbole de soudure. FIGURE 3, plan de repérage, où la ligne de coupe A-A fléchée indique d'où la coupe est prise. Un cartouche porte le numéro de planche, son titre, l'échelle graphique et le sceau du registre.",
   viewBox: '0 0 1240 1000',
   /** §3b — le détail compagnon recadre désormais la FIGURE 2. */
-  detailViewBox: '946 104 230 230',
+  detailViewBox: '956 114 210 210',
 };
 
 export const PlancheIDrawing = ({ p }: { p: string }) => (
@@ -266,8 +266,8 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     <BulleAxe x={A} y={112} label="A" to={TETE - 26} />
     <BulleAxe x={B} y={112} label="B" to={FAITAGE - 26} />
     <BulleAxe x={C} y={112} label="C" to={TETE - 26} />
-    <RepereNiveau x={856} y={H1} label="+H1 roulement" rappel={822} />
-    <RepereNiveau x={856} y={FAITAGE} label="+H2 faîtage" rappel={822} />
+    <RepereNiveau x={856} y={H1} label="+H1" rappel={822} />
+    <RepereNiveau x={856} y={FAITAGE} label="+H2" rappel={822} />
     <ChaineCotes y={716} points={[A, B, C]} labels={['L1', 'L2']} attache={700} />
     <ChaineCotes y={802} points={[FAITAGE, H1, SOL]} labels={['H2', 'H1']} attache={782} vertical />
 
