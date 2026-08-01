@@ -5,7 +5,7 @@
    Route non liée, noindex. Aucun composant de production n'en dépend.
    ============================================================= */
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { useSEO } from '@/hooks/useSEO';
 import '@/styles/matiere-v3.css';
 
 type Intensite = 'v3-sobre' | 'v3-cible' | 'v3-poussee';
@@ -80,13 +80,14 @@ const MatiereLab = () => {
   const [zoom, setZoom] = useState(1);
   const [sombre, setSombre] = useState(false);
 
+  useSEO({
+    title: 'Laboratoire Matière v3 - calibrage',
+    description: 'Banc de calibrage des matériaux. Route de studio, non indexée.',
+    noindex: true,
+  });
+
   return (
     <div id="lab" className={sombre ? 'bg-[#101010] min-h-screen' : 'min-h-screen'}>
-      <Helmet>
-        <title>Laboratoire Matière v3 — calibrage</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
-
       <header className="v3-beton px-6 py-10">
         <h1 className="font-display text-3xl mb-2">Laboratoire Matière v3</h1>
         <p className="mat-ink-2 text-sm font-body max-w-2xl">
