@@ -65,13 +65,10 @@ const BancBeton = ({ zoom }: { zoom: number }) => (
 const BancLetterpress = ({ zoom }: { zoom: number }) => (
   <div className="v3-beton p-8" style={{ zoom }}>
     <p className="text-[11px] font-subtitle uppercase tracking-[0.22em] mat-ink-2 mb-6">
-      Spécimen letterpress — retiré (Lot Z9)
+      Spécimen letterpress — supprimé (Lot Z9, verdict final)
     </p>
     <div className="space-y-4">
-      <p className="font-display text-4xl v3-letterpress-1">Owl International — force 1</p>
-      <p className="font-display text-4xl v3-letterpress-2">Owl International — force 2</p>
-      <p className="font-display text-4xl v3-letterpress-3">Owl International — force 3</p>
-      <p className="font-display text-4xl">Owl International — témoin sans effet</p>
+      <p className="font-display text-4xl">Owl International — display nu sur béton</p>
     </div>
   </div>
 );
