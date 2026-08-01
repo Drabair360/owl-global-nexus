@@ -112,7 +112,7 @@ const MaquetteAccueil = () => (
           ou en cours de constitution.
         </p>
         <ol className="grid grid-cols-2 md:grid-cols-5 gap-px mt-12" style={{ background: 'hsl(var(--g-ink) / 0.16)' }}>
-          {['CAOAGRO.COM', 'Owl Line', 'Drabair', 'Owl Ore', 'Owl International'].map((node, i) => (
+          {['CAO Industries', 'Drabair Labs', 'Line Builder', 'Weavme', 'Owl Real Estate'].map((node, i) => (
             <li key={node} className="g-paper-2 p-5">
               <span className="g-smcp text-xs opacity-60 g-tnum">{String(i + 1).padStart(2, '0')}</span>
               <p className="mt-3 text-base leading-snug">{node}</p>
@@ -143,7 +143,7 @@ const MaquetteAccueil = () => (
               ['23 août 2023', 'Immatriculation d\'Owl International, Paris.', '001'],
               ['2024', 'Premier exercice : chiffre d\'affaires de 141 k€, résultat net de 130 k€. Comptes déposés au greffe.', '002'],
               ['13 juillet 2026', 'Ouverture d\'Owl Scouts.', '003'],
-              ['27 juillet 2026', 'Dépôt de capital de CAOAGRO.COM.', '004'],
+              ['27 juillet 2026', 'Dépôt de capital de CAO Industries.', '004'],
             ].map(([d, f, n]) => (
               <tr key={n}>
                 <th scope="row" className="whitespace-nowrap pr-6 align-baseline">
@@ -161,17 +161,18 @@ const MaquetteAccueil = () => (
 );
 
 /* ----------------------------------------------------------------
-   PIÈCE 2 - Fiche venture CAO
+   PIÈCE 2 - Fiche venture CAO Industries
    ---------------------------------------------------------------- */
 const FicheVenture = () => (
   <div className="max-w-[92rem] mx-auto px-6 md:px-12 pb-20">
     <div className="grid grid-cols-12 gap-x-6">
       <div className="col-span-12 md:col-span-8 g-ink-surface g-burin p-8 md:p-14">
-        <span className="g-smcp text-xs" style={{ color: 'hsl(var(--g-gold-lit))' }}>Pôle opérationnel</span>
+        <span className="g-smcp text-xs" style={{ color: 'hsl(var(--g-gold-lit))' }}>Pôle industriel</span>
         <h3 className="g-display mt-6" style={{ fontSize: 'clamp(2.369rem, 7vw, 5.61rem)' }}>
-          CAOAGRO<span className="g-incision">.COM</span>
+          CAO <span className="g-incision">Industries</span>
         </h3>
         <p className="mt-8 text-lg leading-relaxed max-w-xl" style={{ color: 'hsl(var(--g-paper) / 0.78)' }}>
+          Contractant général de projets industriels clé en main, de l'étude à la livraison.
           Constitution engagée en 2026.
         </p>
         <div className="mt-10">
@@ -184,10 +185,10 @@ const FicheVenture = () => (
         <h4 className="g-smcp text-xs mb-6">Notice</h4>
         <dl className="text-base">
           {[
-            ['Dénomination', 'CAOAGRO.COM'],
+            ['Dénomination', 'CAO Industries'],
             ['Statut', 'En cours de constitution'],
             ['Dépôt de capital', '27 juillet 2026'],
-            ['Pôle', 'Opérationnel'],
+            ['Pôle', 'Industriel'],
           ].map(([k, v]) => (
             <div key={k} className="py-3 border-b" style={{ borderColor: 'hsl(var(--g-ink) / 0.16)' }}>
               <dt className="g-smcp text-xs opacity-70">{k}</dt>
@@ -204,7 +205,8 @@ const FicheVenture = () => (
 
     {/* Mini-schéma gravé */}
     <figure className="mt-12 g-paper-3 p-8 md:p-12">
-      <svg viewBox="0 0 800 160" role="img" aria-label="Schéma : rattachement de CAOAGRO.COM au pôle opérationnel" className="w-full h-auto">
+      <svg viewBox="0 0 800 160" role="img" aria-label="Schéma : rattachement de CAO Industries au pôle industriel" className="w-full h-auto">
+
         <defs>
           <pattern id="g-hatch" width="6" height="6" patternTransform="rotate(-32)" patternUnits="userSpaceOnUse">
             <line x1="0" y1="0" x2="0" y2="6" stroke="hsl(var(--g-ink))" strokeOpacity="0.28" strokeWidth="1" />
@@ -213,8 +215,8 @@ const FicheVenture = () => (
         <line x1="40" y1="80" x2="760" y2="80" stroke="hsl(var(--g-ink))" strokeOpacity="0.35" strokeWidth="1" />
         {[
           [140, 'Owl International'],
-          [400, 'Pôle opérationnel'],
-          [660, 'CAOAGRO.COM'],
+          [400, 'Pôle industriel'],
+          [660, 'CAO Industries'],
         ].map(([x, label], i) => (
           <g key={label as string}>
             <rect x={(x as number) - 90} y="56" width="180" height="48" fill={i === 2 ? 'url(#g-hatch)' : 'none'} stroke="hsl(var(--g-ink))" strokeOpacity="0.5" />
@@ -428,7 +430,7 @@ const Direction1 = () => {
         <MaquetteAccueil />
       </Piece>
       <div id="piece-2" />
-      <Piece n="02" title="Fiche venture - CAOAGRO.COM" intent="Notice redessinée et gravure technique">
+      <Piece n="02" title="Fiche venture - CAO Industries" intent="Notice redessinée et gravure technique">
         <FicheVenture />
       </Piece>
       <Piece n="03" title="Spécimen typographique" intent="Échelle entière, réglages OpenType activés">

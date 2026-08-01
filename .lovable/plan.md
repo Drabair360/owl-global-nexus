@@ -45,7 +45,7 @@ Aucune ligne ne sera écrite avant votre retour. Barre de chiffres-clés **stric
 
 Liste des données manquantes à confirmer :
 1. Valeur exacte de chaque KPI du set fermé, avec son millésime de référence.
-2. Périmètre et statut de chacune des 3 ventures (AKOULA, CAOAGRO.COM, OWLOMA) : millésime, pôle de rattachement, statut, périmètre d'activité.
+2. Périmètre et statut de chacune des cinq sociétés (CAO Industries, Drabair Labs, Line Builder, Weavme, Owl Real Estate) : millésime, pôle de rattachement, statut, périmètre d'activité.
 3. Dates exactes des entrées du Journal encore non datées.
 4. Entité d'hébergement + adresse officielle (mentions légales) — placeholder maintenu en attendant.
 5. Toute mention chiffrée souhaitée dans les pages `/groupe` et `/metiers`.
