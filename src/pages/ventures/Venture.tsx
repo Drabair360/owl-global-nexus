@@ -9,6 +9,8 @@ import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
 import GroupDiagram from '@/components/GroupDiagram';
 import VentureNotice from '@/components/VentureNotice';
+import Planche from '@/components/gravure/Planche';
+import { PLANCHE_I, PlancheIDrawing } from '@/components/gravure/planches/PlancheI';
 
 import { textures, SIZES } from '@/assets/textures';
 import { useParallax } from '@/hooks/useParallax';
@@ -113,6 +115,25 @@ const Venture = () => {
         </div>
       </section>
 
+      {/* CABINET DE GRAVURES — planche maîtresse (préversion : CAO seule) */}
+      {venture.slug === 'cao-industries' && (
+        <section className="mat-gres mat-grain">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+            <Reveal>
+              <Planche
+                idPrefix="planche-i"
+                numeral={PLANCHE_I.numeral}
+                title={PLANCHE_I.title}
+                desc={PLANCHE_I.desc}
+                viewBox={PLANCHE_I.viewBox}
+              >
+                <PlancheIDrawing p="pl1" />
+              </Planche>
+            </Reveal>
+          </div>
+        </section>
+      )}
+
       {/* Mission + statut */}
       <EditorialSection className="mat-gres mat-grain">
         {/* G2.3 - la colonne de gauche est refermée : mission, diagramme puis
@@ -150,7 +171,24 @@ const Venture = () => {
                 ]}
               />
             </div>
+
+            {/* §3b — DÉTAIL compagnon : même SVG, viewBox recadrée à 200 % */}
+            {venture.slug === 'cao-industries' && (
+              <div className="mt-12">
+                <Planche
+                  idPrefix="planche-i-detail"
+                  numeral={PLANCHE_I.numeral}
+                  title={PLANCHE_I.title}
+                  desc={`Détail à 200 % de la planche I : le chemin de roulement, le caisson du pont roulant et la tête de poteau. ${PLANCHE_I.desc}`}
+                  viewBox={PLANCHE_I.detailViewBox}
+                  legendSuffix={`Détail de la planche ${PLANCHE_I.numeral}`}
+                >
+                  <PlancheIDrawing p="pl1d" />
+                </Planche>
+              </div>
+            )}
           </div>
+
 
           <div className="md:col-span-8">
             <h2 className="mat-mention font-subtitle tracking-[0.28em] uppercase mat-ink-2 mb-3">

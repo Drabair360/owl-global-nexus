@@ -1,6 +1,7 @@
 @import './fonts.css';
 @import './styles/matiere.css';
 @import './styles/matiere-v3.css';
+@import './styles/gravure.css';
 @import './print.css';
 
 @tailwind base;

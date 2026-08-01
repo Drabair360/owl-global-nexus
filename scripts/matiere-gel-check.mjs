@@ -56,6 +56,27 @@ if (!/--mat-corps-plancher\s*:\s*0\.6875rem;/.test(legacy)) errors.push('planche
 // Lot Z12 : trois ors, pas sept.
 if (!/--mat-encre-or\s*:/.test(legacy)) errors.push('consolidation des ors : --mat-encre-or manquant');
 
+// === CABINET DE GRAVURES §1 — convention de dessin gelée ===
+const gravure = read('src/styles/gravure.css');
+const TRAITS = { '--trait-fort': '1px', '--trait-moyen': '0.75px', '--trait-fin': '0.5px' };
+for (const [t, expected] of Object.entries(TRAITS)) {
+  const got = value(gravure, t);
+  if (got !== expected) errors.push(`${t} : attendu ${expected}, trouvé ${got}`);
+}
+if (!/vector-effect:\s*non-scaling-stroke/.test(gravure)) errors.push('gravure : non-scaling-stroke perdu');
+// Grammaire des hachures : quatre sens, pas un de plus.
+const defs = read('src/components/gravure/defs.tsx');
+for (const h of ['-h45', '-hx', '-hsol']) {
+  if (!defs.includes(h)) errors.push(`hachure ${h} : motif manquant`);
+}
+// Cartouche : composant unique, jamais redessiné.
+const cartouches = ['src/components/gravure/Cartouche.tsx'];
+for (const c of cartouches) { if (!read(c).includes('PLANCHE ')) errors.push('cartouche : gabarit altéré'); }
+// Un seul rehaut de laiton par planche.
+const pl1 = read('src/components/gravure/planches/PlancheI.tsx');
+const laitons = (pl1.split('\n').filter((l) => !l.startsWith('import') && /(?:stroke|fill)=\{LAITON\}/.test(l))).length;
+if (laitons > 1) errors.push(`planche I : ${laitons} rehauts de laiton (maximum 1)`);
+
 if (errors.length) {
   console.error('GEL MATIÈRE v3 — DÉRIVE DÉTECTÉE :');
   errors.forEach((e) => console.error(' -', e));

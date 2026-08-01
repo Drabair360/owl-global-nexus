@@ -1,0 +1,100 @@
+/* =============================================================
+   CABINET DE GRAVURES — CONVENTION DE DESSIN §1
+   Codifiée une fois pour toutes. Toute planche du cabinet
+   n'utilise QUE ces graisses, ces encres et cette grammaire de
+   hachures. Aucune valeur en dur dans les composants.
+   ============================================================= */
+
+:root {
+  /* §1 — trois graisses, pas une de plus */
+  --trait-fort: 1px;    /* contours, arêtes principales */
+  --trait-moyen: 0.75px; /* structures secondaires       */
+  --trait-fin: 0.5px;    /* hachures, cotations          */
+
+  /* §1 — encres de la planche (jamais d'autre couleur) */
+  --gravure-encre: var(--mat-on-gres-1);
+  --gravure-oxyde: var(--mat-accent-gres);
+  --gravure-laiton: var(--mat-laiton);
+  --gravure-fond: var(--mat-gres);
+}
+
+/* Le cadre de planche : fond grès, chant et joint creux. */
+.gravure-planche {
+  position: relative;
+  background-color: hsl(var(--gravure-fond));
+  box-shadow:
+    inset 0 0 0 1px hsl(var(--gravure-encre) / 0.14),
+    var(--mat-elev-1);
+}
+/* Joint creux 2-3px (partition Matière v3) */
+.gravure-planche::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 2px solid hsl(var(--gravure-fond));
+  box-shadow: inset 0 1px 0 hsl(var(--gravure-encre) / 0.10);
+}
+
+.gravure-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* La gravure reste gravure à tout zoom. */
+.gravure-svg [stroke] {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+}
+
+/* Lettrage dans la planche : petites capitales oxyde uniquement. */
+.gravure-lettrage {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-variant-caps: all-small-caps;
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: 0.14em;
+  fill: hsl(var(--gravure-oxyde));
+}
+
+/* Légende de planche — hors du dessin. */
+.gravure-legende {
+  font-size: var(--mat-corps-plancher);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: hsl(var(--gravure-oxyde));
+}
+
+/* Dévoilement : le trait se révèle derrière un filet de laiton. */
+@keyframes gravure-devoile {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+.gravure-devoile {
+  animation: gravure-devoile 1100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.gravure-filet {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: hsl(var(--gravure-laiton));
+  animation: gravure-filet 1100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes gravure-filet {
+  from { left: 0; opacity: 1; }
+  90%  { opacity: 1; }
+  to   { left: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gravure-devoile { animation: none; clip-path: none; }
+  .gravure-filet { display: none; }
+}
+
+/* Impression : une planche doit pouvoir s'encadrer. */
+@media print {
+  .gravure-planche { box-shadow: none; border: 1px solid #999; break-inside: avoid; }
+  .gravure-devoile { animation: none; clip-path: none; }
+}
