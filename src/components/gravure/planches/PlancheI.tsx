@@ -421,7 +421,8 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     {/* ================= FIG. 2 — NŒUD JARRET-TRAVERSE (×5) ================= */}
     <RepereFigure x={582} y={830} n="2" title="Nœud jarret-traverse (détail d'exécution, ×5)" w={356} />
     <g clipPath={`url(#${p}-fig2)`}>
-      <g transform={`translate(${D2X} ${D2Y})`}>
+      {/* le détail respire : il ne touche jamais le cercle qui le borne */}
+      <g transform={`translate(${D2X - 4} ${D2Y + 6}) scale(0.82)`}>
         {/* — ⓖ POTEAU : deux semelles pochées acier, âme, axe mixte — */}
         <rect x={-150} y={-165} width={8} height={335} fill={poche(p, 'acier')} />
         <Cadre x={-150} y={-165} w={8} h={335} weight={MOYEN} over={0} />
@@ -468,34 +469,33 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
         ))}
 
         {/* — vue de la platine : les deux boulons de chaque rangée — */}
-        <Cadre x={40} y={78} w={110} h={92} weight={MOYEN} over={1.5} />
-        {[92, 112, 140, 160].map((y) => (
+        <Cadre x={34} y={62} w={104} h={88} weight={MOYEN} over={1.5} />
+        {[76, 96, 122, 140].map((y) => (
           <g key={y}>
-            <Boulon x={70} y={y} r={4.5} />
-            <Boulon x={120} y={y} r={4.5} />
+            <Boulon x={64} y={y} r={4.5} />
+            <Boulon x={112} y={y} r={4.5} />
           </g>
         ))}
-        <AxeMixte x1={95} y1={70} x2={95} y2={178} opacity={0.6} />
-        <ChaineCotes y={26} points={[78, 92, 112, 140, 160]} labels={['e1', 'e2', 'p', 'p']} attache={40} vertical />
-        <ChaineCotes y={186} points={[70, 120]} labels={['e2']} attache={172} />
-        <text className="gravure-lettrage" x={95} y={70} fontSize="11" textAnchor="middle">
+        <AxeMixte x1={88} y1={54} x2={88} y2={158} opacity={0.6} />
+        <ChaineCotes y={22} points={[62, 76, 96, 122, 140]} labels={['e1', 'e2', 'p', 'p']} attache={34} vertical />
+        <ChaineCotes y={166} points={[64, 112]} labels={['e2']} attache={152} />
+        <text className="gravure-lettrage" x={88} y={54} fontSize="11" textAnchor="middle">
           Vue de la platine
         </text>
 
         {/* — ⓕ SOUDURES : repère fléché, référence, gorge symbolique — */}
-        <SoudureISO x={60} y={-73} dx={44} dy={-62} gorge="a" />
-        <SoudureISO x={-113} y={57} dx={-30} dy={62} gorge="a" dir={-1} />
-        <SoudureISO x={-83} y={-128} dx={52} dy={-30} gorge="a" periph />
+        <SoudureISO x={-74} y={20} dx={40} dy={44} gorge="a" />
+        <SoudureISO x={-96} y={-116} dx={-34} dy={-46} gorge="a" dir={-1} periph />
 
         {/* — lettres de nomenclature secondaire — */}
-        <PastilleLettre x={120} y={-128} l="a" />
-        <PastilleLettre x={62} y={0} l="b" />
-        <PastilleLettre x={-83} y={92} l="c" />
-        <PastilleLettre x={-40} y={-116} l="d" />
-        <PastilleLettre x={-123} y={80} l="e" />
-        <PastilleLettre x={144} y={-146} l="f" />
-        <PastilleLettre x={-146} y={140} l="g" />
-        <PastilleLettre x={-123} y={-158} l="h" />
+        <PastilleLettre x={128} y={-146} l="a" />
+        <PastilleLettre x={40} y={-24} l="b" />
+        <PastilleLettre x={-83} y={94} l="c" />
+        <PastilleLettre x={-40} y={-138} l="d" />
+        <PastilleLettre x={-166} y={-104} l="e" />
+        <PastilleLettre x={-16} y={64} l="f" />
+        <PastilleLettre x={-172} y={170} l="g" />
+        <PastilleLettre x={-123} y={-186} l="h" />
       </g>
     </g>
     <circle cx={D2X} cy={D2Y} r={D2R} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
