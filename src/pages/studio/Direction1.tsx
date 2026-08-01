@@ -112,7 +112,7 @@ const MaquetteAccueil = () => (
           ou en cours de constitution.
         </p>
         <ol className="grid grid-cols-2 md:grid-cols-5 gap-px mt-12" style={{ background: 'hsl(var(--g-ink) / 0.16)' }}>
-          {['CAOAGRO.COM', 'Owl Line', 'Drabair', 'Owl Ore', 'Owl International'].map((node, i) => (
+          {['CAO Industries', 'Drabair Labs', 'Line Builder', 'Weavme', 'Owl Real Estate'].map((node, i) => (
             <li key={node} className="g-paper-2 p-5">
               <span className="g-smcp text-xs opacity-60 g-tnum">{String(i + 1).padStart(2, '0')}</span>
               <p className="mt-3 text-base leading-snug">{node}</p>
