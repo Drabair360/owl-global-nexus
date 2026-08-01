@@ -122,15 +122,15 @@
   gap: 0.22rem;
 }
 .dir-gravure .g-folio-eyes i {
-  width: 0.36rem;
-  height: 0.36rem;
+  width: 0.42rem;
+  height: 0.42rem;
   border-radius: 50%;
   border: 1px solid currentColor;
   display: block;
 }
 .dir-gravure .g-folio-eyes span {
   width: 1px;
-  height: 0.7rem;
+  height: 0.85rem;
   background: hsl(var(--g-gold));
   display: block;
   transform: skewX(-14deg);
@@ -168,9 +168,9 @@
 .dir-gravure .g-incision::before {
   content: '';
   position: absolute;
-  left: -0.6em;
-  right: -0.6em;
-  top: 52%;
+  left: -0.24em;
+  right: -0.24em;
+  bottom: 0.16em;
   height: 1px;
   background: hsl(var(--g-gold));
   transform: scaleX(0);
