@@ -287,22 +287,23 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     <RepereFigure x={946} y={110} n="2" title="Nœud jarret-traverse (×4)" w={230} />
     <g clipPath={`url(#${p}-fig2)`}>
       {/* poteau : semelles et âme, à quatre fois l'échelle */}
-      <Trait x1={1000} y1={219} x2={1000} y2={330} w={FORT} />
-      <Trait x1={1056} y1={219} x2={1056} y2={330} w={FORT} />
-      <line x1={1022} y1={225} x2={1022} y2={330} stroke={ENCRE} strokeWidth={FIN} opacity="0.7" />
-      <line x1={1034} y1={225} x2={1034} y2={330} stroke={ENCRE} strokeWidth={FIN} opacity="0.7" />
-      {/* traverse */}
-      <Trait x1={996} y1={196} x2={1170} y2={148} w={FORT} />
-      <Trait x1={1004} y1={244} x2={1170} y2={198} w={MOYEN} />
-      {/* gousset du jarret */}
-      <Gousset d="M1000 208 L1132 172 L1132 190 L1000 252 z" />
-      {/* files de boulons */}
-      <FileDeBoulons x={1010} y={214} dx={22} dy={-6} n={5} />
-      <FileDeBoulons x={1012} y={244} dx={22} dy={-6} n={4} />
-      {/* platine d'about */}
-      <Trait x1={996} y1={190} x2={1000} y2={262} w={MOYEN} />
-      <Soudure x={1064} y={286} />
+      <Trait x1={1016} y1={262} x2={1016} y2={330} w={FORT} />
+      <Trait x1={1072} y1={262} x2={1072} y2={330} w={FORT} />
+      <line x1={1040} y1={266} x2={1040} y2={330} stroke={ENCRE} strokeWidth={FIN} opacity="0.7" />
+      <line x1={1050} y1={266} x2={1050} y2={330} stroke={ENCRE} strokeWidth={FIN} opacity="0.7" />
+      {/* traverse : semelle supérieure et semelle inférieure */}
+      <Trait x1={1010} y1={168} x2={1178} y2={140} w={FORT} />
+      <Trait x1={1010} y1={202} x2={1178} y2={174} w={MOYEN} />
+      <line x1={1014} y1={185} x2={1178} y2={157} stroke={ENCRE} strokeWidth={FIN} opacity="0.55" />
+      {/* platine d'about, boulonnée : la file est portée par la platine */}
+      <Trait x1={1004} y1={160} x2={1004} y2={272} w={FORT} />
+      <Trait x1={1010} y1={160} x2={1010} y2={272} w={MOYEN} />
+      <FileDeBoulons x={1022} y={172} dx={0} dy={17} n={6} />
+      {/* gousset du jarret : il rattrape l'about du poteau */}
+      <Gousset d="M1010 202 L1010 262 L1092 178 L1058 178 z" />
+      <Soudure x={1096} y={244} />
     </g>
+
     <circle cx="1061" cy="219" r="99" fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
     <text className="gravure-lettrage" x={1061} y={356} fontSize="12" textAnchor="middle">
       Gousset, boulons, soudure
