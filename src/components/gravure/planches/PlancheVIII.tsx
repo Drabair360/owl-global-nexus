@@ -30,7 +30,7 @@ export const PLANCHE_VIII = {
   numeral: 'VIII',
   title: "Corridor Europe - Afrique de l'Ouest",
   desc:
-    "Gravure au trait dans le langage de la carte marine ancienne, planche à trois figures, sans toponyme, sans frontière appuyée et sans ville nommée. FIGURE 1, la carte : un graticule de méridiens et de parallèles au trait ultrafin couvre le champ ; deux masses côtières sont figurées par un seul trait de rivage, l'une au nord-est, l'autre au sud-ouest, leur intérieur laissé en réserve ; une route maritime rehaussée de laiton descend de l'une à l'autre en suivant deux inflexions, doublée d'une route alternative en trait interrompu ; des rhumbs partent d'une rose des vents et une échelle graphique donne la mesure symbolique. Trois points de passage sont marqués par de petits cercles concentriques, sans être nommés. FIGURE 2, détail à trois fois l'échelle d'un point de rupture de charge : quai figuré par deux traits, portique de déchargement, aire de stockage en réserve, liaison terrestre en trait fin sortant du cadre par une ligne de rupture. FIGURE 3, profil de traversée : une ligne horizontale porte les temps de la traversée sous forme de segments égaux, chaque escale marquée d'un repère vertical, sans aucune durée réelle indiquée. Nomenclature de huit entrées et cartouche.",
+    "Gravure au trait dans le langage de la carte marine ancienne, planche à trois figures, sans toponyme, sans frontière appuyée et sans ville nommée. FIGURE 1, la carte : un graticule de méridiens et de parallèles au trait ultrafin couvre le champ ; deux masses côtières sont figurées par un seul trait de rivage, l'une au nord-est, l'autre au sud-ouest, leur intérieur laissé en réserve ; une route maritime rehaussée de laiton descend de l'une à l'autre en suivant deux inflexions, doublée d'une route alternative en trait interrompu ; des rhumbs partent d'une rose des vents et une échelle graphique donne la mesure symbolique. Trois points de relais sont marqués par de petits cercles concentriques, sans être nommés. FIGURE 2, détail à trois fois l'échelle d'un point de rupture de charge : quai figuré par deux traits, portique de déchargement, aire de stockage en réserve, liaison terrestre en trait fin sortant du cadre par une ligne de rupture. FIGURE 3, profil de traversée : une ligne horizontale porte les temps de la traversée sous forme de segments égaux, chaque escale marquée d'un repère vertical, sans aucune durée réelle indiquée. Nomenclature de huit entrées et cartouche.",
   viewBox: '0 0 1240 900',
 };
 
@@ -146,7 +146,7 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
       colGap={340}
       items={[
         'Port de tête, non nommé',
-        'Point de passage médian',
+        'Point de relais médian',
         'Port de destination, non nommé',
         'Portique de déchargement',
         'Profil de traversée',

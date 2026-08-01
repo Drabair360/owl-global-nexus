@@ -39,7 +39,7 @@ export const PLANCHE_VI = {
   numeral: 'VI',
   title: "Immeuble de rapport type - plan masse et élévation",
   desc:
-    "Gravure au trait, planche à trois figures, décrivant un immeuble de rapport générique, sans lieu ni adresse identifiables. FIGURE 1, plan masse : une parcelle en lanière bordée par la rue, l'emprise bâtie pochée pierre, une cour intérieure laissée en réserve, un passage couvert reliant la rue à la cour, deux locaux commerciaux en pied d'immeuble donnant sur la rue, un mur mitoyen en trait fort et les limites séparatives en trait mixte ; les entrées sont marquées par des flèches fines et le nord par une indication sobre. FIGURE 2, élévation sur rue : soubassement, trois niveaux de baies alignées sur une trame régulière, allèges et linteaux dessinés, refends de maçonnerie figurés par des joints horizontaux, corniche et rive de toiture ; les percements du rez-de-chaussée sont plus larges, ceux des étages plus étroits, et une chaîne de cotes symbolique donne l'entraxe de trame. Le seuil de l'entrée est rehaussé de laiton : c'est le point de passage que la planche veut faire retenir. FIGURE 3, coupe de seuil à quatre fois l'échelle : terrain et hérisson en strates, dalle pochée béton, marche en pierre, dormant de menuiserie poché bois, rejingot et rejet d'eau, avec huit lettres de nomenclature secondaire. Une ligne de coupe normalisée relie l'élévation à la coupe. Les cotations sont symboliques. Nomenclature de dix entrées et cartouche.",
+    "Gravure au trait, planche à trois figures, décrivant un immeuble de rapport générique, sans lieu ni adresse identifiables. FIGURE 1, plan masse : une parcelle en lanière bordée par la rue, l'emprise bâtie pochée pierre, une cour intérieure laissée en réserve, un porche traversant reliant la rue à la cour, deux locaux commerciaux en pied d'immeuble donnant sur la rue, un mur mitoyen en trait fort et les limites séparatives en trait mixte ; les entrées sont marquées par des flèches fines et le nord par une indication sobre. FIGURE 2, élévation sur rue : soubassement, trois niveaux de baies alignées sur une trame régulière, allèges et linteaux dessinés, refends de maçonnerie figurés par des joints horizontaux, corniche et rive de toiture ; les percements du rez-de-chaussée sont plus larges, ceux des étages plus étroits, et une chaîne de cotes symbolique donne l'entraxe de trame. Le seuil de l'entrée est rehaussé de laiton : c'est le point de passage que la planche veut faire retenir. FIGURE 3, coupe de seuil à quatre fois l'échelle : terrain et hérisson en strates, dalle pochée béton, marche en pierre, dormant de menuiserie poché bois, rejingot et rejet d'eau, avec huit lettres de nomenclature secondaire. Une ligne de coupe normalisée relie l'élévation à la coupe. Les cotations sont symboliques. Nomenclature de dix entrées et cartouche.",
   viewBox: '0 0 1240 900',
   detailViewBox: '820 400 380 300',
 };
@@ -68,7 +68,7 @@ export const PlancheVIDrawing = ({ p }: { p: string }) => (
       <text className="gravure-lettrage" x={230} y={110} fontSize="12" textAnchor="middle">
         Cour
       </text>
-      {/* passage couvert */}
+      {/* porche traversant */}
       <rect x={186} y={200} width={54} height={80} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={MOYEN} />
       <TraceCache d="M186 200 h54" />
       {/* commerces en pied */}
@@ -180,7 +180,7 @@ export const PlancheVIDrawing = ({ p }: { p: string }) => (
       perCol={10}
       items={[
         'Limite séparative',
-        'Passage couvert',
+        'Porche traversant',
         'Local commercial en pied',
         'Corniche et rive',
         "Baie d'étage, allège et linteau",
