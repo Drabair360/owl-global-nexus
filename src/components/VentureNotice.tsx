@@ -26,12 +26,13 @@ const VentureNotice = ({ fields }: { fields: NoticeField[] }) => {
         {rows.map((f) => (
           <div
             key={f.label}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-6 py-3"
+            className="grid grid-cols-1 sm:grid-cols-[minmax(0,9rem)_minmax(0,1fr)] gap-1 sm:gap-6 py-3"
           >
-            <dt className="mat-mention font-subtitle tracking-[0.18em] uppercase mat-ink-2 sm:pt-1">
+            <dt className="mat-mention font-subtitle tracking-[0.18em] uppercase mat-ink-2 sm:pt-1 min-w-0 break-words">
               {f.label}
             </dt>
-            <dd className="sm:col-span-2 mat-ink-1 font-body mat-tnum">{f.value}</dd>
+
+            <dd className="min-w-0 break-words mat-ink-1 font-body mat-tnum">{f.value}</dd>
           </div>
         ))}
       </dl>

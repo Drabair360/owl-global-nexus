@@ -76,10 +76,18 @@ const defs = read('src/components/gravure/defs.tsx');
 for (const h of ['-h45', '-hx', '-hsol']) {
   if (!defs.includes(h)) errors.push(`hachure ${h} : motif manquant`);
 }
-// §1.6 — quatre pochés, un par matière, jamais interchangés.
+// §1.6 — RÉSERVE DE MATIÈRE (remplace « quatre pochés par planche ») :
+// les quatre pochés existent dans la bibliothèque, mais chaque poché ne s'emploie
+// QUE sur sa matière réelle. pierre → planches à maçonnerie (VI notamment),
+// bois → coffrages et menuiseries. Forcer une matière absente est une faute.
 for (const m of ['beton', 'acier', 'pierre', 'bois']) {
   if (!defs.includes(`-poche-${m}`)) errors.push(`poché ${m} : motif manquant`);
 }
+// Planche I (ossature métallique sur fondations béton) : ni pierre ni bois.
+if (/poche\(p,\s*'(pierre|bois)'\)/.test(read('src/components/gravure/planches/PlancheI.tsx'))) {
+  errors.push('planche I : poché pierre/bois employé sur une matière absente');
+}
+
 // §1.10 — strates de sol.
 for (const s of ['sol-remblai', 'sol-terrain', 'sol-bon']) {
   if (!defs.includes(s)) errors.push(`strate ${s} : motif manquant`);
