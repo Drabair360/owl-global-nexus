@@ -286,23 +286,23 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     {/* ================= FIG. 2 — DÉTAIL DU NŒUD JARRET-TRAVERSE ================= */}
     <RepereFigure x={946} y={110} n="2" title="Nœud jarret-traverse (×4)" w={230} />
     <g clipPath={`url(#${p}-fig2)`}>
-      {/* poteau : semelles et âme, à quatre fois l'échelle */}
-      <Trait x1={1016} y1={262} x2={1016} y2={330} w={FORT} />
-      <Trait x1={1072} y1={262} x2={1072} y2={330} w={FORT} />
-      <line x1={1040} y1={266} x2={1040} y2={330} stroke={ENCRE} strokeWidth={FIN} opacity="0.7" />
-      <line x1={1050} y1={266} x2={1050} y2={330} stroke={ENCRE} strokeWidth={FIN} opacity="0.7" />
-      {/* traverse : semelle supérieure et semelle inférieure */}
-      <Trait x1={1010} y1={168} x2={1178} y2={140} w={FORT} />
-      <Trait x1={1010} y1={202} x2={1178} y2={174} w={MOYEN} />
-      <line x1={1014} y1={185} x2={1178} y2={157} stroke={ENCRE} strokeWidth={FIN} opacity="0.55" />
-      {/* platine d'about, boulonnée : la file est portée par la platine */}
-      <Trait x1={1004} y1={160} x2={1004} y2={272} w={FORT} />
-      <Trait x1={1010} y1={160} x2={1010} y2={272} w={MOYEN} />
-      <FileDeBoulons x={1022} y={172} dx={0} dy={17} n={6} />
-      {/* gousset du jarret : il rattrape l'about du poteau */}
-      <Gousset d="M1010 202 L1010 262 L1092 178 L1058 178 z" />
-      <Soudure x={1096} y={244} />
+      {/* gousset du jarret : posé d'abord, il masque ce qu'il recouvre */}
+      <Gousset d="M1016 200 L1016 268 L1104 186 L1060 186 z" />
+      {/* poteau : deux semelles et l'âme, à quatre fois l'échelle */}
+      <Trait x1={1016} y1={170} x2={1016} y2={330} w={FORT} />
+      <Trait x1={1072} y1={268} x2={1072} y2={330} w={FORT} />
+      <line x1={1040} y1={272} x2={1040} y2={330} stroke={ENCRE} strokeWidth={FIN} opacity="0.7" />
+      <line x1={1050} y1={272} x2={1050} y2={330} stroke={ENCRE} strokeWidth={FIN} opacity="0.7" />
+      {/* traverse : semelle supérieure, âme, semelle inférieure */}
+      <Trait x1={1016} y1={166} x2={1178} y2={140} w={FORT} />
+      <Trait x1={1016} y1={200} x2={1178} y2={174} w={MOYEN} />
+      <line x1={1020} y1={183} x2={1178} y2={157} stroke={ENCRE} strokeWidth={FIN} opacity="0.55" />
+      {/* platine d'about boulonnée : la file de boulons est portée par la platine */}
+      <Trait x1={1010} y1={158} x2={1010} y2={276} w={FORT} />
+      <FileDeBoulons x={1026} y={174} dx={0} dy={18} n={6} />
+      <Soudure x={1108} y={214} />
     </g>
+
 
     <circle cx="1061" cy="219" r="99" fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
     <text className="gravure-lettrage" x={1061} y={356} fontSize="12" textAnchor="middle">
