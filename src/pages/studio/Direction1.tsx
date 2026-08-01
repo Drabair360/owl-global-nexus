@@ -215,8 +215,8 @@ const FicheVenture = () => (
         <line x1="40" y1="80" x2="760" y2="80" stroke="hsl(var(--g-ink))" strokeOpacity="0.35" strokeWidth="1" />
         {[
           [140, 'Owl International'],
-          [400, 'Pôle opérationnel'],
-          [660, 'CAOAGRO.COM'],
+          [400, 'Pôle industriel'],
+          [660, 'CAO Industries'],
         ].map(([x, label], i) => (
           <g key={label as string}>
             <rect x={(x as number) - 90} y="56" width="180" height="48" fill={i === 2 ? 'url(#g-hatch)' : 'none'} stroke="hsl(var(--g-ink))" strokeOpacity="0.5" />
@@ -430,7 +430,7 @@ const Direction1 = () => {
         <MaquetteAccueil />
       </Piece>
       <div id="piece-2" />
-      <Piece n="02" title="Fiche venture - CAOAGRO.COM" intent="Notice redessinée et gravure technique">
+      <Piece n="02" title="Fiche venture - CAO Industries" intent="Notice redessinée et gravure technique">
         <FicheVenture />
       </Piece>
       <Piece n="03" title="Spécimen typographique" intent="Échelle entière, réglages OpenType activés">
