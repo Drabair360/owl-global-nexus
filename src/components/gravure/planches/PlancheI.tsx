@@ -183,7 +183,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
       strokeDasharray="5 4"
       opacity="0.8"
     />
-    <text className="gravure-lettrage" x={C + 30} y={534} fontSize="11">
+    <text className="gravure-lettrage" x={C + 30} y={514} fontSize="11">
       Arase dallage
     </text>
     <RepereNiveau x={852} y={SOL} label="±0,00" rappel={812} or />
@@ -399,7 +399,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
         </text>
       </g>
     ))}
-    <ChaineCotes y={908} points={[178, 205, 232]} labels={['T', 'T']} attache={978} vertical />
+    <ChaineCotes y={884} points={[178, 205, 232]} labels={['T', 'T']} attache={978} vertical />
     {/* §B8 — ligne de coupe A-A normalisée */}
     <LigneDeCoupe x1={966} x2={1174} y={205} label="A" dir={-1} />
 
