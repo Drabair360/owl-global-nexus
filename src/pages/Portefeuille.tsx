@@ -72,7 +72,7 @@ const Portefeuille = () => {
                     {e.name}
                   </Link>
                 </h2>
-                <p className="text-sm text-slate-500 italic mt-2 font-body">{t(e.statusKey)}</p>
+                <p className="statut mt-3">{t(e.statusKey)}</p>
               </div>
               <div className="md:col-span-8">
                 <p className="text-slate-700 font-body leading-relaxed mb-6">{t(e.missionKey)}</p>

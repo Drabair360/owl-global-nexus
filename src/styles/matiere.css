@@ -1,0 +1,196 @@
+/* =============================================================
+   MATIÈRE - COUCHE DE PRODUCTION (Lot G2)
+   Même système que src/studio/matiere.css v2, promu en production
+   sous le préfixe `mat-`. Une seule source de vérité numérique :
+   toute évolution se fait ici ET dans le dossier de studio.
+
+   M1 lumière unique · M2 grain calibré · M3 trois matières
+   M4 paires de contraste mesurées · M5 la page se pose
+   M6 grading photographique · M7 signatures placées
+   ============================================================= */
+
+:root {
+  /* --- M3 : trois matières, pas une de plus ----------------- */
+  --mat-gres:      32 16% 88%;
+  --mat-gres-2:    30 14% 82%;
+  --mat-gres-3:    28 12% 74%;
+  --mat-beton:     24 8% 26%;
+  --mat-beton-2:   22 9% 18%;
+  --mat-laiton:    38 48% 40%;
+  --mat-laiton-lit: 40 66% 62%;
+
+  /* --- M4 : paires de contraste mesurées (WCAG 2.1) ---------
+     sur grès / grès-2 / grès-3 : 12.69 / 10.95 / 8.85  (AAA)
+                                   7.07 /  6.10 / 4.93  (AA)
+                     accent oxyde 6.95 /  6.00 / 4.85  (AA)
+     sur béton / béton-2         : 7.67 / 10.45         (AAA)
+                                   4.81 /  6.56         (AA)
+                     accent laiton 5.12 /  6.98         (AA)
+     Le texte ne se hiérarchise jamais par opacité.          */
+  --mat-on-gres-1:   24 14% 12%;
+  --mat-on-gres-2:   24 10% 28%;
+  --mat-accent-gres: 14 46% 30%;
+  --mat-on-beton-1:  32 16% 88%;
+  --mat-on-beton-2:  30 12% 70%;
+  --mat-accent-beton: 40 66% 62%;
+
+  /* --- M1 : une seule lumière, x = 0, trois élévations ------ */
+  --mat-elev-1: 0 1px 2px hsl(var(--mat-on-gres-1) / 0.10);
+  --mat-elev-2: 0 6px 14px -4px hsl(var(--mat-on-gres-1) / 0.18);
+  --mat-elev-3: 0 18px 36px -12px hsl(var(--mat-on-gres-1) / 0.26);
+
+  /* --- M5 : la page se pose --------------------------------- */
+  --mat-ease-pose:  cubic-bezier(0.2, 0.9, 0.25, 1);
+  --mat-ease-arete: cubic-bezier(0.22, 1, 0.36, 1);
+  --mat-dur-pose:   520ms;
+  --mat-dur-arete:  640ms;
+  --mat-pose-shift: 0.875rem;
+
+  --mat-banche: 8.5rem;
+  --mat-grain-tile: 180px;
+}
+
+/* --- Surfaces ---------------------------------------------- */
+.mat-beton   { background-color: hsl(var(--mat-beton));   color: hsl(var(--mat-on-beton-1)); }
+.mat-beton-2 { background-color: hsl(var(--mat-beton-2)); color: hsl(var(--mat-on-beton-1)); }
+.mat-gres    { background-color: hsl(var(--mat-gres)); }
+.mat-gres-2  { background-color: hsl(var(--mat-gres-2)); }
+.mat-gres-3  { background-color: hsl(var(--mat-gres-3)); }
+
+/* --- Encres (jamais d'opacité sur du texte) ---------------- */
+.mat-ink-1 { color: hsl(var(--mat-on-gres-1)); }
+.mat-ink-2 { color: hsl(var(--mat-on-gres-2)); }
+.mat-ink-accent { color: hsl(var(--mat-accent-gres)); }
+.mat-beton .mat-ink-1, .mat-beton-2 .mat-ink-1 { color: hsl(var(--mat-on-beton-1)); }
+.mat-beton .mat-ink-2, .mat-beton-2 .mat-ink-2 { color: hsl(var(--mat-on-beton-2)); }
+.mat-beton .mat-ink-accent, .mat-beton-2 .mat-ink-accent { color: hsl(var(--mat-accent-beton)); }
+
+/* --- Élévations et plaques --------------------------------- */
+.mat-elev-1 { box-shadow: var(--mat-elev-1); }
+.mat-elev-2 { box-shadow: var(--mat-elev-2); }
+.mat-carte {
+  background-color: hsl(var(--mat-gres-2));
+  box-shadow: var(--mat-elev-2);
+  transition: box-shadow 320ms var(--mat-ease-pose), transform 320ms var(--mat-ease-pose);
+}
+.mat-carte:hover { box-shadow: var(--mat-elev-3); transform: translateY(-2px); }
+/* Bloc secondaire : filet de laiton en tête, jamais un creux simulé */
+.mat-serti { border-top: 1px solid hsl(var(--mat-laiton) / 0.55); box-shadow: var(--mat-elev-1); }
+
+/* --- M2 : grain ------------------------------------------- */
+.mat-grain { position: relative; }
+.mat-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: var(--mat-grain-tile) var(--mat-grain-tile);
+}
+.mat-beton.mat-grain::after,
+.mat-beton-2.mat-grain::after { mix-blend-mode: screen; opacity: 0.09; }
+.mat-grain > * { position: relative; z-index: 1; }
+@media (max-resolution: 1dppx) {
+  .mat-grain::after { opacity: 0.045; }
+  .mat-beton.mat-grain::after, .mat-beton-2.mat-grain::after { opacity: 0.06; }
+}
+@media (max-width: 767px) { .mat-grain::after { opacity: 0.05; } }
+@media print { .mat-grain::after, .mat-coffrage::before { display: none !important; } }
+
+/* --- Béton coffré ------------------------------------------ */
+.mat-coffrage { position: relative; overflow: hidden; }
+.mat-coffrage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    90deg, hsl(var(--mat-gres) / 0.07) 0 1px, transparent 1px var(--mat-banche)
+  );
+}
+
+/* --- M6 : grading photographique ---------------------------
+   Une image n'entre dans le site qu'après passage à la matière :
+   désaturation partielle, ombres remontées vers l'encre chaude,
+   hautes lumières bridées, grain commun à la page. Aucun filtre
+   sur un élément animé (le grading est posé sur le conteneur). */
+.mat-photo { position: relative; overflow: hidden; background-color: hsl(var(--mat-beton-2)); }
+.mat-photo > img,
+.mat-photo > picture > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.72) contrast(1.04) brightness(0.94);
+}
+/* Voile d'unification : encre chaude dans les ombres */
+.mat-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, hsl(var(--mat-beton-2) / 0.42), hsl(var(--mat-beton-2) / 0.16) 46%, hsl(var(--mat-beton-2) / 0.55));
+  mix-blend-mode: multiply;
+}
+
+/* --- M7 : signatures --------------------------------------- */
+/* 1. Folio-chouette : numérote une section de premier niveau */
+.mat-folio { display: inline-flex; align-items: center; gap: 0.55rem;
+  font-family: 'EB Garamond', Georgia, serif; font-feature-settings: 'onum' 1; letter-spacing: 0.06em; }
+.mat-folio-eyes { display: inline-flex; align-items: center; gap: 0.22rem; }
+.mat-folio-eyes i { width: 0.42rem; height: 0.42rem; border-radius: 50%; border: 1px solid currentColor; display: block; }
+.mat-folio-eyes span { width: 1px; height: 0.85rem; display: block; background: hsl(var(--mat-laiton)); transform: skewX(-14deg); }
+
+/* 2. Cachet de registre : scelle un bloc d'autorité */
+.mat-cachet {
+  border-top: 1px solid hsl(var(--mat-on-gres-1) / 0.3);
+  border-bottom: 1px solid hsl(var(--mat-on-gres-1) / 0.3);
+  padding: 0.5rem 0; display: flex; flex-wrap: wrap; gap: 0 1.5rem; align-items: baseline;
+  font-size: 0.563rem; text-transform: uppercase; letter-spacing: 0.16em;
+}
+.mat-beton .mat-cachet, .mat-beton-2 .mat-cachet { border-color: hsl(var(--mat-on-beton-1) / 0.28); }
+.mat-cachet-seal { color: hsl(var(--mat-accent-gres)); border: 1px solid currentColor; border-radius: 999px; padding: 0.1rem 0.5rem; }
+.mat-beton .mat-cachet-seal, .mat-beton-2 .mat-cachet-seal { color: hsl(var(--mat-accent-beton)); }
+
+/* 3. Arête de laiton : maximum deux par écran */
+.mat-arete { position: relative; }
+.mat-arete::before {
+  content: ''; position: absolute; left: 0; top: 0; width: 2px; height: 0;
+  background: linear-gradient(hsl(var(--mat-laiton)), hsl(var(--mat-laiton) / 0));
+  animation: mat-arete var(--mat-dur-arete) var(--mat-ease-arete) 160ms forwards;
+}
+@keyframes mat-arete { to { height: 4.5rem; } }
+.mat-beton .mat-arete::before, .mat-beton-2 .mat-arete::before {
+  background: linear-gradient(hsl(var(--mat-laiton-lit)), hsl(var(--mat-laiton-lit) / 0));
+}
+
+/* --- Prose et chiffres ------------------------------------- */
+.mat-prose {
+  font-family: 'EB Garamond', 'Instrument Serif', Georgia, serif;
+  font-size: 1.181em; line-height: 1.62;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  font-synthesis: none; text-wrap: pretty;
+}
+.mat-onum { font-family: 'EB Garamond', Georgia, serif; font-variant-numeric: oldstyle-nums proportional-nums; font-synthesis: none; }
+.mat-tnum { font-variant-numeric: tabular-nums lining-nums; }
+.mat-rule { height: 1px; background: hsl(var(--mat-on-gres-1) / 0.22); }
+
+/* --- M5 : entrée « la page se pose » ----------------------- */
+.mat-pose { opacity: 0; animation: mat-pose var(--mat-dur-pose) var(--mat-ease-pose) forwards; }
+@keyframes mat-pose {
+  from { opacity: 0; transform: translateY(var(--mat-pose-shift)); }
+  88%  { opacity: 1; transform: translateY(-1px); }
+  to   { opacity: 1; transform: none; }
+}
+.mat-pose-2 { animation-delay: 90ms; }
+.mat-pose-3 { animation-delay: 180ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mat-pose, .mat-arete::before { animation: none; opacity: 1; transform: none; }
+  .mat-arete::before { height: 4.5rem; }
+  .mat-carte { transition: none; }
+  .mat-carte:hover { transform: none; }
+}

@@ -101,10 +101,10 @@ const MatiereJournal = () => {
           <p className="m-smcp text-xs m-ink-2 mb-4">Index</p>
           <ol className="m-carte m-grain p-5 space-y-3">
             {jalons.map((y) => (
-              <li key={y.annee} className="flex items-baseline justify-between border-b last:border-0 pb-2 last:pb-0"
+              <li key={y.annee} className="flex items-baseline justify-between gap-4 border-b last:border-0 pb-2 last:pb-0 leading-none"
                   style={{ borderColor: 'hsl(var(--m-text-on-gres-1) / 0.14)' }}>
-                <a href={`#annee-${y.annee}`} className="m-display text-2xl m-tnum">{y.annee}</a>
-                <span className="m-smcp text-xs m-ink-2 m-tnum">
+                <a href={`#annee-${y.annee}`} className="m-display text-2xl m-tnum leading-none block">{y.annee}</a>
+                <span className="m-smcp text-xs m-ink-2 m-tnum leading-none relative -top-px">
                   {String(y.entrees.length).padStart(2, '0')}
                 </span>
               </li>

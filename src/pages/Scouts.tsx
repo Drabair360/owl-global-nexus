@@ -128,7 +128,7 @@ const Scouts = () => {
             <div className="text-xs font-subtitle tracking-widest uppercase text-primary mb-2">
               {t('scouts.honest.title')}
             </div>
-            <p className="text-slate-700 font-body leading-relaxed italic">{t('scouts.honest.body')}</p>
+            <p className="text-slate-700 font-body leading-relaxed">{t('scouts.honest.body')}</p>
           </div>
         </div>
       </section>
