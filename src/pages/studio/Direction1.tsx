@@ -143,7 +143,7 @@ const MaquetteAccueil = () => (
               ['23 août 2023', 'Immatriculation d\'Owl International, Paris.', '001'],
               ['2024', 'Premier exercice : chiffre d\'affaires de 141 k€, résultat net de 130 k€. Comptes déposés au greffe.', '002'],
               ['13 juillet 2026', 'Ouverture d\'Owl Scouts.', '003'],
-              ['27 juillet 2026', 'Dépôt de capital de CAOAGRO.COM.', '004'],
+              ['27 juillet 2026', 'Dépôt de capital de CAO Industries.', '004'],
             ].map(([d, f, n]) => (
               <tr key={n}>
                 <th scope="row" className="whitespace-nowrap pr-6 align-baseline">
