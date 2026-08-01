@@ -18,7 +18,7 @@ const Folio = ({ n, label }: { n: string; label: string }) => (
       <i /><span /><i />
     </span>
     <span className="m-tnum">{n}</span>
-    <span className="m-smcp text-xs opacity-70">{label}</span>
+    <span className="m-smcp text-xs m-ink-2">{label}</span>
   </span>
 );
 
@@ -28,7 +28,7 @@ const Cachet = ({ folio }: { folio: string }) => (
     <span>Paris</span>
     <span>Est. 2023</span>
     <span>Folio {folio}</span>
-    <span className="ml-auto opacity-70">Direction 2 - Matière</span>
+    <span className="ml-auto m-ink-2">Direction 2 - Matière</span>
   </div>
 );
 
@@ -39,7 +39,7 @@ const Piece = ({
     <header className="max-w-[92rem] mx-auto px-6 md:px-12 pt-10 pb-8 flex flex-wrap items-baseline gap-x-8 gap-y-2">
       <Folio n={n} label="pièce" />
       <h2 className="m-display text-2xl md:text-3xl">{title}</h2>
-      <p className="m-smcp text-xs opacity-70 md:ml-auto max-w-md">{intent}</p>
+      <p className="m-smcp text-xs m-ink-2 md:ml-auto max-w-md">{intent}</p>
     </header>
     {children}
   </section>
@@ -86,9 +86,9 @@ const MaquetteAccueil = () => (
     {/* SECTION MODÈLE : cinq plaques posées */}
     <div className="grid grid-cols-12 gap-6 pt-16">
       <div className="col-span-12 md:col-span-4">
-        <span className="m-display block text-5xl md:text-6xl leading-none opacity-25 m-onum">01</span>
+        <span className="m-display block text-5xl md:text-6xl leading-none opacity-25 m-onum" aria-hidden="true">01</span>
         <p className="m-smcp text-xs mt-2">Le portefeuille</p>
-        <p className="mt-6 text-base leading-relaxed opacity-80">
+        <p className="mt-6 text-base leading-relaxed m-ink-2">
           Chaque société est une plaque distincte : même épaisseur, même lumière, statut lisible
           au premier regard.
         </p>
@@ -96,7 +96,7 @@ const MaquetteAccueil = () => (
       <ul className="col-span-12 md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {ventures.map((v) => (
           <li key={v.slug} className="m-carte m-grain p-6 m-arete">
-            <span className="m-smcp text-xs opacity-60 m-tnum">{v.order}</span>
+            <span className="m-smcp text-xs m-ink-2 m-tnum">{v.order}</span>
             <p className="m-display text-2xl mt-3">{v.name}</p>
             <p className="m-smcp text-xs mt-2">{v.pole.fr}</p>
           </li>
@@ -107,7 +107,7 @@ const MaquetteAccueil = () => (
     {/* SECTION JALONS */}
     <div className="grid grid-cols-12 gap-x-6 gap-y-10 pt-20">
       <div className="col-span-12 md:col-span-4">
-        <span className="m-display block text-5xl md:text-6xl leading-none opacity-25 m-onum">02</span>
+        <span className="m-display block text-5xl md:text-6xl leading-none opacity-25 m-onum" aria-hidden="true">02</span>
         <p className="m-smcp text-xs mt-2">Jalons</p>
       </div>
       <div className="col-span-12 md:col-span-8 m-gres-2 m-grain p-6 md:p-8">
@@ -132,7 +132,7 @@ const MaquetteAccueil = () => (
                   <span className="m-tnum text-base normal-case tracking-normal">{d}</span>
                 </th>
                 <td className="text-base leading-relaxed pr-6 m-onum">{f}</td>
-                <td className="num m-smcp text-xs opacity-60">{n}</td>
+                <td className="num m-smcp text-xs m-ink-2">{n}</td>
               </tr>
             ))}
           </tbody>
@@ -177,12 +177,12 @@ const FicheVenture = () => (
             ['Terrain', cao.operating.fr],
           ].map(([k, v]) => (
             <div key={k} className="py-3 border-b" style={{ borderColor: 'hsl(var(--m-text-on-gres-1) / 0.14)' }}>
-              <dt className="m-smcp text-xs opacity-70">{k}</dt>
+              <dt className="m-smcp text-xs m-ink-2">{k}</dt>
               <dd className="mt-1 leading-relaxed">{v}</dd>
             </div>
           ))}
         </dl>
-        <p className="mt-6 text-sm opacity-70 leading-relaxed">
+        <p className="mt-6 text-sm m-ink-2 leading-relaxed">
           Les champs non sourcés ne sont pas affichés. La notice ne comporte aucune donnée
           d'activité.
         </p>
@@ -212,7 +212,7 @@ const FicheVenture = () => (
         ))}
         <line x1="48" y1="84" x2="752" y2="84" stroke="hsl(var(--m-encre))" strokeOpacity="0.25" strokeWidth="1" />
       </svg>
-      <figcaption className="m-smcp text-xs mt-4 opacity-70">
+      <figcaption className="m-smcp text-xs mt-4 m-ink-2">
         Coupe matière - hachure = société en cours d’immatriculation, arête de laiton = lumière unique
       </figcaption>
     </figure>
@@ -234,7 +234,7 @@ const Specimen = () => (
         ['1rem', 'Corps de texte, lecture longue, papier chiffon.'],
       ].map(([size, txt]) => (
         <div key={size} className="border-b py-4" style={{ borderColor: 'hsl(var(--m-text-on-gres-1) / 0.14)' }}>
-          <span className="m-smcp text-xs opacity-50 m-tnum">{size}</span>
+          <span className="m-smcp text-xs m-ink-2 m-tnum">{size}</span>
           <p className="m-display leading-none mt-2" style={{ fontSize: `min(${size}, 14vw)` }}>{txt}</p>
         </div>
       ))}
@@ -273,7 +273,7 @@ const Planche = () => (
           <div className="h-28" style={{ background: `hsl(var(${token}))` }} />
           <figcaption className="p-4">
             <p className="m-smcp text-xs">{name}</p>
-            <p className="text-sm opacity-70 mt-1 leading-snug">{use}</p>
+            <p className="text-sm m-ink-2 mt-1 leading-snug">{use}</p>
           </figcaption>
         </figure>
       ))}
@@ -283,7 +283,7 @@ const Planche = () => (
       <div className="m-carte m-grain p-8">
         <p className="m-smcp text-xs mb-4">Grain de papier</p>
         <div className="h-24 m-gres-3 m-grain" />
-        <p className="text-sm opacity-70 mt-4 leading-relaxed">Trame CSS, aucune image. Opacité 0.5, réduite à 0.32 sous 768px.</p>
+        <p className="text-sm m-ink-2 mt-4 leading-relaxed">Trame feTurbulence (0.82 / 2 octaves / stitch). Voile 0,07 sur grès, 0,09 sur béton, 0,05 en 1x et sur mobile, masqué à l’impression.</p>
       </div>
       <div className="m-carte m-grain p-8">
         <p className="m-smcp text-xs mb-4">Reliefs</p>
@@ -292,7 +292,7 @@ const Planche = () => (
             <div key={s} className="h-8 m-gres-2" style={{ boxShadow: `var(${s})` }} />
           ))}
         </div>
-        <p className="text-sm opacity-70 mt-4 leading-relaxed">Lumière zénithale unique : liseré clair en haut, ombre en bas. Jamais inversée.</p>
+        <p className="text-sm m-ink-2 mt-4 leading-relaxed">Lumière zénithale unique : décalage x = 0 sur les trois élévations, ombre encre teintée, aucun bevel ni creux simulé.</p>
       </div>
       <div className="m-beton m-grain m-coffrage p-8">
         <p className="m-smcp text-xs mb-4">Coffrage</p>
@@ -331,14 +331,14 @@ const Manifeste = () => (
       <div className="space-y-8">
         <div>
           <Folio n="03" label="folio-chouette" />
-          <p className="text-sm mt-3 leading-relaxed opacity-80">
+          <p className="text-sm mt-3 leading-relaxed m-ink-2">
             Conservé tel quel : deux disques (les yeux) séparés par l'incision du bec, numéro en
             elzéviriens tabulaires.
           </p>
         </div>
         <div>
           <Cachet folio="03" />
-          <p className="text-sm mt-3 leading-relaxed opacity-80">
+          <p className="text-sm mt-3 leading-relaxed m-ink-2">
             Conservé tel quel : bandeau typographique scellant chaque page - lieu, année
             d'immatriculation, folio, sceau.
           </p>
@@ -347,7 +347,7 @@ const Manifeste = () => (
           <div className="m-beton m-grain p-6 m-arete pl-6">
             <p className="m-display text-3xl">L'arête de laiton</p>
           </div>
-          <p className="text-sm mt-3 leading-relaxed opacity-80">
+          <p className="text-sm mt-3 leading-relaxed m-ink-2">
             Propre à Matière : un filet de laiton de 4,5 rem descend sur l'arête gauche de chaque
             bloc d'autorité, tracé en 640 ms. Deux par écran au maximum, déjà tracé en
             reduced-motion.
