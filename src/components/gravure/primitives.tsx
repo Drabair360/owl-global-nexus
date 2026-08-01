@@ -197,7 +197,7 @@ export const RepereNiveau = ({
       )}
       <path d={`M${x - 8} ${y - 12} L${x + 8} ${y - 12} L${x} ${y} z`} fill="none" stroke={c} strokeWidth={MOYEN} />
       <line x1={x - 22} y1={y} x2={x + 22} y2={y} stroke={c} strokeWidth={MOYEN} />
-      <text className="gravure-lettrage" x={x + 26} y={y - 4} fontSize="13" fill={or ? LAITON : OXYDE}>
+      <text className="gravure-lettrage" x={x + 26} y={y - 4} fontSize="12" fill={or ? LAITON : OXYDE}>
         {label}
       </text>
     </g>
@@ -260,13 +260,13 @@ export const ChaineCotes = ({
             className="gravure-lettrage"
             x={y + 12}
             y={m}
-            fontSize="13"
+            fontSize="11"
             textAnchor="start"
           >
             {lb}
           </text>
         ) : (
-          <text key={lb + i} className="gravure-lettrage" x={m} y={y - 8} fontSize="13" textAnchor="middle">
+          <text key={lb + i} className="gravure-lettrage" x={m} y={y - 8} fontSize="11" textAnchor="middle">
             {lb}
           </text>
         );
@@ -304,7 +304,7 @@ export const Attache = ({
         className="gravure-lettrage"
         x={anchor === 'end' ? ex - 4 : ex + 4}
         y={my - 5}
-        fontSize="12"
+        fontSize="11"
         textAnchor={anchor}
       >
         {label}
@@ -399,7 +399,7 @@ export const CercleDetail = ({
 }) => (
   <g>
     <circle cx={cx} cy={cy} r={r} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
-    <text className="gravure-lettrage" x={cx + r * 0.72} y={cy - r * 0.72} fontSize="12">
+    <text className="gravure-lettrage" x={cx + r * 0.72} y={cy - r * 0.72} fontSize="11">
       {label}
     </text>
   </g>
@@ -516,7 +516,7 @@ export const FlechePente = ({
     <g>
       <line x1={x} y1={y} x2={ex} y2={ey} stroke={OXYDE} strokeWidth={FIN} />
       <path d={`M${ex} ${ey} L${p1[0]} ${p1[1]} M${ex} ${ey} L${p2[0]} ${p2[1]}`} stroke={OXYDE} strokeWidth={FIN} fill="none" />
-      <text className="gravure-lettrage" x={(x + ex) / 2} y={(y + ey) / 2 - 7} fontSize="12" textAnchor="middle">
+      <text className="gravure-lettrage" x={(x + ex) / 2} y={(y + ey) / 2 - 7} fontSize="11" textAnchor="middle">
         {label}
       </text>
     </g>
