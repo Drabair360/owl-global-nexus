@@ -22,7 +22,8 @@ export default {
 				'display': ['Instrument Serif', 'Georgia', 'serif'],
 				'heading': ['Instrument Serif', 'Georgia', 'serif'],
 				'body': ['Inter', 'system-ui', 'sans-serif'],
-				'condensed': ['Oswald', 'Inter', 'sans-serif'],
+				'condensed': ['Inter', 'system-ui', 'sans-serif'],
+				'prose': ['EB Garamond', 'Instrument Serif', 'Georgia', 'serif'],
 			},
 			/**
 			 * Echelle typographique stricte, quarte juste (ratio 1.333),
