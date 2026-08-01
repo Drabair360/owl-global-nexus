@@ -5,6 +5,7 @@ import { Eyebrow } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Duotone from '@/components/Duotone';
 import { textures, SIZES } from '@/assets/textures';
+import PlancheEnSituation from '@/components/gravure/PlancheEnSituation';
 
 const NotFound = () => {
   const location = useLocation();
@@ -86,6 +87,9 @@ const NotFound = () => {
           </div>
         </div>
       </section>
+    
+      {/* CABINET §6 - planche XII posée en situation, préversion seulement */}
+      <PlancheEnSituation numeral="XII" idPrefix="planche-xii-notfound" />
     </PageShell>
   );
 };

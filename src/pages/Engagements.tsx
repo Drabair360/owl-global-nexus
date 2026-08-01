@@ -8,6 +8,7 @@ import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
 import CinemaBand from '@/components/CinemaBand';
+import PlancheEnSituation from '@/components/gravure/PlancheEnSituation';
 
 const Engagements = () => {
   const { t } = useI18n();
@@ -47,6 +48,9 @@ const Engagements = () => {
           ))}
         </div>
       </EditorialSection>
+    
+      {/* CABINET §6 - planche VIII posée en situation, préversion seulement */}
+      <PlancheEnSituation numeral="VIII" idPrefix="planche-viii-engagements" />
     </PageShell>
   );
 };

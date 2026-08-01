@@ -9,6 +9,7 @@ import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
+import PlancheEnSituation from '@/components/gravure/PlancheEnSituation';
 
 const Metiers = () => {
   const { t } = useI18n();
@@ -58,6 +59,9 @@ const Metiers = () => {
           ))}
         </div>
       </EditorialSection>
+    
+      {/* CABINET §6 - planche II posée en situation, préversion seulement */}
+      <PlancheEnSituation numeral="II" idPrefix="planche-ii-metiers" />
     </PageShell>
   );
 };
