@@ -32,6 +32,22 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  /* Z6 — hygiène du menu mobile : Échap ferme, le corps ne défile plus
+     derrière le panneau ouvert, et l'état est rendu au clavier. */
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
   const scrollTop = () => window.scrollTo(0, 0);
 
   return (
