@@ -132,8 +132,9 @@ const Navbar = () => {
               type="button"
               onClick={() => setOpen(!open)}
               className="mat-ink-1 transition-colors"
-              aria-label={t('nav.menu')}
+              aria-label={open ? t('nav.close') : t('nav.menu')}
               aria-expanded={open}
+              aria-controls="menu-mobile"
             >
               {open ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -143,6 +144,7 @@ const Navbar = () => {
 
       {open && (
         <div
+          id="menu-mobile"
           className="md:hidden mat-gres"
           style={{ borderTop: '1px solid hsl(var(--mat-laiton) / 0.28)', boxShadow: 'var(--mat-elev-2)' }}
         >
