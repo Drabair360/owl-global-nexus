@@ -186,7 +186,7 @@ const FicheVenture = () => (
         <dl className="text-base">
           {[
             ['Dénomination', 'CAO Industries'],
-            ['Statut', 'En cours de constitution'],
+            ['Statut', 'En cours d’immatriculation'],
             ['Dépôt de capital', '27 juillet 2026'],
             ['Pôle', 'Industriel'],
           ].map(([k, v]) => (
@@ -228,7 +228,7 @@ const FicheVenture = () => (
         <circle cx="660" cy="130" r="3" fill="hsl(var(--g-gold))" />
       </svg>
       <figcaption className="g-smcp text-xs mt-4 opacity-70">
-        Gravure technique - hachure = société en cours de constitution
+        Gravure technique - hachure = société en cours d’immatriculation
       </figcaption>
     </figure>
   </div>
