@@ -16,8 +16,8 @@
   --v3-gres-micro:    0.070;  /* grain fin                 0.06-0.08 */
   --v3-gres-fibre:    0.055;  /* fibres, 1-2 par écran               */
 
-  --v3-beton-macro:   0.070;  /* nuages de coulée          0.06-0.08 */
-  --v3-beton-micro:   0.150;  /* grain + relief marqué (ICI seulement) */
+  --v3-beton-macro:   0.045;  /* nuages de coulée          0.06-0.08 */
+  --v3-beton-micro:   0.110;  /* grain + relief marqué (ICI seulement) */
   --v3-beton-bulle:   0.500;  /* bulles de coffrage, rares            */
 
   --v3-laiton-brosse: 0.200;  /* brossage anisotrope       0.15-0.25 */
@@ -94,15 +94,15 @@
   background-image:
     /* jointures de banches : la lumière au-dessus, l'ombre au-dessous */
     repeating-linear-gradient(90deg,
-      hsl(var(--mat-gres) / 0.10) 0 1px,
-      hsl(0 0% 0% / 0.30) 1px 2px,
+      hsl(var(--mat-gres) / 0.14) 0 1px,
+      hsl(0 0% 0% / 0.34) 1px 2px,
       transparent 2px var(--mat-banche)),
     /* macro : nuages de coulée, une banche ne sèche pas comme sa voisine */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='960'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.005' numOctaves='2' seed='31' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='960' height='960' filter='url(%23c)' opacity='0.6'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1280' height='1280'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004' numOctaves='1' seed='31' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='1280' height='1280' filter='url(%23c)' opacity='0.35'/%3E%3C/svg%3E"),
     /* micro : grain + relief marqué, réservé au béton */
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.28' numOctaves='3' seed='11' stitchTiles='stitch' result='n'/%3E%3CfeDiffuseLighting in='n' surfaceScale='2.8' diffuseConstant='1.05' lighting-color='%23ffffff'%3E%3CfeDistantLight azimuth='90' elevation='56'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23r)'/%3E%3C/svg%3E");
-  background-size: auto, 960px 960px, 240px 240px;
-  background-blend-mode: normal, overlay, soft-light;
+  background-size: auto, 1280px 1280px, 240px 240px;
+  background-blend-mode: normal, soft-light, soft-light;
   opacity: calc(var(--v3-beton-macro) + var(--v3-beton-micro));
 }
 
@@ -260,6 +260,6 @@
 }
 
 /* --- Trois intensités de calibrage (§6), portées par un parent --- */
-.v3-sobre  { --v3-gres-macro: 0.028; --v3-gres-vergeure: 0.018; --v3-gres-micro: 0.050; --v3-gres-fibre: 0.035; --v3-beton-macro: 0.050; --v3-beton-micro: 0.105; --v3-beton-bulle: 0.35; --v3-laiton-brosse: 0.15; }
-.v3-cible  { --v3-gres-macro: 0.040; --v3-gres-vergeure: 0.025; --v3-gres-micro: 0.070; --v3-gres-fibre: 0.055; --v3-beton-macro: 0.070; --v3-beton-micro: 0.150; --v3-beton-bulle: 0.50; --v3-laiton-brosse: 0.20; }
-.v3-poussee{ --v3-gres-macro: 0.052; --v3-gres-vergeure: 0.032; --v3-gres-micro: 0.088; --v3-gres-fibre: 0.075; --v3-beton-macro: 0.088; --v3-beton-micro: 0.200; --v3-beton-bulle: 0.68; --v3-laiton-brosse: 0.25; }
+.v3-sobre  { --v3-gres-macro: 0.028; --v3-gres-vergeure: 0.018; --v3-gres-micro: 0.050; --v3-gres-fibre: 0.035; --v3-beton-macro: 0.032; --v3-beton-micro: 0.080; --v3-beton-bulle: 0.35; --v3-laiton-brosse: 0.15; }
+.v3-cible  { --v3-gres-macro: 0.040; --v3-gres-vergeure: 0.025; --v3-gres-micro: 0.070; --v3-gres-fibre: 0.055; --v3-beton-macro: 0.045; --v3-beton-micro: 0.110; --v3-beton-bulle: 0.50; --v3-laiton-brosse: 0.20; }
+.v3-poussee{ --v3-gres-macro: 0.052; --v3-gres-vergeure: 0.032; --v3-gres-micro: 0.088; --v3-gres-fibre: 0.075; --v3-beton-macro: 0.060; --v3-beton-micro: 0.150; --v3-beton-bulle: 0.68; --v3-laiton-brosse: 0.25; }
