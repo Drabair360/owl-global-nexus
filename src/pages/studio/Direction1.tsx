@@ -172,13 +172,12 @@ const FicheVenture = () => (
   <div className="max-w-[92rem] mx-auto px-6 md:px-12 pb-20">
     <div className="grid grid-cols-12 gap-x-6">
       <div className="col-span-12 md:col-span-8 g-ink-surface g-burin p-8 md:p-14">
-        <span className="g-smcp text-xs" style={{ color: 'hsl(var(--g-gold-lit))' }}>Pôle industriel</span>
+        <span className="g-smcp text-xs" style={{ color: 'hsl(var(--g-gold-lit))' }}>{cao.pole.fr}</span>
         <h3 className="g-display mt-6" style={{ fontSize: 'clamp(2.369rem, 7vw, 5.61rem)' }}>
           CAO <span className="g-incision">Industries</span>
         </h3>
         <p className="mt-8 text-lg leading-relaxed max-w-xl" style={{ color: 'hsl(var(--g-paper) / 0.78)' }}>
-          Contractant général de projets industriels clé en main, de l'étude à la livraison.
-          Constitution engagée en 2026.
+          {cao.context.fr}
         </p>
         <div className="mt-10">
           <Cachet folio="02" />
@@ -190,11 +189,12 @@ const FicheVenture = () => (
         <h4 className="g-smcp text-xs mb-6">Notice</h4>
         <dl className="text-base">
           {[
-            ['Dénomination', 'CAO Industries'],
+            ['Dénomination', cao.name],
             ['Statut', 'En cours d’immatriculation'],
             ['Dépôt de capital', '27 juillet 2026'],
-            ['Pôle', 'Industriel'],
+            ['Pôle', cao.pole.fr],
           ].map(([k, v]) => (
+
             <div key={k} className="py-3 border-b" style={{ borderColor: 'hsl(var(--g-ink) / 0.16)' }}>
               <dt className="g-smcp text-xs opacity-70">{k}</dt>
               <dd className="mt-1 g-tnum">{v}</dd>
