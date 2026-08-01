@@ -313,30 +313,34 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     {/* ================= FIG. 3 — PLAN DE REPÉRAGE ================= */}
     <RepereFigure x={946} y={404} n="3" title="Plan de repérage" w={230} />
     <g clipPath={`url(#${p}-masse)`}>
-      <HachuresVivantes x={988} y={418} w={164} h={68} pas={11} seed={17} opacity={0.35} />
+      <HachuresVivantes x={988} y={430} w={164} h={68} pas={11} seed={17} opacity={0.35} />
     </g>
-    <Cadre x={988} y={418} w={164} h={68} weight={MOYEN} over={1.5} />
+    <Cadre x={988} y={430} w={164} h={68} weight={MOYEN} over={1.5} />
     {[1022, 1070, 1118].map((x, i) => (
       <g key={x}>
-        <line x1={x} y1={418} x2={x} y2={486} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="9 3 2 3" opacity="0.7" />
-        <text className="gravure-lettrage" x={x} y={412} fontSize="11" textAnchor="middle">
+        <line x1={x} y1={430} x2={x} y2={498} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="9 3 2 3" opacity="0.7" />
+        <text className="gravure-lettrage" x={x} y={424} fontSize="11" textAnchor="middle">
           {['A', 'B', 'C'][i]}
         </text>
       </g>
     ))}
     {/* ligne de coupe A-A, fléchée : on voit d'où la coupe est prise */}
-    <line x1={966} y1={452} x2={1174} y2={452} stroke={OXYDE} strokeWidth={MOYEN} strokeDasharray="16 5 3 5" />
-    <path d="M978 452 l0 -14 l14 0" fill="none" stroke={OXYDE} strokeWidth={MOYEN} />
-    <path d="M1162 452 l0 -14 l-14 0" fill="none" stroke={OXYDE} strokeWidth={MOYEN} />
-    <text className="gravure-lettrage" x={962} y={444} fontSize="12" textAnchor="end">
+    <line x1={966} y1={464} x2={1174} y2={464} stroke={OXYDE} strokeWidth={MOYEN} strokeDasharray="16 5 3 5" />
+    <path d="M978 464 l0 -14 l14 0" fill="none" stroke={OXYDE} strokeWidth={MOYEN} />
+    <path d="M1162 464 l0 -14 l-14 0" fill="none" stroke={OXYDE} strokeWidth={MOYEN} />
+    <text className="gravure-lettrage" x={962} y={456} fontSize="12" textAnchor="end">
       A
     </text>
-    <text className="gravure-lettrage" x={1178} y={444} fontSize="12">
+    <text className="gravure-lettrage" x={1178} y={456} fontSize="12">
       A
     </text>
 
     {/* ================= NOMENCLATURE ================= */}
-    <RepereFigure x={946} y={556} n="—" title="Nomenclature" w={230} />
+    <text className="gravure-lettrage" x={946} y={556} fontSize="13" fill={ENCRE}>
+      Nomenclature
+    </text>
+    <line x1={946} y1={562} x2={1176} y2={562} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
+
     <Nomenclature
       x={954}
       y={588}
