@@ -61,9 +61,8 @@
     var(--v3-tile-meso) var(--v3-tile-meso),
     var(--v3-tile-micro) var(--v3-tile-micro);
   background-blend-mode: normal, multiply, soft-light;
-  opacity: 1;
-  /* les trois intensités sont portées par les couches elles-mêmes */
-  filter: none;
+  /* L'intensité de la pile est la somme des trois échelles calibrées */
+  opacity: calc(var(--v3-gres-macro) + var(--v3-gres-vergeure) + var(--v3-gres-micro));
 }
 
 /* Imperfections : 1-2 fibres par écran, orientées comme les vergeures,
@@ -104,7 +103,7 @@
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.28' numOctaves='3' seed='11' stitchTiles='stitch' result='n'/%3E%3CfeDiffuseLighting in='n' surfaceScale='2.8' diffuseConstant='1.05' lighting-color='%23ffffff'%3E%3CfeDistantLight azimuth='90' elevation='56'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23r)'/%3E%3C/svg%3E");
   background-size: auto, 960px 960px, 240px 240px;
   background-blend-mode: normal, overlay, soft-light;
-  opacity: var(--v3-beton-micro);
+  opacity: calc(var(--v3-beton-macro) + var(--v3-beton-micro));
 }
 
 /* Bulles de coffrage : 6 par tuile de 1280 px, tailles 2-6 px variées,
