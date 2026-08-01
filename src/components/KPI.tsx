@@ -24,7 +24,7 @@ export const KPI = ({
   className?: string;
 }) => (
   <div className={`border-t border-[hsl(var(--gold))/0.4] pt-4 ${className}`}>
-    <div className="font-display text-4xl md:text-5xl tabular text-[hsl(var(--text-primary))] leading-none mb-3">
+    <div className="font-display text-4xl md:text-5xl mat-tnum mat-ink-1 leading-none mb-3">
       {value}
     </div>
     <p className="smallcaps text-xs text-[hsl(var(--text-secondary))]">{label}</p>
