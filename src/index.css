@@ -224,6 +224,17 @@
     line-height: 1.05;
   }
 
+  /* Z1 : le display de l'accueil reste le plus grand du site, mais DANS
+     l'échelle (cran au-dessus de text-hero : 5.5rem × 1.333 = 7.33rem)
+     et dans la même famille que les hero du reste du bâtiment. */
+  .text-hero-accueil {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8.4vw, 7.33rem);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
   .text-section {
     font-family: var(--font-brand);
     font-size: clamp(1.5rem, 4vw, 3rem);
