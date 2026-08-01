@@ -194,7 +194,7 @@ const FicheVenture = () => (
       <svg viewBox="0 0 800 170" role="img" aria-label={`Coupe : rattachement de ${cao.name} au ${cao.pole.fr.toLowerCase()}`} className="w-full h-auto">
         <defs>
           <pattern id="m-hatch" width="7" height="7" patternTransform="rotate(-32)" patternUnits="userSpaceOnUse">
-            <line x1="0" y1="0" x2="0" y2="7" stroke="hsl(var(--m-encre))" strokeOpacity="0.24" strokeWidth="1" />
+            <line x1="0" y1="0" x2="0" y2="7" stroke="hsl(var(--m-text-on-gres-1))" strokeOpacity="0.24" strokeWidth="1" />
           </pattern>
         </defs>
         {[
@@ -203,14 +203,14 @@ const FicheVenture = () => (
           [660, cao.name],
         ].map(([x, label], i) => (
           <g key={label as string}>
-            <rect x={(x as number) - 92} y="58" width="184" height="52" fill={i === 2 ? 'url(#m-hatch)' : 'hsl(var(--m-grès-2))'} stroke="hsl(var(--m-encre))" strokeOpacity="0.4" />
+            <rect x={(x as number) - 92} y="58" width="184" height="52" fill={i === 2 ? 'url(#m-hatch)' : 'hsl(var(--m-grès-2))'} stroke="hsl(var(--m-text-on-gres-1))" strokeOpacity="0.4" />
             <line x1={(x as number) - 92} y1="58" x2={(x as number) - 92} y2="110" stroke="hsl(var(--m-laiton))" strokeWidth="2" />
-            <text x={x as number} y="89" textAnchor="middle" fontSize="13" fill="hsl(var(--m-encre))" fontFamily="Inter, sans-serif">
+            <text x={x as number} y="89" textAnchor="middle" fontSize="13" fill="hsl(var(--m-text-on-gres-1))" fontFamily="Inter, sans-serif">
               {label as string}
             </text>
           </g>
         ))}
-        <line x1="48" y1="84" x2="752" y2="84" stroke="hsl(var(--m-encre))" strokeOpacity="0.25" strokeWidth="1" />
+        <line x1="48" y1="84" x2="752" y2="84" stroke="hsl(var(--m-text-on-gres-1))" strokeOpacity="0.25" strokeWidth="1" />
       </svg>
       <figcaption className="m-smcp text-xs mt-4 m-ink-2">
         Coupe matière - hachure = société en cours d’immatriculation, arête de laiton = lumière unique
@@ -288,7 +288,7 @@ const Planche = () => (
       <div className="m-carte m-grain p-8">
         <p className="m-smcp text-xs mb-4">Reliefs</p>
         <div className="space-y-3">
-          {['--m-lift-1', '--m-lift-2', '--m-lift-3'].map((s) => (
+          {['--m-elev-1', '--m-elev-2', '--m-elev-3'].map((s) => (
             <div key={s} className="h-8 m-gres-2" style={{ boxShadow: `var(${s})` }} />
           ))}
         </div>
