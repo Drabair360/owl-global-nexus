@@ -4,6 +4,7 @@ import Footer from './Footer';
 import { useSEO } from '@/hooks/useSEO';
 import { useLocation } from 'react-router-dom';
 import { SITE_URL as BASE_URL } from '@/config/site';
+import { useI18n } from '@/lib/i18n';
 
 
 
@@ -21,6 +22,7 @@ interface Props {
 
 const PageShell = ({ title, description, keywords, jsonLd, breadcrumbs, noindex, children }: Props) => {
   const { pathname } = useLocation();
+  const { t } = useI18n();
 
   const trail = breadcrumbs && breadcrumbs.length > 0
     ? [{ name: 'Owl International', path: '/' }, ...breadcrumbs]
@@ -55,7 +57,7 @@ const PageShell = ({ title, description, keywords, jsonLd, breadcrumbs, noindex,
     <div className="min-h-screen flex flex-col bg-background">
       {/* Z6 : premier élément focusable du document */}
       <a href="#contenu" className="mat-skip font-subtitle">
-        {'Aller au contenu'}
+        {t('nav.skip')}
       </a>
       <header>
         <Navbar />
