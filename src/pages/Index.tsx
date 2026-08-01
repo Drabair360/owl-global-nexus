@@ -93,7 +93,7 @@ const Index = () => {
 
       {/* ==================== 01 - LE MODÈLE ==================== */}
       <section id="modele" className="relative mat-gres overflow-hidden mat-grain">
-        <CinemaBand texture="prestigeWide" tone="prestige" eager className="mb-16 md:mb-24" />
+        <CinemaBand texture="prestigeWide" tone="laiton" eager className="mb-16 md:mb-24" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 md:pb-32">
           <SectionWatermark n={t('home.model.number')} />
           <SectionNumber n={t('home.model.number')} label={t('home.model.section')} />
