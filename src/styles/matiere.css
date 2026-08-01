@@ -166,7 +166,7 @@
   border-top: 1px solid hsl(var(--mat-on-gres-1) / 0.3);
   border-bottom: 1px solid hsl(var(--mat-on-gres-1) / 0.3);
   padding: 0.6rem 0; display: flex; flex-wrap: wrap; gap: 0.45rem 1.5rem; align-items: baseline;
-  font-size: 0.563rem; text-transform: uppercase; letter-spacing: 0.16em;
+  font-size: var(--mat-corps-plancher); text-transform: uppercase; letter-spacing: 0.16em;
 }
 /* Sous 1280 px, le cachet n'est plus une ligne qui casse au hasard :
    c'est un registre à hiérarchie explicite, une mention par ligne, dans
