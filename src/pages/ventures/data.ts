@@ -28,6 +28,8 @@ export interface Venture {
   tone: DuotoneTone;
   /** Numéro d'ordre éditorial (§6). */
   order: string; // '01' à '05'
+  /** Fait daté de constitution, uniquement lorsqu'il est vérifiable. */
+  incorporation?: { fr: string; en: string };
 }
 
 export const ventures: Venture[] = [
@@ -49,6 +51,10 @@ export const ventures: Venture[] = [
     texture: 'industrial',
     tone: 'prestige',
     order: '01',
+    incorporation: {
+      fr: 'Constitution engagée en 2026',
+      en: 'Incorporation under way in 2026',
+    },
   },
   {
     slug: 'drabair-labs',
