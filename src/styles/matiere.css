@@ -31,8 +31,11 @@
   --mat-on-gres-2:   24 10% 28%;
   --mat-accent-gres: 14 46% 30%;
   --mat-on-beton-1:  32 16% 88%;
-  --mat-on-beton-2:  30 12% 70%;
-  --mat-accent-beton: 40 66% 62%;
+  /* Z4 — règle du +1,4 : sur béton, toute paire doit mesurer ≥ 5,9:1 À PLAT
+     pour rester AA une fois le grain posé. Les deux encres secondaires du
+     béton sont remontées au niveau du hero (6,7:1 à plat). */
+  --mat-on-beton-2:  30 12% 82%;
+  --mat-accent-beton: 40 62% 78%;
 
   /* --- M1 : une seule lumière, x = 0, trois élévations ------ */
   --mat-elev-1: 0 1px 2px hsl(var(--mat-on-gres-1) / 0.10);
