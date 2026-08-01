@@ -32,18 +32,23 @@ const Approche = () => {
       />
 
       <EditorialSection className="bg-white">
-        <div className="space-y-24">
-          {principles.map((p) => (
-            <StickyChapter key={p.n} number={p.n} label={`Principe ${p.n}`} title={t(p.tKey)}>
+        <ChapterRail
+          ariaLabel={t('approche.title')}
+          chapters={principles.map((p) => ({
+            id: `principe-${p.n}`,
+            number: p.n,
+            label: `Principe ${p.n}`,
+            title: t(p.tKey),
+            content: (
               <SplitText
                 as="p"
                 text={t(p.bKey)}
                 className="text-xl md:text-2xl font-body leading-relaxed text-slate-700 block"
                 stagger={18}
               />
-            </StickyChapter>
-          ))}
-        </div>
+            ),
+          }))}
+        />
       </EditorialSection>
 
 
