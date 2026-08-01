@@ -259,7 +259,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
       <path d={`M${C - 60} 226 V${H1 - 74}`} />
     </g>
     <text className="gravure-lettrage" x={B} y={216} fontSize="12" textAnchor="middle">
-      Réseaux — PROJETÉ
+      Réseaux - PROJETÉ
     </text>
 
     {/* — calque 10 : TRAMES, NIVEAUX, COTES — */}
@@ -364,6 +364,6 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     />
 
     {/* ================= CARTOUCHE ================= */}
-    <Cartouche x={60} y={862} w={420} h={92} numeral="I" title="Unité industrielle — coupe" echelle="Éch. symb." />
+    <Cartouche x={60} y={862} w={420} h={92} numeral="I" title="Unité industrielle - coupe" echelle="Éch. symb." />
   </>
 );
