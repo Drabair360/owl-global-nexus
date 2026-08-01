@@ -95,7 +95,7 @@ const MaquetteAccueil = () => (
       </div>
       <ul className="col-span-12 md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {ventures.map((v) => (
-          <li key={v.slug} className="m-carte m-grain p-6 m-arete">
+          <li key={v.slug} className="m-carte m-grain p-6 m-serti">
             <span className="m-smcp text-xs m-ink-2 m-tnum">{v.order}</span>
             <p className="m-display text-2xl mt-3">{v.name}</p>
             <p className="m-smcp text-xs mt-2">{v.pole.fr}</p>
