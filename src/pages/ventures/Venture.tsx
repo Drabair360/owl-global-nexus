@@ -1,6 +1,6 @@
 import { Link, useParams, Navigate } from 'react-router-dom';
 import PageShell from '@/components/PageShell';
-import { Eyebrow, EditorialSection, Rule } from '@/components/editorial';
+import { EditorialSection, Rule } from '@/components/editorial';
 import Reveal from '@/components/Reveal';
 import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
@@ -165,7 +165,7 @@ const Venture = () => {
       {/* Opérationnel */}
       <EditorialSection className="mat-beton mat-grain mat-coffrage">
         <div className="max-w-3xl">
-          <Eyebrow>{locale === 'fr' ? 'Repère opérationnel' : 'Operating note'}</Eyebrow>
+          <p className="text-xs font-subtitle tracking-[0.28em] uppercase mat-ink-accent mb-4">{locale === 'fr' ? 'Repère opérationnel' : 'Operating note'}</p>
           <p className="font-display text-xl md:text-2xl mat-ink-1 leading-relaxed">
             {operating}
           </p>
