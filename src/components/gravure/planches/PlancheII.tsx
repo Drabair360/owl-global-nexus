@@ -29,14 +29,14 @@ import {
  */
 
 const Y = 300; // ligne d'assise commune aux trois temps
-const FIL = 640; // ordonnée du fil conducteur
+const FIL = 468; // ordonnée du fil conducteur
 
 export const PLANCHE_II = {
   numeral: 'II',
   title: 'La séquence EPC en frise',
   desc:
     "Gravure au trait, planche à trois figures lues de gauche à droite comme une frise. FIGURE 1, l'ingénierie : une planche à dessin inclinée sur son piètement, un té posé en travers, une équerre, un compas et un rouleau d'épures ; sur la feuille, une épure de portique au trait fin, ses axes en trait mixte et une chaîne de cotes symboliques. FIGURE 2, les achats : trois caisses d'expédition en coupe, pochées bois pour le caisson et acier pour la pièce contenue, cerclées et repérées, un palan d'atelier au-dessus de la caisse centrale, un bon de réception figuré par une feuille pliée et un tampon vierge ; les cotes d'encombrement sont symboliques. FIGURE 3, la construction : un portique en cours de levage, suspendu à quatre élingues sous un crochet, ses appuis encore libres au-dessus des platines en attente, le sol figuré par un trait fort et deux calages ; l'élément déjà monté est en trait continu, l'élément à venir en trait interrompu. Un fil conducteur rehaussé de laiton traverse la planche d'un bout à l'autre et passe par les trois figures, rappelant qu'une même responsabilité couvre la conception, les achats et la construction. Une nomenclature de huit entrées et un cartouche referment la planche.",
-  viewBox: '0 0 1240 900',
+  viewBox: '0 0 1240 720',
 };
 
 export const PlancheIIDrawing = ({ p }: { p: string }) => (
@@ -153,7 +153,7 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
     <Pastille x={1040} y={232} n={6} />
     <Pastille x={952} y={378} n={7} />
     <Pastille x={1200} y={300} n={8} />
-    <Attache x={1128} y={300} dx={64} dy={-46} label="Assemblage" />
+    <Attache x={952} y={300} dx={-72} dy={-54} label="Assemblage" anchor="end" />
 
     {/* ============ LE FIL CONDUCTEUR — unique rehaut de laiton ============ */}
     <path
@@ -174,7 +174,7 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
     {/* ================= NOMENCLATURE ================= */}
     <Nomenclature
       x={96}
-      y={706}
+      y={540}
       perCol={4}
       colGap={330}
       items={[
@@ -189,6 +189,6 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
       ]}
     />
 
-    <Cartouche x={880} y={790} numeral="II" title="La séquence EPC en frise" echelle="Éch. symb." />
+    <Cartouche x={880} y={604} numeral="II" title="La séquence EPC en frise" echelle="Éch. symb." />
   </>
 );
