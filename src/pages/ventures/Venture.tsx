@@ -120,9 +120,10 @@ const Venture = () => {
             aucune colonne ne se prolonge à vide sous son dernier bloc. */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start content-start">
           <div className="md:col-span-4">
-            <div className="text-xs font-subtitle tracking-[0.28em] uppercase mat-ink-accent mb-3">
-              {locale === 'fr' ? 'Mission' : 'Mission'}
-            </div>
+            {/* Z11 : les repères de la fiche sont de vrais titres de niveau 2 */}
+            <h2 className="mat-mention font-subtitle tracking-[0.28em] uppercase mat-ink-accent mb-3">
+              {locale === 'fr' ? 'Statut' : 'Status'}
+            </h2>
             <p className="statut mt-1">{t(venture.statusKey)}</p>
             <div className="mt-10">
               <GroupDiagram
@@ -152,13 +153,16 @@ const Venture = () => {
           </div>
 
           <div className="md:col-span-8">
+            <h2 className="mat-mention font-subtitle tracking-[0.28em] uppercase mat-ink-2 mb-3">
+              {locale === 'fr' ? 'Thèse' : 'Thesis'}
+            </h2>
             <p className="font-display text-2xl md:text-3xl leading-snug mat-ink-1">
               {t(venture.missionKey)}
             </p>
             <Rule />
-            <div className="text-xs font-subtitle tracking-[0.28em] uppercase mat-ink-2 mb-3">
+            <h2 className="mat-mention font-subtitle tracking-[0.28em] uppercase mat-ink-2 mb-3">
               {t('portfolio.covers')}
-            </div>
+            </h2>
             <ul className="space-y-3">
               {venture.pointsKeys.map((k) => (
                 <li key={k} className="flex gap-3 mat-ink-2 font-body">
@@ -175,7 +179,7 @@ const Venture = () => {
       {/* Opérationnel */}
       <EditorialSection className="mat-beton mat-grain mat-coffrage">
         <div className="max-w-3xl">
-          <p className="text-xs font-subtitle tracking-[0.28em] uppercase mat-ink-accent mb-4">{locale === 'fr' ? 'Repère opérationnel' : 'Operating note'}</p>
+          <h2 className="mat-mention font-subtitle tracking-[0.28em] uppercase mat-ink-accent mb-4">{locale === 'fr' ? 'Repère opérationnel' : 'Operating note'}</h2>
           <p className="font-display text-xl md:text-2xl mat-ink-1 leading-relaxed">
             {operating}
           </p>

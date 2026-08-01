@@ -18,20 +18,20 @@ const VentureNotice = ({ fields }: { fields: NoticeField[] }) => {
   if (rows.length === 0) return null;
 
   return (
-    <aside className="border-t border-slate-300 pt-6" aria-label={t('notice.title')}>
-      <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-gold-ink mb-6">
+    <aside className="border-t pt-6 border-[hsl(var(--mat-on-gres-1)/0.25)]" aria-label={t('notice.title')}>
+      <div className="mat-mention font-subtitle tracking-[0.28em] uppercase mat-ink-accent mb-6">
         {t('notice.title')}
       </div>
-      <dl className="divide-y divide-slate-200">
+      <dl className="divide-y divide-[hsl(var(--mat-on-gres-1)/0.16)]">
         {rows.map((f) => (
           <div
             key={f.label}
             className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-6 py-3"
           >
-            <dt className="text-xs font-subtitle tracking-[0.18em] uppercase text-slate-500 sm:pt-1">
+            <dt className="mat-mention font-subtitle tracking-[0.18em] uppercase mat-ink-2 sm:pt-1">
               {f.label}
             </dt>
-            <dd className="sm:col-span-2 text-slate-800 font-body">{f.value}</dd>
+            <dd className="sm:col-span-2 mat-ink-1 font-body mat-tnum">{f.value}</dd>
           </div>
         ))}
       </dl>

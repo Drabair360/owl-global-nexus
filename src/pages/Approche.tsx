@@ -55,7 +55,7 @@ const Approche = () => {
       </EditorialSection>
 
 
-      <EditorialSection className="mat-beton-2 mat-grain mat-coffrage text-white">
+      <EditorialSection className="mat-beton-2 mat-grain mat-coffrage mat-ink-1">
         <div className="max-w-3xl">
           <h2 className="font-heading text-2xl md:text-3xl mb-6">{t('approche.not.title')}</h2>
           <Rule />

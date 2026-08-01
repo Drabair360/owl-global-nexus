@@ -82,7 +82,10 @@
     /* Espacement 4px */
     --space-1: 0.25rem;  --space-2: 0.5rem;  --space-3: 0.75rem; --space-4: 1rem;
     --space-5: 1.25rem;  --space-6: 1.5rem;  --space-7: 1.75rem; --space-8: 2rem;
-    --space-10: 2.5rem;  --space-12: 3rem;   --space-14: 5rem;   --space-16: 6rem;
+    /* E2 : --space-14/16 mentaient sur leur cran (5rem/6rem sur une base 4px).
+       Remis dans la série : 14 → 3.5rem, 16 → 4rem. */
+    --space-10: 2.5rem;  --space-12: 3rem;   --space-14: 3.5rem; --space-16: 4rem;
+    --space-20: 5rem;    --space-24: 6rem;
 
     /* Motion - courbes uniques */
     --motion-micro: 150ms;
@@ -221,6 +224,17 @@
     line-height: 1.05;
   }
 
+  /* Z1 : le display de l'accueil reste le plus grand du site, mais DANS
+     l'échelle (cran au-dessus de text-hero : 5.5rem × 1.333 = 7.33rem)
+     et dans la même famille que les hero du reste du bâtiment. */
+  .text-hero-accueil {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8.4vw, 7.33rem);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
   .text-section {
     font-family: var(--font-brand);
     font-size: clamp(1.5rem, 4vw, 3rem);
@@ -258,8 +272,10 @@
   }
 
   ::selection { background: hsl(var(--gold)); color: hsl(var(--ink)); }
+  /* Z3 : l'anneau or mesurait 1,3:1 sur grès. Focus adaptatif par surface,
+     tokens définis dans styles/matiere.css. */
   :focus-visible {
-    outline: 2px solid hsl(var(--gold));
+    outline: 2px solid hsl(var(--focus-on-gres));
     outline-offset: 2px;
     border-radius: 2px;
   }

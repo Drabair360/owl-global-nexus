@@ -5,12 +5,11 @@
 
    §1 trois matériaux = albédo + macro + méso + micro + relief +
       imperfections rares  ·  §2 la matière répond au contact
-   §3 joints creux et chants  ·  §5 spécimen letterpress
    §7 tout est pré-rendu en fonds statiques, zéro filtre vivant
 
    ---------------------------------------------------------------
    GEL DE CALIBRAGE — séance de lab du 01/08/2026, intensité CIBLE.
-   Grès, béton, laiton, états de plaque, letterpress force sobre :
+   Grès, béton, laiton, états de plaque :
    gelés tels quels. Les valeurs ci-dessous sont DÉFINITIVES ; toute
    dérive fait échouer `node scripts/matiere-gel-check.mjs` (snapshot
    de non-régression). Aucune retouche de texture n'est recevable
@@ -245,23 +244,14 @@
 }
 
 /* =============================================================
-   §5  SPÉCIMEN LETTERPRESS — béton uniquement, sous verdict
-   Trois forces pour le lab. Aucune application hors /studio.
+   §5  LETTERPRESS — SUPPRIMÉ (Lot Z9, verdict final du 01/08/2026)
+   « La sobriété atteinte au point de l'inexistence » : l'effet
+   n'était pas perceptible à l'écran et n'était pas appliqué sur les
+   fiches. Une intention non rendue est du code mort : les classes
+   `.v3-letterpress*` sont retirées, ainsi que leur règle de gel.
+   Ne pas réintroduire sans nouvelle séance de lab.
    ============================================================= */
-.v3-letterpress-1 { text-shadow: 0 -0.5px 0 hsl(0 0% 0% / 0.30), 0 0.5px 0 hsl(var(--mat-gres) / 0.10); }
-.v3-letterpress-2 { text-shadow: 0 -0.5px 0 hsl(0 0% 0% / 0.45), 0 1px 0 hsl(var(--mat-gres) / 0.16); }
-.v3-letterpress-3 { text-shadow: 0 -1px 0 hsl(0 0% 0% / 0.6), 0 1px 0 hsl(var(--mat-gres) / 0.24); }
 
-/* Verdict de gel : force SOBRE retenue en production, portée par
-   `.v3-letterpress`, réservée aux display posés sur béton. Toute
-   application hors béton est une faute de recette. */
-.v3-beton .v3-letterpress,
-.v3-beton-2 .v3-letterpress,
-.mat-beton .v3-letterpress,
-.mat-beton-2 .v3-letterpress {
-  text-shadow: 0 -0.5px 0 hsl(0 0% 0% / 0.30), 0 0.5px 0 hsl(var(--mat-gres) / 0.10);
-}
-@media print { .v3-letterpress { text-shadow: none !important; } }
 
 /* =============================================================
    §7  PERFORMANCE, MOBILE, MOUVEMENT, IMPRESSION
@@ -293,7 +283,6 @@
   .mat-beton-2::before, .mat-beton-2::after,
   .v3-joint { display: none !important; }
   .v3-plaque, .v3-chants { box-shadow: none !important; }
-  .v3-letterpress-1, .v3-letterpress-2, .v3-letterpress-3 { text-shadow: none !important; }
 }
 
 /* --- Trois intensités de calibrage (§6), portées par un parent --- */

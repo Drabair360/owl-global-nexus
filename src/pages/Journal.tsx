@@ -15,12 +15,14 @@ interface Entry {
   bKey: string;
 }
 
+/* Z10b — le bloc 2026 s'ordonne chronologiquement : 13 juillet, puis
+   27 juillet, puis l'entrée datée à l'année seule (date non arrêtée). */
 const entries: Entry[] = [
   { year: '2023', dateKey: 'journal.2023.date', tKey: 'journal.2023.title', bKey: 'journal.2023.body' },
   { year: '2024', dateKey: 'journal.2024.date', tKey: 'journal.2024.title', bKey: 'journal.2024.body' },
+  { year: '2026', dateKey: 'journal.2026c.date', tKey: 'journal.2026c.title', bKey: 'journal.2026c.body' },
   { year: '2026', dateKey: 'journal.2026a.date', tKey: 'journal.2026a.title', bKey: 'journal.2026a.body' },
   { year: '2026', dateKey: 'journal.2026b.date', tKey: 'journal.2026b.title', bKey: 'journal.2026b.body' },
-  { year: '2026', dateKey: 'journal.2026c.date', tKey: 'journal.2026c.title', bKey: 'journal.2026c.body' },
 ];
 
 const Journal = () => {

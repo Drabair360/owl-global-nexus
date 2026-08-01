@@ -39,7 +39,7 @@ const Groupe = () => {
 
       {/* Barre KPI - set fermé, aucun autre indicateur */}
       <EditorialSection className="mat-gres mat-grain pb-0">
-        <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-gold-ink mb-8">
+        <div className="text-xs font-subtitle tracking-[0.28em] uppercase mat-ink-accent mb-8">
           {t('kpi.title')}
         </div>
         <OwlKPISet />

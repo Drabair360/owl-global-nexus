@@ -46,7 +46,7 @@ const GroupDiagram = ({ name, pole, holding = 'Owl International', label }: Prop
 
   return (
     <div ref={ref} className="w-full max-w-xs">
-      <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-gold-ink mb-5">{label}</div>
+      <div className="text-xs font-subtitle tracking-[0.28em] uppercase mat-ink-accent mb-5">{label}</div>
       <div className="relative">
         <svg viewBox="0 0 240 200" className="w-full h-auto" role="presentation" aria-hidden>
           {SEGMENTS.map((s, i) => (
