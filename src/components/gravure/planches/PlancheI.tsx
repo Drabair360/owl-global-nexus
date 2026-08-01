@@ -15,7 +15,7 @@ export const PLANCHE_I = {
   desc:
     "Gravure au trait. Coupe verticale d'un bâtiment industriel générique. En bas, le terrain figuré par de fines horizontales espacées ; deux massifs de fondation hachurés à 45 degrés portent les poteaux ; entre eux, un dallage en coupe de matière figuré par des hachures croisées. La ligne de sol, rehaussée de laiton, traverse toute la planche : c'est le plan de pose. Deux poteaux montent jusqu'à une charpente en treillis triangulé qui couvre la portée. À mi-hauteur, deux chemins de roulement portent un pont roulant, dessiné en caisson avec son treuil et son crochet. Au-dessus, un réseau technique figuré en pointillé indique les tracés projetés, non encore posés. Des cotations symboliques, sans valeur chiffrée, portent les lettres A, B et H. Un cartouche d'angle porte le numéro de planche, son titre et le sceau du registre.",
   viewBox: '0 0 1200 760',
-  detailViewBox: '620 235 440 275',
+  detailViewBox: '445 245 400 290',
 };
 
 export const PlancheIDrawing = ({ p }: { p: string }) => {
