@@ -74,7 +74,7 @@ const cartouches = ['src/components/gravure/Cartouche.tsx'];
 for (const c of cartouches) { if (!read(c).includes('PLANCHE ')) errors.push('cartouche : gabarit altéré'); }
 // Un seul rehaut de laiton par planche.
 const pl1 = read('src/components/gravure/planches/PlancheI.tsx');
-const laitons = (pl1.match(/LAITON/g) || []).length;
+const laitons = (pl1.split('\n').filter((l) => !l.startsWith('import') && /(?:stroke|fill)=\{LAITON\}/.test(l))).length;
 if (laitons > 1) errors.push(`planche I : ${laitons} rehauts de laiton (maximum 1)`);
 
 if (errors.length) {
