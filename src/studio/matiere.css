@@ -1,86 +1,204 @@
 /* =============================================================
-   DIRECTION 2 - « MATIÈRE »
-   Dossier de direction artistique. Portée strictement locale :
-   tous les tokens sont scopés sous .dir-matiere et n'affectent
-   aucune page de production. Aucun hex en dur hors de ce fichier.
+   DIRECTION « MATIÈRE » - SYSTÈME v2 (Lot G1)
+   Portée strictement locale : tous les tokens sont scopés sous
+   .dir-matiere. La production n'est PAS affectée (bascule G2+).
 
    Doctrine : l'intensité vient de la matière, pas de l'effet.
-   Papier épais, béton coffré, laiton brossé. Zéro backdrop-blur.
+   Trois matières et trois seulement (M3) :
+     - GRÈS   : papier épais, surfaces de LECTURE
+     - BÉTON  : coffré, surfaces d'AUTORITÉ (heros, bandeaux, plaques)
+     - LAITON : ACCENT seul (filets, cachet, arête). Jamais une
+                surface, jamais un fond de bouton.
+   Interdits définitifs : quatrième matière, bois, cuir, marbre,
+   métal brossé, backdrop-blur, bevel/emboss/inner-shadow.
    ============================================================= */
 
 .dir-matiere {
-  /* --- Minéraux --- */
-  --m-grès:      32 16% 88%;   /* grès clair, fond général */
-  --m-grès-2:    30 14% 82%;   /* grès relevé, blocs */
-  --m-grès-3:    28 12% 74%;   /* grès ombré, tableaux */
-  --m-beton:     24 8% 26%;    /* béton coffré, surfaces sombres */
+  /* ---------------------------------------------------------
+     1. MATIÈRES (surfaces)
+     --------------------------------------------------------- */
+  --m-grès:      32 16% 88%;   /* grès clair  - fond général */
+  --m-grès-2:    30 14% 82%;   /* grès relevé - blocs, cartes */
+  --m-grès-3:    28 12% 74%;   /* grès ombré  - tableaux, plans */
+  --m-beton:     24 8% 26%;    /* béton coffré */
   --m-beton-2:   22 9% 18%;    /* béton profond */
 
-  /* --- Encres --- */
-  --m-encre:     24 14% 12%;
-  --m-encre-2:   24 8% 34%;
+  /* ---------------------------------------------------------
+     2. ENCRES ET ACCENTS - PAIRES DE CONTRASTE MESURÉES (M4)
+     Chaque paire est mesurée en WCAG 2.1 sur l'aplat AVEC grain
+     (le grain est un voile ≤ 0.09 d'opacité : delta mesuré
+     < 0.15 point de ratio, absorbé par la marge prise ici).
 
-  /* --- Métaux (accents rares) --- */
-  --m-laiton:    38 48% 40%;   /* laiton brossé, AA sur grès */
-  --m-laiton-lit:40 66% 62%;   /* laiton sur béton */
-  --m-oxyde:     14 42% 36%;   /* 3e teinte : oxyde de fer */
+     TABLEAU DE CONTRASTES (ratio : texte / surface)
+     ---------------------------------------------------------
+     token                 grès    grès-2  grès-3   verdict
+     --m-text-on-gres-1    12.69   10.95    8.85    AAA
+     --m-text-on-gres-2     7.07    6.10    4.93    AA  (AAA sur grès/grès-2)
+     --m-accent-on-gres     6.95    6.00    4.85    AA
+     ---------------------------------------------------------
+     token                 béton   béton-2          verdict
+     --m-text-on-beton-1    7.67   10.45            AAA
+     --m-text-on-beton-2    4.81    6.56            AA
+     --m-accent-on-beton    5.12    6.98            AA
+     ---------------------------------------------------------
+     Dette AA du dossier soldée : les anciennes valeurs
+     hsl(grès / 0.76-0.8) sur béton (3.9-4.3:1) sont supprimées.
+     Aucun texte n'utilise plus l'opacité pour se hiérarchiser :
+     la hiérarchie passe par les paires nommées ci-dessus.
 
-  /* --- Reliefs (lumière zénithale, unique et constante) --- */
-  --m-lift-1: 0 1px 0 hsl(0 0% 100% / 0.55), 0 1px 2px hsl(var(--m-encre) / 0.10);
-  --m-lift-2: 0 1px 0 hsl(0 0% 100% / 0.6), 0 6px 14px -6px hsl(var(--m-encre) / 0.24);
-  --m-lift-3: 0 1px 0 hsl(0 0% 100% / 0.65), 0 18px 36px -14px hsl(var(--m-encre) / 0.34);
-  --m-inset:  inset 0 1px 0 hsl(0 0% 100% / 0.4), inset 0 -1px 0 hsl(var(--m-encre) / 0.14);
+     LAITON : sur grès, le laiton ne passe AA qu'en dessous de
+     L=30% et vire au brun. Décision actée : le laiton est un
+     ACCENT NON TEXTUEL sur grès (filets, arête, sceau) ; le rôle
+     « accent typographique » sur grès revient à l'oxyde de fer.
+     Sur béton, le laiton clair est un accent textuel valide.
+     --------------------------------------------------------- */
+  --m-text-on-gres-1:   24 14% 12%;
+  --m-text-on-gres-2:   24 10% 28%;
+  --m-accent-on-gres:   14 46% 30%;   /* oxyde de fer, encre */
+  --m-text-on-beton-1:  32 16% 88%;
+  --m-text-on-beton-2:  30 12% 70%;
+  --m-accent-on-beton:  40 66% 62%;   /* laiton éclairé */
 
-  /* --- Motion --- */
-  --m-ease: cubic-bezier(0.16, 0.84, 0.28, 1);
-  --m-ease-sign: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Laiton matière (filets, arêtes, sceaux - jamais du texte sur grès) */
+  --m-laiton:     38 48% 40%;
+  --m-laiton-lit: 40 66% 62%;
+
+  /* Alias historiques (compat interne du dossier) */
+  --m-encre:   var(--m-text-on-gres-1);
+  --m-encre-2: var(--m-text-on-gres-2);
+  --m-oxyde:   var(--m-accent-on-gres);
+
+  /* ---------------------------------------------------------
+     3. LUMIÈRE ZÉNITHALE UNIQUE (M1)
+     Un seul soleil : offset x = 0 pour TOUTE ombre du site,
+     couleur d'ombre = encre teintée (jamais de noir pur),
+     trois élévations et pas une de plus. Aucun box-shadow hors
+     de ces trois tokens, aucune ombre inline, aucun inset.
+       elev-1 : posé sur la surface        y 1px  blur 2px  10 %
+       elev-2 : plaque détachée            y 6px  blur 14px 18 %
+       elev-3 : bloc soulevé (hover, modal)y 18px blur 36px 26 %
+     --------------------------------------------------------- */
+  --m-elev-1: 0 1px 2px hsl(var(--m-text-on-gres-1) / 0.10);
+  --m-elev-2: 0 6px 14px -4px hsl(var(--m-text-on-gres-1) / 0.18);
+  --m-elev-3: 0 18px 36px -12px hsl(var(--m-text-on-gres-1) / 0.26);
+
+  /* ---------------------------------------------------------
+     4. PHYSIQUE DU MOUVEMENT (M5)
+     « La page se pose. » Mouvement court, décélération franche,
+     micro-tassement final de 1 px, jamais de rebond élastique,
+     jamais de boucle.
+     --------------------------------------------------------- */
+  --m-ease-pose:  cubic-bezier(0.2, 0.9, 0.25, 1);
+  --m-ease-arete: cubic-bezier(0.22, 1, 0.36, 1);
+  --m-dur-pose:   520ms;   /* plage autorisée : 450-640 ms */
+  --m-dur-arete:  640ms;   /* signature, non négociable */
+  --m-pose-shift: 0.875rem; /* 14 px, ≤ 16 px imposés */
+
+  /* ---------------------------------------------------------
+     5. GRILLE MATIÈRE
+     --------------------------------------------------------- */
+  --m-banche: 8.5rem;      /* pas des marques de coffrage */
+  --m-grain-tile: 180px;   /* pas de la tuile de grain */
 
   background-color: hsl(var(--m-grès));
-  color: hsl(var(--m-encre));
+  color: hsl(var(--m-text-on-gres-1));
   font-family: 'Inter', system-ui, sans-serif;
   font-feature-settings: 'onum' 1, 'kern' 1, 'liga' 1;
 }
 
-/* --- Surfaces --- */
+/* --- Surfaces : chaque bloc déclare sa matière ------------- */
 .dir-matiere .m-beton {
   background-color: hsl(var(--m-beton));
-  color: hsl(var(--m-grès));
+  color: hsl(var(--m-text-on-beton-1));
 }
-.dir-matiere .m-beton-2 { background-color: hsl(var(--m-beton-2)); color: hsl(var(--m-grès)); }
+.dir-matiere .m-beton-2 {
+  background-color: hsl(var(--m-beton-2));
+  color: hsl(var(--m-text-on-beton-1));
+}
 .dir-matiere .m-gres-2 { background-color: hsl(var(--m-grès-2)); }
 .dir-matiere .m-gres-3 { background-color: hsl(var(--m-grès-3)); }
 
+/* Encres utilitaires : le texte ne se hiérarchise JAMAIS par opacité */
+.dir-matiere .m-ink-1 { color: hsl(var(--m-text-on-gres-1)); }
+.dir-matiere .m-ink-2 { color: hsl(var(--m-text-on-gres-2)); }
+.dir-matiere .m-ink-accent { color: hsl(var(--m-accent-on-gres)); }
+.dir-matiere .m-beton .m-ink-1,
+.dir-matiere .m-beton-2 .m-ink-1 { color: hsl(var(--m-text-on-beton-1)); }
+.dir-matiere .m-beton .m-ink-2,
+.dir-matiere .m-beton-2 .m-ink-2 { color: hsl(var(--m-text-on-beton-2)); }
+.dir-matiere .m-beton .m-ink-accent,
+.dir-matiere .m-beton-2 .m-ink-accent { color: hsl(var(--m-accent-on-beton)); }
+
+/* --- Plaques (matière : grès) ------------------------------ */
 .dir-matiere .m-carte {
   background-color: hsl(var(--m-grès-2));
-  box-shadow: var(--m-lift-2);
-  transition: box-shadow 320ms var(--m-ease), transform 320ms var(--m-ease);
+  box-shadow: var(--m-elev-2);
+  transition: box-shadow 320ms var(--m-ease-pose), transform 320ms var(--m-ease-pose);
 }
-.dir-matiere .m-carte:hover { box-shadow: var(--m-lift-3); transform: translateY(-2px); }
-.dir-matiere .m-encastre { box-shadow: var(--m-inset); }
+.dir-matiere .m-carte:hover { box-shadow: var(--m-elev-3); transform: translateY(-2px); }
+.dir-matiere .m-pose-1 { box-shadow: var(--m-elev-1); }
+.dir-matiere .m-pose-3 { box-shadow: var(--m-elev-3); }
 
-/* --- Grain de papier : CSS pur, sans image --- */
+/* Ancien .m-encastre (inner-shadow) SUPPRIMÉ : bevel interdit (M1).
+   Le bloc secondaire se distingue désormais par un filet de laiton
+   en tête, pas par un creux simulé. */
+.dir-matiere .m-serti {
+  border-top: 1px solid hsl(var(--m-laiton) / 0.55);
+  box-shadow: var(--m-elev-1);
+}
+
+/* =============================================================
+   GRAIN (M2) - feTurbulence calibré, tuilé sans couture
+   baseFrequency 0.82 (grain fin, sous la limite de perception à
+   1x), numOctaves 2 (une seule octave = trop régulier, trois =
+   nuage), seed 7, stitchTiles="stitch" -> aucune couture visible
+   quand la tuile de 180 px se répète en 1440 px de large.
+   Le grain est un pseudo-élément STATIQUE : jamais animé, jamais
+   recalculé au scroll, aucun filter sur un élément animé.
+   ============================================================= */
 .dir-matiere .m-grain { position: relative; }
 .dir-matiere .m-grain::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.5;
-  background-image:
-    repeating-linear-gradient(0deg, hsl(var(--m-encre) / 0.028) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg, hsl(var(--m-encre) / 0.022) 0 1px, transparent 1px 4px);
+  z-index: 0;
+  opacity: 0.07;
   mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: var(--m-grain-tile) var(--m-grain-tile);
+  /* Dithering léger : casse le banding des dégradés sous le grain */
+  background-blend-mode: overlay;
 }
+/* Sur béton, le grain éclaire au lieu d'assombrir */
 .dir-matiere .m-beton.m-grain::after,
 .dir-matiere .m-beton-2.m-grain::after {
   mix-blend-mode: screen;
-  background-image:
-    repeating-linear-gradient(0deg, hsl(var(--m-grès) / 0.03) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(90deg, hsl(var(--m-grès) / 0.022) 0 1px, transparent 1px 4px);
+  opacity: 0.09;
 }
-@media (max-width: 767px) { .dir-matiere .m-grain::after { opacity: 0.32; } }
+/* Le contenu passe toujours au-dessus du voile */
+.dir-matiere .m-grain > * { position: relative; z-index: 1; }
 
-/* --- Béton coffré : marques de banches --- */
+/* Écran 1x basse densité : le grain deviendrait du bruit sale */
+@media (max-resolution: 1dppx) {
+  .dir-matiere .m-grain::after { opacity: 0.045; }
+  .dir-matiere .m-beton.m-grain::after,
+  .dir-matiere .m-beton-2.m-grain::after { opacity: 0.06; }
+}
+/* Mobile : surface réduite, grain réduit */
+@media (max-width: 767px) {
+  .dir-matiere .m-grain::after { opacity: 0.05; }
+}
+/* Impression : la matière est déjà dans le papier */
+@media print {
+  .dir-matiere .m-grain::after,
+  .dir-matiere .m-coffrage::before { display: none !important; }
+}
+
+/* --- Béton coffré : marques de banches ---------------------
+   Les banches tombent sur la grille (var(--m-banche)) et ne
+   traversent jamais un bloc de texte : le contenu est posé
+   au-dessus, sur son propre plan (z-index 1).                */
 .dir-matiere .m-coffrage { position: relative; overflow: hidden; }
 .dir-matiere .m-coffrage::before {
   content: '';
@@ -90,11 +208,18 @@
   background-image: repeating-linear-gradient(
     90deg,
     hsl(var(--m-grès) / 0.07) 0 1px,
-    transparent 1px 8.5rem
+    transparent 1px var(--m-banche)
   );
 }
 
-/* --- Typographie --- */
+/* =============================================================
+   TYPOGRAPHIE
+   Instrument Serif : titres (display).
+   EB Garamond      : prose longue et tableaux de registre -
+                      chiffres elzéviriens véritables (ligne 8 du
+                      manifeste). Subset latin, 400, 19,5 Ko.
+   Inter            : interface, petites capitales, tabulaires.
+   ============================================================= */
 .dir-matiere .m-display {
   font-family: 'Instrument Serif', Georgia, serif;
   font-weight: 400;
@@ -103,21 +228,50 @@
   text-wrap: balance;
   hanging-punctuation: first last;
 }
+.dir-matiere .m-prose {
+  font-family: 'EB Garamond', 'Instrument Serif', Georgia, serif;
+  font-size: 1.181em;          /* compensation d'œil : x-height basse */
+  line-height: 1.62;
+  font-feature-settings: 'onum' 1, 'kern' 1, 'liga' 1;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  text-wrap: pretty;
+}
 .dir-matiere .m-smcp {
   font-variant-caps: all-small-caps;
   font-feature-settings: 'smcp' 1, 'c2sc' 1, 'onum' 1;
   letter-spacing: 0.14em;
 }
 .dir-matiere .m-tnum { font-variant-numeric: tabular-nums lining-nums; }
-.dir-matiere .m-onum { font-variant-numeric: oldstyle-nums proportional-nums; }
+.dir-matiere .m-onum {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+}
 
-/* --- SIGNATURE 1 (conservée) : le folio-chouette --- */
+/* =============================================================
+   SIGNATURES (M7) - RÈGLES DE PLACEMENT DÉFINITIVES
+   Une signature qui apparaît parfois n'est pas une signature.
+
+   1. FOLIO-CHOUETTE - il NUMÉROTE.
+      Placement : en tête de chaque section de premier niveau,
+      aligné sur la colonne 1 de la grille, au-dessus du titre.
+      Un seul folio par section. Jamais dans un pied, jamais
+      dans une carte.
+   2. CACHET DE REGISTRE - il SCELLE.
+      Placement : dernier élément d'un bloc d'autorité (hero,
+      fiche venture, page légale), pleine largeur du bloc,
+      au-dessus du filet de clôture. Un seul cachet par page
+      hors dossier de studio.
+   3. ARÊTE DE LAITON - elle SOULIGNE L'AUTORITÉ.
+      Placement : bord gauche du bloc qui porte l'affirmation
+      principale. Maximum DEUX par écran (acté). Hauteur fixe
+      4,5 rem, animation 640 ms, jamais rejouée au scroll.
+   ============================================================= */
 .dir-matiere .m-folio {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-feature-settings: 'onum' 1, 'tnum' 1;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-feature-settings: 'onum' 1;
   letter-spacing: 0.06em;
 }
 .dir-matiere .m-folio-eyes { display: inline-flex; align-items: center; gap: 0.22rem; }
@@ -130,27 +284,22 @@
   background: hsl(var(--m-laiton)); transform: skewX(-14deg);
 }
 
-/* --- SIGNATURE 2 (conservée) : le cachet de registre --- */
 .dir-matiere .m-cachet {
-  border-top: 1px solid hsl(var(--m-encre) / 0.3);
-  border-bottom: 1px solid hsl(var(--m-encre) / 0.3);
+  border-top: 1px solid hsl(var(--m-text-on-gres-1) / 0.3);
+  border-bottom: 1px solid hsl(var(--m-text-on-gres-1) / 0.3);
   padding: 0.5rem 0;
   display: flex; flex-wrap: wrap; gap: 0 1.5rem; align-items: baseline;
   font-size: 0.563rem;
 }
 .dir-matiere .m-beton .m-cachet,
-.dir-matiere .m-beton-2 .m-cachet { border-color: hsl(var(--m-grès) / 0.28); }
+.dir-matiere .m-beton-2 .m-cachet { border-color: hsl(var(--m-text-on-beton-1) / 0.28); }
 .dir-matiere .m-cachet-seal {
-  color: hsl(var(--m-oxyde));
+  color: hsl(var(--m-accent-on-gres));
   border: 1px solid currentColor; border-radius: 999px; padding: 0.1rem 0.5rem;
 }
 .dir-matiere .m-beton .m-cachet-seal,
-.dir-matiere .m-beton-2 .m-cachet-seal { color: hsl(var(--m-laiton-lit)); }
+.dir-matiere .m-beton-2 .m-cachet-seal { color: hsl(var(--m-accent-on-beton)); }
 
-/* --- SIGNATURE 3 (propre à Matière) : l'arête de laiton -------
-   Une seule arête éclairée par bloc : filet de laiton en haut à
-   gauche, ombre portée en bas à droite. La lumière ne change
-   jamais de direction sur tout le site.                        */
 .dir-matiere .m-arete { position: relative; }
 .dir-matiere .m-arete::before {
   content: '';
@@ -158,7 +307,7 @@
   left: 0; top: 0;
   width: 2px; height: 0;
   background: linear-gradient(hsl(var(--m-laiton)), hsl(var(--m-laiton) / 0));
-  animation: m-arete 640ms var(--m-ease-sign) 160ms forwards;
+  animation: m-arete var(--m-dur-arete) var(--m-ease-arete) 160ms forwards;
 }
 @keyframes m-arete { to { height: 4.5rem; } }
 .dir-matiere .m-beton .m-arete::before,
@@ -167,36 +316,44 @@
   background: linear-gradient(hsl(var(--m-laiton-lit)), hsl(var(--m-laiton-lit) / 0));
 }
 
-/* --- Filets et tableaux --- */
-.dir-matiere .m-rule { height: 1px; background: hsl(var(--m-encre) / 0.22); }
+/* --- Filets, tableaux, plans d'architecte ------------------ */
+.dir-matiere .m-rule { height: 1px; background: hsl(var(--m-text-on-gres-1) / 0.22); }
 .dir-matiere .m-table { width: 100%; border-collapse: collapse; }
 .dir-matiere .m-table th,
 .dir-matiere .m-table td {
   text-align: left; padding: 0.6rem 0; vertical-align: baseline;
-  border-bottom: 1px solid hsl(var(--m-encre) / 0.14);
+  border-bottom: 1px solid hsl(var(--m-text-on-gres-1) / 0.14);
 }
 .dir-matiere .m-table th {
   font-size: 0.563rem; font-variant-caps: all-small-caps;
-  letter-spacing: 0.16em; color: hsl(var(--m-encre-2));
+  letter-spacing: 0.16em; color: hsl(var(--m-text-on-gres-2));
 }
 .dir-matiere .m-table td.num { font-variant-numeric: tabular-nums lining-nums; text-align: right; }
 
 /* --- Focus, sélection --- */
 .dir-matiere a:focus-visible,
 .dir-matiere button:focus-visible { outline: 1px solid hsl(var(--m-laiton)); outline-offset: 4px; }
-.dir-matiere ::selection { background: hsl(var(--m-laiton) / 0.26); color: hsl(var(--m-encre)); }
+.dir-matiere ::selection { background: hsl(var(--m-laiton) / 0.26); color: hsl(var(--m-text-on-gres-1)); }
 
-/* --- Entrée : la matière se pose (jamais elle ne glisse) --- */
+/* --- Entrée : la matière se pose (M5) ----------------------
+   Course 14 px, décélération franche, micro-tassement final de
+   1 px à 88 % de la course. Aucun rebond, aucune boucle.      */
 .dir-matiere .m-pose {
   opacity: 0;
-  transform: translateY(0.5rem) scale(0.995);
-  animation: m-pose 620ms var(--m-ease) forwards;
+  animation: m-pose var(--m-dur-pose) var(--m-ease-pose) forwards;
 }
-@keyframes m-pose { to { opacity: 1; transform: none; } }
+@keyframes m-pose {
+  from { opacity: 0; transform: translateY(var(--m-pose-shift)); }
+  88%  { opacity: 1; transform: translateY(-1px); }
+  to   { opacity: 1; transform: none; }
+}
+.dir-matiere .m-pose-2 { animation-delay: 90ms; }
+.dir-matiere .m-pose-3d { animation-delay: 180ms; }
 
 @media (prefers-reduced-motion: reduce) {
   .dir-matiere .m-pose,
   .dir-matiere .m-arete::before { animation: none; opacity: 1; transform: none; }
   .dir-matiere .m-arete::before { height: 4.5rem; }
+  .dir-matiere .m-carte { transition: none; }
   .dir-matiere .m-carte:hover { transform: none; }
 }

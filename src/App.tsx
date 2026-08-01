@@ -28,6 +28,7 @@ const StudioDirection1 = lazy(() => import('./pages/studio/Direction1'));
 const StudioDirection2 = lazy(() => import('./pages/studio/Direction2'));
 const StudioDirection3 = lazy(() => import('./pages/studio/Direction3'));
 const StudioComparatif = lazy(() => import('./pages/studio/Comparatif'));
+const StudioMatiereJournal = lazy(() => import('./pages/studio/MatiereJournal'));
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
             <Route path="/studio/direction-2" element={<StudioDirection2 />} />
             <Route path="/studio/direction-3" element={<StudioDirection3 />} />
             <Route path="/studio/comparatif" element={<StudioComparatif />} />
+            <Route path="/studio/matiere-journal" element={<StudioMatiereJournal />} />
 
 
 
