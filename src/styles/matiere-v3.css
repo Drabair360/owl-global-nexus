@@ -120,6 +120,12 @@
 
 .v3-beton > *, .v3-beton-2 > * { position: relative; z-index: 1; }
 
+/* §1.2 / M4 : sur béton, les encres basculent — jamais de hiérarchie
+   par opacité, jamais une encre de grès posée sur une surface sombre. */
+.v3-beton .mat-ink-1, .v3-beton-2 .mat-ink-1 { color: hsl(var(--mat-on-beton-1)); }
+.v3-beton .mat-ink-2, .v3-beton-2 .mat-ink-2 { color: hsl(var(--mat-on-beton-2)); }
+.v3-beton .mat-ink-accent, .v3-beton-2 .mat-ink-accent { color: hsl(var(--mat-accent-beton)); }
+
 /* =============================================================
    §1.3  LAITON — le métal ouvré (filets, arête, cachet, sceau)
    Zéro grain. Brossage anisotrope dans le sens du filet + point
