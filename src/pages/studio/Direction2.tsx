@@ -35,7 +35,7 @@ const Cachet = ({ folio }: { folio: string }) => (
 const Piece = ({
   n, title, intent, children,
 }: { n: string; title: string; intent: string; children: React.ReactNode }) => (
-  <section className="border-t" style={{ borderColor: 'hsl(var(--m-encre) / 0.18)' }}>
+  <section className="border-t" style={{ borderColor: 'hsl(var(--m-text-on-gres-1) / 0.18)' }}>
     <header className="max-w-[92rem] mx-auto px-6 md:px-12 pt-10 pb-8 flex flex-wrap items-baseline gap-x-8 gap-y-2">
       <Folio n={n} label="pièce" />
       <h2 className="m-display text-2xl md:text-3xl">{title}</h2>
@@ -54,7 +54,7 @@ const MaquetteAccueil = () => (
     <div className="m-beton m-grain m-coffrage relative">
       <div className="relative z-10 grid grid-cols-12 gap-x-6 px-6 md:px-14 pt-16 pb-10 min-h-[32rem]">
         <div className="col-span-12 md:col-span-8 self-center m-arete pl-6 md:pl-8">
-          <span className="m-smcp text-xs" style={{ color: 'hsl(var(--m-laiton-lit))' }}>
+          <span className="m-smcp text-xs">
             Holding · Paris · Est. 2023
           </span>
           <h1 className="m-display m-pose mt-8" style={{ fontSize: 'clamp(2.986rem, 9vw, 7.478rem)' }}>
@@ -62,16 +62,16 @@ const MaquetteAccueil = () => (
             <br />
             une même exigence.
           </h1>
-          <p className="mt-8 text-base leading-relaxed max-w-xl m-onum" style={{ color: 'hsl(var(--m-grès) / 0.78)' }}>
+          <p className="mt-8 text-base leading-relaxed max-w-xl m-onum">
             Owl International détient et construit des sociétés entre la France et l'Afrique.
             Cinq sociétés, dont quatre en cours de constitution.
           </p>
         </div>
 
         <div className="col-span-12 md:col-span-4 self-end mt-12 md:mt-0">
-          <div className="m-beton-2 m-grain p-6 m-encastre">
-            <p className="m-smcp text-xs" style={{ color: 'hsl(var(--m-laiton-lit))' }}>Dernier fait daté</p>
-            <p className="mt-3 text-base leading-relaxed" style={{ color: 'hsl(var(--m-grès) / 0.86)' }}>
+          <div className="m-beton-2 m-grain p-6 m-serti">
+            <p className="m-smcp text-xs">Dernier fait daté</p>
+            <p className="mt-3 text-base leading-relaxed">
               27 juillet 2026 - dépôt de capital de {cao.name}.
             </p>
           </div>
@@ -98,7 +98,7 @@ const MaquetteAccueil = () => (
           <li key={v.slug} className="m-carte m-grain p-6 m-arete">
             <span className="m-smcp text-xs opacity-60 m-tnum">{v.order}</span>
             <p className="m-display text-2xl mt-3">{v.name}</p>
-            <p className="m-smcp text-xs mt-2" style={{ color: 'hsl(var(--m-oxyde))' }}>{v.pole.fr}</p>
+            <p className="m-smcp text-xs mt-2">{v.pole.fr}</p>
           </li>
         ))}
       </ul>
@@ -129,7 +129,7 @@ const MaquetteAccueil = () => (
             ].map(([d, f, n]) => (
               <tr key={n}>
                 <th scope="row" className="whitespace-nowrap pr-6 align-baseline">
-                  <span className="m-tnum text-base normal-case tracking-normal" style={{ color: 'hsl(var(--m-encre))' }}>{d}</span>
+                  <span className="m-tnum text-base normal-case tracking-normal">{d}</span>
                 </th>
                 <td className="text-base leading-relaxed pr-6 m-onum">{f}</td>
                 <td className="num m-smcp text-xs opacity-60">{n}</td>
@@ -150,14 +150,14 @@ const FicheVenture = () => (
     <div className="grid grid-cols-12 gap-6">
       <div className="col-span-12 md:col-span-7 m-beton m-grain m-coffrage p-8 md:p-14">
         <div className="m-arete pl-6">
-          <span className="m-smcp text-xs" style={{ color: 'hsl(var(--m-laiton-lit))' }}>{cao.pole.fr}</span>
+          <span className="m-smcp text-xs">{cao.pole.fr}</span>
           <h3 className="m-display mt-6" style={{ fontSize: 'clamp(2.369rem, 6vw, 4.209rem)' }}>
             {cao.name}
           </h3>
-          <p className="mt-8 text-lg leading-relaxed max-w-xl" style={{ color: 'hsl(var(--m-grès) / 0.8)' }}>
+          <p className="mt-8 text-lg leading-relaxed max-w-xl">
             {cao.context.fr}
           </p>
-          <p className="mt-4 m-smcp text-xs" style={{ color: 'hsl(var(--m-grès) / 0.6)' }}>
+          <p className="mt-4 m-smcp text-xs">
             {cao.incorporation?.fr}
           </p>
         </div>
@@ -176,7 +176,7 @@ const FicheVenture = () => (
             ['Pôle', cao.pole.fr],
             ['Terrain', cao.operating.fr],
           ].map(([k, v]) => (
-            <div key={k} className="py-3 border-b" style={{ borderColor: 'hsl(var(--m-encre) / 0.14)' }}>
+            <div key={k} className="py-3 border-b" style={{ borderColor: 'hsl(var(--m-text-on-gres-1) / 0.14)' }}>
               <dt className="m-smcp text-xs opacity-70">{k}</dt>
               <dd className="mt-1 leading-relaxed">{v}</dd>
             </div>
@@ -233,7 +233,7 @@ const Specimen = () => (
         ['1.777rem', 'Une chaîne intégrée'],
         ['1rem', 'Corps de texte, lecture longue, papier chiffon.'],
       ].map(([size, txt]) => (
-        <div key={size} className="border-b py-4" style={{ borderColor: 'hsl(var(--m-encre) / 0.14)' }}>
+        <div key={size} className="border-b py-4" style={{ borderColor: 'hsl(var(--m-text-on-gres-1) / 0.14)' }}>
           <span className="m-smcp text-xs opacity-50 m-tnum">{size}</span>
           <p className="m-display leading-none mt-2" style={{ fontSize: `min(${size}, 14vw)` }}>{txt}</p>
         </div>
@@ -246,9 +246,9 @@ const Specimen = () => (
         <p className="m-tnum text-2xl mt-3">141 130 2023 2026 - tabulaires (tableaux)</p>
       </div>
       <div className="m-beton m-grain p-8">
-        <p className="m-smcp text-xs mb-4" style={{ color: 'hsl(var(--m-laiton-lit))' }}>Inversion</p>
+        <p className="m-smcp text-xs mb-4">Inversion</p>
         <p className="m-display text-4xl">La même page, retournée.</p>
-        <p className="mt-4 text-sm leading-relaxed" style={{ color: 'hsl(var(--m-grès) / 0.76)' }}>
+        <p className="mt-4 text-sm leading-relaxed">
           Sur béton, le corps monte d'un cran optique et la graisse reste identique : c'est le
           fond qui change, jamais la fonte.
         </p>
@@ -295,9 +295,9 @@ const Planche = () => (
         <p className="text-sm opacity-70 mt-4 leading-relaxed">Lumière zénithale unique : liseré clair en haut, ombre en bas. Jamais inversée.</p>
       </div>
       <div className="m-beton m-grain m-coffrage p-8">
-        <p className="m-smcp text-xs mb-4" style={{ color: 'hsl(var(--m-laiton-lit))' }}>Coffrage</p>
+        <p className="m-smcp text-xs mb-4">Coffrage</p>
         <div className="h-24 m-beton-2 m-coffrage" />
-        <p className="text-sm mt-4 leading-relaxed" style={{ color: 'hsl(var(--m-grès) / 0.76)' }}>
+        <p className="text-sm mt-4 leading-relaxed">
           Marques de banches tous les 8,5 rem : la structure du grid rendue visible dans la matière.
         </p>
       </div>
@@ -368,7 +368,7 @@ const Direction2 = () => {
   return (
     <div className="dir-matiere min-h-screen">
       <header className="max-w-[92rem] mx-auto px-6 md:px-12 pt-16 pb-12">
-        <p className="m-smcp text-xs" style={{ color: 'hsl(var(--m-oxyde))' }}>
+        <p className="m-smcp text-xs">
           Dossier de direction artistique · interne · non indexé
         </p>
         <h1 className="m-display mt-6" style={{ fontSize: 'clamp(2.986rem, 11vw, 9.97rem)' }}>
