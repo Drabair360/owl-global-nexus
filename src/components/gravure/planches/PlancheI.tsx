@@ -220,7 +220,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
         strokeWidth={FIN}
         strokeDasharray="6 5"
       />
-      <text className="gravure-lettrage" x={472} y={H1 + 212} fontSize="12" textAnchor="middle">
+      <text className="gravure-lettrage" x={472} y={H1 + 162} fontSize="12" textAnchor="middle">
         Gabarit de levage
       </text>
     </g>
