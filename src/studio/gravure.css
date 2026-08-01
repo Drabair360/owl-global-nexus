@@ -1,0 +1,234 @@
+/* =============================================================
+   DIRECTION 1 - « GRAVURE »
+   Dossier de direction artistique. Portée strictement locale :
+   tous les tokens sont scopés sous .dir-gravure et n'affectent
+   aucune page de production. Aucun hex en dur hors de ce fichier.
+   ============================================================= */
+
+.dir-gravure {
+  /* --- Encres --- */
+  --g-ink:        18 14% 8%;      /* encre taille-douce, chaude */
+  --g-ink-2:      18 12% 14%;     /* encre relevée */
+  --g-ink-3:      20 10% 24%;     /* encre grise, filets sur papier */
+
+  /* --- Papiers --- */
+  --g-paper:      38 26% 94%;     /* papier de garde */
+  --g-paper-2:    36 22% 89%;     /* papier chiffon, blocs secondaires */
+  --g-paper-3:    34 18% 82%;     /* papier ombré, tableaux */
+
+  /* --- Ors (incisions rares) --- */
+  --g-gold:       40 62% 44%;     /* or d'incision, AA sur papier */
+  --g-gold-lit:   42 74% 58%;     /* or sur encre */
+  --g-cere:       8 44% 34%;      /* 3e teinte cérémonielle : cire de sceau */
+
+  /* --- Motion --- */
+  --g-ease-entrance: cubic-bezier(0.16, 0.84, 0.28, 1);
+  --g-ease-exit:     cubic-bezier(0.5, 0, 0.85, 0.3);
+  --g-ease-signature: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* --- Rythme vertical (baseline 8px) --- */
+  --g-baseline: 0.5rem;
+
+  background-color: hsl(var(--g-paper));
+  color: hsl(var(--g-ink));
+  font-family: 'Inter', system-ui, sans-serif;
+  font-feature-settings: 'onum' 1, 'kern' 1, 'liga' 1;
+}
+
+/* --- Surfaces --- */
+.dir-gravure .g-ink-surface {
+  background-color: hsl(var(--g-ink));
+  color: hsl(var(--g-paper));
+}
+.dir-gravure .g-paper-2 { background-color: hsl(var(--g-paper-2)); }
+.dir-gravure .g-paper-3 { background-color: hsl(var(--g-paper-3)); }
+
+/* --- Taille-douce : trame de burin, CSS pur, sans image --- */
+.dir-gravure .g-burin {
+  position: relative;
+}
+.dir-gravure .g-burin::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    -32deg,
+    hsl(var(--g-ink) / 0.055) 0 1px,
+    transparent 1px 5px
+  );
+  mix-blend-mode: multiply;
+}
+.dir-gravure .g-ink-surface.g-burin::after {
+  background-image: repeating-linear-gradient(
+    -32deg,
+    hsl(var(--g-paper) / 0.05) 0 1px,
+    transparent 1px 6px
+  );
+  mix-blend-mode: screen;
+}
+
+/* --- Display monumental, interlettrage optique négatif --- */
+.dir-gravure .g-display {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  line-height: 0.84;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  /* Alignement optique : la ponctuation et les rondes débordent la marge. */
+  hanging-punctuation: first last;
+  text-indent: -0.04em;
+}
+.dir-gravure .g-display em {
+  font-style: italic;
+  letter-spacing: -0.03em;
+}
+
+/* --- Small caps véritables, chiffres --- */
+.dir-gravure .g-smcp {
+  font-variant-caps: all-small-caps;
+  font-feature-settings: 'smcp' 1, 'c2sc' 1, 'onum' 1;
+  letter-spacing: 0.14em;
+}
+.dir-gravure .g-tnum { font-feature-settings: 'tnum' 1, 'lnum' 1; font-variant-numeric: tabular-nums lining-nums; }
+.dir-gravure .g-onum { font-feature-settings: 'onum' 1, 'pnum' 1; font-variant-numeric: oldstyle-nums proportional-nums; }
+.dir-gravure .g-frac { font-variant-numeric: diagonal-fractions; }
+.dir-gravure .g-sup   { font-variant-position: super; }
+
+/* --- Lettrine (3 lignes) --- */
+.dir-gravure .g-lettrine::first-letter {
+  font-family: 'Instrument Serif', Georgia, serif;
+  float: left;
+  font-size: 3.9em;
+  line-height: 0.82;
+  padding: 0.06em 0.12em 0 0;
+  color: hsl(var(--g-ink));
+}
+
+/* --- SIGNATURE 1 : le folio-chouette --------------------------
+   Deux disques (les yeux) séparés par le filet du bec ; le
+   numéro de folio en chiffres elzéviriens tabulaires.          */
+.dir-gravure .g-folio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-feature-settings: 'onum' 1, 'tnum' 1;
+  letter-spacing: 0.06em;
+}
+.dir-gravure .g-folio-eyes {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22rem;
+}
+.dir-gravure .g-folio-eyes i {
+  width: 0.36rem;
+  height: 0.36rem;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  display: block;
+}
+.dir-gravure .g-folio-eyes span {
+  width: 1px;
+  height: 0.7rem;
+  background: hsl(var(--g-gold));
+  display: block;
+  transform: skewX(-14deg);
+}
+
+/* --- SIGNATURE 2 : le cachet de registre ---------------------- */
+.dir-gravure .g-cachet {
+  border-top: 1px solid hsl(var(--g-ink) / 0.35);
+  border-bottom: 1px solid hsl(var(--g-ink) / 0.35);
+  padding: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  align-items: baseline;
+  font-size: 0.563rem;
+}
+.dir-gravure .g-ink-surface .g-cachet {
+  border-color: hsl(var(--g-paper) / 0.3);
+}
+.dir-gravure .g-cachet-seal {
+  color: hsl(var(--g-cere));
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+}
+.dir-gravure .g-ink-surface .g-cachet-seal { color: hsl(var(--g-gold-lit)); }
+
+/* --- SIGNATURE 3 : l'incision d'or ----------------------------
+   Un trait de burin qui traverse une ligne de display. Rare :
+   trois par page au maximum.                                    */
+.dir-gravure .g-incision {
+  position: relative;
+  display: inline-block;
+}
+.dir-gravure .g-incision::before {
+  content: '';
+  position: absolute;
+  left: -0.6em;
+  right: -0.6em;
+  top: 52%;
+  height: 1px;
+  background: hsl(var(--g-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: g-incise 720ms var(--g-ease-signature) 200ms forwards;
+}
+@keyframes g-incise { to { transform: scaleX(1); } }
+
+/* --- Filets --- */
+.dir-gravure .g-rule { height: 1px; background: hsl(var(--g-ink) / 0.28); }
+.dir-gravure .g-rule-gold { height: 1px; background: hsl(var(--g-gold)); }
+.dir-gravure .g-ink-surface .g-rule { background: hsl(var(--g-paper) / 0.24); }
+
+/* --- Tableau de registre --- */
+.dir-gravure .g-table { width: 100%; border-collapse: collapse; }
+.dir-gravure .g-table th,
+.dir-gravure .g-table td {
+  text-align: left;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid hsl(var(--g-ink) / 0.16);
+  vertical-align: baseline;
+}
+.dir-gravure .g-table th {
+  font-size: 0.563rem;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.16em;
+  color: hsl(var(--g-ink-3));
+}
+.dir-gravure .g-table td.num {
+  font-variant-numeric: tabular-nums lining-nums;
+  text-align: right;
+}
+
+/* --- Focus dessiné (jamais l'anneau par défaut) --- */
+.dir-gravure a:focus-visible,
+.dir-gravure button:focus-visible {
+  outline: 1px solid hsl(var(--g-gold));
+  outline-offset: 4px;
+}
+.dir-gravure ::selection {
+  background: hsl(var(--g-gold) / 0.28);
+  color: hsl(var(--g-ink));
+}
+
+/* --- Entrée séquencée --- */
+.dir-gravure .g-enter {
+  opacity: 0;
+  transform: translateY(0.75rem);
+  animation: g-enter 700ms var(--g-ease-entrance) forwards;
+}
+@keyframes g-enter { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .dir-gravure .g-enter,
+  .dir-gravure .g-incision::before {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .dir-gravure .g-incision::before { transform: scaleX(1); }
+}
