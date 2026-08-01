@@ -56,7 +56,7 @@ const InstitutionalHero = ({
           </div>
 
           <h1
-            className="font-display text-hero mat-ink-1 mat-pose mb-8 max-w-5xl"
+            className="font-display text-hero mat-ink-1 mat-pose v3-letterpress mb-8 max-w-5xl"
             style={{ textWrap: 'balance', hyphens: 'manual' } as React.CSSProperties}
           >
             {title}

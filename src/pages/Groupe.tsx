@@ -1,3 +1,6 @@
+/* PARTITION §4 — Matière v3 (gel du 01/08/2026)
+   Groupe — béton (hero) puis grès continu ; grès-2 pour l'organigramme.
+   Signature unique : le tracé de l'organigramme. Bande `skyline` ton encre. */
 import React from 'react';
 import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';
@@ -59,7 +62,7 @@ const Groupe = () => {
       </EditorialSection>
 
 
-      <CinemaBand texture="skyline" tone="nocturne" className="mb-16" />
+      <CinemaBand texture="skyline" tone="encre" className="mb-16" />
 
       {/* Organigramme + data-viz interactive */}
       <EditorialSection className="mat-gres-2 mat-grain relative">

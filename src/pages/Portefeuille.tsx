@@ -1,3 +1,6 @@
+/* PARTITION §4 — Matière v3 (gel du 01/08/2026)
+   Portefeuille — GRÈS dominant, catalogue raisonné. Béton au hero seulement.
+   Laiton : filets de séparation et sceaux. Aucune signature animée. */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PageShell from '@/components/PageShell';

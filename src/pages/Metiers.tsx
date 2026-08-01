@@ -1,3 +1,6 @@
+/* PARTITION §4 — Matière v3 (gel du 01/08/2026)
+   Métiers — béton (hero) puis grès ; grès-2 pour les blocs sertis.
+   Laiton en filets de tête. Aucune signature animée. */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';

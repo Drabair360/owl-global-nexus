@@ -1,3 +1,6 @@
+/* PARTITION §4 — Matière v3 (gel du 01/08/2026)
+   Scouts — béton (hero), bande `terrain` ton LAITON, grès pour le corps,
+   grès-2 pour le formulaire. Signature unique : la bande terrain. */
 import React, { useState } from 'react';
 import { z } from 'zod';
 import PageShell from '@/components/PageShell';

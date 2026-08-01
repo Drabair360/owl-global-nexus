@@ -1,3 +1,6 @@
+/* PARTITION §4 — Matière v3 (gel du 01/08/2026)
+   Approche — grès dominant + visuel de SIGNATURE (ton laiton, pièce
+   d'orfèvrerie : ni vignettage ni halation appuyés). Béton au hero seul. */
 import React from 'react';
 import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';
@@ -76,7 +79,7 @@ const Approche = () => {
                   sources={textures.signature.sources}
                   sizes={SIZES.column}
                   alt={textures.signature.alt}
-                  tone="prestige"
+                  tone="laiton"
                   width={textures.signature.width}
                   height={textures.signature.height}
                   className="aspect-[4/5] w-full"

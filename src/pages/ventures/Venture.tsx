@@ -1,3 +1,6 @@
+/* PARTITION §4 — Matière v3 (gel du 01/08/2026)
+   Fiche venture — grès (corps) + béton (bloc d'autorité / cachet).
+   Signature unique : l'arête de laiton M7 en tête de fiche. */
 import { Link, useParams, Navigate } from 'react-router-dom';
 import PageShell from '@/components/PageShell';
 import { EditorialSection, Rule } from '@/components/editorial';

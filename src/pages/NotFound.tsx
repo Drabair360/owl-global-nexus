@@ -29,7 +29,7 @@ const NotFound = () => {
             sources={textures.vide.sources}
             sizes={SIZES.column}
             alt=""
-            tone="ink"
+            tone="encre"
             width={textures.vide.width}
             height={textures.vide.height}
             className="w-full h-full"
