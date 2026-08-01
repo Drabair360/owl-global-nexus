@@ -1,0 +1,211 @@
+/* =============================================================
+   DIRECTION 3 - « VERRE SOMBRE »
+   Dossier de direction artistique. Portée strictement locale :
+   tous les tokens sont scopés sous .dir-verre et n'affectent
+   aucune page de production.
+
+   Doctrine : nocturne institutionnel (référence EQT/KKR de nuit),
+   jamais salle de marché. Une seule teinte d'accent, champagne
+   froid, utilisée en filet et jamais en aplat. Aucun glow diffus,
+   aucun néon, aucun backdrop-blur (bug Safari) : la translucidité
+   est simulée par des solides superposés et des opacités.
+   ============================================================= */
+
+.dir-verre {
+  /* --- Nuit (une seule famille chromatique, bleu-encre désaturé) --- */
+  --v-nuit:      215 32% 8%;    /* fond général */
+  --v-nuit-2:    214 28% 11%;   /* panneau */
+  --v-nuit-3:    213 24% 14%;   /* panneau relevé */
+  --v-nuit-4:    212 20% 19%;   /* arêtes de verre */
+
+  /* --- Clair : verre dépoli, pas de blanc pur --- */
+  --v-verre:     210 24% 92%;   /* texte principal */
+  --v-verre-2:   210 14% 72%;   /* texte secondaire, AA sur nuit */
+  --v-verre-3:   210 10% 56%;   /* mentions, AA sur nuit */
+
+  /* --- Accent unique : champagne froid (jamais or saturé) --- */
+  --v-champagne: 42 34% 68%;
+  --v-champagne-2: 42 24% 46%;  /* filets discrets */
+
+  /* --- Reliefs : lumière rasante venue du haut, jamais de halo --- */
+  --v-edge-top:  inset 0 1px 0 hsl(var(--v-verre) / 0.10);
+  --v-edge-all:  inset 0 0 0 1px hsl(var(--v-nuit-4));
+  --v-drop-1:    0 1px 0 hsl(var(--v-verre) / 0.06);
+  --v-drop-2:    0 18px 44px -28px hsl(215 60% 2% / 0.9);
+
+  /* --- Motion --- */
+  --v-ease: cubic-bezier(0.16, 0.84, 0.28, 1);
+  --v-ease-sign: cubic-bezier(0.22, 1, 0.36, 1);
+
+  background-color: hsl(var(--v-nuit));
+  color: hsl(var(--v-verre));
+  font-family: 'Inter', system-ui, sans-serif;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+/* --- Surfaces de verre : solides superposés, zéro flou --- */
+.dir-verre .v-panneau {
+  background-color: hsl(var(--v-nuit-2));
+  box-shadow: var(--v-edge-all), var(--v-edge-top), var(--v-drop-2);
+}
+.dir-verre .v-panneau-2 {
+  background-color: hsl(var(--v-nuit-3));
+  box-shadow: var(--v-edge-all), var(--v-edge-top);
+}
+.dir-verre .v-carte {
+  background-color: hsl(var(--v-nuit-2));
+  box-shadow: var(--v-edge-all), var(--v-edge-top);
+  transition: background-color 320ms var(--v-ease), box-shadow 320ms var(--v-ease);
+}
+.dir-verre .v-carte:hover {
+  background-color: hsl(var(--v-nuit-3));
+  box-shadow: inset 0 0 0 1px hsl(var(--v-champagne-2) / 0.5), var(--v-edge-top);
+}
+
+/* --- Feuille de verre : dégradé linéaire très bas contraste.
+   Pas de radial « glow » : une inclinaison de lumière, comme une
+   vitre prise de biais.                                        */
+.dir-verre .v-feuille { position: relative; overflow: hidden; }
+.dir-verre .v-feuille::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    104deg,
+    hsl(var(--v-verre) / 0.05) 0%,
+    hsl(var(--v-verre) / 0.012) 34%,
+    transparent 62%
+  );
+}
+/* Arête haute : le seul « éclat » autorisé, 1px, jamais diffusé. */
+.dir-verre .v-feuille::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0; height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--v-champagne) / 0.55) 22%,
+    hsl(var(--v-verre) / 0.22) 60%,
+    transparent
+  );
+}
+
+/* --- Typographie --- */
+.dir-verre .v-display {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  hanging-punctuation: first last;
+}
+.dir-verre .v-smcp {
+  font-variant-caps: all-small-caps;
+  font-feature-settings: 'smcp' 1, 'c2sc' 1, 'onum' 1;
+  letter-spacing: 0.16em;
+}
+.dir-verre .v-tnum { font-variant-numeric: tabular-nums lining-nums; }
+.dir-verre .v-onum { font-variant-numeric: oldstyle-nums proportional-nums; }
+
+/* --- SIGNATURE 1 (conservée) : le folio-chouette --- */
+.dir-verre .v-folio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-feature-settings: 'onum' 1, 'tnum' 1;
+  letter-spacing: 0.06em;
+}
+.dir-verre .v-folio-eyes { display: inline-flex; align-items: center; gap: 0.22rem; }
+.dir-verre .v-folio-eyes i {
+  width: 0.42rem; height: 0.42rem; border-radius: 50%;
+  border: 1px solid currentColor; display: block;
+}
+.dir-verre .v-folio-eyes span {
+  width: 1px; height: 0.85rem; display: block;
+  background: hsl(var(--v-champagne)); transform: skewX(-14deg);
+}
+
+/* --- SIGNATURE 2 (conservée) : le cachet de registre --- */
+.dir-verre .v-cachet {
+  border-top: 1px solid hsl(var(--v-verre) / 0.16);
+  border-bottom: 1px solid hsl(var(--v-verre) / 0.16);
+  padding: 0.5rem 0;
+  display: flex; flex-wrap: wrap; gap: 0 1.5rem; align-items: baseline;
+  font-size: 0.563rem;
+  color: hsl(var(--v-verre-2));
+}
+.dir-verre .v-cachet-seal {
+  color: hsl(var(--v-champagne));
+  border: 1px solid currentColor; border-radius: 999px; padding: 0.1rem 0.5rem;
+}
+
+/* --- SIGNATURE 3 (propre à Verre sombre) : la tranche de verre.
+   Un filet vertical de 1px sur l'arête gauche des blocs
+   d'autorité, qui « prend la lumière » une seule fois à
+   l'apparition puis reste fixe. Aucune boucle, aucun scintillement. */
+.dir-verre .v-tranche { position: relative; padding-left: 1.5rem; }
+.dir-verre .v-tranche::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    hsl(var(--v-champagne) / 0.85),
+    hsl(var(--v-champagne-2) / 0.35) 38%,
+    hsl(var(--v-verre) / 0.08)
+  );
+}
+.dir-verre .v-tranche::after {
+  content: '';
+  position: absolute;
+  left: -1px; top: 0;
+  width: 3px; height: 2.5rem;
+  background: linear-gradient(hsl(var(--v-champagne) / 0.5), transparent);
+  transform: translateY(-2.5rem);
+  animation: v-tranche 900ms var(--v-ease-sign) 260ms forwards;
+  opacity: 0;
+}
+@keyframes v-tranche {
+  0%   { opacity: 0; transform: translateY(-2.5rem); }
+  30%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(100%); }
+}
+
+/* --- Filets et tableaux --- */
+.dir-verre .v-rule { height: 1px; background: hsl(var(--v-verre) / 0.14); }
+.dir-verre .v-table { width: 100%; border-collapse: collapse; }
+.dir-verre .v-table th,
+.dir-verre .v-table td {
+  text-align: left; padding: 0.6rem 0; vertical-align: baseline;
+  border-bottom: 1px solid hsl(var(--v-verre) / 0.12);
+}
+.dir-verre .v-table th {
+  font-size: 0.563rem; font-variant-caps: all-small-caps;
+  letter-spacing: 0.16em; color: hsl(var(--v-verre-3));
+}
+.dir-verre .v-table td { color: hsl(var(--v-verre-2)); }
+.dir-verre .v-table td.num { font-variant-numeric: tabular-nums lining-nums; text-align: right; }
+
+/* --- Focus, sélection --- */
+.dir-verre a:focus-visible,
+.dir-verre button:focus-visible { outline: 1px solid hsl(var(--v-champagne)); outline-offset: 4px; }
+.dir-verre ::selection { background: hsl(var(--v-champagne) / 0.24); color: hsl(var(--v-verre)); }
+
+/* --- Entrée : la nuit se lève d'un cran (opacité seule) --- */
+.dir-verre .v-lever {
+  opacity: 0;
+  transform: translateY(0.4rem);
+  animation: v-lever 640ms var(--v-ease) forwards;
+}
+@keyframes v-lever { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .dir-verre .v-lever,
+  .dir-verre .v-tranche::after { animation: none; }
+  .dir-verre .v-lever { opacity: 1; transform: none; }
+  .dir-verre .v-tranche::after { display: none; }
+  .dir-verre .v-carte:hover { box-shadow: var(--v-edge-all), var(--v-edge-top); }
+}
