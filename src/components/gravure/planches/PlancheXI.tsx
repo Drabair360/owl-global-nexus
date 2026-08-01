@@ -99,8 +99,8 @@ export const PlancheXIDrawing = ({ p }: { p: string }) => (
     </g>
 
     <NomenclatureLettres
-      x={640}
-      y={470}
+      x={430}
+      y={452}
       items={[
         'Portée de matrice',
         'Congé de raccordement',

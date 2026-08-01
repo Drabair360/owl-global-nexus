@@ -141,8 +141,8 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     </g>
 
     <NomenclatureLettres
-      x={760}
-      y={470}
+      x={600}
+      y={452}
       items={[
         'Demande reçue, amont',
         'Ressource retenue',

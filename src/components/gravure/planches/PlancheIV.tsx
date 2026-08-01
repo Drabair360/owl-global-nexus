@@ -126,8 +126,8 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
     </g>
 
     <NomenclatureLettres
-      x={840}
-      y={470}
+      x={620}
+      y={452}
       items={[
         'Denture de la couche appelante',
         'Clavette : contrat figé',

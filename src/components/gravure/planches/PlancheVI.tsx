@@ -176,7 +176,7 @@ export const PlancheVIDrawing = ({ p }: { p: string }) => (
     {/* ================= NOMENCLATURE ================= */}
     <Nomenclature
       x={800}
-      y={480}
+      y={540}
       perCol={10}
       items={[
         'Limite séparative',

@@ -114,8 +114,8 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     </g>
 
     <NomenclatureLettres
-      x={820}
-      y={470}
+      x={620}
+      y={452}
       items={[
         'Bonnette',
         'Lentille de champ',
