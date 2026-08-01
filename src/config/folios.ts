@@ -11,6 +11,8 @@
  * renuméroter la série entière ici.
  */
 export const FOLIOS: Record<string, string> = {
+  // Z1 : l'accueil ouvre la série sans en faire partie — folio 00.
+  '/': '00',
   '/groupe': '01',
   '/portefeuille': '02',
   '/metiers': '03',
