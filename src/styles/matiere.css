@@ -283,3 +283,75 @@
    petites touches finit sale. */
 :root { --mat-grain-1x: 0.07; }
 @media (max-resolution: 1dppx) { .mat-grain::after { opacity: var(--mat-grain-1x); } }
+
+/* =============================================================
+   LOT Z — CLÔTURE (01/08/2026)
+   ============================================================= */
+
+/* --- Z5 : plancher typographique -----------------------------
+   Plus rien ne descend sous 11 px. Toute mention PORTEUSE
+   d'information (dates, chiffres, statuts) est à 12 px minimum.
+   Le 9 px du cachet de registre était illisible sur grain. */
+:root {
+  --mat-corps-plancher: 0.6875rem;  /* 11 px — mentions décoratives   */
+  --mat-corps-mention:  0.75rem;    /* 12 px — mentions informatives  */
+}
+.mat-plancher { font-size: var(--mat-corps-plancher); }
+.mat-mention  { font-size: var(--mat-corps-mention); }
+/* Le cachet porte des mentions légales : il tient le cran informatif. */
+.mat-cachet .mat-cachet-ligne, .mat-cachet .mat-cachet-seal { font-size: var(--mat-corps-mention); }
+
+/* --- Z12 : consolidation des ors ------------------------------
+   Sept jetons d'or → trois. Les anciens noms restent en alias pour
+   ne rien casser, mais toute écriture nouvelle utilise ces trois-là.
+     laiton      : le métal, filets et arêtes
+     laiton-lit  : le métal sous la lumière, sur béton uniquement
+     encre-or    : l'or devenu texte, sur grès (AA garanti)          */
+:root {
+  --mat-encre-or: 38 92% 27%;
+  /* alias de compatibilité (ne pas étendre) */
+  --mat-or:       var(--mat-laiton);
+  --mat-or-lit:   var(--mat-laiton-lit);
+}
+.mat-encre-or { color: hsl(var(--mat-encre-or)); }
+
+/* --- Z3 : focus visible, adaptatif par surface ----------------
+   L'anneau or mesurait 1,3:1 sur grès : invisible. Deux jetons, un
+   par famille de surface, appliqués via les classes de surface.
+     sur grès  → encre oxyde foncée   (≥ 3:1 mesuré sur grain)
+     sur béton → laiton lit           (5,91:1, conforme)             */
+:root {
+  --focus-on-gres:  14 46% 26%;
+  --focus-on-beton: 40 66% 62%;
+}
+:focus-visible { outline: 2px solid hsl(var(--focus-on-gres)); outline-offset: 2px; border-radius: 2px; }
+.mat-gres :focus-visible, .mat-gres-2 :focus-visible, .mat-gres-3 :focus-visible,
+.v3-gres :focus-visible, .v3-gres-2 :focus-visible, .v3-gres-3 :focus-visible {
+  outline-color: hsl(var(--focus-on-gres));
+}
+.mat-beton :focus-visible, .mat-beton-2 :focus-visible,
+.v3-beton :focus-visible, .v3-beton-2 :focus-visible {
+  outline-color: hsl(var(--focus-on-beton));
+}
+/* La navbar est en grès, le pied de page en béton : portée explicite. */
+.nav-shell :focus-visible { outline-color: hsl(var(--focus-on-gres)); }
+
+/* --- Z6 : lien d'évitement ------------------------------------ */
+.mat-skip {
+  position: absolute; left: 0.75rem; top: -3.5rem; z-index: 100;
+  background-color: hsl(var(--mat-beton));
+  color: hsl(var(--mat-on-beton-1));
+  padding: 0.6rem 1rem;
+  font-size: var(--mat-corps-mention); letter-spacing: 0.12em; text-transform: uppercase;
+  box-shadow: inset 2px 0 0 hsl(var(--mat-laiton-lit)), var(--mat-elev-2);
+  transition: top 180ms var(--mat-ease-pose);
+}
+.mat-skip:focus { top: 0.75rem; }
+
+/* --- Z8 : petites capitales, généralisées --------------------- */
+.mat-caps {
+  font-variant-caps: all-small-caps;
+  font-feature-settings: 'c2sc' 1, 'smcp' 1;
+  letter-spacing: 0.12em;
+  text-transform: none;
+}
