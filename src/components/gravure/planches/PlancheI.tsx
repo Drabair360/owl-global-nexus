@@ -304,7 +304,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
       <Soudure x={1064} y={286} />
     </g>
     <circle cx="1061" cy="219" r="99" fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-    <text className="gravure-lettrage" x={1061} y={344} fontSize="12" textAnchor="middle">
+    <text className="gravure-lettrage" x={1061} y={356} fontSize="12" textAnchor="middle">
       Gousset, boulons, soudure
     </text>
     {/* renvoi depuis la FIG. 1 */}
