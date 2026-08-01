@@ -449,7 +449,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'footer.terms': 'Terms',
     'footer.president': 'President',
     'footer.rights': 'All rights reserved.',
-    'footer.form': 'Société par actions simplifiée',
+    'footer.form': 'Simplified joint-stock company',
     'footer.siege': 'Registered office',
     'footer.verifiable': 'What you read here is verifiable at the commercial registry.',
     'common.readMore': 'Understand our model',
