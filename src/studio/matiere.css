@@ -1,0 +1,202 @@
+/* =============================================================
+   DIRECTION 2 - « MATIÈRE »
+   Dossier de direction artistique. Portée strictement locale :
+   tous les tokens sont scopés sous .dir-matiere et n'affectent
+   aucune page de production. Aucun hex en dur hors de ce fichier.
+
+   Doctrine : l'intensité vient de la matière, pas de l'effet.
+   Papier épais, béton coffré, laiton brossé. Zéro backdrop-blur.
+   ============================================================= */
+
+.dir-matiere {
+  /* --- Minéraux --- */
+  --m-grès:      32 16% 88%;   /* grès clair, fond général */
+  --m-grès-2:    30 14% 82%;   /* grès relevé, blocs */
+  --m-grès-3:    28 12% 74%;   /* grès ombré, tableaux */
+  --m-beton:     24 8% 26%;    /* béton coffré, surfaces sombres */
+  --m-beton-2:   22 9% 18%;    /* béton profond */
+
+  /* --- Encres --- */
+  --m-encre:     24 14% 12%;
+  --m-encre-2:   24 8% 34%;
+
+  /* --- Métaux (accents rares) --- */
+  --m-laiton:    38 48% 40%;   /* laiton brossé, AA sur grès */
+  --m-laiton-lit:40 66% 62%;   /* laiton sur béton */
+  --m-oxyde:     14 42% 36%;   /* 3e teinte : oxyde de fer */
+
+  /* --- Reliefs (lumière zénithale, unique et constante) --- */
+  --m-lift-1: 0 1px 0 hsl(0 0% 100% / 0.55), 0 1px 2px hsl(var(--m-encre) / 0.10);
+  --m-lift-2: 0 1px 0 hsl(0 0% 100% / 0.6), 0 6px 14px -6px hsl(var(--m-encre) / 0.24);
+  --m-lift-3: 0 1px 0 hsl(0 0% 100% / 0.65), 0 18px 36px -14px hsl(var(--m-encre) / 0.34);
+  --m-inset:  inset 0 1px 0 hsl(0 0% 100% / 0.4), inset 0 -1px 0 hsl(var(--m-encre) / 0.14);
+
+  /* --- Motion --- */
+  --m-ease: cubic-bezier(0.16, 0.84, 0.28, 1);
+  --m-ease-sign: cubic-bezier(0.22, 1, 0.36, 1);
+
+  background-color: hsl(var(--m-grès));
+  color: hsl(var(--m-encre));
+  font-family: 'Inter', system-ui, sans-serif;
+  font-feature-settings: 'onum' 1, 'kern' 1, 'liga' 1;
+}
+
+/* --- Surfaces --- */
+.dir-matiere .m-beton {
+  background-color: hsl(var(--m-beton));
+  color: hsl(var(--m-grès));
+}
+.dir-matiere .m-beton-2 { background-color: hsl(var(--m-beton-2)); color: hsl(var(--m-grès)); }
+.dir-matiere .m-gres-2 { background-color: hsl(var(--m-grès-2)); }
+.dir-matiere .m-gres-3 { background-color: hsl(var(--m-grès-3)); }
+
+.dir-matiere .m-carte {
+  background-color: hsl(var(--m-grès-2));
+  box-shadow: var(--m-lift-2);
+  transition: box-shadow 320ms var(--m-ease), transform 320ms var(--m-ease);
+}
+.dir-matiere .m-carte:hover { box-shadow: var(--m-lift-3); transform: translateY(-2px); }
+.dir-matiere .m-encastre { box-shadow: var(--m-inset); }
+
+/* --- Grain de papier : CSS pur, sans image --- */
+.dir-matiere .m-grain { position: relative; }
+.dir-matiere .m-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image:
+    repeating-linear-gradient(0deg, hsl(var(--m-encre) / 0.028) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, hsl(var(--m-encre) / 0.022) 0 1px, transparent 1px 4px);
+  mix-blend-mode: multiply;
+}
+.dir-matiere .m-beton.m-grain::after,
+.dir-matiere .m-beton-2.m-grain::after {
+  mix-blend-mode: screen;
+  background-image:
+    repeating-linear-gradient(0deg, hsl(var(--m-grès) / 0.03) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, hsl(var(--m-grès) / 0.022) 0 1px, transparent 1px 4px);
+}
+@media (max-width: 767px) { .dir-matiere .m-grain::after { opacity: 0.32; } }
+
+/* --- Béton coffré : marques de banches --- */
+.dir-matiere .m-coffrage { position: relative; overflow: hidden; }
+.dir-matiere .m-coffrage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    90deg,
+    hsl(var(--m-grès) / 0.07) 0 1px,
+    transparent 1px 8.5rem
+  );
+}
+
+/* --- Typographie --- */
+.dir-matiere .m-display {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  hanging-punctuation: first last;
+}
+.dir-matiere .m-smcp {
+  font-variant-caps: all-small-caps;
+  font-feature-settings: 'smcp' 1, 'c2sc' 1, 'onum' 1;
+  letter-spacing: 0.14em;
+}
+.dir-matiere .m-tnum { font-variant-numeric: tabular-nums lining-nums; }
+.dir-matiere .m-onum { font-variant-numeric: oldstyle-nums proportional-nums; }
+
+/* --- SIGNATURE 1 (conservée) : le folio-chouette --- */
+.dir-matiere .m-folio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-feature-settings: 'onum' 1, 'tnum' 1;
+  letter-spacing: 0.06em;
+}
+.dir-matiere .m-folio-eyes { display: inline-flex; align-items: center; gap: 0.22rem; }
+.dir-matiere .m-folio-eyes i {
+  width: 0.42rem; height: 0.42rem; border-radius: 50%;
+  border: 1px solid currentColor; display: block;
+}
+.dir-matiere .m-folio-eyes span {
+  width: 1px; height: 0.85rem; display: block;
+  background: hsl(var(--m-laiton)); transform: skewX(-14deg);
+}
+
+/* --- SIGNATURE 2 (conservée) : le cachet de registre --- */
+.dir-matiere .m-cachet {
+  border-top: 1px solid hsl(var(--m-encre) / 0.3);
+  border-bottom: 1px solid hsl(var(--m-encre) / 0.3);
+  padding: 0.5rem 0;
+  display: flex; flex-wrap: wrap; gap: 0 1.5rem; align-items: baseline;
+  font-size: 0.563rem;
+}
+.dir-matiere .m-beton .m-cachet,
+.dir-matiere .m-beton-2 .m-cachet { border-color: hsl(var(--m-grès) / 0.28); }
+.dir-matiere .m-cachet-seal {
+  color: hsl(var(--m-oxyde));
+  border: 1px solid currentColor; border-radius: 999px; padding: 0.1rem 0.5rem;
+}
+.dir-matiere .m-beton .m-cachet-seal,
+.dir-matiere .m-beton-2 .m-cachet-seal { color: hsl(var(--m-laiton-lit)); }
+
+/* --- SIGNATURE 3 (propre à Matière) : l'arête de laiton -------
+   Une seule arête éclairée par bloc : filet de laiton en haut à
+   gauche, ombre portée en bas à droite. La lumière ne change
+   jamais de direction sur tout le site.                        */
+.dir-matiere .m-arete { position: relative; }
+.dir-matiere .m-arete::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 2px; height: 0;
+  background: linear-gradient(hsl(var(--m-laiton)), hsl(var(--m-laiton) / 0));
+  animation: m-arete 640ms var(--m-ease-sign) 160ms forwards;
+}
+@keyframes m-arete { to { height: 4.5rem; } }
+.dir-matiere .m-beton .m-arete::before,
+.dir-matiere .m-beton-2 .m-arete::before,
+.dir-matiere .m-arete.on-beton::before {
+  background: linear-gradient(hsl(var(--m-laiton-lit)), hsl(var(--m-laiton-lit) / 0));
+}
+
+/* --- Filets et tableaux --- */
+.dir-matiere .m-rule { height: 1px; background: hsl(var(--m-encre) / 0.22); }
+.dir-matiere .m-table { width: 100%; border-collapse: collapse; }
+.dir-matiere .m-table th,
+.dir-matiere .m-table td {
+  text-align: left; padding: 0.6rem 0; vertical-align: baseline;
+  border-bottom: 1px solid hsl(var(--m-encre) / 0.14);
+}
+.dir-matiere .m-table th {
+  font-size: 0.563rem; font-variant-caps: all-small-caps;
+  letter-spacing: 0.16em; color: hsl(var(--m-encre-2));
+}
+.dir-matiere .m-table td.num { font-variant-numeric: tabular-nums lining-nums; text-align: right; }
+
+/* --- Focus, sélection --- */
+.dir-matiere a:focus-visible,
+.dir-matiere button:focus-visible { outline: 1px solid hsl(var(--m-laiton)); outline-offset: 4px; }
+.dir-matiere ::selection { background: hsl(var(--m-laiton) / 0.26); color: hsl(var(--m-encre)); }
+
+/* --- Entrée : la matière se pose (jamais elle ne glisse) --- */
+.dir-matiere .m-pose {
+  opacity: 0;
+  transform: translateY(0.5rem) scale(0.995);
+  animation: m-pose 620ms var(--m-ease) forwards;
+}
+@keyframes m-pose { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .dir-matiere .m-pose,
+  .dir-matiere .m-arete::before { animation: none; opacity: 1; transform: none; }
+  .dir-matiere .m-arete::before { height: 4.5rem; }
+  .dir-matiere .m-carte:hover { transform: none; }
+}
