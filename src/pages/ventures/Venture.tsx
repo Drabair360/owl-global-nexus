@@ -74,7 +74,7 @@ const Venture = () => {
           </div>
           <div className="md:col-span-5">
             <Reveal>
-              <div className="relative pl-6 overflow-hidden" ref={parallax.ref}>
+              <div className="relative pl-6" ref={parallax.ref}>
                 {/* Filet or vertical, tracé à la révélation */}
                 <span
                   aria-hidden
@@ -82,22 +82,26 @@ const Venture = () => {
                   style={{ background: 'linear-gradient(hsl(var(--mat-laiton) / 0.55), hsl(var(--mat-laiton) / 0))' }}
                 />
                 <Legende>
-                  <div className="mat-photo mat-elev-2"
-                    style={{
-                      transform: `translate3d(0, ${parallax.offset}px, 0) scale(1.06)`,
-                      willChange: 'transform',
-                    }}
-                  >
-                  <Duotone
-                    src={tex.src}
-                    sources={tex.sources}
-                    sizes={SIZES.column}
-                    alt={tex.alt}
-                    tone={venture.tone}
-                    width={tex.width}
-                    height={tex.height}
-                    className="aspect-[4/5] w-full"
-                  />
+                  {/* Le recadrage (overflow) s'arrête à l'image : la légende
+                      vit hors du cadre parallaxé, plus aucun chevauchement. */}
+                  <div className="mat-photo mat-elev-2 overflow-hidden">
+                    <div
+                      style={{
+                        transform: `translate3d(0, ${parallax.offset}px, 0) scale(1.06)`,
+                        willChange: 'transform',
+                      }}
+                    >
+                      <Duotone
+                        src={tex.src}
+                        sources={tex.sources}
+                        sizes={SIZES.column}
+                        alt={tex.alt}
+                        tone={venture.tone}
+                        width={tex.width}
+                        height={tex.height}
+                        className="aspect-[4/5] w-full"
+                      />
+                    </div>
                   </div>
                 </Legende>
               </div>

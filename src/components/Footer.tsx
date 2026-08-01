@@ -82,14 +82,14 @@ const Footer = () => {
         </p>
 
         {/* Cachet de registre - signature M7 n°2, il scelle chaque page */}
+        {/* Ordre de gravure fixe : sceau RCS -> forme -> siège -> président -> année.
+            Sous 1280 px chaque mention prend sa propre ligne (retours prévus). */}
         <div className="mat-cachet mat-ink-2">
           <span className="mat-cachet-seal">RCS Paris 978 849 230</span>
-          <span>OWL INTERNATIONAL</span>
-          <span>{t('footer.form')}</span>
-          <span>{t('footer.siege')} : 47 boulevard de Courcelles, 75008 Paris</span>
-          <span>{t('footer.president')} : Arthur Draber</span>
-          <span className="mat-tnum">© {year}</span>
-          <span>{t('footer.rights')}</span>
+          <span className="mat-cachet-ligne">OWL INTERNATIONAL - {t('footer.form')}</span>
+          <span className="mat-cachet-ligne">{t('footer.siege')} : 47 boulevard de Courcelles, 75008 Paris</span>
+          <span className="mat-cachet-ligne">{t('footer.president')} : Arthur Draber</span>
+          <span className="mat-cachet-ligne mat-tnum">© {year} - {t('footer.rights')}</span>
         </div>
       </div>
     </footer>
