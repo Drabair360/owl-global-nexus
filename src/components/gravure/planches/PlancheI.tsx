@@ -337,15 +337,18 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     </text>
 
     {/* ================= NOMENCLATURE ================= */}
-    <text className="gravure-lettrage" x={946} y={556} fontSize="13" fill={ENCRE}>
+    {/* Remontée de 20 px : la cellule ainsi creusée sous la colonne droite
+        rend à la planche sa réserve de silence (≥ 20 % de la surface). */}
+    <text className="gravure-lettrage" x={946} y={536} fontSize="13" fill={ENCRE}>
       Nomenclature
     </text>
-    <line x1={946} y1={562} x2={1176} y2={562} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
+    <line x1={946} y1={542} x2={1176} y2={542} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
 
     <Nomenclature
       x={954}
-      y={588}
+      y={568}
       lineHeight={21}
+
       items={[
         'Semelle isolée',
         'Longrine',
