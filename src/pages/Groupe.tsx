@@ -5,6 +5,7 @@ import { Eyebrow, EditorialTitle, EditorialSection, Rule } from '@/components/ed
 import StickyChapter from '@/components/StickyChapter';
 import PresidentPortrait from '@/components/PresidentPortrait';
 import PolesViz from '@/components/PolesViz';
+import { OwlKPISet } from '@/components/KPI';
 import CinemaBand from '@/components/CinemaBand';
 import SplitText from '@/components/SplitText';
 import { useI18n } from '@/lib/i18n';
