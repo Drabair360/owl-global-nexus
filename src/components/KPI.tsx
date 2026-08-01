@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { useI18n } from '@/lib/i18n';
 
 /**
  * KPI institutionnel : display + small-caps + source.
@@ -9,6 +10,7 @@ import { ReactNode } from 'react';
  * - 2023  immatriculation au RCS de Paris
  * - 10  pages : intégralité de ce que nous publions
  * Interdits : montants, valorisations, effectifs, clients, croissance, %.
+ * Aucun KPI hors de ce set ne doit être ajouté.
  */
 export const KPI = ({
   value,
@@ -34,13 +36,16 @@ export const KPI = ({
   </div>
 );
 
-/** Grille KPI par défaut - set autorisé complet. */
-export const OwlKPISet = () => (
-  <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-6">
-    <KPI value="02" label="pôles complémentaires" />
-    <KPI value="05" label="sociétés du groupe" source="organigramme" />
-    <KPI value="02" label="continents d'opération" />
-    <KPI value="2023" label="immatriculation RCS Paris" source="RCS 978 849 230" />
-    <KPI value="10" label="pages publiées" />
-  </div>
-);
+/** Grille KPI par défaut - set autorisé complet, bilingue. */
+export const OwlKPISet = () => {
+  const { t } = useI18n();
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-6">
+      <KPI value="02" label={t('kpi.poles')} />
+      <KPI value="05" label={t('kpi.companies')} source={t('kpi.source.orga')} />
+      <KPI value="02" label={t('kpi.continents')} />
+      <KPI value="2023" label={t('kpi.rcs')} source="RCS 978 849 230" />
+      <KPI value="10" label={t('kpi.pages')} />
+    </div>
+  );
+};

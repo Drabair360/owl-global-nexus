@@ -5,6 +5,7 @@ import { Eyebrow, EditorialTitle, EditorialSection, Rule } from '@/components/ed
 import StickyChapter from '@/components/StickyChapter';
 import PresidentPortrait from '@/components/PresidentPortrait';
 import PolesViz from '@/components/PolesViz';
+import { OwlKPISet } from '@/components/KPI';
 import CinemaBand from '@/components/CinemaBand';
 import SplitText from '@/components/SplitText';
 import { useI18n } from '@/lib/i18n';
@@ -33,6 +34,14 @@ const Groupe = () => {
       />
 
 
+      {/* Barre KPI - set fermé, aucun autre indicateur */}
+      <EditorialSection className="bg-white pb-0">
+        <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-gold-ink mb-8">
+          {t('kpi.title')}
+        </div>
+        <OwlKPISet />
+      </EditorialSection>
+
       {/* Gouvernance + Ancrage */}
       <EditorialSection className="bg-white">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
@@ -48,6 +57,7 @@ const Groupe = () => {
           </div>
         </div>
       </EditorialSection>
+
 
       <CinemaBand texture="skyline" tone="nocturne" className="mb-16" />
 

@@ -5,6 +5,7 @@ import Reveal from '@/components/Reveal';
 import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
 import GroupDiagram from '@/components/GroupDiagram';
+import VentureNotice from '@/components/VentureNotice';
 
 import { textures, SIZES } from '@/assets/textures';
 import { useParallax } from '@/hooks/useParallax';
@@ -132,7 +133,26 @@ const Venture = () => {
                 </li>
               ))}
             </ul>
+
+            {/* Notice : champs réels uniquement */}
+            <div className="mt-14">
+              <VentureNotice
+                fields={[
+                  { label: t('notice.pole'), value: pole },
+                  { label: t('notice.status'), value: t(venture.statusKey).replace(/^\(|\)$/g, '') },
+                  { label: t('notice.scope'), value: context },
+                  ...(venture.incorporation
+                    ? [{ label: t('notice.incorporation'), value: venture.incorporation[locale] }]
+                    : []),
+                  {
+                    label: t('notice.rank'),
+                    value: `${venture.order} / ${String(ventures.length).padStart(2, '0')}`,
+                  },
+                ]}
+              />
+            </div>
           </div>
+
         </div>
       </EditorialSection>
 
