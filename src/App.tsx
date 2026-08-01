@@ -56,7 +56,9 @@ const App = () => (
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/studio/direction-1" element={<StudioDirection1 />} />
-            <Route path="/studio/direction-2" element={<StudioDirection2 />} />
+            <Route path="/studio/direction-3" element={<StudioDirection3 />} />
+            <Route path="/studio/comparatif" element={<StudioComparatif />} />
+
 
 
             {/* Redirections des anciennes routes (préservent le référencement) */}
