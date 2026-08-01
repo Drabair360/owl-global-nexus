@@ -394,7 +394,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     {[178, 205, 232].map((y, i) => (
       <g key={y}>
         <line x1={980} y1={y} x2={1160} y2={y} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="9 3 2 3" opacity="0.7" />
-        <text className="gravure-lettrage" x={1152} y={y - 6} fontSize="11" textAnchor="end">
+        <text className="gravure-lettrage" x={986} y={y - 6} fontSize="11" textAnchor="start">
           {i + 1}
         </text>
       </g>
