@@ -1,6 +1,10 @@
 import React from 'react';
 
-export type DuotoneTone = 'gold' | 'ink' | 'sepia' | 'prestige' | 'nocturne';
+export type DuotoneTone =
+  /* Tons v2 (héritage « Verre sombre ») - en sursis, migrés visuel par visuel en G3. */
+  | 'gold' | 'ink' | 'sepia' | 'prestige' | 'nocturne'
+  /* Tons Matière (G3) : noirs encre chaude, hautes lumières laiton. */
+  | 'gres' | 'laiton' | 'encre';
 
 interface Props {
   src: string;
