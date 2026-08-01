@@ -258,7 +258,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
       <path d={`M${A + 60} 226 V${H1 - 74}`} />
       <path d={`M${C - 60} 226 V${H1 - 74}`} />
     </g>
-    <text className="gravure-lettrage" x={A + 60} y={216} fontSize="12">
+    <text className="gravure-lettrage" x={B} y={216} fontSize="12" textAnchor="middle">
       Réseaux — PROJETÉ
     </text>
 
@@ -266,10 +266,10 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     <BulleAxe x={A} y={112} label="A" to={TETE - 26} />
     <BulleAxe x={B} y={112} label="B" to={FAITAGE - 26} />
     <BulleAxe x={C} y={112} label="C" to={TETE - 26} />
-    <RepereNiveau x={852} y={H1} label="+H1 roulement" rappel={812} />
-    <RepereNiveau x={852} y={FAITAGE} label="+H2 faîtage" rappel={812} />
+    <RepereNiveau x={856} y={H1} label="+H1 roulement" rappel={822} />
+    <RepereNiveau x={856} y={FAITAGE} label="+H2 faîtage" rappel={822} />
     <ChaineCotes y={716} points={[A, B, C]} labels={['L1', 'L2']} attache={700} />
-    <ChaineCotes y={790} points={[FAITAGE, H1, SOL]} labels={['H2', 'H1']} attache={770} vertical />
+    <ChaineCotes y={802} points={[FAITAGE, H1, SOL]} labels={['H2', 'H1']} attache={782} vertical />
 
     {/* — calque 11 : PASTILLES DE NOMENCLATURE — */}
     <Pastille x={A} y={610} n={1} />
