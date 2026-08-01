@@ -139,8 +139,8 @@ const Scouts = () => {
           <h2 className="font-heading text-3xl md:text-4xl mat-ink-1 mb-10">{t('scouts.form.title')}</h2>
 
           {status === 'success' ? (
-            <div className="border-t-2 border-emerald-600 bg-emerald-50/60 p-8">
-              <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-emerald-700 mb-3">
+            <div className="mat-gres-2 mat-serti p-8">
+              <div className="text-xs font-subtitle tracking-[0.28em] uppercase mat-ink-accent mb-3">
                 {locale === 'fr' ? 'Confirmation' : 'Confirmation'}
               </div>
               <h3 className="font-heading text-2xl mat-ink-1 mb-3">{t('scouts.form.successTitle')}</h3>
@@ -148,7 +148,7 @@ const Scouts = () => {
               <button
                 type="button"
                 onClick={() => setStatus('idle')}
-                className="text-sm font-subtitle tracking-[0.2em] uppercase text-emerald-700 hover:text-emerald-900 border-b border-emerald-600/40 hover:border-emerald-800 pb-1 transition-colors"
+                className="text-sm font-subtitle tracking-[0.2em] uppercase mat-ink-accent border-b border-[hsl(var(--mat-laiton))] pb-1 transition-colors"
               >
                 {t('scouts.form.successAgain')}
               </button>
@@ -164,12 +164,12 @@ const Scouts = () => {
                   autoComplete="name"
                   value={form.full_name}
                   onChange={(e) => setForm({ ...form, full_name: e.target.value })}
-                  className="mt-2 mat-gres mat-grain"
+                  className="mt-2 mat-field"
                   maxLength={200}
                   aria-invalid={!!errors.full_name}
                   required
                 />
-                {errors.full_name && <p className="text-xs text-destructive mt-1">{errors.full_name}</p>}
+                {errors.full_name && <p className="mat-erreur mt-1 block">{errors.full_name}</p>}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -182,12 +182,12 @@ const Scouts = () => {
                     autoComplete="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="mt-2 mat-gres mat-grain"
+                    className="mt-2 mat-field"
                     maxLength={320}
                     aria-invalid={!!errors.email}
                     required
                   />
-                  {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
+                  {errors.email && <p className="mat-erreur mt-1 block">{errors.email}</p>}
                 </div>
                 <div>
                   <Label htmlFor="phone">{t('scouts.form.phone')}</Label>
@@ -198,7 +198,7 @@ const Scouts = () => {
                     autoComplete="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="mt-2 mat-gres mat-grain"
+                    className="mt-2 mat-field"
                     maxLength={50}
                   />
                 </div>
@@ -212,7 +212,7 @@ const Scouts = () => {
                   autoComplete="country-name"
                   value={form.country}
                   onChange={(e) => setForm({ ...form, country: e.target.value })}
-                  className="mt-2 mat-gres mat-grain"
+                  className="mt-2 mat-field"
                   maxLength={120}
                 />
               </div>
@@ -223,7 +223,7 @@ const Scouts = () => {
                   id="domain"
                   value={form.domain}
                   onChange={(e) => setForm({ ...form, domain: e.target.value })}
-                  className="mt-2 flex h-10 w-full rounded-md border border-input mat-gres mat-grain px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="mt-2 mat-field flex h-10 w-full px-3 py-2 text-sm"
                   aria-invalid={!!errors.domain}
                   required
                 >
@@ -233,7 +233,7 @@ const Scouts = () => {
                   <option value="software">{t('scouts.form.domain.software')}</option>
                   <option value="other">{t('scouts.form.domain.other')}</option>
                 </select>
-                {errors.domain && <p className="text-xs text-destructive mt-1">{errors.domain}</p>}
+                {errors.domain && <p className="mat-erreur mt-1 block">{errors.domain}</p>}
               </div>
 
               <div>
@@ -242,13 +242,13 @@ const Scouts = () => {
                   id="message"
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="mt-2 mat-gres mat-grain"
+                  className="mt-2 mat-field"
                   rows={5}
                   maxLength={5000}
                   aria-invalid={!!errors.message}
                   required
                 />
-                {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
+                {errors.message && <p className="mat-erreur mt-1 block">{errors.message}</p>}
               </div>
 
               {/* Honeypot anti-robot : hors flux, hors tabulation, ignoré des lecteurs d'écran. */}
@@ -287,7 +287,7 @@ const Scouts = () => {
                 </Label>
               </div>
               {errors.consent && (
-                <p id="consent-error" className="text-xs text-destructive">
+                <p id="consent-error" className="mat-erreur">
                   {errors.consent}
                 </p>
               )}
@@ -298,15 +298,15 @@ const Scouts = () => {
               {status === 'error' && (
                 <div
                   role="alert"
-                  className="border-t-2 border-destructive bg-destructive/5 p-5"
+                  className="mat-gres-2 p-5 border-t-2 border-[hsl(var(--mat-accent-gres))]"
                 >
-                  <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-destructive mb-2">
+                  <div className="text-xs font-subtitle tracking-[0.28em] uppercase mat-ink-accent mb-2">
                     {t('scouts.form.errorTitle')}
                   </div>
                   <p className="text-sm mat-ink-2 font-body mb-3">{t('scouts.form.error')}</p>
                   <a
                     href="mailto:contact@internationalowl.com"
-                    className="text-xs font-subtitle tracking-[0.2em] uppercase text-destructive hover:text-destructive/80 border-b border-destructive/40 pb-1"
+                    className="text-xs font-subtitle tracking-[0.2em] uppercase mat-ink-accent border-b border-[hsl(var(--mat-accent-gres))] pb-1"
                   >
                     {t('scouts.form.writeUs')} -&gt;
                   </a>
