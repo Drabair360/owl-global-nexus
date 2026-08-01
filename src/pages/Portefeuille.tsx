@@ -58,20 +58,6 @@ const Portefeuille = () => {
             <Reveal key={e.slug} delay={i * 60}>
             <article className="group grid grid-cols-1 md:grid-cols-12 gap-8 pb-16 border-b border-[hsl(var(--mat-on-gres-1)/0.18)] last:border-0">
               <div className="md:col-span-4">
-                <Legende hoverOnly className="mb-6 block">
-                  <div className="mat-photo mat-elev-2">
-                    <Duotone
-                      src={textures[e.texture].src}
-                      sources={textures[e.texture].sources}
-                      sizes={SIZES.thumb}
-                      alt={textures[e.texture].alt}
-                      tone={e.tone}
-                      width={textures[e.texture].width}
-                      height={textures[e.texture].height}
-                      className="aspect-[4/5] w-full transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02] group-focus-within:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                    />
-                  </div>
-                </Legende>
                 <p className="mat-folio text-sm mb-3 mat-ink-2">
                   <span className="mat-folio-eyes" aria-hidden="true"><i /><span /><i /></span>
                   <span className="mat-tnum">{ventureFolio(e.order)}</span>
@@ -86,6 +72,21 @@ const Portefeuille = () => {
                   </Link>
                 </h2>
                 <p className="statut mt-3">{t(e.statusKey)}</p>
+                <Legende hoverOnly className="mt-6 block">
+                  <div className="mat-photo mat-elev-2">
+                    <Duotone
+                      src={textures[e.texture].src}
+                      sources={textures[e.texture].sources}
+                      sizes={SIZES.thumb}
+                      alt={textures[e.texture].alt}
+                      tone={e.tone}
+                      width={textures[e.texture].width}
+                      height={textures[e.texture].height}
+                      className="aspect-[3/2] w-full transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02] group-focus-within:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    />
+                  </div>
+                </Legende>
+
               </div>
               <div className="md:col-span-8">
                 <p className="mat-prose mat-ink-1 mb-8 max-w-2xl">{t(e.missionKey)}</p>

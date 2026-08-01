@@ -141,6 +141,7 @@
 .mat-folio { display: inline-flex; align-items: center; gap: 0.55rem;
   font-family: 'EB Garamond', Georgia, serif; font-feature-settings: 'onum' 1; letter-spacing: 0.06em; }
 .mat-folio-eyes { display: inline-flex; align-items: center; gap: 0.22rem; }
+.mat-folio .mat-tnum { font-variant-numeric: lining-nums tabular-nums; }
 .mat-folio-eyes i { width: 0.42rem; height: 0.42rem; border-radius: 50%; border: 1px solid currentColor; display: block; }
 .mat-folio-eyes span { width: 1px; height: 0.85rem; display: block; background: hsl(var(--mat-laiton)); transform: skewX(-14deg); }
 
