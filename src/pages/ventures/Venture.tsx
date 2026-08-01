@@ -107,7 +107,7 @@ const Venture = () => {
             <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-gold-ink mb-3">
               {locale === 'fr' ? 'Mission' : 'Mission'}
             </div>
-            <p className="text-sm text-slate-500 italic font-body">{t(venture.statusKey)}</p>
+            <p className="statut mt-1">{t(venture.statusKey)}</p>
             <div className="mt-10">
               <GroupDiagram
                 name={venture.name}

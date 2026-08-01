@@ -146,7 +146,7 @@ const Index = () => {
                 <span className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-white border-2 border-amber-400" />
                 <Reveal delay={i * 60}>
                   <div className="text-xs font-subtitle tracking-widest uppercase text-primary mb-2">{m.year}</div>
-                  <p className={`text-base md:text-lg font-body leading-relaxed ${m.muted ? 'text-slate-500 italic' : 'text-slate-800'}`}>
+                  <p className={`text-base md:text-lg font-body leading-relaxed ${m.muted ? 'text-slate-600' : 'text-slate-800'}`}>
                     {m.body}
                   </p>
                 </Reveal>
