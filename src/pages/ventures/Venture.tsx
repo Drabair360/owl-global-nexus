@@ -171,7 +171,24 @@ const Venture = () => {
                 ]}
               />
             </div>
+
+            {/* §3b — DÉTAIL compagnon : même SVG, viewBox recadrée à 200 % */}
+            {venture.slug === 'cao-industries' && (
+              <div className="mt-12">
+                <Planche
+                  idPrefix="planche-i-detail"
+                  numeral={PLANCHE_I.numeral}
+                  title={PLANCHE_I.title}
+                  desc={`Détail à 200 % de la planche I : le chemin de roulement, le caisson du pont roulant et la tête de poteau. ${PLANCHE_I.desc}`}
+                  viewBox={PLANCHE_I.detailViewBox}
+                  legendSuffix={`Détail de la planche ${PLANCHE_I.numeral}`}
+                >
+                  <PlancheIDrawing p="pl1d" />
+                </Planche>
+              </div>
+            )}
           </div>
+
 
           <div className="md:col-span-8">
             <h2 className="mat-mention font-subtitle tracking-[0.28em] uppercase mat-ink-2 mb-3">
