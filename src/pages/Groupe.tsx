@@ -35,7 +35,7 @@ const Groupe = () => {
 
 
       {/* Barre KPI - set fermé, aucun autre indicateur */}
-      <EditorialSection className="bg-white pb-0">
+      <EditorialSection className="mat-gres mat-grain pb-0">
         <div className="text-xs font-subtitle tracking-[0.28em] uppercase text-gold-ink mb-8">
           {t('kpi.title')}
         </div>
@@ -43,17 +43,17 @@ const Groupe = () => {
       </EditorialSection>
 
       {/* Gouvernance + Ancrage */}
-      <EditorialSection className="bg-white">
+      <EditorialSection className="mat-gres mat-grain">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
-            <h2 className="font-heading text-2xl md:text-3xl text-slate-900 mb-4">{t('groupe.gouv.title')}</h2>
+            <h2 className="font-heading text-2xl md:text-3xl mat-ink-1 mb-4">{t('groupe.gouv.title')}</h2>
             <Rule />
-            <p className="text-slate-700 font-body leading-relaxed">{t('groupe.gouv.body')}</p>
+            <p className="mat-ink-2 font-body leading-relaxed">{t('groupe.gouv.body')}</p>
           </div>
           <div>
-            <h2 className="font-heading text-2xl md:text-3xl text-slate-900 mb-4">{t('groupe.ancrage.title')}</h2>
+            <h2 className="font-heading text-2xl md:text-3xl mat-ink-1 mb-4">{t('groupe.ancrage.title')}</h2>
             <Rule />
-            <p className="text-slate-700 font-body leading-relaxed">{t('groupe.ancrage.body')}</p>
+            <p className="mat-ink-2 font-body leading-relaxed">{t('groupe.ancrage.body')}</p>
           </div>
         </div>
       </EditorialSection>
@@ -62,29 +62,29 @@ const Groupe = () => {
       <CinemaBand texture="skyline" tone="nocturne" className="mb-16" />
 
       {/* Organigramme + data-viz interactive */}
-      <EditorialSection className="bg-slate-50 relative">
+      <EditorialSection className="mat-gres-2 mat-grain relative">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-heading text-3xl md:text-4xl text-slate-900 mb-4">{t('groupe.orga.title')}</h2>
+          <h2 className="font-heading text-3xl md:text-4xl mat-ink-1 mb-4">{t('groupe.orga.title')}</h2>
           <div className="rule-gold mb-12" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <PolesViz />
             <div className="space-y-6">
-              <div className="border border-slate-300 p-6 bg-white">
-                <div className="text-xs font-subtitle tracking-widest uppercase text-primary mb-1">Holding</div>
-                <div className="font-heading text-xl text-slate-900">{t('groupe.orga.holding')}</div>
+              <div className="border border-[hsl(var(--mat-on-gres-1)/0.22)] p-6 mat-gres mat-grain">
+                <div className="text-xs font-subtitle tracking-widest uppercase mat-ink-accent mb-1">Holding</div>
+                <div className="font-heading text-xl mat-ink-1">{t('groupe.orga.holding')}</div>
               </div>
-              <div className="border border-slate-300 p-6 bg-white">
-                <div className="text-xs font-subtitle tracking-widest uppercase text-primary mb-3">A - {t('groupe.orga.op')}</div>
-                <ul className="space-y-1 text-sm text-slate-700 font-body columns-2">
+              <div className="border border-[hsl(var(--mat-on-gres-1)/0.22)] p-6 mat-gres mat-grain">
+                <div className="text-xs font-subtitle tracking-widest uppercase mat-ink-accent mb-3">A - {t('groupe.orga.op')}</div>
+                <ul className="space-y-1 text-sm mat-ink-2 font-body columns-2">
                   <li>CAO Industries</li>
                   <li>Drabair Labs</li>
                   <li>Line Builder</li>
                   <li>Weavme</li>
                 </ul>
               </div>
-              <div className="border border-slate-300 p-6 bg-white">
-                <div className="text-xs font-subtitle tracking-widest uppercase text-primary mb-3">B - {t('groupe.orga.pat')}</div>
-                <ul className="space-y-1 text-sm text-slate-700 font-body">
+              <div className="border border-[hsl(var(--mat-on-gres-1)/0.22)] p-6 mat-gres mat-grain">
+                <div className="text-xs font-subtitle tracking-widest uppercase mat-ink-accent mb-3">B - {t('groupe.orga.pat')}</div>
+                <ul className="space-y-1 text-sm mat-ink-2 font-body">
                   <li>Owl Real Estate</li>
                 </ul>
               </div>
@@ -94,7 +94,7 @@ const Groupe = () => {
       </EditorialSection>
 
       {/* Lettre du Président - rail de chapitre unifié */}
-      <EditorialSection className="bg-white">
+      <EditorialSection className="mat-gres mat-grain">
         <ChapterRail
           ariaLabel={t('groupe.ceo.eyebrow')}
           chapters={[
@@ -108,13 +108,13 @@ const Groupe = () => {
                   <div className="flex items-start gap-6 mb-2">
                     <PresidentPortrait alt={t('groupe.ceo.portraitAlt')} />
                     <div className="pt-2">
-                      <div className="text-sm text-slate-500 font-subtitle tracking-[0.2em] uppercase">
+                      <div className="text-sm mat-ink-2 font-subtitle tracking-[0.2em] uppercase">
                         {t('groupe.ceo.role')}
                       </div>
                       <div className="rule-gold mt-4" />
                     </div>
                   </div>
-                  <p className="font-display text-2xl md:text-3xl leading-[1.35] italic text-slate-900">
+                  <p className="font-display text-2xl md:text-3xl leading-[1.35] italic mat-ink-1">
                     « {t('groupe.ceo.body')} »
                   </p>
                 </>
