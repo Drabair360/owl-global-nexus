@@ -146,10 +146,11 @@
 .mat-folio-eyes span { width: 1px; height: 0.85rem; display: block; background: hsl(var(--mat-laiton)); transform: skewX(-14deg); }
 
 /* 2. Cachet de registre : scelle un bloc d'autorité */
+/* rangée serrée, interligne respiré */
 .mat-cachet {
   border-top: 1px solid hsl(var(--mat-on-gres-1) / 0.3);
   border-bottom: 1px solid hsl(var(--mat-on-gres-1) / 0.3);
-  padding: 0.5rem 0; display: flex; flex-wrap: wrap; gap: 0 1.5rem; align-items: baseline;
+  padding: 0.6rem 0; display: flex; flex-wrap: wrap; gap: 0.45rem 1.5rem; align-items: baseline;
   font-size: 0.563rem; text-transform: uppercase; letter-spacing: 0.16em;
 }
 .mat-beton .mat-cachet, .mat-beton-2 .mat-cachet { border-color: hsl(var(--mat-on-beton-1) / 0.28); }
@@ -195,3 +196,66 @@
   .mat-carte { transition: none; }
   .mat-carte:hover { transform: none; }
 }
+
+/* --- Gravure : texte creusé dans le béton --------------------
+   Réservée aux mentions d'autorité posées sur béton. Le relief est
+   obtenu par une ombre portée claire d'un pixel sous l'encre (lumière
+   unique x = 0, M1) : jamais par une baisse d'opacité du texte. */
+.mat-gravure {
+  color: hsl(var(--mat-on-beton-2));
+  text-shadow: 0 1px 0 hsl(var(--mat-gres) / 0.10);
+  letter-spacing: 0.01em;
+}
+.mat-gravure::before {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  margin-bottom: 1rem;
+  background: hsl(var(--mat-laiton-lit) / 0.7);
+}
+
+/* Bouton de matière : béton plein, arête de laiton au survol */
+.mat-bouton.mat-bouton {
+  border-radius: 0;
+  background-color: hsl(var(--mat-beton));
+  color: hsl(var(--mat-on-beton-1));
+  box-shadow: var(--mat-elev-1);
+  transition: background-color 240ms var(--mat-ease-pose), box-shadow 240ms var(--mat-ease-pose);
+}
+.mat-bouton.mat-bouton:hover { background-color: hsl(var(--mat-beton-2)); box-shadow: inset 2px 0 0 hsl(var(--mat-laiton-lit)), var(--mat-elev-2); }
+.mat-bouton.mat-bouton:disabled { background-color: hsl(var(--mat-gres-3)); color: hsl(var(--mat-on-gres-2)); }
+
+/* --- Formulaire (états en langage Matière) --------------------
+   Un champ est une plaque de grès posée dans la page : filet fin au repos,
+   arête de laiton à la saisie, oxyde en défaut. Aucun halo coloré. */
+.mat-field.mat-field {
+  border-radius: 0;
+  background-color: hsl(var(--mat-gres));
+  color: hsl(var(--mat-on-gres-1));
+  border: 1px solid hsl(var(--mat-on-gres-1) / 0.22);
+  border-radius: 0;
+  box-shadow: var(--mat-elev-1);
+  transition: border-color 240ms var(--mat-ease-pose), box-shadow 240ms var(--mat-ease-pose);
+}
+.mat-field:hover { border-color: hsl(var(--mat-on-gres-1) / 0.38); }
+.mat-field:focus, .mat-field:focus-visible {
+  outline: none;
+  border-color: hsl(var(--mat-laiton));
+  box-shadow: inset 2px 0 0 hsl(var(--mat-laiton)), var(--mat-elev-1);
+}
+.mat-field[aria-invalid='true'] { border-color: hsl(var(--mat-accent-gres)); }
+.mat-field:disabled { background-color: hsl(var(--mat-gres-3)); color: hsl(var(--mat-on-gres-2)); }
+.mat-erreur {
+  color: hsl(var(--mat-accent-gres));
+  font-size: 0.75rem; letter-spacing: 0.04em;
+}
+
+/* --- M2 : valeur unique de grain, arrêtée en G2.3 -------------
+   Condition de mesure : écran physique 1x (non HiDPI), 1440 px de large,
+   luminosité 120 cd/m², surface grès sur /portefeuille.
+   Un seul recalibrage autorisé, après migration complète des surfaces
+   claires. Ne jamais retoucher page par page : le grain qui dérive par
+   petites touches finit sale. */
+:root { --mat-grain-1x: 0.045; }
+@media (max-resolution: 1dppx) { .mat-grain::after { opacity: var(--mat-grain-1x); } }

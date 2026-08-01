@@ -29,24 +29,24 @@ const Rejoindre = () => {
         </Button>
       </InstitutionalHero>
 
-      <EditorialSection className="bg-white">
-        <h2 className="font-heading text-2xl md:text-3xl text-slate-900 mb-10">{t('rejoindre.culture.title')}</h2>
+      <EditorialSection className="mat-gres mat-grain">
+        <h2 className="font-heading text-2xl md:text-3xl mat-ink-1 mb-10">{t('rejoindre.culture.title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 max-w-4xl">
           {['rejoindre.culture.1', 'rejoindre.culture.2', 'rejoindre.culture.3', 'rejoindre.culture.4'].map((k) => (
-            <p key={k} className="text-slate-700 font-body leading-relaxed border-l-2 border-amber-400 pl-4">
+            <p key={k} className="mat-ink-2 font-body leading-relaxed border-l-2 border-amber-400 pl-4">
               {t(k)}
             </p>
           ))}
         </div>
       </EditorialSection>
 
-      <section className="py-16 bg-slate-50 border-t border-slate-200">
+      <section className="py-16 mat-gres-2 mat-grain border-t border-[hsl(var(--mat-on-gres-1)/0.22)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <p className="text-slate-700 font-body">{t('rejoindre.scouts')}</p>
+          <p className="mat-ink-2 font-body">{t('rejoindre.scouts')}</p>
           <Link
             to="/scouts"
             onClick={() => window.scrollTo(0, 0)}
-            className="inline-flex items-center gap-2 text-sm font-subtitle tracking-wider uppercase text-primary hover:gap-3 transition-all border-b border-primary/40 pb-1"
+            className="inline-flex items-center gap-2 text-sm font-subtitle tracking-wider uppercase mat-ink-accent hover:gap-3 transition-all border-b border-[hsl(var(--mat-laiton))] pb-1"
           >
             {t('rejoindre.scouts.cta')} <ArrowRight size={14} />
           </Link>

@@ -13,6 +13,13 @@ const NAV = [
   { to: '/contact', key: 'nav.contact' },
 ] as const;
 
+/**
+ * NAVBAR - langage Matière (G2.3).
+ * Grès translucide en tête de page, grès solide au scroll. Jamais de
+ * backdrop-blur (règle core) : la translucidité est obtenue par une couleur
+ * de fond opacifiée, pas par un filtre. Les filets sont en laiton, en
+ * sourdine ; le wordmark reste inchangé.
+ */
 const Navbar = () => {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
@@ -29,23 +36,21 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`nav-shell fixed top-0 left-0 right-0 z-50 ${
-        scrolled
-          ? 'bg-white border-b border-border shadow-[0_1px_0_hsl(var(--gold)/0.4)]'
-          : 'bg-white/95 border-b border-transparent'
-      }`}
+      className="nav-shell fixed top-0 left-0 right-0 z-50"
       style={{
-        backgroundColor: scrolled ? '#ffffff' : 'rgba(255,255,255,0.96)',
+        backgroundColor: scrolled ? 'hsl(var(--mat-gres))' : 'hsl(var(--mat-gres) / 0.94)',
+        boxShadow: scrolled ? 'var(--mat-elev-1)' : 'none',
         height: scrolled ? '3.25rem' : '4.5rem',
+        transition: 'background-color 320ms var(--mat-ease-pose), height 320ms var(--mat-ease-pose), box-shadow 320ms var(--mat-ease-pose)',
       }}
     >
-      {/* Filet or subtil qui s'illumine au scroll */}
+      {/* Filet de laiton en sourdine : présent en permanence, affirmé au scroll */}
       <span
         aria-hidden
         className="absolute inset-x-0 bottom-0 h-px transition-opacity duration-500"
         style={{
-          background: 'linear-gradient(90deg, transparent, hsl(43 96% 56% / 0.6), transparent)',
-          opacity: scrolled ? 1 : 0,
+          backgroundColor: 'hsl(var(--mat-laiton))',
+          opacity: scrolled ? 0.5 : 0.22,
         }}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
@@ -70,7 +75,7 @@ const Navbar = () => {
               />
             </picture>
             <span
-              className="nav-brand font-brand tracking-wide text-foreground"
+              className="nav-brand font-brand tracking-wide mat-ink-1"
               style={{ fontSize: scrolled ? '0.95rem' : '1.125rem', letterSpacing: scrolled ? '0.06em' : '0.04em' }}
             >
               OWL INTERNATIONAL
@@ -85,7 +90,7 @@ const Navbar = () => {
                 onClick={scrollTop}
                 className={({ isActive }) =>
                   `relative py-2 text-sm font-subtitle font-medium transition-colors group ${
-                    isActive ? 'text-primary' : 'text-muted-foreground hover:text-primary'
+                    isActive ? 'mat-ink-1' : 'mat-ink-2 hover:text-[hsl(var(--mat-on-gres-1))]'
                   }`
                 }
               >
@@ -93,9 +98,10 @@ const Navbar = () => {
                   <>
                     {t(item.key)}
                     <span
-                      className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-500 ${
+                      className={`absolute bottom-0 left-0 h-px transition-all duration-500 ${
                         isActive ? 'w-full' : 'w-0 group-hover:w-full'
                       }`}
+                      style={{ backgroundColor: 'hsl(var(--mat-laiton))' }}
                     />
                   </>
                 )}
@@ -109,7 +115,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => setOpen(!open)}
-              className="text-foreground hover:text-primary transition-colors"
+              className="mat-ink-1 transition-colors"
               aria-label={t('nav.menu')}
               aria-expanded={open}
             >
@@ -120,7 +126,10 @@ const Navbar = () => {
       </div>
 
       {open && (
-        <div className="md:hidden bg-white border-t border-border" style={{ backgroundColor: '#ffffff' }}>
+        <div
+          className="md:hidden mat-gres"
+          style={{ borderTop: '1px solid hsl(var(--mat-laiton) / 0.28)', boxShadow: 'var(--mat-elev-2)' }}
+        >
           <div className="px-4 py-3 space-y-1">
             {NAV.map((item) => (
               <NavLink
@@ -132,7 +141,7 @@ const Navbar = () => {
                 }}
                 className={({ isActive }) =>
                   `block px-3 py-2 text-sm font-subtitle transition-colors ${
-                    isActive ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
+                    isActive ? 'mat-ink-1 font-semibold' : 'mat-ink-2'
                   }`
                 }
               >

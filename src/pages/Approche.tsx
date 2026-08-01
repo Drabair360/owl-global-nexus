@@ -31,7 +31,7 @@ const Approche = () => {
         title={t('approche.title')}
       />
 
-      <EditorialSection className="bg-white">
+      <EditorialSection className="mat-gres mat-grain">
         <ChapterRail
           ariaLabel={t('approche.title')}
           chapters={principles.map((p) => ({
@@ -43,7 +43,7 @@ const Approche = () => {
               <SplitText
                 as="p"
                 text={t(p.bKey)}
-                className="text-xl md:text-2xl font-body leading-relaxed text-slate-700 block"
+                className="text-xl md:text-2xl font-body leading-relaxed mat-ink-2 block"
                 stagger={18}
               />
             ),
@@ -52,19 +52,19 @@ const Approche = () => {
       </EditorialSection>
 
 
-      <EditorialSection className="bg-slate-950 text-white">
+      <EditorialSection className="mat-beton-2 mat-grain mat-coffrage text-white">
         <div className="max-w-3xl">
           <h2 className="font-heading text-2xl md:text-3xl mb-6">{t('approche.not.title')}</h2>
           <Rule />
-          <p className="text-lg font-body leading-relaxed text-slate-300">{t('approche.not.body')}</p>
+          <p className="text-lg font-body leading-relaxed mat-ink-2">{t('approche.not.body')}</p>
         </div>
       </EditorialSection>
 
-      <section className="bg-white py-16 border-t border-slate-200">
+      <section className="mat-gres mat-grain py-16 border-t border-[hsl(var(--mat-on-gres-1)/0.22)]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-10 items-end">
           <div className="md:col-span-7 order-2 md:order-1 text-right md:text-left">
-            <p className="font-heading text-xl text-slate-900">{t('approche.sig.name')}</p>
-            <p className="text-sm text-slate-500 font-subtitle tracking-wider uppercase mt-1">
+            <p className="font-heading text-xl mat-ink-1">{t('approche.sig.name')}</p>
+            <p className="text-sm mat-ink-2 font-subtitle tracking-wider uppercase mt-1">
               {t('approche.sig.role')}
             </p>
           </div>
