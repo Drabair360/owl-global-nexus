@@ -58,7 +58,14 @@ if (!/--mat-encre-or\s*:/.test(legacy)) errors.push('consolidation des ors : --m
 
 // === CABINET DE GRAVURES §1 — convention de dessin gelée ===
 const gravure = read('src/styles/gravure.css');
-const TRAITS = { '--trait-fort': '1px', '--trait-moyen': '0.75px', '--trait-fin': '0.5px' };
+const TRAITS = {
+  '--trait-fort': '1px',
+  '--trait-moyen': '0.75px',
+  '--trait-fin': '0.5px',
+  // §1.15 tracés régulateurs, §2.1 dépassement d'angle
+  '--trait-ultrafin': '0.35px',
+  '--depassement': '2px',
+};
 for (const [t, expected] of Object.entries(TRAITS)) {
   const got = value(gravure, t);
   if (got !== expected) errors.push(`${t} : attendu ${expected}, trouvé ${got}`);
@@ -69,6 +76,41 @@ const defs = read('src/components/gravure/defs.tsx');
 for (const h of ['-h45', '-hx', '-hsol']) {
   if (!defs.includes(h)) errors.push(`hachure ${h} : motif manquant`);
 }
+// §1.6 — quatre pochés, un par matière, jamais interchangés.
+for (const m of ['beton', 'acier', 'pierre', 'bois']) {
+  if (!defs.includes(`-poche-${m}`)) errors.push(`poché ${m} : motif manquant`);
+}
+// §1.10 — strates de sol.
+for (const s of ['sol-remblai', 'sol-terrain', 'sol-bon']) {
+  if (!defs.includes(s)) errors.push(`strate ${s} : motif manquant`);
+}
+// §1 — la bibliothèque des quinze primitives est la seule source de dessin.
+const prim = read('src/components/gravure/primitives.tsx');
+const PRIMITIVES = [
+  'BulleAxe',
+  'RepereNiveau',
+  'ChaineCotes',
+  'Attache',
+  'Rupture',
+  'poche',
+  'Gousset',
+  'Soudure',
+  'CercleDetail',
+  'EchelleGraphique',
+  'StratesSol',
+  'FlechePente',
+  'RoseVents',
+  'RepereFigure',
+  'Pastille',
+  'TraceRegulateur',
+];
+for (const nom of PRIMITIVES) {
+  if (!new RegExp(`export const ${nom}\\b`).test(prim)) errors.push(`primitive ${nom} : manquante`);
+}
+// §2.1 — le dépassement d'angle est géométrique, pas décoratif.
+if (!prim.includes('--depassement')) errors.push('§2.1 : dépassement d’angle non câblé');
+// §2.3 — hachures vivantes seedées (±4 %), hors pochés.
+if (!/seeded\(/.test(prim)) errors.push('§2.3 : hachures vivantes non seedées');
 // Cartouche : composant unique, jamais redessiné.
 const cartouches = ['src/components/gravure/Cartouche.tsx'];
 for (const c of cartouches) { if (!read(c).includes('PLANCHE ')) errors.push('cartouche : gabarit altéré'); }
@@ -76,6 +118,12 @@ for (const c of cartouches) { if (!read(c).includes('PLANCHE ')) errors.push('ca
 const pl1 = read('src/components/gravure/planches/PlancheI.tsx');
 const laitons = (pl1.split('\n').filter((l) => !l.startsWith('import') && /(?:stroke|fill)=\{LAITON\}/.test(l))).length;
 if (laitons > 1) errors.push(`planche I : ${laitons} rehauts de laiton (maximum 1)`);
+// §3 — composition de planche : trois figures et une nomenclature, jamais un dessin isolé.
+for (const fig of ['n="1"', 'n="2"', 'n="3"']) {
+  if (!pl1.includes(fig)) errors.push(`planche I : ${fig} manquante`);
+}
+if (!/Nomenclature/.test(pl1)) errors.push('planche I : nomenclature manquante');
+
 
 if (errors.length) {
   console.error('GEL MATIÈRE v3 — DÉRIVE DÉTECTÉE :');
