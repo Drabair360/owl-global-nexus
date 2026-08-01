@@ -170,7 +170,7 @@
   position: absolute;
   left: -0.24em;
   right: -0.24em;
-  bottom: 0.16em;
+  bottom: 0.04em;
   height: 1px;
   background: hsl(var(--g-gold));
   transform: scaleX(0);
@@ -178,6 +178,12 @@
   animation: g-incise 720ms var(--g-ease-signature) 200ms forwards;
 }
 @keyframes g-incise { to { transform: scaleX(1); } }
+
+/* Sous 768px le display se replie : l'incision se retire plutôt que
+   de croiser la ligne suivante (règle : jamais de trait sur le texte). */
+@media (max-width: 767px) {
+  .dir-gravure .g-incision::before { display: none; }
+}
 
 /* --- Filets --- */
 .dir-gravure .g-rule { height: 1px; background: hsl(var(--g-ink) / 0.28); }
