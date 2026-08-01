@@ -93,23 +93,35 @@ const Groupe = () => {
         </div>
       </EditorialSection>
 
-      {/* Lettre du Président - sticky chapter + duotone */}
+      {/* Lettre du Président - rail de chapitre unifié */}
       <EditorialSection className="bg-white">
-        <StickyChapter number="03" label={t('groupe.ceo.eyebrow')} title={t('groupe.ceo.name')}>
-          <div className="flex items-start gap-6 mb-2">
-            <PresidentPortrait alt={t('groupe.ceo.portraitAlt')} />
-
-            <div className="pt-2">
-              <div className="text-sm text-slate-500 font-subtitle tracking-[0.2em] uppercase">
-                {t('groupe.ceo.role')}
-              </div>
-              <div className="rule-gold mt-4" />
-            </div>
-          </div>
-          <p className="font-display text-2xl md:text-3xl leading-[1.35] italic text-slate-900">
-            « {t('groupe.ceo.body')} »
-          </p>
-        </StickyChapter>
+        <ChapterRail
+          ariaLabel={t('groupe.ceo.eyebrow')}
+          chapters={[
+            {
+              id: 'lettre-president',
+              number: '03',
+              label: t('groupe.ceo.eyebrow'),
+              title: t('groupe.ceo.name'),
+              content: (
+                <>
+                  <div className="flex items-start gap-6 mb-2">
+                    <PresidentPortrait alt={t('groupe.ceo.portraitAlt')} />
+                    <div className="pt-2">
+                      <div className="text-sm text-slate-500 font-subtitle tracking-[0.2em] uppercase">
+                        {t('groupe.ceo.role')}
+                      </div>
+                      <div className="rule-gold mt-4" />
+                    </div>
+                  </div>
+                  <p className="font-display text-2xl md:text-3xl leading-[1.35] italic text-slate-900">
+                    « {t('groupe.ceo.body')} »
+                  </p>
+                </>
+              ),
+            },
+          ]}
+        />
       </EditorialSection>
     </PageShell>
   );
