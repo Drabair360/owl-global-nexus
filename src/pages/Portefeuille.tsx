@@ -10,6 +10,7 @@ import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
 import { textures, SIZES } from '@/assets/textures';
 import { absoluteUrl } from '@/config/site';
+import { ventureFolio } from '@/config/folios';
 
 const Portefeuille = () => {
   const { t, locale } = useI18n();
