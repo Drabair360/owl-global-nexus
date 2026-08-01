@@ -84,8 +84,11 @@
       fondu en soft-light : c'est lui qui donne l'envie de toucher ;
    2. grain fin (fractalNoise haute fréquence) en multiply : la poussière
       de matière. Jamais l'un sans l'autre - le grain seul reste plat. */
+/* GEL v3 : le grain plat hérité est retiré. `.mat-grain` reste un
+   marqueur sémantique inerte ; la texture vient des modèles physiques
+   de src/styles/matiere-v3.css (grès / béton / laiton). */
 .mat-grain { position: relative; }
-.mat-grain::after {
+.mat-grain-legacy::after {
   content: '';
   position: absolute;
   inset: 0;
