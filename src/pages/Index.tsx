@@ -42,7 +42,7 @@ const Index = () => {
     >
 
       {/* ==================== HERO - encre pur, pure typographie ==================== */}
-      <section className="relative min-h-[88vh] flex items-center overflow-hidden ink-surface paper-noise -mt-16 pt-16">
+      <section className="relative min-h-[88vh] flex items-center overflow-hidden mat-beton mat-grain mat-coffrage -mt-16 pt-16">
         {/* Filet or vertical, ancre sur la gouttiere du conteneur (>= xl) */}
         <GutterRule />
 
@@ -92,7 +92,7 @@ const Index = () => {
 
 
       {/* ==================== 01 - LE MODÈLE ==================== */}
-      <section id="modele" className="relative bg-white overflow-hidden paper-noise">
+      <section id="modele" className="relative mat-gres overflow-hidden mat-grain">
         <CinemaBand texture="prestigeWide" tone="prestige" eager className="mb-16 md:mb-24" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 md:pb-32">
           <SectionWatermark n={t('home.model.number')} />
@@ -125,7 +125,7 @@ const Index = () => {
       </section>
 
       {/* ==================== 02 - JALONS ==================== */}
-      <section className="relative py-24 md:py-32 bg-slate-50 overflow-hidden paper-noise">
+      <section className="relative py-24 md:py-32 mat-gres-2 overflow-hidden mat-grain">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionWatermark n={t('home.milestones.number')} />
           <SectionNumber n={t('home.milestones.number')} label={t('home.milestones.section')} />
@@ -158,7 +158,7 @@ const Index = () => {
       </section>
 
       {/* ==================== 03 - DEUX PÔLES ==================== */}
-      <section className="relative py-24 md:py-32 bg-white overflow-hidden paper-noise">
+      <section className="relative py-24 md:py-32 mat-gres overflow-hidden mat-grain">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionWatermark n={t('home.poles.number')} />
           <SectionNumber n={t('home.poles.number')} label={t('home.poles.section')} />
@@ -201,7 +201,7 @@ const Index = () => {
       </section>
 
       {/* ==================== CITATION ==================== */}
-      <section className="py-28 md:py-36 ink-surface paper-noise relative overflow-hidden">
+      <section className="py-28 md:py-36 mat-beton mat-grain mat-coffrage relative overflow-hidden">
         
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="rule-gold mx-auto mb-10" />
