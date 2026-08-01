@@ -179,6 +179,10 @@ const FicheVenture = () => (
         <p className="mt-8 text-lg leading-relaxed max-w-xl" style={{ color: 'hsl(var(--g-paper) / 0.78)' }}>
           {cao.context.fr}
         </p>
+        <p className="mt-4 g-smcp text-xs" style={{ color: 'hsl(var(--g-paper) / 0.6)' }}>
+          {cao.incorporation?.fr}
+        </p>
+
         <div className="mt-10">
           <Cachet folio="02" />
         </div>
