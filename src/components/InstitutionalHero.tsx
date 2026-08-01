@@ -1,5 +1,7 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import GutterRule from './GutterRule';
+import { folioFor } from '@/config/folios';
 
 interface Props {
   eyebrow: string;
@@ -7,7 +9,7 @@ interface Props {
   subtitle?: string;
   place?: string;
   year?: string;
-  /** Folio de section (signature M7 n°1). Deux chiffres, ex. « 02 ». */
+  /** Folio de section (M7 n°1). Déduit de la route par défaut (ordre de navigation). */
   folio?: string;
   children?: React.ReactNode;
 }
@@ -27,17 +29,20 @@ const InstitutionalHero = ({
   folio,
   children,
 }: Props) => {
+  const { pathname } = useLocation();
+  const num = folio ?? folioFor(pathname);
+
   return (
     <section className="relative min-h-[62vh] md:min-h-[68vh] flex items-center overflow-hidden mat-beton mat-grain mat-coffrage">
       <GutterRule />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-28 w-full">
-        {folio && (
+        {num && (
           <p className="mat-folio text-sm mb-8 mat-ink-2">
             <span className="mat-folio-eyes" aria-hidden="true">
               <i /><span /><i />
             </span>
-            <span className="mat-tnum">{folio}</span>
+            <span className="mat-tnum">{num}</span>
           </p>
         )}
 
