@@ -149,7 +149,7 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
     <rect x={1108} y={Y + 84} width={40} height={12} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
     {/* la travée suivante, pas encore montée : trait interrompu */}
     <TraceCache d="M1128 268 L1200 250 M1200 250 L1200 384" />
-    <Rupture x={1196} y={250} length={0.1} />
+    <Rupture x={1200} y={300} length={84} vertical />
     <Pastille x={1040} y={232} n={6} />
     <Pastille x={952} y={378} n={7} />
     <Pastille x={1200} y={300} n={8} />

@@ -11,6 +11,16 @@ import GroupDiagram from '@/components/GroupDiagram';
 import VentureNotice from '@/components/VentureNotice';
 import Planche from '@/components/gravure/Planche';
 import { PLANCHE_I, PlancheIDrawing } from '@/components/gravure/planches/PlancheI';
+import PlancheEnSituation from '@/components/gravure/PlancheEnSituation';
+
+/* CABINET §6 - une planche par fiche. La planche I est en production ;
+   les quatre autres attendent la validation de la planche contact. */
+const PLANCHE_PAR_FICHE: Record<string, string> = {
+  'line-builder': 'III',
+  'drabair-labs': 'IV',
+  weavme: 'V',
+  'owl-real-estate': 'VI',
+};
 
 import { textures, SIZES } from '@/assets/textures';
 import { useParallax } from '@/hooks/useParallax';
@@ -132,6 +142,13 @@ const Venture = () => {
             </Reveal>
           </div>
         </section>
+      )}
+
+      {PLANCHE_PAR_FICHE[venture.slug] && (
+        <PlancheEnSituation
+          numeral={PLANCHE_PAR_FICHE[venture.slug]}
+          idPrefix={`planche-fiche-${venture.slug}`}
+        />
       )}
 
       {/* Mission + statut */}
