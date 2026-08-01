@@ -2,7 +2,7 @@ import React from 'react';
 import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection, Rule } from '@/components/editorial';
-import StickyChapter from '@/components/StickyChapter';
+import ChapterRail from '@/components/ChapterRail';
 import SplitText from '@/components/SplitText';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
