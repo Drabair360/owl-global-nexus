@@ -53,8 +53,14 @@ const PageShell = ({ title, description, keywords, jsonLd, breadcrumbs, noindex,
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <Navbar />
-      <main className="flex-1 pt-16">{children}</main>
+      {/* Z6 : premier élément focusable du document */}
+      <a href="#contenu" className="mat-skip font-subtitle">
+        {'Aller au contenu'}
+      </a>
+      <header>
+        <Navbar />
+      </header>
+      <main id="contenu" tabIndex={-1} className="flex-1 pt-16">{children}</main>
       <Footer />
     </div>
   );
