@@ -153,8 +153,17 @@
   padding: 0.6rem 0; display: flex; flex-wrap: wrap; gap: 0.45rem 1.5rem; align-items: baseline;
   font-size: 0.563rem; text-transform: uppercase; letter-spacing: 0.16em;
 }
+/* Sous 1280 px, le cachet n'est plus une ligne qui casse au hasard :
+   c'est un registre à hiérarchie explicite, une mention par ligne, dans
+   l'ordre gravé sceau RCS -> forme -> siège -> président -> année. */
+@media (max-width: 1279.98px) {
+  .mat-cachet { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.4rem 0; }
+  .mat-cachet > * { display: block; }
+  .mat-cachet > .mat-cachet-seal { justify-self: start; }
+  .mat-cachet > .mat-cachet-ligne { padding-left: 0.05em; }
+}
 .mat-beton .mat-cachet, .mat-beton-2 .mat-cachet { border-color: hsl(var(--mat-on-beton-1) / 0.28); }
-.mat-cachet-seal { color: hsl(var(--mat-accent-gres)); border: 1px solid currentColor; border-radius: 999px; padding: 0.1rem 0.5rem; }
+.mat-cachet-seal { display: inline-block; color: hsl(var(--mat-accent-gres)); border: 1px solid currentColor; border-radius: 999px; padding: 0.1rem 0.5rem; }
 .mat-beton .mat-cachet-seal, .mat-beton-2 .mat-cachet-seal { color: hsl(var(--mat-accent-beton)); }
 
 /* 3. Arête de laiton : maximum deux par écran */
