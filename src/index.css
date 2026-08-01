@@ -61,6 +61,7 @@
     --gold-soft: 45 96% 72%;
     --gold-ink: 38 92% 27%;         /* Or encre - texte or sur papier, AA 4.5:1 */
     --gold-num: 38 82% 36%;         /* Or numéral - grands chiffres, AA 3:1 */         /* Or clair */
+    --oxyde: 14 46% 30%;           /* Oxyde de fer - encre d'accent Matiere, AA 4.85:1 min */
     --ink: 222 47% 6%;               /* Encre profonde */
     --ink-raised: 222 44% 10%;       /* Encre +4% - surfaces sur encre */
     --ink-soft: 222 40% 11%;         /* Alias legacy */
@@ -137,6 +138,9 @@
     @apply bg-background text-foreground;
     font-family: var(--font-body);
     font-optical-sizing: auto;
+    /* Aucun faux italique ni faux gras : les serif n'existent qu'en 400 romain
+       (+ Instrument Serif italique reelle). La synthese est interdite. */
+    font-synthesis: none;
     font-feature-settings: "liga" 1, "kern" 1;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -147,14 +151,14 @@
   /* Enhanced Typography System */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.025em;
     line-height: 1.2;
   }
 
   .font-heading {
     font-family: var(--font-heading);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.025em;
   }
 
@@ -210,7 +214,7 @@
   .text-hero {
     font-family: var(--font-heading);
     font-size: clamp(2.25rem, 7vw, 5.5rem);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.035em;
     line-height: 1.05;
   }
@@ -858,5 +862,34 @@
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
+  }
+}
+
+/* =============================================================
+   STATUT (langage Matiere) - remplace l'italique de prose
+   Les mentions de statut ne sont pas de la prose : ce sont des
+   etats de registre. Petites capitales espacees, encre oxyde,
+   filet court. Aucun italique, donc aucun subset italique.
+   ============================================================= */
+@layer components {
+  .statut {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: hsl(var(--oxyde));
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  .statut::before {
+    content: '';
+    width: 1.25rem;
+    height: 1px;
+    background: hsl(var(--gold-deep));
+    transform: translateY(-0.28em);
+    flex: none;
   }
 }
