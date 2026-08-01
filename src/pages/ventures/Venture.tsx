@@ -181,7 +181,7 @@ const Venture = () => {
                   title={PLANCHE_I.title}
                   desc={`Détail de la figure 2 de la planche I : le nœud jarret-traverse à quatre fois l'échelle, gousset, file de boulons et symbole de soudure. ${PLANCHE_I.desc}`}
                   viewBox={PLANCHE_I.detailViewBox}
-                  legendSuffix={`Détail de la planche ${PLANCHE_I.numeral} — nœud jarret-traverse`}
+                  legendSuffix={`Détail de la planche ${PLANCHE_I.numeral} - nœud jarret-traverse`}
                 >
 
                   <PlancheIDrawing p="pl1d" />

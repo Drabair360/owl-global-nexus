@@ -44,7 +44,7 @@ const Planche = ({
       <span className="gravure-filet" aria-hidden="true" />
     </div>
     <figcaption className="gravure-legende mt-3">
-      {legendSuffix ?? `Planche ${numeral} — ${title}`}
+      {legendSuffix ?? `Planche ${numeral} - ${title}`}
     </figcaption>
   </figure>
 );
