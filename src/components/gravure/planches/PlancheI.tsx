@@ -72,7 +72,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
         <circle cx="1061" cy="219" r="99" />
       </clipPath>
       <clipPath id={`${p}-masse`}>
-        <rect x="988" y="418" width="164" height="68" />
+        <rect x="988" y="430" width="164" height="68" />
       </clipPath>
     </defs>
 
