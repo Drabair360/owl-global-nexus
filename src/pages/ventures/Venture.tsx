@@ -108,7 +108,10 @@ const Venture = () => {
 
       {/* Mission + statut */}
       <EditorialSection className="mat-gres mat-grain">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+        {/* G2.3 - la colonne de gauche est refermée : mission, diagramme puis
+            notice s'y empilent, la grille s'aligne en tête de contenu et
+            aucune colonne ne se prolonge à vide sous son dernier bloc. */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start content-start">
           <div className="md:col-span-4">
             <div className="text-xs font-subtitle tracking-[0.28em] uppercase mat-ink-accent mb-3">
               {locale === 'fr' ? 'Mission' : 'Mission'}
@@ -119,6 +122,24 @@ const Venture = () => {
                 name={venture.name}
                 pole={pole}
                 label={locale === 'fr' ? 'Place dans le groupe' : 'Place within the group'}
+              />
+            </div>
+
+            {/* Notice : champs réels uniquement - elle referme la colonne */}
+            <div className="mt-12">
+              <VentureNotice
+                fields={[
+                  { label: t('notice.pole'), value: pole },
+                  { label: t('notice.status'), value: t(venture.statusKey).replace(/^\(|\)$/g, '') },
+                  { label: t('notice.scope'), value: context },
+                  ...(venture.incorporation
+                    ? [{ label: t('notice.incorporation'), value: venture.incorporation[locale] }]
+                    : []),
+                  {
+                    label: t('notice.rank'),
+                    value: `${venture.order} / ${String(ventures.length).padStart(2, '0')}`,
+                  },
+                ]}
               />
             </div>
           </div>
@@ -139,24 +160,6 @@ const Venture = () => {
                 </li>
               ))}
             </ul>
-
-            {/* Notice : champs réels uniquement */}
-            <div className="mt-14">
-              <VentureNotice
-                fields={[
-                  { label: t('notice.pole'), value: pole },
-                  { label: t('notice.status'), value: t(venture.statusKey).replace(/^\(|\)$/g, '') },
-                  { label: t('notice.scope'), value: context },
-                  ...(venture.incorporation
-                    ? [{ label: t('notice.incorporation'), value: venture.incorporation[locale] }]
-                    : []),
-                  {
-                    label: t('notice.rank'),
-                    value: `${venture.order} / ${String(ventures.length).padStart(2, '0')}`,
-                  },
-                ]}
-              />
-            </div>
           </div>
 
         </div>
