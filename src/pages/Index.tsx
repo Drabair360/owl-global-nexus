@@ -11,7 +11,7 @@
    Son hero est écrit à la main dans ce fichier (pour porter le seuil
    typographique en trois temps de useThreshold). Toutes les corrections
    G2.x ont été portées dans le composant partagé ; l'accueil, hors du
-   composant, n'a rien reçu — d'où text-display-xl/text-white/Inter face à
+   composant, n'a rien reçu - d'où text-display-xl/text-white/Inter face à
    text-hero/mat-ink-1/EB Garamond partout ailleurs. Correctif : le hero de
    l'accueil reste local (le seuil l'exige) mais adopte strictement les
    mêmes classes de système que le composant partagé. Toute évolution du
