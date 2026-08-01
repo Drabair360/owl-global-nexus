@@ -101,7 +101,7 @@ const Index = () => {
           <div className={step(3)}>
             <a
               href="#modele"
-              className="link-gold inline-flex items-center gap-3 mat-ink-1 pb-1 text-sm font-subtitle tracking-wider uppercase"
+              className="link-gold inline-flex items-center gap-3 whitespace-nowrap mat-ink-1 pb-1 text-sm font-subtitle tracking-wider uppercase"
             >
               {t('common.readMore')} <ArrowRight size={16} />
             </a>
