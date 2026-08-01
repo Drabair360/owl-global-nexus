@@ -7,6 +7,8 @@ import InstitutionalHero from '@/components/InstitutionalHero';
 import { EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import CinemaBand from '@/components/CinemaBand';
+import Millesime from '@/components/gravure/Millesime';
+import { useCabinetPreview } from '@/components/gravure/PlancheEnSituation';
 
 interface Entry {
   year: string;
@@ -27,6 +29,9 @@ const entries: Entry[] = [
 
 const Journal = () => {
   const { t } = useI18n();
+  /* §3c - millésimes gravés : en préversion tant que la planche contact
+     n'est pas validée. */
+  const cabinet = useCabinetPreview();
 
   const years = useMemo(() => {
     const map = new Map<string, Entry[]>();
@@ -86,6 +91,11 @@ const Journal = () => {
           <div className="lg:col-span-9 space-y-16">
             {years.map(([year, list]) => (
               <section key={year} id={`annee-${year}`} className="scroll-mt-28">
+                {cabinet && (
+                  <div className="mb-4" aria-hidden>
+                    <Millesime year={year} />
+                  </div>
+                )}
                 <div className="flex items-baseline gap-6 mb-8">
                   <h2 className="font-display text-3xl mat-ink-1 mat-tnum leading-none">{year}</h2>
                   <span

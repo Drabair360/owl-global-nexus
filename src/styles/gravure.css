@@ -63,6 +63,14 @@
   fill: hsl(var(--gravure-oxyde));
 }
 
+/* §3c — millésime gravé du Journal : chiffre elzévirien, chiffres tabulaires. */
+.gravure-millesime {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+
 /* Légende de planche — hors du dessin. */
 .gravure-legende {
   font-size: var(--mat-corps-plancher);
