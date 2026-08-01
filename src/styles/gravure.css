@@ -10,6 +10,11 @@
   --trait-fort: 1px;    /* contours, arêtes principales */
   --trait-moyen: 0.75px; /* structures secondaires       */
   --trait-fin: 0.5px;    /* hachures, cotations          */
+  /* §1.15 — le compas du dessinateur : tracés régulateurs seulement */
+  --trait-ultrafin: 0.35px;
+  /* §2.1 — dépassement d'angle : la marque du dessin à la règle */
+  --depassement: 2px;
+
 
   /* §1 — encres de la planche (jamais d'autre couleur) */
   --gravure-encre: var(--mat-on-gres-1);

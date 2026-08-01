@@ -172,17 +172,18 @@ const Venture = () => {
               />
             </div>
 
-            {/* §3b — DÉTAIL compagnon : même SVG, viewBox recadrée à 200 % */}
+            {/* §3b — DÉTAIL compagnon : la FIG. 2 recadrée, nœud jarret-traverse */}
             {venture.slug === 'cao-industries' && (
               <div className="mt-12">
                 <Planche
                   idPrefix="planche-i-detail"
                   numeral={PLANCHE_I.numeral}
                   title={PLANCHE_I.title}
-                  desc={`Détail à 200 % de la planche I : le chemin de roulement, le caisson du pont roulant et la tête de poteau. ${PLANCHE_I.desc}`}
+                  desc={`Détail de la figure 2 de la planche I : le nœud jarret-traverse à quatre fois l'échelle, gousset, file de boulons et symbole de soudure. ${PLANCHE_I.desc}`}
                   viewBox={PLANCHE_I.detailViewBox}
-                  legendSuffix={`Détail de la planche ${PLANCHE_I.numeral}`}
+                  legendSuffix={`Détail de la planche ${PLANCHE_I.numeral} — nœud jarret-traverse`}
                 >
+
                   <PlancheIDrawing p="pl1d" />
                 </Planche>
               </div>
