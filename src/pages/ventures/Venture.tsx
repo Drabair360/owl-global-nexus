@@ -115,6 +115,25 @@ const Venture = () => {
         </div>
       </section>
 
+      {/* CABINET DE GRAVURES — planche maîtresse (préversion : CAO seule) */}
+      {venture.slug === 'cao-industries' && (
+        <section className="mat-gres mat-grain">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+            <Reveal>
+              <Planche
+                idPrefix="planche-i"
+                numeral={PLANCHE_I.numeral}
+                title={PLANCHE_I.title}
+                desc={PLANCHE_I.desc}
+                viewBox={PLANCHE_I.viewBox}
+              >
+                <PlancheIDrawing p="pl1" />
+              </Planche>
+            </Reveal>
+          </div>
+        </section>
+      )}
+
       {/* Mission + statut */}
       <EditorialSection className="mat-gres mat-grain">
         {/* G2.3 - la colonne de gauche est refermée : mission, diagramme puis
