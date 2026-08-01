@@ -45,7 +45,7 @@ const PolesViz = () => {
   return (
     <div ref={ref} className="w-full max-w-4xl">
       <div className="flex items-baseline justify-between mb-6">
-        <span className="text-xs font-subtitle tracking-[0.3em] uppercase text-gold-ink">Répartition</span>
+        <span className="text-xs font-subtitle tracking-[0.3em] uppercase mat-ink-accent">Répartition</span>
         <span className="text-xs font-subtitle tracking-[0.2em] uppercase text-muted-foreground">
           Structure du groupe
         </span>
@@ -60,10 +60,10 @@ const PolesViz = () => {
           >
             <div className="flex items-baseline justify-between mb-3">
               <div className="flex items-baseline gap-4">
-                <span className="font-display text-4xl md:text-5xl text-slate-900 leading-none">
+                <span className="font-display text-4xl md:text-5xl mat-ink-1 leading-none">
                   {p.code}
                 </span>
-                <span className="text-sm font-subtitle tracking-[0.2em] uppercase text-slate-700">
+                <span className="text-sm font-subtitle tracking-[0.2em] uppercase mat-ink-2">
                   {p.name}
                 </span>
               </div>
@@ -112,7 +112,7 @@ const PolesViz = () => {
               style={{ opacity: active === i ? 1 : 0.85 }}
             >
               {p.entities.map((e) => (
-                <span key={e} className="text-slate-700">{e}</span>
+                <span key={e} className="mat-ink-2">{e}</span>
               ))}
 
             </div>

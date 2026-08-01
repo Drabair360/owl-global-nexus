@@ -69,22 +69,22 @@ const ChapterRail = ({ chapters, ariaLabel, className = '' }: Props) => {
                   >
                     <span
                       className={`tabular text-xs font-subtitle tracking-[0.2em] ${
-                        isActive ? 'text-gold-ink' : 'text-muted-foreground'
+                        isActive ? 'mat-ink-accent' : 'text-muted-foreground'
                       }`}
                     >
                       {c.number}
                     </span>
                     <span className="min-w-0">
                       <span
-                        className={`block text-[11px] font-subtitle tracking-[0.28em] uppercase ${
-                          isActive ? 'text-gold-ink' : 'text-muted-foreground'
+                        className={`block mat-plancher font-subtitle tracking-[0.28em] uppercase ${
+                          isActive ? 'mat-ink-accent' : 'text-muted-foreground'
                         }`}
                       >
                         {c.label}
                       </span>
                       <span
                         className={`block font-heading text-lg md:text-xl leading-tight transition-colors ${
-                          isActive ? 'text-slate-900' : 'text-slate-500'
+                          isActive ? 'mat-ink-1' : 'mat-ink-2'
                         }`}
                       >
                         {c.title}
@@ -106,7 +106,7 @@ const ChapterRail = ({ chapters, ariaLabel, className = '' }: Props) => {
             ref={(el) => {
               refs.current[c.id] = el;
             }}
-            className="scroll-mt-32 space-y-8 text-lg font-body leading-relaxed text-slate-700"
+            className="scroll-mt-32 space-y-8 text-lg font-body leading-relaxed mat-ink-2"
           >
             <h2 className="sr-only">{c.title}</h2>
             {c.content}
