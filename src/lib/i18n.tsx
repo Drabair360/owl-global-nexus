@@ -134,9 +134,9 @@ const dict: Record<Locale, Record<string, string>> = {
 
     // ---- Portefeuille ----
     'portfolio.eyebrow': 'PORTEFEUILLE',
-    'portfolio.title': 'Cinq entités, deux pôles, une même exigence.',
+    'portfolio.title': 'Cinq sociétés, deux pôles, une même exigence.',
     'portfolio.intro':
-      'Les entités du groupe sont présentées telles qu’elles sont - opérationnelles, en formation ou en cours de constitution.',
+      'Cinq sociétés, dont quatre en cours de constitution. Les sociétés du groupe sont présentées telles qu’elles sont - opérationnelles, en formation ou en cours de constitution.',
     'portfolio.covers': 'Ce que cela recouvre',
     'portfolio.cao.mission':
       'Contractant général de projets industriels clé en main (EPC : Engineering, Procurement, Construction), en France et en Afrique. Premier terrain de déploiement : l’Afrique de l’Ouest.',
@@ -248,6 +248,9 @@ const dict: Record<Locale, Record<string, string>> = {
     'journal.2026a.date': '27 juillet 2026',
     'journal.2026b.date': '2026',
     'journal.2026c.date': '13 juillet 2026',
+    'journal.2024.date': '2024',
+    'journal.2024.title': 'Premier exercice',
+    'journal.2024.body': 'Premier exercice : chiffre d’affaires de 141 k€, résultat net de 130 k€. Comptes déposés au greffe.',
     'journal.index': 'Index par année',
     'journal.entry': 'entrée',
     'journal.entries': 'entrées',
@@ -514,9 +517,9 @@ const dict: Record<Locale, Record<string, string>> = {
 
     // ---- Portfolio ----
     'portfolio.eyebrow': 'PORTFOLIO',
-    'portfolio.title': 'Five entities, two divisions, one standard.',
+    'portfolio.title': 'Five companies, two divisions, one standard.',
     'portfolio.intro':
-      'The group’s entities are presented as they are - operational, under formation, or under constitution.',
+      'Five companies, four of which are in the process of incorporation. The group’s companies are presented as they are - operational, under formation, or under incorporation.',
     'portfolio.covers': 'What it covers',
     'portfolio.cao.mission':
       'General contractor for turnkey industrial projects (EPC - Engineering, Procurement, Construction), in France and in Africa. First deployment field: West Africa.',
@@ -627,6 +630,9 @@ const dict: Record<Locale, Record<string, string>> = {
     'journal.2026a.date': '27 July 2026',
     'journal.2026b.date': '2026',
     'journal.2026c.date': '13 July 2026',
+    'journal.2024.date': '2024',
+    'journal.2024.title': 'First financial year',
+    'journal.2024.body': 'First financial year: revenue of EUR 141k, net income of EUR 130k. Accounts filed with the commercial court registry.',
     'journal.index': 'Index by year',
     'journal.entry': 'entry',
     'journal.entries': 'entries',
