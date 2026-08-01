@@ -258,10 +258,10 @@ export const ChaineCotes = ({
           <text
             key={lb + i}
             className="gravure-lettrage"
-            x={y - 10}
+            x={y + 12}
             y={m}
             fontSize="13"
-            textAnchor="end"
+            textAnchor="start"
           >
             {lb}
           </text>
@@ -581,7 +581,7 @@ export const RepereFigure = ({
     <text className="gravure-lettrage" x={x} y={y} fontSize="14" fill={ENCRE}>
       FIG. {n}
     </text>
-    <text className="gravure-lettrage" x={x + 46} y={y} fontSize="12">
+    <text className="gravure-lettrage" x={x + 58} y={y} fontSize="12">
       {title}
     </text>
     <line x1={x} y1={y + 6} x2={x + w} y2={y + 6} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
