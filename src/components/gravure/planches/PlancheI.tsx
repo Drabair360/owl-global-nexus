@@ -53,7 +53,7 @@ import {
  * Rehaut de laiton unique : la LIGNE DE SOL ±0,00 et l'arase du dallage.
  */
 
-const SOL = 560;
+const SOL = 540; // ±0,00 = arase du dallage ET assise des platines de pied
 const A = 200;
 const B = 470;
 const C = 740;
@@ -139,6 +139,14 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
           opacity="0.85"
         />
         <line x1={x - 40} y1={600} x2={x + 40} y2={600} stroke={ENCRE} strokeWidth={FIN} opacity="0.6" />
+      </g>
+    ))}
+    {/* §B1 — fût de fondation : la platine ne flotte pas, elle porte sur le béton */}
+    {[A, C].map((x) => (
+      <g key={`fut${x}`}>
+        <rect x={x - 34} y={540} width={68} height={40} fill="hsl(var(--gravure-fond))" />
+        <rect x={x - 34} y={540} width={68} height={40} fill={poche(p, 'beton')} />
+        <Cadre x={x - 34} y={540} w={68} h={40} weight={FORT} over={0} />
       </g>
     ))}
     {/* longrine */}
