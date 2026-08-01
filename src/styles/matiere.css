@@ -91,7 +91,7 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.23;
+  opacity: 0.13;
   mix-blend-mode: multiply;
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.24' numOctaves='4' seed='11' stitchTiles='stitch' result='n'/%3E%3CfeDiffuseLighting in='n' surfaceScale='3.2' diffuseConstant='1.05' lighting-color='%23ffffff'%3E%3CfeDistantLight azimuth='90' elevation='56'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23r)'/%3E%3C/svg%3E"),
@@ -100,13 +100,13 @@
   background-blend-mode: soft-light, normal;
 }
 .mat-beton.mat-grain::after,
-.mat-beton-2.mat-grain::after { mix-blend-mode: screen; opacity: 0.2; }
+.mat-beton-2.mat-grain::after { mix-blend-mode: screen; opacity: 0.12; }
 .mat-grain > * { position: relative; z-index: 1; }
 @media (max-resolution: 1dppx) {
-  .mat-grain::after { opacity: 0.115; }
-  .mat-beton.mat-grain::after, .mat-beton-2.mat-grain::after { opacity: 0.135; }
+  .mat-grain::after { opacity: 0.07; }
+  .mat-beton.mat-grain::after, .mat-beton-2.mat-grain::after { opacity: 0.08; }
 }
-@media (max-width: 767px) { .mat-grain::after { opacity: 0.13; } }
+@media (max-width: 767px) { .mat-grain::after { opacity: 0.08; } }
 @media print { .mat-grain::after, .mat-coffrage::before { display: none !important; } }
 
 /* --- Béton coffré ------------------------------------------ */
@@ -275,5 +275,5 @@
    Un seul recalibrage autorisé, après migration complète des surfaces
    claires. Ne jamais retoucher page par page : le grain qui dérive par
    petites touches finit sale. */
-:root { --mat-grain-1x: 0.115; }
+:root { --mat-grain-1x: 0.07; }
 @media (max-resolution: 1dppx) { .mat-grain::after { opacity: var(--mat-grain-1x); } }
