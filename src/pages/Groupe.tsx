@@ -69,11 +69,11 @@ const Groupe = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <PolesViz />
             <div className="space-y-6">
-              <div className="border border-[hsl(var(--mat-on-gres-1)/0.22)] p-6 mat-gres mat-grain">
+              <div className="mat-carte mat-serti p-6">
                 <div className="text-xs font-subtitle tracking-widest uppercase mat-ink-accent mb-1">Holding</div>
                 <div className="font-heading text-xl mat-ink-1">{t('groupe.orga.holding')}</div>
               </div>
-              <div className="border border-[hsl(var(--mat-on-gres-1)/0.22)] p-6 mat-gres mat-grain">
+              <div className="mat-carte mat-serti p-6">
                 <div className="text-xs font-subtitle tracking-widest uppercase mat-ink-accent mb-3">A - {t('groupe.orga.op')}</div>
                 <ul className="space-y-1 text-sm mat-ink-2 font-body columns-2">
                   <li>CAO Industries</li>
@@ -82,7 +82,7 @@ const Groupe = () => {
                   <li>Weavme</li>
                 </ul>
               </div>
-              <div className="border border-[hsl(var(--mat-on-gres-1)/0.22)] p-6 mat-gres mat-grain">
+              <div className="mat-carte mat-serti p-6">
                 <div className="text-xs font-subtitle tracking-widest uppercase mat-ink-accent mb-3">B - {t('groupe.orga.pat')}</div>
                 <ul className="space-y-1 text-sm mat-ink-2 font-body">
                   <li>Owl Real Estate</li>
