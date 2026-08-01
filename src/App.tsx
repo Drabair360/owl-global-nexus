@@ -23,6 +23,8 @@ const Privacy = lazy(() => import('./pages/Privacy'));
 const Terms = lazy(() => import('./pages/Terms'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Venture = lazy(() => import('./pages/ventures/Venture'));
+// Routes de studio : dossiers de direction artistique, non liées, noindex.
+const StudioDirection1 = lazy(() => import('./pages/studio/Direction1'));
 
 const queryClient = new QueryClient();
 
@@ -50,6 +52,8 @@ const App = () => (
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/studio/direction-1" element={<StudioDirection1 />} />
+
 
             {/* Redirections des anciennes routes (préservent le référencement) */}
             <Route path="/about" element={<Navigate to="/groupe" replace />} />
