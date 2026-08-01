@@ -5,6 +5,7 @@ import Reveal from '@/components/Reveal';
 import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
 import GroupDiagram from '@/components/GroupDiagram';
+import VentureNotice from '@/components/VentureNotice';
 
 import { textures, SIZES } from '@/assets/textures';
 import { useParallax } from '@/hooks/useParallax';
