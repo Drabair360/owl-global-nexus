@@ -5,7 +5,6 @@
 
    §1 trois matériaux = albédo + macro + méso + micro + relief +
       imperfections rares  ·  §2 la matière répond au contact
-   §3 joints creux et chants  ·  §5 spécimen letterpress
    §7 tout est pré-rendu en fonds statiques, zéro filtre vivant
 
    ---------------------------------------------------------------
@@ -284,7 +283,6 @@
   .mat-beton-2::before, .mat-beton-2::after,
   .v3-joint { display: none !important; }
   .v3-plaque, .v3-chants { box-shadow: none !important; }
-  .v3-letterpress-1, .v3-letterpress-2, .v3-letterpress-3 { text-shadow: none !important; }
 }
 
 /* --- Trois intensités de calibrage (§6), portées par un parent --- */
