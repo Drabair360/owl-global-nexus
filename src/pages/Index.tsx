@@ -1,3 +1,7 @@
+/* PARTITION §4 — Matière v3 (gel du 01/08/2026)
+   Accueil — ALTERNANCE. Béton (hero, citation) / grès (01 modèle, 03) /
+   grès-2 (02). Laiton : filets, arête du hero, souligné du lien. Signature
+   unique : le seuil typographique en trois temps. */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
@@ -56,7 +60,7 @@ const Index = () => {
           </div>
 
           <h1
-            className={`font-display text-display-xl text-white mb-10 max-w-5xl ${step(2)}`}
+            className={`font-display text-display-xl text-white v3-letterpress mb-10 max-w-5xl ${step(2)}`}
             style={{ textWrap: 'balance', hyphens: 'manual' } as React.CSSProperties}
           >
             {t('home.hero.title')}
@@ -205,7 +209,7 @@ const Index = () => {
         
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="rule-gold mx-auto mb-10" />
-          <p className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.15] italic text-white">
+          <p className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.15] italic text-white v3-letterpress">
             {t('home.quote')}
           </p>
         </div>

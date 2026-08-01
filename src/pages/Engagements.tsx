@@ -1,3 +1,6 @@
+/* PARTITION §4 — Matière v3 (gel du 01/08/2026)
+   Engagements — béton (hero), bande `terrain` ton ENCRE (cadrage identique
+   à /scouts), grès pour les quatre engagements. Aucune autre signature. */
 import React from 'react';
 import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';

@@ -1,3 +1,6 @@
+/* PARTITION §4 — Matière v3 (gel du 01/08/2026)
+   Rejoindre — béton (hero) puis grès ; grès-2 pour les plaques d'offre.
+   Laiton en filets. Aucune signature animée. */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';

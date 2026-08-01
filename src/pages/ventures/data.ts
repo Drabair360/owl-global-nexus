@@ -49,7 +49,7 @@ export const ventures: Venture[] = [
       en: "First operating ground: West Africa. Engineering and management from France.",
     },
     texture: 'industrial',
-    tone: 'prestige',
+    tone: 'laiton',
     order: '01',
     incorporation: {
       fr: 'Constitution engagée en 2026',
@@ -72,7 +72,7 @@ export const ventures: Venture[] = [
       en: "Team in formation. Software foundations shared first with the industrial division.",
     },
     texture: 'lab',
-    tone: 'nocturne',
+    tone: 'encre',
     order: '02',
   },
   {
@@ -91,7 +91,7 @@ export const ventures: Venture[] = [
       en: "Application under development. Used in-house to accelerate industrial pre-projects.",
     },
     texture: 'studio',
-    tone: 'nocturne',
+    tone: 'encre',
     order: '03',
   },
   {
@@ -110,7 +110,7 @@ export const ventures: Venture[] = [
       en: "Market: agencies and booking professions. Governance shared with the operational partner.",
     },
     texture: 'atelier',
-    tone: 'prestige',
+    tone: 'laiton',
     order: '04',
   },
   {
@@ -129,7 +129,7 @@ export const ventures: Venture[] = [
       en: "First operation being structured in the south of France. Long-term ownership.",
     },
     texture: 'prestige',
-    tone: 'prestige',
+    tone: 'laiton',
     order: '05',
   },
 ];

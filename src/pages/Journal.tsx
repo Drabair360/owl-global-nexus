@@ -1,3 +1,6 @@
+/* PARTITION §4 — Matière v3 (gel du 01/08/2026)
+   Journal — GRÈS seul, registre imprimé. Bande `archive` ton grès.
+   Aucun béton hors hero, aucune signature animée. */
 import React, { useMemo } from 'react';
 import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';
@@ -44,7 +47,7 @@ const Journal = () => {
         subtitle={t('journal.body')}
       />
 
-      <CinemaBand texture="archive" tone="prestige" />
+      <CinemaBand texture="archive" tone="gres" />
 
       {/* Registre imprimé - grès, index à baseline alignée, colonne de chronologie */}
       <EditorialSection className="mat-gres mat-grain">

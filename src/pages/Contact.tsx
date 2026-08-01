@@ -1,3 +1,6 @@
+/* PARTITION §4 — Matière v3 (gel du 01/08/2026)
+   Contact — béton (hero), bande `corridor` ton encre, grès pour le corps,
+   plaques de grès-2 pour les champs. Aucune signature animée. */
 import React from 'react';
 import { ArrowRight, Mail } from 'lucide-react';
 import PageShell from '@/components/PageShell';
@@ -49,7 +52,7 @@ const Contact = () => {
         subtitle={t('contact.intro')}
       />
 
-      <CinemaBand texture="corridor" tone="nocturne" />
+      <CinemaBand texture="corridor" tone="encre" />
 
       <EditorialSection className="mat-gres mat-grain">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

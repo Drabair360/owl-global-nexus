@@ -1,5 +1,6 @@
 @import './fonts.css';
 @import './styles/matiere.css';
+@import './styles/matiere-v3.css';
 @import './print.css';
 
 @tailwind base;
@@ -325,15 +326,9 @@
     .rule-draw { animation: none; }
   }
 
-  /* Respiration : une seule fois au premier affichage, jamais en boucle. */
-  .band-breathe { animation: band-breathe 18s linear 1 forwards; }
-  @keyframes band-breathe {
-    from { scale: 1; }
-    to { scale: 1.035; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .band-breathe { animation: none; }
-  }
+  /* G4 : la respiration de bande est SUPPRIMÉE. Matière v3 §2 — une surface
+     ne bouge que sous le contact ; un zoom lent est un effet de curseur. */
+
 
   .ink-surface {
     background-color: hsl(var(--ink));

@@ -86,7 +86,7 @@ const CinemaBand = ({ texture, tone = 'prestige', eager = false, objectPosition,
           }}
         >
           <div
-            className="absolute inset-0 band-breathe"
+            className="absolute inset-0"
             style={{ transform: `translate3d(0, ${offset}px, 0)`, willChange: 'transform' }}
           >
             <Duotone
