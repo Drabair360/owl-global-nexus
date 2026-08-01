@@ -146,10 +146,11 @@
 .mat-folio-eyes span { width: 1px; height: 0.85rem; display: block; background: hsl(var(--mat-laiton)); transform: skewX(-14deg); }
 
 /* 2. Cachet de registre : scelle un bloc d'autorité */
+/* rangée serrée, interligne respiré */
 .mat-cachet {
   border-top: 1px solid hsl(var(--mat-on-gres-1) / 0.3);
   border-bottom: 1px solid hsl(var(--mat-on-gres-1) / 0.3);
-  padding: 0.5rem 0; display: flex; flex-wrap: wrap; gap: 0 1.5rem; align-items: baseline;
+  padding: 0.6rem 0; display: flex; flex-wrap: wrap; gap: 0.45rem 1.5rem; align-items: baseline;
   font-size: 0.563rem; text-transform: uppercase; letter-spacing: 0.16em;
 }
 .mat-beton .mat-cachet, .mat-beton-2 .mat-cachet { border-color: hsl(var(--mat-on-beton-1) / 0.28); }
@@ -214,10 +215,22 @@
   background: hsl(var(--mat-laiton-lit) / 0.7);
 }
 
+/* Bouton de matière : béton plein, arête de laiton au survol */
+.mat-bouton.mat-bouton {
+  border-radius: 0;
+  background-color: hsl(var(--mat-beton));
+  color: hsl(var(--mat-on-beton-1));
+  box-shadow: var(--mat-elev-1);
+  transition: background-color 240ms var(--mat-ease-pose), box-shadow 240ms var(--mat-ease-pose);
+}
+.mat-bouton.mat-bouton:hover { background-color: hsl(var(--mat-beton-2)); box-shadow: inset 2px 0 0 hsl(var(--mat-laiton-lit)), var(--mat-elev-2); }
+.mat-bouton.mat-bouton:disabled { background-color: hsl(var(--mat-gres-3)); color: hsl(var(--mat-on-gres-2)); }
+
 /* --- Formulaire (états en langage Matière) --------------------
    Un champ est une plaque de grès posée dans la page : filet fin au repos,
    arête de laiton à la saisie, oxyde en défaut. Aucun halo coloré. */
-.mat-field {
+.mat-field.mat-field {
+  border-radius: 0;
   background-color: hsl(var(--mat-gres));
   color: hsl(var(--mat-on-gres-1));
   border: 1px solid hsl(var(--mat-on-gres-1) / 0.22);

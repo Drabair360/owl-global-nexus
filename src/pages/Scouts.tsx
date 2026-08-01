@@ -317,7 +317,7 @@ const Scouts = () => {
                 type="submit"
                 size="lg"
                 disabled={status === 'sending'}
-                className="w-full relative"
+                className="w-full relative mat-bouton"
               >
                 {status === 'sending' ? (
                   <span className="inline-flex items-center gap-3">
