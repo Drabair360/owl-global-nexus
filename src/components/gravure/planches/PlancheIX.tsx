@@ -266,7 +266,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
         strokeWidth={FORT}
       />
       <circle cx={236} cy={448} r={5} fill={LAITON} />
-      <text className="gravure-lettrage" x={186} y={474} fontSize="11">
+      <text className="gravure-lettrage" x={200} y={496} fontSize="11">
         Point de livraison
       </text>
     </g>
