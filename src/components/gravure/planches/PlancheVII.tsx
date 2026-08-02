@@ -343,49 +343,49 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
 
       {/* ================= ÉCHELLE DE MARGE — LES SOCIÉTÉS ================= */}
       <BlocTexte>
-        <text className="gravure-lettrage" x={300} y={214} fontSize="12" textAnchor="end" fill={ENCRE}>
+        <text className="gravure-lettrage" x={310} y={214} fontSize="12" textAnchor="end" fill={ENCRE}>
           Les organes
         </text>
-        <line x1={40} y1={222} x2={300} y2={222} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.6" />
+        <line x1={54} y1={222} x2={310} y2={222} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.6" />
       </BlocTexte>
       <EchelleLibelles
-        x={300}
+        x={310}
         yStart={252}
         yStep={34}
         side="left"
         items={[
-          { label: 'T-00 - Owl International, tête de groupe', cible: [CX - 46, CY - 24] },
-          { label: 'S-01 - CAO Industries, ingénierie industrielle (PL. I)', cible: [CAO.x - 38, CAO.y - 22] },
-          { label: 'S-02 - Line Builder, équipement de ligne (PL. III)', cible: [LBD.x - 40, LBD.y + 16] },
-          { label: 'S-03 - Drabair Labs, édition logicielle (PL. IV)', cible: [DRA.x - 34, DRA.y - 28] },
-          { label: 'S-04 - Weavme, réservation et affectation (PL. V)', cible: [WVM.x + 8, WVM.y - 40] },
-          { label: 'S-05 - Owl Real Estate, immobilier de rapport (PL. VI)', cible: [ORE.x + 24, ORE.y + 34] },
+          { label: 'T-00 - Owl International, la tête', cible: [CX - 46, CY - 24] },
+          { label: 'S-01 - CAO Industries, ingénierie (PL. I)', cible: [CAO.x - 38, CAO.y - 22] },
+          { label: 'S-02 - Line Builder, équipement (PL. III)', cible: [LBD.x - 40, LBD.y + 16] },
+          { label: 'S-03 - Drabair Labs, logiciel (PL. IV)', cible: [DRA.x - 34, DRA.y - 28] },
+          { label: 'S-04 - Weavme, réservation (PL. V)', cible: [WVM.x + 8, WVM.y - 40] },
+          { label: 'S-05 - Owl Real Estate, patrimoine (PL. VI)', cible: [ORE.x + 24, ORE.y + 34] },
           { label: 'E-06 - Scouts, signalements entrants', cible: [SCOUT.x, SCOUT.y + 12] },
         ]}
       />
 
       {/* ================= ÉCHELLE DE MARGE — LES FLUX ================= */}
       <BlocTexte>
-        <text className="gravure-lettrage" x={966} y={214} fontSize="12" fill={ENCRE}>
+        <text className="gravure-lettrage" x={950} y={214} fontSize="12" fill={ENCRE}>
           Les flux
         </text>
-        <line x1={966} y1={222} x2={1210} y2={222} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.6" />
+        <line x1={950} y1={222} x2={1196} y2={222} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.6" />
       </BlocTexte>
       <EchelleLibelles
-        x={966}
+        x={950}
         yStart={252}
         yStep={34}
         side="right"
         items={[
           {
-            label: 'F-00 - Circuit : capital, ouvrage, patrimoine, capital',
+            label: 'F-00 - Le circuit qui referme le modèle',
             or: true,
             cible: [orOuvrage.mx, orOuvrage.my],
           },
-          { label: 'F-01 - Capital placé, descendant de la tête', cible: [capital[1].mx, capital[1].my] },
-          { label: "F-02 - Retours d'exécution, CAO vers Line Builder", cible: [savoir.mx, savoir.my] },
-          { label: 'F-03 - Socles logiciels, Drabair vers les deux', cible: [socleWvm.mx, socleWvm.my] },
-          { label: 'F-04 - Licences et prestations, remontantes', cible: [licWvm.mx, licWvm.my] },
+          { label: 'F-01 - Capital placé, descendant', cible: [capital[1].mx, capital[1].my] },
+          { label: "F-02 - Retours d'exécution, terrain", cible: [savoir.mx, savoir.my] },
+          { label: 'F-03 - Socles logiciels, Drabair', cible: [socleWvm.mx, socleWvm.my] },
+          { label: 'F-04 - Licences et prestations', cible: [licWvm.mx, licWvm.my] },
           { label: 'F-05 - Dividendes, remontants', cible: [dividende[2].mx, dividende[2].my] },
           { label: 'F-06 - Signalements Scouts, entrants', cible: [scout.x1 + 90, scout.y1 - 48] },
         ]}
@@ -464,7 +464,7 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
       </g>
 
       <BlocTexte>
-        <text className="gravure-lettrage" x={700} y={1258} fontSize="12" fill={OXYDE}>
+        <text className="gravure-lettrage" x={640} y={1206} fontSize="12" fill={OXYDE}>
           Planche de principe : aucune donnée chiffrée, aucun engagement porté au dessin.
         </text>
       </BlocTexte>
@@ -472,7 +472,7 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
       <BlocTexte>
         <Cartouche
           x={800}
-          y={1290}
+          y={1230}
           w={380}
           numeral="VII"
           title="Le schéma de principe du groupe"
