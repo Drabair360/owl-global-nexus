@@ -2,282 +2,408 @@ import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
 import Cartouche, { VOL_I } from '../Cartouche';
 import {
-  Trait,
+  TitrePlanche,
+  BandeauZone,
+  EchelleLibelles,
+  Repere,
+  SensLecture,
+  BlocTexte,
+} from '../lisibilite';
+import {
   Cadre,
   poche,
-  Attache,
   RepereFigure,
-  Pastille,
-  Nomenclature,
-  ChaineCotes,
   RoseVents,
   EchelleGraphique,
-  TraceCache,
   AxeMixte,
-  FlechePente,
-  Rupture,
+  HachuresVivantes,
 } from '../primitives';
 
 /**
- * PLANCHE VIII — PLAN D'IMPLANTATION D'UNE USINE AGRO TYPE.
- * Le dessin qui prouve qu'on sait organiser une usine : zones, utilités,
- * voiries, zonage sanitaire, défense incendie, marche en avant.
- * Rehaut de laiton unique : LA MARCHE EN AVANT, réception -> expédition.
- * Aucun toponyme, aucune donnée d'exploitation, repères de convention.
+ * PLANCHE VIII — PLAN D'IMPLANTATION DE L'USINE OWL-1 (système L).
+ *
+ * Cohérence de dossier :
+ *   · la trame du plan est celle de la coupe PL. I : files A, B, C et
+ *     trames 1 à 6, mêmes lettres, même ordre, entraxe constant ;
+ *   · la ligne de mouture de la PL. III est dessinée EN PLACE dans la halle,
+ *     sur la file B, dans le sens de la marche en avant ;
+ *   · la ligne de coupe A-A est fléchée : c'est le regard de la PL. I ;
+ *   · l'emprise de la centrale en toiture (PL. IX) couvre le versant nord
+ *     de la halle, entre file A et file B.
+ *
+ * Lecture-clé à 30 s : LA MARCHE EN AVANT, unique rehaut de laiton,
+ * réception -> expédition, sans jamais croiser le circuit sale.
+ * Aucun toponyme, aucune donnée d'exploitation, aucun chiffre : repères
+ * de convention et cotation symbolique seulement.
  */
 
-/** Zone bâtie : cadre, remplissage léger, repère et intitulé. */
-const Zone = ({
+/* ---- la trame, héritée de la PL. I ---- */
+const FA = 290; // file A
+const FB = 425; // file B — axe du procédé
+const FC = 560; // file C
+const TRAMES = [390, 470, 550, 630, 710, 790]; // trames 1 à 6
+const HX = 390;
+const HW = 400;
+
+/** Chevron de sens sur le tracé de laiton. */
+const Chevron = ({ x, y, dir }: { x: number; y: number; dir: 'e' | 's' }) =>
+  dir === 'e' ? (
+    <path d={`M${x} ${y} l-10 -6 M${x} ${y} l-10 6`} fill="none" stroke={LAITON} strokeWidth={MOYEN} />
+  ) : (
+    <path d={`M${x} ${y} l-6 -10 M${x} ${y} l6 -10`} fill="none" stroke={LAITON} strokeWidth={MOYEN} />
+  );
+
+/** Boîte bâtie : poché léger, cadre, repère court centré. */
+const Boite = ({
+  p,
   x,
   y,
   w,
   h,
-  n,
-  label,
-  p,
+  code,
   matiere = 'beton',
   weight = MOYEN,
 }: {
+  p: string;
   x: number;
   y: number;
   w: number;
   h: number;
-  n: number;
-  label: string;
-  p: string;
+  code: string;
   matiere?: 'beton' | 'acier';
   weight?: string;
 }) => (
   <g>
-    <rect x={x} y={y} width={w} height={h} fill={`url(#${p}-poche-${matiere})`} opacity="0.28" />
+    <rect x={x} y={y} width={w} height={h} fill={poche(p, matiere)} opacity="0.24" />
     <Cadre x={x} y={y} w={w} h={h} weight={weight} over={1} />
-    <text className="gravure-lettrage" x={x + 10} y={y + 20} fontSize="11">
-      {label}
-    </text>
-    <Pastille x={x + w - 12} y={y + 12} n={n} r={8} />
+    <Repere x={x + w / 2} y={y + h / 2 + 4}>
+      {code}
+    </Repere>
   </g>
 );
 
 export const PLANCHE_VIII = {
   numeral: 'VIII',
-  title: "Plan d'implantation d'une usine agro type",
+  title: "Plan d'implantation de l'usine OWL-1",
   desc:
-    "Gravure au trait, plan d'implantation d'une usine de transformation agro-industrielle type, sans toponyme et sans donnée d'exploitation. Le plan porte, dans l'ordre du procédé, une zone de réception matière avec son pont-bascule, son quai de déchargement et sa fosse ; un stockage de matière première en silos cellulaires vus en plan, avec sa cellule de reprise ; une halle de transformation dont la trame de poteaux est cotée et dont le joint de dilatation est figuré en trait mixte ; une zone de conditionnement et de palettisation ; un magasin de produits finis prolongé par des quais d'expédition et leur aire de manoeuvre poids lourds. Les utilités occupent leur propre bande : chaufferie avec cuve, cheminée et rétention, centrale d'air comprimé avec compresseur, sécheur et ballon, groupe froid et local technique, poste électrique de livraison avec transformateur, tableau général et groupe de secours, traitement des eaux avec bâche, station de relevage et rejet, enfin un local de maintenance et son atelier, posé au contact de la halle. Le flux de procédé est tracé en trait fort rehaussé de laiton, de la réception à l'expédition, sans croisement entre circuit propre et circuit sale : c'est la marche en avant. Les voiries figurent le sens unique de circulation et les rayons de giration, une limite de zonage sanitaire sépare zone grise et zone blanche en trait mixte, la défense incendie est marquée par une réserve, des poteaux et des distances de recul. Une rose des vents oriente le plan, une échelle graphique et une chaîne de cotes donnent la mesure symbolique. Nomenclature de douze entrées et cartouche.",
-  viewBox: '0 0 1240 900',
-  detailViewBox: '80 150 460 340',
+    "Gravure au trait, plan d'implantation de l'usine de référence, sans toponyme et sans donnée d'exploitation. Le plan reprend la trame de la coupe première : les files A, B et C du portique courent d'ouest en est, les trames 1 à 6 les traversent, et la ligne de coupe A-A est fléchée vers le regard de cette coupe. La halle de transformation occupe le centre du plan ; la ligne de mouture de la planche troisième y est dessinée en place, poste après poste, sur la file B ; le versant nord de la halle, entre file A et file B, porte l'emprise de la centrale en toiture de la planche neuvième, cernée en trait interrompu. À l'ouest, la zone de réception aligne le pont-bascule, le quai de déchargement et sa fosse, puis les silos cellulaires de matière première vus en plan. À l'est, le conditionnement, la palettisation, le magasin de produits finis et les quais d'expédition avec leur aire de manoeuvre ferment le cycle. Une bande d'utilités occupe le nord de l'emprise : poste de livraison, chaufferie et rétention, air comprimé et froid, traitement des eaux et relevage, maintenance et atelier. Le flux de procédé est tracé au trait fort rehaussé de laiton, de la réception aux quais d'expédition, en un seul geste continu fléché : c'est la marche en avant, seule lecture de trente secondes de la planche. Le circuit sale, déchets et sous-produits, est tracé en trait interrompu au sud de l'emprise et ne croise le laiton nulle part. Les voiries sont à sens unique, une limite de zonage sanitaire sépare zone grise et zone blanche en trait mixte, la défense incendie est marquée d'une réserve, de poteaux et d'un recul. Aucune phrase n'est portée dans le dessin : chaque élément porte un repère court, sa désignation vit dans les échelles de libellés en marge. Rose des vents, échelle graphique symbolique et cartouche de dossier, volume premier, mention concept.",
+  viewBox: '0 0 1240 1290',
+  detailViewBox: '360 250 480 350',
 };
 
 export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
   <>
     <GravureDefs p={p} />
+    <defs>
+      <clipPath id={`${p}-pv`}>
+        <rect x="400" y="300" width="380" height="90" />
+      </clipPath>
+    </defs>
 
-    <RepereFigure x={60} y={96} n="1" title="Plan masse, marche en avant" w={340} />
+    {/* ============ 3 SECONDES — LE TITRE ET LE SUJET ============ */}
+    <TitrePlanche
+      x={60}
+      y={46}
+      titre="Plan d'implantation de l'usine OWL-1"
+      sous="Trame de la PL. I - ligne de la PL. III en place - marche en avant, réception vers expédition"
+    />
 
-    {/* ---------- EMPRISE ET VOIRIES ---------- */}
-    <rect x={70} y={130} width={900} height={560} fill="none" stroke={ENCRE} strokeWidth={FIN} strokeDasharray="14 6" opacity="0.7" />
-    <path
-      d="M96 156 H944 V664 H96 z"
+    <RepereFigure x={60} y={126} n="1" title="Plan masse, marche en avant" w={460} />
+
+    {/* ---------- EMPRISE ---------- */}
+    <rect
+      x={100}
+      y={166}
+      width={1080}
+      height={580}
       fill="none"
       stroke={ENCRE}
-      strokeWidth={ULTRAFIN}
-      opacity="0.5"
+      strokeWidth={FIN}
+      strokeDasharray="14 6"
+      opacity="0.7"
     />
 
-    {/* ---------- ZONES DE PROCÉDÉ ---------- */}
-    <Zone p={p} x={110} y={196} w={148} h={112} n={1} label="Réception matière" />
-    {/* pont-bascule et quai */}
-    <rect x={124} y={252} width={92} height={20} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-    <line x1={124} y1={262} x2={216} y2={262} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="4 3" />
-    <rect x={124} y={284} width={120} height={12} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={FIN} />
+    {/* ============ 30 SECONDES — LES ZONES NOMMÉES ============ */}
+    <BandeauZone x={110} y={180} w={1060} h={58} label="Utilités" teinte={0.035} />
+    <BandeauZone x={110} y={266} w={250} h={376} label="Réception et stockage" />
+    <BandeauZone x={370} y={266} w={450} h={376} label="Transformation" />
+    <BandeauZone x={830} y={266} w={340} h={376} label="Conditionnement et expédition" />
+    <BandeauZone x={110} y={660} w={1060} h={76} label="Circuit sale et déchets" teinte={0.035} />
 
-    {/* silos cellulaires */}
-    <g>
-      <Cadre x={288} y={188} w={160} h={128} weight={FIN} />
-      {[0, 1, 2].map((i) =>
-        [0, 1].map((j) => (
-          <circle
-            key={`${i}${j}`}
-            cx={320 + i * 48}
-            cy={222 + j * 56}
-            r={22}
-            fill="none"
-            stroke={ENCRE}
-            strokeWidth={MOYEN}
-          />
-        )),
-      )}
-      <circle cx={368} cy={250} r={7} fill={ENCRE} opacity="0.6" />
-      <text className="gravure-lettrage" x={296} y={182} fontSize="11">
-        Stockage matière première
-      </text>
-      <Pastille x={436} y={200} n={2} r={8} />
-    </g>
-
-    {/* halle de transformation, trame de poteaux */}
-    <g>
-      <rect x={478} y={186} width={300} height={196} fill={`url(#${p}-poche-beton)`} opacity="0.1" />
-      <Cadre x={478} y={186} w={300} h={196} weight={FORT} />
-      {[0, 1, 2, 3, 4, 5].map((i) =>
-        [0, 1, 2, 3].map((j) => (
-          <rect
-            key={`${i}${j}`}
-            x={498 + i * 52 - 4}
-            y={210 + j * 52 - 4}
-            width={8}
-            height={8}
-            fill={ENCRE}
-          />
-        )),
-      )}
-      {/* joint de dilatation */}
-      <line x1={628} y1={186} x2={628} y2={382} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="14 4 3 4" opacity="0.8" />
-      <text className="gravure-lettrage" x={486} y={180} fontSize="11">
-        Halle de transformation
-      </text>
-      <Pastille x={766} y={198} n={3} r={8} />
-      <ChaineCotes y={168} points={[498, 550, 602, 654, 706, 758]} labels={['t', 't', 't', 't', 't']} attache={186} />
-    </g>
-
-    <Zone p={p} x={478} y={404} w={168} h={104} n={4} label="Conditionnement" />
-    <Zone p={p} x={666} y={404} w={112} h={104} n={5} label="Palettisation" />
-    <Zone p={p} x={806} y={404} w={138} h={172} n={6} label="Magasin produits finis" />
-
-    {/* quais d'expédition et giration */}
-    <g>
-      <rect x={806} y={596} width={138} height={16} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={FIN} />
-      <text className="gravure-lettrage" x={806} y={634} fontSize="11">
-        Quais d'expédition
-      </text>
-      <path d="M792 660 a72 72 0 0 1 72 -72" fill="none" stroke={OXYDE} strokeWidth={ULTRAFIN} strokeDasharray="5 4" />
-      <text className="gravure-lettrage" x={648} y={686} fontSize="11" fill={OXYDE}>
-        Rayon de giration
-      </text>
-    </g>
+    {/* ---------- VOIRIES À SENS UNIQUE ---------- */}
+    {[243, 648].map((y) => (
+      <g key={y}>
+        <line x1={112} y1={y} x2={1168} y2={y} stroke={OXYDE} strokeWidth={ULTRAFIN} strokeDasharray="7 5" />
+        {[300, 640, 980].map((x) => (
+          <path key={x} d={`M${x} ${y} l-9 -5 M${x} ${y} l-9 5`} fill="none" stroke={OXYDE} strokeWidth={ULTRAFIN} />
+        ))}
+      </g>
+    ))}
+    <Repere x={140} y={236} anchor="start">V-12</Repere>
 
     {/* ---------- BANDE DES UTILITÉS ---------- */}
+    {[
+      [120, 'U-01'],
+      [320, 'U-02'],
+      [520, 'U-03'],
+      [720, 'U-04'],
+      [920, 'U-05'],
+    ].map(([x, code]) => (
+      <Boite key={code as string} p={p} x={x as number} y={188} w={180} h={44} code={code as string} matiere="acier" weight={FIN} />
+    ))}
+
+    {/* ---------- RÉCEPTION ET STOCKAGE ---------- */}
     <g>
-      <Zone p={p} matiere="acier" x={806} y={186} w={138} h={80} n={7} label="Chaufferie" weight={FIN} />
-      <line x1={930} y1={186} x2={930} y2={150} stroke={ENCRE} strokeWidth={MOYEN} />
-      <circle cx={840} cy={240} r={14} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <rect x={818} y={218} width={62} height={40} fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="4 3" />
-
-      <Zone p={p} matiere="acier" x={806} y={288} w={138} h={88} n={8} label="Air comprimé, froid" weight={FIN} />
-      <circle cx={846} cy={344} r={12} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <rect x={874} y={330} width={40} height={26} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-
-      <Zone p={p} matiere="acier" x={110} y={340} w={148} h={92} n={9} label="Poste de livraison" weight={FIN} />
-      <circle cx={152} cy={398} r={13} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-      <circle cx={168} cy={398} r={13} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-      <rect x={200} y={384} width={40} height={28} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-
-      <Zone p={p} matiere="acier" x={110} y={456} w={148} h={92} n={10} label="Traitement des eaux" weight={FIN} />
-      <circle cx={150} cy={512} r={18} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <path d="M182 520 h56" stroke={ENCRE} strokeWidth={FIN} fill="none" />
-      <FlechePente x={238} y={520} dx={26} dy={0} label="" />
-
-      {/* local maintenance et atelier, au contact de la halle */}
-      <Zone p={p} matiere="acier" x={288} y={404} w={160} h={104} n={11} label="Maintenance, atelier" weight={MOYEN} />
-      <line x1={288} y1={452} x2={448} y2={452} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      <rect x={302} y={464} width={44} height={26} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <circle cx={396} cy={478} r={13} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <line x1={396} y1={465} x2={396} y2={491} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+      {/* pont-bascule */}
+      <rect x={130} y={290} width={120} height={26} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={130} y1={303} x2={250} y2={303} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="4 3" />
+      <Repere x={272} y={296} anchor="start">P-01</Repere>
+      {/* quai de déchargement et fosse */}
+      <rect x={130} y={336} width={150} height={16} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={FIN} />
+      <rect x={166} y={352} width={44} height={12} fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="5 3" />
+      <Repere x={300} y={344} anchor="start">Q-02</Repere>
+      {/* silos cellulaires */}
+      <Cadre x={128} y={380} w={220} h={150} weight={FIN} />
+      {[170, 235, 300].map((cx) =>
+        [420, 485].map((cy) => (
+          <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={24} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+        )),
+      )}
+      <Repere x={238} y={556}>S-03</Repere>
     </g>
 
-    {/* ---------- MARCHE EN AVANT : rehaut de laiton unique ---------- */}
+    {/* ---------- HALLE DE TRANSFORMATION : LA TRAME DE LA PL. I ---------- */}
+    <g>
+      <rect x={HX} y={FA} width={HW} height={FC - FA} fill={poche(p, 'beton')} opacity="0.1" />
+      <Cadre x={HX} y={FA} w={HW} h={FC - FA} weight={FORT} over={1} />
+      <Repere x={HX + 10} y={282} anchor="start">H-04</Repere>
+
+      {/* files A, B, C — mêmes lettres qu'en PL. I */}
+      {[
+        [FA, 'A'],
+        [FB, 'B'],
+        [FC, 'C'],
+      ].map(([y, l]) => (
+        <g key={l as string}>
+          <AxeMixte x1={HX - 26} y1={y as number} x2={HX + HW + 20} y2={y as number} opacity={0.55} />
+          <Repere x={HX - 32} y={(y as number) + 4} anchor="end">
+            {l as string}
+          </Repere>
+        </g>
+      ))}
+      {/* trames 1 à 6 */}
+      {TRAMES.map((x, i) => (
+        <g key={x}>
+          <line
+            x1={x}
+            y1={FA - 14}
+            x2={x}
+            y2={FC + 14}
+            stroke={ENCRE}
+            strokeWidth={ULTRAFIN}
+            strokeDasharray="9 3 2 3"
+            opacity="0.65"
+          />
+          <Repere x={x} y={578}>{String(i + 1)}</Repere>
+        </g>
+      ))}
+      {/* joint de dilatation */}
+      <line x1={670} y1={FA} x2={670} y2={FC} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="14 4 3 4" />
+      <Repere x={678} y={548} anchor="start">JD</Repere>
+
+      {/* emprise de la centrale en toiture — versant nord, PL. IX */}
+      <g clipPath={`url(#${p}-pv)`}>
+        <HachuresVivantes x={400} y={300} w={380} h={90} pas={13} seed={23} opacity={0.22} />
+      </g>
+      <rect x={400} y={300} width={380} height={90} fill="none" stroke={ENCRE} strokeWidth={FIN} strokeDasharray="8 4" />
+      <Repere x={770} y={318} anchor="end">PV</Repere>
+
+      {/* la ligne de mouture de la PL. III, dessinée en place sur la file B */}
+      {[400, 466, 532, 598, 664, 730].map((x) => (
+        <rect key={x} x={x} y={412} width={46} height={26} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
+      ))}
+      <Repere x={595} y={462}>L-05</Repere>
+    </g>
+
+    {/* ---------- LIGNE DE COUPE A-A : LE REGARD DE LA PL. I ---------- */}
+    <g>
+      <line x1={588} y1={262} x2={588} y2={288} stroke={OXYDE} strokeWidth={FORT} />
+      <line x1={588} y1={562} x2={588} y2={590} stroke={OXYDE} strokeWidth={FORT} />
+      <line
+        x1={588}
+        y1={288}
+        x2={588}
+        y2={562}
+        stroke={OXYDE}
+        strokeWidth={FIN}
+        strokeDasharray="14 4 3 4"
+        opacity="0.7"
+      />
+      <path d="M588 288 l-16 0 M588 562 l-16 0" stroke={OXYDE} strokeWidth={MOYEN} fill="none" />
+      <path d="M572 288 l6 -5 v10 z M572 562 l6 -5 v10 z" fill={OXYDE} />
+      <Repere x={588} y={254}>A</Repere>
+      <Repere x={588} y={608}>A</Repere>
+    </g>
+
+    {/* ---------- CONDITIONNEMENT, MAGASIN, EXPÉDITION ---------- */}
+    <Boite p={p} x={840} y={386} w={100} h={78} code="C-06" />
+    <Boite p={p} x={950} y={386} w={90} h={78} code="C-07" />
+    <Boite p={p} x={1050} y={330} w={110} h={190} code="M-08" />
+    <rect x={1050} y={556} width={110} height={18} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={FIN} />
+    <path d="M1046 620 a64 64 0 0 1 64 -64" fill="none" stroke={OXYDE} strokeWidth={ULTRAFIN} strokeDasharray="5 4" />
+    <Repere x={1032} y={566} anchor="end">Q-09</Repere>
+
+    {/* ---------- ZONAGE SANITAIRE ---------- */}
+    <AxeMixte x1={828} y1={272} x2={828} y2={640} />
+    <Repere x={818} y={634} anchor="end">ZS</Repere>
+
+    {/* ============ LA MARCHE EN AVANT — REHAUT DE LAITON UNIQUE ============ */}
     <path
-      d="M184 308 V352 H262 M184 308 V330"
-      fill="none"
-      stroke="none"
-    />
-    <path
-      d="M184 240 H288 M448 250 H478 M628 382 V404 M646 456 H666 M778 456 H806 M876 508 V596"
+      d={`M136 303 H310 V${FB} H1105 V556`}
       fill="none"
       stroke={LAITON}
       strokeWidth={FORT}
+      strokeLinejoin="round"
     />
-    <path d="M628 382 V404" fill="none" stroke={LAITON} strokeWidth={FORT} />
-    {[
-      [236, 240, 1, 0],
-      [463, 250, 1, 0],
-      [628, 393, 0, 1],
-      [656, 456, 1, 0],
-      [792, 456, 1, 0],
-      [876, 552, 0, 1],
-    ].map(([x, y, dx, dy], i) => (
-      <path
-        key={i}
-        d={`M${x} ${y} l${-9 * (dx as number) - 5 * (dy as number)} ${-9 * (dy as number) - 5 * (dx as number)} M${x} ${y} l${-9 * (dx as number) + 5 * (dy as number)} ${-9 * (dy as number) + 5 * (dx as number)}`}
-        stroke={LAITON}
-        strokeWidth={MOYEN}
-        fill="none"
-      />
-    ))}
-    <Attache x={628} y={404} dx={-30} dy={196} label="Marche en avant, sans croisement" anchor="end" />
+    <Chevron x={232} y={303} dir="e" />
+    <Chevron x={310} y={392} dir="s" />
+    <Chevron x={500} y={FB} dir="e" />
+    <Chevron x={790} y={FB} dir="e" />
+    <Chevron x={1000} y={FB} dir="e" />
+    <Chevron x={1105} y={540} dir="s" />
+    <Repere x={468} y={404}>MA</Repere>
 
-    {/* ---------- ZONAGE SANITAIRE ---------- */}
-    <AxeMixte x1={466} y1={160} x2={466} y2={620} />
-    <text className="gravure-lettrage" x={472} y={640} fontSize="11" fill={OXYDE}>
-      Limite zone grise / zone blanche
-    </text>
-
-    {/* ---------- VOIRIES ET SENS UNIQUE ---------- */}
-    <TraceCache d="M96 620 H944" />
-    <FlechePente x={300} y={620} dx={80} dy={0} label="Sens unique" />
+    {/* ---------- CIRCUIT SALE : IL NE CROISE JAMAIS LE LAITON ---------- */}
+    <path
+      d="M630 566 V700 H305"
+      fill="none"
+      stroke={ENCRE}
+      strokeWidth={MOYEN}
+      strokeDasharray="10 6"
+      opacity="0.85"
+    />
+    <path d="M305 700 l12 -6 v12 z" fill={ENCRE} opacity="0.85" />
+    <Repere x={520} y={688}>R-11</Repere>
+    <Boite p={p} x={130} y={672} w={170} h={56} code="D-10" matiere="acier" weight={FIN} />
 
     {/* ---------- DÉFENSE INCENDIE ---------- */}
     <g>
-      <circle cx={720} cy={584} r={20} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <circle cx={720} cy={584} r={6} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <text className="gravure-lettrage" x={720} y={620} fontSize="11" textAnchor="middle">
-        Réserve incendie
-      </text>
-      {[
-        [560, 560],
-        [640, 660],
-      ].map(([x, y], i) => (
-        <g key={i}>
-          <circle cx={x} cy={y} r={6} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-          <line x1={x - 10} y1={y} x2={x + 10} y2={y} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+      <circle cx={800} cy={692} r={22} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      <circle cx={800} cy={692} r={7} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      {[400, 1000].map((cx) => (
+        <g key={cx}>
+          <circle cx={cx} cy={716} r={6} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+          <line x1={cx - 11} y1={716} x2={cx + 11} y2={716} stroke={ENCRE} strokeWidth={ULTRAFIN} />
         </g>
       ))}
-      <line x1={560} y1={560} x2={560} y2={508} stroke={OXYDE} strokeWidth={ULTRAFIN} strokeDasharray="4 4" />
-      <text className="gravure-lettrage" x={566} y={540} fontSize="10" fill={OXYDE}>
-        Recul
-      </text>
+      <line x1={1000} y1={710} x2={1000} y2={664} stroke={OXYDE} strokeWidth={ULTRAFIN} strokeDasharray="4 4" />
+      <Repere x={866} y={696} anchor="start">DI</Repere>
     </g>
 
-    {/* ---------- ORIENTATION, ÉCHELLE, RUPTURE ---------- */}
-    <RoseVents cx={1052} cy={210} r={44} />
-    <EchelleGraphique x={1000} y={306} w={160} h={7} n={6} label="Éch. symb." />
-    <Rupture x={992} y={430} length={120} vertical />
+    {/* ---------- SENS DE LECTURE, ORIENTATION, ÉCHELLE ---------- */}
+    <SensLecture x={100} y={778} w={560} label="Sens de lecture : réception (ouest) vers expédition (est)" />
+    <EchelleGraphique x={700} y={790} w={170} h={7} n={6} label="Éch. symb." />
+    <RoseVents cx={1120} cy={782} r={32} />
 
-    {/* ---------- NOMENCLATURE ---------- */}
-    <Nomenclature
-      x={1000}
-      y={470}
-      perCol={12}
-      lineHeight={20}
+    {/* ============ 3 MINUTES — LES ÉCHELLES DE LIBELLÉS ============ */}
+    <BlocTexte>
+      <text className="gravure-lettrage" x={100} y={848} fontSize="12" fill={ENCRE}>
+        Procédé - marche en avant
+      </text>
+      <line x1={100} y1={854} x2={420} y2={854} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
+      <text className="gravure-lettrage" x={470} y={848} fontSize="12" fill={ENCRE}>
+        Utilités et servitudes
+      </text>
+      <line x1={470} y1={854} x2={790} y2={854} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
+      <text className="gravure-lettrage" x={840} y={848} fontSize="12" fill={ENCRE}>
+        Repérage et renvois de dossier
+      </text>
+      <line x1={840} y1={854} x2={1160} y2={854} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
+    </BlocTexte>
+
+    <EchelleLibelles
+      x={100}
+      yStart={880}
+      yStep={24}
+      side="right"
       items={[
-        'Réception, pont-bascule',
-        'Silos de matière première',
-        'Halle de transformation',
-        'Conditionnement',
-        'Palettisation',
-        'Magasin produits finis',
-        'Chaufferie',
-        'Air comprimé et froid',
-        'Poste de livraison',
-        'Traitement des eaux',
-        'Maintenance et atelier',
-        'Quais et aire de manoeuvre',
+        { label: 'P-01 - Pont-bascule et poste de garde' },
+        { label: 'Q-02 - Quai de déchargement et fosse' },
+        { label: 'S-03 - Silos de matière première' },
+        { label: 'H-04 - Halle de transformation' },
+        { label: 'L-05 - Ligne de mouture en place (PL. III)' },
+        { label: 'C-06 - Conditionnement' },
+        { label: 'C-07 - Palettisation' },
+        { label: 'M-08 - Magasin de produits finis' },
+        { label: "Q-09 - Quais et aire de manoeuvre" },
+      ]}
+    />
+    <EchelleLibelles
+      x={470}
+      yStart={880}
+      yStep={24}
+      side="right"
+      items={[
+        { label: 'U-01 - Poste de livraison' },
+        { label: 'U-02 - Chaufferie et rétention' },
+        { label: 'U-03 - Air comprimé et froid' },
+        { label: 'U-04 - Traitement des eaux, relevage' },
+        { label: 'U-05 - Maintenance et atelier' },
+        { label: 'D-10 - Déchets et sous-produits' },
+        { label: 'R-11 - Circuit sale, sans croisement' },
+        { label: 'V-12 - Voirie à sens unique' },
+        { label: 'DI - Réserve, poteaux et recul' },
+      ]}
+    />
+    <EchelleLibelles
+      x={840}
+      yStart={880}
+      yStep={24}
+      side="right"
+      items={[
+        { label: 'MA - Marche en avant (laiton)', or: true },
+        { label: 'A, B, C - Files du portique (PL. I)' },
+        { label: '1 à 6 - Trames, entraxe constant' },
+        { label: 'A-A - Ligne de coupe, regard PL. I' },
+        { label: 'PV - Emprise de la centrale (PL. IX)' },
+        { label: 'JD - Joint de dilatation de la halle' },
+        { label: 'ZS - Limite zone grise / zone blanche' },
+        { label: 'TN - Emprise, limite de propriété' },
       ]}
     />
 
-    <Cartouche
-      x={880} y={760} numeral="VIII" title="Implantation d'usine agro type" echelle="Éch. symb."
-      dossier={VOL_I}
-      index="PL. 8/9"
-      renvois={['Coupe de l\'unité : PL. I', 'Centrale en toiture : PL. IX']}
-    />
+    {/* ---------- LÉGENDE DES FAMILLES ---------- */}
+    <BlocTexte>
+      <g>
+        <line x1={100} y1={1130} x2={148} y2={1130} stroke={LAITON} strokeWidth={FORT} />
+        <text className="gravure-lettrage" x={160} y={1134} fontSize="12">
+          Marche en avant, circuit propre
+        </text>
+        <line x1={400} y1={1130} x2={448} y2={1130} stroke={ENCRE} strokeWidth={MOYEN} strokeDasharray="10 6" />
+        <text className="gravure-lettrage" x={460} y={1134} fontSize="12">
+          Circuit sale, déchets
+        </text>
+      </g>
+      <text className="gravure-lettrage" x={100} y={1166} fontSize="12" fill={OXYDE}>
+        Les deux circuits ne se croisent en aucun point du plan.
+      </text>
+      <text className="gravure-lettrage" x={100} y={1188} fontSize="12" fill={OXYDE}>
+        Cotation symbolique, aucun toponyme ni donnée d'exploitation.
+      </text>
+    </BlocTexte>
+
+    <BlocTexte>
+      <Cartouche
+        x={800}
+        y={1200}
+        w={380}
+        numeral="VIII"
+        title="Implantation de l'usine OWL-1"
+        echelle="Éch. symb."
+        dossier={VOL_I}
+        index="PL. 8/9"
+        renvois={['Coupe : PL. I', 'Ligne : PL. III', 'Centrale : PL. IX']}
+      />
+    </BlocTexte>
   </>
 );
