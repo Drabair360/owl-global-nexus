@@ -1,6 +1,6 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
-import Cartouche from '../Cartouche';
+import Cartouche, { VOL_I } from '../Cartouche';
 import {
   Trait,
   Cadre,
@@ -11,40 +11,38 @@ import {
   NomenclatureLettres,
   PastilleLettre,
   ChaineCotes,
-  CercleDetail,
-  StratesSol,
   TraceRegulateur,
   ArcRegulateur,
-  TraceCache,
   AxeMixte,
   Boulon,
   Rupture,
 } from '../primitives';
 
 /**
- * PLANCHE IX — FERME SOLAIRE RACCORDÉE.
- *   FIG. 1  élévation d'une table photovoltaïque : modules, inclinaison,
- *           structure porteuse sur pieux battus, garde au sol, entraxe
+ * PLANCHE IX — CENTRALE EN TOITURE (DOSSIER OWL, VOL. I, PL. 9/9).
+ *   FIG. 1  coupe partielle de la toiture-terrasse de l'usine de référence :
+ *           complexe d'étanchéité, pannes, plots ballastés non perçants,
+ *           rangées de modules inclinés, recul de rive, garde-corps
  *   FIG. 2  schéma de raccordement : string, boîte DC, onduleur,
  *           transformateur élévateur, poste de livraison, comptage
- *   FIG. 3  tranchée de câbles en coupe et réseau de terre
- * Rehaut de laiton unique : LA LIGNE DE RACCORDEMENT, du champ au point
- * de livraison. Les repères DC et AC sont des étiquettes de convention.
+ *   FIG. 3  traversée d'étanchéité et chemin de câbles, liaison équipotentielle
+ * Rehaut de laiton unique : LA LIGNE DE RACCORDEMENT, de la toiture au point
+ * de livraison. Le support est celui de la PL. I : le toit qui la porte.
  */
 
-const SOL = 396; // ligne de terre naturelle, FIG. 1
+const TOIT = 470; // niveau fini de l'étanchéité, FIG. 1
 
 export const PLANCHE_IX = {
   numeral: 'IX',
-  title: 'Ferme solaire raccordée',
+  title: 'Centrale en toiture',
   desc:
-    "Gravure au trait, planche à trois figures représentant une ferme solaire raccordée au réseau. FIGURE 1, élévation d'une table photovoltaïque : les modules sont figurés par un plan incliné à joints réguliers, portés par une structure de profilés contreventée et fondée sur pieux battus pochés acier ; la hauteur de garde au sol et l'entraxe entre deux rangées sont cotés en symbolique, l'entraxe portant la mention d'ombrage ; une seconde rangée est amorcée puis coupée par une ligne de rupture, et le sol est figuré par ses strates, terre végétale, terrain et bon sol, avec le niveau de fondation. Un diagramme de course solaire est tracé en régulateur ultrafin au-dessus des tables, sans graduation chiffrée. FIGURE 2, schéma de raccordement lu de gauche à droite : les modules sont mis en série en string avec leurs polarités, rejoignent une boîte de jonction en courant continu équipée d'un parafoudre, puis un onduleur en armoire ventilée, puis un transformateur élévateur, enfin le poste de livraison avec son comptage et sa protection de découplage ; la partie continue et la partie alternative sont séparées par une limite en trait mixte, et la ligne qui va du champ au point de livraison est le seul rehaut de laiton de la planche. FIGURE 3, tranchée de câbles en coupe : lit de sable, câbles, grillage avertisseur et remblai compacté, accompagnée du réseau de terre, piquets, ceinturage et liaison équipotentielle. La clôture de site et la piste de maintenance ferment le plan. Aucune puissance, aucune tension et aucune donnée d'exploitation ne sont portées ; les repères sont des étiquettes de convention. Nomenclature à deux colonnes, continu et alternatif, et cartouche.",
+    "Gravure au trait, planche à trois figures représentant une centrale photovoltaïque posée sur la toiture-terrasse de l'unité industrielle de référence. FIGURE 1, coupe partielle de la toiture : le complexe est figuré par ses couches, support en bac d'acier nervuré, isolant et membrane d'étanchéité, porté par des pannes et une poutre principale dont la descente de charge est amorcée puis coupée par une ligne de rupture. Trois rangées de modules inclinés sont posées sur des plots ballastés non perçants, reliés par des rails ; l'entraxe d'ombrage entre rangées et le recul de rive sont cotés en symbolique, la rive est équipée d'un garde-corps et d'un chemin de câbles. Un arc de course solaire est tracé en régulateur ultrafin, sans graduation chiffrée. FIGURE 2, schéma de raccordement lu de haut en bas : les modules sont mis en série en string avec leurs polarités, rejoignent une boîte de jonction en courant continu équipée d'un parafoudre, puis un onduleur en armoire ventilée, puis un transformateur élévateur, enfin le poste de livraison avec son comptage et sa protection de découplage ; la partie continue et la partie alternative sont séparées par une limite en trait mixte, et la ligne qui va de la toiture au point de livraison est le seul rehaut de laiton de la planche. FIGURE 3, détail de la traversée d'étanchéité : platine, manchon, collerette soudée et relevé, avec le chemin de câbles sur support et la liaison équipotentielle des rails. Aucune puissance, aucune tension et aucune donnée d'exploitation ne sont portées ; les repères sont des étiquettes de convention. Nomenclature à deux colonnes, continu et alternatif, et cartouche de dossier portant la mention concept.",
   viewBox: '0 0 1240 900',
-  detailViewBox: '80 200 420 300',
+  detailViewBox: '80 300 420 300',
 };
 
-/** Table photovoltaïque : plan de modules incliné, structure, pieux. */
-const Table = ({
+/** Rangée de modules inclinés sur plots ballastés, en coupe. */
+const Rangee = ({
   x,
   p,
   principal = false,
@@ -54,35 +52,43 @@ const Table = ({
   principal?: boolean;
 }) => (
   <g>
-    {/* plan de modules */}
-    <path d={`M${x} ${SOL - 62} L${x + 168} ${SOL - 146} L${x + 180} ${SOL - 132} L${x + 12} ${SOL - 48} z`} fill="none" stroke={ENCRE} strokeWidth={FORT} />
-    {[1, 2, 3, 4].map((i) => (
+    {/* plan de modules incliné */}
+    <path
+      d={`M${x} ${TOIT - 26} L${x + 128} ${TOIT - 90} L${x + 138} ${TOIT - 80} L${x + 10} ${TOIT - 16} z`}
+      fill="none"
+      stroke={ENCRE}
+      strokeWidth={FORT}
+    />
+    {[1, 2, 3].map((i) => (
       <line
         key={i}
-        x1={x + i * 33.6}
-        y1={SOL - 62 - i * 16.8}
-        x2={x + 12 + i * 33.6}
-        y2={SOL - 48 - i * 16.8}
+        x1={x + i * 32}
+        y1={TOIT - 26 - i * 16}
+        x2={x + 10 + i * 32}
+        y2={TOIT - 16 - i * 16}
         stroke={ENCRE}
         strokeWidth={FIN}
       />
     ))}
-    {/* structure porteuse et contreventement */}
-    <line x1={x + 30} y1={SOL - 71} x2={x + 30} y2={SOL} stroke={ENCRE} strokeWidth={MOYEN} />
-    <line x1={x + 144} y1={SOL - 128} x2={x + 144} y2={SOL} stroke={ENCRE} strokeWidth={MOYEN} />
-    <line x1={x + 30} y1={SOL - 22} x2={x + 144} y2={SOL - 92} stroke={ENCRE} strokeWidth={FIN} />
-    <line x1={x + 30} y1={SOL - 71} x2={x + 144} y2={SOL - 22} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="6 4" />
-    <Boulon x={x + 30} y={SOL - 62} r={2.4} />
-    <Boulon x={x + 144} y={SOL - 118} r={2.4} />
-    {/* pieux battus */}
-    {[30, 144].map((o) => (
-      <rect key={o} x={x + o - 5} y={SOL} width={10} height={64} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
+    {/* rail et jambe de reprise */}
+    <line x1={x + 16} y1={TOIT - 30} x2={x + 112} y2={TOIT - 78} stroke={ENCRE} strokeWidth={MOYEN} />
+    <line x1={x + 16} y1={TOIT - 30} x2={x + 16} y2={TOIT - 14} stroke={ENCRE} strokeWidth={MOYEN} />
+    <line x1={x + 112} y1={TOIT - 78} x2={x + 112} y2={TOIT - 14} stroke={ENCRE} strokeWidth={MOYEN} />
+    <line x1={x + 16} y1={TOIT - 22} x2={x + 112} y2={TOIT - 60} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="6 4" />
+    <Boulon x={x + 16} y={TOIT - 30} r={2.2} />
+    <Boulon x={x + 112} y={TOIT - 78} r={2.2} />
+    {/* plots ballastés, aucune perforation de l'étanchéité */}
+    {[16, 112].map((o) => (
+      <rect key={o} x={x + o - 17} y={TOIT - 14} width={34} height={14} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={MOYEN} />
+    ))}
+    {/* natte de protection sous plot */}
+    {[16, 112].map((o) => (
+      <line key={`n${o}`} x1={x + o - 21} y1={TOIT + 1.5} x2={x + o + 21} y2={TOIT + 1.5} stroke={OXYDE} strokeWidth={MOYEN} />
     ))}
     {principal && (
       <>
-        <PastilleLettre x={x + 176} y={SOL - 152} l="a" />
-        <PastilleLettre x={x + 12} y={SOL - 20} l="b" />
-        <PastilleLettre x={x + 152} y={SOL + 74} l="c" />
+        <PastilleLettre x={x + 146} y={TOIT - 96} l="a" />
+        <PastilleLettre x={x - 12} y={TOIT - 6} l="b" />
       </>
     )}
   </g>
@@ -92,56 +98,86 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
   <>
     <GravureDefs p={p} />
 
-    {/* ================= FIG. 1 — LA TABLE ================= */}
-    <RepereFigure x={60} y={96} n="1" title="Table photovoltaïque, élévation" w={320} />
+    {/* ================= FIG. 1 — LA TOITURE ================= */}
+    <RepereFigure x={60} y={96} n="1" title="Toiture-terrasse équipée, coupe partielle" w={360} />
 
-    {/* diagramme de course solaire, tracé régulateur */}
-    <ArcRegulateur cx={330} cy={SOL} r={268} />
-    <ArcRegulateur cx={330} cy={SOL} r={214} />
-    <TraceRegulateur d={`M62 ${SOL} H598`} />
+    {/* course solaire, tracé régulateur */}
+    <ArcRegulateur cx={340} cy={TOIT} r={300} />
+    <ArcRegulateur cx={340} cy={TOIT} r={244} />
+    <TraceRegulateur d={`M62 ${TOIT} H622`} />
 
-    {/* sol et strates */}
-    <StratesSol p={p} x={62} y={SOL} w={560} h={110} seed={19} />
-    <Trait x1={62} y1={SOL} x2={622} y2={SOL} w={FORT} />
-    <line x1={62} y1={SOL + 64} x2={622} y2={SOL + 64} stroke={ENCRE} strokeWidth={FIN} strokeDasharray="10 5" opacity="0.8" />
-    <text className="gravure-lettrage" x={70} y={SOL + 82} fontSize="11" fill={OXYDE}>
-      Niveau de fondation
+    {/* complexe d'étanchéité : membrane, isolant, bac acier nervuré */}
+    <Trait x1={62} y1={TOIT} x2={640} y2={TOIT} w={FORT} />
+    <line x1={62} y1={TOIT + 8} x2={640} y2={TOIT + 8} stroke={ENCRE} strokeWidth={FIN} />
+    <rect x={62} y={TOIT + 8} width={578} height={16} fill={poche(p, 'beton')} opacity="0.5" stroke="none" />
+    <line x1={62} y1={TOIT + 24} x2={640} y2={TOIT + 24} stroke={ENCRE} strokeWidth={FIN} />
+    {/* bac acier nervuré */}
+    <path
+      d={Array.from({ length: 24 }, (_, i) => {
+        const bx = 62 + i * 24;
+        return `M${bx} ${TOIT + 24} v10 h12 v-10`;
+      }).join(' ')}
+      fill="none"
+      stroke={ENCRE}
+      strokeWidth={FIN}
+    />
+    <text className="gravure-lettrage" x={70} y={TOIT + 52} fontSize="11" fill={OXYDE}>
+      Membrane, isolant, bac d&apos;acier nervuré
     </text>
 
-    <Table x={92} p={p} principal />
-    <Table x={392} p={p} />
-    <Rupture x={600} y={SOL - 90} length={100} vertical />
+    {/* pannes et poutre principale, descente de charge amorcée */}
+    {[150, 330, 510].map((o) => (
+      <g key={o}>
+        <rect x={o - 9} y={TOIT + 36} width={18} height={22} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
+      </g>
+    ))}
+    <rect x={62} y={TOIT + 58} width={578} height={14} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
+    <line x1={330} y1={TOIT + 72} x2={330} y2={TOIT + 132} stroke={ENCRE} strokeWidth={FORT} />
+    <Rupture x={330} y={TOIT + 132} length={80} />
+    <text className="gravure-lettrage" x={344} y={TOIT + 112} fontSize="11">
+      Descente de charge, voir PL. I
+    </text>
+    <PastilleLettre x={124} y={TOIT + 48} l="c" />
 
-    {/* cotes : garde au sol et entraxe de rangées */}
-    <ChaineCotes y={SOL + 132} points={[122, 422]} labels={["e - entraxe d'ombrage"]} attache={SOL + 64} />
-    <ChaineCotes y={68} points={[SOL - 48, SOL]} labels={['g']} attache={110} vertical />
-    <text className="gravure-lettrage" x={84} y={SOL - 24} fontSize="11" textAnchor="end">
-      Garde au sol
+    <Rangee x={96} p={p} principal />
+    <Rangee x={276} p={p} />
+    <Rangee x={456} p={p} />
+
+    {/* cotes : entraxe d'ombrage et recul de rive */}
+    <ChaineCotes y={TOIT + 168} points={[112, 292, 472]} labels={["e - entraxe d'ombrage", 'e']} attache={TOIT + 72} />
+    <ChaineCotes y={196} points={[TOIT - 90, TOIT]} labels={['h']} attache={110} vertical />
+    <text className="gravure-lettrage" x={84} y={TOIT - 118} fontSize="11" textAnchor="end">
+      Hors-tout
     </text>
 
-    {/* clôture de site et piste de maintenance */}
+    {/* rive : recul, garde-corps et chemin de câbles */}
     <g>
-      <line x1={640} y1={SOL} x2={640} y2={SOL - 74} stroke={ENCRE} strokeWidth={MOYEN} />
-      {[0, 1, 2].map((i) => (
-        <line key={i} x1={632} y1={SOL - 20 - i * 22} x2={648} y2={SOL - 20 - i * 22} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+      <line x1={620} y1={TOIT} x2={620} y2={TOIT - 74} stroke={ENCRE} strokeWidth={MOYEN} />
+      {[0, 1].map((i) => (
+        <line key={i} x1={612} y1={TOIT - 30 - i * 26} x2={628} y2={TOIT - 30 - i * 26} stroke={ENCRE} strokeWidth={ULTRAFIN} />
       ))}
-      <text className="gravure-lettrage" x={654} y={SOL - 40} fontSize="11">
-        Clôture de site
+      <text className="gravure-lettrage" x={634} y={TOIT - 52} fontSize="11">
+        Garde-corps de rive
       </text>
-      <line x1={62} y1={SOL + 22} x2={330} y2={SOL + 22} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="5 4" opacity="0.7" />
-      <text className="gravure-lettrage" x={70} y={SOL + 40} fontSize="10" fill={OXYDE}>
-        Piste de maintenance
+      <line x1={596} y1={TOIT - 8} x2={596} y2={TOIT} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+      <rect x={572} y={TOIT - 20} width={26} height={12} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      <text className="gravure-lettrage" x={634} y={TOIT - 14} fontSize="11" fill={OXYDE}>
+        Chemin de câbles
+      </text>
+      <line x1={584} y1={TOIT + 96} x2={620} y2={TOIT + 96} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="5 4" opacity="0.7" />
+      <text className="gravure-lettrage" x={470} y={TOIT + 114} fontSize="10" fill={OXYDE}>
+        Recul de rive, circulation de maintenance
       </text>
     </g>
 
     <NomenclatureLettres
       x={62}
-      y={586}
-      items={['Module et cadre', 'Profilé porteur contreventé', 'Pieu battu']}
+      y={646}
+      items={['Module et cadre', 'Plot ballasté non perçant', 'Panne et poutre porteuse']}
     />
 
     {/* ================= FIG. 2 — RACCORDEMENT ================= */}
-    <RepereFigure x={700} y={96} n="2" title="Du champ au point de livraison" w={330} />
+    <RepereFigure x={700} y={96} n="2" title="De la toiture au point de livraison" w={330} />
 
     <g transform="translate(700 140)">
       {/* string de modules */}
@@ -235,39 +271,49 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
       </text>
     </g>
 
-    {/* ================= FIG. 3 — TRANCHÉE ET TERRE ================= */}
-    <RepereFigure x={62} y={676} n="3" title="Tranchée de câbles et réseau de terre" w={330} />
+    {/* ================= FIG. 3 — TRAVERSÉE ET CHEMINEMENT ================= */}
+    <RepereFigure x={62} y={706} n="3" title="Traversée d&apos;étanchéité et cheminement" w={330} />
 
-    <g transform="translate(62 696)">
-      <rect x={0} y={0} width={220} height={110} fill={`url(#${p}-sol-terrain)`} opacity="0.7" />
-      <Cadre x={0} y={0} w={220} h={110} weight={MOYEN} />
-      {/* remblai compacté */}
-      <rect x={0} y={0} width={220} height={34} fill={`url(#${p}-sol-remblai)`} />
-      {/* grillage avertisseur */}
-      <line x1={8} y1={44} x2={212} y2={44} stroke={OXYDE} strokeWidth={MOYEN} strokeDasharray="6 4" />
-      <text className="gravure-lettrage" x={230} y={48} fontSize="11">
-        Grillage avertisseur
+    <g transform="translate(62 730)">
+      {/* complexe de toiture en coupe, détail */}
+      <rect x={0} y={30} width={220} height={16} fill={poche(p, 'beton')} opacity="0.5" stroke="none" />
+      <line x1={0} y1={30} x2={220} y2={30} stroke={ENCRE} strokeWidth={FORT} />
+      <line x1={0} y1={46} x2={220} y2={46} stroke={ENCRE} strokeWidth={FIN} />
+      <rect x={0} y={46} width={220} height={12} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
+      {/* manchon et relevé d'étanchéité */}
+      <rect x={92} y={-14} width={26} height={44} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+      <path d="M86 30 v-22 q0 -8 8 -8 M124 30 v-22 q0 -8 -8 -8" fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      <rect x={78} y={26} width={54} height={6} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={98} y1={-14} x2={112} y2={30} stroke={LAITON} strokeWidth={MOYEN} />
+      <text className="gravure-lettrage" x={140} y={2} fontSize="11">
+        Manchon et collerette
       </text>
-      {/* lit de sable et câbles */}
-      <rect x={8} y={62} width={204} height={34} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      {[0, 1, 2].map((i) => (
-        <circle key={i} cx={48 + i * 56} cy={79} r={9} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-      ))}
-      <text className="gravure-lettrage" x={230} y={84} fontSize="11">
-        Lit de sable et câbles
+      <text className="gravure-lettrage" x={140} y={20} fontSize="11" fill={OXYDE}>
+        Relevé et platine
+      </text>
+      <text className="gravure-lettrage" x={0} y={82} fontSize="11" fill={OXYDE}>
+        Étanchéité non perforée hors traversée
       </text>
     </g>
 
-    <g transform="translate(430 706)">
-      <line x1={0} y1={20} x2={200} y2={20} stroke={ENCRE} strokeWidth={FIN} />
-      {[0, 1, 2].map((i) => (
-        <g key={i}>
-          <line x1={30 + i * 70} y1={20} x2={30 + i * 70} y2={72} stroke={ENCRE} strokeWidth={MOYEN} />
-          <path d={`M${24 + i * 70} 72 h12 M${26 + i * 70} 78 h8 M${28 + i * 70} 84 h4`} stroke={ENCRE} strokeWidth={ULTRAFIN} fill="none" />
+    <g transform="translate(430 730)">
+      {/* chemin de câbles sur supports */}
+      <line x1={0} y1={46} x2={210} y2={46} stroke={ENCRE} strokeWidth={FORT} />
+      {[16, 100, 184].map((o) => (
+        <g key={o}>
+          <rect x={o - 10} y={20} width={20} height={26} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+          <rect x={o - 18} y={46} width={36} height={8} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={FIN} />
         </g>
       ))}
-      <text className="gravure-lettrage" x={0} y={104} fontSize="11">
-        Réseau de terre, ceinturage et liaison équipotentielle
+      {[0, 1, 2].map((i) => (
+        <line key={i} x1={4} y1={26 + i * 6} x2={206} y2={26 + i * 6} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+      ))}
+      <text className="gravure-lettrage" x={0} y={82} fontSize="11">
+        Chemin de câbles sur supports lestés
+      </text>
+      <path d="M0 100 h210" stroke={OXYDE} strokeWidth={MOYEN} strokeDasharray="7 5" fill="none" />
+      <text className="gravure-lettrage" x={0} y={118} fontSize="11" fill={OXYDE}>
+        Liaison équipotentielle des rails
       </text>
     </g>
 
@@ -288,7 +334,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
         items={[
           'String de modules',
           'Boîte de jonction et parafoudre',
-          'Cheminement en tranchée',
+          'Cheminement en chemin de câbles',
           'Onduleur',
           'Transformateur élévateur',
           'Poste de livraison et comptage',
@@ -296,6 +342,15 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
       />
     </g>
 
-    <Cartouche x={880} y={846} numeral="IX" title="Ferme solaire raccordée" echelle="Éch. symb." />
+    <Cartouche
+      x={880}
+      y={846}
+      numeral="IX"
+      title="Centrale en toiture"
+      echelle="Éch. symb."
+      dossier={VOL_I}
+      index="PL. 9/9"
+      renvois={['Toiture porteuse : PL. I', 'Emprise en toiture : PL. VIII']}
+    />
   </>
 );
