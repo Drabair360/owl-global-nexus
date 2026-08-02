@@ -271,51 +271,87 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
       </text>
     </g>
 
-    {/* ================= FIG. 3 — TRAVERSÉE ET CHEMINEMENT ================= */}
-    <RepereFigure x={62} y={782} n="3" title="Traversée d&apos;étanchéité et cheminement" w={330} />
+    {/* ================= FIG. 3 — LA MAILLE TYPE ================= */}
+    <RepereFigure x={62} y={750} n="3" title="Maille élémentaire, vue en plan" w={330} />
 
-    <g transform="translate(62 802)">
-      {/* complexe de toiture en coupe, détail */}
-      <rect x={0} y={30} width={220} height={16} fill={poche(p, 'beton')} opacity="0.5" stroke="none" />
-      <line x1={0} y1={30} x2={220} y2={30} stroke={ENCRE} strokeWidth={FORT} />
-      <line x1={0} y1={46} x2={220} y2={46} stroke={ENCRE} strokeWidth={FIN} />
-      <rect x={0} y={46} width={220} height={12} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
-      {/* manchon et relevé d'étanchéité */}
-      <rect x={92} y={-14} width={26} height={44} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-      <path d="M86 30 v-22 q0 -8 8 -8 M124 30 v-22 q0 -8 -8 -8" fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <rect x={78} y={26} width={54} height={6} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={FIN} />
-      <line x1={98} y1={-14} x2={112} y2={30} stroke={LAITON} strokeWidth={MOYEN} />
-      <text className="gravure-lettrage" x={140} y={2} fontSize="11">
-        Manchon et collerette
+    <g transform="translate(62 764)">
+      {/* cerclage de la maille : ce qui se répète */}
+      <rect x={-10} y={4} width={316} height={96} rx={10} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
+      {/* deux rangées de cinq modules, en plan */}
+      {[0, 1].map((r) =>
+        Array.from({ length: 5 }).map((_, i) => (
+          <rect
+            key={`${r}-${i}`}
+            x={i * 58}
+            y={18 + r * 38}
+            width={52}
+            height={26}
+            fill="none"
+            stroke={ENCRE}
+            strokeWidth={MOYEN}
+          />
+        )),
+      )}
+      {/* rails porteurs */}
+      {[14, 52].map((y) => (
+        <line key={y} x1={-4} y1={y} x2={290} y2={y} stroke={ENCRE} strokeWidth={FIN} />
+      ))}
+      {/* fixations ballastées non perçantes */}
+      {[6, 122, 238].map((x) => (
+        <g key={x}>
+          <rect x={x} y={46} width={18} height={7} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={FIN} />
+          <rect x={x} y={84} width={18} height={7} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={FIN} />
+        </g>
+      ))}
+      {/* le string : une seule mise en série sur la maille */}
+      <path d="M6 31 H278 V69 H6" fill="none" stroke={ENCRE} strokeWidth={FORT} />
+      <path d="M6 69 h-22 v-38" fill="none" stroke={ENCRE} strokeWidth={FORT} />
+      <text className="gravure-lettrage" x={-20} y={22} fontSize="11" textAnchor="end">
+        Un string
       </text>
-      <text className="gravure-lettrage" x={140} y={20} fontSize="11" fill={OXYDE}>
-        Relevé et platine
+      <text className="gravure-lettrage" x={306} y={35} fontSize="11">
+        Vers boîte de jonction, FIG. 2
       </text>
-      <text className="gravure-lettrage" x={0} y={82} fontSize="11" fill={OXYDE}>
-        Étanchéité non perforée hors traversée
+      <text className="gravure-lettrage" x={-10} y={116} fontSize="11" fill={OXYDE}>
+        Maille type - répéter selon toiture
+      </text>
+      <text className="gravure-lettrage" x={-10} y={134} fontSize="10" fill={OXYDE}>
+        Nombre de modules et de mailles selon emprise, PL. VIII
       </text>
     </g>
 
-    <g transform="translate(430 792)">
-      {/* chemin de câbles sur supports */}
-      <line x1={0} y1={46} x2={210} y2={46} stroke={ENCRE} strokeWidth={FORT} />
-      {[16, 100, 184].map((o) => (
-        <g key={o}>
-          <rect x={o - 10} y={20} width={20} height={26} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-          <rect x={o - 18} y={46} width={36} height={8} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={FIN} />
-        </g>
-      ))}
-      {[0, 1, 2].map((i) => (
-        <line key={i} x1={4} y1={26 + i * 6} x2={206} y2={26 + i * 6} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      ))}
-      <text className="gravure-lettrage" x={0} y={82} fontSize="11">
-        Chemin de câbles sur supports lestés
+    {/* ================= DÉT. 1 — TRAVERSÉE D'ÉTANCHÉITÉ ================= */}
+    <g>
+      <circle cx={520} cy={812} r={84} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
+      <text className="gravure-lettrage" x={520} y={714} fontSize="11" textAnchor="middle">
+        Dét. 1 - traversée d&apos;étanchéité
       </text>
-      <path d="M0 100 h210" stroke={OXYDE} strokeWidth={MOYEN} strokeDasharray="7 5" fill="none" />
-      <text className="gravure-lettrage" x={0} y={118} fontSize="11" fill={OXYDE}>
+      <g transform="translate(520 816) scale(0.86)">
+        {/* complexe de toiture en coupe */}
+        <rect x={-84} y={4} width={168} height={16} fill={poche(p, 'beton')} opacity="0.5" stroke="none" />
+        <line x1={-84} y1={4} x2={84} y2={4} stroke={ENCRE} strokeWidth={FORT} />
+        <line x1={-84} y1={20} x2={84} y2={20} stroke={ENCRE} strokeWidth={FIN} />
+        <rect x={-84} y={20} width={168} height={12} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
+        {/* manchon, relevé, collerette, platine */}
+        <rect x={-13} y={-42} width={26} height={46} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+        <path d="M-19 4 v-24 q0 -8 8 -8 M19 4 v-24 q0 -8 -8 -8" fill="none" stroke={ENCRE} strokeWidth={FIN} />
+        <rect x={-27} y={0} width={54} height={6} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={FIN} />
+        <line x1={-6} y1={-42} x2={6} y2={4} stroke={ENCRE} strokeWidth={MOYEN} />
+      </g>
+      <text className="gravure-lettrage" x={618} y={790} fontSize="11">
+        Manchon et collerette
+      </text>
+      <text className="gravure-lettrage" x={618} y={808} fontSize="11" fill={OXYDE}>
+        Relevé et platine
+      </text>
+      <text className="gravure-lettrage" x={618} y={826} fontSize="11" fill={OXYDE}>
+        Étanchéité non perforée hors traversée
+      </text>
+      <text className="gravure-lettrage" x={618} y={844} fontSize="11" fill={OXYDE}>
         Liaison équipotentielle des rails
       </text>
     </g>
+
 
     {/* ================= NOMENCLATURE DC / AC ================= */}
     <g>
