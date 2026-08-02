@@ -176,7 +176,7 @@ const Medaillon = ({ p, rep, emblem }: { p: Pt; rep: string; emblem: React.React
       return <circle key={i} cx={Math.cos(a) * 43} cy={Math.sin(a) * 43} r={1.1} fill={ENCRE} opacity="0.7" />;
     })}
     <g transform="translate(0 -1)">{emblem}</g>
-    <Repere x={(dx / l) * 70} y={(dy / l) * 70 + 4}>
+    <Repere x={(dx / l) * 40} y={(dy / l) * 70 + 4}>
       {rep}
     </Repere>
   </g>
