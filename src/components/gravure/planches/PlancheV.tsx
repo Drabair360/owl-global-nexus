@@ -94,6 +94,31 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
       <circle cx={M0 + 7 * MES - 20} cy={P2 - 6} r={2.6} fill={ENCRE} />
       <circle cx={M0 + 7 * MES - 20} cy={P2 + 6} r={2.6} fill={ENCRE} />
     </g>
+    {/* numéros de mesure */}
+    {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+      <text key={`n${i}`} className="gravure-lettrage" x={M0 + i * MES + 6} y={P1 - 26} fontSize="10" fill={OXYDE}>
+        {i + 1}
+      </text>
+    ))}
+    {/* liaisons de tenue : une ressource tenue sur deux mesures */}
+    <path
+      d={`M${M0 + 46} ${P2 + 14} q${MES / 2} 18 ${MES} 0`}
+      fill="none"
+      stroke={ENCRE}
+      strokeWidth={ULTRAFIN}
+      opacity="0.8"
+    />
+    {/* coda : fin de cycle */}
+    <g transform={`translate(${M0 + 7 * MES + 26} ${P3})`}>
+      <circle cx={0} cy={0} r={11} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={-15} y1={0} x2={15} y2={0} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+      <line x1={0} y1={-15} x2={0} y2={15} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+      <text className="gravure-lettrage" x={0} y={30} fontSize="10" textAnchor="middle">
+        Fin de cycle
+      </text>
+    </g>
+
+
 
     {/* notes */}
     {[0, 1, 2, 3, 4, 5, 6].map((i) => (
