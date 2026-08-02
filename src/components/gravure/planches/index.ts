@@ -35,7 +35,7 @@ export const CABINET: PlancheEntree[] = [
   { meta: PLANCHE_IV, Drawing: PlancheIVDrawing, emplacement: '/portefeuille/drabair-labs', laiton: "L'arbre de transmission commun" },
   { meta: PLANCHE_V, Drawing: PlancheVDrawing, emplacement: '/portefeuille/weavme', laiton: 'Le segment de résolution' },
   { meta: PLANCHE_VI, Drawing: PlancheVIDrawing, emplacement: '/portefeuille/owl-real-estate', laiton: "Le seuil d'entrée" },
-  { meta: PLANCHE_VII, Drawing: PlancheVIIDrawing, emplacement: '/', laiton: 'Le flux lui-même' },
+  { meta: PLANCHE_VII, Drawing: PlancheVIIDrawing, emplacement: '/', laiton: 'Le circuit du modèle' },
   { meta: PLANCHE_VIII, Drawing: PlancheVIIIDrawing, emplacement: '/groupe', laiton: 'La marche en avant' },
   { meta: PLANCHE_IX, Drawing: PlancheIXDrawing, emplacement: '/engagements', laiton: 'La ligne de raccordement' },
   { meta: PLANCHE_XII, Drawing: PlancheXIIDrawing, emplacement: '404 et états vides', laiton: "L'œil" },
