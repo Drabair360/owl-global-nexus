@@ -238,7 +238,7 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     <RepereFigure x={760} y={512} n="3" title="Nomenclature des signes" w={300} />
 
     <BlocTexte>
-      <g transform="translate(772 536)">
+      <g transform="translate(772 530)">
         <Signe x={0} y={0} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={ENCRE} strokeWidth={MOYEN} />}>
           Engagement confirmé
         </Signe>
@@ -291,7 +291,7 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     <BlocTexte>
       <Cartouche
         x={880}
-        y={794}
+        y={802}
         numeral="V"
         title="Graphique d'engagements"
         echelle="Éch. symb."
