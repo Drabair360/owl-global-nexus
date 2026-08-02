@@ -47,24 +47,34 @@ const Cartouche = ({
   renvois?: string[];
 }) => (
   <g transform={`translate(${x} ${y})`} aria-hidden="true">
-    {dossier && (
-      <g transform="translate(0 -46)">
-        <rect x="0" y="0" width={w} height={44} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
-        <text className="gravure-lettrage" x="12" y="18" fontSize="10" fill={ENCRE}>
-          {dossier}
-        </text>
-        {index && (
-          <text className="gravure-lettrage" x={w - 12} y="18" fontSize="11" textAnchor="end" fill={OXYDE}>
-            {index}
+    {dossier && (() => {
+      const [tete, sujet] = dossier.split(' : ');
+      const lignes = renvois && renvois.length > 0 ? 1 : 0;
+      const bh = 34 + (sujet ? 14 : 0) + lignes * 15;
+      return (
+        <g transform={`translate(0 ${-bh - 4})`}>
+          <rect x="0" y="0" width={w} height={bh} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
+          <text className="gravure-lettrage" x="12" y="15" fontSize="10" fill={ENCRE}>
+            {tete}
           </text>
-        )}
-        {renvois && renvois.length > 0 && (
-          <text className="gravure-lettrage" x="12" y="34" fontSize="10" fill={OXYDE}>
-            {renvois.join('  -  ')}
-          </text>
-        )}
-      </g>
-    )}
+          {index && (
+            <text className="gravure-lettrage" x={w - 12} y="15" fontSize="10" textAnchor="end" fill={OXYDE}>
+              {index}
+            </text>
+          )}
+          {sujet && (
+            <text className="gravure-lettrage" x="12" y="29" fontSize="10" fill={ENCRE} opacity="0.85">
+              {sujet}
+            </text>
+          )}
+          {renvois && renvois.length > 0 && (
+            <text className="gravure-lettrage" x="12" y={bh - 8} fontSize="9" fill={OXYDE}>
+              {renvois.join('  -  ')}
+            </text>
+          )}
+        </g>
+      );
+    })()}
 
     <rect x="0" y="0" width={w} height={h} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FORT} />
     <line x1="0" y1={h * 0.44} x2={w} y2={h * 0.44} stroke={ENCRE} strokeWidth={FIN} opacity="0.6" />
