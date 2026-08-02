@@ -416,31 +416,31 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     {/* ---------- LÉGENDE DES FAMILLES ---------- */}
     <BlocTexte>
       <g>
-        <line x1={64} y1={1170} x2={124} y2={1170} stroke={ENCRE} strokeWidth={FORT} />
-        <text className="gravure-lettrage" x={136} y={1174} fontSize="12">
-          Structure de toiture, dessin de la PL. I
+        <line x1={64} y1={1160} x2={112} y2={1160} stroke={ENCRE} strokeWidth={FORT} />
+        <text className="gravure-lettrage" x={124} y={1164} fontSize="12">
+          Structure de toiture (PL. I)
         </text>
-        <line x1={464} y1={1170} x2={524} y2={1170} stroke={ENCRE} strokeWidth={MOYEN} />
-        <text className="gravure-lettrage" x={536} y={1174} fontSize="12">
-          Champ photovoltaïque, fixé sur nervures
+        <line x1={300} y1={1160} x2={348} y2={1160} stroke={ENCRE} strokeWidth={MOYEN} />
+        <text className="gravure-lettrage" x={360} y={1164} fontSize="12">
+          Champ photovoltaïque
         </text>
-        <line x1={864} y1={1170} x2={924} y2={1170} stroke={LAITON} strokeWidth={FORT} />
-        <text className="gravure-lettrage" x={936} y={1174} fontSize="12">
-          Raccordement jusqu&apos;au point de livraison
+        <line x1={540} y1={1160} x2={588} y2={1160} stroke={LAITON} strokeWidth={FORT} />
+        <text className="gravure-lettrage" x={600} y={1164} fontSize="12">
+          Raccordement, laiton
         </text>
       </g>
-      <text className="gravure-lettrage" x={64} y={1204} fontSize="12" fill={OXYDE}>
-        Ni membrane ni isolant de toiture-terrasse, aucun plot ballasté : l&apos;étanchéité du bac
+      <text className="gravure-lettrage" x={64} y={1196} fontSize="12" fill={OXYDE}>
+        Ni membrane ni isolant de toiture-terrasse, aucun plot ballasté.
       </text>
-      <text className="gravure-lettrage" x={64} y={1226} fontSize="12" fill={OXYDE}>
-        n&apos;est perforée qu&apos;en sommet de nervure, DÉT. 1 - drainage naturel conservé.
+      <text className="gravure-lettrage" x={64} y={1218} fontSize="12" fill={OXYDE}>
+        Étanchéité perforée en sommet de nervure seulement, DÉT. 1 - drainage naturel conservé.
       </text>
     </BlocTexte>
 
     <BlocTexte>
       <Cartouche
         x={800}
-        y={1200}
+        y={1216}
         w={380}
         numeral="IX"
         title="Centrale en toiture"
