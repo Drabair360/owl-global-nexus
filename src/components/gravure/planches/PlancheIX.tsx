@@ -5,7 +5,6 @@ import {
   Trait,
   Cadre,
   poche,
-  Attache,
   RepereFigure,
   Pastille,
   Nomenclature,
@@ -137,7 +136,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
 
     <NomenclatureLettres
       x={62}
-      y={608}
+      y={586}
       items={['Module et cadre', 'Profilé porteur contreventé', 'Pieu battu']}
     />
 
@@ -236,12 +235,10 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
       </text>
     </g>
 
-    <Attache x={748} y={560} dx={-190} dy={-140} label="Ligne de raccordement" anchor="end" />
-
     {/* ================= FIG. 3 — TRANCHÉE ET TERRE ================= */}
-    <RepereFigure x={62} y={664} n="3" title="Tranchée de câbles et réseau de terre" w={330} />
+    <RepereFigure x={62} y={676} n="3" title="Tranchée de câbles et réseau de terre" w={330} />
 
-    <g transform="translate(62 690)">
+    <g transform="translate(62 696)">
       <rect x={0} y={0} width={220} height={110} fill={`url(#${p}-sol-terrain)`} opacity="0.7" />
       <Cadre x={0} y={0} w={220} h={110} weight={MOYEN} />
       {/* remblai compacté */}
@@ -261,7 +258,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
       </text>
     </g>
 
-    <g transform="translate(430 700)">
+    <g transform="translate(430 706)">
       <line x1={0} y1={20} x2={200} y2={20} stroke={ENCRE} strokeWidth={FIN} />
       {[0, 1, 2].map((i) => (
         <g key={i}>
