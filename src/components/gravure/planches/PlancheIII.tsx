@@ -1,396 +1,522 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
 import Cartouche, { VOL_I } from '../Cartouche';
+import { RepereFigure, MIXTE_DASH } from '../primitives';
 import {
-  Trait,
-  Cadre,
-  poche,
-  Attache,
-  RepereFigure,
-  Pastille,
-  Nomenclature,
-  CercleDetail,
-  TraceCache,
-  AxeMixte,
-  FlechePente,
-} from '../primitives';
+  TitrePlanche,
+  BandeauZone,
+  SensLecture,
+  EchelleLibelles,
+  Repere,
+  BlocTexte,
+} from '../lisibilite';
 
 /**
- * PLANCHE III — FLOWSHEET AGRO CONFIGURABLE (fiche Line Builder).
- * Le produit est le flowsheet lui-même : une ligne, plusieurs filières.
- *   FIG. 1  la ligne : réception, manutention, nettoyage, calibrage,
- *           transformation (module variante), dosage, conditionnement
- *   FIG. 2  le cadre de configuration : trois modules variantes en pointillé,
- *           chacun sur le même piquage, chacun sa filière
- *   FIG. 3  légende des flux d'utilités et bilan matière symbolique
- * Rehaut de laiton unique : LA LIGNE DE CONFIGURATION (le piquage commun).
- * Les bulles d'instrumentation et les repères d'équipement sont des
- * étiquettes de convention : aucune référence normative n'est écrite.
+ * PLANCHE III — CONFIGURATEUR DE LIGNE, SORTIE CFG-A (VOL. I, PL. 3/9).
+ * PHASE M1 — reconstruction complète sur le système L.
+ *
+ * LES TROIS LECTURES
+ *   3 s    Le titre et la forme : une filière unique, une seule phrase qui
+ *          va de la matière première (à gauche) au produit conditionné
+ *          (à droite), sous une flèche de sens unique.
+ *   30 s   Les six zones nommées - Réception, Nettoyage, Calibrage,
+ *          Transformation, Dosage, Conditionnement - et les trois étages :
+ *          aspiration au-dessus (trait fin), procédé au centre (trait fort),
+ *          utilités en dessous (trait mixte) ; le laiton de la planche
+ *          désigne, en FIG. 2, la colonne de filière retenue : CFG-A.
+ *   3 min  Chaque symbole porte son repère au dessin (T-101, S-201...) et son
+ *          libellé complet en échelle de marge ; la boucle de recyclage des
+ *          refus, le rejet écarté, le by-pass de calibrage, les variantes
+ *          raccordées et le bilan matière symbolique se lisent au détail.
+ *
+ * Rehaut de laiton unique : LA COLONNE CFG-A DE LA MATRICE (FIG. 2).
+ * Les repères d'équipement sont des étiquettes de convention : aucune
+ * référence normative, aucun chiffre d'exploitation.
  */
 
-const YA = 250; // rangée haute du flowsheet
-const YB = 470; // rangée basse
+/* ---------------- géométrie du bandeau de procédé ---------------- */
+const BX = 150; // bord gauche du dessin
+const BW = 1030; // largeur du dessin
+const BY = 170; // haut du bandeau
+const BH = 310; // hauteur du bandeau
 
-/** Bulle d'instrumentation : deux lettres, trait fin de boucle. */
-const Bulle = ({ x, y, l, to }: { x: number; y: number; l: string; to?: number }) => (
+const Y_ASP = 212; // étage aspiration
+const Y_PRO = 330; // étage procédé
+const Y_UTI = 452; // étage utilités
+const HB = 21; // demi-hauteur des masses
+const WB = 23; // demi-largeur des masses
+const Y_REP = 372; // ligne des repères, sous les masses
+
+type Glyphe = (props: { x: number; y: number }) => JSX.Element;
+
+/** Une masse d'équipement : cadre, glyphe intérieur, repère court dessous. */
+const Equip = ({
+  x,
+  y = Y_PRO,
+  rep,
+  glyphe,
+  yRep = Y_REP,
+}: {
+  x: number;
+  y?: number;
+  rep: string;
+  glyphe: Glyphe;
+  yRep?: number;
+}) => (
   <g>
-    {to !== undefined && (
-      <line x1={x} y1={y + 14} x2={x} y2={to} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="4 3" opacity="0.7" />
-    )}
-    <circle cx={x} cy={y} r={14} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
-    <line x1={x - 14} y1={y} x2={x + 14} y2={y} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.6" />
-    <text className="gravure-lettrage" x={x} y={y - 3} fontSize="10" textAnchor="middle">
-      {l}
-    </text>
+    <rect
+      x={x - WB}
+      y={y - HB}
+      width={WB * 2}
+      height={HB * 2}
+      fill="hsl(var(--gravure-fond))"
+      stroke={ENCRE}
+      strokeWidth={MOYEN}
+    />
+    {glyphe({ x, y })}
+    <Repere x={x} y={yRep}>
+      {rep}
+    </Repere>
   </g>
 );
 
-/** Repère d'équipement porté sous une masse. */
-const Repere = ({ x, y, t }: { x: number; y: number; t: string }) => (
-  <text className="gravure-lettrage" x={x} y={y} fontSize="11" textAnchor="middle" fill={OXYDE}>
-    {t}
-  </text>
+/* --------- glyphes : un dessin par fonction, jamais décoratif --------- */
+const gTremie: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <path d={`M${x - 14} ${y - 12} h28 l-9 20 h-10 z`} />
+    <line x1={x - 14} y1={y - 12} x2={x + 14} y2={y - 12} strokeWidth={MOYEN} />
+    {[-10, -3, 4, 11].map((d) => (
+      <line key={d} x1={x + d} y1={y - 16} x2={x + d} y2={y - 12} strokeWidth={ULTRAFIN} />
+    ))}
+  </g>
+);
+const gElevateur: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <rect x={x - 7} y={y - 15} width={14} height={30} />
+    {[-11, -4, 3, 10].map((d) => (
+      <path key={d} d={`M${x - 5} ${y + d} h5 v4 h-5 z`} strokeWidth={ULTRAFIN} />
+    ))}
+  </g>
+);
+const gSeparateur: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <path d={`M${x - 14} ${y + 2} q7 -12 14 0 q7 12 14 0`} />
+    <path d={`M${x - 14} ${y + 12} q7 -12 14 0 q7 12 14 0`} strokeWidth={ULTRAFIN} />
+  </g>
+);
+const gTamis: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <line x1={x - 15} y1={y - 8} x2={x + 15} y2={y - 3} strokeDasharray="3 3" />
+    <line x1={x - 15} y1={y + 3} x2={x + 15} y2={y + 8} strokeDasharray="3 3" />
+  </g>
+);
+const gAimant: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <path d={`M${x - 11} ${y + 10} v-8 a11 11 0 0 1 22 0 v8`} />
+    <line x1={x - 11} y1={y + 10} x2={x - 4} y2={y + 10} strokeWidth={MOYEN} />
+    <line x1={x + 4} y1={y + 10} x2={x + 11} y2={y + 10} strokeWidth={MOYEN} />
+  </g>
+);
+const gPlansichter: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN}>
+    {[-12, -6, 0, 6, 12].map((d) => (
+      <line key={d} x1={x - 15} y1={y + d} x2={x + 15} y2={y + d} />
+    ))}
+  </g>
+);
+const gBypass: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <path d={`M${x - 15} ${y + 8} q15 -30 30 0`} strokeDasharray="6 4" />
+    <line x1={x - 15} y1={y + 8} x2={x + 15} y2={y + 8} strokeWidth={ULTRAFIN} />
+  </g>
+);
+const gBroyeur: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <circle cx={x - 8} cy={y} r={9} />
+    <circle cx={x + 8} cy={y} r={9} />
+    <line x1={x - 8} y1={y - 4} x2={x - 8} y2={y + 4} strokeWidth={ULTRAFIN} />
+    <line x1={x + 8} y1={y - 4} x2={x + 8} y2={y + 4} strokeWidth={ULTRAFIN} />
+  </g>
+);
+const gPiquage: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <path d={`M${x - 12} ${y - 8} L${x} ${y} L${x - 12} ${y + 8} z`} />
+    <path d={`M${x + 12} ${y - 8} L${x} ${y} L${x + 12} ${y + 8} z`} />
+    <line x1={x} y1={y - 14} x2={x} y2={y - 8} strokeWidth={ULTRAFIN} />
+  </g>
+);
+const gPeseuse: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <path d={`M${x - 13} ${y - 12} h26 l-8 18 h-10 z`} />
+    <line x1={x - 13} y1={y + 12} x2={x + 13} y2={y + 12} strokeWidth={MOYEN} />
+    <line x1={x} y1={y + 6} x2={x} y2={y + 12} strokeWidth={ULTRAFIN} />
+  </g>
+);
+const gMelangeur: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <rect x={x - 15} y={y - 10} width={30} height={20} rx={9} />
+    <path d={`M${x - 11} ${y} q6 -9 11 0 q6 9 11 0`} strokeWidth={ULTRAFIN} />
+  </g>
+);
+const gEnsacheuse: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <path d={`M${x - 10} ${y - 14} h20 l-4 10 h-12 z`} />
+    <rect x={x - 9} y={y - 2} width={18} height={16} />
+  </g>
+);
+const gPesee: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <path d={`M${x - 13} ${y + 10} h26`} strokeWidth={MOYEN} />
+    <line x1={x} y1={y + 10} x2={x} y2={y - 12} />
+    <path d={`M${x - 12} ${y - 12} h24`} />
+    <path d={`M${x - 12} ${y - 12} l-4 8 h8 z`} strokeWidth={ULTRAFIN} />
+    <path d={`M${x + 12} ${y - 12} l-4 8 h8 z`} strokeWidth={ULTRAFIN} />
+  </g>
+);
+const gPalettiseur: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <rect x={x - 13} y={y + 2} width={26} height={9} />
+    <rect x={x - 10} y={y - 8} width={20} height={9} />
+    <rect x={x - 7} y={y - 18} width={14} height={9} strokeDasharray="4 3" />
+  </g>
+);
+const gFiltre: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <rect x={x - 14} y={y - 13} width={28} height={26} />
+    {[-8, -2, 4, 10].map((d) => (
+      <line key={d} x1={x + d} y1={y - 9} x2={x + d} y2={y + 9} strokeWidth={ULTRAFIN} />
+    ))}
+  </g>
+);
+const gNourrice: Glyphe = ({ x, y }) => (
+  <g fill="none" stroke={ENCRE} strokeWidth={FIN}>
+    <rect x={x - 15} y={y - 7} width={30} height={14} rx={7} />
+    {[-8, 0, 8].map((d) => (
+      <line key={d} x1={x + d} y1={y - 12} x2={x + d} y2={y - 7} strokeWidth={ULTRAFIN} />
+    ))}
+  </g>
 );
 
-/** Vanne de coupure : deux triangles opposés. */
-const Vanne = ({ x, y }: { x: number; y: number }) => (
-  <g>
-    <path d={`M${x - 8} ${y - 7} L${x} ${y} L${x - 8} ${y + 7} z`} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-    <path d={`M${x + 8} ${y - 7} L${x} ${y} L${x + 8} ${y + 7} z`} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-  </g>
+/** Flèche de procédé posée sur l'étage fort. */
+const FlecheProcede = ({ x, y = Y_PRO }: { x: number; y?: number }) => (
+  <path d={`M${x} ${y} l-11 -5 v10 z`} fill={ENCRE} />
 );
 
 export const PLANCHE_III = {
   numeral: 'III',
   title: 'Configurateur de ligne, sortie CFG-A',
   desc:
-    "Gravure au trait, planche à trois figures représentant la sortie du configurateur de ligne agro-industrielle. FIGURE 1, la configuration CFG-A telle qu'elle sort du configurateur : la matière entre par une trémie de réception surmontée d'une grille anti-corps étrangers, descend en fosse, remonte par un élévateur à godets, chemine sur un convoyeur à bande incliné puis une vis sans fin, traverse un poste de nettoyage et d'épierrage composé d'un séparateur à air, d'un tamis vibrant et d'un aimant à barreaux, se calibre dans un plansichter à étages doublé d'un by-pass, puis rejoint le poste de transformation où la variante retenue est raccordée sur le piquage commun ; en aval, une trémie peseuse et un mélangeur à rubans assurent le dosage et le mélange, une ensacheuse, une pesée-contrôle, un cerclage et un palettiseur assurent le conditionnement. Le flux matière est tracé en trait fort continu et fléché ; le réseau d'aspiration est tracé à part, dans son propre trait, et relie les capots du nettoyage, du calibrage et de l'ensachage au filtre à manches et à son rejet filtré ; une boucle de recyclage des refus ramène en amont les refus du calibrage, la part non recyclable étant écartée. Des vannes de coupure jalonnent le parcours, des bulles d'instrumentation à deux lettres marquent les points de mesure, et un point d'échantillonnage qualité est posé après le calibrage, avec sa prise et son bocal. FIGURE 2, la matrice du configurateur : six familles de modules en lignes, trois filières en colonnes, mouture, oléagineux et séchage ; chaque case porte un module commun, un module en variante ou une absence ; la colonne de la filière retenue est rehaussée de laiton et forme la configuration CFG-A lue en FIGURE 1. FIGURE 3, les variantes raccordées sur le piquage commun, broyeur à cylindres, presse et séchoir rotatif, dessinées en trait interrompu, avec la légende des flux d'utilités, vapeur, air comprimé, eau de procédé et électricité, et un bilan matière symbolique, entrée, sortie, refus recyclés et refus écartés, sans aucun chiffre d'exploitation. Les repères d'équipement portés au dessin sont des étiquettes de convention. Nomenclature de douze entrées et cartouche de dossier.",
-  viewBox: '0 0 1240 900',
-  detailViewBox: '600 330 420 320',
+    "Gravure au trait, planche à trois figures représentant la sortie du configurateur de ligne agro-industrielle pour une filière unique, la mouture. Le titre est en tête de planche et le dessin se lit strictement de gauche à droite, de la matière première au produit conditionné, sous une flèche de sens unique. FIGURE 1 : le bandeau de procédé est divisé en six zones nommées, réception, nettoyage, calibrage, transformation, dosage et conditionnement, et se lit sur trois étages distincts. Au centre, l'étage du procédé est tracé au trait fort et fléché : trémie de réception, élévateur à godets, séparateur à air, tamis vibrant, aimant à barreaux, plansichter à étages, by-pass de calibrage, broyeur à cylindres, piquage commun de variante, trémie peseuse, mélangeur à rubans, ensacheuse, pesée-contrôle et palettiseur. Au-dessus, l'étage d'aspiration est tracé au trait fin : trois descentes captent les capots du nettoyage, du calibrage et de l'ensachage et rejoignent le filtre à manches, dont le rejet filtré est fléché vers le haut. En dessous, l'étage des utilités est tracé au trait mixte depuis la nourrice, avec trois piquages remontant vers la transformation, le dosage et le conditionnement. Une boucle de recyclage ramène les refus du calibrage en amont de l'élévateur ; la part non recyclable est écartée. Chaque masse porte au dessin un repère court et rien d'autre ; tous les libellés complets vivent hors du dessin, dans une échelle de marge alignée en trois colonnes, chaque entrée liant son repère à sa désignation. Une légende de famille rappelle les trois étages. FIGURE 2, la matrice du configurateur : six familles de modules en lignes, trois filières en colonnes, mouture, oléagineux et séchage, chaque case portant un module commun, une variante ou une absence ; la colonne de la filière retenue est seule rehaussée de laiton et forme la configuration CFG-A lue en figure une. FIGURE 3, les variantes raccordées sur le piquage commun, broyeur à cylindres, presse et séchoir rotatif, en trait interrompu, avec le bilan matière symbolique, entrée, sortie, refus recyclés et refus écartés, sans aucun chiffre d'exploitation. Cartouche de dossier, volume premier, mention concept.",
+  viewBox: '0 0 1240 1290',
+  detailViewBox: '470 150 480 380',
 };
 
 export const PlancheIIIDrawing = ({ p }: { p: string }) => (
   <>
     <GravureDefs p={p} />
 
-    {/* ================= FIG. 1 — LA LIGNE ================= */}
-    <RepereFigure x={60} y={96} n="1" title="Configuration CFG-A, de la réception au conditionnement" w={380} />
+    {/* ============ 3 SECONDES — LE TITRE ET LE SUJET ============ */}
+    <TitrePlanche
+      x={60}
+      y={46}
+      titre="Configurateur de ligne, sortie CFG-A"
+      sous="Filière mouture, de la matière première au produit conditionné - le procédé va de gauche à droite"
+    />
 
-    {/* --- réception : trémie, grille, fosse --- */}
-    <g>
-      <path d="M74 176 L182 176 L152 236 L104 236 z" fill="none" stroke={ENCRE} strokeWidth={FORT} />
-      {Array.from({ length: 6 }).map((_, i) => (
-        <line key={i} x1={80 + i * 20} y1={176} x2={80 + i * 20} y2={186} stroke={ENCRE} strokeWidth={FIN} />
-      ))}
-      <line x1={74} y1={176} x2={182} y2={176} stroke={ENCRE} strokeWidth={MOYEN} />
-      <rect x={104} y={236} width={48} height={26} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={MOYEN} />
-      <Repere x={128} y={282} t="T-101" />
-      <FlechePente x={128} y={140} dx={0} dy={28} label="Entrée matière" />
-    </g>
+    <RepereFigure x={60} y={126} n="1" title="La filière retenue, en une seule phrase" w={420} />
 
-    {/* --- élévateur à godets --- */}
-    <g>
-      <Cadre x={200} y={150} w={34} h={140} weight={MOYEN} />
-      {Array.from({ length: 5 }).map((_, i) => (
-        <path key={i} d={`M206 ${170 + i * 26} h10 v9 h-10 z`} fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      ))}
-      <line x1={217} y1={150} x2={217} y2={290} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="14 4 3 4" opacity="0.7" />
-      <Repere x={217} y={306} t="E-102" />
-    </g>
+    {/* ============ 30 SECONDES — LES ZONES NOMMÉES ============ */}
+    <BandeauZone x={BX} y={BY} w={160} h={BH} label="Réception" />
+    <BandeauZone x={310} y={BY} w={190} h={BH} label="Nettoyage" />
+    <BandeauZone x={500} y={BY} w={160} h={BH} label="Calibrage" />
+    <BandeauZone x={660} y={BY} w={190} h={BH} label="Transformation" />
+    <BandeauZone x={850} y={BY} w={150} h={BH} label="Dosage" />
+    <BandeauZone x={1000} y={BY} w={180} h={BH} label="Conditionnement" />
 
-    {/* --- convoyeur à bande incliné puis vis sans fin --- */}
-    <g>
-      <line x1={234} y1={168} x2={330} y2={196} stroke={ENCRE} strokeWidth={FORT} />
-      <line x1={234} y1={186} x2={330} y2={214} stroke={ENCRE} strokeWidth={FIN} />
-      <circle cx={238} cy={177} r={7} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <circle cx={326} cy={205} r={7} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <Repere x={282} y={244} t="C-103" />
-    </g>
+    {/* ============ LES TROIS ÉTAGES, NOMMÉS EN MARGE ============ */}
+    <Repere x={64} y={Y_ASP + 4} anchor="start">Aspiration</Repere>
+    <Repere x={64} y={Y_PRO + 4} anchor="start">Procédé</Repere>
+    <Repere x={64} y={Y_UTI + 4} anchor="start">Utilités</Repere>
 
-    {/* --- nettoyage et épierrage --- */}
-    <g>
-      <Cadre x={348} y={YA - 96} w={132} h={124} weight={FORT} />
-      {/* séparateur à air */}
-      <path d="M362 176 q28 -18 56 0" fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      {/* tamis vibrant, deux étages inclinés */}
-      <line x1={358} y1={200} x2={470} y2={214} stroke={ENCRE} strokeWidth={MOYEN} strokeDasharray="3 3" />
-      <line x1={358} y1={222} x2={470} y2={236} stroke={ENCRE} strokeWidth={MOYEN} strokeDasharray="3 3" />
-      {/* aimant à barreaux */}
-      <rect x={366} y={248} width={40} height={12} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={FIN} />
-      <Repere x={414} y={294} t="S-201" />
-      <Bulle x={500} y={168} l="PT" to={196} />
-    </g>
-
-    {/* --- calibrage : plansichter à étages + by-pass --- */}
-    <g>
-      <Cadre x={556} y={YA - 92} w={126} h={116} weight={FORT} />
-      {[0, 1, 2, 3].map((i) => (
-        <line key={i} x1={556} y1={YA - 66 + i * 24} x2={682} y2={YA - 66 + i * 24} stroke={ENCRE} strokeWidth={FIN} />
-      ))}
-      <line x1={619} y1={YA - 92} x2={619} y2={YA + 24} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="14 4 3 4" opacity="0.6" />
-      <Repere x={619} y={YA + 46} t="P-204" />
-      {/* by-pass */}
-      <TraceCache d={`M540 ${YA - 40} v-74 h176 v74`} />
-      <text className="gravure-lettrage" x={588} y={YA - 122} fontSize="11" textAnchor="middle">
-        By-pass
-      </text>
-      {/* point d'échantillonnage qualité */}
-      <Bulle x={716} y={YA - 66} l="QT" to={YA - 12} />
-      <line x1={696} y1={YA + 2} x2={716} y2={YA - 52} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      <path d={`M690 ${YA + 2} l12 -8 v16 z`} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <text className="gravure-lettrage" x={742} y={YA - 84} fontSize="11">
-        Prise d'échantillon
-      </text>
-    </g>
-
-    {/* --- recyclage des refus : boucle de retour vers l'élévateur --- */}
-    <g>
-      <path d={`M600 ${YA + 26} V${YA + 94} H196 V276`} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-      <path d="M196 268 l-6 12 h12 z" fill={ENCRE} stroke="none" />
-      <text className="gravure-lettrage" x={330} y={YA + 88} fontSize="11">
-        Recyclage des refus
-      </text>
-      <path d={`M600 ${YA + 26} H664 V${YA + 68}`} fill="none" stroke={ENCRE} strokeWidth={FIN} strokeDasharray="6 4" />
-      <text className="gravure-lettrage" x={670} y={YA + 72} fontSize="11" fill={OXYDE}>
-        Refus écartés
-      </text>
-    </g>
-
-    {/* --- flux matière rangée haute --- */}
-    <Trait x1={152} y1={YA + 12} x2={200} y2={YA + 12} w={FORT} over={0} />
-    <Trait x1={330} y1={YA - 44} x2={348} y2={YA - 44} w={FORT} over={0} />
-    <Trait x1={480} y1={YA + 2} x2={556} y2={YA + 2} w={FORT} over={0} />
-    <FlechePente x={496} y={YA + 2} dx={32} dy={0} label="" />
-    <Vanne x={520} y={YA + 2} />
-
-    {/* --- descente vers la rangée basse --- */}
-    <path d={`M682 ${YA + 2} h58 v${YB - YA - 2} h-462`} fill="none" stroke={ENCRE} strokeWidth={FORT} />
-    <FlechePente x={740} y={YA + 60} dx={0} dy={40} label="" />
-
-    {/* --- transformation : le piquage commun, rehaut de laiton --- */}
-    <g>
-      <Cadre x={604} y={YB - 56} w={132} h={112} weight={FORT} />
-      <line x1={670} y1={YB - 56} x2={670} y2={YB + 56} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="14 4 3 4" opacity="0.6" />
-      <text className="gravure-lettrage" x={670} y={YB - 68} fontSize="12" textAnchor="middle">
-        Poste de transformation
-      </text>
-      <Repere x={670} y={YB + 76} t="M-301" />
-      {/* la ligne de configuration : piquage commun */}
-      <path d={`M736 ${YB} h96`} fill="none" stroke={ENCRE} strokeWidth={FORT} />
-      <circle cx={832} cy={YB} r={5} fill={ENCRE} />
-      <Attache x={790} y={YB} dx={-120} dy={-104} label="Ligne de configuration" anchor="end" />
-    </g>
-
-    {/* --- dosage et mélange --- */}
-    <g>
-      <path d={`M356 ${YB - 66} h96 l-24 44 h-48 z`} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-      <circle cx={404} cy={YB + 12} r={30} fill="none" stroke={ENCRE} strokeWidth={FORT} />
-      <path d={`M382 ${YB + 12} q22 -22 44 0 q-22 22 -44 0`} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <Repere x={404} y={YB + 68} t="M-305" />
-      <Bulle x={330} y={YB - 62} l="WT" to={YB - 30} />
-    </g>
-
-    {/* --- conditionnement --- */}
-    <g>
-      <Cadre x={120} y={YB - 52} w={90} h={104} weight={MOYEN} />
-      <path d={`M138 ${YB + 20} h54 v26 h-54 z`} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <line x1={165} y1={YB - 52} x2={165} y2={YB + 20} stroke={ENCRE} strokeWidth={FIN} />
-      <text className="gravure-lettrage" x={165} y={YB - 64} fontSize="11" textAnchor="middle">
-        Ensachage
-      </text>
-      {/* pesée-contrôle et cerclage */}
-      <Cadre x={228} y={YB + 4} w={54} h={48} weight={FIN} />
-      <line x1={228} y1={YB + 30} x2={282} y2={YB + 30} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      {/* palettiseur */}
-      <Cadre x={120} y={YB + 76} w={90} h={26} weight={FIN} />
-      <FlechePente x={110} y={YB + 89} dx={-42} dy={0} label="Sortie" />
-      <Bulle x={262} y={YB - 44} l="LT" to={YB + 4} />
-      <Repere x={165} y={YB + 122} t="K-401" />
-    </g>
-
-    {/* --- aspiration / dépoussiérage --- */}
-    <g>
-      <Cadre x={880} y={150} w={104} h={116} weight={MOYEN} />
-      {Array.from({ length: 5 }).map((_, i) => (
-        <line key={i} x1={892 + i * 20} y1={166} x2={892 + i * 20} y2={250} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      ))}
-      <path d="M932 150 v-32 h24" fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-      <text className="gravure-lettrage" x={932} y={106} fontSize="11" textAnchor="middle">
-        Rejet filtré
-      </text>
-      <Repere x={932} y={288} t="F-501" />
-      {/* réseau d'aspiration : son propre trait, distinct du flux matière */}
+    {/* ---------- ÉTAGE UTILITÉS (trait mixte, en dessous) ---------- */}
+    <line
+      x1={211}
+      y1={Y_UTI}
+      x2={1040}
+      y2={Y_UTI}
+      stroke={ENCRE}
+      strokeWidth={FIN}
+      strokeDasharray={MIXTE_DASH}
+      opacity="0.85"
+    />
+    {[
+      [748, 733],
+      [926, 913],
+      [1010, 1017],
+    ].map(([tx, bx]) => (
       <path
-        d="M880 208 H812 V110 H360"
+        key={tx}
+        d={`M${tx} ${Y_UTI} V345 H${bx}`}
         fill="none"
-        stroke={OXYDE}
-        strokeWidth={FIN}
-        strokeDasharray="12 4"
+        stroke={ENCRE}
+        strokeWidth={ULTRAFIN}
+        strokeDasharray={MIXTE_DASH}
+        opacity="0.85"
       />
-      {[414, 660].map((bx) => (
-        <path
-          key={bx}
-          d={`M${bx} 110 V${bx === 414 ? 154 : 158}`}
-          fill="none"
-          stroke={OXYDE}
-          strokeWidth={FIN}
-          strokeDasharray="12 4"
-        />
-      ))}
-      <text className="gravure-lettrage" x={506} y={100} fontSize="11" fill={OXYDE}>
-        Réseau d&apos;aspiration, en trait propre
+    ))}
+    <Equip x={188} y={Y_UTI} rep="U-801" glyphe={gNourrice} yRep={492} />
+
+    {/* ---------- ÉTAGE ASPIRATION (trait fin, au-dessus) ---------- */}
+    <line x1={350} y1={Y_ASP} x2={1122} y2={Y_ASP} stroke={ENCRE} strokeWidth={FIN} />
+    {[350, 542, 1040].map((x) => (
+      <line
+        key={x}
+        x1={x}
+        y1={Y_ASP}
+        x2={x}
+        y2={Y_PRO - HB}
+        stroke={ENCRE}
+        strokeWidth={ULTRAFIN}
+        strokeDasharray="5 4"
+        opacity="0.85"
+      />
+    ))}
+    <Equip x={1145} y={Y_ASP} rep="F-701" glyphe={gFiltre} yRep={252} />
+    <line x1={1145} y1={Y_ASP - 20} x2={1145} y2={182} stroke={OXYDE} strokeWidth={FIN} />
+    <path d="M1145 176 l-5 12 h10 z" fill={OXYDE} />
+    <Repere x={1120} y={198} anchor="end">H-702</Repere>
+
+    {/* ---------- ÉTAGE PROCÉDÉ (trait fort, au centre) ---------- */}
+    <line x1={BX} y1={Y_PRO} x2={BX + BW} y2={Y_PRO} stroke={ENCRE} strokeWidth={FORT} />
+    {[310, 500, 660, 850, 1000, 1180].map((x) => (
+      <FlecheProcede key={x} x={x} />
+    ))}
+    <Repere x={BX + 4} y={302} anchor="start">MP</Repere>
+    <Repere x={BX + BW - 4} y={302} anchor="end">PF</Repere>
+
+    <Equip x={188} rep="T-101" glyphe={gTremie} />
+    <Equip x={262} rep="E-102" glyphe={gElevateur} />
+    <Equip x={350} rep="S-201" glyphe={gSeparateur} />
+    <Equip x={410} rep="V-202" glyphe={gTamis} />
+    <Equip x={470} rep="A-203" glyphe={gAimant} />
+    <Equip x={542} rep="P-301" glyphe={gPlansichter} />
+    <Equip x={620} rep="Y-302" glyphe={gBypass} />
+    <Equip x={710} rep="B-401" glyphe={gBroyeur} />
+    <Equip x={800} rep="K-402" glyphe={gPiquage} />
+    <Equip x={890} rep="D-501" glyphe={gPeseuse} />
+    <Equip x={962} rep="X-502" glyphe={gMelangeur} />
+    <Equip x={1040} rep="G-601" glyphe={gEnsacheuse} />
+    <Equip x={1096} rep="W-602" glyphe={gPesee} />
+    <Equip x={1152} rep="Z-603" glyphe={gPalettiseur} />
+
+    {/* ---------- BOUCLE DE RECYCLAGE DES REFUS ---------- */}
+    <path
+      d={`M620 ${Y_PRO + HB} V400 H225 V${Y_PRO + 6}`}
+      fill="none"
+      stroke={ENCRE}
+      strokeWidth={MOYEN}
+    />
+    <path d={`M225 ${Y_PRO} l-5 12 h10 z`} fill={ENCRE} />
+    <Repere x={430} y={396}>REC</Repere>
+    {/* la part non recyclable, écartée */}
+    <path d="M620 400 H676 V420" fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="6 4" />
+    <path d="M676 428 l-5 -12 h10 z" fill={OXYDE} />
+    <Repere x={700} y={424} anchor="start">REJ</Repere>
+
+    <SensLecture
+      x={BX}
+      y={530}
+      w={BW}
+      label="Sens du procédé : matière première à gauche, produit conditionné à droite"
+    />
+
+    {/* ============ 3 MINUTES — L'ÉCHELLE DE LIBELLÉS EN MARGE ============ */}
+    <BlocTexte>
+      <text className="gravure-lettrage" x={60} y={556} fontSize="12" fill={OXYDE}>
+        Échelle de libellés - chaque repère du dessin, sa désignation complète
       </text>
-    </g>
-
-    {/* ================= FIG. 2 — LA MATRICE DU CONFIGURATEUR ================= */}
-    <RepereFigure x={880} y={366} n="2" title="Matrice filières x modules" w={300} />
-
-    <g transform="translate(880 392)">
-      {(() => {
-        const COLX = [176, 232, 288];
-        const FIL = ['Mouture', 'Oléagin.', 'Séchage'];
-        const ROWS: [string, ('c' | 'v' | '-')[]][] = [
-          ['Réception', ['c', 'c', 'c']],
-          ['Nettoyage', ['c', 'c', 'c']],
-          ['Calibrage', ['c', 'c', '-']],
-          ['Transformation', ['v', 'v', 'v']],
-          ['Dosage', ['c', '-', 'c']],
-          ['Conditionnement', ['c', 'c', 'c']],
-        ];
-        return (
-          <>
-            {/* colonne retenue : le seul rehaut de laiton de la planche */}
-            <rect x={COLX[0] - 22} y={6} width={44} height={166} fill="none" stroke={LAITON} strokeWidth={FORT} />
-            <text className="gravure-lettrage" x={COLX[0]} y={-16} fontSize="11" textAnchor="middle" fill={LAITON}>
-              CFG-A
-            </text>
-            {FIL.map((f, c) => (
-              <text key={f} className="gravure-lettrage" x={COLX[c]} y={0} fontSize="11" textAnchor="middle">
-                {f}
-              </text>
-            ))}
-            <line x1={0} y1={8} x2={310} y2={8} stroke={ENCRE} strokeWidth={FIN} />
-            {ROWS.map(([nom, cases], r) => {
-              const y = 30 + r * 28;
-              return (
-                <g key={nom}>
-                  <text className="gravure-lettrage" x={0} y={y + 4} fontSize="11">
-                    {nom}
-                  </text>
-                  <line x1={0} y1={y + 14} x2={310} y2={y + 14} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.45" />
-                  {cases.map((k, c) => (
-                    <g key={c}>
-                      {k === 'c' && <circle cx={COLX[c]} cy={y} r={5} fill={ENCRE} />}
-                      {k === 'v' && (
-                        <rect x={COLX[c] - 6} y={y - 6} width={12} height={12} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-                      )}
-                      {k === '-' && (
-                        <line x1={COLX[c] - 5} y1={y} x2={COLX[c] + 5} y2={y} stroke={OXYDE} strokeWidth={FIN} />
-                      )}
-                    </g>
-                  ))}
-                </g>
-              );
-            })}
-            <text className="gravure-lettrage" x={0} y={214} fontSize="11" fill={OXYDE}>
-              Module commun (point), variante (carré), sans objet (tiret)
-            </text>
-            <text className="gravure-lettrage" x={0} y={232} fontSize="11" fill={OXYDE}>
-              Colonne retenue : CFG-A, lue en FIG. 1
-            </text>
-          </>
-        );
-      })()}
-    </g>
-
-    <CercleDetail cx={700} cy={YB} r={140} label="Détail x2" />
-
-    {/* ============ FIG. 3 — VARIANTES RACCORDÉES, UTILITÉS ET BILAN ============ */}
-    <RepereFigure x={60} y={630} n="3" title="Variantes raccordées, utilités et bilan" w={330} />
-
-    {/* les trois variantes sur le piquage commun */}
-    <g transform="translate(70 652)">
-      <path d="M0 8 V148" fill="none" stroke={ENCRE} strokeWidth={FORT} />
-      {[
-        ['Broyeur à cylindres', 'Filière mouture'],
-        ['Presse', 'Filière oléagineux'],
-        ['Séchoir rotatif', 'Filière séchage'],
-      ].map(([nom, filiere], i) => {
-        const y = 24 + i * 46;
-        return (
-          <g key={nom}>
-            <path d={`M0 ${y} h40`} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-            <rect x={40} y={y - 16} width={186} height={34} fill="none" stroke={ENCRE} strokeWidth={FIN} strokeDasharray="6 4" />
-            <text className="gravure-lettrage" x={50} y={y - 2} fontSize="11">
-              {nom}
-            </text>
-            <text className="gravure-lettrage" x={50} y={y + 13} fontSize="10" fill={OXYDE}>
-              {filiere}
-            </text>
-          </g>
-        );
-      })}
-      <text className="gravure-lettrage" x={0} y={166} fontSize="11" fill={OXYDE}>
-        Un piquage, une variante par filière
-      </text>
-    </g>
-
-    {/* utilités et bilan */}
-    <g transform="translate(370 652)">
-      {[
-        ['Vapeur', '16 5'],
-        ['Air comprimé', '4 4'],
-        ['Eau de procédé', '10 4 2 4'],
-        ['Électricité', '2 4'],
-      ].map(([nom, dash], i) => (
-        <g key={nom}>
-          <line x1={0} y1={20 + i * 22} x2={54} y2={20 + i * 22} stroke={ENCRE} strokeWidth={FIN} strokeDasharray={dash} />
-          <text className="gravure-lettrage" x={64} y={24 + i * 22} fontSize="11">
-            {nom}
-          </text>
-        </g>
-      ))}
-      <AxeMixte x1={0} y1={114} x2={168} y2={114} />
-      <text className="gravure-lettrage" x={0} y={134} fontSize="11">
-        Entrée matière, sortie produit
-      </text>
-      <text className="gravure-lettrage" x={0} y={152} fontSize="11">
-        Refus recyclés, refus écartés
-      </text>
-      <text className="gravure-lettrage" x={0} y={170} fontSize="11" fill={OXYDE}>
-        Bilan symbolique, sans chiffre
-      </text>
-    </g>
-
-    {/* ================= NOMENCLATURE ================= */}
-    <Nomenclature
-      x={560}
-      y={656}
-      perCol={6}
-      colGap={280}
-      lineHeight={21}
+    </BlocTexte>
+    <EchelleLibelles
+      x={64}
+      yStart={578}
+      yStep={24}
+      side="right"
       items={[
-        'Trémie de réception et grille',
-        'Élévateur à godets',
-        'Convoyeur à bande et vis',
-        'Nettoyage et épierrage',
-        'Plansichter et by-pass',
-        'Point d\u2019échantillonnage qualité',
-        'Poste de transformation',
-        'Dosage et mélange',
-        'Ensachage et pesée-contrôle',
-        'Palettisation',
-        'Filtre à manches et rejet',
-        'Piquage de configuration',
+        { label: 'MP - Matière première en vrac' },
+        { label: 'T-101 - Trémie de réception et grille' },
+        { label: 'E-102 - Élévateur à godets' },
+        { label: 'S-201 - Séparateur à air' },
+        { label: 'V-202 - Tamis vibrant' },
+        { label: 'A-203 - Aimant à barreaux' },
+        { label: 'P-301 - Plansichter à étages' },
+      ]}
+    />
+    <EchelleLibelles
+      x={464}
+      yStart={578}
+      yStep={24}
+      side="right"
+      items={[
+        { label: 'Y-302 - By-pass de calibrage' },
+        { label: 'B-401 - Broyeur à cylindres' },
+        { label: 'K-402 - Piquage commun de variante' },
+        { label: 'D-501 - Trémie peseuse' },
+        { label: 'X-502 - Mélangeur à rubans' },
+        { label: 'G-601 - Ensacheuse' },
+        { label: 'W-602 - Pesée-contrôle' },
+      ]}
+    />
+    <EchelleLibelles
+      x={864}
+      yStart={578}
+      yStep={24}
+      side="right"
+      items={[
+        { label: 'Z-603 - Palettiseur' },
+        { label: 'F-701 - Filtre à manches' },
+        { label: 'H-702 - Rejet filtré' },
+        { label: 'U-801 - Nourrice d\u2019utilités' },
+        { label: 'REC - Refus recyclés en amont' },
+        { label: 'REJ - Refus écartés' },
+        { label: 'PF - Produit conditionné' },
       ]}
     />
 
-    <Cartouche
-      x={880} y={846} numeral="III" title="Configurateur de ligne, sortie CFG-A" echelle="Éch. symb."
-      dossier={VOL_I}
-      index="PL. 3/9"
-      renvois={['Implantation résultante : PL. VIII', 'Socles logiciels : PL. IV']}
-    />
+    {/* ---------- LÉGENDE DES TROIS FAMILLES ---------- */}
+    <BlocTexte>
+      <g>
+        <line x1={64} y1={766} x2={124} y2={766} stroke={ENCRE} strokeWidth={FORT} />
+        <text className="gravure-lettrage" x={136} y={770} fontSize="12">
+          Procédé - trait fort, étage central
+        </text>
+        <line x1={464} y1={766} x2={524} y2={766} stroke={ENCRE} strokeWidth={FIN} />
+        <text className="gravure-lettrage" x={536} y={770} fontSize="12">
+          Aspiration - trait fin, étage supérieur
+        </text>
+        <line
+          x1={864}
+          y1={766}
+          x2={924}
+          y2={766}
+          stroke={ENCRE}
+          strokeWidth={FIN}
+          strokeDasharray={MIXTE_DASH}
+        />
+        <text className="gravure-lettrage" x={936} y={770} fontSize="12">
+          Utilités - trait mixte, étage inférieur
+        </text>
+      </g>
+    </BlocTexte>
 
+    {/* ============ FIG. 2 — LA MATRICE, COLONNE CFG-A EN LAITON ============ */}
+    <RepereFigure x={60} y={812} n="2" title="Matrice du configurateur, colonne retenue" w={400} />
+    <BlocTexte>
+      <g transform="translate(120 880)">
+        {(() => {
+          const COLX = [230, 330, 430];
+          const FIL = ['Mouture', 'Oléagineux', 'Séchage'];
+          const ROWS: [string, ('c' | 'v' | '-')[]][] = [
+            ['Réception', ['c', 'c', 'c']],
+            ['Nettoyage', ['c', 'c', 'c']],
+            ['Calibrage', ['c', 'c', '-']],
+            ['Transformation', ['v', 'v', 'v']],
+            ['Dosage', ['c', '-', 'c']],
+            ['Conditionnement', ['c', 'c', 'c']],
+          ];
+          return (
+            <>
+              <rect x={COLX[0] - 34} y={8} width={68} height={178} fill="none" stroke={LAITON} strokeWidth={FORT} />
+              <text className="gravure-lettrage" x={COLX[0]} y={-26} fontSize="12" textAnchor="middle" fill={LAITON}>
+                CFG-A
+              </text>
+              {FIL.map((f, c) => (
+                <text key={f} className="gravure-lettrage" x={COLX[c]} y={-4} fontSize="12" textAnchor="middle">
+                  {f}
+                </text>
+              ))}
+              <line x1={-40} y1={8} x2={470} y2={8} stroke={ENCRE} strokeWidth={FIN} />
+              {ROWS.map(([nom, cases], r) => {
+                const y = 34 + r * 28;
+                return (
+                  <g key={nom}>
+                    <text className="gravure-lettrage" x={-40} y={y + 4} fontSize="12">
+                      {nom}
+                    </text>
+                    <line x1={-40} y1={y + 14} x2={470} y2={y + 14} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.4" />
+                    {cases.map((k, c) => (
+                      <g key={c}>
+                        {k === 'c' && <circle cx={COLX[c]} cy={y} r={5} fill={ENCRE} />}
+                        {k === 'v' && (
+                          <rect x={COLX[c] - 6} y={y - 6} width={12} height={12} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+                        )}
+                        {k === '-' && (
+                          <line x1={COLX[c] - 5} y1={y} x2={COLX[c] + 5} y2={y} stroke={OXYDE} strokeWidth={FIN} />
+                        )}
+                      </g>
+                    ))}
+                  </g>
+                );
+              })}
+              <text className="gravure-lettrage" x={-40} y={228} fontSize="12" fill={OXYDE}>
+                Module commun (point), variante (carré), sans objet (tiret)
+              </text>
+              <text className="gravure-lettrage" x={-40} y={250} fontSize="12" fill={OXYDE}>
+                Colonne retenue : CFG-A, la filière lue en FIG. 1
+              </text>
+            </>
+          );
+        })()}
+      </g>
+    </BlocTexte>
+
+    {/* ============ FIG. 3 — LES VARIANTES ET LE BILAN ============ */}
+    <RepereFigure x={700} y={812} n="3" title="Variantes raccordées sur K-402" w={330} />
+    <BlocTexte>
+      <g transform="translate(716 852)">
+        <path d="M0 10 V160" fill="none" stroke={ENCRE} strokeWidth={FORT} />
+        {[
+          ['Broyeur à cylindres', 'Filière mouture - retenue'],
+          ['Presse', 'Filière oléagineux'],
+          ['Séchoir rotatif', 'Filière séchage'],
+        ].map(([nom, filiere], i) => {
+          const y = 30 + i * 54;
+          return (
+            <g key={nom}>
+              <path d={`M0 ${y} h40`} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+              <rect x={40} y={y - 21} width={230} height={44} fill="none" stroke={ENCRE} strokeWidth={FIN} strokeDasharray="6 4" />
+              <text className="gravure-lettrage" x={52} y={y - 6} fontSize="12">
+                {nom}
+              </text>
+              <text className="gravure-lettrage" x={52} y={y + 16} fontSize="12" fill={OXYDE}>
+                {filiere}
+              </text>
+            </g>
+          );
+        })}
+        <text className="gravure-lettrage" x={0} y={208} fontSize="12">
+          Un piquage commun, une variante par filière
+        </text>
+        <text className="gravure-lettrage" x={0} y={230} fontSize="12">
+          Bilan matière : entrée, sortie, refus recyclés, refus écartés
+        </text>
+        <text className="gravure-lettrage" x={0} y={252} fontSize="12" fill={OXYDE}>
+          Bilan symbolique, sans chiffre d’exploitation
+        </text>
+      </g>
+    </BlocTexte>
+
+    <BlocTexte>
+      <Cartouche
+        x={800}
+        y={1190}
+        w={380}
+        numeral="III"
+        title="Configurateur de ligne, sortie CFG-A"
+        echelle="Éch. symb."
+        dossier={VOL_I}
+        index="PL. 3/9"
+        renvois={['Implantation résultante : PL. VIII', 'Socles logiciels : PL. IV']}
+      />
+    </BlocTexte>
   </>
 );
