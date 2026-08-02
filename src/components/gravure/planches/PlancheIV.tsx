@@ -295,14 +295,14 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
     <Roue p={p} cx={BX} cy={AY} r={RB} dents={ZB} rot={Math.PI / ZB} />
 
     {/* tangente commune aux cercles primitifs, au point primitif */}
-    <line x1={PX} y1={PY - 96} x2={PX} y2={PY + 96} stroke={OXYDE} strokeWidth={ULTRAFIN} strokeDasharray="5 4" />
+    <line x1={PX} y1={PY - 130} x2={PX} y2={PY + 130} stroke={OXYDE} strokeWidth={ULTRAFIN} strokeDasharray="5 4" />
 
     {/* LIGNE D'ACTION : tangente aux deux cercles de base, par le point primitif */}
     <line
-      x1={PX - LX * 152}
-      y1={PY - LY * 152}
-      x2={PX + LX * 152}
-      y2={PY + LY * 152}
+      x1={PX - LX * 196}
+      y1={PY - LY * 196}
+      x2={PX + LX * 196}
+      y2={PY + LY * 196}
       stroke={OXYDE}
       strokeWidth={MOYEN}
     />
@@ -330,11 +330,12 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
 
     {/* ANGLE DE PRESSION : arc entre la tangente commune et la ligne d'action */}
     <path
-      d={`M${PX} ${PY - 74} A74 74 0 0 0 ${PX - LX * 74} ${PY - LY * 74}`}
+      d={`M${PX} ${PY - 104} A104 104 0 0 0 ${PX - LX * 104} ${PY - LY * 104}`}
       fill="none"
       stroke={OXYDE}
-      strokeWidth={ULTRAFIN}
+      strokeWidth={FIN}
     />
+    <Repere x={378} y={288} anchor="middle">α</Repere>
     <Boulon x={PX} y={PY} r={2.6} />
 
     {/* cercle de détail : le jeu de flanc, repris en DÉT. 2 */}
@@ -343,9 +344,9 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
     {/* repères courts au dessin */}
     <Marque rep="C-01" cible={[AX - RA * 0.71, AY - RA * 0.71]} x={168} y={224} anchor="start" />
     <Marque rep="C-02" cible={[AX - RA * COSA * 0.72, AY - RA * COSA * 0.66]} x={168} y={252} anchor="start" />
-    <Marque rep="D-03" cible={[AX - RA * 1.05, AY + RA * 0.22]} x={128} y={470} anchor="start" />
+    <Marque rep="D-03" cible={[AX - RA * 1.02, AY + RA * 0.34]} x={122} y={566} anchor="start" />
     <Marque rep="L-04" cible={[PX - LX * 120, PY - LY * 120]} x={436} y={224} anchor="start" />
-    <Marque rep="A-05" cible={[PX - 22, PY - 70]} x={436} y={252} anchor="start" />
+    <Marque rep="A-05" cible={[382, 306]} x={452} y={252} anchor="start" />
     <Marque rep="P-06" cible={[PX, PY]} x={436} y={280} anchor="start" />
     <Marque rep="E-07" cible={[(AX + BX) / 2, AY + 4]} x={330} y={604} anchor="start" />
     <Marque rep="J-08" cible={[PX + 22, PY + 78]} x={470} y={560} anchor="start" />
