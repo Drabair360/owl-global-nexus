@@ -111,3 +111,14 @@
   .gravure-planche { box-shadow: none; border: 1px solid #999; break-inside: avoid; }
   .gravure-devoile { animation: none; clip-path: none; }
 }
+
+/* PHASE L2 — RÉSERVE DE LISIBILITÉ.
+   Un repère court posé sur un trait porte un halo de fond : le trait
+   s'interrompt visuellement derrière le signe. Réservé aux repères et aux
+   titres de figure — jamais aux libellés de marge (le vérificateur le refuse). */
+.gravure-reserve {
+  paint-order: stroke;
+  stroke: hsl(var(--gravure-fond));
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}

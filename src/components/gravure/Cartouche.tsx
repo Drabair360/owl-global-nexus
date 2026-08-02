@@ -46,7 +46,7 @@ const Cartouche = ({
   /** Renvois croisés réels vers les autres planches. */
   renvois?: string[];
 }) => (
-  <g transform={`translate(${x} ${y})`} aria-hidden="true">
+  <g transform={`translate(${x} ${y})`} data-lis="bloc" aria-hidden="true">
     {dossier && (() => {
       const [tete, sujet] = dossier.split(' : ');
       const lignes = renvois && renvois.length > 0 ? 1 : 0;

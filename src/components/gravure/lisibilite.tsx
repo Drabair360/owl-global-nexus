@@ -106,7 +106,15 @@ export const SensLecture = ({
   <g>
     <line x1={x} y1={y} x2={x + w - 12} y2={y} stroke={OXYDE} strokeWidth={ULTRAFIN} />
     <path d={`M${x + w} ${y} l-14 -5 v10 z`} fill={OXYDE} />
-    <text className="gravure-lettrage" data-lis="repere" x={x} y={y - 8} fontSize={TAILLE_REPERE} fill={OXYDE}>
+    <text
+      className="gravure-lettrage gravure-reserve"
+      data-lis="repere"
+      data-lis-reserve="true"
+      x={x}
+      y={y - 8}
+      fontSize={TAILLE_REPERE}
+      fill={OXYDE}
+    >
       {label}
     </text>
   </g>
@@ -184,21 +192,28 @@ export const EchelleLibelles = ({
   </g>
 );
 
-/** Repère court porté DANS le dessin — jamais une phrase. */
+/**
+ * Repère court porté DANS le dessin — jamais une phrase.
+ * Il porte sa RÉSERVE de fond par défaut : le trait qu'il croise s'interrompt
+ * derrière le signe. Poser `reserve={false}` quand le repère est isolé.
+ */
 export const Repere = ({
   x,
   y,
   children,
   anchor = 'middle',
+  reserve = true,
 }: {
   x: number;
   y: number;
   children: string;
   anchor?: 'start' | 'middle' | 'end';
+  reserve?: boolean;
 }) => (
   <text
-    className="gravure-lettrage"
+    className={`gravure-lettrage${reserve ? ' gravure-reserve' : ''}`}
     data-lis="repere"
+    data-lis-reserve={reserve ? 'true' : 'false'}
     x={x}
     y={y}
     fontSize={TAILLE_REPERE}
@@ -208,6 +223,7 @@ export const Repere = ({
     {children}
   </text>
 );
+
 
 /** Bloc de texte hors dessin (nomenclature, cartouche) : exempt du rail. */
 export const BlocTexte = ({ children }: { children: ReactNode }) => (

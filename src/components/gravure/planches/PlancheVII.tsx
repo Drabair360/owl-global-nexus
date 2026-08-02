@@ -439,15 +439,16 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
       </BlocTexte>
 
       {/* ================= FIG. 3 — TRACÉ RÉGULATEUR ================= */}
-      <RepereFigure x={900} y={912} n="3" title="Tracé régulateur" w={240} />
-      <g transform="translate(1032 1020)">
-        <ArcRegulateur cx={0} cy={0} r={112} />
+      {/* Remontée en L2 : le tracé descendait dans le cartouche. */}
+      <RepereFigure x={900} y={856} n="3" title="Tracé régulateur" w={240} />
+      <g transform="translate(1032 962)">
+        <ArcRegulateur cx={0} cy={0} r={92} />
         <TraceRegulateur
           d={
             [0, 1, 2, 3, 4]
               .map((i) => {
                 const a = (-90 + i * 72) * (Math.PI / 180);
-                return `${i ? 'L' : 'M'}${(Math.cos(a) * 112).toFixed(1)} ${(Math.sin(a) * 112).toFixed(1)}`;
+                return `${i ? 'L' : 'M'}${(Math.cos(a) * 92).toFixed(1)} ${(Math.sin(a) * 92).toFixed(1)}`;
               })
               .join(' ') + ' Z'
           }
@@ -456,14 +457,14 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
           d={[0, 1, 2, 3, 4]
             .map((i) => {
               const a = (-90 + i * 72) * (Math.PI / 180);
-              return `M0 0 L${(Math.cos(a) * 112).toFixed(1)} ${(Math.sin(a) * 112).toFixed(1)}`;
+              return `M0 0 L${(Math.cos(a) * 92).toFixed(1)} ${(Math.sin(a) * 92).toFixed(1)}`;
             })
             .join(' ')}
         />
-        <TraceRegulateur d="M0 -112 L106 34 L-66 91 L66 91 L-106 34 Z" />
+        <TraceRegulateur d="M0 -92 L87 28 L-54 74 L54 74 L-87 28 Z" />
         {[0, 1, 2, 3, 4].map((i) => {
           const a = (-90 + i * 72) * (Math.PI / 180);
-          return <circle key={i} cx={Math.cos(a) * 112} cy={Math.sin(a) * 112} r={2.6} fill={OXYDE} />;
+          return <circle key={i} cx={Math.cos(a) * 92} cy={Math.sin(a) * 92} r={2.6} fill={OXYDE} />;
         })}
       </g>
 

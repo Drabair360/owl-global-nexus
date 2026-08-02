@@ -163,7 +163,7 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
 
     {/* échelle de marge, à gauche */}
     <EchelleLibelles
-      x={252}
+      x={236}
       yStart={244}
       yStep={30}
       side="left"
@@ -235,10 +235,10 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     </BlocTexte>
 
     {/* ================= FIG. 3 — NOMENCLATURE DES SIGNES ================= */}
-    <RepereFigure x={760} y={512} n="3" title="Nomenclature des signes" w={300} />
+    <RepereFigure x={760} y={506} n="3" title="Nomenclature des signes" w={300} />
 
     <BlocTexte>
-      <g transform="translate(772 530)">
+      <g transform="translate(772 534)">
         <Signe x={0} y={0} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={ENCRE} strokeWidth={MOYEN} />}>
           Engagement confirmé
         </Signe>
