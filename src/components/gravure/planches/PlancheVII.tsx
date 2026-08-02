@@ -439,8 +439,8 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
       </BlocTexte>
 
       {/* ================= FIG. 3 — TRACÉ RÉGULATEUR ================= */}
-      <RepereFigure x={900} y={962} n="3" title="Tracé régulateur" w={240} />
-      <g transform="translate(1032 1104)">
+      <RepereFigure x={900} y={912} n="3" title="Tracé régulateur" w={240} />
+      <g transform="translate(1032 1042)">
         <ArcRegulateur cx={0} cy={0} r={112} />
         <TraceRegulateur
           d={
@@ -476,14 +476,14 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
       <BlocTexte>
         <Cartouche
           x={800}
-          y={1230}
+          y={1186}
           w={380}
           numeral="VII"
           title="Le schéma de principe du groupe"
           echelle="Éch. symb."
           dossier={VOL_III}
           index="PL. 7/9"
-          renvois={['Usine de référence : PL. I', 'Immeuble de référence : PL. VI', 'Train du groupe : PL. IV']}
+          renvois={['Usine : PL. I', 'Immeuble : PL. VI', 'Train : PL. IV']}
         />
       </BlocTexte>
     </>
