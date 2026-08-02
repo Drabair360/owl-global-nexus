@@ -155,9 +155,9 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     <Attache x={CONF} y={P3 - 8} dx={92} dy={64} label="Engagement ferme" />
 
     {/* ================= FIG. 2 — DÉTAIL DE LA NOTE ================= */}
-    <RepereFigure x={780} y={410} n="2" title="La note de confirmation x4" w={290} />
+    <RepereFigure x={780} y={476} n="2" title="La note de confirmation x4" w={290} />
 
-    <g transform="translate(960 560)">
+    <g transform="translate(960 626)">
       <CercleDetail cx={0} cy={0} r={140} label="x4" />
       <ellipse cx={-10} cy={20} rx={34} ry={24} transform="rotate(-18 -10 20)" fill="none" stroke={LAITON} strokeWidth={MOYEN} />
       <line x1={22} y1={10} x2={22} y2={-104} stroke={ENCRE} strokeWidth={MOYEN} />
@@ -175,8 +175,8 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     </g>
 
     <NomenclatureLettres
-      x={600}
-      y={452}
+      x={598}
+      y={518}
       items={[
         'Demande reçue, amont',
         'Ressource retenue',
@@ -190,9 +190,9 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     />
 
     {/* ================= FIG. 3 — GRILLE D'AFFECTATION ================= */}
-    <RepereFigure x={60} y={410} n="3" title="Grille d'affectation" w={280} />
+    <RepereFigure x={60} y={486} n="3" title="Grille d'affectation" w={280} />
 
-    <g transform="translate(90 440)">
+    <g transform="translate(90 516)">
       {Array.from({ length: 5 }).map((_, r) =>
         Array.from({ length: 8 }).map((_, c) => {
           const occupe = (r * 3 + c * 5) % 7 < 3;
@@ -201,9 +201,9 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
             <g key={`${r}-${c}`}>
               <rect
                 x={c * 66}
-                y={r * 40}
+                y={r * 34}
                 width={66}
-                height={40}
+                height={34}
                 fill={occupe ? 'hsl(var(--gravure-encre) / 0.10)' : 'none'}
                 stroke={ENCRE}
                 strokeWidth={ULTRAFIN}
@@ -211,7 +211,7 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
               />
               {conflit && (
                 <path
-                  d={`M${c * 66 + 14} ${r * 40 + 12} l38 16 M${c * 66 + 52} ${r * 40 + 12} l-38 16`}
+                  d={`M${c * 66 + 14} ${r * 34 + 10} l38 14 M${c * 66 + 52} ${r * 34 + 10} l-38 14`}
                   stroke={OXYDE}
                   strokeWidth={FIN}
                 />
@@ -226,13 +226,13 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
       <text className="gravure-lettrage" x={-64} y={104} fontSize="11">
         Ressources
       </text>
-      <Pastille x={-30} y={200} n={7} />
+      <Pastille x={-30} y={172} n={7} />
     </g>
 
     {/* ================= NOMENCLATURE ================= */}
     <Nomenclature
       x={96}
-      y={730}
+      y={748}
       perCol={4}
       colGap={330}
       items={[

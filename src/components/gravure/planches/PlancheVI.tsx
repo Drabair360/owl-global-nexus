@@ -135,7 +135,7 @@ export const PlancheVIDrawing = ({ p }: { p: string }) => (
     {/* ================= FIG. 2 — ÉLÉVATION SUR RUE ================= */}
     <RepereFigure x={620} y={96} n="2" title="Élévation sur rue" w={280} />
 
-    <g transform="translate(640 152)">
+    <g transform="translate(640 182)">
       {/* couverture en tuiles canal, faible pente */}
       <path d="M-16 -46 L235 -74 L486 -46" fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
       {Array.from({ length: 16 }).map((_, i) => (
@@ -199,7 +199,6 @@ export const PlancheVIDrawing = ({ p }: { p: string }) => (
       <Pastille x={504} y={-30} n={4} />
       <Pastille x={504} y={110} n={5} />
       <Pastille x={504} y={278} n={6} />
-      <Attache x={246} y={256} dx={-124} dy={-64} label="Entrée" anchor="end" />
       <LigneDeCoupe x1={180} x2={330} y={402} label="B" />
     </g>
 
@@ -240,9 +239,10 @@ export const PlancheVIDrawing = ({ p }: { p: string }) => (
 
     {/* ================= NOMENCLATURE ================= */}
     <Nomenclature
-      x={800}
-      y={556}
-      perCol={10}
+      x={720}
+      y={620}
+      perCol={5}
+      colGap={300}
       items={[
         'Limite séparative',
         'Porche traversant',

@@ -174,7 +174,7 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
     </text>
 
     <ChaineCotes y={420} points={[252, 374, 520, ARBRE]} labels={['e', 'e', 'e']} attache={372} />
-    <Attache x={313} y={164} dx={-92} dy={-98} label="Engrènement" anchor="end" />
+    <Attache x={313} y={164} dx={117} dy={-104} label="Engrènement" />
     <Pastille x={252} y={74} n={4} />
     <Pastille x={520} y={74} n={5} />
     <LigneDeCoupe x1={430} x2={560} y={460} label="D" />
