@@ -165,14 +165,14 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
         Chemin de câbles
       </text>
       <line x1={584} y1={TOIT + 96} x2={620} y2={TOIT + 96} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="5 4" opacity="0.7" />
-      <text className="gravure-lettrage" x={62} y={TOIT + 200} fontSize="10" fill={OXYDE}>
+      <text className="gravure-lettrage" x={62} y={TOIT + 202} fontSize="10" fill={OXYDE}>
         Recul de rive, circulation de maintenance
       </text>
     </g>
 
     <NomenclatureLettres
       x={62}
-      y={598}
+      y={700}
       items={['Module et cadre', 'Plot ballasté non perçant', 'Panne et poutre porteuse']}
     />
 
@@ -272,9 +272,9 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     </g>
 
     {/* ================= FIG. 3 — TRAVERSÉE ET CHEMINEMENT ================= */}
-    <RepereFigure x={62} y={706} n="3" title="Traversée d&apos;étanchéité et cheminement" w={330} />
+    <RepereFigure x={62} y={782} n="3" title="Traversée d&apos;étanchéité et cheminement" w={330} />
 
-    <g transform="translate(62 730)">
+    <g transform="translate(62 802)">
       {/* complexe de toiture en coupe, détail */}
       <rect x={0} y={30} width={220} height={16} fill={poche(p, 'beton')} opacity="0.5" stroke="none" />
       <line x1={0} y1={30} x2={220} y2={30} stroke={ENCRE} strokeWidth={FORT} />
@@ -296,7 +296,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
       </text>
     </g>
 
-    <g transform="translate(430 730)">
+    <g transform="translate(430 792)">
       {/* chemin de câbles sur supports */}
       <line x1={0} y1={46} x2={210} y2={46} stroke={ENCRE} strokeWidth={FORT} />
       {[16, 100, 184].map((o) => (
