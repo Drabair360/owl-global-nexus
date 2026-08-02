@@ -2,250 +2,279 @@ import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
 import Cartouche from '../Cartouche';
 import {
-  Trait,
-  Cadre,
-  Attache,
-  ChaineCotes,
   RepereFigure,
   Pastille,
   Nomenclature,
   CercleDetail,
-  TraceCache,
-  AxeMixte,
   PastilleLettre,
   NomenclatureLettres,
+  Attache,
 } from '../primitives';
 
 /**
- * PLANCHE V — PARTITION D'UN FLUX DE RÉSERVATION.
- * Le vocabulaire imposé est celui de la tabulature : portées, mesures,
- * têtes de note, silences, barres de reprise.
- *   FIG. 1  la partition : trois portées (demande, ressource, engagement)
- *   FIG. 2  détail x4 de la note de confirmation
- *   FIG. 3  grille d'affectation : ressources en lignes, mesures en colonnes
- * Rehaut de laiton unique : LA NOTE DE CONFIRMATION.
+ * PLANCHE V — GRAPHIQUE D'ENGAGEMENTS (dossier OWL-1, PL. 5/9).
+ * Transposition du graphique horaire des chemins de fer (type Ibry) au
+ * registre des engagements : le temps en abscisse, les ressources en
+ * ordonnée, chaque engagement en segment oblique.
+ *   FIG. 1  le graphique : huit périodes, six ressources, cinq engagements,
+ *           un conflit détecté au croisement de deux segments
+ *   FIG. 2  détail x3 du conflit et de sa résolution
+ *   FIG. 3  nomenclature des signes : les conventions du graphique
+ * Rehaut de laiton unique : LE SEGMENT DE RÉSOLUTION.
  */
 
-const P1 = 180; // portée 1 : demandes
-const P2 = 300; // portée 2 : ressources
-const P3 = 420; // portée 3 : engagements
-const M0 = 150; // première barre de mesure
-const MES = 130; // largeur de mesure
-const CONF = M0 + 4 * MES + 46; // abscisse de la note de confirmation
+const X0 = 140;
+const PAS = 106;
+const Y0 = 158;
+const RANG = 44;
+const NB_P = 8;
+const NB_R = 6;
 
-const Portee = ({ y, label }: { y: number; label: string }) => (
-  <g>
-    {[-16, -8, 0, 8, 16].map((d) => (
-      <line key={d} x1={M0 - 60} y1={y + d} x2={M0 + 7 * MES} y2={y + d} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.7" />
-    ))}
-    <line x1={M0 - 60} y1={y - 16} x2={M0 - 60} y2={y + 16} stroke={ENCRE} strokeWidth={MOYEN} />
-    {/* clef gravée : spirale et hampe, sans citation d'aucun signe normalisé */}
-    <path
-      d={`M${M0 - 48} ${y + 14} q-10 -6 -2 -13 q9 -7 13 3 q4 12 -9 20`}
-      fill="none"
-      stroke={ENCRE}
-      strokeWidth={FIN}
-    />
-    <line x1={M0 - 39} y1={y - 20} x2={M0 - 39} y2={y + 18} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-    <text className="gravure-lettrage" x={M0 - 66} y={y - 24} fontSize="11" textAnchor="start">
-      {label}
-    </text>
-  </g>
-);
+const X = (w: number) => X0 + w * PAS;
+const Y = (r: number) => Y0 + r * RANG;
 
+const HAUT = Y(0) - 16;
+const BAS = Y(NB_R - 1) + 18;
 
-const Note = ({ x, y, or = false, creuse = false }: { x: number; y: number; or?: boolean; creuse?: boolean }) => {
+/** Un engagement : polyligne oblique reliant ressources et périodes. */
+const Engagement = ({
+  pts,
+  type = 'ferme',
+  or = false,
+}: {
+  pts: [number, number][];
+  type?: 'ferme' | 'option' | 'recurrent';
+  or?: boolean;
+}) => {
+  const d = pts.map(([w, r], i) => `${i === 0 ? 'M' : 'L'}${X(w)} ${Y(r)}`).join(' ');
   const c = or ? LAITON : ENCRE;
   return (
     <g>
-      <ellipse cx={x} cy={y} rx={7} ry={5} transform={`rotate(-18 ${x} ${y})`} fill={creuse ? 'none' : c} stroke={c} strokeWidth={FIN} />
-      <line x1={x + 7} y1={y - 2} x2={x + 7} y2={y - 34} stroke={c} strokeWidth={MOYEN} />
+      <path
+        d={d}
+        fill="none"
+        stroke={c}
+        strokeWidth={type === 'ferme' ? (or ? FIN : MOYEN) : FIN}
+        strokeDasharray={type === 'option' ? '7 5' : type === 'recurrent' ? '14 4 3 4' : undefined}
+      />
+      {pts.map(([w, r], i) => (
+        <circle
+          key={`${w}-${r}-${i}`}
+          cx={X(w)}
+          cy={Y(r)}
+          r={3}
+          fill={type === 'option' ? 'hsl(var(--gravure-fond))' : c}
+          stroke={c}
+          strokeWidth={ULTRAFIN}
+        />
+      ))}
     </g>
   );
 };
 
+/** Marque de conflit : croix fine à l'oxyde, posée au croisement. */
+const Conflit = ({ x, y }: { x: number; y: number }) => (
+  <g>
+    <path d={`M${x - 9} ${y - 9} l18 18 M${x + 9} ${y - 9} l-18 18`} stroke={OXYDE} strokeWidth={FIN} />
+    <circle cx={x} cy={y} r={13} fill="none" stroke={OXYDE} strokeWidth={ULTRAFIN} strokeDasharray="4 3" />
+  </g>
+);
+
+/** Ligne de la nomenclature des signes : l'échantillon de trait, puis sa lecture. */
+const Signe = ({ x, y, children, draw }: { x: number; y: number; children: string; draw: React.ReactNode }) => (
+  <g transform={`translate(${x} ${y})`}>
+    {draw}
+    <text className="gravure-lettrage" x={92} y={4} fontSize="12">
+      {children}
+    </text>
+  </g>
+);
+
 export const PLANCHE_V = {
   numeral: 'V',
-  title: "Partition d'un flux de réservation",
+  title: "Graphique d'engagements",
   desc:
-    "Gravure au trait, planche à trois figures, où un flux de réservation est noté comme une partition. FIGURE 1, trois portées superposées et barrées en sept mesures : la portée haute porte les demandes, têtes de note creuses posées irrégulièrement ; la portée médiane porte les ressources disponibles, notes pleines tenues sur plusieurs mesures ; la portée basse porte les engagements, où chaque note résulte de la rencontre d'une demande et d'une ressource. Des liaisons verticales fines relient les trois portées mesure par mesure, un silence marque la mesure où aucune ressource n'est disponible, et une barre de reprise indique la relance périodique. Une seule note est rehaussée de laiton : la confirmation, seul moment où l'engagement devient ferme. FIGURE 2, détail à quatre fois l'échelle de cette note : hampe, tête, liaison amont, liaison aval, et huit lettres de nomenclature secondaire décrivant ce que porte une confirmation. FIGURE 3, grille d'affectation : les ressources en lignes, les mesures en colonnes, les cases occupées pochées légèrement, les cases en attente laissées vides, les conflits marqués d'une croix fine. Les cotations sont symboliques et aucune donnée réelle ne figure. Nomenclature de huit entrées et cartouche.",
+    "Gravure au trait, planche à trois figures, où le registre des engagements est porté sur un graphique horaire du type employé par les chemins de fer au dix-neuvième siècle. FIGURE 1 : l'abscisse porte huit périodes symboliques, l'ordonnée six ressources rangées de A à F, et chaque engagement est un segment oblique qui relie une ressource à une période ; les engagements confirmés sont au trait fort, les options au trait interrompu, la récurrence au trait mixte, le préavis marqué d'un fanion à l'oxyde. Deux segments se croisent : c'est un conflit d'engagement, cerclé sur place, et sa résolution est portée en trait fin rehaussé de laiton, l'engagement étant déplacé sur une ressource libre. Une tenue sur deux périodes est marquée d'un crochet. FIGURE 2, détail à trois fois l'échelle du croisement : les deux segments en cause, le point de conflit, le segment de résolution, la marge de préavis et la ressource de report, décrits par huit lettres de nomenclature secondaire. FIGURE 3, nomenclature des signes : chaque convention de trait est montrée en échantillon puis nommée. Les périodes et les ressources sont symboliques, aucune donnée réelle, aucun nom, aucun lieu ne figure. Nomenclature de six entrées et cartouche de dossier portant la mention concept.",
   viewBox: '0 0 1240 900',
-  detailViewBox: '760 380 400 300',
+  detailViewBox: '860 440 340 280',
 };
 
 export const PlancheVDrawing = ({ p }: { p: string }) => (
   <>
     <GravureDefs p={p} />
 
-    {/* ================= FIG. 1 — LA PARTITION ================= */}
-    <RepereFigure x={60} y={96} n="1" title="Partition - demandes, ressources, engagements" w={420} />
+    {/* ================= FIG. 1 — LE GRAPHIQUE ================= */}
+    <RepereFigure x={60} y={100} n="1" title="Graphique d'engagements - périodes en abscisse, ressources en ordonnée" w={700} />
 
-    <Portee y={P1} label="Demandes" />
-    <Portee y={P2} label="Ressources" />
-    <Portee y={P3} label="Engagements" />
-
-    {/* barres de mesure */}
-    {Array.from({ length: 8 }).map((_, i) => (
-      <line key={i} x1={M0 + i * MES} y1={P1 - 16} x2={M0 + i * MES} y2={P3 + 16} stroke={ENCRE} strokeWidth={i === 7 ? MOYEN : ULTRAFIN} opacity="0.75" />
+    {/* trame : périodes */}
+    {Array.from({ length: NB_P }).map((_, i) => (
+      <g key={`p${i}`}>
+        <line x1={X(i)} y1={HAUT} x2={X(i)} y2={BAS} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity={i % 2 === 0 ? 0.7 : 0.45} />
+        <text className="gravure-lettrage" x={X(i)} y={HAUT - 8} fontSize="10" textAnchor="middle" fill={OXYDE}>
+          S{i + 1}
+        </text>
+      </g>
     ))}
-    {/* barre de reprise */}
-    <g>
-      <line x1={M0 + 7 * MES - 8} y1={P1 - 16} x2={M0 + 7 * MES - 8} y2={P3 + 16} stroke={ENCRE} strokeWidth={FIN} />
-      <circle cx={M0 + 7 * MES - 20} cy={P2 - 6} r={2.6} fill={ENCRE} />
-      <circle cx={M0 + 7 * MES - 20} cy={P2 + 6} r={2.6} fill={ENCRE} />
-    </g>
-    {/* numéros de mesure */}
-    {[0, 1, 2, 3, 4, 5, 6].map((i) => (
-      <text key={`n${i}`} className="gravure-lettrage" x={M0 + i * MES + 6} y={P1 - 26} fontSize="10" fill={OXYDE}>
-        {i + 1}
-      </text>
+    {/* trame : ressources */}
+    {Array.from({ length: NB_R }).map((_, r) => (
+      <g key={`r${r}`}>
+        <line x1={X0 - 26} y1={Y(r)} x2={X(NB_P - 1) + 26} y2={Y(r)} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.6" />
+        <text className="gravure-lettrage" x={X0 - 36} y={Y(r) + 4} fontSize="11" textAnchor="end">
+          {String.fromCharCode(65 + r)}
+        </text>
+      </g>
     ))}
-    {/* liaisons de tenue : une ressource tenue sur deux mesures */}
-    <path
-      d={`M${M0 + 46} ${P2 + 14} q${MES / 2} 18 ${MES} 0`}
-      fill="none"
-      stroke={ENCRE}
-      strokeWidth={ULTRAFIN}
-      opacity="0.8"
-    />
-    {/* coda : fin de cycle */}
-    <g transform={`translate(${M0 + 7 * MES + 26} ${P3})`}>
-      <circle cx={0} cy={0} r={11} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <line x1={-15} y1={0} x2={15} y2={0} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      <line x1={0} y1={-15} x2={0} y2={15} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      <text className="gravure-lettrage" x={0} y={30} fontSize="10" textAnchor="middle">
-        Fin de cycle
-      </text>
-    </g>
-
-
-
-    {/* notes */}
-    {[0, 1, 2, 3, 4, 5, 6].map((i) => (
-      <Note key={`d${i}`} x={M0 + i * MES + 46} y={P1 + [8, -8, 0, 8, -16, 0, 8][i]} creuse />
-    ))}
-    {[0, 1, 2, 4, 5, 6].map((i) => (
-      <Note key={`r${i}`} x={M0 + i * MES + 46} y={P2 + [0, 8, -8, 0, 8, -8, 0][i]} />
-    ))}
-    {[0, 1, 2, 5, 6].map((i) => (
-      <Note key={`e${i}`} x={M0 + i * MES + 46} y={P3 + [8, 0, -8, 0, 8, 0, -8][i]} />
-    ))}
-    {/* la confirmation : unique rehaut de laiton */}
-    <Note x={CONF} y={P3 - 8} or />
-    <text className="gravure-lettrage" x={CONF + 16} y={P3 - 34} fontSize="12" fill={LAITON}>
-      Confirmation
+    <line x1={X0 - 26} y1={BAS} x2={X(NB_P - 1) + 26} y2={BAS} stroke={ENCRE} strokeWidth={FORT} />
+    <line x1={X0 - 26} y1={HAUT} x2={X0 - 26} y2={BAS} stroke={ENCRE} strokeWidth={FORT} />
+    <text className="gravure-lettrage" x={X0 - 36} y={HAUT - 8} fontSize="10" textAnchor="end" fill={OXYDE}>
+      Ress.
     </text>
 
-    {/* liaisons verticales mesure par mesure */}
-    {[0, 1, 2, 5, 6].map((i) => (
-      <line key={`l${i}`} x1={M0 + i * MES + 46} y1={P1 + 20} x2={M0 + i * MES + 46} y2={P3 - 20} stroke={OXYDE} strokeWidth={ULTRAFIN} opacity="0.7" />
-    ))}
-    {/* silence : la mesure sans ressource */}
-    <g transform={`translate(${M0 + 3 * MES + 40} ${P2 - 10})`}>
-      <path d="M0 0 h16 v7 h-16 z" fill={ENCRE} />
-      <text className="gravure-lettrage" x={-4} y={38} fontSize="11">
-        Silence
+    {/* engagements */}
+    <Engagement pts={[[0, 0], [2, 1], [5, 1], [7, 3]]} />
+    <Engagement pts={[[1, 2], [6, 2]]} />
+    <Engagement pts={[[2, 4], [5, 1]]} />
+    <Engagement pts={[[0, 3], [3, 5], [6, 5]]} type="option" />
+    <Engagement pts={[[4, 0], [7, 0]]} type="recurrent" />
+
+    {/* tenue sur deux périodes : crochet sous le segment maintenu */}
+    <path d={`M${X(2)} ${Y(1) + 12} v8 h${PAS * 3} v-8`} fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} />
+    <text className="gravure-lettrage" x={X(3) + 26} y={Y(1) + 36} fontSize="11">
+      Tenue sur deux périodes
+    </text>
+
+    {/* préavis : fanion à l'oxyde en amont d'un engagement */}
+    <g>
+      <line x1={X(1) - 26} y1={Y(2) - 22} x2={X(1) - 26} y2={Y(2)} stroke={OXYDE} strokeWidth={FIN} />
+      <path d={`M${X(1) - 26} ${Y(2) - 22} l18 6 -18 6 z`} fill={OXYDE} />
+      <text className="gravure-lettrage" x={X(1) - 44} y={Y(2) - 30} fontSize="10" fill={OXYDE} textAnchor="start">
+        Préavis
       </text>
     </g>
 
-    <ChaineCotes y={P3 + 74} points={[M0, M0 + MES, M0 + 2 * MES, M0 + 3 * MES]} labels={['m', 'm', 'm']} attache={P3 + 22} />
-    <Pastille x={M0 - 88} y={P1} n={1} />
-    <Pastille x={M0 - 88} y={P2} n={2} />
-    <Pastille x={M0 - 88} y={P3} n={3} />
+    {/* conflit détecté au croisement, et résolution en laiton */}
+    <Conflit x={564} y={Y(2)} />
+    <Engagement pts={[[2, 4], [5, 0]]} or />
+    <text className="gravure-lettrage" x={X(5) + 12} y={Y(0) - 8} fontSize="12" fill={LAITON}>
+      Résolution : report sur ressource libre
+    </text>
+    <Attache x={564} y={Y(2)} dx={-96} dy={78} label="Conflit détecté" />
 
-    {/* ================= FIG. 2 — DÉTAIL DE LA NOTE ================= */}
-    <RepereFigure x={820} y={470} n="2" title="La note de confirmation x4" w={290} />
+    <Pastille x={X0 - 76} y={Y(0)} n={1} />
+    <Pastille x={X(NB_P - 1) + 52} y={Y(2)} n={2} />
+    <Pastille x={X(4) + 6} y={Y(5) - 22} n={3} />
+    <Pastille x={X(6) + 34} y={Y(0)} n={4} />
 
-    <g transform="translate(960 626)">
-      <CercleDetail cx={0} cy={0} r={140} label="x4" />
-      <ellipse cx={-10} cy={20} rx={34} ry={24} transform="rotate(-18 -10 20)" fill="none" stroke={LAITON} strokeWidth={MOYEN} />
-      <line x1={22} y1={10} x2={22} y2={-104} stroke={ENCRE} strokeWidth={MOYEN} />
-      <AxeMixte x1={-10} y1={-120} x2={-10} y2={120} />
-      <TraceCache d="M-130 60 L-44 30" />
-      <TraceCache d="M56 -10 L132 -40" />
-      <PastilleLettre x={-118} y={-42} l="a" />
-      <PastilleLettre x={-56} y={-18} l="b" />
-      <PastilleLettre x={30} y={-92} l="c" />
-      <PastilleLettre x={92} y={-30} l="d" />
-      <PastilleLettre x={106} y={54} l="e" />
-      <PastilleLettre x={26} y={104} l="f" />
-      <PastilleLettre x={-72} y={96} l="g" />
-      <PastilleLettre x={-126} y={26} l="h" />
+    {/* ================= FIG. 2 — DÉTAIL DU CONFLIT ================= */}
+    <RepereFigure x={860} y={442} n="2" title="Le conflit et sa résolution x3" w={300} />
+
+    <g transform="translate(1010 588)">
+      <CercleDetail cx={0} cy={0} r={126} label="x3" />
+      {/* les deux segments en cause */}
+      <line x1={-116} y1={30} x2={116} y2={30} stroke={ENCRE} strokeWidth={MOYEN} />
+      <line x1={-70} y1={110} x2={92} y2={-96} stroke={ENCRE} strokeWidth={MOYEN} />
+      <circle cx={7} cy={30} r={12} fill="none" stroke={OXYDE} strokeWidth={ULTRAFIN} strokeDasharray="4 3" />
+      <path d="M-2 21 l18 18 M16 21 l-18 18" stroke={OXYDE} strokeWidth={FIN} />
+      {/* le segment de résolution : trait fin, laiton */}
+      <line x1={-70} y1={110} x2={104} y2={-52} stroke={LAITON} strokeWidth={FIN} />
+      {/* marge de préavis */}
+      <line x1={-70} y1={110} x2={-70} y2={74} stroke={OXYDE} strokeWidth={ULTRAFIN} />
+      <PastilleLettre x={-112} y={-14} l="a" />
+      <PastilleLettre x={-40} y={4} l="b" />
+      <PastilleLettre x={30} y={4} l="c" />
+      <PastilleLettre x={96} y={-30} l="d" />
+      <PastilleLettre x={110} y={54} l="e" />
+      <PastilleLettre x={28} y={100} l="f" />
+      <PastilleLettre x={-58} y={62} l="g" />
+      <PastilleLettre x={-112} y={72} l="h" />
     </g>
 
     <NomenclatureLettres
-      x={654}
-      y={536}
+      x={620}
+      y={486}
       items={[
-        'Demande reçue, amont',
-        'Ressource retenue',
-        "Hampe : durée de l'engagement",
-        'Destinataire notifié',
-        'Trace conservée',
-        'Condition de report',
-        "Fenêtre d'annulation",
-        "Axe de la mesure",
+        'Engagement confirmé, ressource tenue',
+        'Engagement entrant, pente de report',
+        'Point de conflit : même ressource, même période',
+        'Segment de résolution',
+        'Ressource de report, libre',
+        'Origine de la demande',
+        'Marge de préavis',
+        'Ligne de ressource',
       ]}
     />
 
-    {/* ================= FIG. 3 — GRILLE D'AFFECTATION ================= */}
-    <RepereFigure x={60} y={486} n="3" title="Grille d'affectation" w={280} />
+    {/* ================= FIG. 3 — NOMENCLATURE DES SIGNES ================= */}
+    <RepereFigure x={60} y={470} n="3" title="Nomenclature des signes" w={300} />
 
-    <g transform="translate(90 516)">
-      {Array.from({ length: 5 }).map((_, r) =>
-        Array.from({ length: 8 }).map((_, c) => {
-          const occupe = (r * 3 + c * 5) % 7 < 3;
-          const conflit = r === 2 && c === 4;
-          return (
-            <g key={`${r}-${c}`}>
-              <rect
-                x={c * 66}
-                y={r * 34}
-                width={66}
-                height={34}
-                fill={occupe ? 'hsl(var(--gravure-encre) / 0.10)' : 'none'}
-                stroke={ENCRE}
-                strokeWidth={ULTRAFIN}
-                opacity="0.85"
-              />
-              {conflit && (
-                <path
-                  d={`M${c * 66 + 14} ${r * 34 + 10} l38 14 M${c * 66 + 52} ${r * 34 + 10} l-38 14`}
-                  stroke={OXYDE}
-                  strokeWidth={FIN}
-                />
-              )}
-            </g>
-          );
-        }),
-      )}
-      <text className="gravure-lettrage" x={0} y={-10} fontSize="11">
-        Mesures
-      </text>
-      <text className="gravure-lettrage" x={-64} y={104} fontSize="11">
-        Ressources
-      </text>
-      <Pastille x={-30} y={172} n={7} />
+    <g transform="translate(80 508)">
+      <Signe x={0} y={0} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={ENCRE} strokeWidth={MOYEN} />}>
+        Engagement confirmé
+      </Signe>
+      <Signe x={0} y={34} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={ENCRE} strokeWidth={FIN} strokeDasharray="7 5" />}>
+        Option, non ferme
+      </Signe>
+      <Signe x={0} y={68} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={ENCRE} strokeWidth={FIN} strokeDasharray="14 4 3 4" />}>
+        Engagement récurrent
+      </Signe>
+      <Signe x={0} y={102} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={LAITON} strokeWidth={FIN} />}>
+        Segment de résolution
+      </Signe>
+      <Signe
+        x={0}
+        y={136}
+        draw={
+          <g>
+            <path d="M29 -9 l18 18 M47 -9 l-18 18" stroke={OXYDE} strokeWidth={FIN} />
+          </g>
+        }
+      >
+        Conflit détecté
+      </Signe>
+      <Signe
+        x={0}
+        y={170}
+        draw={
+          <g>
+            <line x1={38} y1={-14} x2={38} y2={6} stroke={OXYDE} strokeWidth={FIN} />
+            <path d="M38 -14 l16 5 -16 5 z" fill={OXYDE} />
+          </g>
+        }
+      >
+        Préavis
+      </Signe>
+      <Signe
+        x={0}
+        y={204}
+        draw={<path d="M8 -8 v10 h60 v-10" fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} />}
+      >
+        Tenue sur plusieurs périodes
+      </Signe>
     </g>
 
     {/* ================= NOMENCLATURE ================= */}
     <Nomenclature
-      x={96}
-      y={748}
+      x={470}
+      y={730}
       perCol={4}
-      colGap={330}
+      colGap={0}
       items={[
-        'Portée des demandes',
-        'Portée des ressources',
-        'Portée des engagements',
-        'Mesure : unité de temps',
-        'Silence : aucune ressource',
-        'Barre de reprise : relance',
-        'Case occupée',
-        'Conflit signalé',
+        'Rang de ressource, A à F',
+        'Période symbolique, S1 à S8',
+        'Engagement porté au registre',
+        'Résolution de conflit',
       ]}
     />
 
-    <Cartouche x={880} y={790} numeral="V" title="Partition d'un flux de réservation" echelle="Éch. symb." />
+    <Cartouche
+      x={880}
+      y={790}
+      numeral="V"
+      title="Graphique d'engagements"
+      echelle="Éch. symb."
+      dossier="Usine de référence OWL-1 - CONCEPT"
+      index="PL. 5/9"
+      renvois={['Ressources en place : PL. VIII', 'Modèle de groupe : PL. VII']}
+    />
   </>
 );
