@@ -166,14 +166,14 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
         Chemin de câbles
       </text>
       <line x1={584} y1={TOIT + 96} x2={620} y2={TOIT + 96} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="5 4" opacity="0.7" />
-      <text className="gravure-lettrage" x={62} y={TOIT + 202} fontSize="10" fill={OXYDE}>
+      <text className="gravure-lettrage" x={62} y={TOIT + 186} fontSize="10" fill={OXYDE}>
         Recul de rive, circulation de maintenance
       </text>
     </g>
 
     <NomenclatureLettres
       x={62}
-      y={664}
+      y={678}
       items={['Module et cadre', 'Plot ballasté non perçant', 'Panne et poutre porteuse']}
     />
 
@@ -273,9 +273,9 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     </g>
 
     {/* ================= FIG. 3 — LA MAILLE TYPE ================= */}
-    <RepereFigure x={62} y={738} n="3" title="Maille élémentaire, vue en plan" w={330} />
+    <RepereFigure x={62} y={744} n="3" title="Maille élémentaire, vue en plan" w={330} />
 
-    <g transform="translate(62 752)">
+    <g transform="translate(62 756)">
       {/* cerclage de la maille : ce qui se répète */}
       <rect x={-10} y={4} width={316} height={96} rx={10} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
       {/* deux rangées de cinq modules, en plan */}
