@@ -363,13 +363,13 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
 
     {/* ============ 3 MINUTES — L'ÉCHELLE DE LIBELLÉS EN MARGE ============ */}
     <BlocTexte>
-      <text className="gravure-lettrage" x={60} y={954} fontSize="12" fill={OXYDE}>
+      <text className="gravure-lettrage" x={60} y={938} fontSize="12" fill={OXYDE}>
         Échelle de libellés - chaque repère du dessin, sa désignation complète
       </text>
     </BlocTexte>
     <EchelleLibelles
       x={64}
-      yStart={982}
+      yStart={966}
       yStep={24}
       side="right"
       items={[
@@ -384,7 +384,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     />
     <EchelleLibelles
       x={464}
-      yStart={982}
+      yStart={966}
       yStep={24}
       side="right"
       items={[
@@ -399,7 +399,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     />
     <EchelleLibelles
       x={864}
-      yStart={982}
+      yStart={966}
       yStep={24}
       side="right"
       items={[
