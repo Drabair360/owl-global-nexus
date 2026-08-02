@@ -131,7 +131,7 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
       <Repere x={619} y={YA + 46} t="P-204" />
       {/* by-pass */}
       <TraceCache d={`M540 ${YA - 40} v-74 h176 v74`} />
-      <text className="gravure-lettrage" x={628} y={YA - 122} fontSize="11" textAnchor="middle">
+      <text className="gravure-lettrage" x={588} y={YA - 122} fontSize="11" textAnchor="middle">
         By-pass
       </text>
       {/* point d'échantillonnage qualité */}
@@ -176,8 +176,8 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
       </text>
       <Repere x={670} y={YB + 76} t="M-301" />
       {/* la ligne de configuration : piquage commun */}
-      <path d={`M736 ${YB} h96`} fill="none" stroke={LAITON} strokeWidth={FORT} />
-      <circle cx={832} cy={YB} r={5} fill={LAITON} />
+      <path d={`M736 ${YB} h96`} fill="none" stroke={ENCRE} strokeWidth={FORT} />
+      <circle cx={832} cy={YB} r={5} fill={ENCRE} />
       <Attache x={790} y={YB} dx={-120} dy={-104} label="Ligne de configuration" anchor="end" />
     </g>
 
@@ -221,23 +221,23 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
       <Repere x={932} y={288} t="F-501" />
       {/* réseau d'aspiration : son propre trait, distinct du flux matière */}
       <path
-        d="M880 208 H812 V126 H360"
+        d="M880 208 H812 V110 H360"
         fill="none"
         stroke={OXYDE}
         strokeWidth={FIN}
         strokeDasharray="12 4"
       />
-      {[414, 619].map((bx) => (
+      {[414, 660].map((bx) => (
         <path
           key={bx}
-          d={`M${bx} 126 V${bx === 414 ? 154 : 158}`}
+          d={`M${bx} 110 V${bx === 414 ? 154 : 158}`}
           fill="none"
           stroke={OXYDE}
           strokeWidth={FIN}
           strokeDasharray="12 4"
         />
       ))}
-      <text className="gravure-lettrage" x={364} y={118} fontSize="11" fill={OXYDE}>
+      <text className="gravure-lettrage" x={364} y={100} fontSize="11" fill={OXYDE}>
         Réseau d&apos;aspiration, capots aux points d&apos;émission
       </text>
     </g>
@@ -331,12 +331,12 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
         );
       })}
       <text className="gravure-lettrage" x={0} y={166} fontSize="11" fill={OXYDE}>
-        Un piquage commun, une variante raccordée par filière
+        Un piquage, une variante par filière
       </text>
     </g>
 
     {/* utilités et bilan */}
-    <g transform="translate(330 652)">
+    <g transform="translate(370 652)">
       {[
         ['Vapeur', '16 5'],
         ['Air comprimé', '4 4'],
