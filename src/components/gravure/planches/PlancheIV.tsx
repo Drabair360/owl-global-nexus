@@ -91,7 +91,7 @@ const Roue = ({
   return (
     <g transform={`translate(${cx} ${cy})`}>
       <g transform={`rotate(${(rot * 180) / Math.PI})`}>
-        <circle cx={0} cy={0} r={r * 0.86} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
+        <circle cx={0} cy={0} r={r * 0.86} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={MOYEN} />
         <circle cx={0} cy={0} r={r * 0.6} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
         {[0, 1, 2, 3, 4].map((i) => {
           const a = (i * Math.PI * 2) / 5 + Math.PI / 5;
@@ -111,9 +111,9 @@ const Roue = ({
           <path
             key={i}
             d={dentPath(r, i * pas, pas)}
-            fill="hsl(var(--gravure-fond))"
+            fill={poche(p, 'acier')}
             stroke={ENCRE}
-            strokeWidth={FIN}
+            strokeWidth={MOYEN}
           />
         ))}
         {/* moyeu et clavette */}
@@ -304,7 +304,7 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
       x2={PX + LX * 152}
       y2={PY + LY * 152}
       stroke={OXYDE}
-      strokeWidth={FIN}
+      strokeWidth={MOYEN}
     />
     {/* points de tangence sur les cercles de base */}
     <circle cx={AX + RA * COSA * COSA} cy={AY - RA * COSA * SINA} r={2.4} fill={OXYDE} />
@@ -389,7 +389,8 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
 
     <g transform="translate(700 512)">
       {/* jante en coupe interrompue : la largeur b portée par la denture */}
-      <rect x={0} y={0} width={172} height={54} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
+      <rect x={0} y={0} width={172} height={54} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={MOYEN} />
+      <rect x={0} y={0} width={172} height={12} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={FIN} />
       {/* sommets de dents, vus de champ */}
       {[0, 1, 2, 3, 4].map((i) => (
         <line key={i} x1={0} y1={10 + i * 8.5} x2={172} y2={10 + i * 8.5} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.5" />
@@ -417,18 +418,22 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
 
     <g transform="translate(1092 290)">
       <circle cx={0} cy={0} r={78} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
-      {/* flanc chargé, en contact */}
-      <path d="M-64 -62 Q-18 -6 -40 66" fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
-      {/* dent en regard : flanc non chargé, jeu ouvert */}
-      <path d="M64 -66 Q6 -8 30 64 L74 64 L74 -66 Z" fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
-      {/* le jeu, mesuré normalement aux flancs */}
-      <line x1={-14} y1={-8} x2={2} y2={-8} stroke={OXYDE} strokeWidth={FIN} />
-      <line x1={-14} y1={-16} x2={-14} y2={0} stroke={OXYDE} strokeWidth={ULTRAFIN} />
-      <line x1={2} y1={-16} x2={2} y2={0} stroke={OXYDE} strokeWidth={ULTRAFIN} />
-      <line x1={-40} y1={44} x2={26} y2={44} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.6" />
+      {/* dent menante : le flanc chargé est en contact */}
+      <path d="M-72 -70 L-30 -70 Q-6 -4 -34 68 L-72 68 Z" fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
+      {/* dent menée : le flanc non chargé laisse le jeu */}
+      <path d="M72 -70 L26 -70 Q8 -4 30 68 L72 68 Z" fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
+      {/* le jeu, mesuré normalement au flanc non chargé */}
+      <line x1={-8} y1={-44} x2={-8} y2={-24} stroke={OXYDE} strokeWidth={ULTRAFIN} />
+      <line x1={14} y1={-44} x2={14} y2={-24} stroke={OXYDE} strokeWidth={ULTRAFIN} />
+      <line x1={-8} y1={-34} x2={14} y2={-34} stroke={OXYDE} strokeWidth={FIN} />
+      <path d="M-8 -34 l8 -3.5 v7 z" fill={OXYDE} />
+      <path d="M14 -34 l-8 -3.5 v7 z" fill={OXYDE} />
+      <Repere x={3} y={-46}>j</Repere>
+      {/* ligne primitive au droit du contact */}
+      <line x1={-72} y1={12} x2={72} y2={12} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray={MIXTE_DASH} opacity="0.8" />
     </g>
-    <Marque rep="J-08" cible={[1086, 282]} x={1006} y={396} anchor="start" />
-    <Marque rep="D-03" cible={[1130, 250]} x={1096} y={396} anchor="start" />
+    <Marque rep="J-08" cible={[1095, 256]} x={1006} y={402} anchor="start" />
+    <Marque rep="D-03" cible={[1108, 300]} x={1108} y={402} anchor="start" />
 
     {/* ================= FIG. 2 — SCHÉMA CINÉMATIQUE ================= */}
     <RepereFigure x={60} y={700} n="2" title="Schéma cinématique normalisé - double nomenclature" w={520} />
