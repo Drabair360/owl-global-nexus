@@ -32,6 +32,7 @@ const StudioMatiereJournal = lazy(() => import('./pages/studio/MatiereJournal'))
 const StudioMatiereLab = lazy(() => import('./pages/studio/MatiereLab'));
 const StudioCabinet = lazy(() => import('./pages/studio/Cabinet'));
 const StudioRegistres = lazy(() => import('./pages/studio/Registres'));
+const StudioLisibilite = lazy(() => import('./pages/studio/Lisibilite'));
 
 const queryClient = new QueryClient();
 
@@ -67,6 +68,7 @@ const App = () => (
             <Route path="/studio/matiere-lab" element={<StudioMatiereLab />} />
             <Route path="/studio/cabinet" element={<StudioCabinet />} />
             <Route path="/studio/registres" element={<StudioRegistres />} />
+            <Route path="/studio/lisibilite" element={<StudioLisibilite />} />
 
 
 
