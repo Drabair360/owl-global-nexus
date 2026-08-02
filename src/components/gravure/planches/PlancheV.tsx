@@ -39,11 +39,20 @@ const Portee = ({ y, label }: { y: number; label: string }) => (
       <line key={d} x1={M0 - 60} y1={y + d} x2={M0 + 7 * MES} y2={y + d} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.7" />
     ))}
     <line x1={M0 - 60} y1={y - 16} x2={M0 - 60} y2={y + 16} stroke={ENCRE} strokeWidth={MOYEN} />
+    {/* clef gravée : spirale et hampe, sans citation d'aucun signe normalisé */}
+    <path
+      d={`M${M0 - 48} ${y + 14} q-10 -6 -2 -13 q9 -7 13 3 q4 12 -9 20`}
+      fill="none"
+      stroke={ENCRE}
+      strokeWidth={FIN}
+    />
+    <line x1={M0 - 39} y1={y - 20} x2={M0 - 39} y2={y + 18} stroke={ENCRE} strokeWidth={ULTRAFIN} />
     <text className="gravure-lettrage" x={M0 - 66} y={y - 24} fontSize="11" textAnchor="start">
       {label}
     </text>
   </g>
 );
+
 
 const Note = ({ x, y, or = false, creuse = false }: { x: number; y: number; or?: boolean; creuse?: boolean }) => {
   const c = or ? LAITON : ENCRE;
