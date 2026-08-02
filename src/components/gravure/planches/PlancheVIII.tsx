@@ -259,14 +259,14 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
 
     {/* ============ LA MARCHE EN AVANT — REHAUT DE LAITON UNIQUE ============ */}
     <path
-      d={`M136 303 H310 V${FB} H1105 V556`}
+      d={`M136 303 H362 V${FB} H1105 V556`}
       fill="none"
       stroke={LAITON}
       strokeWidth={FORT}
       strokeLinejoin="round"
     />
-    <Chevron x={232} y={303} dir="e" />
-    <Chevron x={310} y={392} dir="s" />
+    <Chevron x={258} y={303} dir="e" />
+    <Chevron x={362} y={396} dir="s" />
     <Chevron x={500} y={FB} dir="e" />
     <Chevron x={790} y={FB} dir="e" />
     <Chevron x={1000} y={FB} dir="e" />
@@ -368,7 +368,7 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
         { label: 'PV - Emprise de la centrale (PL. IX)' },
         { label: 'JD - Joint de dilatation de la halle' },
         { label: 'ZS - Limite zone grise / zone blanche' },
-        { label: 'TN - Emprise, limite de propriété' },
+        { label: 'Emprise - limite en trait interrompu' },
       ]}
     />
 
@@ -395,7 +395,7 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
     <BlocTexte>
       <Cartouche
         x={800}
-        y={1200}
+        y={1176}
         w={380}
         numeral="VIII"
         title="Implantation de l'usine OWL-1"
