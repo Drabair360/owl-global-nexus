@@ -189,7 +189,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     </g>
 
     {/* faîtage : la coupe s'arrête ici */}
-    <Rupture x={PT(664, -8)[0]} y={PT(664, -8)[1]} length={70} />
+    <Rupture x={PT(668, -30)[0]} y={PT(668, -30)[1]} length={64} vertical />
 
     {/* rive basse : chéneau et garde-corps, d'aplomb */}
     <path d="M140 522 h34 v24 h-34 z" fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
@@ -199,10 +199,10 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     <line x1={150} y1={472} x2={186} y2={472} stroke={ENCRE} strokeWidth={ULTRAFIN} />
 
     {/* ---- repères courts, en attache : aucune phrase dans le dessin ---- */}
-    <Marque rep="M-01" cible={PT(150, -38)} x={200} y={212} />
-    <Marque rep="EP" cible={PT(180, -54)} x={200} y={238} />
-    <Marque rep="G-02" cible={[160, 452]} x={200} y={264} />
-    <Marque rep="E-03" cible={[157, 534]} x={200} y={290} />
+    <Marque rep="M-01" cible={PT(150, -38)} x={214} y={382} />
+    <Marque rep="EP" cible={PT(180, -54)} x={214} y={408} />
+    <Marque rep="G-02" cible={[160, 452]} x={214} y={434} />
+    <Marque rep="E-03" cible={[157, 534]} x={214} y={460} />
 
     <Marque rep="R-04" cible={PT(330, -27)} x={682} y={344} />
     <Marque rep="R-05" cible={PT(408, -25)} x={682} y={370} />
@@ -338,7 +338,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     </BlocTexte>
 
     <circle cx={840} cy={806} r={86} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
-    <g transform="translate(840 826)">
+    <g transform="translate(840 830) scale(1.3)">
       {/* le bac, en coupe : onde basse, onde haute */}
       <path
         d="M-72 12 h20 v-22 h22 v22 h20 v-22 h22 v22 h20"
