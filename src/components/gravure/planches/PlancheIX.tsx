@@ -117,35 +117,34 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     {/* ---- le versant, dans son repère incliné : l'ordre des couches de la PL. I ---- */}
     <g transform={`translate(${OX} ${OY}) rotate(${-PENTE})`}>
       {/* arbalétrier du portique */}
-      <line x1={-16} y1={7} x2={660} y2={7} stroke={ENCRE} strokeWidth={FORT} />
-      <line x1={-16} y1={21} x2={660} y2={21} stroke={ENCRE} strokeWidth={MOYEN} />
+      <line x1={-16} y1={12} x2={664} y2={12} stroke={ENCRE} strokeWidth={FORT} />
+      <line x1={-16} y1={28} x2={664} y2={28} stroke={ENCRE} strokeWidth={MOYEN} />
 
       {/* pannes en Z sur échantignoles - même dessin qu'en PL. I */}
       {[52, 182, 312, 442, 572].map((u) => (
         <g key={u}>
-          <PanneZ x={u} y={-4} />
-          <Echantignole x={u} y={5} />
+          <PanneZ x={u} y={0} />
+          <Echantignole x={u} y={10} />
         </g>
       ))}
 
       {/* bac d'acier nervuré, posé sur les pannes : la peau de la PL. I */}
-      <line x1={-14} y1={-12} x2={664} y2={-12} stroke={ENCRE} strokeWidth={MOYEN} />
       <path
-        d={Array.from({ length: 26 }, (_, i) => {
+        d={`M-14 -14 ${Array.from({ length: 26 }, (_, i) => {
           const u = -8 + i * 26;
-          return `M${u} -12 v-10 h11 v10`;
-        }).join(' ')}
+          return `L${u} -14 L${u + 3} -27 L${u + 12} -27 L${u + 15} -14`;
+        }).join(' ')} L664 -14`}
         fill="none"
         stroke={ENCRE}
-        strokeWidth={FIN}
+        strokeWidth={MOYEN}
       />
 
       {/* mini-rail sur nervures + pinces de fixation : aucune surinclinaison */}
-      <line x1={70} y1={-27} x2={652} y2={-27} stroke={ENCRE} strokeWidth={MOYEN} />
+      <line x1={70} y1={-33} x2={652} y2={-33} stroke={ENCRE} strokeWidth={MOYEN} />
       {[96, 174, 252, 330, 408, 486, 564, 642].map((u) => (
         <g key={u}>
-          <path d={`M${u - 5} -22 v-6 h10 v6`} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-          <Boulon x={u} y={-27} r={2} />
+          <path d={`M${u - 6} -27 v-6 h12 v6`} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+          <Boulon x={u} y={-33} r={2.2} />
         </g>
       ))}
 
@@ -158,20 +157,21 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
         <g key={u1}>
           <rect
             x={u1}
-            y={-38}
+            y={-47}
             width={u2 - u1}
-            height={10}
+            height={13}
             fill="hsl(var(--gravure-fond))"
             stroke={ENCRE}
-            strokeWidth={FORT}
+            strokeWidth={MOYEN}
           />
+          <line x1={u1} y1={-47} x2={u2} y2={-47} stroke={ENCRE} strokeWidth={FORT} />
           {[0.25, 0.5, 0.75].map((f) => (
             <line
               key={f}
               x1={u1 + (u2 - u1) * f}
-              y1={-38}
+              y1={-47}
               x2={u1 + (u2 - u1) * f}
-              y2={-28}
+              y2={-34}
               stroke={ENCRE}
               strokeWidth={ULTRAFIN}
             />
@@ -180,16 +180,16 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
       ))}
 
       {/* chemin de câbles en haut de champ */}
-      <rect x={612} y={-46} width={40} height={14} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <line x1={612} y1={-39} x2={652} y2={-39} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.7" />
+      <rect x={612} y={-54} width={42} height={16} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={612} y1={-46} x2={654} y2={-46} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.7" />
 
       {/* sens d'écoulement : dans l'onde du bac, vers l'égout */}
-      <line x1={230} y1={-54} x2={130} y2={-54} stroke={OXYDE} strokeWidth={FIN} />
-      <path d="M124 -54 l12 -5 v10 z" fill={OXYDE} />
+      <line x1={244} y1={-64} x2={132} y2={-64} stroke={OXYDE} strokeWidth={FIN} />
+      <path d="M124 -64 l14 -6 v12 z" fill="none" stroke={OXYDE} strokeWidth={FIN} />
     </g>
 
     {/* faîtage : la coupe s'arrête ici */}
-    <Rupture x={PT(668, -30)[0]} y={PT(668, -30)[1]} length={64} vertical />
+    <Rupture x={PT(676, -56)[0]} y={PT(676, -56)[1]} length={72} vertical />
 
     {/* rive basse : chéneau et garde-corps, d'aplomb */}
     <path d="M140 522 h34 v24 h-34 z" fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
@@ -199,18 +199,18 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     <line x1={150} y1={472} x2={186} y2={472} stroke={ENCRE} strokeWidth={ULTRAFIN} />
 
     {/* ---- repères courts, en attache : aucune phrase dans le dessin ---- */}
-    <Marque rep="M-01" cible={PT(150, -38)} x={214} y={382} />
-    <Marque rep="EP" cible={PT(180, -54)} x={214} y={408} />
+    <Marque rep="M-01" cible={PT(150, -47)} x={214} y={382} />
+    <Marque rep="EP" cible={PT(188, -64)} x={214} y={408} />
     <Marque rep="G-02" cible={[160, 452]} x={214} y={434} />
     <Marque rep="E-03" cible={[157, 534]} x={214} y={460} />
 
-    <Marque rep="R-04" cible={PT(330, -27)} x={682} y={344} />
-    <Marque rep="R-05" cible={PT(408, -25)} x={682} y={370} />
-    <Marque rep="T-01" cible={PT(452, -17)} x={682} y={396} />
-    <Marque rep="T-02" cible={PT(442, -4)} x={682} y={422} />
-    <Marque rep="T-03" cible={PT(500, 14)} x={682} y={448} />
-    <Marque rep="C-06" cible={PT(632, -39)} x={682} y={474} />
-    <Marque rep="F-07" cible={PT(660, -6)} x={682} y={500} />
+    <Marque rep="R-04" cible={PT(330, -33)} x={682} y={344} />
+    <Marque rep="R-05" cible={PT(408, -30)} x={682} y={370} />
+    <Marque rep="T-01" cible={PT(452, -20)} x={682} y={396} />
+    <Marque rep="T-02" cible={PT(442, 0)} x={682} y={422} />
+    <Marque rep="T-03" cible={PT(500, 20)} x={682} y={448} />
+    <Marque rep="C-06" cible={PT(634, -46)} x={682} y={474} />
+    <Marque rep="F-07" cible={PT(664, -14)} x={682} y={500} />
 
     {/* ================= FIG. 2 — LE RACCORDEMENT ================= */}
     <RepereFigure x={840} y={126} n="2" title="De la toiture au point de livraison" w={330} />
