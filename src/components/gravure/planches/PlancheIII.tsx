@@ -143,6 +143,19 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
       </text>
     </g>
 
+    {/* --- recyclage des refus : boucle de retour vers l'élévateur --- */}
+    <g>
+      <path d={`M600 ${YA + 26} V${YA + 94} H196 V276`} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+      <path d="M196 268 l-6 12 h12 z" fill={ENCRE} stroke="none" />
+      <text className="gravure-lettrage" x={330} y={YA + 88} fontSize="11">
+        Recyclage des refus
+      </text>
+      <path d={`M600 ${YA + 26} H664 V${YA + 68}`} fill="none" stroke={ENCRE} strokeWidth={FIN} strokeDasharray="6 4" />
+      <text className="gravure-lettrage" x={670} y={YA + 72} fontSize="11" fill={OXYDE}>
+        Refus écartés
+      </text>
+    </g>
+
     {/* --- flux matière rangée haute --- */}
     <Trait x1={152} y1={YA + 12} x2={200} y2={YA + 12} w={FORT} over={0} />
     <Trait x1={330} y1={YA - 44} x2={348} y2={YA - 44} w={FORT} over={0} />
@@ -206,7 +219,27 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
         Rejet filtré
       </text>
       <Repere x={932} y={288} t="F-501" />
-      <TraceCache d="M880 208 H716" />
+      {/* réseau d'aspiration : son propre trait, distinct du flux matière */}
+      <path
+        d="M880 208 H812 V126 H360"
+        fill="none"
+        stroke={OXYDE}
+        strokeWidth={FIN}
+        strokeDasharray="12 4"
+      />
+      {[414, 619].map((bx) => (
+        <path
+          key={bx}
+          d={`M${bx} 126 V${bx === 414 ? 154 : 158}`}
+          fill="none"
+          stroke={OXYDE}
+          strokeWidth={FIN}
+          strokeDasharray="12 4"
+        />
+      ))}
+      <text className="gravure-lettrage" x={364} y={118} fontSize="11" fill={OXYDE}>
+        Réseau d&apos;aspiration, capots aux points d&apos;émission
+      </text>
     </g>
 
     {/* ================= FIG. 2 — CADRE DE CONFIGURATION ================= */}
