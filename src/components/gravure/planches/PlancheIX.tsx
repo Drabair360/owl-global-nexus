@@ -173,7 +173,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
 
     <NomenclatureLettres
       x={62}
-      y={682}
+      y={664}
       items={['Module et cadre', 'Plot ballasté non perçant', 'Panne et poutre porteuse']}
     />
 
@@ -267,7 +267,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
         strokeWidth={FORT}
       />
       <circle cx={236} cy={448} r={5} fill={LAITON} />
-      <text className="gravure-lettrage" x={200} y={496} fontSize="11">
+      <text className="gravure-lettrage" x={200} y={476} fontSize="11">
         Point de livraison
       </text>
     </g>
