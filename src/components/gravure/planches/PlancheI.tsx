@@ -3,6 +3,14 @@ import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN } from '../defs';
 import { GravureDefs } from '../defs';
 import Cartouche, { VOL_I } from '../Cartouche';
 import {
+  TitrePlanche,
+  BandeauZone,
+  EchelleLibelles,
+  Repere,
+  SensLecture,
+  BlocTexte,
+} from '../lisibilite';
+import {
   Trait,
   Cadre,
   BulleAxe,
@@ -96,28 +104,25 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     </defs>
 
     {/* ================= FIG. 1 — COUPE TRANSVERSALE A-A ================= */}
-    <RepereFigure x={60} y={96} n="1" title="Coupe transversale A-A" w={300} />
+    {/* L3 / 3 s : le sujet, la forme générale, le sens de lecture */}
+    <TitrePlanche x={60} y={48} titre="L'unité industrielle OWL-1, coupe" />
+    <RepereFigure x={60} y={84} n="1" title="Coupe transversale A-A" w={300} />
+
+    {/* L3 / 30 s : les zones nommées, du haut vers le bas de la coupe */}
+    <BandeauZone x={30} y={140} w={22} h={170} label="Couverture et portique" />
+    <BandeauZone x={30} y={320} w={22} h={200} label="Enveloppe et levage" />
+    <BandeauZone x={30} y={534} w={22} h={186} label="Infrastructure" />
 
     {/* — calque 1 : LE SOL EN STRATES + TERRAIN NATUREL — */}
     <StratesSol p={p} x={60} y={SOL + 20} w={820} h={140} seed={31} />
-    <text className="gravure-lettrage" x={64} y={SOL + 40} fontSize="11">
-      Remblai
-    </text>
-    <text className="gravure-lettrage" x={64} y={SOL + 76} fontSize="11">
-      Terrain
-    </text>
-    <text className="gravure-lettrage" x={64} y={SOL + 120} fontSize="11">
-      Bon sol
-    </text>
+    <Repere x={64} y={SOL + 40} anchor="start">Remblai</Repere>
+    <Repere x={64} y={SOL + 76} anchor="start">Terrain</Repere>
+    <Repere x={64} y={SOL + 120} anchor="start">Bon sol</Repere>
     {/* §B7 — le sol n'est jamais horizontal : pente légère hors emprise */}
     <path d={`M60 ${SOL + 26} L118 ${SOL + 20} L150 ${SOL + 16}`} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
     <path d={`M790 ${SOL + 14} L840 ${SOL + 22} L880 ${SOL + 30}`} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-    <text className="gravure-lettrage" x={806} y={SOL + 12} fontSize="11">
-      TN
-    </text>
-    <text className="gravure-lettrage" x={62} y={SOL + 16} fontSize="11">
-      TN
-    </text>
+    <Repere x={806} y={SOL + 12} anchor="start">TN</Repere>
+    <Repere x={62} y={SOL + 16} anchor="start">TN</Repere>
 
     {/* — calque 2 : FONDATIONS — */}
     {[A, C].map((x) => (
@@ -163,14 +168,12 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     <line x1={A} y1={561} x2={C} y2={561} stroke={ENCRE} strokeWidth={FIN} />
     {/* §B6 — film sous dalle : trait fin continu entre isolant et dalle */}
     <line x1={A} y1={557.6} x2={C} y2={557.6} stroke={ENCRE} strokeWidth={FIN} opacity="0.55" />
-    <Attache x={C - 40} y={557.6} dx={82} dy={-58} label="Film sous dalle" />
     {/* dalle */}
     <rect x={A} y={540} width={C - A} height={16} fill="hsl(var(--gravure-fond))" />
     <rect x={A} y={540} width={C - A} height={16} fill={poche(p, 'beton')} />
     <Cadre x={A} y={540} w={C - A} h={16} weight={MOYEN} over={1.5} />
     {/* joint de dilatation */}
     <line x1={B} y1={538} x2={B} y2={558} stroke={ENCRE} strokeWidth={FORT} />
-    <Attache x={B} y={540} dx={92} dy={-34} label="Joint de dilatation" />
 
     {/* — calque 4 : ±0,00 — L'UNIQUE REHAUT DE LAITON (sol + arase dallage) — */}
     <line x1="60" y1={SOL} x2="880" y2={SOL} stroke={LAITON} strokeWidth={FORT} />
@@ -183,9 +186,6 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
       strokeDasharray="5 4"
       opacity="0.8"
     />
-    <text className="gravure-lettrage" x={C + 30} y={514} fontSize="11">
-      Arase dallage
-    </text>
     <RepereNiveau x={852} y={SOL} label="±0,00" rappel={812} or />
 
     {/* — calque 5 : POTEAUX, PLATINES, CALAGE, ANCRAGES CACHÉS — */}
@@ -306,9 +306,6 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
         strokeWidth={FIN}
         strokeDasharray="6 5"
       />
-      <text className="gravure-lettrage" x={472} y={H1 + 162} fontSize="11" textAnchor="middle">
-        Gabarit de levage
-      </text>
     </g>
 
     {/* — calque 8 : ENVELOPPE — LISSES EN C, BARDAGE, CHÉNEAU — */}
@@ -348,9 +345,6 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
       <path d={`M${A + 60} 226 V${H1 - 74}`} />
       <path d={`M${C - 60} 226 V${H1 - 74}`} />
     </g>
-    <text className="gravure-lettrage" x={B} y={216} fontSize="11" textAnchor="middle">
-      Réseaux - PROJETÉ
-    </text>
 
     {/* — calque 10 : FILES, NIVEAUX, COTES — */}
     <BulleAxe x={A} y={112} label="A" to={TETE - 26} />
@@ -365,7 +359,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     <Pastille x={A - 52} y={TETE + 4} n={1} />
     <Pastille x={A + 150} y={traverse(A + 150) - 32} n={2} />
     <Pastille x={C - 62} y={traverse(C - 62) - 28} n={3} />
-    <Pastille x={A + 108} y={TETE + 2} n={4} />
+    <Pastille x={A + 148} y={TETE + 34} n={4} />
     <Pastille x={A + 34} y={470} n={5} />
     <Pastille x={A - 46} y={452} n={6} />
     <Pastille x={A + 66} y={H1 + 34} n={7} />
@@ -374,6 +368,25 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     <Pastille x={A} y={610} n={10} />
     {/* renvoi vers la FIG. 2 */}
     <CercleDetail cx={A + 56} cy={TETE + 20} r={46} label="DÉT. 2" />
+
+    {/* ---------- L1 — ÉCHELLE DE LIBELLÉS DE LA FIG. 1 ---------- */}
+    <EchelleLibelles
+      x={946}
+      yStart={604}
+      yStep={30}
+      side="right"
+      coude={40}
+      items={[
+        { repere: 'TN', label: 'Terrain naturel hors emprise', cible: [120, SOL + 22] },
+        { label: 'Strates : remblai, terrain, bon sol', cible: [300, SOL + 96] },
+        { label: 'Film sous dalle, continu', cible: [C - 40, 557.6] },
+        { label: 'Joint de dilatation du dallage', cible: [B, 548] },
+        { label: 'Arase du dallage au niveau ±0,00', cible: [C + 26, 545], or: true },
+        { label: 'Gabarit de levage, projeté', cible: [532, H1 + 150] },
+        { label: 'Réseaux techniques, projetés', cible: [C - 60, 240] },
+      ]}
+    />
+    <SensLecture x={60} y={862} w={400} label="Sens de lecture : file A vers file C" />
 
     {/* ================= FIG. 3 — PLAN DE REPÉRAGE ================= */}
     <RepereFigure x={946} y={116} n="3" title="Plan de repérage" w={230} />
@@ -385,18 +398,14 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     {[1010, 1070, 1130].map((x, i) => (
       <g key={x}>
         <line x1={x} y1={150} x2={x} y2={260} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="9 3 2 3" opacity="0.7" />
-        <text className="gravure-lettrage" x={x} y={144} fontSize="11" textAnchor="middle">
-          {['A', 'B', 'C'][i]}
-        </text>
+        <Repere x={x} y={144}>{['A', 'B', 'C'][i]}</Repere>
       </g>
     ))}
     {/* §B10 — trames 1-2-3 perpendiculaires : la troisième dimension existe */}
     {[178, 205, 232].map((y, i) => (
       <g key={y}>
         <line x1={980} y1={y} x2={1160} y2={y} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="9 3 2 3" opacity="0.7" />
-        <text className="gravure-lettrage" x={1042} y={y - 6} fontSize="11" textAnchor="middle">
-          {i + 1}
-        </text>
+        <Repere x={1042} y={y - 6}>{String(i + 1)}</Repere>
       </g>
     ))}
     <ChaineCotes y={884} points={[178, 205, 232]} labels={['T', 'T']} attache={978} vertical />
@@ -404,6 +413,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     <LigneDeCoupe x1={966} x2={1174} y={205} label="A" dir={-1} />
 
     {/* ================= NOMENCLATURE PRINCIPALE ================= */}
+    <BlocTexte>
     <text className="gravure-lettrage" x={946} y={318} fontSize="14" fill={ENCRE}>
       Nomenclature
     </text>
@@ -425,6 +435,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
         'Semelle isolée et longrine',
       ]}
     />
+    </BlocTexte>
 
     {/* ================= FIG. 2 — NŒUD JARRET-TRAVERSE (×5) ================= */}
     <RepereFigure x={582} y={830} n="2" title="Nœud jarret-traverse (détail d'exécution, ×5)" w={356} />
@@ -487,9 +498,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
         <AxeMixte x1={88} y1={54} x2={88} y2={158} opacity={0.6} />
         <ChaineCotes y={22} points={[62, 76, 96, 122, 140]} labels={['e1', 'e2', 'p', 'p']} attache={34} vertical />
         <ChaineCotes y={166} points={[64, 112]} labels={['e2']} attache={152} />
-        <text className="gravure-lettrage" x={88} y={54} fontSize="11" textAnchor="middle">
-          Vue de la platine
-        </text>
+        <Repere x={88} y={44}>Vue platine</Repere>
 
         {/* — ⓕ SOUDURES : repère fléché, référence, gorge symbolique — */}
         <SoudureISO x={-74} y={20} dx={40} dy={44} gorge="a" />
@@ -501,7 +510,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
         <PastilleLettre x={-83} y={94} l="c" />
         <PastilleLettre x={-40} y={-138} l="d" />
         <PastilleLettre x={-166} y={-104} l="e" />
-        <PastilleLettre x={-16} y={64} l="f" />
+        <PastilleLettre x={-34} y={118} l="f" />
         <PastilleLettre x={-172} y={170} l="g" />
         <PastilleLettre x={-123} y={-186} l="h" />
       </g>
@@ -509,6 +518,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     <circle cx={D2X} cy={D2Y} r={D2R} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
 
     {/* ================= NOMENCLATURE SECONDAIRE DU CERCLE ================= */}
+    <BlocTexte>
     <text className="gravure-lettrage" x={946} y={882} fontSize="14" fill={ENCRE}>
       Détail - nomenclature
     </text>
@@ -527,13 +537,16 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
         "Axe de l'assemblage",
       ]}
     />
+    </BlocTexte>
 
     {/* ================= CARTOUCHE ================= */}
+    <BlocTexte>
     <Cartouche
       x={60} y={1090} w={420} h={92} numeral="I" title="Unité industrielle - coupe" echelle="Éch. symb."
       dossier={VOL_I}
       index="PL. 1/9"
       renvois={['Implantation générale : PL. VIII', 'Centrale en toiture : PL. IX']}
     />
+    </BlocTexte>
   </>
 );
