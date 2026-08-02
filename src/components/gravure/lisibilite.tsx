@@ -74,7 +74,9 @@ export const BandeauZone = ({
   teinte?: number;
 }) => (
   <g>
-    <rect x={x} y={y} width={w} height={h} fill={`hsl(var(--gravure-encre) / ${teinte})`} />
+    <g data-lis="zone-fond">
+      <rect x={x} y={y} width={w} height={h} fill={`hsl(var(--gravure-encre) / ${teinte})`} />
+    </g>
     <line x1={x} y1={y} x2={x} y2={y + h} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.5" />
     <text
       className="gravure-lettrage"
