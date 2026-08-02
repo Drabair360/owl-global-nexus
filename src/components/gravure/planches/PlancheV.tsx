@@ -139,7 +139,7 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
 
     {/* tenue sur deux périodes : crochet sous le segment maintenu */}
     <path d={`M${X(2)} ${Y(1) + 12} v8 h${PAS * 3} v-8`} fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} />
-    <text className="gravure-lettrage" x={X(3) + 26} y={Y(1) + 36} fontSize="11">
+    <text className="gravure-lettrage" x={X(2) + 8} y={Y(1) + 36} fontSize="11">
       Tenue sur deux périodes
     </text>
 
@@ -155,15 +155,17 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     {/* conflit détecté au croisement, et résolution en laiton */}
     <Conflit x={564} y={Y(2)} />
     <Engagement pts={[[2, 4], [5, 0]]} or />
-    <text className="gravure-lettrage" x={X(5) + 12} y={Y(0) - 8} fontSize="12" fill={LAITON}>
+    <line x1={X(5)} y1={Y(0)} x2={X(5) + 40} y2={Y(0) + 26} stroke={LAITON} strokeWidth={ULTRAFIN} />
+    <text className="gravure-lettrage" x={X(5) + 46} y={Y(0) + 30} fontSize="12" fill={LAITON}>
       Résolution : report sur ressource libre
     </text>
-    <Attache x={564} y={Y(2)} dx={-96} dy={78} label="Conflit détecté" />
+    <Attache x={564} y={Y(2)} dx={-166} dy={62} label="Conflit détecté" />
 
     <Pastille x={X0 - 76} y={Y(0)} n={1} />
     <Pastille x={X(NB_P - 1) + 52} y={Y(2)} n={2} />
     <Pastille x={X(4) + 6} y={Y(5) - 22} n={3} />
-    <Pastille x={X(6) + 34} y={Y(0)} n={4} />
+    <Pastille x={X(7) + 52} y={Y(0)} n={4} />
+
 
     {/* ================= FIG. 2 — DÉTAIL DU CONFLIT ================= */}
     <RepereFigure x={860} y={442} n="2" title="Le conflit et sa résolution x3" w={300} />
