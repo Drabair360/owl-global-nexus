@@ -464,7 +464,7 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
       </g>
 
       <BlocTexte>
-        <text className="gravure-lettrage" x={640} y={1206} fontSize="12" fill={OXYDE}>
+        <text className="gravure-lettrage" x={64} y={1266} fontSize="12" fill={OXYDE}>
           Planche de principe : aucune donnée chiffrée, aucun engagement porté au dessin.
         </text>
       </BlocTexte>
