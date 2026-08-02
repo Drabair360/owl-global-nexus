@@ -12,7 +12,7 @@ import {
   MIXTE_DASH,
   CACHE_DASH,
 } from '../primitives';
-import { TitrePlanche, BandeauZone, EchelleLibelles, Repere, BlocTexte } from '../lisibilite';
+import { TitrePlanche, BandeauZone, EchelleLibelles, Repere, SensLecture, BlocTexte } from '../lisibilite';
 
 /**
  * PLANCHE IV — LE TRAIN D'ENGRENAGES DU GROUPE (DOSSIER OWL, VOL. III, PL. 4/9).
@@ -489,6 +489,8 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
     <path d={`M900 ${Y_LEN} l-14 -5 v10 z`} fill={ENCRE} />
     <Repere x={812} y={Y_LEN - 12} anchor="start">R-04</Repere>
     <Repere x={366} y={1078} anchor="start">B-05</Repere>
+
+    <SensLecture x={366} y={1054} w={520} label="Du couple d'entrée aux deux sorties" />
 
     {/* points d'engrènement, marqués au trait */}
     {[
