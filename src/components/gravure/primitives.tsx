@@ -166,7 +166,7 @@ export const BulleAxe = ({
       />
     )}
     <circle cx={x} cy={y} r="14" fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={MOYEN} />
-    <text className="gravure-lettrage" x={x} y={y + 5} fontSize="14" textAnchor="middle" fill={ENCRE}>
+    <text className="gravure-lettrage gravure-reserve" data-lis="repere" data-lis-reserve="true" x={x} y={y + 5} fontSize="14" textAnchor="middle" fill={ENCRE}>
       {label}
     </text>
   </g>
@@ -197,7 +197,7 @@ export const RepereNiveau = ({
       )}
       <path d={`M${x - 8} ${y - 12} L${x + 8} ${y - 12} L${x} ${y} z`} fill="none" stroke={c} strokeWidth={MOYEN} />
       <line x1={x - 22} y1={y} x2={x + 22} y2={y} stroke={c} strokeWidth={MOYEN} />
-      <text className="gravure-lettrage" x={x + 26} y={y - 4} fontSize="12" fill={or ? LAITON : OXYDE}>
+      <text className="gravure-lettrage gravure-reserve" data-lis="repere" data-lis-reserve="true" x={x + 26} y={y - 4} fontSize="12" fill={or ? LAITON : OXYDE}>
         {label}
       </text>
     </g>
@@ -257,7 +257,9 @@ export const ChaineCotes = ({
         return vertical ? (
           <text
             key={lb + i}
-            className="gravure-lettrage"
+            className="gravure-lettrage gravure-reserve"
+            data-lis="repere"
+            data-lis-reserve="true"
             x={y + 12}
             y={m}
             fontSize="11"
@@ -301,7 +303,7 @@ export const Attache = ({
       <circle cx={x} cy={y} r="1.8" fill={OXYDE} />
       <path d={`M${x} ${y} L${mx} ${my} L${ex} ${my}`} fill="none" stroke={OXYDE} strokeWidth={FIN} />
       <text
-        className="gravure-lettrage"
+        className="gravure-lettrage gravure-reserve" data-lis="repere" data-lis-reserve="true"
         x={anchor === 'end' ? ex - 4 : ex + 4}
         y={my - 5}
         fontSize="11"
@@ -912,10 +914,10 @@ export const LigneDeCoupe = ({
           />
         </g>
       ))}
-      <text className="gravure-lettrage" x={x1 - 6} y={y + 4} fontSize="12" textAnchor="end">
+      <text className="gravure-lettrage gravure-reserve" data-lis="repere" data-lis-reserve="true" x={x1 - 6} y={y + 4} fontSize="12" textAnchor="end">
         {label}
       </text>
-      <text className="gravure-lettrage" x={x2 + 6} y={y + 4} fontSize="12">
+      <text className="gravure-lettrage gravure-reserve" data-lis="repere" data-lis-reserve="true" x={x2 + 6} y={y + 4} fontSize="12">
         {label}
       </text>
     </g>

@@ -5,7 +5,7 @@ import { useSEO } from '@/hooks/useSEO';
 import '@/styles/gravure.css';
 
 /** Les planches déjà passées au système L (Phase L / Phase M). */
-const STRICT = ['III', 'IV', 'IX', 'V', 'VII'];
+const STRICT = ['III', 'IV', 'IX', 'V', 'VII', 'I'];
 
 /**
  * /studio/lisibilite — banc de contrôle L2.

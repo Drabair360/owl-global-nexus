@@ -79,8 +79,9 @@ export const BandeauZone = ({
     </g>
     <line x1={x} y1={y} x2={x} y2={y + h} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.5" />
     <text
-      className="gravure-lettrage"
+      className="gravure-lettrage gravure-reserve"
       data-lis="zone"
+      data-lis-reserve="true"
       x={x + 8}
       y={y - 6}
       fontSize={TAILLE_REPERE}
