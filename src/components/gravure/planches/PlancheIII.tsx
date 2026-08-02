@@ -473,17 +473,17 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
     <RepereFigure x={700} y={812} n="3" title="Variantes raccordées sur K-402" w={330} />
     <BlocTexte>
       <g transform="translate(716 852)">
-        <path d="M0 8 V150" fill="none" stroke={ENCRE} strokeWidth={FORT} />
+        <path d="M0 10 V160" fill="none" stroke={ENCRE} strokeWidth={FORT} />
         {[
           ['Broyeur à cylindres', 'Filière mouture - retenue'],
           ['Presse', 'Filière oléagineux'],
           ['Séchoir rotatif', 'Filière séchage'],
         ].map(([nom, filiere], i) => {
-          const y = 28 + i * 48;
+          const y = 30 + i * 54;
           return (
             <g key={nom}>
               <path d={`M0 ${y} h40`} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-              <rect x={40} y={y - 18} width={230} height={38} fill="none" stroke={ENCRE} strokeWidth={FIN} strokeDasharray="6 4" />
+              <rect x={40} y={y - 21} width={230} height={44} fill="none" stroke={ENCRE} strokeWidth={FIN} strokeDasharray="6 4" />
               <text className="gravure-lettrage" x={52} y={y - 6} fontSize="12">
                 {nom}
               </text>
@@ -493,13 +493,13 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
             </g>
           );
         })}
-        <text className="gravure-lettrage" x={0} y={196} fontSize="12">
+        <text className="gravure-lettrage" x={0} y={208} fontSize="12">
           Un piquage commun, une variante par filière
         </text>
-        <text className="gravure-lettrage" x={0} y={218} fontSize="12">
+        <text className="gravure-lettrage" x={0} y={230} fontSize="12">
           Bilan matière : entrée, sortie, refus recyclés, refus écartés
         </text>
-        <text className="gravure-lettrage" x={0} y={240} fontSize="12" fill={OXYDE}>
+        <text className="gravure-lettrage" x={0} y={252} fontSize="12" fill={OXYDE}>
           Bilan symbolique, sans chiffre d’exploitation
         </text>
       </g>
