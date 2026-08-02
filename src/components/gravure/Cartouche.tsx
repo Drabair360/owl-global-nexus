@@ -18,7 +18,7 @@ import { EchelleGraphique } from './primitives';
  */
 export const VOL_I = 'DOSSIER OWL - VOL. I : USINE DE RÉFÉRENCE OWL-1 (CONCEPT)';
 export const VOL_II = 'DOSSIER OWL - VOL. II : IMMEUBLE DE RÉFÉRENCE ORE-1 (CONCEPT)';
-export const VOL_III = 'DOSSIER OWL - VOL. III : LE GROUPE';
+export const VOL_III = 'DOSSIER OWL - VOL. III : LE GROUPE (MODÈLE CIBLE, CONCEPT)';
 
 const Cartouche = ({
   x,
@@ -46,7 +46,7 @@ const Cartouche = ({
   /** Renvois croisés réels vers les autres planches. */
   renvois?: string[];
 }) => (
-  <g transform={`translate(${x} ${y})`} aria-hidden="true">
+  <g transform={`translate(${x} ${y})`} data-lis="bloc" aria-hidden="true">
     {dossier && (() => {
       const [tete, sujet] = dossier.split(' : ');
       const lignes = renvois && renvois.length > 0 ? 1 : 0;

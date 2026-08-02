@@ -504,14 +504,12 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
 
     {/* ---------- DOUBLE NOMENCLATURE, LES DEUX COLONNES EN REGARD ---------- */}
     <BlocTexte>
-      <text className="gravure-lettrage" x={274} y={760} fontSize="12" textAnchor="end" fill={ENCRE}>
+      <text className="gravure-lettrage" x={274} y={726} fontSize="12" textAnchor="end" fill={ENCRE}>
         Colonne mécanique
       </text>
-      <line x1={30} y1={768} x2={274} y2={768} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.6" />
-      <text className="gravure-lettrage" x={966} y={760} fontSize="12" fill={ENCRE}>
+      <text className="gravure-lettrage" x={966} y={726} fontSize="12" fill={ENCRE}>
         Colonne du groupe
       </text>
-      <line x1={966} y1={768} x2={1210} y2={768} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.6" />
     </BlocTexte>
 
     <EchelleLibelles
@@ -558,18 +556,20 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
         <text className="gravure-lettrage" x={480} y={1144} fontSize="12">
           Ligne d&apos;action
         </text>
-        <line x1={620} y1={1140} x2={668} y2={1140} stroke={LAITON} strokeWidth={FORT} />
-        <text className="gravure-lettrage" x={680} y={1144} fontSize="12" fill={LAITON}>
+        {/* L2 : deuxième rang - la première rangée butait sur le cartouche. */}
+        <line x1={64} y1={1176} x2={112} y2={1176} stroke={LAITON} strokeWidth={FORT} />
+        <text className="gravure-lettrage" x={124} y={1180} fontSize="12" fill={LAITON}>
           Arbre commun, laiton
         </text>
       </g>
-      <text className="gravure-lettrage" x={64} y={1180} fontSize="12" fill={OXYDE}>
+      <text className="gravure-lettrage" x={64} y={1216} fontSize="12" fill={OXYDE}>
         Même module aux deux roues de la FIG. 1 : le pas se conserve sur les cercles primitifs.
       </text>
-      <text className="gravure-lettrage" x={64} y={1202} fontSize="12" fill={OXYDE}>
+      <text className="gravure-lettrage" x={64} y={1238} fontSize="12" fill={OXYDE}>
         Nombres de dents et cotes : conventions de dessin, aucune donnée d&apos;exploitation.
       </text>
     </BlocTexte>
+
 
     <BlocTexte>
       <Cartouche

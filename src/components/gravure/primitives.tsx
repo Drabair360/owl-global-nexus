@@ -266,7 +266,7 @@ export const ChaineCotes = ({
             {lb}
           </text>
         ) : (
-          <text key={lb + i} className="gravure-lettrage" x={m} y={y - 8} fontSize="11" textAnchor="middle">
+          <text key={lb + i} className="gravure-lettrage gravure-reserve" data-lis="repere" data-lis-reserve="true" x={m} y={y - 8} fontSize="11" textAnchor="middle">
             {lb}
           </text>
         );
@@ -399,7 +399,7 @@ export const CercleDetail = ({
 }) => (
   <g>
     <circle cx={cx} cy={cy} r={r} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
-    <text className="gravure-lettrage" x={cx + r * 0.72} y={cy - r * 0.72} fontSize="11">
+    <text className="gravure-lettrage gravure-reserve" data-lis="repere" data-lis-reserve="true" x={cx + r * 0.72} y={cy - r * 0.72} fontSize="11">
       {label}
     </text>
   </g>
@@ -516,7 +516,7 @@ export const FlechePente = ({
     <g>
       <line x1={x} y1={y} x2={ex} y2={ey} stroke={OXYDE} strokeWidth={FIN} />
       <path d={`M${ex} ${ey} L${p1[0]} ${p1[1]} M${ex} ${ey} L${p2[0]} ${p2[1]}`} stroke={OXYDE} strokeWidth={FIN} fill="none" />
-      <text className="gravure-lettrage" x={(x + ex) / 2} y={(y + ey) / 2 - 7} fontSize="11" textAnchor="middle">
+      <text className="gravure-lettrage gravure-reserve" data-lis="repere" data-lis-reserve="true" x={(x + ex) / 2} y={(y + ey) / 2 - 7} fontSize="11" textAnchor="middle">
         {label}
       </text>
     </g>
@@ -532,7 +532,7 @@ export const RoseVents = ({ cx, cy, r = 30 }: { cx: number; cy: number; r?: numb
     <circle cx={cx} cy={cy} r={r * 0.62} strokeWidth={ULTRAFIN} opacity="0.6" />
     <path d={`M${cx} ${cy - r} L${cx + r * 0.2} ${cy} L${cx} ${cy + r} L${cx - r * 0.2} ${cy} z`} strokeWidth={FIN} />
     <path d={`M${cx - r} ${cy} L${cx} ${cy - r * 0.2} L${cx + r} ${cy} L${cx} ${cy + r * 0.2} z`} strokeWidth={ULTRAFIN} />
-    <text className="gravure-lettrage" x={cx} y={cy - r - 6} fontSize="11" textAnchor="middle">
+    <text className="gravure-lettrage gravure-reserve" data-lis="repere" data-lis-reserve="true" x={cx} y={cy - r - 6} fontSize="11" textAnchor="middle">
       N
     </text>
   </g>
@@ -578,14 +578,30 @@ export const RepereFigure = ({
   w?: number;
 }) => (
   <g>
-    <text className="gravure-lettrage" x={x} y={y} fontSize="14" fill={ENCRE}>
+    <text
+      className="gravure-lettrage gravure-reserve"
+      data-lis="repere"
+      data-lis-reserve="true"
+      x={x}
+      y={y}
+      fontSize="14"
+      fill={ENCRE}
+    >
       FIG. {n}
     </text>
-    <text className="gravure-lettrage" x={x + 58} y={y} fontSize="12">
+    <text
+      className="gravure-lettrage gravure-reserve"
+      data-lis="repere"
+      data-lis-reserve="true"
+      x={x + 58}
+      y={y}
+      fontSize="12"
+    >
       {title}
     </text>
     <line x1={x} y1={y + 6} x2={x + w} y2={y + 6} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
   </g>
+
 );
 
 /* ------------------------------------------------------------------ *
@@ -594,7 +610,7 @@ export const RepereFigure = ({
 export const Pastille = ({ x, y, n, r = 9 }: { x: number; y: number; n: number; r?: number }) => (
   <g>
     <circle cx={x} cy={y} r={r} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
-    <text className="gravure-lettrage" x={x} y={y + 4} fontSize="11" textAnchor="middle" fill={ENCRE}>
+    <text className="gravure-lettrage gravure-reserve" data-lis="repere" data-lis-reserve="true" x={x} y={y + 4} fontSize="11" textAnchor="middle" fill={ENCRE}>
       {n}
     </text>
   </g>
@@ -618,7 +634,7 @@ export const Nomenclature = ({
 }) => {
   const per = perCol ?? items.length;
   return (
-    <g>
+    <g data-lis="bloc">
       {items.map((it, i) => {
         const col = Math.floor(i / per);
         const row = i % per;
@@ -822,7 +838,7 @@ export const SoudureISO = ({
         d={`M${ex + 12 * sens} ${ey} l${9 * sens} 0 l${-9 * sens} ${-8 * dir} z`}
         fill={OXYDE}
       />
-      <text className="gravure-lettrage" x={ex + 6 * sens} y={ey - 3 * dir} fontSize="11" textAnchor="middle">
+      <text className="gravure-lettrage gravure-reserve" data-lis="repere" data-lis-reserve="true" x={ex + 6 * sens} y={ey - 3 * dir} fontSize="11" textAnchor="middle">
         {gorge}
       </text>
       {periph && <circle cx={ex} cy={ey} r="3.4" fill="none" stroke={OXYDE} strokeWidth={FIN} />}
@@ -910,7 +926,7 @@ export const LigneDeCoupe = ({
 export const PastilleLettre = ({ x, y, l, r = 8 }: { x: number; y: number; l: string; r?: number }) => (
   <g>
     <circle cx={x} cy={y} r={r} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
-    <text className="gravure-lettrage" x={x} y={y + 4} fontSize="10" textAnchor="middle" fill={ENCRE}>
+    <text className="gravure-lettrage gravure-reserve" data-lis="repere" data-lis-reserve="true" x={x} y={y + 4} fontSize="11" textAnchor="middle" fill={ENCRE}>
       {l}
     </text>
   </g>
