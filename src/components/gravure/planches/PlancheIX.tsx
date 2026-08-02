@@ -25,7 +25,8 @@ import {
  *           rangées de modules inclinés, recul de rive, garde-corps
  *   FIG. 2  schéma de raccordement : string, boîte DC, onduleur,
  *           transformateur élévateur, poste de livraison, comptage
- *   FIG. 3  traversée d'étanchéité et chemin de câbles, liaison équipotentielle
+ *   FIG. 3  la maille type en plan : modules, string unique, plots ballastés
+ *   DÉT. 1  traversée d'étanchéité, dans son cercle
  * Rehaut de laiton unique : LA LIGNE DE RACCORDEMENT, de la toiture au point
  * de livraison. Le support est celui de la PL. I : le toit qui la porte.
  */
@@ -36,7 +37,7 @@ export const PLANCHE_IX = {
   numeral: 'IX',
   title: 'Centrale en toiture',
   desc:
-    "Gravure au trait, planche à trois figures représentant une centrale photovoltaïque posée sur la toiture-terrasse de l'unité industrielle de référence. FIGURE 1, coupe partielle de la toiture : le complexe est figuré par ses couches, support en bac d'acier nervuré, isolant et membrane d'étanchéité, porté par des pannes et une poutre principale dont la descente de charge est amorcée puis coupée par une ligne de rupture. Trois rangées de modules inclinés sont posées sur des plots ballastés non perçants, reliés par des rails ; l'entraxe d'ombrage entre rangées et le recul de rive sont cotés en symbolique, la rive est équipée d'un garde-corps et d'un chemin de câbles. Un arc de course solaire est tracé en régulateur ultrafin, sans graduation chiffrée. FIGURE 2, schéma de raccordement lu de haut en bas : les modules sont mis en série en string avec leurs polarités, rejoignent une boîte de jonction en courant continu équipée d'un parafoudre, puis un onduleur en armoire ventilée, puis un transformateur élévateur, enfin le poste de livraison avec son comptage et sa protection de découplage ; la partie continue et la partie alternative sont séparées par une limite en trait mixte, et la ligne qui va de la toiture au point de livraison est le seul rehaut de laiton de la planche. FIGURE 3, détail de la traversée d'étanchéité : platine, manchon, collerette soudée et relevé, avec le chemin de câbles sur support et la liaison équipotentielle des rails. Aucune puissance, aucune tension et aucune donnée d'exploitation ne sont portées ; les repères sont des étiquettes de convention. Nomenclature à deux colonnes, continu et alternatif, et cartouche de dossier portant la mention concept.",
+    "Gravure au trait, planche à trois figures représentant une centrale photovoltaïque posée sur la toiture-terrasse de l'unité industrielle de référence. FIGURE 1, coupe partielle de la toiture : le complexe est figuré par ses couches, support en bac d'acier nervuré, isolant et membrane d'étanchéité, porté par des pannes et une poutre principale dont la descente de charge est amorcée puis coupée par une ligne de rupture. Trois rangées de modules inclinés sont posées sur des plots ballastés non perçants, reliés par des rails ; l'entraxe d'ombrage entre rangées et le recul de rive sont cotés en symbolique, la rive est équipée d'un garde-corps et d'un chemin de câbles. Un arc de course solaire est tracé en régulateur ultrafin, sans graduation chiffrée. FIGURE 2, schéma de raccordement lu de haut en bas : les modules sont mis en série en string avec leurs polarités, rejoignent une boîte de jonction en courant continu équipée d'un parafoudre, puis un onduleur en armoire ventilée, puis un transformateur élévateur, enfin le poste de livraison avec son comptage et sa protection de découplage ; la partie continue et la partie alternative sont séparées par une limite en trait mixte, et la ligne qui va de la toiture au point de livraison est le seul rehaut de laiton de la planche. FIGURE 3, la maille type vue en plan : deux rangées de cinq modules montées sur rails et fixées par plots ballastés non perçants, réunies par une seule mise en série, l'ensemble cerclé et porté de la mention maille type à répéter selon toiture, le nombre de mailles dépendant de l'emprise. DÉTAIL 1, dans son cercle, la traversée d'étanchéité : platine, manchon, collerette et relevé, avec la mention de l'étanchéité non perforée hors traversée et de la liaison équipotentielle des rails. Aucune puissance, aucune tension et aucune donnée d'exploitation ne sont portées ; les repères sont des étiquettes de convention. Nomenclature à deux colonnes, continu et alternatif, et cartouche de dossier portant la mention concept.",
   viewBox: '0 0 1240 900',
   detailViewBox: '80 300 420 300',
 };
@@ -172,7 +173,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
 
     <NomenclatureLettres
       x={62}
-      y={700}
+      y={682}
       items={['Module et cadre', 'Plot ballasté non perçant', 'Panne et poutre porteuse']}
     />
 
