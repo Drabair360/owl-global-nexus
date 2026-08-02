@@ -152,10 +152,9 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     <Pastille x={M0 - 88} y={P1} n={1} />
     <Pastille x={M0 - 88} y={P2} n={2} />
     <Pastille x={M0 - 88} y={P3} n={3} />
-    <Attache x={CONF} y={P3 - 8} dx={92} dy={64} label="Engagement ferme" />
 
     {/* ================= FIG. 2 — DÉTAIL DE LA NOTE ================= */}
-    <RepereFigure x={780} y={476} n="2" title="La note de confirmation x4" w={290} />
+    <RepereFigure x={820} y={470} n="2" title="La note de confirmation x4" w={290} />
 
     <g transform="translate(960 626)">
       <CercleDetail cx={0} cy={0} r={140} label="x4" />
@@ -175,8 +174,8 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     </g>
 
     <NomenclatureLettres
-      x={598}
-      y={518}
+      x={654}
+      y={536}
       items={[
         'Demande reçue, amont',
         'Ressource retenue',
