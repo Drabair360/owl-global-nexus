@@ -69,20 +69,6 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
     <RepereFigure x={60} y={96} n="1" title="Les sept temps, dans l'ordre" w={320} />
 
     {/* ---------- FIL CONDUCTEUR : rehaut de laiton unique ---------- */}
-    <path
-      d={`M${COL[0]} ${R1 + 74} V${R1 + 108} H${COL[3] + 150} V${R2 - 130} H${COL[0] - 40} V${R2 - 96}`}
-      fill="none"
-      stroke={LAITON}
-      strokeWidth={FORT}
-      opacity="0"
-    />
-    <path
-      d={`M${COL[0]} ${R1} H${COL[3]}`}
-      fill="none"
-      stroke={LAITON}
-      strokeWidth={FORT}
-      opacity="0.25"
-    />
     {/* segments visibles du fil, entre les cellules */}
     {[0, 1, 2].map((i) => (
       <line
@@ -285,8 +271,8 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
     </Temps>
 
     {/* ---------- CALENDRIER ET JALONS ---------- */}
-    <RepereFigure x={COL[3] - 92} y={R2 - 116} n="2" title="Jalons et calendrier" w={280} />
-    <g transform={`translate(${COL[3] - 92} ${R2 - 40})`}>
+    <RepereFigure x={700} y={612} n="2" title="Jalons et calendrier" w={300} />
+    <g transform="translate(700 620)">
       <AxeMixte x1={0} y1={40} x2={280} y2={40} />
       {[0, 56, 112, 168, 224, 280].map((x, i) => (
         <g key={x}>
@@ -309,7 +295,7 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
       x={96}
       y={716}
       perCol={5}
-      colGap={340}
+      colGap={300}
       items={[
         'Avant-projet et études de faisabilité',
         'Engineering, trois disciplines',
