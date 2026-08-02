@@ -273,9 +273,9 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     </g>
 
     {/* ================= FIG. 3 — LA MAILLE TYPE ================= */}
-    <RepereFigure x={62} y={750} n="3" title="Maille élémentaire, vue en plan" w={330} />
+    <RepereFigure x={62} y={738} n="3" title="Maille élémentaire, vue en plan" w={330} />
 
-    <g transform="translate(62 764)">
+    <g transform="translate(62 752)">
       {/* cerclage de la maille : ce qui se répète */}
       <rect x={-10} y={4} width={316} height={96} rx={10} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
       {/* deux rangées de cinq modules, en plan */}
@@ -307,27 +307,21 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
       {/* le string : une seule mise en série sur la maille */}
       <path d="M6 31 H278 V69 H6" fill="none" stroke={ENCRE} strokeWidth={FORT} />
       <path d="M6 69 h-22 v-38" fill="none" stroke={ENCRE} strokeWidth={FORT} />
-      <text className="gravure-lettrage" x={-20} y={22} fontSize="11" textAnchor="end">
-        Un string
-      </text>
-      <text className="gravure-lettrage" x={306} y={35} fontSize="11">
-        Vers boîte de jonction, FIG. 2
-      </text>
       <text className="gravure-lettrage" x={-10} y={116} fontSize="11" fill={OXYDE}>
         Maille type - répéter selon toiture
       </text>
-      <text className="gravure-lettrage" x={-10} y={134} fontSize="10" fill={OXYDE}>
-        Nombre de modules et de mailles selon emprise, PL. VIII
+      <text className="gravure-lettrage" x={-10} y={131} fontSize="10" fill={OXYDE}>
+        Un string par maille, vers boîte de jonction, FIG. 2 - nombre de mailles selon emprise, PL. VIII
       </text>
     </g>
 
     {/* ================= DÉT. 1 — TRAVERSÉE D'ÉTANCHÉITÉ ================= */}
     <g>
-      <circle cx={520} cy={812} r={84} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
-      <text className="gravure-lettrage" x={520} y={714} fontSize="11" textAnchor="middle">
+      <circle cx={520} cy={800} r={78} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
+      <text className="gravure-lettrage" x={520} y={708} fontSize="11" textAnchor="middle">
         Dét. 1 - traversée d&apos;étanchéité
       </text>
-      <g transform="translate(520 816) scale(0.86)">
+      <g transform="translate(520 806) scale(0.8)">
         {/* complexe de toiture en coupe */}
         <rect x={-84} y={4} width={168} height={16} fill={poche(p, 'beton')} opacity="0.5" stroke="none" />
         <line x1={-84} y1={4} x2={84} y2={4} stroke={ENCRE} strokeWidth={FORT} />
@@ -339,16 +333,16 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
         <rect x={-27} y={0} width={54} height={6} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={FIN} />
         <line x1={-6} y1={-42} x2={6} y2={4} stroke={ENCRE} strokeWidth={MOYEN} />
       </g>
-      <text className="gravure-lettrage" x={618} y={790} fontSize="11">
+      <text className="gravure-lettrage" x={610} y={778} fontSize="11">
         Manchon et collerette
       </text>
-      <text className="gravure-lettrage" x={618} y={808} fontSize="11" fill={OXYDE}>
+      <text className="gravure-lettrage" x={610} y={796} fontSize="11" fill={OXYDE}>
         Relevé et platine
       </text>
-      <text className="gravure-lettrage" x={618} y={826} fontSize="11" fill={OXYDE}>
+      <text className="gravure-lettrage" x={610} y={814} fontSize="11" fill={OXYDE}>
         Étanchéité non perforée hors traversée
       </text>
-      <text className="gravure-lettrage" x={618} y={844} fontSize="11" fill={OXYDE}>
+      <text className="gravure-lettrage" x={610} y={832} fontSize="11" fill={OXYDE}>
         Liaison équipotentielle des rails
       </text>
     </g>
