@@ -271,8 +271,8 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
     </Temps>
 
     {/* ---------- CALENDRIER ET JALONS ---------- */}
-    <RepereFigure x={700} y={612} n="2" title="Jalons et calendrier" w={300} />
-    <g transform="translate(700 620)">
+    <RepereFigure x={800} y={618} n="2" title="Jalons et calendrier" w={280} />
+    <g transform="translate(800 632)">
       <AxeMixte x1={0} y1={40} x2={280} y2={40} />
       {[0, 56, 112, 168, 224, 280].map((x, i) => (
         <g key={x}>
@@ -283,9 +283,8 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
         </g>
       ))}
       <text className="gravure-lettrage" x={0} y={76} fontSize="11">
-        Revues de conception, réserves, réception
+        Revues, réserves, réception
       </text>
-      <FlechePente x={0} y={12} dx={280} dy={0} label="Temps du projet" />
     </g>
 
     <Attache x={COL[2]} y={R2 + 72} dx={150} dy={44} label="Le seul retour amont" />
