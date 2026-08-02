@@ -435,8 +435,8 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
       </BlocTexte>
 
       {/* ================= FIG. 3 — TRACÉ RÉGULATEUR ================= */}
-      <RepereFigure x={700} y={962} n="3" title="Tracé régulateur" w={260} />
-      <g transform="translate(830 1120)">
+      <RepereFigure x={900} y={962} n="3" title="Tracé régulateur" w={240} />
+      <g transform="translate(1032 1104)">
         <ArcRegulateur cx={0} cy={0} r={112} />
         <TraceRegulateur
           d={
