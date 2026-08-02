@@ -1,7 +1,7 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN } from '../defs';
 import { GravureDefs } from '../defs';
-import Cartouche from '../Cartouche';
+import Cartouche, { VOL_I } from '../Cartouche';
 import {
   Trait,
   Cadre,
@@ -529,6 +529,11 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
     />
 
     {/* ================= CARTOUCHE ================= */}
-    <Cartouche x={60} y={1090} w={420} h={92} numeral="I" title="Unité industrielle - coupe" echelle="Éch. symb." />
+    <Cartouche
+      x={60} y={1090} w={420} h={92} numeral="I" title="Unité industrielle - coupe" echelle="Éch. symb."
+      dossier={VOL_I}
+      index="PL. 1/9"
+      renvois={['Implantation générale : PL. VIII', 'Centrale en toiture : PL. IX']}
+    />
   </>
 );

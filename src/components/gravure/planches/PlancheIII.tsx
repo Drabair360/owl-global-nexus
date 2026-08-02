@@ -1,6 +1,6 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
-import Cartouche from '../Cartouche';
+import Cartouche, { VOL_I } from '../Cartouche';
 import {
   Trait,
   Cadre,
@@ -297,6 +297,11 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
       ]}
     />
 
-    <Cartouche x={880} y={846} numeral="III" title="Flowsheet agro configurable" echelle="Éch. symb." />
+    <Cartouche
+      x={880} y={846} numeral="III" title="Flowsheet agro configurable" echelle="Éch. symb."
+      dossier={VOL_I}
+      index="PL. 3/9"
+      renvois={['Implantation résultante : PL. VIII', 'Socles logiciels : PL. IV']}
+    />
   </>
 );

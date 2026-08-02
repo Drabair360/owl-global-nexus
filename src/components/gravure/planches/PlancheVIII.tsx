@@ -1,6 +1,6 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
-import Cartouche from '../Cartouche';
+import Cartouche, { VOL_I } from '../Cartouche';
 import {
   Trait,
   Cadre,
@@ -273,6 +273,11 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
       ]}
     />
 
-    <Cartouche x={880} y={760} numeral="VIII" title="Implantation d'usine agro type" echelle="Éch. symb." />
+    <Cartouche
+      x={880} y={760} numeral="VIII" title="Implantation d'usine agro type" echelle="Éch. symb."
+      dossier={VOL_I}
+      index="PL. 8/9"
+      renvois={['Coupe de l\'unité : PL. I', 'Centrale en toiture : PL. IX']}
+    />
   </>
 );
