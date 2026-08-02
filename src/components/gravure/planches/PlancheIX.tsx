@@ -134,7 +134,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     <rect x={62} y={TOIT + 58} width={578} height={14} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
     <line x1={330} y1={TOIT + 72} x2={330} y2={TOIT + 132} stroke={ENCRE} strokeWidth={FORT} />
     <Rupture x={330} y={TOIT + 132} length={80} />
-    <text className="gravure-lettrage" x={344} y={TOIT + 112} fontSize="11">
+    <text className="gravure-lettrage" x={348} y={TOIT + 104} fontSize="11">
       Descente de charge, voir PL. I
     </text>
     <PastilleLettre x={124} y={TOIT + 48} l="c" />
@@ -156,23 +156,23 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
       {[0, 1].map((i) => (
         <line key={i} x1={612} y1={TOIT - 30 - i * 26} x2={628} y2={TOIT - 30 - i * 26} stroke={ENCRE} strokeWidth={ULTRAFIN} />
       ))}
-      <text className="gravure-lettrage" x={634} y={TOIT - 52} fontSize="11">
+      <text className="gravure-lettrage" x={606} y={TOIT - 88} fontSize="11" textAnchor="end">
         Garde-corps de rive
       </text>
       <line x1={596} y1={TOIT - 8} x2={596} y2={TOIT} stroke={ENCRE} strokeWidth={ULTRAFIN} />
       <rect x={572} y={TOIT - 20} width={26} height={12} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <text className="gravure-lettrage" x={634} y={TOIT - 14} fontSize="11" fill={OXYDE}>
+      <text className="gravure-lettrage" x={606} y={TOIT - 34} fontSize="11" textAnchor="end" fill={OXYDE}>
         Chemin de câbles
       </text>
       <line x1={584} y1={TOIT + 96} x2={620} y2={TOIT + 96} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="5 4" opacity="0.7" />
-      <text className="gravure-lettrage" x={470} y={TOIT + 114} fontSize="10" fill={OXYDE}>
+      <text className="gravure-lettrage" x={62} y={TOIT + 200} fontSize="10" fill={OXYDE}>
         Recul de rive, circulation de maintenance
       </text>
     </g>
 
     <NomenclatureLettres
       x={62}
-      y={646}
+      y={598}
       items={['Module et cadre', 'Plot ballasté non perçant', 'Panne et poutre porteuse']}
     />
 
