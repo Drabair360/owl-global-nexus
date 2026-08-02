@@ -247,16 +247,16 @@ const LX = SINA;
 const LY = COSA;
 
 /* ---- FIG. 2 : le train cinématique ---- */
-const Y_MOT = 792; // arbre moteur
 const Y_INT = 890; // arbre intermédiaire commun
-const Y_RAP = 802; // sortie rapide
-const Y_LEN = 1002; // sortie lente
-const R_MOT = 28;
-const R_INT = 70;
-const R_INT_B = 58;
+const R_MOT = 26;
+const R_INT = 96;
+const R_INT_B = 40;
 const R_INT_C = 22;
-const R_RAP = 30;
+const R_RAP = 24;
 const R_LEN = 90;
+const Y_MOT = Y_INT - (R_MOT + R_INT); // 768 - tangence des primitifs
+const Y_RAP = Y_INT - (R_RAP + R_INT_B); // 826
+const Y_LEN = Y_INT + (R_LEN + R_INT_C); // 1002
 
 export const PLANCHE_IV = {
   numeral: 'IV',
@@ -438,32 +438,19 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
     {/* ================= FIG. 2 — SCHÉMA CINÉMATIQUE ================= */}
     <RepereFigure x={60} y={700} n="2" title="Schéma cinématique normalisé - double nomenclature" w={520} />
 
-    <BandeauZone x={330} y={742} w={190} h={340} label="Entrée du couple" />
-    <BandeauZone x={520} y={742} w={190} h={340} label="Arbre commun" />
-    <BandeauZone x={710} y={742} w={210} h={340} label="Sorties" />
+    <BandeauZone x={330} y={730} w={190} h={366} label="Entrée du couple" />
+    <BandeauZone x={520} y={730} w={190} h={366} label="Arbre commun" />
+    <BandeauZone x={710} y={730} w={210} h={366} label="Sorties" />
 
-    {/* bâti : hachures de masse, haut et bas */}
-    <line x1={340} y1={748} x2={910} y2={748} stroke={ENCRE} strokeWidth={FIN} />
-    {Array.from({ length: 29 }).map((_, i) => (
-      <line
-        key={`h-${i}`}
-        x1={344 + i * 20}
-        y1={748}
-        x2={337 + i * 20}
-        y2={741}
-        stroke={ENCRE}
-        strokeWidth={ULTRAFIN}
-        opacity="0.7"
-      />
-    ))}
-    <line x1={340} y1={1076} x2={910} y2={1076} stroke={ENCRE} strokeWidth={FIN} />
+    {/* bâti : hachures de masse, le plan qui tient les paliers */}
+    <line x1={340} y1={1084} x2={910} y2={1084} stroke={ENCRE} strokeWidth={FIN} />
     {Array.from({ length: 29 }).map((_, i) => (
       <line
         key={`b-${i}`}
         x1={344 + i * 20}
-        y1={1076}
+        y1={1084}
         x2={337 + i * 20}
-        y2={1083}
+        y2={1091}
         stroke={ENCRE}
         strokeWidth={ULTRAFIN}
         opacity="0.7"
@@ -471,32 +458,37 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
     ))}
 
     {/* --- arbre moteur : le couple entre --- */}
-    <line x1={352} y1={Y_MOT} x2={556} y2={Y_MOT} stroke={ENCRE} strokeWidth={FORT} />
-    <Appui x={392} y={Y_MOT} sens={-1} />
+    <line x1={366} y1={Y_MOT} x2={556} y2={Y_MOT} stroke={ENCRE} strokeWidth={FORT} />
+    <Appui x={412} y={Y_MOT} sens={-1} />
     <RouePrimitive cx={534} cy={Y_MOT} r={R_MOT} />
-    {/* couple d'entrée : arc fléché */}
-    <path d="M352 792 m-14 0 a14 14 0 1 0 14 -14" fill="none" stroke={OXYDE} strokeWidth={FIN} />
-    <path d="M352 774 l-6 8 h11 z" fill={OXYDE} />
+    <path d="M368 768 m-16 0 a16 16 0 1 0 16 -16" fill="none" stroke={OXYDE} strokeWidth={FIN} />
+    <path d="M368 748 l-6 9 h12 z" fill={OXYDE} />
+    <Repere x={392} y={Y_MOT - 14} anchor="start">A-01</Repere>
 
     {/* --- arbre intermédiaire commun : le seul laiton --- */}
-    <line x1={452} y1={Y_INT} x2={848} y2={Y_INT} stroke={LAITON} strokeWidth={FORT} />
+    <line x1={452} y1={Y_INT} x2={856} y2={Y_INT} stroke={LAITON} strokeWidth={FORT} />
     <Appui x={478} y={Y_INT} />
-    <Appui x={824} y={Y_INT} />
+    <Appui x={832} y={Y_INT} />
     <RouePrimitive cx={534} cy={Y_INT} r={R_INT} or />
     <RouePrimitive cx={672} cy={Y_INT} r={R_INT_B} or />
     <RouePrimitive cx={776} cy={Y_INT} r={R_INT_C} or />
+    <Repere x={620} y={Y_INT - 12} anchor="middle">A-02</Repere>
+    <Repere x={478} y={Y_INT + 52} anchor="middle">P-06</Repere>
 
-    {/* --- sortie rapide --- */}
-    <line x1={624} y1={Y_RAP} x2={900} y2={Y_RAP} stroke={ENCRE} strokeWidth={FORT} />
-    <Appui x={848} y={Y_RAP} sens={-1} />
+    {/* --- sortie rapide, au-dessus --- */}
+    <line x1={636} y1={Y_RAP} x2={900} y2={Y_RAP} stroke={ENCRE} strokeWidth={FORT} />
+    <Appui x={856} y={Y_RAP} sens={-1} />
     <RouePrimitive cx={672} cy={Y_RAP} r={R_RAP} />
-    <path d="M900 802 l-14 -5 v10 z" fill={ENCRE} />
+    <path d="M900 826 l-14 -5 v10 z" fill={ENCRE} />
+    <Repere x={710} y={Y_RAP - 14} anchor="start">R-03</Repere>
 
-    {/* --- sortie lente à fort couple --- */}
+    {/* --- sortie lente à fort couple, au-dessous --- */}
     <line x1={700} y1={Y_LEN} x2={900} y2={Y_LEN} stroke={ENCRE} strokeWidth={FORT} />
     <Appui x={860} y={Y_LEN} />
     <RouePrimitive cx={776} cy={Y_LEN} r={R_LEN} />
     <path d="M900 1002 l-14 -5 v10 z" fill={ENCRE} />
+    <Repere x={812} y={Y_LEN - 12} anchor="start">R-04</Repere>
+    <Repere x={366} y={1078} anchor="start">B-05</Repere>
 
     {/* points d'engrènement, marqués au trait */}
     {[
@@ -506,14 +498,6 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
     ].map(([x, y]) => (
       <line key={x} x1={x - 9} y1={y} x2={x + 9} y2={y} stroke={ENCRE} strokeWidth={MOYEN} />
     ))}
-
-    {/* repères courts, attachés à la colonne de gauche */}
-    <Marque rep="A-01" cible={[420, Y_MOT]} x={310} y={800} anchor="end" />
-    <Marque rep="A-02" cible={[500, Y_INT]} x={310} y={836} anchor="end" />
-    <Marque rep="R-03" cible={[672, Y_RAP - R_RAP]} x={310} y={872} anchor="end" />
-    <Marque rep="R-04" cible={[776, Y_LEN + R_LEN]} x={310} y={908} anchor="end" />
-    <Marque rep="B-05" cible={[380, 1076]} x={310} y={944} anchor="end" />
-    <Marque rep="P-06" cible={[478, Y_INT + 22]} x={310} y={980} anchor="end" />
 
     {/* ---------- DOUBLE NOMENCLATURE, LES DEUX COLONNES EN REGARD ---------- */}
     <BlocTexte>
