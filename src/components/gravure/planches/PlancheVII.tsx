@@ -2,8 +2,6 @@ import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
 import Cartouche from '../Cartouche';
 import {
-  Trait,
-  Cadre,
   Attache,
   RepereFigure,
   Pastille,
@@ -17,26 +15,43 @@ import {
 
 /**
  * PLANCHE VII — LA PLANCHE MAÎTRESSE DU MODÈLE.
- * Cinq vignettes gravées, une par société, reliées par un flux unique.
- *   FIG. 1  la roue du modèle : la tête et les cinq vignettes
- *   FIG. 2  détail du flux : ce qui circule, capital et savoir-faire
+ * Cinq médaillons gravés, un par société, reliés par un flux unique.
+ *   FIG. 1  la roue du modèle : la tête et les cinq médaillons
+ *   FIG. 2  détail du flux : capital placé, savoir-faire rendu
  *   FIG. 3  tracé régulateur : la géométrie qui gouverne la composition
  * Rehaut de laiton unique : LE FLUX LUI-MÊME.
  */
 
 const CX = 430;
-const CY = 300;
-const R = 200;
+const CY = 306;
+const R = 202;
 
-/** Vignette de société : cadre gravé et emblème de métier au trait. */
-const Vignette = ({ x, y, n, label, emblem }: { x: number; y: number; n: number; label: string; emblem: React.ReactNode }) => (
+/** Médaillon : double filet circulaire, perles de bordure, emblème de métier au trait. */
+const Medaillon = ({
+  x,
+  y,
+  n,
+  label,
+  emblem,
+}: {
+  x: number;
+  y: number;
+  n: number;
+  label: string;
+  emblem: React.ReactNode;
+}) => (
   <g transform={`translate(${x} ${y})`}>
-    <Cadre x={-52} y={-40} w={104} h={80} weight={MOYEN} fill="hsl(var(--gravure-fond))" />
-    <g transform="translate(0 -4)">{emblem}</g>
-    <text className="gravure-lettrage" x={0} y={56} fontSize="11" textAnchor="middle">
+    <circle cx={0} cy={0} r={46} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FORT} />
+    <circle cx={0} cy={0} r={39} fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.8" />
+    {Array.from({ length: 36 }).map((_, i) => {
+      const a = (i * Math.PI * 2) / 36;
+      return <circle key={i} cx={Math.cos(a) * 43} cy={Math.sin(a) * 43} r={1.1} fill={ENCRE} opacity="0.7" />;
+    })}
+    <g transform="translate(0 -2)">{emblem}</g>
+    <text className="gravure-lettrage" x={0} y={66} fontSize="11" textAnchor="middle">
       {label}
     </text>
-    <Pastille x={-52} y={-40} n={n} r={8} />
+    <Pastille x={-40} y={-38} n={n} r={8} />
   </g>
 );
 
@@ -44,42 +59,48 @@ export const PLANCHE_VII = {
   numeral: 'VII',
   title: 'La planche maîtresse du modèle',
   desc:
-    "Gravure au trait, planche à trois figures, donnant la forme du modèle du groupe. FIGURE 1, une composition en roue : au centre, un cartouche circulaire figurant la tête du groupe ; autour, cinq vignettes gravées de même format, chacune portant l'emblème du métier qu'elle représente - une charpente pour l'ingénierie industrielle, un module de ligne pour l'équipement, un train d'engrenages pour le logiciel, une portée notée pour la réservation, une façade à trame pour l'immobilier. Un flux continu, rehaussé de laiton, part de la tête, passe par les cinq vignettes et revient à son point de départ : il figure le capital placé et le savoir-faire rendu, et c'est le seul élément que la planche veut faire retenir. Les liaisons de chaque vignette à la tête sont en trait fin, les branches encore en constitution en trait interrompu. FIGURE 2, détail du flux à trois fois l'échelle : deux sens de circulation superposés, l'un descendant, l'autre remontant, avec leurs points de passage. FIGURE 3, tracé régulateur : le cercle, le carré inscrit et les diagonales qui gouvernent la composition, dessinés au trait ultrafin, montrant que la planche est construite et non arrangée. Aucun nom de marque n'est porté au dessin. Nomenclature de sept entrées et cartouche.",
+    "Gravure au trait, planche à trois figures, donnant la forme du modèle du groupe. FIGURE 1, une composition en roue : au centre, un cartouche circulaire figurant la tête du groupe ; autour, cinq médaillons de même diamètre, bordés d'un double filet et d'un rang de perles, chacun portant l'emblème du métier qu'il représente - une charpente pour l'ingénierie industrielle, un module de ligne pour l'équipement, un train d'engrenages pour le logiciel, une portée notée pour la réservation, une façade à trame pour l'immobilier. Un flux continu, rehaussé de laiton, part de la tête, passe par les cinq médaillons et revient à son point de départ : il figure le capital placé et le savoir-faire rendu, et c'est le seul élément que la planche veut faire retenir. Les liaisons de chaque médaillon à la tête sont en trait fin, les branches encore en constitution en trait interrompu. FIGURE 2, détail du flux à trois fois l'échelle : deux sens de circulation superposés, l'un descendant, l'autre remontant, avec leurs points de passage. FIGURE 3, tracé régulateur : le cercle, le carré inscrit et les diagonales qui gouvernent la composition, au trait ultrafin, montrant que la planche est construite et non arrangée. Aucun nom de marque n'est porté au dessin, aucune donnée chiffrée, aucune référence normative écrite. Nomenclature de sept entrées et cartouche.",
   viewBox: '0 0 1240 900',
 };
 
 const emblemes = [
   // charpente
   <g key="a" stroke={ENCRE} fill="none" strokeWidth={FIN}>
-    <path d="M-30 12 L0 -14 L30 12" />
-    <path d="M-24 12 v-8 M24 12 v-8 M0 -14 v26" />
+    <path d="M-24 12 L0 -14 L24 12" />
+    <path d="M-19 12 v-8 M19 12 v-8 M0 -14 v26 M-13 4 L0 -4 L13 4" />
   </g>,
   // module de ligne
   <g key="b" stroke={ENCRE} fill="none" strokeWidth={FIN}>
-    <rect x={-30} y={-10} width={22} height={22} />
-    <rect x={-4} y={-10} width={22} height={22} />
-    <rect x={22} y={-10} width={12} height={22} strokeDasharray="4 3" />
+    <rect x={-25} y={-9} width={19} height={19} />
+    <rect x={-3} y={-9} width={19} height={19} />
+    <rect x={19} y={-9} width={10} height={19} strokeDasharray="4 3" />
+    <line x1={-29} y1={13} x2={29} y2={13} strokeWidth={MOYEN} />
   </g>,
   // engrenages
   <g key="c" stroke={ENCRE} fill="none" strokeWidth={FIN}>
-    <circle cx={-10} cy={0} r={13} />
-    <circle cx={14} cy={6} r={9} />
-    <circle cx={-10} cy={0} r={4} />
+    <circle cx={-9} cy={0} r={12} />
+    <circle cx={13} cy={6} r={8} />
+    <circle cx={-9} cy={0} r={4} />
+    {Array.from({ length: 10 }).map((_, i) => {
+      const a = (i * Math.PI * 2) / 10;
+      return <line key={i} x1={-9 + Math.cos(a) * 12} y1={Math.sin(a) * 12} x2={-9 + Math.cos(a) * 15} y2={Math.sin(a) * 15} />;
+    })}
   </g>,
   // portée notée
   <g key="d" stroke={ENCRE} fill="none" strokeWidth={FIN}>
     {[-8, -3, 2, 7].map((d) => (
-      <line key={d} x1={-28} y1={d} x2={28} y2={d} />
+      <line key={d} x1={-24} y1={d} x2={24} y2={d} />
     ))}
-    <ellipse cx={6} cy={2} rx={5} ry={3.6} fill={ENCRE} />
-    <line x1={11} y1={2} x2={11} y2={-16} />
+    <ellipse cx={5} cy={2} rx={5} ry={3.6} fill={ENCRE} />
+    <line x1={10} y1={2} x2={10} y2={-15} />
   </g>,
   // façade à trame
   <g key="e" stroke={ENCRE} fill="none" strokeWidth={FIN}>
-    <rect x={-26} y={-14} width={52} height={30} />
-    {[-16, -2, 12].map((x) => (
-      <rect key={x} x={x} y={-8} width={10} height={12} />
+    <rect x={-23} y={-12} width={46} height={26} />
+    {[-15, -3, 9].map((x) => (
+      <rect key={x} x={x} y={-6} width={9} height={11} />
     ))}
+    <path d="M-27 -12 L0 -22 L27 -12" />
   </g>,
 ];
 
@@ -99,10 +120,10 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
 
       {/* liaisons à la tête */}
       {pts.map((pt, i) => (
-        <line key={i} x1={CX} y1={CY} x2={pt.x} y2={pt.y} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
+        <line key={i} x1={CX} y1={CY} x2={pt.x} y2={pt.y} stroke={ENCRE} strokeWidth={FIN} opacity="0.75" />
       ))}
-      <TraceCache d={`M${CX} ${CY} L${CX + 250} ${CY + 150}`} />
-      <text className="gravure-lettrage" x={CX + 258} y={CY + 158} fontSize="11">
+      <TraceCache d={`M${CX} ${CY} L${CX + 236} ${CY + 142}`} />
+      <text className="gravure-lettrage" x={CX + 244} y={CY + 150} fontSize="11">
         Branche en constitution
       </text>
 
@@ -112,12 +133,13 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
       {/* tête du groupe */}
       <circle cx={CX} cy={CY} r={54} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FORT} />
       <circle cx={CX} cy={CY} r={44} fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.7" />
-      <text className="gravure-lettrage" x={CX} y={CY + 4} fontSize="12" textAnchor="middle">
+      <AxeMixte x1={CX - 74} y1={CY} x2={CX + 74} y2={CY} />
+      <text className="gravure-lettrage" x={CX} y={CY + 5} fontSize="12" textAnchor="middle">
         Tête
       </text>
 
       {pts.map((pt, i) => (
-        <Vignette
+        <Medaillon
           key={i}
           x={pt.x}
           y={pt.y}
@@ -127,7 +149,7 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
         />
       ))}
 
-      <Attache x={pts[1].x} y={pts[1].y - 40} dx={110} dy={-70} label="Flux capital et savoir-faire" />
+      <Attache x={pts[1].x} y={pts[1].y - 46} dx={96} dy={-84} label="Flux capital et savoir-faire" />
 
       {/* ================= FIG. 2 — DÉTAIL DU FLUX ================= */}
       <RepereFigure x={840} y={140} n="2" title="Détail du flux x3" w={270} />
@@ -170,11 +192,11 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
       {/* ================= NOMENCLATURE ================= */}
       <Nomenclature
         x={96}
-        y={620}
+        y={632}
         perCol={7}
         items={[
           'Ingénierie industrielle',
-          "Équipement de ligne",
+          'Équipement de ligne',
           'Édition logicielle',
           'Réservation et affectation',
           'Immobilier de rapport',
