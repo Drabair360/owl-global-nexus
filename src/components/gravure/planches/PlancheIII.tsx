@@ -10,7 +10,6 @@ import {
   Pastille,
   Nomenclature,
   CercleDetail,
-  Rupture,
   TraceCache,
   AxeMixte,
   FlechePente,
@@ -237,10 +236,9 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
       })}
       {/* le piquage commun, en laiton */}
       <path d="M0 4 V254" fill="none" stroke={LAITON} strokeWidth={FORT} />
-      <text className="gravure-lettrage" x={-8} y={274} fontSize="11" textAnchor="start">
+      <text className="gravure-lettrage" x={0} y={248} fontSize="11" textAnchor="start">
         Un piquage, trois filières
       </text>
-      <Rupture x={140} y={278} length={110} />
     </g>
 
     <CercleDetail cx={700} cy={YB} r={140} label="Détail x2" />
