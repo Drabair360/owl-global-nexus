@@ -39,11 +39,20 @@ const Portee = ({ y, label }: { y: number; label: string }) => (
       <line key={d} x1={M0 - 60} y1={y + d} x2={M0 + 7 * MES} y2={y + d} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.7" />
     ))}
     <line x1={M0 - 60} y1={y - 16} x2={M0 - 60} y2={y + 16} stroke={ENCRE} strokeWidth={MOYEN} />
+    {/* clef gravée : spirale et hampe, sans citation d'aucun signe normalisé */}
+    <path
+      d={`M${M0 - 48} ${y + 14} q-10 -6 -2 -13 q9 -7 13 3 q4 12 -9 20`}
+      fill="none"
+      stroke={ENCRE}
+      strokeWidth={FIN}
+    />
+    <line x1={M0 - 39} y1={y - 20} x2={M0 - 39} y2={y + 18} stroke={ENCRE} strokeWidth={ULTRAFIN} />
     <text className="gravure-lettrage" x={M0 - 66} y={y - 24} fontSize="11" textAnchor="start">
       {label}
     </text>
   </g>
 );
+
 
 const Note = ({ x, y, or = false, creuse = false }: { x: number; y: number; or?: boolean; creuse?: boolean }) => {
   const c = or ? LAITON : ENCRE;
@@ -85,6 +94,31 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
       <circle cx={M0 + 7 * MES - 20} cy={P2 - 6} r={2.6} fill={ENCRE} />
       <circle cx={M0 + 7 * MES - 20} cy={P2 + 6} r={2.6} fill={ENCRE} />
     </g>
+    {/* numéros de mesure */}
+    {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+      <text key={`n${i}`} className="gravure-lettrage" x={M0 + i * MES + 6} y={P1 - 26} fontSize="10" fill={OXYDE}>
+        {i + 1}
+      </text>
+    ))}
+    {/* liaisons de tenue : une ressource tenue sur deux mesures */}
+    <path
+      d={`M${M0 + 46} ${P2 + 14} q${MES / 2} 18 ${MES} 0`}
+      fill="none"
+      stroke={ENCRE}
+      strokeWidth={ULTRAFIN}
+      opacity="0.8"
+    />
+    {/* coda : fin de cycle */}
+    <g transform={`translate(${M0 + 7 * MES + 26} ${P3})`}>
+      <circle cx={0} cy={0} r={11} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={-15} y1={0} x2={15} y2={0} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+      <line x1={0} y1={-15} x2={0} y2={15} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+      <text className="gravure-lettrage" x={0} y={30} fontSize="10" textAnchor="middle">
+        Fin de cycle
+      </text>
+    </g>
+
+
 
     {/* notes */}
     {[0, 1, 2, 3, 4, 5, 6].map((i) => (
@@ -118,12 +152,11 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     <Pastille x={M0 - 88} y={P1} n={1} />
     <Pastille x={M0 - 88} y={P2} n={2} />
     <Pastille x={M0 - 88} y={P3} n={3} />
-    <Attache x={CONF} y={P3 - 8} dx={92} dy={64} label="Engagement ferme" />
 
     {/* ================= FIG. 2 — DÉTAIL DE LA NOTE ================= */}
-    <RepereFigure x={780} y={410} n="2" title="La note de confirmation x4" w={290} />
+    <RepereFigure x={820} y={470} n="2" title="La note de confirmation x4" w={290} />
 
-    <g transform="translate(960 560)">
+    <g transform="translate(960 626)">
       <CercleDetail cx={0} cy={0} r={140} label="x4" />
       <ellipse cx={-10} cy={20} rx={34} ry={24} transform="rotate(-18 -10 20)" fill="none" stroke={LAITON} strokeWidth={MOYEN} />
       <line x1={22} y1={10} x2={22} y2={-104} stroke={ENCRE} strokeWidth={MOYEN} />
@@ -141,8 +174,8 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     </g>
 
     <NomenclatureLettres
-      x={600}
-      y={452}
+      x={654}
+      y={536}
       items={[
         'Demande reçue, amont',
         'Ressource retenue',
@@ -156,9 +189,9 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     />
 
     {/* ================= FIG. 3 — GRILLE D'AFFECTATION ================= */}
-    <RepereFigure x={60} y={410} n="3" title="Grille d'affectation" w={280} />
+    <RepereFigure x={60} y={486} n="3" title="Grille d'affectation" w={280} />
 
-    <g transform="translate(90 440)">
+    <g transform="translate(90 516)">
       {Array.from({ length: 5 }).map((_, r) =>
         Array.from({ length: 8 }).map((_, c) => {
           const occupe = (r * 3 + c * 5) % 7 < 3;
@@ -167,9 +200,9 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
             <g key={`${r}-${c}`}>
               <rect
                 x={c * 66}
-                y={r * 40}
+                y={r * 34}
                 width={66}
-                height={40}
+                height={34}
                 fill={occupe ? 'hsl(var(--gravure-encre) / 0.10)' : 'none'}
                 stroke={ENCRE}
                 strokeWidth={ULTRAFIN}
@@ -177,7 +210,7 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
               />
               {conflit && (
                 <path
-                  d={`M${c * 66 + 14} ${r * 40 + 12} l38 16 M${c * 66 + 52} ${r * 40 + 12} l-38 16`}
+                  d={`M${c * 66 + 14} ${r * 34 + 10} l38 14 M${c * 66 + 52} ${r * 34 + 10} l-38 14`}
                   stroke={OXYDE}
                   strokeWidth={FIN}
                 />
@@ -192,13 +225,13 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
       <text className="gravure-lettrage" x={-64} y={104} fontSize="11">
         Ressources
       </text>
-      <Pastille x={-30} y={200} n={7} />
+      <Pastille x={-30} y={172} n={7} />
     </g>
 
     {/* ================= NOMENCLATURE ================= */}
     <Nomenclature
       x={96}
-      y={730}
+      y={748}
       perCol={4}
       colGap={330}
       items={[
