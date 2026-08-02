@@ -25,7 +25,8 @@ import {
  *           rangées de modules inclinés, recul de rive, garde-corps
  *   FIG. 2  schéma de raccordement : string, boîte DC, onduleur,
  *           transformateur élévateur, poste de livraison, comptage
- *   FIG. 3  traversée d'étanchéité et chemin de câbles, liaison équipotentielle
+ *   FIG. 3  la maille type en plan : modules, string unique, plots ballastés
+ *   DÉT. 1  traversée d'étanchéité, dans son cercle
  * Rehaut de laiton unique : LA LIGNE DE RACCORDEMENT, de la toiture au point
  * de livraison. Le support est celui de la PL. I : le toit qui la porte.
  */
@@ -36,7 +37,7 @@ export const PLANCHE_IX = {
   numeral: 'IX',
   title: 'Centrale en toiture',
   desc:
-    "Gravure au trait, planche à trois figures représentant une centrale photovoltaïque posée sur la toiture-terrasse de l'unité industrielle de référence. FIGURE 1, coupe partielle de la toiture : le complexe est figuré par ses couches, support en bac d'acier nervuré, isolant et membrane d'étanchéité, porté par des pannes et une poutre principale dont la descente de charge est amorcée puis coupée par une ligne de rupture. Trois rangées de modules inclinés sont posées sur des plots ballastés non perçants, reliés par des rails ; l'entraxe d'ombrage entre rangées et le recul de rive sont cotés en symbolique, la rive est équipée d'un garde-corps et d'un chemin de câbles. Un arc de course solaire est tracé en régulateur ultrafin, sans graduation chiffrée. FIGURE 2, schéma de raccordement lu de haut en bas : les modules sont mis en série en string avec leurs polarités, rejoignent une boîte de jonction en courant continu équipée d'un parafoudre, puis un onduleur en armoire ventilée, puis un transformateur élévateur, enfin le poste de livraison avec son comptage et sa protection de découplage ; la partie continue et la partie alternative sont séparées par une limite en trait mixte, et la ligne qui va de la toiture au point de livraison est le seul rehaut de laiton de la planche. FIGURE 3, détail de la traversée d'étanchéité : platine, manchon, collerette soudée et relevé, avec le chemin de câbles sur support et la liaison équipotentielle des rails. Aucune puissance, aucune tension et aucune donnée d'exploitation ne sont portées ; les repères sont des étiquettes de convention. Nomenclature à deux colonnes, continu et alternatif, et cartouche de dossier portant la mention concept.",
+    "Gravure au trait, planche à trois figures représentant une centrale photovoltaïque posée sur la toiture-terrasse de l'unité industrielle de référence. FIGURE 1, coupe partielle de la toiture : le complexe est figuré par ses couches, support en bac d'acier nervuré, isolant et membrane d'étanchéité, porté par des pannes et une poutre principale dont la descente de charge est amorcée puis coupée par une ligne de rupture. Trois rangées de modules inclinés sont posées sur des plots ballastés non perçants, reliés par des rails ; l'entraxe d'ombrage entre rangées et le recul de rive sont cotés en symbolique, la rive est équipée d'un garde-corps et d'un chemin de câbles. Un arc de course solaire est tracé en régulateur ultrafin, sans graduation chiffrée. FIGURE 2, schéma de raccordement lu de haut en bas : les modules sont mis en série en string avec leurs polarités, rejoignent une boîte de jonction en courant continu équipée d'un parafoudre, puis un onduleur en armoire ventilée, puis un transformateur élévateur, enfin le poste de livraison avec son comptage et sa protection de découplage ; la partie continue et la partie alternative sont séparées par une limite en trait mixte, et la ligne qui va de la toiture au point de livraison est le seul rehaut de laiton de la planche. FIGURE 3, la maille type vue en plan : deux rangées de cinq modules montées sur rails et fixées par plots ballastés non perçants, réunies par une seule mise en série, l'ensemble cerclé et porté de la mention maille type à répéter selon toiture, le nombre de mailles dépendant de l'emprise. DÉTAIL 1, dans son cercle, la traversée d'étanchéité : platine, manchon, collerette et relevé, avec la mention de l'étanchéité non perforée hors traversée et de la liaison équipotentielle des rails. Aucune puissance, aucune tension et aucune donnée d'exploitation ne sont portées ; les repères sont des étiquettes de convention. Nomenclature à deux colonnes, continu et alternatif, et cartouche de dossier portant la mention concept.",
   viewBox: '0 0 1240 900',
   detailViewBox: '80 300 420 300',
 };
@@ -165,14 +166,14 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
         Chemin de câbles
       </text>
       <line x1={584} y1={TOIT + 96} x2={620} y2={TOIT + 96} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="5 4" opacity="0.7" />
-      <text className="gravure-lettrage" x={62} y={TOIT + 202} fontSize="10" fill={OXYDE}>
+      <text className="gravure-lettrage" x={62} y={TOIT + 186} fontSize="10" fill={OXYDE}>
         Recul de rive, circulation de maintenance
       </text>
     </g>
 
     <NomenclatureLettres
       x={62}
-      y={700}
+      y={678}
       items={['Module et cadre', 'Plot ballasté non perçant', 'Panne et poutre porteuse']}
     />
 
@@ -266,56 +267,86 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
         strokeWidth={FORT}
       />
       <circle cx={236} cy={448} r={5} fill={LAITON} />
-      <text className="gravure-lettrage" x={200} y={496} fontSize="11">
+      <text className="gravure-lettrage" x={200} y={476} fontSize="11">
         Point de livraison
       </text>
     </g>
 
-    {/* ================= FIG. 3 — TRAVERSÉE ET CHEMINEMENT ================= */}
-    <RepereFigure x={62} y={782} n="3" title="Traversée d&apos;étanchéité et cheminement" w={330} />
+    {/* ================= FIG. 3 — LA MAILLE TYPE ================= */}
+    <RepereFigure x={62} y={744} n="3" title="Maille élémentaire, vue en plan" w={330} />
 
-    <g transform="translate(62 802)">
-      {/* complexe de toiture en coupe, détail */}
-      <rect x={0} y={30} width={220} height={16} fill={poche(p, 'beton')} opacity="0.5" stroke="none" />
-      <line x1={0} y1={30} x2={220} y2={30} stroke={ENCRE} strokeWidth={FORT} />
-      <line x1={0} y1={46} x2={220} y2={46} stroke={ENCRE} strokeWidth={FIN} />
-      <rect x={0} y={46} width={220} height={12} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
-      {/* manchon et relevé d'étanchéité */}
-      <rect x={92} y={-14} width={26} height={44} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-      <path d="M86 30 v-22 q0 -8 8 -8 M124 30 v-22 q0 -8 -8 -8" fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <rect x={78} y={26} width={54} height={6} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={FIN} />
-      <line x1={98} y1={-14} x2={112} y2={30} stroke={LAITON} strokeWidth={MOYEN} />
-      <text className="gravure-lettrage" x={140} y={2} fontSize="11">
-        Manchon et collerette
+    <g transform="translate(62 756)">
+      {/* cerclage de la maille : ce qui se répète */}
+      <rect x={-10} y={4} width={316} height={96} rx={10} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
+      {/* deux rangées de cinq modules, en plan */}
+      {[0, 1].map((r) =>
+        Array.from({ length: 5 }).map((_, i) => (
+          <rect
+            key={`${r}-${i}`}
+            x={i * 58}
+            y={18 + r * 38}
+            width={52}
+            height={26}
+            fill="none"
+            stroke={ENCRE}
+            strokeWidth={MOYEN}
+          />
+        )),
+      )}
+      {/* rails porteurs */}
+      {[14, 52].map((y) => (
+        <line key={y} x1={-4} y1={y} x2={290} y2={y} stroke={ENCRE} strokeWidth={FIN} />
+      ))}
+      {/* fixations ballastées non perçantes */}
+      {[6, 122, 238].map((x) => (
+        <g key={x}>
+          <rect x={x} y={46} width={18} height={7} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={FIN} />
+          <rect x={x} y={84} width={18} height={7} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={FIN} />
+        </g>
+      ))}
+      {/* le string : une seule mise en série sur la maille */}
+      <path d="M6 31 H278 V69 H6" fill="none" stroke={ENCRE} strokeWidth={FORT} />
+      <path d="M6 69 h-22 v-38" fill="none" stroke={ENCRE} strokeWidth={FORT} />
+      <text className="gravure-lettrage" x={-10} y={116} fontSize="11" fill={OXYDE}>
+        Maille type - répéter selon toiture
       </text>
-      <text className="gravure-lettrage" x={140} y={20} fontSize="11" fill={OXYDE}>
-        Relevé et platine
-      </text>
-      <text className="gravure-lettrage" x={0} y={82} fontSize="11" fill={OXYDE}>
-        Étanchéité non perforée hors traversée
+      <text className="gravure-lettrage" x={-10} y={131} fontSize="10" fill={OXYDE}>
+        Un string par maille, vers boîte de jonction, FIG. 2 - nombre de mailles selon emprise, PL. VIII
       </text>
     </g>
 
-    <g transform="translate(430 792)">
-      {/* chemin de câbles sur supports */}
-      <line x1={0} y1={46} x2={210} y2={46} stroke={ENCRE} strokeWidth={FORT} />
-      {[16, 100, 184].map((o) => (
-        <g key={o}>
-          <rect x={o - 10} y={20} width={20} height={26} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-          <rect x={o - 18} y={46} width={36} height={8} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={FIN} />
-        </g>
-      ))}
-      {[0, 1, 2].map((i) => (
-        <line key={i} x1={4} y1={26 + i * 6} x2={206} y2={26 + i * 6} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      ))}
-      <text className="gravure-lettrage" x={0} y={82} fontSize="11">
-        Chemin de câbles sur supports lestés
+    {/* ================= DÉT. 1 — TRAVERSÉE D'ÉTANCHÉITÉ ================= */}
+    <g>
+      <circle cx={520} cy={800} r={78} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
+      <text className="gravure-lettrage" x={520} y={708} fontSize="11" textAnchor="middle">
+        Dét. 1 - traversée d&apos;étanchéité
       </text>
-      <path d="M0 100 h210" stroke={OXYDE} strokeWidth={MOYEN} strokeDasharray="7 5" fill="none" />
-      <text className="gravure-lettrage" x={0} y={118} fontSize="11" fill={OXYDE}>
+      <g transform="translate(520 806) scale(0.8)">
+        {/* complexe de toiture en coupe */}
+        <rect x={-84} y={4} width={168} height={16} fill={poche(p, 'beton')} opacity="0.5" stroke="none" />
+        <line x1={-84} y1={4} x2={84} y2={4} stroke={ENCRE} strokeWidth={FORT} />
+        <line x1={-84} y1={20} x2={84} y2={20} stroke={ENCRE} strokeWidth={FIN} />
+        <rect x={-84} y={20} width={168} height={12} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
+        {/* manchon, relevé, collerette, platine */}
+        <rect x={-13} y={-42} width={26} height={46} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+        <path d="M-19 4 v-24 q0 -8 8 -8 M19 4 v-24 q0 -8 -8 -8" fill="none" stroke={ENCRE} strokeWidth={FIN} />
+        <rect x={-27} y={0} width={54} height={6} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={FIN} />
+        <line x1={-6} y1={-42} x2={6} y2={4} stroke={ENCRE} strokeWidth={MOYEN} />
+      </g>
+      <text className="gravure-lettrage" x={610} y={778} fontSize="11">
+        Manchon et collerette
+      </text>
+      <text className="gravure-lettrage" x={610} y={796} fontSize="11" fill={OXYDE}>
+        Relevé et platine
+      </text>
+      <text className="gravure-lettrage" x={610} y={814} fontSize="11" fill={OXYDE}>
+        Étanchéité non perforée hors traversée
+      </text>
+      <text className="gravure-lettrage" x={610} y={832} fontSize="11" fill={OXYDE}>
         Liaison équipotentielle des rails
       </text>
     </g>
+
 
     {/* ================= NOMENCLATURE DC / AC ================= */}
     <g>
