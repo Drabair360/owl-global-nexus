@@ -155,9 +155,9 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
 
     {/* repères courts dans le dessin, phrases en marge */}
     <Pastille x={X0 - 62} y={Y(0)} n={1} />
-    <Pastille x={X(NB_P - 1) + 48} y={Y(2)} n={2} />
+    <Pastille x={X0 - 62} y={BAS + 16} n={2} />
     <Pastille x={X(3) + 6} y={Y(5) - 20} n={3} />
-    <Pastille x={X(NB_P - 1) + 48} y={Y(0)} n={4} />
+    <Pastille x={X(5) + 16} y={Y(0) + 24} n={4} />
 
     <SensLecture x={X0} y={BAS + 72} w={X(NB_P - 1) - X0} label="Sens de lecture : les périodes" />
 
@@ -238,7 +238,7 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     <RepereFigure x={760} y={512} n="3" title="Nomenclature des signes" w={300} />
 
     <BlocTexte>
-      <g transform="translate(772 540)">
+      <g transform="translate(772 528)">
         <Signe x={0} y={0} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={ENCRE} strokeWidth={MOYEN} />}>
           Engagement confirmé
         </Signe>
@@ -291,7 +291,7 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     <BlocTexte>
       <Cartouche
         x={880}
-        y={806}
+        y={794}
         numeral="V"
         title="Graphique d'engagements"
         echelle="Éch. symb."
