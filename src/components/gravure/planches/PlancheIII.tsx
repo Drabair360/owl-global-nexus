@@ -237,7 +237,7 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
           strokeDasharray="12 4"
         />
       ))}
-      <text className="gravure-lettrage" x={364} y={100} fontSize="11" fill={OXYDE}>
+      <text className="gravure-lettrage" x={470} y={102} fontSize="11" fill={OXYDE}>
         Réseau d&apos;aspiration, capots aux points d&apos;émission
       </text>
     </g>
