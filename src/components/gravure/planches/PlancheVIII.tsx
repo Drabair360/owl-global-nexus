@@ -115,7 +115,7 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
 
     {/* halle de transformation, trame de poteaux */}
     <g>
-      <rect x={478} y={186} width={300} height={196} fill={`url(#${p}-poche-beton)`} opacity="0.2" />
+      <rect x={478} y={186} width={300} height={196} fill={`url(#${p}-poche-beton)`} opacity="0.1" />
       <Cadre x={478} y={186} w={300} h={196} weight={FORT} />
       {[0, 1, 2, 3, 4, 5].map((i) =>
         [0, 1, 2, 3].map((j) => (
@@ -149,7 +149,7 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
         Quais d'expédition
       </text>
       <path d="M792 660 a72 72 0 0 1 72 -72" fill="none" stroke={OXYDE} strokeWidth={ULTRAFIN} strokeDasharray="5 4" />
-      <text className="gravure-lettrage" x={700} y={660} fontSize="11" fill={OXYDE}>
+      <text className="gravure-lettrage" x={648} y={686} fontSize="11" fill={OXYDE}>
         Rayon de giration
       </text>
     </g>
@@ -181,7 +181,6 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
       <rect x={302} y={464} width={44} height={26} fill="none" stroke={ENCRE} strokeWidth={FIN} />
       <circle cx={396} cy={478} r={13} fill="none" stroke={ENCRE} strokeWidth={FIN} />
       <line x1={396} y1={465} x2={396} y2={491} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      <Attache x={368} y={404} dx={96} dy={-64} label="Local maintenance" />
     </g>
 
     {/* ---------- MARCHE EN AVANT : rehaut de laiton unique ---------- */}
@@ -213,7 +212,7 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
         fill="none"
       />
     ))}
-    <Attache x={628} y={393} dx={-150} dy={128} label="Marche en avant, sans croisement" anchor="end" />
+    <Attache x={628} y={404} dx={-30} dy={196} label="Marche en avant, sans croisement" anchor="end" />
 
     {/* ---------- ZONAGE SANITAIRE ---------- */}
     <AxeMixte x1={466} y1={160} x2={466} y2={620} />
