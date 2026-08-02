@@ -440,7 +440,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     <BlocTexte>
       <Cartouche
         x={800}
-        y={1216}
+        y={1200}
         w={380}
         numeral="IX"
         title="Centrale en toiture"
