@@ -163,7 +163,11 @@ const emblemes = [
   </g>,
 ];
 
-const Medaillon = ({ p, rep, emblem }: { p: Pt; rep: string; emblem: React.ReactNode }) => (
+const Medaillon = ({ p, rep, emblem }: { p: Pt; rep: string; emblem: React.ReactNode }) => {
+  const dx = p.x - CX;
+  const dy = p.y - CY;
+  const l = Math.hypot(dx, dy) || 1;
+  return (
   <g transform={`translate(${p.x} ${p.y})`}>
     <circle cx={0} cy={0} r={RM} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FORT} />
     <circle cx={0} cy={0} r={39} fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.8" />
@@ -172,11 +176,12 @@ const Medaillon = ({ p, rep, emblem }: { p: Pt; rep: string; emblem: React.React
       return <circle key={i} cx={Math.cos(a) * 43} cy={Math.sin(a) * 43} r={1.1} fill={ENCRE} opacity="0.7" />;
     })}
     <g transform="translate(0 -1)">{emblem}</g>
-    <Repere x={0} y={68}>
+    <Repere x={(dx / l) * 70} y={(dy / l) * 70 + 4}>
       {rep}
     </Repere>
   </g>
-);
+  );
+};
 
 export const PLANCHE_VII = {
   numeral: 'VII',
@@ -357,9 +362,9 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
           { label: 'T-00 - Owl International, la tête', cible: [CX - 46, CY - 24] },
           { label: 'S-01 - CAO Industries, ingénierie (PL. I)', cible: [CAO.x - 38, CAO.y - 22] },
           { label: 'S-02 - Line Builder, équipement (PL. III)', cible: [LBD.x - 40, LBD.y + 16] },
-          { label: 'S-03 - Drabair Labs, logiciel (PL. IV)', cible: [DRA.x - 34, DRA.y - 28] },
-          { label: 'S-04 - Weavme, réservation (PL. V)', cible: [WVM.x + 8, WVM.y - 40] },
-          { label: 'S-05 - Owl Real Estate, patrimoine (PL. VI)', cible: [ORE.x + 24, ORE.y + 34] },
+          { label: 'S-03 - Drabair Labs, logiciel (PL. IV)' },
+          { label: 'S-04 - Weavme, réservation (PL. V)' },
+          { label: 'S-05 - Owl Real Estate, patrimoine (PL. VI)' },
           { label: 'E-06 - Scouts, signalements entrants', cible: [SCOUT.x, SCOUT.y + 12] },
         ]}
       />
@@ -380,14 +385,13 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
           {
             label: 'F-00 - Le circuit qui referme le modèle',
             or: true,
-            cible: [orOuvrage.mx, orOuvrage.my],
           },
-          { label: 'F-01 - Capital placé, descendant', cible: [capital[1].mx, capital[1].my] },
-          { label: "F-02 - Retours d'exécution, terrain", cible: [savoir.mx, savoir.my] },
+          { label: 'F-01 - Capital placé, descendant', cible: [capital[1].mx + 30, capital[1].my - 12] },
+          { label: "F-02 - Retours d'exécution, terrain" },
           { label: 'F-03 - Socles logiciels, Drabair', cible: [socleWvm.mx, socleWvm.my] },
           { label: 'F-04 - Licences et prestations', cible: [licWvm.mx, licWvm.my] },
           { label: 'F-05 - Dividendes, remontants', cible: [dividende[2].mx, dividende[2].my] },
-          { label: 'F-06 - Signalements Scouts, entrants', cible: [scout.x1 + 90, scout.y1 - 48] },
+          { label: 'F-06 - Signalements Scouts, entrants' },
         ]}
       />
 
