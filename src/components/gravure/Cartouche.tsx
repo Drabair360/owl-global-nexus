@@ -4,9 +4,13 @@ import { EchelleGraphique } from './primitives';
 
 /**
  * CABINET DE GRAVURES §1 — LE CARTOUCHE.
- * Composant unique, réutilisé par les douze planches, jamais redessiné :
+ * Composant unique, réutilisé par les neuf planches, jamais redessiné :
  * numéro romain elzévirien, titre en petites capitales, échelle graphique
  * (§1.9) et le folio-chouette en sceau de cartouche.
+ *
+ * DOSSIER OWL-1 : bandeau de dossier optionnel, posé au-dessus du cartouche.
+ * Il porte l'intitulé de dossier avec la mention CONCEPT, l'index de planche
+ * (PL. n/9) et les renvois croisés vers les autres planches du dossier.
  */
 const Cartouche = ({
   x,
@@ -16,6 +20,9 @@ const Cartouche = ({
   numeral,
   title,
   echelle,
+  dossier,
+  index,
+  renvois,
 }: {
   x: number;
   y: number;
@@ -24,8 +31,33 @@ const Cartouche = ({
   numeral: string;
   title: string;
   echelle?: string;
+  /** Intitulé du dossier, mention CONCEPT comprise. */
+  dossier?: string;
+  /** Index de planche dans le dossier, ex. « PL. 5/9 ». */
+  index?: string;
+  /** Renvois croisés réels vers les autres planches. */
+  renvois?: string[];
 }) => (
   <g transform={`translate(${x} ${y})`} aria-hidden="true">
+    {dossier && (
+      <g transform="translate(0 -46)">
+        <rect x="0" y="0" width={w} height={44} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
+        <text className="gravure-lettrage" x="12" y="18" fontSize="11" fill={ENCRE}>
+          {dossier}
+        </text>
+        {index && (
+          <text className="gravure-lettrage" x={w - 12} y="18" fontSize="11" textAnchor="end" fill={OXYDE}>
+            {index}
+          </text>
+        )}
+        {renvois && renvois.length > 0 && (
+          <text className="gravure-lettrage" x="12" y="34" fontSize="10" fill={OXYDE}>
+            {renvois.join('  -  ')}
+          </text>
+        )}
+      </g>
+    )}
+
     <rect x="0" y="0" width={w} height={h} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FORT} />
     <line x1="0" y1={h * 0.44} x2={w} y2={h * 0.44} stroke={ENCRE} strokeWidth={FIN} opacity="0.6" />
     <line x1={w - 62} y1="0" x2={w - 62} y2={h} stroke={ENCRE} strokeWidth={FIN} opacity="0.6" />
