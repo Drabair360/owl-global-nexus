@@ -284,7 +284,7 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
     <Equip x={1145} y={Y_ASP} rep="F-701" glyphe={gFiltre} yRep={252} />
     <line x1={1145} y1={Y_ASP - 20} x2={1145} y2={182} stroke={OXYDE} strokeWidth={FIN} />
     <path d="M1145 176 l-5 12 h10 z" fill={OXYDE} />
-    <Repere x={1120} y={182} anchor="end">H-702</Repere>
+    <Repere x={1120} y={198} anchor="end">H-702</Repere>
 
     {/* ---------- ÉTAGE PROCÉDÉ (trait fort, au centre) ---------- */}
     <line x1={BX} y1={Y_PRO} x2={BX + BW} y2={Y_PRO} stroke={ENCRE} strokeWidth={FORT} />
@@ -325,7 +325,7 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
 
     <SensLecture
       x={BX}
-      y={512}
+      y={530}
       w={BW}
       label="Sens du procédé : matière première à gauche, produit conditionné à droite"
     />
@@ -363,6 +363,7 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
         { label: 'D-501 - Trémie peseuse' },
         { label: 'X-502 - Mélangeur à rubans' },
         { label: 'G-601 - Ensacheuse' },
+        { label: 'W-602 - Pesée-contrôle' },
       ]}
     />
     <EchelleLibelles
@@ -371,36 +372,37 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
       yStep={24}
       side="right"
       items={[
-        { label: 'W-602 - Pesée-contrôle' },
         { label: 'Z-603 - Palettiseur' },
         { label: 'F-701 - Filtre à manches' },
         { label: 'H-702 - Rejet filtré' },
         { label: 'U-801 - Nourrice d\u2019utilités' },
-        { label: 'REC - Refus recyclés  ·  REJ - Refus écartés  ·  PF - Produit conditionné' },
+        { label: 'REC - Refus recyclés en amont' },
+        { label: 'REJ - Refus écartés' },
+        { label: 'PF - Produit conditionné' },
       ]}
     />
 
     {/* ---------- LÉGENDE DES TROIS FAMILLES ---------- */}
     <BlocTexte>
       <g>
-        <line x1={64} y1={742} x2={124} y2={742} stroke={ENCRE} strokeWidth={FORT} />
-        <text className="gravure-lettrage" x={136} y={746} fontSize="12">
+        <line x1={64} y1={766} x2={124} y2={766} stroke={ENCRE} strokeWidth={FORT} />
+        <text className="gravure-lettrage" x={136} y={770} fontSize="12">
           Procédé - trait fort, étage central
         </text>
-        <line x1={464} y1={742} x2={524} y2={742} stroke={ENCRE} strokeWidth={FIN} />
-        <text className="gravure-lettrage" x={536} y={746} fontSize="12">
+        <line x1={464} y1={766} x2={524} y2={766} stroke={ENCRE} strokeWidth={FIN} />
+        <text className="gravure-lettrage" x={536} y={770} fontSize="12">
           Aspiration - trait fin, étage supérieur
         </text>
         <line
           x1={864}
-          y1={742}
+          y1={766}
           x2={924}
-          y2={742}
+          y2={766}
           stroke={ENCRE}
           strokeWidth={FIN}
           strokeDasharray={MIXTE_DASH}
         />
-        <text className="gravure-lettrage" x={936} y={746} fontSize="12">
+        <text className="gravure-lettrage" x={936} y={770} fontSize="12">
           Utilités - trait mixte, étage inférieur
         </text>
       </g>
@@ -482,10 +484,10 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
             <g key={nom}>
               <path d={`M0 ${y} h40`} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
               <rect x={40} y={y - 18} width={230} height={38} fill="none" stroke={ENCRE} strokeWidth={FIN} strokeDasharray="6 4" />
-              <text className="gravure-lettrage" x={52} y={y - 3} fontSize="12">
+              <text className="gravure-lettrage" x={52} y={y - 6} fontSize="12">
                 {nom}
               </text>
-              <text className="gravure-lettrage" x={52} y={y + 14} fontSize="12" fill={OXYDE}>
+              <text className="gravure-lettrage" x={52} y={y + 16} fontSize="12" fill={OXYDE}>
                 {filiere}
               </text>
             </g>
@@ -505,8 +507,9 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
 
     <BlocTexte>
       <Cartouche
-        x={880}
+        x={800}
         y={1190}
+        w={380}
         numeral="III"
         title="Configurateur de ligne, sortie CFG-A"
         echelle="Éch. symb."
