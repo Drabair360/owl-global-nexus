@@ -47,11 +47,11 @@ export const TitrePlanche = ({
       {titre}
     </text>
     {sous && (
-      <text className="gravure-lettrage" data-lis="titre" x={x} y={y + 22} fontSize="12" fill={OXYDE}>
+      <text className="gravure-lettrage" data-lis="titre" x={x} y={y + 34} fontSize="12" fill={OXYDE}>
         {sous}
       </text>
     )}
-    <line x1={x} y1={y + (sous ? 34 : 12)} x2={x + 1120} y2={y + (sous ? 34 : 12)} stroke={ENCRE} strokeWidth={FIN} />
+    <line x1={x} y1={y + (sous ? 46 : 12)} x2={x + 1120} y2={y + (sous ? 46 : 12)} stroke={ENCRE} strokeWidth={FIN} />
   </g>
 );
 

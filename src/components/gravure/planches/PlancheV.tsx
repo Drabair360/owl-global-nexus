@@ -159,17 +159,17 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     <Pastille x={X(3) + 6} y={Y(5) - 20} n={3} />
     <Pastille x={X(NB_P - 1) + 48} y={Y(0)} n={4} />
 
-    <SensLecture x={X0} y={BAS + 46} w={X(NB_P - 1) - X0} label="Sens de lecture : les périodes" />
+    <SensLecture x={X0} y={BAS + 72} w={X(NB_P - 1) - X0} label="Sens de lecture : les périodes" />
 
     {/* échelle de marge, à gauche */}
     <EchelleLibelles
       x={252}
-      yStart={196}
+      yStart={244}
       yStep={30}
       side="left"
       coude={26}
       items={[
-        { label: 'Rangs de ressource, A à F', cible: [X0 - 26, Y(1)] },
+        { label: 'Rangs de ressource, A à F', cible: [X0 - 26, Y(2)] },
         { label: 'Préavis avant engagement', cible: [X(1) - 26, Y(2) - 16] },
       ]}
     />
@@ -238,25 +238,25 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
     <RepereFigure x={760} y={512} n="3" title="Nomenclature des signes" w={300} />
 
     <BlocTexte>
-      <g transform="translate(772 552)">
+      <g transform="translate(772 540)">
         <Signe x={0} y={0} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={ENCRE} strokeWidth={MOYEN} />}>
           Engagement confirmé
         </Signe>
-        <Signe x={0} y={34} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={ENCRE} strokeWidth={FIN} strokeDasharray="7 5" />}>
+        <Signe x={0} y={30} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={ENCRE} strokeWidth={FIN} strokeDasharray="7 5" />}>
           Option, non ferme
         </Signe>
-        <Signe x={0} y={68} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={ENCRE} strokeWidth={FIN} strokeDasharray="14 4 3 4" />}>
+        <Signe x={0} y={60} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={ENCRE} strokeWidth={FIN} strokeDasharray="14 4 3 4" />}>
           Engagement récurrent
         </Signe>
-        <Signe x={0} y={102} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={LAITON} strokeWidth={FIN} />}>
+        <Signe x={0} y={90} draw={<line x1={0} y1={0} x2={76} y2={0} stroke={LAITON} strokeWidth={FIN} />}>
           Segment de résolution
         </Signe>
-        <Signe x={0} y={136} draw={<path d="M29 -9 l18 18 M47 -9 l-18 18" stroke={OXYDE} strokeWidth={FIN} />}>
+        <Signe x={0} y={120} draw={<path d="M29 -9 l18 18 M47 -9 l-18 18" stroke={OXYDE} strokeWidth={FIN} />}>
           Conflit détecté
         </Signe>
         <Signe
           x={0}
-          y={170}
+          y={150}
           draw={
             <g>
               <line x1={38} y1={-14} x2={38} y2={6} stroke={OXYDE} strokeWidth={FIN} />
@@ -266,7 +266,7 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
         >
           Préavis
         </Signe>
-        <Signe x={0} y={204} draw={<path d="M8 -8 v10 h60 v-10" fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} />}>
+        <Signe x={0} y={180} draw={<path d="M8 -8 v10 h60 v-10" fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} />}>
           Tenue sur plusieurs périodes
         </Signe>
       </g>

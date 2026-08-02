@@ -50,7 +50,7 @@ const Cartouche = ({
     {dossier && (() => {
       const [tete, sujet] = dossier.split(' : ');
       const lignes = renvois && renvois.length > 0 ? 1 : 0;
-      const bh = 34 + (sujet ? 14 : 0) + lignes * 15;
+      const bh = 38 + (sujet ? 17 : 0) + lignes * 17;
       return (
         <g transform={`translate(0 ${-bh - 4})`}>
           <rect x="0" y="0" width={w} height={bh} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
@@ -63,7 +63,7 @@ const Cartouche = ({
             </text>
           )}
           {sujet && (
-            <text className="gravure-lettrage" x="12" y="29" fontSize="10" fill={ENCRE} opacity="0.85">
+            <text className="gravure-lettrage" x="12" y="33" fontSize="10" fill={ENCRE} opacity="0.85">
               {sujet}
             </text>
           )}
