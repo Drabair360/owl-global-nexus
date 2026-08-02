@@ -1,6 +1,6 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
-import Cartouche from '../Cartouche';
+import Cartouche, { VOL_II } from '../Cartouche';
 import {
   Trait,
   Cadre,
@@ -257,6 +257,11 @@ export const PlancheVIDrawing = ({ p }: { p: string }) => (
       ]}
     />
 
-    <Cartouche x={880} y={790} numeral="VI" title="Immeuble de rapport provençal" echelle="Éch. symb." />
+    <Cartouche
+      x={880} y={790} numeral="VI" title="Immeuble de rapport provençal" echelle="Éch. symb."
+      dossier={VOL_II}
+      index="PL. 6/9"
+      renvois={['Modèle du groupe : PL. VII']}
+    />
   </>
 );

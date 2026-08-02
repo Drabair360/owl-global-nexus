@@ -1,6 +1,6 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
-import Cartouche from '../Cartouche';
+import Cartouche, { VOL_I } from '../Cartouche';
 import {
   Trait,
   Cadre,
@@ -309,6 +309,11 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
       ]}
     />
 
-    <Cartouche x={880} y={790} numeral="II" title="Le cycle de vie complet" echelle="Éch. symb." />
+    <Cartouche
+      x={880} y={790} numeral="II" title="Le cycle de vie complet" echelle="Éch. symb."
+      dossier={VOL_I}
+      index="PL. 2/9"
+      renvois={['Coupe de l\'unité : PL. I', 'Implantation générale : PL. VIII']}
+    />
   </>
 );

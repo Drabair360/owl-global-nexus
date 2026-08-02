@@ -1,6 +1,6 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
-import Cartouche from '../Cartouche';
+import Cartouche, { VOL_III } from '../Cartouche';
 import {
   Trait,
   poche,
@@ -266,6 +266,11 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
       ]}
     />
 
-    <Cartouche x={880} y={790} numeral="IV" title="Architecture en dessin de mécanique" echelle="Éch. symb." />
+    <Cartouche
+      x={880} y={790} numeral="IV" title="Architecture en dessin de mécanique" echelle="Éch. symb."
+      dossier={VOL_III}
+      index="PL. 4/9"
+      renvois={['Modèle du groupe : PL. VII', 'Configurateur : PL. III']}
+    />
   </>
 );

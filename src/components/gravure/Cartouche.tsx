@@ -12,6 +12,14 @@ import { EchelleGraphique } from './primitives';
  * Il porte l'intitulé de dossier avec la mention CONCEPT, l'index de planche
  * (PL. n/9) et les renvois croisés vers les autres planches du dossier.
  */
+/**
+ * TAXONOMIE DU DOSSIER — un dossier, trois volumes.
+ * L'index général reste PL. n/9, quel que soit le volume.
+ */
+export const VOL_I = 'DOSSIER OWL - VOL. I : USINE DE RÉFÉRENCE OWL-1 (CONCEPT)';
+export const VOL_II = 'DOSSIER OWL - VOL. II : IMMEUBLE DE RÉFÉRENCE ORE-1 (CONCEPT)';
+export const VOL_III = 'DOSSIER OWL - VOL. III : LE GROUPE';
+
 const Cartouche = ({
   x,
   y,
@@ -42,7 +50,7 @@ const Cartouche = ({
     {dossier && (
       <g transform="translate(0 -46)">
         <rect x="0" y="0" width={w} height={44} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
-        <text className="gravure-lettrage" x="12" y="18" fontSize="11" fill={ENCRE}>
+        <text className="gravure-lettrage" x="12" y="18" fontSize="10" fill={ENCRE}>
           {dossier}
         </text>
         {index && (

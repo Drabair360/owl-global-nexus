@@ -1,6 +1,6 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
-import Cartouche from '../Cartouche';
+import Cartouche, { VOL_III } from '../Cartouche';
 import {
   Attache,
   RepereFigure,
@@ -205,7 +205,12 @@ export const PlancheVIIDrawing = ({ p }: { p: string }) => {
         ]}
       />
 
-      <Cartouche x={880} y={790} numeral="VII" title="La planche maîtresse du modèle" echelle="Éch. symb." />
+      <Cartouche
+      x={880} y={790} numeral="VII" title="La planche maîtresse du modèle" echelle="Éch. symb."
+      dossier={VOL_III}
+      index="PL. 7/9"
+      renvois={['Usine de référence : PL. I', 'Immeuble de référence : PL. VI']}
+    />
     </>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
-import Cartouche from '../Cartouche';
+import Cartouche, { VOL_III } from '../Cartouche';
 import {
   RepereFigure,
   Pastille,
@@ -274,9 +274,9 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
       numeral="V"
       title="Graphique d'engagements"
       echelle="Éch. symb."
-      dossier="Usine de référence OWL-1 - CONCEPT"
+      dossier={VOL_III}
       index="PL. 5/9"
-      renvois={['Ressources en place : PL. VIII', 'Modèle de groupe : PL. VII']}
+      renvois={['Modèle du groupe : PL. VII', 'Socles logiciels : PL. IV']}
     />
   </>
 );
