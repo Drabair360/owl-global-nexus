@@ -242,44 +242,101 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
       </text>
     </g>
 
-    {/* ================= FIG. 2 — CADRE DE CONFIGURATION ================= */}
-    <RepereFigure x={880} y={366} n="2" title="Cadre de configuration" w={300} />
+    {/* ================= FIG. 2 — LA MATRICE DU CONFIGURATEUR ================= */}
+    <RepereFigure x={880} y={366} n="2" title="Matrice filières x modules" w={300} />
 
-    <g transform="translate(880 400)">
+    <g transform="translate(880 392)">
+      {(() => {
+        const COLX = [176, 232, 288];
+        const FIL = ['Mouture', 'Oléagin.', 'Séchage'];
+        const ROWS: [string, ('c' | 'v' | '-')[]][] = [
+          ['Réception', ['c', 'c', 'c']],
+          ['Nettoyage', ['c', 'c', 'c']],
+          ['Calibrage', ['c', 'c', '-']],
+          ['Transformation', ['v', 'v', 'v']],
+          ['Dosage', ['c', '-', 'c']],
+          ['Conditionnement', ['c', 'c', 'c']],
+        ];
+        return (
+          <>
+            {/* colonne retenue : le seul rehaut de laiton de la planche */}
+            <rect x={COLX[0] - 22} y={6} width={44} height={166} fill="none" stroke={LAITON} strokeWidth={FORT} />
+            <text className="gravure-lettrage" x={COLX[0]} y={-16} fontSize="11" textAnchor="middle" fill={LAITON}>
+              CFG-A
+            </text>
+            {FIL.map((f, c) => (
+              <text key={f} className="gravure-lettrage" x={COLX[c]} y={0} fontSize="11" textAnchor="middle">
+                {f}
+              </text>
+            ))}
+            <line x1={0} y1={8} x2={310} y2={8} stroke={ENCRE} strokeWidth={FIN} />
+            {ROWS.map(([nom, cases], r) => {
+              const y = 30 + r * 28;
+              return (
+                <g key={nom}>
+                  <text className="gravure-lettrage" x={0} y={y + 4} fontSize="11">
+                    {nom}
+                  </text>
+                  <line x1={0} y1={y + 14} x2={310} y2={y + 14} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.45" />
+                  {cases.map((k, c) => (
+                    <g key={c}>
+                      {k === 'c' && <circle cx={COLX[c]} cy={y} r={5} fill={ENCRE} />}
+                      {k === 'v' && (
+                        <rect x={COLX[c] - 6} y={y - 6} width={12} height={12} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+                      )}
+                      {k === '-' && (
+                        <line x1={COLX[c] - 5} y1={y} x2={COLX[c] + 5} y2={y} stroke={OXYDE} strokeWidth={FIN} />
+                      )}
+                    </g>
+                  ))}
+                </g>
+              );
+            })}
+            <text className="gravure-lettrage" x={0} y={214} fontSize="11" fill={OXYDE}>
+              Module commun (point), variante (carré), sans objet (tiret)
+            </text>
+            <text className="gravure-lettrage" x={0} y={232} fontSize="11" fill={OXYDE}>
+              Colonne retenue : CFG-A, lue en FIG. 1
+            </text>
+          </>
+        );
+      })()}
+    </g>
+
+    <CercleDetail cx={700} cy={YB} r={140} label="Détail x2" />
+
+    {/* ============ FIG. 3 — VARIANTES RACCORDÉES, UTILITÉS ET BILAN ============ */}
+    <RepereFigure x={60} y={630} n="3" title="Variantes raccordées, utilités et bilan" w={330} />
+
+    {/* les trois variantes sur le piquage commun */}
+    <g transform="translate(70 652)">
+      <path d="M0 8 V148" fill="none" stroke={ENCRE} strokeWidth={FORT} />
       {[
         ['Broyeur à cylindres', 'Filière mouture'],
         ['Presse', 'Filière oléagineux'],
         ['Séchoir rotatif', 'Filière séchage'],
       ].map(([nom, filiere], i) => {
-        const y = 30 + i * 74;
+        const y = 24 + i * 46;
         return (
           <g key={nom}>
-            <TraceCache d={`M0 ${y} h64`} />
-            <g>
-              <rect x={64} y={y - 26} width={220} height={52} fill="none" stroke={ENCRE} strokeWidth={FIN} strokeDasharray="6 4" />
-              <text className="gravure-lettrage" x={76} y={y - 6} fontSize="12">
-                {nom}
-              </text>
-              <text className="gravure-lettrage" x={76} y={y + 13} fontSize="11" fill={OXYDE}>
-                {filiere}
-              </text>
-            </g>
+            <path d={`M0 ${y} h40`} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+            <rect x={40} y={y - 16} width={186} height={34} fill="none" stroke={ENCRE} strokeWidth={FIN} strokeDasharray="6 4" />
+            <text className="gravure-lettrage" x={50} y={y - 2} fontSize="11">
+              {nom}
+            </text>
+            <text className="gravure-lettrage" x={50} y={y + 13} fontSize="10" fill={OXYDE}>
+              {filiere}
+            </text>
           </g>
         );
       })}
-      {/* le piquage commun, en laiton */}
-      <path d="M0 4 V254" fill="none" stroke={LAITON} strokeWidth={FORT} />
-      <text className="gravure-lettrage" x={0} y={248} fontSize="11" textAnchor="start">
-        Un piquage, trois filières
+      <text className="gravure-lettrage" x={0} y={166} fontSize="11" fill={OXYDE}>
+        Un piquage commun, une variante raccordée par filière
       </text>
     </g>
 
-    <CercleDetail cx={700} cy={YB} r={140} label="Détail x2" />
-
-    {/* ================= FIG. 3 — FLUX D'UTILITÉS ET BILAN ================= */}
-    <RepereFigure x={60} y={636} n="3" title="Flux d'utilités et bilan matière" w={300} />
-
-    <g transform="translate(70 660)">
+    {/* utilités et bilan */}
+    <g transform="translate(330 652)">
       {[
         ['Vapeur', '16 5'],
         ['Air comprimé', '4 4'],
@@ -287,33 +344,31 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
         ['Électricité', '2 4'],
       ].map(([nom, dash], i) => (
         <g key={nom}>
-          <line x1={0} y1={20 + i * 22} x2={70} y2={20 + i * 22} stroke={ENCRE} strokeWidth={FIN} strokeDasharray={dash} />
-          <text className="gravure-lettrage" x={80} y={24 + i * 22} fontSize="11">
+          <line x1={0} y1={20 + i * 22} x2={54} y2={20 + i * 22} stroke={ENCRE} strokeWidth={FIN} strokeDasharray={dash} />
+          <text className="gravure-lettrage" x={64} y={24 + i * 22} fontSize="11">
             {nom}
           </text>
         </g>
       ))}
-      <AxeMixte x1={210} y1={16} x2={210} y2={110} />
-      <text className="gravure-lettrage" x={230} y={30} fontSize="11">
-        Entrée matière
+      <AxeMixte x1={0} y1={114} x2={168} y2={114} />
+      <text className="gravure-lettrage" x={0} y={134} fontSize="11">
+        Entrée matière, sortie produit
       </text>
-      <text className="gravure-lettrage" x={230} y={56} fontSize="11">
-        Sortie produit
+      <text className="gravure-lettrage" x={0} y={152} fontSize="11">
+        Refus recyclés, refus écartés
       </text>
-      <text className="gravure-lettrage" x={230} y={82} fontSize="11">
-        Refus et poussières
-      </text>
-      <text className="gravure-lettrage" x={230} y={108} fontSize="11" fill={OXYDE}>
+      <text className="gravure-lettrage" x={0} y={170} fontSize="11" fill={OXYDE}>
         Bilan symbolique, sans chiffre
       </text>
     </g>
 
     {/* ================= NOMENCLATURE ================= */}
     <Nomenclature
-      x={620}
-      y={676}
+      x={560}
+      y={656}
       perCol={6}
-      colGap={300}
+      colGap={280}
+      lineHeight={21}
       items={[
         'Trémie de réception et grille',
         'Élévateur à godets',
@@ -331,10 +386,11 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
     />
 
     <Cartouche
-      x={880} y={846} numeral="III" title="Flowsheet agro configurable" echelle="Éch. symb."
+      x={880} y={846} numeral="III" title="Configurateur de ligne, sortie CFG-A" echelle="Éch. symb."
       dossier={VOL_I}
       index="PL. 3/9"
       renvois={['Implantation résultante : PL. VIII', 'Socles logiciels : PL. IV']}
     />
+
   </>
 );
