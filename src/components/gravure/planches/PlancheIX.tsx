@@ -2,386 +2,453 @@ import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
 import Cartouche, { VOL_I } from '../Cartouche';
 import {
-  Trait,
-  Cadre,
   poche,
   RepereFigure,
-  Pastille,
-  Nomenclature,
-  NomenclatureLettres,
-  PastilleLettre,
-  ChaineCotes,
-  TraceRegulateur,
-  ArcRegulateur,
-  AxeMixte,
+  PanneZ,
+  Echantignole,
   Boulon,
   Rupture,
+  AxeMixte,
+  MIXTE_DASH,
 } from '../primitives';
+import { TitrePlanche, BandeauZone, EchelleLibelles, Repere, BlocTexte } from '../lisibilite';
 
 /**
  * PLANCHE IX — CENTRALE EN TOITURE (DOSSIER OWL, VOL. I, PL. 9/9).
- *   FIG. 1  coupe partielle de la toiture-terrasse de l'usine de référence :
- *           complexe d'étanchéité, pannes, plots ballastés non perçants,
- *           rangées de modules inclinés, recul de rive, garde-corps
- *   FIG. 2  schéma de raccordement : string, boîte DC, onduleur,
- *           transformateur élévateur, poste de livraison, comptage
- *   FIG. 3  la maille type en plan : modules, string unique, plots ballastés
- *   DÉT. 1  traversée d'étanchéité, dans son cercle
+ * PHASE M2 — reconstruction sur le système L + cohérence de toiture.
+ *
+ * COHÉRENCE AVEC LA PL. I (qui fait foi) : le toit d'OWL-1 est un BAC ACIER
+ * NERVURÉ EN PENTE, porté par des pannes en Z sur échantignoles, elles-mêmes
+ * portées par l'arbalétrier du portique. La pente du versant est celle de la
+ * PL. I : 22,5°, le même dessin, le même ordre de couches. Il n'y a ni
+ * membrane ni isolant de toiture-terrasse, et donc aucun plot ballasté : les
+ * modules sont posés PARALLÈLES AU VERSANT, sans surinclinaison, fixés par
+ * pinces sur mini-rails vissés dans les nervures ; le drainage naturel du bac
+ * vers le chéneau de rive est conservé.
+ *
+ * LES TROIS LECTURES
+ *   3 s    Un versant en pente, couvert de modules qui suivent la pente, et
+ *          une ligne de laiton qui descend jusqu'au point de livraison.
+ *   30 s   Les zones nommées du versant - rive basse et chéneau, champ de
+ *          modules, faîtage et cheminement - et l'ordre des couches :
+ *          arbalétrier, panne, bac, mini-rail, pince, module.
+ *   3 min  La maille type en plan (fixation sur nervure), la traversée
+ *          d'étanchéité sur nervure, et le raccordement continu/alternatif
+ *          jusqu'au comptage.
+ *
  * Rehaut de laiton unique : LA LIGNE DE RACCORDEMENT, de la toiture au point
- * de livraison. Le support est celui de la PL. I : le toit qui la porte.
+ * de livraison.
  */
 
-const TOIT = 470; // niveau fini de l'étanchéité, FIG. 1
+/* ---- géométrie du versant : celle de la PL. I ---- */
+const PENTE = 22.5; // degrés - PL. I : atan((262-150)/(470-200))
+const RAD = (PENTE * Math.PI) / 180;
+const COS = Math.cos(RAD);
+const SIN = Math.sin(RAD);
+const OX = 170; // égout, bas du versant
+const OY = 520;
+/** Point du repère local du versant (u le long de la pente, v perpendiculaire). */
+const PT = (u: number, v: number): [number, number] => [
+  OX + COS * u + SIN * v,
+  OY - SIN * u + COS * v,
+];
+
+/** Repère court porté au dessin, relié à sa cible par une attache à un coude. */
+const Marque = ({
+  rep,
+  cible,
+  x,
+  y,
+  anchor = 'start',
+}: {
+  rep: string;
+  cible: [number, number];
+  x: number;
+  y: number;
+  anchor?: 'start' | 'end';
+}) => {
+  const kx = anchor === 'start' ? x - 16 : x + 16;
+  return (
+    <g>
+      <g data-lis="attache">
+        <circle cx={cible[0]} cy={cible[1]} r="1.8" fill={OXYDE} />
+        <path
+          d={`M${cible[0]} ${cible[1]} L${kx} ${y - 4} L${x + (anchor === 'start' ? -4 : 4)} ${y - 4}`}
+          fill="none"
+          stroke={OXYDE}
+          strokeWidth={ULTRAFIN}
+        />
+      </g>
+      <Repere x={x} y={y} anchor={anchor}>
+        {rep}
+      </Repere>
+    </g>
+  );
+};
 
 export const PLANCHE_IX = {
   numeral: 'IX',
   title: 'Centrale en toiture',
   desc:
-    "Gravure au trait, planche à trois figures représentant une centrale photovoltaïque posée sur la toiture-terrasse de l'unité industrielle de référence. FIGURE 1, coupe partielle de la toiture : le complexe est figuré par ses couches, support en bac d'acier nervuré, isolant et membrane d'étanchéité, porté par des pannes et une poutre principale dont la descente de charge est amorcée puis coupée par une ligne de rupture. Trois rangées de modules inclinés sont posées sur des plots ballastés non perçants, reliés par des rails ; l'entraxe d'ombrage entre rangées et le recul de rive sont cotés en symbolique, la rive est équipée d'un garde-corps et d'un chemin de câbles. Un arc de course solaire est tracé en régulateur ultrafin, sans graduation chiffrée. FIGURE 2, schéma de raccordement lu de haut en bas : les modules sont mis en série en string avec leurs polarités, rejoignent une boîte de jonction en courant continu équipée d'un parafoudre, puis un onduleur en armoire ventilée, puis un transformateur élévateur, enfin le poste de livraison avec son comptage et sa protection de découplage ; la partie continue et la partie alternative sont séparées par une limite en trait mixte, et la ligne qui va de la toiture au point de livraison est le seul rehaut de laiton de la planche. FIGURE 3, la maille type vue en plan : deux rangées de cinq modules montées sur rails et fixées par plots ballastés non perçants, réunies par une seule mise en série, l'ensemble cerclé et porté de la mention maille type à répéter selon toiture, le nombre de mailles dépendant de l'emprise. DÉTAIL 1, dans son cercle, la traversée d'étanchéité : platine, manchon, collerette et relevé, avec la mention de l'étanchéité non perforée hors traversée et de la liaison équipotentielle des rails. Aucune puissance, aucune tension et aucune donnée d'exploitation ne sont portées ; les repères sont des étiquettes de convention. Nomenclature à deux colonnes, continu et alternatif, et cartouche de dossier portant la mention concept.",
-  viewBox: '0 0 1240 900',
-  detailViewBox: '80 300 420 300',
+    "Gravure au trait, planche à trois figures et un détail, représentant une centrale photovoltaïque posée sur le versant en bac d'acier nervuré de l'unité industrielle de référence. FIGURE 1, coupe partielle du versant, dessinée à la pente de la planche première, dont elle reprend exactement le support : l'arbalétrier du portique porte des pannes en Z posées sur échantignoles, qui portent le bac d'acier nervuré ; il n'y a ni isolant ni membrane de toiture-terrasse, et donc aucun plot ballasté. Les modules sont posés parallèlement au versant, sans surinclinaison : ils reposent sur des mini-rails fixés dans les nervures du bac et sont tenus par des pinces, de sorte que l'écoulement naturel de l'eau dans les ondes du bac, du faîtage vers le chéneau de rive, est intégralement conservé. Le versant se lit en trois zones nommées, rive basse et chéneau, champ de modules, faîtage et cheminement ; un chemin de câbles longe le haut du champ, un garde-corps tient la rive basse, une flèche donne le sens d'écoulement et une ligne de rupture coupe la coupe au faîtage. Aucune phrase n'est portée dans le dessin : chaque élément porte un repère court, relié par une attache à un coude, et sa désignation complète vit dans l'échelle de libellés en marge. FIGURE 2, schéma de raccordement lu de haut en bas : string de modules, boîte de jonction en courant continu avec parafoudre, onduleur en armoire ventilée, limite entre partie continue et partie alternative en trait mixte, transformateur élévateur, poste de livraison avec comptage et protection de découplage ; la ligne qui va de la toiture au point de livraison est le seul rehaut de laiton de la planche. FIGURE 3, la maille type en plan : les nervures du bac courent dans le sens de la pente, deux mini-rails les traversent, dix modules en deux rangées y sont pincés, l'ensemble réuni par une seule mise en série et cerclé en trait interrompu, à répéter selon le versant. DÉTAIL 1, la traversée d'étanchéité reprise pour cette fixation : elle se fait en sommet de nervure, embase vissée sur l'onde haute, joint comprimé, manchon et collerette, l'étanchéité du bac n'étant perforée nulle part ailleurs, avec liaison équipotentielle des rails. Aucune puissance, aucune tension, aucune donnée d'exploitation ne sont portées ; les repères sont des étiquettes de convention. Cartouche de dossier, volume premier, mention concept.",
+  viewBox: '0 0 1240 1290',
+  detailViewBox: '150 170 640 390',
 };
-
-/** Rangée de modules inclinés sur plots ballastés, en coupe. */
-const Rangee = ({
-  x,
-  p,
-  principal = false,
-}: {
-  x: number;
-  p: string;
-  principal?: boolean;
-}) => (
-  <g>
-    {/* plan de modules incliné */}
-    <path
-      d={`M${x} ${TOIT - 26} L${x + 128} ${TOIT - 90} L${x + 138} ${TOIT - 80} L${x + 10} ${TOIT - 16} z`}
-      fill="none"
-      stroke={ENCRE}
-      strokeWidth={FORT}
-    />
-    {[1, 2, 3].map((i) => (
-      <line
-        key={i}
-        x1={x + i * 32}
-        y1={TOIT - 26 - i * 16}
-        x2={x + 10 + i * 32}
-        y2={TOIT - 16 - i * 16}
-        stroke={ENCRE}
-        strokeWidth={FIN}
-      />
-    ))}
-    {/* rail et jambe de reprise */}
-    <line x1={x + 16} y1={TOIT - 30} x2={x + 112} y2={TOIT - 78} stroke={ENCRE} strokeWidth={MOYEN} />
-    <line x1={x + 16} y1={TOIT - 30} x2={x + 16} y2={TOIT - 14} stroke={ENCRE} strokeWidth={MOYEN} />
-    <line x1={x + 112} y1={TOIT - 78} x2={x + 112} y2={TOIT - 14} stroke={ENCRE} strokeWidth={MOYEN} />
-    <line x1={x + 16} y1={TOIT - 22} x2={x + 112} y2={TOIT - 60} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="6 4" />
-    <Boulon x={x + 16} y={TOIT - 30} r={2.2} />
-    <Boulon x={x + 112} y={TOIT - 78} r={2.2} />
-    {/* plots ballastés, aucune perforation de l'étanchéité */}
-    {[16, 112].map((o) => (
-      <rect key={o} x={x + o - 17} y={TOIT - 14} width={34} height={14} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={MOYEN} />
-    ))}
-    {/* natte de protection sous plot */}
-    {[16, 112].map((o) => (
-      <line key={`n${o}`} x1={x + o - 21} y1={TOIT + 1.5} x2={x + o + 21} y2={TOIT + 1.5} stroke={OXYDE} strokeWidth={MOYEN} />
-    ))}
-    {principal && (
-      <>
-        <PastilleLettre x={x + 146} y={TOIT - 96} l="a" />
-        <PastilleLettre x={x - 12} y={TOIT - 6} l="b" />
-      </>
-    )}
-  </g>
-);
 
 export const PlancheIXDrawing = ({ p }: { p: string }) => (
   <>
     <GravureDefs p={p} />
 
-    {/* ================= FIG. 1 — LA TOITURE ================= */}
-    <RepereFigure x={60} y={96} n="1" title="Toiture-terrasse équipée, coupe partielle" w={360} />
-
-    {/* course solaire, tracé régulateur */}
-    <ArcRegulateur cx={340} cy={TOIT} r={300} />
-    <ArcRegulateur cx={340} cy={TOIT} r={244} />
-    <TraceRegulateur d={`M62 ${TOIT} H622`} />
-
-    {/* complexe d'étanchéité : membrane, isolant, bac acier nervuré */}
-    <Trait x1={62} y1={TOIT} x2={640} y2={TOIT} w={FORT} />
-    <line x1={62} y1={TOIT + 8} x2={640} y2={TOIT + 8} stroke={ENCRE} strokeWidth={FIN} />
-    <rect x={62} y={TOIT + 8} width={578} height={16} fill={poche(p, 'beton')} opacity="0.5" stroke="none" />
-    <line x1={62} y1={TOIT + 24} x2={640} y2={TOIT + 24} stroke={ENCRE} strokeWidth={FIN} />
-    {/* bac acier nervuré */}
-    <path
-      d={Array.from({ length: 24 }, (_, i) => {
-        const bx = 62 + i * 24;
-        return `M${bx} ${TOIT + 24} v10 h12 v-10`;
-      }).join(' ')}
-      fill="none"
-      stroke={ENCRE}
-      strokeWidth={FIN}
+    {/* ============ 3 SECONDES — LE TITRE ET LE SUJET ============ */}
+    <TitrePlanche
+      x={60}
+      y={46}
+      titre="Centrale en toiture"
+      sous="Versant en bac acier de l'usine OWL-1 (PL. I) - modules parallèles au versant, fixés sur nervures"
     />
-    <text className="gravure-lettrage" x={70} y={TOIT + 52} fontSize="11" fill={OXYDE}>
-      Membrane, isolant, bac d&apos;acier nervuré
-    </text>
 
-    {/* pannes et poutre principale, descente de charge amorcée */}
-    {[150, 330, 510].map((o) => (
-      <g key={o}>
-        <rect x={o - 9} y={TOIT + 36} width={18} height={22} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
-      </g>
-    ))}
-    <rect x={62} y={TOIT + 58} width={578} height={14} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
-    <line x1={330} y1={TOIT + 72} x2={330} y2={TOIT + 132} stroke={ENCRE} strokeWidth={FORT} />
-    <Rupture x={330} y={TOIT + 132} length={80} />
-    <text className="gravure-lettrage" x={348} y={TOIT + 104} fontSize="11">
-      Descente de charge, voir PL. I
-    </text>
-    <PastilleLettre x={124} y={TOIT + 48} l="c" />
+    {/* ================= FIG. 1 — LE VERSANT ÉQUIPÉ ================= */}
+    <RepereFigure x={60} y={126} n="1" title="Versant équipé, coupe partielle à la pente de la PL. I" w={480} />
 
-    <Rangee x={96} p={p} principal />
-    <Rangee x={276} p={p} />
-    <Rangee x={456} p={p} />
+    <BandeauZone x={150} y={170} w={140} h={390} label="Rive basse et chéneau" />
+    <BandeauZone x={290} y={170} w={340} h={390} label="Champ de modules" />
+    <BandeauZone x={630} y={170} w={160} h={390} label="Faîtage et cheminement" />
 
-    {/* cotes : entraxe d'ombrage et recul de rive */}
-    <ChaineCotes y={TOIT + 168} points={[112, 292, 472]} labels={["e - entraxe d'ombrage", 'e']} attache={TOIT + 72} />
-    <ChaineCotes y={196} points={[TOIT - 90, TOIT]} labels={['h']} attache={110} vertical />
-    <text className="gravure-lettrage" x={84} y={TOIT - 118} fontSize="11" textAnchor="end">
-      Hors-tout
-    </text>
+    {/* ---- le versant, dans son repère incliné : l'ordre des couches de la PL. I ---- */}
+    <g transform={`translate(${OX} ${OY}) rotate(${-PENTE})`}>
+      {/* arbalétrier du portique */}
+      <line x1={-16} y1={12} x2={664} y2={12} stroke={ENCRE} strokeWidth={FORT} />
+      <line x1={-16} y1={28} x2={664} y2={28} stroke={ENCRE} strokeWidth={MOYEN} />
 
-    {/* rive : recul, garde-corps et chemin de câbles */}
-    <g>
-      <line x1={620} y1={TOIT} x2={620} y2={TOIT - 74} stroke={ENCRE} strokeWidth={MOYEN} />
-      {[0, 1].map((i) => (
-        <line key={i} x1={612} y1={TOIT - 30 - i * 26} x2={628} y2={TOIT - 30 - i * 26} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+      {/* pannes en Z sur échantignoles - même dessin qu'en PL. I */}
+      {[52, 182, 312, 442, 572].map((u) => (
+        <g key={u}>
+          <PanneZ x={u} y={0} />
+          <Echantignole x={u} y={10} />
+        </g>
       ))}
-      <text className="gravure-lettrage" x={606} y={TOIT - 88} fontSize="11" textAnchor="end">
-        Garde-corps de rive
-      </text>
-      <line x1={596} y1={TOIT - 8} x2={596} y2={TOIT} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      <rect x={572} y={TOIT - 20} width={26} height={12} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <text className="gravure-lettrage" x={606} y={TOIT - 34} fontSize="11" textAnchor="end" fill={OXYDE}>
-        Chemin de câbles
-      </text>
-      <line x1={584} y1={TOIT + 96} x2={620} y2={TOIT + 96} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="5 4" opacity="0.7" />
-      <text className="gravure-lettrage" x={62} y={TOIT + 186} fontSize="10" fill={OXYDE}>
-        Recul de rive, circulation de maintenance
-      </text>
-    </g>
 
-    <NomenclatureLettres
-      x={62}
-      y={678}
-      items={['Module et cadre', 'Plot ballasté non perçant', 'Panne et poutre porteuse']}
-    />
-
-    {/* ================= FIG. 2 — RACCORDEMENT ================= */}
-    <RepereFigure x={700} y={96} n="2" title="De la toiture au point de livraison" w={330} />
-
-    <g transform="translate(700 140)">
-      {/* string de modules */}
-      <g>
-        {[0, 1, 2, 3].map((i) => (
-          <rect key={i} x={0 + i * 34} y={0} width={26} height={40} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-        ))}
-        <text className="gravure-lettrage" x={0} y={-10} fontSize="11">
-          String de modules
-        </text>
-        <text className="gravure-lettrage" x={0} y={58} fontSize="11" fill={OXYDE}>
-          + / -
-        </text>
-        <Pastille x={-14} y={20} n={1} r={8} />
-      </g>
-
-      {/* boîte de jonction DC et parafoudre */}
-      <g transform="translate(0 96)">
-        <Cadre x={0} y={0} w={96} h={54} weight={MOYEN} />
-        <path d="M24 14 v12 l14 -6 z" fill="none" stroke={ENCRE} strokeWidth={FIN} />
-        <line x1={24} y1={40} x2={72} y2={40} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-        <line x1={38} y1={46} x2={58} y2={46} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-        <text className="gravure-lettrage" x={106} y={22} fontSize="11">
-          Boîte de jonction
-        </text>
-        <text className="gravure-lettrage" x={106} y={40} fontSize="11" fill={OXYDE}>
-          Parafoudre
-        </text>
-        <Pastille x={-14} y={26} n={2} r={8} />
-      </g>
-
-      {/* onduleur */}
-      <g transform="translate(0 200)">
-        <Cadre x={0} y={0} w={96} h={72} weight={FORT} />
-        <path d="M20 46 q14 -32 28 -18 q14 14 28 -18" fill="none" stroke={ENCRE} strokeWidth={FIN} />
-        <line x1={0} y1={26} x2={96} y2={26} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-        {[0, 1, 2].map((i) => (
-          <line key={i} x1={16 + i * 12} y1={6} x2={16 + i * 12} y2={20} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-        ))}
-        <text className="gravure-lettrage" x={106} y={30} fontSize="11">
-          Onduleur, armoire ventilée
-        </text>
-        <Pastille x={-14} y={36} n={3} r={8} />
-      </g>
-
-      {/* limite continu / alternatif */}
-      <AxeMixte x1={-40} y1={296} x2={330} y2={296} />
-      <text className="gravure-lettrage" x={-40} y={290} fontSize="11" fill={OXYDE}>
-        Partie continue
-      </text>
-      <text className="gravure-lettrage" x={-40} y={314} fontSize="11" fill={OXYDE}>
-        Partie alternative
-      </text>
-
-      {/* transformateur élévateur */}
-      <g transform="translate(0 336)">
-        <circle cx={34} cy={26} r={22} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-        <circle cx={62} cy={26} r={22} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-        <text className="gravure-lettrage" x={106} y={30} fontSize="11">
-          Transformateur élévateur
-        </text>
-        <Pastille x={-14} y={26} n={4} r={8} />
-      </g>
-
-      {/* poste de livraison, comptage, découplage */}
-      <g transform="translate(0 412)">
-        <Cadre x={0} y={0} w={140} h={72} weight={FORT} />
-        <rect x={16} y={16} width={40} height={40} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-        <circle cx={36} cy={36} r={11} fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} />
-        <line x1={84} y1={16} x2={84} y2={40} stroke={ENCRE} strokeWidth={MOYEN} />
-        <line x1={84} y1={40} x2={104} y2={56} stroke={ENCRE} strokeWidth={MOYEN} />
-        <text className="gravure-lettrage" x={150} y={26} fontSize="11">
-          Poste de livraison
-        </text>
-        <text className="gravure-lettrage" x={150} y={44} fontSize="11" fill={OXYDE}>
-          Comptage et découplage
-        </text>
-        <Pastille x={-14} y={36} n={5} r={8} />
-      </g>
-
-      {/* la ligne de raccordement : rehaut de laiton unique */}
+      {/* bac d'acier nervuré, posé sur les pannes : la peau de la PL. I */}
       <path
-        d="M48 40 V96 M48 150 V200 M48 272 V336 M48 384 V412 M140 448 H236"
+        d={`M-14 -14 ${Array.from({ length: 26 }, (_, i) => {
+          const u = -8 + i * 26;
+          return `L${u} -14 L${u + 3} -27 L${u + 12} -27 L${u + 15} -14`;
+        }).join(' ')} L664 -14`}
         fill="none"
-        stroke={LAITON}
-        strokeWidth={FORT}
+        stroke={ENCRE}
+        strokeWidth={MOYEN}
       />
-      <circle cx={236} cy={448} r={5} fill={LAITON} />
-      <text className="gravure-lettrage" x={200} y={476} fontSize="11">
-        Point de livraison
-      </text>
+
+      {/* mini-rail sur nervures + pinces de fixation : aucune surinclinaison */}
+      <line x1={70} y1={-33} x2={652} y2={-33} stroke={ENCRE} strokeWidth={MOYEN} />
+      {[96, 174, 252, 330, 408, 486, 564, 642].map((u) => (
+        <g key={u}>
+          <path d={`M${u - 6} -27 v-6 h12 v6`} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+          <Boulon x={u} y={-33} r={2.2} />
+        </g>
+      ))}
+
+      {/* modules, parallèles au versant */}
+      {[
+        [92, 256],
+        [264, 428],
+        [436, 600],
+      ].map(([u1, u2]) => (
+        <g key={u1}>
+          <rect
+            x={u1}
+            y={-47}
+            width={u2 - u1}
+            height={13}
+            fill="hsl(var(--gravure-fond))"
+            stroke={ENCRE}
+            strokeWidth={MOYEN}
+          />
+          <line x1={u1} y1={-47} x2={u2} y2={-47} stroke={ENCRE} strokeWidth={FORT} />
+          {[0.25, 0.5, 0.75].map((f) => (
+            <line
+              key={f}
+              x1={u1 + (u2 - u1) * f}
+              y1={-47}
+              x2={u1 + (u2 - u1) * f}
+              y2={-34}
+              stroke={ENCRE}
+              strokeWidth={ULTRAFIN}
+            />
+          ))}
+        </g>
+      ))}
+
+      {/* chemin de câbles en haut de champ */}
+      <rect x={612} y={-54} width={42} height={16} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={612} y1={-46} x2={654} y2={-46} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.7" />
+
+      {/* sens d'écoulement : dans l'onde du bac, vers l'égout */}
+      <line x1={244} y1={-64} x2={132} y2={-64} stroke={OXYDE} strokeWidth={FIN} />
+      <path d="M124 -64 l14 -6 v12 z" fill="none" stroke={OXYDE} strokeWidth={FIN} />
     </g>
+
+    {/* faîtage : la coupe s'arrête ici */}
+    <Rupture x={PT(676, -56)[0]} y={PT(676, -56)[1]} length={72} vertical />
+
+    {/* rive basse : chéneau et garde-corps, d'aplomb */}
+    <path d="M140 522 h34 v24 h-34 z" fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+    <line x1={140} y1={528} x2={174} y2={528} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.7" />
+    <line x1={160} y1={510} x2={160} y2={438} stroke={ENCRE} strokeWidth={MOYEN} />
+    <line x1={150} y1={444} x2={196} y2={444} stroke={ENCRE} strokeWidth={FIN} />
+    <line x1={150} y1={472} x2={186} y2={472} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+
+    {/* ---- repères courts, en attache : aucune phrase dans le dessin ---- */}
+    <Marque rep="M-01" cible={PT(150, -47)} x={214} y={382} />
+    <Marque rep="EP" cible={PT(188, -64)} x={214} y={408} />
+    <Marque rep="G-02" cible={[160, 452]} x={214} y={434} />
+    <Marque rep="E-03" cible={[157, 534]} x={214} y={460} />
+
+    <Marque rep="R-04" cible={PT(330, -33)} x={682} y={344} />
+    <Marque rep="R-05" cible={PT(408, -30)} x={682} y={370} />
+    <Marque rep="T-01" cible={PT(452, -20)} x={682} y={396} />
+    <Marque rep="T-02" cible={PT(442, 0)} x={682} y={422} />
+    <Marque rep="T-03" cible={PT(500, 20)} x={682} y={448} />
+    <Marque rep="C-06" cible={PT(634, -46)} x={682} y={474} />
+    <Marque rep="F-07" cible={PT(664, -14)} x={682} y={500} />
+
+    {/* ================= FIG. 2 — LE RACCORDEMENT ================= */}
+    <RepereFigure x={840} y={126} n="2" title="De la toiture au point de livraison" w={330} />
+
+    {/* string de modules */}
+    {[0, 1, 2, 3].map((i) => (
+      <rect
+        key={i}
+        x={880 + i * 34}
+        y={192}
+        width={26}
+        height={38}
+        fill="none"
+        stroke={ENCRE}
+        strokeWidth={MOYEN}
+      />
+    ))}
+    <Marque rep="S-01" cible={[880, 211]} x={862} y={215} anchor="end" />
+
+    {/* boîte de jonction en courant continu, parafoudre */}
+    <rect x={900} y={282} width={110} height={52} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+    <path d="M930 296 v14 l16 -7 z" fill="none" stroke={ENCRE} strokeWidth={FIN} />
+    <line x1={956} y1={296} x2={956} y2={320} stroke={ENCRE} strokeWidth={FIN} />
+    <path d="M968 300 h14 v16 h-14 z" fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} />
+    <Marque rep="J-02" cible={[900, 308]} x={882} y={312} anchor="end" />
+
+    {/* onduleur en armoire ventilée */}
+    <rect x={900} y={374} width={110} height={64} fill="none" stroke={ENCRE} strokeWidth={FORT} />
+    <path d="M920 420 q14 -32 28 -18 q14 14 28 -18" fill="none" stroke={ENCRE} strokeWidth={FIN} />
+    <line x1={900} y1={398} x2={1010} y2={398} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+    {[0, 1, 2].map((i) => (
+      <line key={i} x1={918 + i * 12} y1={380} x2={918 + i * 12} y2={392} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+    ))}
+    <Marque rep="O-03" cible={[900, 406]} x={882} y={410} anchor="end" />
+
+    {/* limite continu / alternatif */}
+    <AxeMixte x1={846} y1={466} x2={1180} y2={466} />
+    <Repere x={846} y={458} anchor="start">DC</Repere>
+    <Repere x={846} y={484} anchor="start">AC</Repere>
+
+    {/* transformateur élévateur */}
+    <circle cx={934} cy={522} r={22} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+    <circle cx={962} cy={522} r={22} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+    <Marque rep="TR-04" cible={[912, 522]} x={886} y={526} anchor="end" />
+
+    {/* poste de livraison, comptage et découplage */}
+    <rect x={900} y={568} width={140} height={64} fill="none" stroke={ENCRE} strokeWidth={FORT} />
+    <rect x={916} y={584} width={36} height={36} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+    <circle cx={934} cy={602} r={10} fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} />
+    <line x1={984} y1={584} x2={984} y2={606} stroke={ENCRE} strokeWidth={MOYEN} />
+    <line x1={984} y1={606} x2={1004} y2={620} stroke={ENCRE} strokeWidth={MOYEN} />
+    <Marque rep="L-05" cible={[900, 600]} x={882} y={604} anchor="end" />
+
+    {/* la ligne de raccordement : rehaut de laiton unique */}
+    <path
+      d="M928 230 V282 M928 334 V374 M928 438 V500 M928 544 V568 M1040 600 H1136"
+      fill="none"
+      stroke={LAITON}
+      strokeWidth={FORT}
+    />
+    <circle cx={1136} cy={600} r={5} fill={LAITON} />
+    <Marque rep="PDL" cible={[1136, 600]} x={1104} y={640} anchor="end" />
 
     {/* ================= FIG. 3 — LA MAILLE TYPE ================= */}
-    <RepereFigure x={62} y={744} n="3" title="Maille élémentaire, vue en plan" w={330} />
+    <RepereFigure x={60} y={676} n="3" title="Maille type en plan, pincée sur les nervures" w={380} />
 
-    <g transform="translate(62 756)">
-      {/* cerclage de la maille : ce qui se répète */}
-      <rect x={-10} y={4} width={316} height={96} rx={10} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
-      {/* deux rangées de cinq modules, en plan */}
+    <g transform="translate(90 706)">
+      {/* nervures du bac : elles courent dans le sens de la pente */}
+      {Array.from({ length: 19 }).map((_, i) => (
+        <line
+          key={i}
+          x1={i * 26}
+          y1={0}
+          x2={i * 26}
+          y2={150}
+          stroke={ENCRE}
+          strokeWidth={ULTRAFIN}
+          opacity="0.5"
+        />
+      ))}
+      {/* mini-rails, perpendiculaires aux nervures */}
+      {[38, 112].map((y) => (
+        <line key={y} x1={-8} y1={y} x2={476} y2={y} stroke={ENCRE} strokeWidth={MOYEN} />
+      ))}
+      {/* pinces, en sommet de nervure */}
+      {[26, 130, 234, 338, 442].map((x) =>
+        [38, 112].map((y) => (
+          <rect key={`${x}-${y}`} x={x - 5} y={y - 4} width={10} height={8} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+        )),
+      )}
+      {/* dix modules, deux rangées */}
       {[0, 1].map((r) =>
         Array.from({ length: 5 }).map((_, i) => (
           <rect
             key={`${r}-${i}`}
-            x={i * 58}
-            y={18 + r * 38}
-            width={52}
-            height={26}
+            x={i * 94 + 6}
+            y={12 + r * 74}
+            width={86}
+            height={52}
             fill="none"
             stroke={ENCRE}
-            strokeWidth={MOYEN}
+            strokeWidth={FIN}
           />
         )),
       )}
-      {/* rails porteurs */}
-      {[14, 52].map((y) => (
-        <line key={y} x1={-4} y1={y} x2={290} y2={y} stroke={ENCRE} strokeWidth={FIN} />
-      ))}
-      {/* fixations ballastées non perçantes */}
-      {[6, 122, 238].map((x) => (
-        <g key={x}>
-          <rect x={x} y={46} width={18} height={7} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={FIN} />
-          <rect x={x} y={84} width={18} height={7} fill={poche(p, 'beton')} stroke={ENCRE} strokeWidth={FIN} />
-        </g>
-      ))}
-      {/* le string : une seule mise en série sur la maille */}
-      <path d="M6 31 H278 V69 H6" fill="none" stroke={ENCRE} strokeWidth={FORT} />
-      <path d="M6 69 h-22 v-38" fill="none" stroke={ENCRE} strokeWidth={FORT} />
-      <text className="gravure-lettrage" x={-10} y={116} fontSize="11" fill={OXYDE}>
-        Maille type - répéter selon toiture
-      </text>
-      <text className="gravure-lettrage" x={-10} y={131} fontSize="10" fill={OXYDE}>
-        Un string par maille, vers boîte de jonction, FIG. 2 - nombre de mailles selon emprise, PL. VIII
-      </text>
+      {/* une seule mise en série */}
+      <path d="M28 38 H452 V112 H28" fill="none" stroke={ENCRE} strokeWidth={FORT} />
+      {/* cerclage : ce qui se répète */}
+      <rect x={-14} y={-8} width={496} height={182} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
     </g>
 
-    {/* ================= DÉT. 1 — TRAVERSÉE D'ÉTANCHÉITÉ ================= */}
-    <g>
-      <circle cx={520} cy={800} r={78} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
-      <text className="gravure-lettrage" x={520} y={708} fontSize="11" textAnchor="middle">
-        Dét. 1 - traversée d&apos;étanchéité
-      </text>
-      <g transform="translate(520 806) scale(0.8)">
-        {/* complexe de toiture en coupe */}
-        <rect x={-84} y={4} width={168} height={16} fill={poche(p, 'beton')} opacity="0.5" stroke="none" />
-        <line x1={-84} y1={4} x2={84} y2={4} stroke={ENCRE} strokeWidth={FORT} />
-        <line x1={-84} y1={20} x2={84} y2={20} stroke={ENCRE} strokeWidth={FIN} />
-        <rect x={-84} y={20} width={168} height={12} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
-        {/* manchon, relevé, collerette, platine */}
-        <rect x={-13} y={-42} width={26} height={46} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-        <path d="M-19 4 v-24 q0 -8 8 -8 M19 4 v-24 q0 -8 -8 -8" fill="none" stroke={ENCRE} strokeWidth={FIN} />
-        <rect x={-27} y={0} width={54} height={6} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={FIN} />
-        <line x1={-6} y1={-42} x2={6} y2={4} stroke={ENCRE} strokeWidth={MOYEN} />
-      </g>
-      <text className="gravure-lettrage" x={610} y={778} fontSize="11">
-        Manchon et collerette
-      </text>
-      <text className="gravure-lettrage" x={610} y={796} fontSize="11" fill={OXYDE}>
-        Relevé et platine
-      </text>
-      <text className="gravure-lettrage" x={610} y={814} fontSize="11" fill={OXYDE}>
-        Étanchéité non perforée hors traversée
-      </text>
-      <text className="gravure-lettrage" x={610} y={832} fontSize="11" fill={OXYDE}>
-        Liaison équipotentielle des rails
-      </text>
-    </g>
+    <Marque rep="MT" cible={[86, 700]} x={104} y={906} anchor="start" />
+    <Marque rep="N-08" cible={[142, 850]} x={230} y={906} anchor="start" />
+    <Marque rep="S-01" cible={[120, 744]} x={340} y={906} anchor="start" />
 
+    {/* ================= DÉT. 1 — TRAVERSÉE SUR NERVURE ================= */}
+    <BlocTexte>
+      <text className="gravure-lettrage" x={640} y={690} fontSize="12" fill={ENCRE}>
+        DÉT. 1
+      </text>
+      <text className="gravure-lettrage" x={700} y={690} fontSize="12">
+        Traversée d&apos;étanchéité en sommet de nervure
+      </text>
+      <line x1={640} y1={696} x2={1010} y2={696} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
+    </BlocTexte>
 
-    {/* ================= NOMENCLATURE DC / AC ================= */}
-    <g>
-      <text className="gravure-lettrage" x={700} y={640} fontSize="12" fill={OXYDE}>
-        Continu
-      </text>
-      <text className="gravure-lettrage" x={960} y={640} fontSize="12" fill={OXYDE}>
-        Alternatif
-      </text>
-      <Nomenclature
-        x={706}
-        y={666}
-        perCol={3}
-        colGap={260}
-        lineHeight={22}
-        items={[
-          'String de modules',
-          'Boîte de jonction et parafoudre',
-          'Cheminement en chemin de câbles',
-          'Onduleur',
-          'Transformateur élévateur',
-          'Poste de livraison et comptage',
-        ]}
+    <circle cx={840} cy={806} r={86} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="7 5" />
+    <g transform="translate(840 830) scale(1.3)">
+      {/* le bac, en coupe : onde basse, onde haute */}
+      <path
+        d="M-72 12 h20 v-22 h22 v22 h20 v-22 h22 v22 h20"
+        fill="none"
+        stroke={ENCRE}
+        strokeWidth={FORT}
       />
+      {/* embase vissée en sommet d'onde, joint comprimé */}
+      <rect x={-13} y={-30} width={26} height={8} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={-13} y1={-22} x2={13} y2={-22} stroke={OXYDE} strokeWidth={MOYEN} />
+      <Boulon x={-6} y={-26} r={2} />
+      <Boulon x={6} y={-26} r={2} />
+      {/* manchon et collerette */}
+      <rect x={-9} y={-66} width={18} height={36} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+      <path d="M-17 -30 v-10 q0 -6 8 -6 M17 -30 v-10 q0 -6 -8 -6" fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      {/* liaison équipotentielle */}
+      <path d="M13 -26 h22 v-10" fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray={MIXTE_DASH} />
     </g>
+    <Marque rep="D-09" cible={[840, 796]} x={952} y={764} anchor="start" />
+    <Marque rep="T-01" cible={[790, 838]} x={952} y={790} anchor="start" />
+    <Marque rep="EQ" cible={[875, 800]} x={952} y={816} anchor="start" />
 
-    <Cartouche
-      x={880}
-      y={846}
-      numeral="IX"
-      title="Centrale en toiture"
-      echelle="Éch. symb."
-      dossier={VOL_I}
-      index="PL. 9/9"
-      renvois={['Toiture porteuse : PL. I', 'Emprise en toiture : PL. VIII']}
+    {/* ============ 3 MINUTES — L'ÉCHELLE DE LIBELLÉS EN MARGE ============ */}
+    <BlocTexte>
+      <text className="gravure-lettrage" x={60} y={938} fontSize="12" fill={OXYDE}>
+        Échelle de libellés - chaque repère du dessin, sa désignation complète
+      </text>
+    </BlocTexte>
+    <EchelleLibelles
+      x={64}
+      yStart={966}
+      yStep={24}
+      side="right"
+      items={[
+        { label: 'T-01 - Bac acier nervuré en pente (PL. I)' },
+        { label: 'T-02 - Panne en Z sur échantignole (PL. I)' },
+        { label: 'T-03 - Arbalétrier du portique (PL. I)' },
+        { label: 'M-01 - Module posé parallèle au versant' },
+        { label: 'R-04 - Mini-rail vissé sur nervure' },
+        { label: 'R-05 - Pince de fixation du module' },
+        { label: 'N-08 - Nervure du bac, ligne de fixation' },
+      ]}
     />
+    <EchelleLibelles
+      x={464}
+      yStart={966}
+      yStep={24}
+      side="right"
+      items={[
+        { label: 'E-03 - Chéneau de rive' },
+        { label: 'EP - Écoulement naturel dans les ondes' },
+        { label: 'G-02 - Garde-corps de rive' },
+        { label: 'C-06 - Chemin de câbles en haut de champ' },
+        { label: 'F-07 - Faîtage, limite de la coupe' },
+        { label: 'MT - Maille type, à répéter selon versant' },
+        { label: 'D-09 - Traversée en sommet de nervure' },
+      ]}
+    />
+    <EchelleLibelles
+      x={864}
+      yStart={966}
+      yStep={24}
+      side="right"
+      items={[
+        { label: 'S-01 - String de modules' },
+        { label: 'J-02 - Boîte de jonction et parafoudre' },
+        { label: 'O-03 - Onduleur en armoire ventilée' },
+        { label: 'TR-04 - Transformateur élévateur' },
+        { label: 'L-05 - Poste de livraison et comptage' },
+        { label: 'PDL - Point de livraison' },
+        { label: 'EQ - Liaison équipotentielle des rails' },
+      ]}
+    />
+
+    {/* ---------- LÉGENDE DES FAMILLES ---------- */}
+    <BlocTexte>
+      <g>
+        <line x1={64} y1={1160} x2={112} y2={1160} stroke={ENCRE} strokeWidth={FORT} />
+        <text className="gravure-lettrage" x={124} y={1164} fontSize="12">
+          Structure de toiture (PL. I)
+        </text>
+        <line x1={300} y1={1160} x2={348} y2={1160} stroke={ENCRE} strokeWidth={MOYEN} />
+        <text className="gravure-lettrage" x={360} y={1164} fontSize="12">
+          Champ photovoltaïque
+        </text>
+        <line x1={540} y1={1160} x2={588} y2={1160} stroke={LAITON} strokeWidth={FORT} />
+        <text className="gravure-lettrage" x={600} y={1164} fontSize="12">
+          Raccordement, laiton
+        </text>
+      </g>
+      <text className="gravure-lettrage" x={64} y={1196} fontSize="12" fill={OXYDE}>
+        Ni membrane ni isolant de toiture-terrasse, aucun plot ballasté.
+      </text>
+      <text className="gravure-lettrage" x={64} y={1218} fontSize="12" fill={OXYDE}>
+        Étanchéité perforée en sommet de nervure seulement, DÉT. 1 - drainage naturel conservé.
+      </text>
+    </BlocTexte>
+
+    <BlocTexte>
+      <Cartouche
+        x={800}
+        y={1200}
+        w={380}
+        numeral="IX"
+        title="Centrale en toiture"
+        echelle="Éch. symb."
+        dossier={VOL_I}
+        index="PL. 9/9"
+        renvois={['Toiture porteuse : PL. I', 'Emprise en toiture : PL. VIII']}
+      />
+    </BlocTexte>
   </>
 );
