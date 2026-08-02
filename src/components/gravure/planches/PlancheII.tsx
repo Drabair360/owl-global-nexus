@@ -287,7 +287,7 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
       </text>
     </g>
 
-    <Attache x={COL[2]} y={R2 + 72} dx={150} dy={44} label="Le seul retour amont" />
+    <Attache x={COL[2]} y={R2 + 72} dx={90} dy={96} label="Le seul retour amont" />
 
     {/* ---------- NOMENCLATURE ---------- */}
     <Nomenclature
