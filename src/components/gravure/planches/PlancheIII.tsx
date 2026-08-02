@@ -250,10 +250,10 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
       opacity="0.85"
     />
     {[
-      [748, 733, -1],
-      [926, 913, -1],
-      [1010, 1017, 1],
-    ].map(([tx, bx, sens]) => (
+      [748, 733],
+      [926, 913],
+      [1010, 1017],
+    ].map(([tx, bx]) => (
       <path
         key={tx}
         d={`M${tx} ${Y_UTI} V345 H${bx}`}
@@ -498,7 +498,7 @@ export const PlancheIIIDrawing = ({ p }: { p: string }) => (
           Bilan matière : entrée, sortie, refus recyclés, refus écartés
         </text>
         <text className="gravure-lettrage" x={0} y={240} fontSize="12" fill={OXYDE}>
-          Bilan symbolique, sans chiffre d\u2019exploitation
+          Bilan symbolique, sans chiffre d’exploitation
         </text>
       </g>
     </BlocTexte>
