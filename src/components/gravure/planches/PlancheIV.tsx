@@ -248,12 +248,12 @@ const LY = COSA;
 
 /* ---- FIG. 2 : le train cinématique ---- */
 const Y_INT = 890; // arbre intermédiaire commun
-const R_MOT = 26;
-const R_INT = 96;
-const R_INT_B = 40;
-const R_INT_C = 22;
-const R_RAP = 24;
-const R_LEN = 90;
+const R_MOT = 20;
+const R_INT = 72;
+const R_INT_B = 32;
+const R_INT_C = 18;
+const R_RAP = 20;
+const R_LEN = 70;
 const Y_MOT = Y_INT - (R_MOT + R_INT); // 768 - tangence des primitifs
 const Y_RAP = Y_INT - (R_RAP + R_INT_B); // 826
 const Y_LEN = Y_INT + (R_LEN + R_INT_C); // 1002
@@ -463,7 +463,7 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
     <RouePrimitive cx={534} cy={Y_MOT} r={R_MOT} />
     <path d="M368 768 m-16 0 a16 16 0 1 0 16 -16" fill="none" stroke={OXYDE} strokeWidth={FIN} />
     <path d="M368 748 l-6 9 h12 z" fill={OXYDE} />
-    <Repere x={392} y={Y_MOT - 14} anchor="start">A-01</Repere>
+    <Repere x={456} y={Y_MOT - 14} anchor="start">A-01</Repere>
 
     {/* --- arbre intermédiaire commun : le seul laiton --- */}
     <line x1={452} y1={Y_INT} x2={856} y2={Y_INT} stroke={LAITON} strokeWidth={FORT} />
@@ -479,14 +479,14 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
     <line x1={636} y1={Y_RAP} x2={900} y2={Y_RAP} stroke={ENCRE} strokeWidth={FORT} />
     <Appui x={856} y={Y_RAP} sens={-1} />
     <RouePrimitive cx={672} cy={Y_RAP} r={R_RAP} />
-    <path d="M900 826 l-14 -5 v10 z" fill={ENCRE} />
+    <path d={`M900 ${Y_RAP} l-14 -5 v10 z`} fill={ENCRE} />
     <Repere x={710} y={Y_RAP - 14} anchor="start">R-03</Repere>
 
     {/* --- sortie lente à fort couple, au-dessous --- */}
-    <line x1={700} y1={Y_LEN} x2={900} y2={Y_LEN} stroke={ENCRE} strokeWidth={FORT} />
+    <line x1={706} y1={Y_LEN} x2={900} y2={Y_LEN} stroke={ENCRE} strokeWidth={FORT} />
     <Appui x={860} y={Y_LEN} />
     <RouePrimitive cx={776} cy={Y_LEN} r={R_LEN} />
-    <path d="M900 1002 l-14 -5 v10 z" fill={ENCRE} />
+    <path d={`M900 ${Y_LEN} l-14 -5 v10 z`} fill={ENCRE} />
     <Repere x={812} y={Y_LEN - 12} anchor="start">R-04</Repere>
     <Repere x={366} y={1078} anchor="start">B-05</Repere>
 
