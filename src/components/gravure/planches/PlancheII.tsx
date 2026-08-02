@@ -1,194 +1,314 @@
 import React from 'react';
-import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, GravureDefs } from '../defs';
+import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
 import Cartouche from '../Cartouche';
 import {
   Trait,
   Cadre,
   poche,
   Attache,
-  ChaineCotes,
   RepereFigure,
   Pastille,
   Nomenclature,
-  Rupture,
-  TraitCache,
   TraceCache,
   AxeMixte,
   Boulon,
-  Gousset,
-  HachuresVivantes,
+  FlechePente,
 } from '../primitives';
 
 /**
- * PLANCHE II — LA SÉQUENCE EPC EN FRISE.
- * Trois temps d'un même ouvrage, lus de gauche à droite :
- *   FIG. 1  Engineering : planche à dessin, té, rouleau d'épures
- *   FIG. 2  Procurement : caisses cotées, palan d'atelier, bon de réception
- *   FIG. 3  Construction : levage d'un portique à l'élingue
- * Rehaut de laiton unique : LE FIL CONDUCTEUR qui relie les trois temps.
+ * PLANCHE II — LE CYCLE DE VIE COMPLET D'UN PROJET INDUSTRIEL.
+ * Frise gravée à sept temps, chacun porté par son objet-emblème :
+ *   1 avant-projet · 2 engineering · 3 procurement · 4 construction et montage
+ *   5 tests capacitaires · 6 mise en service · 7 maintenance préventive
+ * Le fil conducteur, seul rehaut de laiton, se referme par la boucle
+ * maintenance -> conception : le seul retour amont de la planche.
+ * Aucune référence normative écrite : les repères sont de convention.
  */
 
-const Y = 300; // ligne d'assise commune aux trois temps
-const FIL = 468; // ordonnée du fil conducteur
+const R1 = 250; // ordonnée de la première rangée
+const R2 = 520; // ordonnée de la seconde rangée
+const COL = [130, 400, 670, 940]; // quatre colonnes de la rangée haute
 
 export const PLANCHE_II = {
   numeral: 'II',
-  title: 'La séquence EPC en frise',
+  title: 'Le cycle de vie complet',
   desc:
-    "Gravure au trait, planche à trois figures lues de gauche à droite comme une frise. FIGURE 1, l'ingénierie : une planche à dessin inclinée sur son piètement, un té posé en travers, une équerre, un compas et un rouleau d'épures ; sur la feuille, une épure de portique au trait fin, ses axes en trait mixte et une chaîne de cotes symboliques. FIGURE 2, les achats : trois caisses d'expédition en coupe, pochées bois pour le caisson et acier pour la pièce contenue, cerclées et repérées, un palan d'atelier au-dessus de la caisse centrale, un bon de réception figuré par une feuille pliée et un tampon vierge ; les cotes d'encombrement sont symboliques. FIGURE 3, la construction : un portique en cours de levage, suspendu à quatre élingues sous un crochet, ses appuis encore libres au-dessus des platines en attente, le sol figuré par un trait fort et deux calages ; l'élément déjà monté est en trait continu, l'élément à venir en trait interrompu. Un fil conducteur rehaussé de laiton traverse la planche d'un bout à l'autre et passe par les trois figures, rappelant qu'une même responsabilité couvre la conception, les achats et la construction. Une nomenclature de huit entrées et un cartouche referment la planche.",
-  viewBox: '0 0 1240 720',
+    "Gravure au trait, frise à sept temps représentant le cycle de vie complet d'un projet industriel, chaque temps porté par un objet-emblème dessiné dans le langage du dessin d'exécution. Premier temps, avant-projet : un plan-guide plié, son bloc de cotes ouvert et une échelle graphique. Deuxième temps, engineering : trois calques superposés, procédé, charpente et électricité, avec un cartouche de révision portant les lettres A, B et C. Troisième temps, procurement : une caisse d'expédition cerclée, son repère d'équipement et son bon de réception à souche. Quatrième temps, construction et montage : un portique de levage, ses élingues, un palonnier et un boulon de charpente sur gousset. Cinquième temps, tests capacitaires : un manomètre à cadran gravé accompagné d'une courbe débit-pression tracée sur un abaque quadrillé. Sixième temps, mise en service : une armoire de commande ouverte, son sectionneur et sa clé de consignation. Septième temps, maintenance préventive : un graisseur, un filtre en coupe et une roue de périodicité à trois secteurs. Un fil conducteur rehaussé de laiton relie les sept temps dans l'ordre et se referme par une boucle unique, la maintenance qui remonte vers la conception : c'est le seul retour amont du dessin. Une chaîne de cotes en trait mixte figure le calendrier, des jalons marquent les revues de conception, et une courbe de montée en cadence accompagne le sixième temps. Les repères portés sont des étiquettes de convention et aucune donnée réelle n'est inscrite. Nomenclature de dix entrées et cartouche.",
+  viewBox: '0 0 1240 900',
+  detailViewBox: '560 380 400 300',
 };
+
+/** Cadre d'un temps de la frise : cellule, pastille, titre. */
+const Temps = ({
+  x,
+  y,
+  n,
+  titre,
+  children,
+}: {
+  x: number;
+  y: number;
+  n: number;
+  titre: string;
+  children: React.ReactNode;
+}) => (
+  <g>
+    <Cadre x={x - 92} y={y - 96} w={184} h={168} weight={FIN} />
+    <g transform={`translate(${x} ${y})`}>{children}</g>
+    <Pastille x={x - 92} y={y - 96} n={n} />
+    <text className="gravure-lettrage" x={x} y={y + 92} fontSize="12" textAnchor="middle">
+      {titre}
+    </text>
+  </g>
+);
 
 export const PlancheIIDrawing = ({ p }: { p: string }) => (
   <>
     <GravureDefs p={p} />
 
-    {/* ================= FIG. 1 — ENGINEERING ================= */}
-    <RepereFigure x={60} y={96} n="1" title="Engineering - la planche à dessin" w={300} />
+    <RepereFigure x={60} y={96} n="1" title="Les sept temps, dans l'ordre" w={320} />
 
-    {/* piètement */}
-    <Trait x1={90} y1={Y} x2={170} y2={Y - 150} w={MOYEN} />
-    <Trait x1={330} y1={Y} x2={250} y2={Y - 150} w={MOYEN} />
-    <Trait x1={110} y1={Y - 60} x2={310} y2={Y - 60} w={FIN} />
-    {/* table inclinée */}
-    <path
-      d={`M120 ${Y - 160} L360 ${Y - 210} L372 ${Y - 158} L132 ${Y - 108} z`}
-      fill="hsl(var(--gravure-fond))"
-      stroke={ENCRE}
-      strokeWidth={FORT}
-    />
-    {/* épure de portique sur la feuille */}
-    <g opacity="0.9">
-      <path d={`M160 ${Y - 132} L188 ${Y - 172} L250 ${Y - 185} L300 ${Y - 176} L326 ${Y - 152}`} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <AxeMixte x1={243} y1={Y - 196} x2={243} y2={Y - 118} />
-      <ChaineCotes y={Y - 104} points={[160, 243, 326]} labels={['a', 'a']} attache={Y - 118} />
-    </g>
-    {/* té et équerre */}
-    <Trait x1={126} y1={Y - 122} x2={368} y2={Y - 172} w={MOYEN} />
-    <Trait x1={126} y1={Y - 122} x2={126} y2={Y - 96} w={MOYEN} />
-    <path d={`M284 ${Y - 150} L330 ${Y - 160} L300 ${Y - 128} z`} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-    {/* rouleau d'épures */}
-    <g>
-      <ellipse cx={104} cy={Y - 28} rx={9} ry={22} fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={MOYEN} />
-      <Trait x1={104} y1={Y - 50} x2={214} y2={Y - 50} w={FIN} />
-      <Trait x1={104} y1={Y - 6} x2={214} y2={Y - 6} w={FIN} />
-      <ellipse cx={214} cy={Y - 28} rx={6} ry={22} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-    </g>
-    <Pastille x={352} y={Y - 206} n={1} />
-    <Pastille x={122} y={Y - 96} n={2} />
-    <Attache x={188} y={Y - 172} dx={-76} dy={-8} label="Épure" anchor="end" />
-
-    {/* ================= FIG. 2 — PROCUREMENT ================= */}
-    <RepereFigure x={470} y={96} n="2" title="Procurement - la caisse cotée" w={280} />
-
-    {/* palan d'atelier */}
-    <Trait x1={505} y1={Y - 240} x2={745} y2={Y - 240} w={FORT} />
-    <TraitCache x1={505} y1={Y - 226} x2={745} y2={Y - 226} />
-    <Trait x1={625} y1={Y - 240} x2={625} y2={Y - 196} w={FIN} />
-    <path d={`M617 ${Y - 196} h16 v14 h-16 z`} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-    <path d={`M625 ${Y - 182} v18 a9 9 0 1 0 -9 -9`} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-
-    {/* trois caisses, la centrale en coupe */}
-    {[
-      { x: 500, w: 92, h: 74 },
-      { x: 596, w: 118, h: 96 },
-      { x: 718, w: 82, h: 62 },
-    ].map((c, i) => (
-      <g key={c.x}>
-        <Cadre x={c.x} y={Y - c.h} w={c.w} h={c.h} weight={FORT} fill={i === 1 ? poche(p, 'bois') : undefined} />
-        {/* cerclages */}
-        <Trait x1={c.x + c.w * 0.3} y1={Y - c.h} x2={c.x + c.w * 0.3} y2={Y} w={FIN} over={0} />
-        <Trait x1={c.x + c.w * 0.7} y1={Y - c.h} x2={c.x + c.w * 0.7} y2={Y} w={FIN} over={0} />
-        {i === 1 && (
-          <>
-            {/* la pièce contenue, en poché acier, calée dans la caisse */}
-            <rect x={c.x + 22} y={Y - c.h + 26} width={c.w - 44} height={c.h - 50} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
-            <TraitCache x1={c.x + 12} y1={Y - c.h + 14} x2={c.x + c.w - 12} y2={Y - c.h + 14} />
-          </>
-        )}
-      </g>
+    {/* ---------- FIL CONDUCTEUR : rehaut de laiton unique ---------- */}
+    {/* segments visibles du fil, entre les cellules */}
+    {[0, 1, 2].map((i) => (
+      <line
+        key={i}
+        x1={COL[i] + 92}
+        y1={R1}
+        x2={COL[i + 1] - 92}
+        y2={R1}
+        stroke={LAITON}
+        strokeWidth={FORT}
+      />
     ))}
-    <Trait x1={480} y1={Y} x2={820} y2={Y} w={FORT} />
-    <ChaineCotes y={Y + 34} points={[596, 655, 714]} labels={['b', 'b']} attache={Y + 6} />
-    <Pastille x={655} y={Y - 112} n={3} />
-    <Pastille x={520} y={Y - 84} n={4} />
-
-    {/* bon de réception : feuille pliée et tampon vierge */}
-    <g transform={`translate(760 ${Y - 190})`}>
-      <path d="M0 0 h72 l14 14 v78 h-86 z" fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={MOYEN} />
-      <path d="M72 0 v14 h14" fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      {[26, 38, 50].map((y) => (
-        <line key={y} x1={12} y1={y} x2={62} y2={y} stroke={ENCRE} strokeWidth={FIN} opacity="0.6" />
-      ))}
-      <circle cx={58} cy={72} r={13} fill="none" stroke={OXYDE} strokeWidth={FIN} strokeDasharray="4 3" />
-    </g>
-    <Pastille x={846} y={Y - 176} n={5} />
-
-    {/* ================= FIG. 3 — CONSTRUCTION ================= */}
-    <RepereFigure x={880} y={96} n="3" title="Construction - le levage" w={280} />
-
-    {/* crochet et élingues */}
-    <Trait x1={1040} y1={148} x2={1040} y2={186} w={MOYEN} />
-    <path d="M1040 186 v14 a10 10 0 1 0 -10 -10" fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-    <path d="M1040 210 L952 268 M1040 210 L1128 268" fill="none" stroke={ENCRE} strokeWidth={FIN} />
-    <path d="M1000 240 L976 262 M1080 240 L1104 262" fill="none" stroke={ENCRE} strokeWidth={FIN} />
-
-    {/* portique levé */}
-    <path d="M952 268 L1040 244 L1128 268" fill="none" stroke={ENCRE} strokeWidth={FORT} />
-    <Trait x1={952} y1={268} x2={952} y2={356} w={FORT} />
-    <Trait x1={1128} y1={268} x2={1128} y2={356} w={FORT} />
-    <Gousset d="M952 288 L978 268 L978 288 z" />
-    <Gousset d="M1128 288 L1102 268 L1102 288 z" />
-    <Boulon x={952} y={300} />
-    <Boulon x={1128} y={300} />
-
-    {/* platines en attente et sol */}
-    <Trait x1={900} y1={Y + 96} x2={1180} y2={Y + 96} w={FORT} />
-    <HachuresVivantes x={900} y={Y + 98} w={280} h={22} pas={11} seed={53} opacity={0.35} />
-    <rect x={932} y={Y + 84} width={40} height={12} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
-    <rect x={1108} y={Y + 84} width={40} height={12} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
-    {/* la travée suivante, pas encore montée : trait interrompu */}
-    <TraceCache d="M1128 268 L1180 254 M1180 254 L1180 384" />
-    <Rupture x={1180} y={300} length={84} vertical />
-    <Pastille x={1040} y={232} n={6} />
-    <Pastille x={952} y={378} n={7} />
-    <Pastille x={1180} y={330} n={8} />
-    <Attache x={952} y={300} dx={-72} dy={-54} label="Assemblage" anchor="end" />
-
-    {/* ============ LE FIL CONDUCTEUR — unique rehaut de laiton ============ */}
     <path
-      d={`M96 ${FIL} C 300 ${FIL - 46}, 420 ${FIL + 46}, 640 ${FIL} S 980 ${FIL - 46}, 1176 ${FIL}`}
+      d={`M${COL[3] + 92} ${R1} H${COL[3] + 150} V${R2} H${COL[2] + 92}`}
       fill="none"
       stroke={LAITON}
       strokeWidth={FORT}
     />
-    <text className="gravure-lettrage" x={96} y={FIL - 14} fontSize="12">
-      Une seule responsabilité, trois temps
+    {[0, 1].map((i) => (
+      <line
+        key={`b${i}`}
+        x1={COL[i] + 92}
+        y1={R2}
+        x2={COL[i + 1] - 92}
+        y2={R2}
+        stroke={LAITON}
+        strokeWidth={FORT}
+      />
+    ))}
+    {/* boucle de retour maintenance -> conception : le seul retour amont */}
+    <path
+      d={`M${COL[2]} ${R2 + 72} V${R2 + 128} H${COL[0] - 76} V${R1} H${COL[0] - 92}`}
+      fill="none"
+      stroke={LAITON}
+      strokeWidth={MOYEN}
+      strokeDasharray="9 5"
+    />
+    <text className="gravure-lettrage" x={COL[0] + 30} y={R2 + 122} fontSize="11" fill={OXYDE}>
+      Boucle de retour : la maintenance revient à la conception
     </text>
 
-    {/* jonctions du fil aux trois figures, en encre */}
-    {[243, 655, 1040].map((x) => (
-      <line key={x} x1={x} y1={FIL - 8} x2={x} y2={FIL + 8} stroke={ENCRE} strokeWidth={MOYEN} />
-    ))}
+    {/* ---------- 1 · AVANT-PROJET ---------- */}
+    <Temps x={COL[0]} y={R1} n={1} titre="Avant-projet">
+      <path d="M-62 -34 L4 -46 L62 -30 L62 34 L4 46 L-62 30 z" fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+      <TraceCache d="M4 -46 V46" />
+      <line x1={-46} y1={-8} x2={-14} y2={-8} stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={-46} y1={4} x2={-22} y2={4} stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={18} y1={-16} x2={52} y2={-16} stroke={OXYDE} strokeWidth={FIN} />
+      <line x1={18} y1={-20} x2={18} y2={-12} stroke={OXYDE} strokeWidth={FIN} />
+      <line x1={52} y1={-20} x2={52} y2={-12} stroke={OXYDE} strokeWidth={FIN} />
+      {[0, 1, 2, 3].map((i) => (
+        <rect key={i} x={18 + i * 9} y={22} width={9} height={6} fill={i % 2 ? ENCRE : 'none'} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+      ))}
+    </Temps>
 
-    {/* ================= NOMENCLATURE ================= */}
+    {/* ---------- 2 · ENGINEERING ---------- */}
+    <Temps x={COL[1]} y={R1} n={2} titre="Engineering">
+      {[0, 1, 2].map((i) => (
+        <g key={i}>
+          <Cadre x={-64 + i * 16} y={-44 + i * 16} w={94} h={62} weight={i === 2 ? MOYEN : FIN} />
+        </g>
+      ))}
+      <line x1={-30} y1={0} x2={42} y2={0} stroke={ENCRE} strokeWidth={FIN} />
+      <circle cx={-10} cy={-12} r={5} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      <g>
+        <Cadre x={-64} y={30} w={126} h={22} weight={FIN} />
+        {['A', 'B', 'C'].map((l, i) => (
+          <g key={l}>
+            <line x1={-64 + (i + 1) * 42} y1={30} x2={-64 + (i + 1) * 42} y2={52} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+            <text className="gravure-lettrage" x={-43 + i * 42} y={46} fontSize="11" textAnchor="middle">
+              {l}
+            </text>
+          </g>
+        ))}
+      </g>
+    </Temps>
+
+    {/* ---------- 3 · PROCUREMENT ---------- */}
+    <Temps x={COL[2]} y={R1} n={3} titre="Procurement">
+      <rect x={-58} y={-34} width={110} height={74} fill={poche(p, 'bois')} stroke={ENCRE} strokeWidth={MOYEN} />
+      <line x1={-28} y1={-34} x2={-28} y2={40} stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={22} y1={-34} x2={22} y2={40} stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={-58} y1={2} x2={52} y2={2} stroke={ENCRE} strokeWidth={FIN} />
+      <text className="gravure-lettrage" x={-3} y={-42} fontSize="11" textAnchor="middle">
+        Repère colis
+      </text>
+      {/* bon de réception à souche */}
+      <path d="M58 -10 h34 v52 h-34 z" fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={66} y1={-10} x2={66} y2={42} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="3 3" />
+      {[0, 1, 2].map((i) => (
+        <line key={i} x1={70} y1={2 + i * 10} x2={88} y2={2 + i * 10} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+      ))}
+    </Temps>
+
+    {/* ---------- 4 · CONSTRUCTION ET MONTAGE ---------- */}
+    <Temps x={COL[3]} y={R1} n={4} titre="Construction et montage">
+      <path d="M-60 44 V-40 H60 V44" fill="none" stroke={ENCRE} strokeWidth={FORT} />
+      <line x1={-60} y1={-40} x2={60} y2={-40} stroke={ENCRE} strokeWidth={FORT} />
+      {/* élingues et palonnier */}
+      <line x1={0} y1={-40} x2={0} y2={-12} stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={-30} y1={-12} x2={30} y2={-12} stroke={ENCRE} strokeWidth={MOYEN} />
+      <line x1={-30} y1={-12} x2={-16} y2={16} stroke={ENCRE} strokeWidth={FIN} />
+      <line x1={30} y1={-12} x2={16} y2={16} stroke={ENCRE} strokeWidth={FIN} />
+      <rect x={-24} y={16} width={48} height={22} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
+      {/* gousset boulonné */}
+      <path d="M-60 -40 L-60 -12 L-32 -40 z" fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      <Boulon x={-52} y={-30} r={2.4} />
+      <Boulon x={-44} y={-34} r={2.4} />
+    </Temps>
+
+    {/* ---------- 5 · TESTS CAPACITAIRES ---------- */}
+    <Temps x={COL[0]} y={R2} n={5} titre="Tests capacitaires">
+      <circle cx={-38} cy={-4} r={34} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+      <circle cx={-38} cy={-4} r={28} fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.6" />
+      {Array.from({ length: 9 }).map((_, i) => {
+        const a = Math.PI * (0.75 + (i * 1.5) / 8);
+        return (
+          <line
+            key={i}
+            x1={-38 + Math.cos(a) * 24}
+            y1={-4 + Math.sin(a) * 24}
+            x2={-38 + Math.cos(a) * 30}
+            y2={-4 + Math.sin(a) * 30}
+            stroke={ENCRE}
+            strokeWidth={ULTRAFIN}
+          />
+        );
+      })}
+      <line x1={-38} y1={-4} x2={-20} y2={-22} stroke={OXYDE} strokeWidth={MOYEN} />
+      <circle cx={-38} cy={-4} r={3} fill={ENCRE} />
+      {/* abaque débit / pression */}
+      <Cadre x={8} y={-36} w={70} h={64} weight={FIN} />
+      {[1, 2, 3].map((i) => (
+        <g key={i}>
+          <line x1={8 + i * 17.5} y1={-36} x2={8 + i * 17.5} y2={28} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.5" />
+          <line x1={8} y1={-36 + i * 16} x2={78} y2={-36 + i * 16} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.5" />
+        </g>
+      ))}
+      <path d="M8 24 C 30 20, 46 -4, 78 -30" fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+    </Temps>
+
+    {/* ---------- 6 · MISE EN SERVICE ---------- */}
+    <Temps x={COL[1]} y={R2} n={6} titre="Mise en service">
+      <rect x={-56} y={-42} width={78} height={90} fill="none" stroke={ENCRE} strokeWidth={FORT} />
+      <path d="M22 -42 L60 -32 V38 L22 48" fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      {/* sectionneur */}
+      <line x1={-42} y1={-24} x2={-42} y2={-6} stroke={ENCRE} strokeWidth={MOYEN} />
+      <line x1={-42} y1={-6} x2={-28} y2={10} stroke={ENCRE} strokeWidth={MOYEN} />
+      <line x1={-28} y1={10} x2={-28} y2={26} stroke={ENCRE} strokeWidth={MOYEN} />
+      <circle cx={-42} cy={-6} r={2.4} fill={ENCRE} />
+      <circle cx={-28} cy={10} r={2.4} fill={ENCRE} />
+      {[0, 1, 2].map((i) => (
+        <rect key={i} x={-14} y={-30 + i * 26} width={30} height={16} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      ))}
+      {/* clé de consignation */}
+      <circle cx={-46} cy={38} r={7} fill="none" stroke={OXYDE} strokeWidth={MOYEN} />
+      <line x1={-40} y1={40} x2={-20} y2={40} stroke={OXYDE} strokeWidth={MOYEN} />
+      <line x1={-24} y1={40} x2={-24} y2={46} stroke={OXYDE} strokeWidth={MOYEN} />
+      {/* courbe de montée en cadence */}
+      <path d="M28 44 C 44 42, 50 8, 62 -34" fill="none" stroke={ENCRE} strokeWidth={FIN} strokeDasharray="5 3" />
+    </Temps>
+
+    {/* ---------- 7 · MAINTENANCE PRÉVENTIVE ---------- */}
+    <Temps x={COL[2]} y={R2} n={7} titre="Maintenance préventive">
+      {/* graisseur */}
+      <path d="M-70 20 v-22 h14 v22 z" fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
+      <path d="M-63 -2 v-14 m-6 0 h12" fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      {/* filtre en coupe */}
+      <rect x={-40} y={-30} width={34} height={62} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+      <rect x={-34} y={-22} width={22} height={46} fill={poche(p, 'acier')} opacity="0.5" />
+      {Array.from({ length: 6 }).map((_, i) => (
+        <line key={i} x1={-34} y1={-18 + i * 8} x2={-12} y2={-22 + i * 8} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+      ))}
+      {/* roue de périodicité, trois secteurs */}
+      <circle cx={44} cy={2} r={34} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+      <circle cx={44} cy={2} r={11} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      {[0, 1, 2].map((i) => {
+        const a = (i * 2 * Math.PI) / 3 - Math.PI / 2;
+        return (
+          <line
+            key={i}
+            x1={44 + Math.cos(a) * 11}
+            y1={2 + Math.sin(a) * 11}
+            x2={44 + Math.cos(a) * 34}
+            y2={2 + Math.sin(a) * 34}
+            stroke={ENCRE}
+            strokeWidth={FIN}
+          />
+        );
+      })}
+      <text className="gravure-lettrage" x={44} y={-14} fontSize="10" textAnchor="middle">
+        P1
+      </text>
+      <text className="gravure-lettrage" x={26} y={22} fontSize="10" textAnchor="middle">
+        P2
+      </text>
+      <text className="gravure-lettrage" x={62} y={22} fontSize="10" textAnchor="middle">
+        P3
+      </text>
+    </Temps>
+
+    {/* ---------- CALENDRIER ET JALONS ---------- */}
+    <RepereFigure x={800} y={618} n="2" title="Jalons et calendrier" w={280} />
+    <g transform="translate(800 632)">
+      <AxeMixte x1={0} y1={40} x2={280} y2={40} />
+      {[0, 56, 112, 168, 224, 280].map((x, i) => (
+        <g key={x}>
+          <line x1={x} y1={28} x2={x} y2={52} stroke={ENCRE} strokeWidth={FIN} />
+          {i < 5 && (
+            <path d={`M${x + 20} 40 l0 -12 l10 12 l-10 12 z`} fill="none" stroke={OXYDE} strokeWidth={ULTRAFIN} />
+          )}
+        </g>
+      ))}
+      <text className="gravure-lettrage" x={0} y={76} fontSize="11">
+        Revues, réserves, réception
+      </text>
+    </g>
+
+    <Attache x={COL[2]} y={R2 + 72} dx={90} dy={96} label="Le seul retour amont" />
+
+    {/* ---------- NOMENCLATURE ---------- */}
     <Nomenclature
       x={96}
-      y={540}
-      perCol={4}
-      colGap={330}
+      y={716}
+      perCol={5}
+      colGap={300}
       items={[
-        "Planche à dessin et té",
-        "Rouleau d'épures",
-        "Caisse d'expédition en coupe",
-        'Pièce calée, poché acier',
-        'Bon de réception',
-        'Élingues et crochet',
-        "Platine en attente d'appui",
-        'Travée à venir, trait interrompu',
+        'Avant-projet et études de faisabilité',
+        'Engineering, trois disciplines',
+        'Procurement et réception',
+        'Construction et montage',
+        'Tests capacitaires',
+        'Mise en service',
+        'Maintenance préventive',
+        'Fil conducteur des sept temps',
+        'Boucle maintenance vers conception',
+        'Jalons de calendrier, repères de convention',
       ]}
     />
 
-    <Cartouche x={880} y={604} numeral="II" title="La séquence EPC en frise" echelle="Éch. symb." />
+    <Cartouche x={880} y={790} numeral="II" title="Le cycle de vie complet" echelle="Éch. symb." />
   </>
 );

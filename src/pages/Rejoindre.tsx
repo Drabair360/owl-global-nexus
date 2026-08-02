@@ -9,7 +9,6 @@ import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { Button } from '@/components/ui/button';
 import { useI18n } from '@/lib/i18n';
-import PlancheEnSituation from '@/components/gravure/PlancheEnSituation';
 
 const Rejoindre = () => {
   const { t } = useI18n();
@@ -58,7 +57,6 @@ const Rejoindre = () => {
       </section>
     
       {/* CABINET §6 - planche X posée en situation, préversion seulement */}
-      <PlancheEnSituation numeral="X" idPrefix="planche-x-rejoindre" />
     </PageShell>
   );
 };

@@ -5,175 +5,297 @@ import {
   Trait,
   Cadre,
   poche,
-  Attache,
-  ChaineCotes,
   RepereFigure,
   Pastille,
   Nomenclature,
-  CercleDetail,
-  AxeMixte,
-  TraceCache,
-  PastilleLettre,
   NomenclatureLettres,
+  PastilleLettre,
+  ChaineCotes,
+  CercleDetail,
+  StratesSol,
+  TraceRegulateur,
+  ArcRegulateur,
+  TraceCache,
+  AxeMixte,
+  Boulon,
+  Rupture,
 } from '../primitives';
 
 /**
- * PLANCHE IX — LA LUNETTE DU SCOUT.
- * Nature morte technique, vocabulaire d'instrument : corps, tirage,
- * objectif, oculaire, molette, réticule.
- *   FIG. 1  la longue-vue en coupe longitudinale, carnet et compas posés
- *   FIG. 2  détail x4 de l'oculaire et du réticule
- *   FIG. 3  le carnet ouvert : grille de relevé, cinq lignes vides
- * Rehaut de laiton unique : L'OCULAIRE.
+ * PLANCHE IX — FERME SOLAIRE RACCORDÉE.
+ *   FIG. 1  élévation d'une table photovoltaïque : modules, inclinaison,
+ *           structure porteuse sur pieux battus, garde au sol, entraxe
+ *   FIG. 2  schéma de raccordement : string, boîte DC, onduleur,
+ *           transformateur élévateur, poste de livraison, comptage
+ *   FIG. 3  tranchée de câbles en coupe et réseau de terre
+ * Rehaut de laiton unique : LA LIGNE DE RACCORDEMENT, du champ au point
+ * de livraison. Les repères DC et AC sont des étiquettes de convention.
  */
+
+const SOL = 396; // ligne de terre naturelle, FIG. 1
 
 export const PLANCHE_IX = {
   numeral: 'IX',
-  title: 'La lunette du scout',
+  title: 'Ferme solaire raccordée',
   desc:
-    "Gravure au trait, nature morte technique en trois figures. FIGURE 1, une longue-vue dessinée en coupe longitudinale, posée en biais : corps principal poché acier, deux tirages emboîtés dont les jeux sont exagérés, objectif à l'avant figuré par deux lentilles biconvexes, diaphragme intermédiaire, oculaire à l'arrière rehaussé de laiton ; sous l'instrument, un carnet fermé à couverture cousue et un compas à pointes sèches à demi ouvert reposent sur un plan de travail figuré par un unique trait fort ; l'ombre n'est jamais rendue, seule la ligne travaille. Une chaîne de cotes symboliques donne le tirage. FIGURE 2, détail à quatre fois l'échelle de l'oculaire : bonnette, lentille, réticule gravé en croix fine, molette de mise au point crantée, filetage figuré par une suite de traits obliques ; huit lettres renvoient à la nomenclature secondaire. FIGURE 3, le carnet ouvert : une grille de relevé à cinq lignes et quatre colonnes, en-têtes en petites capitales, lignes laissées vides parce que le relevé appartient à celui qui observe ; un signet en trait fin marque la page. Aucun texte descriptif ne figure dans le dessin. Nomenclature de huit entrées et cartouche.",
+    "Gravure au trait, planche à trois figures représentant une ferme solaire raccordée au réseau. FIGURE 1, élévation d'une table photovoltaïque : les modules sont figurés par un plan incliné à joints réguliers, portés par une structure de profilés contreventée et fondée sur pieux battus pochés acier ; la hauteur de garde au sol et l'entraxe entre deux rangées sont cotés en symbolique, l'entraxe portant la mention d'ombrage ; une seconde rangée est amorcée puis coupée par une ligne de rupture, et le sol est figuré par ses strates, terre végétale, terrain et bon sol, avec le niveau de fondation. Un diagramme de course solaire est tracé en régulateur ultrafin au-dessus des tables, sans graduation chiffrée. FIGURE 2, schéma de raccordement lu de gauche à droite : les modules sont mis en série en string avec leurs polarités, rejoignent une boîte de jonction en courant continu équipée d'un parafoudre, puis un onduleur en armoire ventilée, puis un transformateur élévateur, enfin le poste de livraison avec son comptage et sa protection de découplage ; la partie continue et la partie alternative sont séparées par une limite en trait mixte, et la ligne qui va du champ au point de livraison est le seul rehaut de laiton de la planche. FIGURE 3, tranchée de câbles en coupe : lit de sable, câbles, grillage avertisseur et remblai compacté, accompagnée du réseau de terre, piquets, ceinturage et liaison équipotentielle. La clôture de site et la piste de maintenance ferment le plan. Aucune puissance, aucune tension et aucune donnée d'exploitation ne sont portées ; les repères sont des étiquettes de convention. Nomenclature à deux colonnes, continu et alternatif, et cartouche.",
   viewBox: '0 0 1240 900',
-  detailViewBox: '820 380 380 300',
+  detailViewBox: '80 200 420 300',
 };
+
+/** Table photovoltaïque : plan de modules incliné, structure, pieux. */
+const Table = ({
+  x,
+  p,
+  principal = false,
+}: {
+  x: number;
+  p: string;
+  principal?: boolean;
+}) => (
+  <g>
+    {/* plan de modules */}
+    <path d={`M${x} ${SOL - 62} L${x + 168} ${SOL - 146} L${x + 180} ${SOL - 132} L${x + 12} ${SOL - 48} z`} fill="none" stroke={ENCRE} strokeWidth={FORT} />
+    {[1, 2, 3, 4].map((i) => (
+      <line
+        key={i}
+        x1={x + i * 33.6}
+        y1={SOL - 62 - i * 16.8}
+        x2={x + 12 + i * 33.6}
+        y2={SOL - 48 - i * 16.8}
+        stroke={ENCRE}
+        strokeWidth={FIN}
+      />
+    ))}
+    {/* structure porteuse et contreventement */}
+    <line x1={x + 30} y1={SOL - 71} x2={x + 30} y2={SOL} stroke={ENCRE} strokeWidth={MOYEN} />
+    <line x1={x + 144} y1={SOL - 128} x2={x + 144} y2={SOL} stroke={ENCRE} strokeWidth={MOYEN} />
+    <line x1={x + 30} y1={SOL - 22} x2={x + 144} y2={SOL - 92} stroke={ENCRE} strokeWidth={FIN} />
+    <line x1={x + 30} y1={SOL - 71} x2={x + 144} y2={SOL - 22} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="6 4" />
+    <Boulon x={x + 30} y={SOL - 62} r={2.4} />
+    <Boulon x={x + 144} y={SOL - 118} r={2.4} />
+    {/* pieux battus */}
+    {[30, 144].map((o) => (
+      <rect key={o} x={x + o - 5} y={SOL} width={10} height={64} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
+    ))}
+    {principal && (
+      <>
+        <PastilleLettre x={x + 176} y={SOL - 152} l="a" />
+        <PastilleLettre x={x + 12} y={SOL - 20} l="b" />
+        <PastilleLettre x={x + 152} y={SOL + 74} l="c" />
+      </>
+    )}
+  </g>
+);
 
 export const PlancheIXDrawing = ({ p }: { p: string }) => (
   <>
     <GravureDefs p={p} />
 
-    {/* ================= FIG. 1 — LA LONGUE-VUE EN COUPE ================= */}
-    <RepereFigure x={60} y={96} n="1" title="Longue-vue, coupe longitudinale" w={340} />
+    {/* ================= FIG. 1 — LA TABLE ================= */}
+    <RepereFigure x={60} y={96} n="1" title="Table photovoltaïque, élévation" w={320} />
 
-    <g transform="translate(110 250) rotate(-9)">
-      {/* corps et tirages */}
-      <rect x={0} y={-34} width={280} height={68} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={FORT} />
-      <rect x={280} y={-27} width={130} height={54} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
-      <rect x={410} y={-20} width={96} height={40} fill={poche(p, 'acier')} stroke={ENCRE} strokeWidth={MOYEN} />
-      <AxeMixte x1={-30} y1={0} x2={560} y2={0} />
+    {/* diagramme de course solaire, tracé régulateur */}
+    <ArcRegulateur cx={330} cy={SOL} r={268} />
+    <ArcRegulateur cx={330} cy={SOL} r={214} />
+    <TraceRegulateur d={`M62 ${SOL} H598`} />
 
-      {/* objectif : deux lentilles biconvexes */}
-      <path d="M6 -30 q16 30 0 60 q-16 -30 0 -60" fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={MOYEN} />
-      <path d="M34 -24 q13 24 0 48 q-13 -24 0 -48" fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
-      {/* diaphragme */}
-      <line x1={168} y1={-34} x2={168} y2={-12} stroke={ENCRE} strokeWidth={MOYEN} />
-      <line x1={168} y1={34} x2={168} y2={12} stroke={ENCRE} strokeWidth={MOYEN} />
+    {/* sol et strates */}
+    <StratesSol p={p} x={62} y={SOL} w={560} h={110} seed={19} />
+    <Trait x1={62} y1={SOL} x2={622} y2={SOL} w={FORT} />
+    <line x1={62} y1={SOL + 64} x2={622} y2={SOL + 64} stroke={ENCRE} strokeWidth={FIN} strokeDasharray="10 5" opacity="0.8" />
+    <text className="gravure-lettrage" x={70} y={SOL + 82} fontSize="11" fill={OXYDE}>
+      Niveau de fondation
+    </text>
 
-      {/* oculaire : unique rehaut de laiton */}
-      <rect x={498} y={-16} width={26} height={32} fill="hsl(var(--gravure-fond))" stroke={LAITON} strokeWidth={FORT} />
-      <line x1={524} y1={-10} x2={536} y2={-10} stroke={LAITON} strokeWidth={MOYEN} />
-      <line x1={524} y1={10} x2={536} y2={10} stroke={LAITON} strokeWidth={MOYEN} />
+    <Table x={92} p={p} principal />
+    <Table x={392} p={p} />
+    <Rupture x={600} y={SOL - 90} length={100} vertical />
 
-      {/* molette crantée */}
-      {Array.from({ length: 9 }).map((_, i) => (
-        <line key={i} x1={300 + i * 8} y1={-27} x2={300 + i * 8} y2={-38} stroke={ENCRE} strokeWidth={FIN} />
+    {/* cotes : garde au sol et entraxe de rangées */}
+    <ChaineCotes y={SOL + 132} points={[122, 422]} labels={["e - entraxe d'ombrage"]} attache={SOL + 64} />
+    <ChaineCotes y={68} points={[SOL - 48, SOL]} labels={['g']} attache={110} vertical />
+    <text className="gravure-lettrage" x={84} y={SOL - 24} fontSize="11" textAnchor="end">
+      Garde au sol
+    </text>
+
+    {/* clôture de site et piste de maintenance */}
+    <g>
+      <line x1={640} y1={SOL} x2={640} y2={SOL - 74} stroke={ENCRE} strokeWidth={MOYEN} />
+      {[0, 1, 2].map((i) => (
+        <line key={i} x1={632} y1={SOL - 20 - i * 22} x2={648} y2={SOL - 20 - i * 22} stroke={ENCRE} strokeWidth={ULTRAFIN} />
       ))}
-      <ChaineCotes y={70} points={[0, 280, 410, 506]} labels={['c', 't', 't']} attache={38} />
-    </g>
-
-    <Pastille x={140} y={190} n={1} />
-    <Pastille x={620} y={198} n={2} />
-    <Attache x={600} y={228} dx={96} dy={-64} label="Oculaire" />
-
-    {/* carnet fermé et compas posés */}
-    <g transform="translate(150 420)">
-      <Cadre x={0} y={0} w={190} h={116} weight={MOYEN} />
-      <path d="M0 0 l-12 10 v116 l12 -10 z" fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      {[18, 30, 42].map((y) => (
-        <line key={y} x1={-10} y1={y} x2={-2} y2={y - 6} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      ))}
-      <Pastille x={190} y={16} n={3} />
-    </g>
-    <g transform="translate(420 430)">
-      <path d="M0 0 L-52 108 M0 0 L44 110" fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-      <circle cx={0} cy={0} r={7} fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <path d="M-52 108 l-6 12 M44 110 l6 12" fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <path d="M-30 62 q30 16 58 4" fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      <Pastille x={62} y={72} n={4} />
-    </g>
-    <Trait x1={90} y1={562} x2={760} y2={562} w={FORT} />
-
-    {/* ================= FIG. 2 — DÉTAIL DE L'OCULAIRE ================= */}
-    <RepereFigure x={840} y={410} n="2" title="Oculaire et réticule x4" w={290} />
-
-    <g transform="translate(1010 560)">
-      <CercleDetail cx={0} cy={0} r={140} label="x4" />
-      <rect x={-90} y={-70} width={180} height={140} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
-      <path d="M-70 -54 q40 54 0 108" fill="none" stroke={ENCRE} strokeWidth={FIN} />
-      <circle cx={16} cy={0} r={54} fill="none" stroke={LAITON} strokeWidth={MOYEN} />
-      <path d="M-38 0 h108 M16 -54 v108" stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      {Array.from({ length: 12 }).map((_, i) => (
-        <line key={i} x1={90} y1={-64 + i * 12} x2={104} y2={-70 + i * 12} stroke={ENCRE} strokeWidth={ULTRAFIN} />
-      ))}
-      <PastilleLettre x={-108} y={-84} l="a" />
-      <PastilleLettre x={-46} y={-58} l="b" />
-      <PastilleLettre x={16} y={-88} l="c" />
-      <PastilleLettre x={78} y={-52} l="d" />
-      <PastilleLettre x={116} y={16} l="e" />
-      <PastilleLettre x={62} y={94} l="f" />
-      <PastilleLettre x={-30} y={100} l="g" />
-      <PastilleLettre x={-116} y={40} l="h" />
+      <text className="gravure-lettrage" x={654} y={SOL - 40} fontSize="11">
+        Clôture de site
+      </text>
+      <line x1={62} y1={SOL + 22} x2={330} y2={SOL + 22} stroke={ENCRE} strokeWidth={ULTRAFIN} strokeDasharray="5 4" opacity="0.7" />
+      <text className="gravure-lettrage" x={70} y={SOL + 40} fontSize="10" fill={OXYDE}>
+        Piste de maintenance
+      </text>
     </g>
 
     <NomenclatureLettres
-      x={620}
-      y={452}
-      items={[
-        'Bonnette',
-        'Lentille de champ',
-        'Réticule gravé',
-        'Bague de serrage',
-        'Filetage de tirage',
-        'Molette de mise au point',
-        'Butée de tirage',
-        'Corps arrière',
-      ]}
+      x={62}
+      y={586}
+      items={['Module et cadre', 'Profilé porteur contreventé', 'Pieu battu']}
     />
 
-    {/* ================= FIG. 3 — LE CARNET OUVERT ================= */}
-    <RepereFigure x={60} y={620} n="3" title="Carnet de relevé" w={280} />
+    {/* ================= FIG. 2 — RACCORDEMENT ================= */}
+    <RepereFigure x={700} y={96} n="2" title="Du champ au point de livraison" w={330} />
 
-    <g transform="translate(90 650)">
-      <Cadre x={0} y={0} w={420} h={140} weight={MOYEN} />
-      <line x1={210} y1={0} x2={210} y2={140} stroke={ENCRE} strokeWidth={FIN} />
-      {[28, 56, 84, 112].map((y) => (
-        <line key={y} x1={0} y1={y} x2={420} y2={y} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.6" />
-      ))}
-      {[105, 315].map((x) => (
-        <line key={x} x1={x} y1={0} x2={x} y2={140} stroke={ENCRE} strokeWidth={ULTRAFIN} opacity="0.5" />
-      ))}
-      <text className="gravure-lettrage" x={10} y={20} fontSize="11">
-        Objet
+    <g transform="translate(700 140)">
+      {/* string de modules */}
+      <g>
+        {[0, 1, 2, 3].map((i) => (
+          <rect key={i} x={0 + i * 34} y={0} width={26} height={40} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+        ))}
+        <text className="gravure-lettrage" x={0} y={-10} fontSize="11">
+          String de modules
+        </text>
+        <text className="gravure-lettrage" x={0} y={58} fontSize="11" fill={OXYDE}>
+          + / -
+        </text>
+        <Pastille x={-14} y={20} n={1} r={8} />
+      </g>
+
+      {/* boîte de jonction DC et parafoudre */}
+      <g transform="translate(0 96)">
+        <Cadre x={0} y={0} w={96} h={54} weight={MOYEN} />
+        <path d="M24 14 v12 l14 -6 z" fill="none" stroke={ENCRE} strokeWidth={FIN} />
+        <line x1={24} y1={40} x2={72} y2={40} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+        <line x1={38} y1={46} x2={58} y2={46} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+        <text className="gravure-lettrage" x={106} y={22} fontSize="11">
+          Boîte de jonction
+        </text>
+        <text className="gravure-lettrage" x={106} y={40} fontSize="11" fill={OXYDE}>
+          Parafoudre
+        </text>
+        <Pastille x={-14} y={26} n={2} r={8} />
+      </g>
+
+      {/* onduleur */}
+      <g transform="translate(0 200)">
+        <Cadre x={0} y={0} w={96} h={72} weight={FORT} />
+        <path d="M20 46 q14 -32 28 -18 q14 14 28 -18" fill="none" stroke={ENCRE} strokeWidth={FIN} />
+        <line x1={0} y1={26} x2={96} y2={26} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+        {[0, 1, 2].map((i) => (
+          <line key={i} x1={16 + i * 12} y1={6} x2={16 + i * 12} y2={20} stroke={ENCRE} strokeWidth={ULTRAFIN} />
+        ))}
+        <text className="gravure-lettrage" x={106} y={30} fontSize="11">
+          Onduleur, armoire ventilée
+        </text>
+        <Pastille x={-14} y={36} n={3} r={8} />
+      </g>
+
+      {/* limite continu / alternatif */}
+      <AxeMixte x1={-40} y1={296} x2={330} y2={296} />
+      <text className="gravure-lettrage" x={-40} y={290} fontSize="11" fill={OXYDE}>
+        Partie continue
       </text>
-      <text className="gravure-lettrage" x={115} y={20} fontSize="11">
-        Source
+      <text className="gravure-lettrage" x={-40} y={314} fontSize="11" fill={OXYDE}>
+        Partie alternative
       </text>
-      <text className="gravure-lettrage" x={220} y={20} fontSize="11">
-        Suite
+
+      {/* transformateur élévateur */}
+      <g transform="translate(0 336)">
+        <circle cx={34} cy={26} r={22} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+        <circle cx={62} cy={26} r={22} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+        <text className="gravure-lettrage" x={106} y={30} fontSize="11">
+          Transformateur élévateur
+        </text>
+        <Pastille x={-14} y={26} n={4} r={8} />
+      </g>
+
+      {/* poste de livraison, comptage, découplage */}
+      <g transform="translate(0 412)">
+        <Cadre x={0} y={0} w={140} h={72} weight={FORT} />
+        <rect x={16} y={16} width={40} height={40} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+        <circle cx={36} cy={36} r={11} fill="none" stroke={ENCRE} strokeWidth={ULTRAFIN} />
+        <line x1={84} y1={16} x2={84} y2={40} stroke={ENCRE} strokeWidth={MOYEN} />
+        <line x1={84} y1={40} x2={104} y2={56} stroke={ENCRE} strokeWidth={MOYEN} />
+        <text className="gravure-lettrage" x={150} y={26} fontSize="11">
+          Poste de livraison
+        </text>
+        <text className="gravure-lettrage" x={150} y={44} fontSize="11" fill={OXYDE}>
+          Comptage et découplage
+        </text>
+        <Pastille x={-14} y={36} n={5} r={8} />
+      </g>
+
+      {/* la ligne de raccordement : rehaut de laiton unique */}
+      <path
+        d="M48 40 V96 M48 150 V200 M48 272 V336 M48 384 V412 M140 448 H236"
+        fill="none"
+        stroke={LAITON}
+        strokeWidth={FORT}
+      />
+      <circle cx={236} cy={448} r={5} fill={LAITON} />
+      <text className="gravure-lettrage" x={186} y={474} fontSize="11">
+        Point de livraison
       </text>
-      <text className="gravure-lettrage" x={325} y={20} fontSize="11">
-        Date
-      </text>
-      <TraceCache d="M380 -12 v40" />
-      <Pastille x={440} y={70} n={5} />
     </g>
 
-    {/* ================= NOMENCLATURE ================= */}
-    <Nomenclature
-      x={620}
-      y={680}
-      perCol={4}
-      colGap={300}
-      items={[
-        'Objectif à deux lentilles',
-        'Oculaire',
-        'Carnet fermé',
-        'Compas à pointes sèches',
-        'Grille de relevé',
-        'Diaphragme intermédiaire',
-        'Tirages emboîtés',
-        'Plan de travail',
-      ]}
-    />
+    {/* ================= FIG. 3 — TRANCHÉE ET TERRE ================= */}
+    <RepereFigure x={62} y={676} n="3" title="Tranchée de câbles et réseau de terre" w={330} />
 
-    <Cartouche x={880} y={790} numeral="IX" title="La lunette du scout" echelle="Éch. symb." />
+    <g transform="translate(62 696)">
+      <rect x={0} y={0} width={220} height={110} fill={`url(#${p}-sol-terrain)`} opacity="0.7" />
+      <Cadre x={0} y={0} w={220} h={110} weight={MOYEN} />
+      {/* remblai compacté */}
+      <rect x={0} y={0} width={220} height={34} fill={`url(#${p}-sol-remblai)`} />
+      {/* grillage avertisseur */}
+      <line x1={8} y1={44} x2={212} y2={44} stroke={OXYDE} strokeWidth={MOYEN} strokeDasharray="6 4" />
+      <text className="gravure-lettrage" x={230} y={48} fontSize="11">
+        Grillage avertisseur
+      </text>
+      {/* lit de sable et câbles */}
+      <rect x={8} y={62} width={204} height={34} fill="none" stroke={ENCRE} strokeWidth={FIN} />
+      {[0, 1, 2].map((i) => (
+        <circle key={i} cx={48 + i * 56} cy={79} r={9} fill="none" stroke={ENCRE} strokeWidth={MOYEN} />
+      ))}
+      <text className="gravure-lettrage" x={230} y={84} fontSize="11">
+        Lit de sable et câbles
+      </text>
+    </g>
+
+    <g transform="translate(430 706)">
+      <line x1={0} y1={20} x2={200} y2={20} stroke={ENCRE} strokeWidth={FIN} />
+      {[0, 1, 2].map((i) => (
+        <g key={i}>
+          <line x1={30 + i * 70} y1={20} x2={30 + i * 70} y2={72} stroke={ENCRE} strokeWidth={MOYEN} />
+          <path d={`M${24 + i * 70} 72 h12 M${26 + i * 70} 78 h8 M${28 + i * 70} 84 h4`} stroke={ENCRE} strokeWidth={ULTRAFIN} fill="none" />
+        </g>
+      ))}
+      <text className="gravure-lettrage" x={0} y={104} fontSize="11">
+        Réseau de terre, ceinturage et liaison équipotentielle
+      </text>
+    </g>
+
+    {/* ================= NOMENCLATURE DC / AC ================= */}
+    <g>
+      <text className="gravure-lettrage" x={700} y={640} fontSize="12" fill={OXYDE}>
+        Continu
+      </text>
+      <text className="gravure-lettrage" x={960} y={640} fontSize="12" fill={OXYDE}>
+        Alternatif
+      </text>
+      <Nomenclature
+        x={706}
+        y={666}
+        perCol={3}
+        colGap={260}
+        lineHeight={22}
+        items={[
+          'String de modules',
+          'Boîte de jonction et parafoudre',
+          'Cheminement en tranchée',
+          'Onduleur',
+          'Transformateur élévateur',
+          'Poste de livraison et comptage',
+        ]}
+      />
+    </g>
+
+    <Cartouche x={880} y={846} numeral="IX" title="Ferme solaire raccordée" echelle="Éch. symb." />
   </>
 );

@@ -14,7 +14,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { supabase } from '@/integrations/supabase/client';
 import { useI18n } from '@/lib/i18n';
 import CinemaBand from '@/components/CinemaBand';
-import PlancheEnSituation from '@/components/gravure/PlancheEnSituation';
 
 const Scouts = () => {
   const { t, locale } = useI18n();
@@ -343,7 +342,6 @@ const Scouts = () => {
 
     
       {/* CABINET §6 - planche IX posée en situation, préversion seulement */}
-      <PlancheEnSituation numeral="IX" idPrefix="planche-ix-scouts" />
     </PageShell>
   );
 };

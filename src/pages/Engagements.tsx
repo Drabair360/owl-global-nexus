@@ -50,7 +50,7 @@ const Engagements = () => {
       </EditorialSection>
     
       {/* CABINET §6 - planche VIII posée en situation, préversion seulement */}
-      <PlancheEnSituation numeral="VIII" idPrefix="planche-viii-engagements" />
+      <PlancheEnSituation numeral="IX" idPrefix="planche-ix-engagements" />
     </PageShell>
   );
 };

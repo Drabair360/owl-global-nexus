@@ -12,7 +12,6 @@ import Reveal from '@/components/Reveal';
 import Duotone from '@/components/Duotone';
 import Legende from '@/components/Legende';
 import { textures, SIZES } from '@/assets/textures';
-import PlancheEnSituation from '@/components/gravure/PlancheEnSituation';
 
 const Approche = () => {
   const { t } = useI18n();
@@ -92,7 +91,6 @@ const Approche = () => {
       </section>
     
       {/* CABINET §6 - planche XI posée en situation, préversion seulement */}
-      <PlancheEnSituation numeral="XI" idPrefix="planche-xi-approche" />
     </PageShell>
   );
 };

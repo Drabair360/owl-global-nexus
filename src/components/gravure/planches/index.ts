@@ -8,8 +8,6 @@ import { PLANCHE_VI, PlancheVIDrawing } from './PlancheVI';
 import { PLANCHE_VII, PlancheVIIDrawing } from './PlancheVII';
 import { PLANCHE_VIII, PlancheVIIIDrawing } from './PlancheVIII';
 import { PLANCHE_IX, PlancheIXDrawing } from './PlancheIX';
-import { PLANCHE_X, PlancheXDrawing } from './PlancheX';
-import { PLANCHE_XI, PlancheXIDrawing } from './PlancheXI';
 import { PLANCHE_XII, PlancheXIIDrawing } from './PlancheXII';
 
 export interface PlancheMeta {
@@ -29,19 +27,17 @@ export interface PlancheEntree {
   laiton: string;
 }
 
-/** Le cabinet : douze planches, un seul registre. */
+/** Le cabinet : dix planches, un seul registre. */
 export const CABINET: PlancheEntree[] = [
   { meta: PLANCHE_I, Drawing: PlancheIDrawing, emplacement: '/portefeuille/cao-industries', laiton: 'La ligne de sol' },
-  { meta: PLANCHE_II, Drawing: PlancheIIDrawing, emplacement: '/metiers', laiton: 'Le fil conducteur des trois temps' },
-  { meta: PLANCHE_III, Drawing: PlancheIIIDrawing, emplacement: '/portefeuille/line-builder', laiton: 'Le module central' },
+  { meta: PLANCHE_II, Drawing: PlancheIIDrawing, emplacement: '/metiers', laiton: 'Le fil conducteur des sept temps' },
+  { meta: PLANCHE_III, Drawing: PlancheIIIDrawing, emplacement: '/portefeuille/line-builder', laiton: 'La ligne de configuration' },
   { meta: PLANCHE_IV, Drawing: PlancheIVDrawing, emplacement: '/portefeuille/drabair-labs', laiton: "L'arbre de transmission commun" },
   { meta: PLANCHE_V, Drawing: PlancheVDrawing, emplacement: '/portefeuille/weavme', laiton: 'La note de confirmation' },
   { meta: PLANCHE_VI, Drawing: PlancheVIDrawing, emplacement: '/portefeuille/owl-real-estate', laiton: "Le seuil d'entrée" },
   { meta: PLANCHE_VII, Drawing: PlancheVIIDrawing, emplacement: '/', laiton: 'Le flux lui-même' },
-  { meta: PLANCHE_VIII, Drawing: PlancheVIIIDrawing, emplacement: '/groupe et /engagements', laiton: 'La route maritime' },
-  { meta: PLANCHE_IX, Drawing: PlancheIXDrawing, emplacement: '/scouts', laiton: "L'oculaire" },
-  { meta: PLANCHE_X, Drawing: PlancheXDrawing, emplacement: '/rejoindre', laiton: 'La plume' },
-  { meta: PLANCHE_XI, Drawing: PlancheXIDrawing, emplacement: '/approche', laiton: "L'empreinte" },
+  { meta: PLANCHE_VIII, Drawing: PlancheVIIIDrawing, emplacement: '/groupe', laiton: 'La marche en avant' },
+  { meta: PLANCHE_IX, Drawing: PlancheIXDrawing, emplacement: '/engagements', laiton: 'La ligne de raccordement' },
   { meta: PLANCHE_XII, Drawing: PlancheXIIDrawing, emplacement: '404 et états vides', laiton: "L'œil" },
 ];
 
