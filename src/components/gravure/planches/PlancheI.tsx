@@ -545,7 +545,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
       x={60} y={1090} w={420} h={92} numeral="I" title="Unité industrielle - coupe" echelle="Éch. symb."
       dossier={VOL_I}
       index="PL. 1/9"
-      renvois={['Implantation générale : PL. VIII', 'Centrale en toiture : PL. IX']}
+      renvois={['Implantation générale : PL. VIII', 'Nombre de trames : voir PL. VIII', 'Centrale en toiture : PL. IX']}
     />
     </BlocTexte>
   </>
