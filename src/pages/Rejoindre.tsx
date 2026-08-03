@@ -2,6 +2,7 @@
    Rejoindre — béton (hero) puis grès ; grès-2 pour les plaques d'offre.
    Laiton en filets. Aucune signature animée. */
 import React from 'react';
+import Vignette from '@/components/gravure/Vignette';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import PageShell from '@/components/PageShell';
@@ -33,6 +34,7 @@ const Rejoindre = () => {
       </InstitutionalHero>
 
       <EditorialSection className="mat-gres mat-grain">
+        <div className="mb-8"><Vignette id="rejoindre" size={40} /></div>
         <h2 className="font-heading text-2xl md:text-3xl mat-ink-1 mb-10">{t('rejoindre.culture.title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 max-w-4xl">
           {['rejoindre.culture.1', 'rejoindre.culture.2', 'rejoindre.culture.3', 'rejoindre.culture.4'].map((k) => (

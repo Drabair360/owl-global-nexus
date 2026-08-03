@@ -2,6 +2,8 @@
    Engagements — béton (hero), bande `terrain` ton ENCRE (cadrage identique
    à /scouts), grès pour les quatre engagements. Aucune autre signature. */
 import React from 'react';
+import Vignette from '@/components/gravure/Vignette';
+import Registre from '@/components/Registre';
 import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
@@ -51,6 +53,11 @@ const Engagements = () => {
     
       {/* CABINET §6 - planche VIII posée en situation, préversion seulement */}
       <PlancheEnSituation numeral="IX" idPrefix="planche-ix-engagements" />
+      <EditorialSection className="mat-gres mat-grain">
+        <div className="mb-10"><Vignette id="gouvernance" size={40} /></div>
+        <Registre id="engagements" />
+      </EditorialSection>
+
     </PageShell>
   );
 };

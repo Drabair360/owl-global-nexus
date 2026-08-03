@@ -172,9 +172,20 @@ JS = r"""
         chevauche.push('chevauchement : « ' + nodes[i].s + ' » / « ' + nodes[j].s + ' »');
     }
 
+  /* CLÔTURE — DÉBORD DE CADRE : le contenu dessiné doit tenir dans le
+     viewBox, sinon il est rogné à l'affichage sans qu'aucun chevauchement
+     ne soit détecté (défaut constaté sur PL. I et PL. VI). */
+  const bb = svg.getBBox();
+  const debord = [];
+  if (bb.x < vb[0] - 1) debord.push('gauche ' + Math.round(vb[0] - bb.x));
+  if (bb.y < vb[1] - 1) debord.push('haut ' + Math.round(vb[1] - bb.y));
+  if (bb.x + bb.width > vb[0] + vb[2] + 1) debord.push('droite ' + Math.round(bb.x + bb.width - vb[0] - vb[2]));
+  if (bb.y + bb.height > vb[1] + vb[3] + 1) debord.push('bas ' + Math.round(bb.y + bb.height - vb[1] - vb[3]));
+
   return {
     planche: numeral,
     strict,
+    debord,
     frame: { x: vb[0], y: vb[1], w: vb[2], h: vb[3] },
     texts: nodes.map(({ s, kind, box, fs }) => ({ s, kind, ...box, fs })),
     blocs: blocs.map(({ s, box }) => ({ s, ...box })),
@@ -259,6 +270,7 @@ let warns = 0;
 for (const pl of planches) {
   if (only && pl.planche !== only) continue;
   const problems = [...(pl.chevauche || [])];
+  if (pl.debord && pl.debord.length) problems.push(`débord de cadre : ${pl.debord.join(', ')}`);
   const t = pl.texts;
 
   for (const x of t) {

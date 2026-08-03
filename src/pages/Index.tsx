@@ -17,6 +17,7 @@
    mêmes classes de système que le composant partagé. Toute évolution du
    hero doit désormais être appliquée aux DEUX endroits. */
 import React from 'react';
+import Vignette from '@/components/gravure/Vignette';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import PageShell from '@/components/PageShell';
@@ -24,7 +25,6 @@ import PolesViz from '@/components/PolesViz';
 import { SectionNumber, EditorialTitle, SectionWatermark } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
-import CinemaBand from '@/components/CinemaBand';
 import GutterRule from '@/components/GutterRule';
 
 import { useThreshold } from '@/hooks/useThreshold';
@@ -126,7 +126,6 @@ const Index = () => {
 
       {/* ==================== 01 - LE MODÈLE ==================== */}
       <section id="modele" className="relative mat-gres overflow-hidden mat-grain">
-        <CinemaBand texture="prestigeWide" tone="laiton" eager className="mb-16 md:mb-24" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 md:pb-32">
           <SectionWatermark n={t('home.model.number')} />
           <SectionNumber n={t('home.model.number')} label={t('home.model.section')} />
@@ -263,7 +262,8 @@ const Index = () => {
         </div>
       </section>
     
-      {/* CABINET §6 - planche VII posée en situation, préversion seulement */}
+      {/* CABINET §6 - planche VII posée en situation (le modèle du groupe) */}
+      <div className="mat-gres pt-16 text-center"><Vignette id="modele" size={40} className="mx-auto" /></div>
       <PlancheEnSituation numeral="VII" idPrefix="planche-vii-index" />
     </PageShell>
   );

@@ -2,6 +2,7 @@
    Métiers — béton (hero) puis grès ; grès-2 pour les blocs sertis.
    Laiton en filets de tête. Aucune signature animée. */
 import React from 'react';
+import Vignette from '@/components/gravure/Vignette';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import PageShell from '@/components/PageShell';
@@ -34,6 +35,7 @@ const Metiers = () => {
       />
 
       <EditorialSection className="mat-gres mat-grain">
+        <div className="mb-8"><Vignette id="metiers" size={40} /></div>
         <div className="space-y-20">
           {blocks.map((b, i) => (
             <Reveal key={b.n} delay={i * 80}>

@@ -2,13 +2,13 @@
    Journal — GRÈS seul, registre imprimé. Bande `archive` ton grès.
    Aucun béton hors hero, aucune signature animée. */
 import React, { useMemo } from 'react';
+import Vignette from '@/components/gravure/Vignette';
 import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';
 import { EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import CinemaBand from '@/components/CinemaBand';
 import Millesime from '@/components/gravure/Millesime';
-import { useCabinetPreview } from '@/components/gravure/PlancheEnSituation';
 
 interface Entry {
   year: string;
@@ -31,7 +31,6 @@ const Journal = () => {
   const { t } = useI18n();
   /* §3c - millésimes gravés : en préversion tant que la planche contact
      n'est pas validée. */
-  const cabinet = useCabinetPreview();
 
   const years = useMemo(() => {
     const map = new Map<string, Entry[]>();
@@ -58,6 +57,7 @@ const Journal = () => {
 
       {/* Registre imprimé - grès, index à baseline alignée, colonne de chronologie */}
       <EditorialSection className="mat-gres mat-grain">
+        <div className="mb-8"><Vignette id="journal" size={40} /></div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Index par année */}
           <nav
@@ -91,11 +91,9 @@ const Journal = () => {
           <div className="lg:col-span-9 space-y-16">
             {years.map(([year, list]) => (
               <section key={year} id={`annee-${year}`} className="scroll-mt-28">
-                {cabinet && (
-                  <div className="mb-4" aria-hidden>
-                    <Millesime year={year} />
-                  </div>
-                )}
+                <div className="mb-4" aria-hidden>
+                  <Millesime year={year} />
+                </div>
                 <div className="flex items-baseline gap-6 mb-8">
                   <h2 className="font-display text-3xl mat-ink-1 mat-tnum leading-none">{year}</h2>
                   <span

@@ -2,13 +2,13 @@
    Contact — béton (hero), bande `corridor` ton encre, grès pour le corps,
    plaques de grès-2 pour les champs. Aucune signature animée. */
 import React from 'react';
+import Vignette from '@/components/gravure/Vignette';
 import { ArrowRight, Mail } from 'lucide-react';
 import PageShell from '@/components/PageShell';
 import { SITE_URL } from '@/config/site';
 import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
-import CinemaBand from '@/components/CinemaBand';
 
 const Contact = () => {
   const { t } = useI18n();
@@ -52,9 +52,9 @@ const Contact = () => {
         subtitle={t('contact.intro')}
       />
 
-      <CinemaBand texture="corridor" tone="encre" />
 
       <EditorialSection className="mat-gres mat-grain">
+        <div className="mb-8"><Vignette id="contact" size={40} /></div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {doors.map((d, i) => (
             <a
