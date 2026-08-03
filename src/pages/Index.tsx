@@ -17,7 +17,6 @@
    mêmes classes de système que le composant partagé. Toute évolution du
    hero doit désormais être appliquée aux DEUX endroits. */
 import React from 'react';
-import Vignette from '@/components/gravure/Vignette';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import PageShell from '@/components/PageShell';
