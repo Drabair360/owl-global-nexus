@@ -10,8 +10,9 @@ import Reveal from '@/components/Reveal';
  *
  * Les neuf planches de la série sont posées à leur emplacement de production :
  * I fiche CAO, II /metiers, III fiche Line Builder, IV fiche Drabair,
- * V fiche Weavme, VI fiche ORE, VII accueil, VIII /groupe, IX /engagements.
- * Le gate de preversion est tombe a la cloture du cabinet.
+ * V fiche Weavme, VI fiche ORE, VIII /metiers, IX /engagements.
+ * La PL. VII (modele de flux du groupe) existe au dossier mais n'est pas
+ * publiee ; l'index general reste PL. n/9.
  */
 const PlancheEnSituation = ({
   numeral,
