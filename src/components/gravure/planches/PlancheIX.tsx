@@ -17,7 +17,7 @@ import { TitrePlanche, BandeauZone, EchelleLibelles, Repere, BlocTexte } from '.
  * PLANCHE IX — CENTRALE EN TOITURE (DOSSIER OWL, VOL. I, PL. 9/9).
  * PHASE M2 — reconstruction sur le système L + cohérence de toiture.
  *
- * COHÉRENCE AVEC LA PL. I (qui fait foi) : le toit d'OWL-1 est un BAC ACIER
+ * COHÉRENCE AVEC LA PL. I (qui fait foi) : le toit de l'unité de référence est un BAC ACIER
  * NERVURÉ EN PENTE, porté par des pannes en Z sur échantignoles, elles-mêmes
  * portées par l'arbalétrier du portique. La pente du versant est celle de la
  * PL. I : 22,5°, le même dessin, le même ordre de couches. Il n'y a ni
@@ -104,7 +104,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
       x={60}
       y={46}
       titre="Centrale en toiture"
-      sous="Versant en bac acier de l'usine OWL-1 (PL. I) - modules parallèles au versant, fixés sur nervures"
+      sous="Versant en bac acier de l'unité de référence (PL. I) - modules parallèles au versant, fixés sur nervures"
     />
 
     {/* ================= FIG. 1 — LE VERSANT ÉQUIPÉ ================= */}

@@ -64,6 +64,11 @@ const Metiers = () => {
     
       {/* CABINET §6 - planche II posée en situation, préversion seulement */}
       <PlancheEnSituation numeral="II" idPrefix="planche-ii-metiers" />
+
+      {/* CABINET §6 - PL. VIII : l'implantation d'une usine type, pendant en plan
+          du cycle de vie. Respiration pleine section entre les deux planches. */}
+      <div className="mat-gres py-16 md:py-24" aria-hidden="true" />
+      <PlancheEnSituation numeral="VIII" idPrefix="planche-viii-metiers" />
     </PageShell>
   );
 };

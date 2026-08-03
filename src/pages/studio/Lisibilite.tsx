@@ -1,11 +1,11 @@
 import React from 'react';
 import Planche from '@/components/gravure/Planche';
-import { CABINET } from '@/components/gravure/planches';
+import { CABINET_PUBLIE as CABINET } from '@/components/gravure/planches';
 import { useSEO } from '@/hooks/useSEO';
 import '@/styles/gravure.css';
 
 /** Les planches déjà passées au système L (Phase L / Phase M). */
-const STRICT = ['III', 'IV', 'IX', 'V', 'VII', 'I', 'VIII', 'VI'];
+const STRICT = ['III', 'IV', 'IX', 'V', 'I', 'VIII', 'VI'];
 
 /**
  * /studio/lisibilite — banc de contrôle L2.

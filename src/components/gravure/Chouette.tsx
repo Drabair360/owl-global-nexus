@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * LA VIGNETTE CHOUETTE — marque seule.
  * Reprise de la figure de l'ancienne planche XII, supprimée du registre avec
- * le passage au dossier OWL-1. Aucun cartouche, aucun repère, aucune
+ * le passage au dossier. Aucun cartouche, aucun repère, aucune
  * nomenclature : un seul dessin, un seul rehaut de laiton (l'œil).
  */
 const Chouette = ({ size = 96, className = '' }: { size?: number; className?: string }) => (

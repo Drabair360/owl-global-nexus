@@ -28,7 +28,7 @@ import {
  * PLANCHE VI — IMMEUBLE DE RÉFÉRENCE ORE-1 (système L).
  *
  * Volume II du dossier : le volume patrimonial. Aucun lien technique avec le
- * volume usine — le seul renvoi vrai est le modèle du groupe, PL. VII.
+ * volume usine — aucun renvoi vers le volume usine n'est vrai ici.
  *
  *   FIG. 1  plan masse : parcelle en lanière, cour, porche traversant, pieds
  *           d'immeuble commerciaux, mitoyenneté, limites séparatives ;
@@ -431,7 +431,7 @@ export const PlancheVIDrawing = ({ p }: { p: string }) => (
         echelle="Éch. symb."
         dossier={VOL_II}
         index="PL. 6/9"
-        renvois={['Modèle du groupe : PL. VII']}
+        renvois={[]}
       />
     </BlocTexte>
   </>

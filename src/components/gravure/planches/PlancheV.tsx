@@ -297,7 +297,7 @@ export const PlancheVDrawing = ({ p }: { p: string }) => (
         echelle="Éch. symb."
         dossier={VOL_III}
         index="PL. 5/9"
-        renvois={['Modèle du groupe : PL. VII', 'Socles logiciels : PL. IV']}
+        renvois={['Socles logiciels : PL. IV']}
       />
     </BlocTexte>
   </>

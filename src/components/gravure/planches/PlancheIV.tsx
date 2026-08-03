@@ -276,7 +276,7 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
       x={60}
       y={46}
       titre="Le train d'engrenages du groupe"
-      sous="Un couple d'entrée, un arbre commun, deux sorties - modèle du groupe (PL. VII)"
+      sous="Un couple d'entrée, un arbre commun, deux sorties"
     />
 
     {/* ================= FIG. 1 — LA DENTURE ================= */}
@@ -581,7 +581,7 @@ export const PlancheIVDrawing = ({ p }: { p: string }) => (
         echelle="Éch. symb."
         dossier={VOL_III}
         index="PL. 4/9"
-        renvois={['Modèle du groupe : PL. VII', 'Weavme : PL. V', 'Line Builder : PL. III']}
+        renvois={['Weavme : PL. V', 'Line Builder : PL. III']}
       />
     </BlocTexte>
   </>

@@ -8,7 +8,7 @@ import { EchelleGraphique } from './primitives';
  * numéro romain elzévirien, titre en petites capitales, échelle graphique
  * (§1.9) et le folio-chouette en sceau de cartouche.
  *
- * DOSSIER OWL-1 : bandeau de dossier optionnel, posé au-dessus du cartouche.
+ * DOSSIER : bandeau de dossier optionnel, posé au-dessus du cartouche.
  * Il porte l'intitulé de dossier avec la mention CONCEPT, l'index de planche
  * (PL. n/9) et les renvois croisés vers les autres planches du dossier.
  */
@@ -16,7 +16,7 @@ import { EchelleGraphique } from './primitives';
  * TAXONOMIE DU DOSSIER — un dossier, trois volumes.
  * L'index général reste PL. n/9, quel que soit le volume.
  */
-export const VOL_I = 'DOSSIER OWL - VOL. I : USINE DE RÉFÉRENCE OWL-1 (CONCEPT)';
+export const VOL_I = 'DOSSIER OWL - VOL. I : USINE DE RÉFÉRENCE (CONCEPT)';
 export const VOL_II = 'DOSSIER OWL - VOL. II : IMMEUBLE DE RÉFÉRENCE ORE-1 (CONCEPT)';
 export const VOL_III = 'DOSSIER OWL - VOL. III : LE GROUPE (MODÈLE CIBLE, CONCEPT)';
 
