@@ -91,11 +91,11 @@ const Journal = () => {
           <div className="lg:col-span-9 space-y-16">
             {years.map(([year, list]) => (
               <section key={year} id={`annee-${year}`} className="scroll-mt-28">
-                <div className="mb-4" aria-hidden>
-                  <Millesime year={year} />
-                </div>
-                <div className="flex items-baseline gap-6 mb-8">
-                  <h2 className="font-display text-3xl mat-ink-1 mat-tnum leading-none">{year}</h2>
+                <h2 className="sr-only">{year}</h2>
+                <div className="flex items-center gap-6 mb-8">
+                  <div aria-hidden className="shrink-0">
+                    <Millesime year={year} />
+                  </div>
                   <span
                     aria-hidden
                     className="flex-1 h-px"
