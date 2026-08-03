@@ -12,7 +12,6 @@ import PolesViz from '@/components/PolesViz';
 import { OwlKPISet } from '@/components/KPI';
 import SplitText from '@/components/SplitText';
 import { useI18n } from '@/lib/i18n';
-import PlancheEnSituation from '@/components/gravure/PlancheEnSituation';
 
 const Groupe = () => {
   const { t } = useI18n();
@@ -128,8 +127,6 @@ const Groupe = () => {
         />
       </EditorialSection>
     
-      {/* CABINET §6 - planche VIII posée en situation, préversion seulement */}
-      <PlancheEnSituation numeral="VIII" idPrefix="planche-viii-groupe" />
     </PageShell>
   );
 

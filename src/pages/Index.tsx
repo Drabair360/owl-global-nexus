@@ -30,7 +30,6 @@ import GutterRule from '@/components/GutterRule';
 import { useThreshold } from '@/hooks/useThreshold';
 import { SITE_URL } from '@/config/site';
 import { folioFor } from '@/config/folios';
-import PlancheEnSituation from '@/components/gravure/PlancheEnSituation';
 
 
 const Index = () => {
@@ -262,9 +261,6 @@ const Index = () => {
         </div>
       </section>
     
-      {/* CABINET §6 - planche VII posée en situation (le modèle du groupe) */}
-      <div className="mat-gres pt-16 text-center"><Vignette id="modele" size={40} className="mx-auto" /></div>
-      <PlancheEnSituation numeral="VII" idPrefix="planche-vii-index" />
     </PageShell>
   );
 };

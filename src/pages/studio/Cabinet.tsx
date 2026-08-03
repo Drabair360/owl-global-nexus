@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Planche from '@/components/gravure/Planche';
 import Vignette, { VIGNETTES, vignetteLabel } from '@/components/gravure/Vignette';
 import Millesime from '@/components/gravure/Millesime';
-import { CABINET } from '@/components/gravure/planches';
+import { CABINET_PUBLIE as CABINET } from '@/components/gravure/planches';
 import { useSEO } from '@/hooks/useSEO';
 import '@/styles/gravure.css';
 
