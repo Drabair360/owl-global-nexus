@@ -184,7 +184,7 @@ export const REGISTRES: Registre[] = [
     notes: ['corridor', 'maintenabilite'],
     temps: [
       "Relier deux zones économiques n'est pas y être présent des deux côtés. Un corridor n'existe que si quelque chose circule dans les deux sens, régulièrement, et pour longtemps.",
-      "Trois convictions le rendent tenable. La compétence se transporte moins bien que le matériel : elle se forme sur place ou ne s'installe pas. Un flux à sens unique n'est pas un corridor mais un débouché, et il s'interrompt au premier changement de conjoncture. La durée se gagne par la maintenance, pas par la livraison : un équipement qu'on ne sait pas entretenir localement cesse d'être un actif et devient une charge.",
+      "Trois convictions le rendent tenable. La compétence se transporte moins bien que le matériel : elle se forme sur place ou ne s'installe pas. Un flux qui ne va que dans une direction n'est pas un corridor mais un débouché, et il s'interrompt au premier changement de conjoncture. La durée se gagne par la maintenance, pas par la livraison : un équipement qu'on ne sait pas entretenir localement cesse d'être un actif et devient une charge.",
       "Le groupe s'est organisé sur cette lecture entre l'Europe et l'Afrique de l'Ouest : ce qui se conçoit d'un côté doit pouvoir se réparer de l'autre, et les pièces comme les gestes d'entretien entrent dans le choix technique, avant la signature.",
     ],
   },
