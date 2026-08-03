@@ -9,14 +9,14 @@ import '@/styles/gravure.css';
 
 /**
  * /studio/cabinet — LA PLANCHE CONTACT.
- * Les douze planches du cabinet, les dix vignettes de rubrique et les
+ * Les neuf planches du cabinet, les dix vignettes de rubrique et les
  * millésimes du Journal, réunis en un seul écran de relecture.
  * Route non liée, noindex : elle sert la validation, pas le public.
  */
 const Cabinet = () => {
   useSEO({
     title: 'Cabinet de gravures - planche contact',
-    description: 'Planche contact du cabinet : douze planches, dix vignettes, millésimes.',
+    description: 'Planche contact du cabinet : neuf planches, dix vignettes, millésimes.',
     noindex: true,
   });
 
@@ -29,7 +29,7 @@ const Cabinet = () => {
           </div>
           <h1 className="font-display text-4xl md:text-5xl mat-ink-1 mb-4">Cabinet de gravures - planche contact</h1>
           <p className="mat-prose mat-ink-2">
-            Douze planches maîtresses, dix vignettes de rubrique, millésimes du Journal. Chaque planche est
+            Neuf planches maîtresses, dix vignettes de rubrique, millésimes du Journal. Chaque planche est
             également posée en situation sur sa page, visible en préversion seulement. Rien n'entre en
             production avant validation.
           </p>
@@ -42,7 +42,7 @@ const Cabinet = () => {
           </p>
         </header>
 
-        {/* ---------- LES DOUZE PLANCHES ---------- */}
+        {/* ---------- LES NEUF PLANCHES ---------- */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-14">
           {CABINET.map(({ meta, Drawing, emplacement, laiton }) => (
             <article key={meta.numeral}>
