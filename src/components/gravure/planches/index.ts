@@ -8,7 +8,6 @@ import { PLANCHE_VI, PlancheVIDrawing } from './PlancheVI';
 import { PLANCHE_VII, PlancheVIIDrawing } from './PlancheVII';
 import { PLANCHE_VIII, PlancheVIIIDrawing } from './PlancheVIII';
 import { PLANCHE_IX, PlancheIXDrawing } from './PlancheIX';
-import { PLANCHE_XII, PlancheXIIDrawing } from './PlancheXII';
 
 export interface PlancheMeta {
   numeral: string;
@@ -27,7 +26,7 @@ export interface PlancheEntree {
   laiton: string;
 }
 
-/** Le cabinet : dix planches, un seul registre. */
+/** Le cabinet : neuf planches, un seul registre. */
 export const CABINET: PlancheEntree[] = [
   { meta: PLANCHE_I, Drawing: PlancheIDrawing, emplacement: '/portefeuille/cao-industries', laiton: 'La ligne de sol' },
   { meta: PLANCHE_II, Drawing: PlancheIIDrawing, emplacement: '/metiers', laiton: 'Le fil conducteur des sept temps' },
@@ -38,7 +37,6 @@ export const CABINET: PlancheEntree[] = [
   { meta: PLANCHE_VII, Drawing: PlancheVIIDrawing, emplacement: '/', laiton: 'Le circuit du modèle' },
   { meta: PLANCHE_VIII, Drawing: PlancheVIIIDrawing, emplacement: '/groupe', laiton: 'La marche en avant' },
   { meta: PLANCHE_IX, Drawing: PlancheIXDrawing, emplacement: '/engagements', laiton: 'La ligne de raccordement' },
-  { meta: PLANCHE_XII, Drawing: PlancheXIIDrawing, emplacement: '404 et états vides', laiton: "L'œil" },
 ];
 
 export const parNumeral = (n: string) => CABINET.find((e) => e.meta.numeral === n);
