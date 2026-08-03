@@ -47,9 +47,9 @@ export const PLANCHES_EN: Record<string, { title: string; desc: string }> = {
       'Line engraving drawn as a hydraulic schematic: the head of the group at the centre, five medallions around it referring to the sheets of the dossier, and six typed flows named by their nature. Figure 2 is the legend of flow types; figure 3 is the regulator. The closed brass loop is the circuit of the model and the single highlight. Flows are named or noted in symbols, never quantified: no amount, rate or share of ownership appears.',
   },
   VIII: {
-    title: 'General layout of the reference unit',
+    title: 'General layout of a type turnkey plant',
     desc:
-      'Line engraving, general layout plan on the grid of the cross section - lines A, B, C and bays 1 to 6 at constant spacing. The milling line of sheet III is drawn in place in the hall, post by post; section line A-A is marked with heavy ends and viewing arrows towards sheet I; the roof array of sheet IX covers the north slope. The forward flow - intake, silos, hall, packing, palletising, store, loading docks - is one continuous brass gesture with direction chevrons, and never crosses the soiled circuit drawn in broken line. Setting out is symbolic; no figures are given.',
+      'Line engraving, general layout plan of a type turnkey agro-industrial plant, set out on the grid of the cross section - lines A, B, C and bays 1 to 6 at constant spacing. The milling line of sheet III is drawn in place in the hall, post by post; section line A-A is marked with heavy ends and viewing arrows towards sheet I; the roof array of sheet IX covers the north slope. The forward flow - intake, silos, hall, packing, palletising, store, loading docks - is one continuous brass gesture with direction chevrons, and never crosses the soiled circuit drawn in broken line. Setting out is symbolic; no figures are given.',
   },
   IX: {
     title: 'Rooftop power array',
