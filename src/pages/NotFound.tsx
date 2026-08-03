@@ -87,9 +87,13 @@ const NotFound = () => {
           </div>
         </div>
       </section>
-    
-      {/* CABINET §6 - planche XII posée en situation, préversion seulement */}
-      <PlancheEnSituation numeral="XII" idPrefix="planche-xii-notfound" />
+
+      {/* CABINET - la vignette chouette seule (planche XII supprimée du registre) */}
+      <section className="mat-gres mat-grain border-t border-[hsl(var(--mat-on-gres-1)/0.22)]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex justify-center">
+          <Chouette size={96} />
+        </div>
+      </section>
     </PageShell>
   );
 };
