@@ -90,18 +90,36 @@ export const NOTES: Note[] = [
     texte:
       "Couple de zones économiques reliées par des flux réguliers de biens, de personnes et de compétences, dans les deux sens.",
   },
+  {
+    id: 'test-capacitaire',
+    terme: 'Test capacitaire',
+    texte:
+      "Essai en charge réelle vérifiant qu'une installation tient le débit annoncé dans la durée, matière et cadence nominales, avant réception.",
+  },
+  {
+    id: 'constitution',
+    terme: 'Constitution successive',
+    texte:
+      "Création d'une société nouvelle plutôt que rachat, chaque métier étant fondé quand son marché et son équipe sont réunis.",
+  },
+  {
+    id: 'maintenabilite',
+    terme: 'Maintenabilité',
+    texte:
+      "Aptitude d'une installation à être entretenue : accès aux organes, pièces disponibles, gestes réalisables par les équipes du site.",
+  },
 ];
 
 export const REGISTRES: Registre[] = [
   {
     id: 'cao',
     page: '/portefeuille/cao-industries',
-    titre: "Ce qu'exige un clé en main",
-    notes: ['epc', 'avant-projet', 'reception'],
+    titre: "Ce qu'exige un clé en main agro-industriel",
+    notes: ['epc', 'avant-projet', 'test-capacitaire', 'maintenabilite'],
     temps: [
-      "Un contrat clé en main déplace le risque. Le client achète un résultat, pas une somme de prestations. Celui qui s'engage répond de la conception, des achats et de la construction, y compris des écarts entre les trois.",
-      "La discipline commence en amont. L'avant-projet fixe le principe technique et, avec lui, l'essentiel du coût futur : ce qui n'a pas été tranché à ce moment se paie ensuite en modifications. Vient l'arbitrage des achats, où le moins-disant apparent devient souvent le plus cher, faute de délai tenu ou de pièce conforme. Vient enfin la réception, moment de vérité : elle constate ce qui a été fait, non ce qui avait été promis.",
-      "Le groupe aborde ce métier par l'amont. Les études précèdent l'engagement, les fournisseurs se qualifient avant d'être consultés, et les réserves se traitent comme un enseignement plutôt que comme un incident.",
+      "Un contrat clé en main déplace le risque. Le client achète une capacité de transformation qui fonctionne, pas une somme de prestations. Celui qui signe répond de la conception, des achats et de la construction, et des écarts entre les trois.",
+      "La discipline se joue tôt. L'avant-projet fige le principe technique, donc l'essentiel du coût : ce qui n'est pas tranché à ce moment se paie ensuite en modifications. Le test capacitaire est le moment de vérité ; il constate ce que l'installation tient en matière réelle, pas ce que la note de calcul annonçait. La maintenance, elle, commence à la conception : un organe qu'on ne peut pas atteindre ne sera pas entretenu, et une pièce qu'on ne trouve pas sur le continent arrête la ligne.",
+      "Cette société a été constituée pour le corridor Europe-Afrique de l'Ouest, sur la transformation agro-industrielle. Les études précèdent l'engagement, la maintenabilité entre dans l'arbitrage au même titre que le prix, et la réception se prépare depuis l'avant-projet.",
     ],
   },
   {
@@ -111,30 +129,30 @@ export const REGISTRES: Registre[] = [
     notes: ['avant-projet', 'ordonnancement'],
     temps: [
       "Une ligne de production se juge en marche, quand il est tard pour la reprendre. Les défauts constatés au démarrage ont presque tous été décidés sur le papier, longtemps avant la première pièce.",
-      "La discipline consiste à dessiner le flux avant les machines. Où la matière entre, où elle attend, où elle se contrôle. Un poste mal placé impose un déplacement à chaque cycle ; répété, ce déplacement devient la capacité perdue de l'atelier. L'ordonnancement se pense au même moment : une ligne équilibrée vaut mieux qu'une ligne rapide et engorgée. Reste la question qu'on oublie : que devient l'installation quand le produit change ? Une ligne conçue pour un seul produit vieillit avec lui.",
-      "Le groupe travaille la configuration plutôt que le cas particulier : châssis communs, interfaces définies, modules qui se remplacent sans refaire l'ensemble.",
+      "La discipline consiste à dessiner le flux avant les machines. Où la matière entre, où elle attend, où elle se contrôle. Un poste mal placé impose un déplacement à chaque cycle ; répété, ce déplacement devient la capacité perdue de l'atelier. L'ordonnancement se pense au même moment : une ligne équilibrée vaut mieux qu'une ligne rapide et engorgée. Reste la question qu'on oublie : que devient l'installation quand le produit change ?",
+      "Cette société a été fondée à côté de l'activité de construction, pour tenir cette phase-là séparément : configuration plutôt que cas particulier, châssis communs, interfaces définies, modules remplaçables sans refaire l'ensemble. Ce qui est configuré ici doit rester réparable là où la ligne est installée.",
     ],
   },
   {
     id: 'drabair',
     page: '/portefeuille/drabair-labs',
-    titre: 'Pourquoi posséder ses socles',
-    notes: ['socle'],
+    titre: 'Pourquoi les socles se possèdent',
+    notes: ['socle', 'constitution'],
     temps: [
       "Un logiciel dépend toujours de couches qu'il n'a pas écrites. Tant qu'elles tiennent, personne n'y pense. Le jour où l'une change de prix, de conditions ou de cap, c'est le produit entier qui se déplace.",
-      "La discipline tient en deux gestes. D'abord, savoir ce dont on dépend : nommer les couches, leurs points de contact, ce qu'il en coûterait d'en sortir. Ensuite, choisir ce que l'on garde en propre. Tout posséder est un gaspillage, tout emprunter est une remise de clés. La ligne se trace là où passe la valeur du produit : ce qui le distingue se possède, ce qui l'outille se loue. Un contrat entre deux couches doit être écrit, et le rester quand l'une des deux évolue.",
-      "Le groupe garde la maîtrise des socles dont dépend la continuité de service, et documente les interfaces plutôt que les intentions.",
+      "La discipline tient en deux gestes. Savoir ce dont on dépend : nommer les couches, leurs points de contact, ce qu'il en coûterait d'en sortir. Puis choisir ce que l'on garde en propre. Tout posséder est un gaspillage, tout emprunter est une remise de clés. La ligne se trace là où passe la valeur : ce qui distingue le produit se possède, ce qui l'outille se loue.",
+      "Le groupe a constitué son atelier logiciel plutôt que d'en acquérir un, et détient les socles depuis l'origine : stockage, identité, traitement des données des sociétés du portefeuille. Les interfaces sont écrites ; les intentions ne le sont pas.",
     ],
   },
   {
     id: 'weavme',
     page: '/portefeuille/weavme',
     titre: "Le booking est un problème d'engagements tenus",
-    notes: ['ordonnancement'],
+    notes: ['ordonnancement', 'socle'],
     temps: [
       "Réserver semble simple : une demande, une ressource, une confirmation. La difficulté n'est pas de prendre la demande, elle est de tenir ce qui a été confirmé quand tout bouge autour.",
-      "La discipline est celle du registre. Une ressource ne peut être promise deux fois ; une confirmation doit rester vraie après l'annulation qui la précède ; un report doit se propager à tous ceux qu'il concerne, sans qu'on ait à y penser. Le métier se joue dans les cas rares : le chevauchement, l'indisponibilité de dernière heure, la demande qui arrive pendant qu'on répond à la précédente. Ces cas ne sont pas des exceptions à traiter plus tard, ils sont la matière même du système.",
-      "Le groupe traite la confirmation comme un engagement écrit : traçable, réversible selon des règles connues, et jamais implicite.",
+      "La discipline est celle du registre. Une ressource ne peut être promise deux fois ; une confirmation doit rester vraie après l'annulation qui la précède ; un report se propage à tous ceux qu'il concerne, sans qu'on ait à y penser. Le métier se joue dans les cas rares : le chevauchement, l'indisponibilité de dernière heure, la demande qui arrive pendant qu'on répond à la précédente. Ces cas ne sont pas des exceptions à traiter plus tard.",
+      "Ce produit est né dans le groupe, sur les socles qu'il détient : la confirmation y est traitée comme un engagement écrit, traçable, réversible selon des règles connues, jamais implicite. Le service ne dépend d'aucun tiers pour rester en marche.",
     ],
   },
   {
@@ -144,41 +162,41 @@ export const REGISTRES: Registre[] = [
     notes: ['detention-longue', 'reversibilite'],
     temps: [
       "Un immeuble ne se déplace pas. Tout ce qui peut être corrigé plus tard - la distribution, les finitions, le locataire - se corrige. L'emplacement, non.",
-      "La discipline consiste à lire trois choses avant le prix. La rareté d'abord : ce qui ne peut pas être reproduit à côté garde sa valeur quand l'offre augmente. La valeur d'usage ensuite : un bien se juge à ce qu'il permet de faire au quotidien, pas à sa façade. La réversibilité enfin : hauteurs, structure et accès décident si le bâtiment pourra changer d'usage lorsque le quartier changera. Un actif détenu longtemps traverse plusieurs cycles ; il doit pouvoir servir à autre chose que ce pour quoi il a été acheté.",
-      "Le groupe raisonne en détention longue, et regarde d'abord ce qu'un lieu autorise avant de regarder ce qu'il rapporte.",
+      "La discipline consiste à lire trois choses avant le prix. La rareté : ce qui ne peut pas être reproduit à côté garde sa valeur quand l'offre augmente. La valeur d'usage : un bien se juge à ce qu'il permet de faire au quotidien, pas à sa façade. La réversibilité : hauteurs, structure et accès décident si le bâtiment pourra changer d'usage lorsque le quartier changera.",
+      "Le pôle immobilier du groupe raisonne en détention longue : un actif conservé traverse plusieurs cycles, il doit donc pouvoir servir à autre chose que ce pour quoi il a été acheté. Ce que le lieu autorise se regarde avant ce qu'il rapporte, et l'arbitrage de restauration se prend dans cet ordre.",
     ],
   },
   {
     id: 'scouts',
     page: '/scouts',
     titre: "Ce qu'est un bon signalement",
-    notes: ['apport-affaires'],
+    notes: ['apport-affaires', 'corridor'],
     temps: [
       "Un signalement utile n'est pas une intuition, c'est une information vérifiable arrivée à temps. La plupart des mises en relation échouent parce qu'elles sont trop vagues, trop tardives, ou hors sujet.",
-      "Cinq critères permettent de trancher. Précis : une société, un besoin, un interlocuteur, pas un secteur. Sourçable : on peut dire d'où vient l'information et comment elle a été obtenue. Actionnable : il existe un geste concret à faire dans les semaines qui viennent. Dans le périmètre : le besoin relève des métiers exercés, sans quoi la mise en relation dessert tout le monde. Apporté en premier : une information déjà connue de plusieurs n'est plus une information, c'est une rumeur de marché.",
-      "Le groupe formalise le cadre avant l'échange : ce qui est attendu, ce qui est rémunéré, et ce qui ne l'est pas.",
+      "Cinq critères permettent de trancher. Précis : une société, un besoin, un interlocuteur, pas un secteur. Sourçable : on peut dire d'où vient l'information et comment elle a été obtenue. Actionnable : il existe un geste concret à faire dans les semaines qui viennent. Dans le périmètre : le besoin relève des métiers exercés. Apporté en premier : une information déjà connue de plusieurs n'est plus une information, c'est une rumeur de marché.",
+      "Le périmètre est ici explicite : les métiers du groupe et le corridor qu'il dessert. Le cadre se formalise avant l'échange - ce qui est attendu, ce qui relève de l'apport d'affaires, ce qui n'en relève pas - parce qu'une relation d'apport se protège par écrit ou ne se protège pas.",
     ],
   },
   {
     id: 'engagements',
     page: '/engagements',
     titre: 'La doctrine du corridor',
-    notes: ['corridor'],
+    notes: ['corridor', 'maintenabilite'],
     temps: [
       "Relier deux zones économiques n'est pas y être présent des deux côtés. Un corridor n'existe que si quelque chose circule dans les deux sens, régulièrement, et pour longtemps.",
-      "Trois convictions le rendent tenable. La première : la compétence se transporte moins bien que le matériel, elle se forme sur place ou ne s'installe pas. La deuxième : un flux à sens unique n'est pas un corridor mais un débouché, et il s'interrompt au premier changement de conjoncture. La troisième : la durée se gagne par la maintenance, pas par la livraison ; un équipement qu'on ne sait pas entretenir localement cesse d'être un actif et devient une charge.",
-      "Le groupe engage ses opérations sur cette lecture : ce qui se conçoit d'un côté doit pouvoir se réparer de l'autre.",
+      "Trois convictions le rendent tenable. La compétence se transporte moins bien que le matériel : elle se forme sur place ou ne s'installe pas. Un flux à sens unique n'est pas un corridor mais un débouché, et il s'interrompt au premier changement de conjoncture. La durée se gagne par la maintenance, pas par la livraison : un équipement qu'on ne sait pas entretenir localement cesse d'être un actif et devient une charge.",
+      "Le groupe s'est organisé sur cette lecture entre l'Europe et l'Afrique de l'Ouest : ce qui se conçoit d'un côté doit pouvoir se réparer de l'autre, et les pièces comme les gestes d'entretien entrent dans le choix technique, avant la signature.",
     ],
   },
   {
     id: 'approche',
     page: '/approche',
-    titre: 'Pourquoi nous publions si peu de chiffres',
-    notes: ['holding-animatrice'],
+    titre: 'Pourquoi ce site publie si peu de chiffres',
+    notes: ['holding-animatrice', 'constitution'],
     temps: [
       "Un groupe jeune est tenté de compenser son histoire courte par des chiffres. Objectifs annoncés, volumes potentiels, projections : autant de nombres qui ressemblent à des faits sans en être.",
-      "La discipline consiste à ne publier que ce qui est arrêté et vérifiable. Un chiffre déposé peut être consulté par un tiers ; une projection ne peut qu'être crue. Publier la seconde en la présentant comme le premier revient à demander une confiance qu'on n'a pas encore méritée. Cette retenue a un coût : elle laisse des pages plus sobres que celles des groupes qui communiquent en intentions. Elle a un avantage : chaque élément publié reste vrai l'année suivante, et le lecteur peut le contrôler lui-même.",
-      "Le groupe s'en tient donc aux faits datés, aux mentions légales et aux comptes déposés, et laisse la démonstration aux ouvrages livrés.",
+      "La discipline consiste à ne publier que ce qui est arrêté et vérifiable. Un chiffre déposé peut être consulté par un tiers ; une projection ne peut qu'être crue. Publier la seconde en la présentant comme le premier revient à demander une confiance qui n'est pas encore due. Cette retenue a un coût : des pages plus sobres que celles des groupes qui communiquent en intentions. Elle a un avantage : chaque élément publié reste vrai l'année suivante.",
+      "Le groupe se construit par constitutions successives, société après société, et sa tête anime ce qu'elle détient plutôt que de le gérer à distance. Ce qui figure ici se limite donc aux faits datés et aux comptes déposés ; la démonstration revient aux ouvrages livrés.",
     ],
   },
 ];
