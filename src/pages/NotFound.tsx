@@ -5,7 +5,8 @@ import { Eyebrow } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Duotone from '@/components/Duotone';
 import { textures, SIZES } from '@/assets/textures';
-import PlancheEnSituation from '@/components/gravure/PlancheEnSituation';
+import Chouette from '@/components/gravure/Chouette';
+import '@/styles/gravure.css';
 
 const NotFound = () => {
   const location = useLocation();
