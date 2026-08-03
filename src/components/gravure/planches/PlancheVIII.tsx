@@ -20,7 +20,7 @@ import {
 } from '../primitives';
 
 /**
- * PLANCHE VIII — PLAN D'IMPLANTATION DE L'USINE OWL-1 (système L).
+ * PLANCHE VIII — PLAN D'IMPLANTATION D'UNE USINE TYPE, CLÉ EN MAIN (système L).
  *
  * Cohérence de dossier :
  *   · la trame du plan est celle de la coupe PL. I : files A, B, C et
@@ -84,7 +84,7 @@ const Boite = ({
 
 export const PLANCHE_VIII = {
   numeral: 'VIII',
-  title: "Plan d'implantation de l'usine OWL-1",
+  title: "Plan d'implantation d'une usine type",
   desc:
     "Gravure au trait, plan d'implantation de l'usine de référence, sans toponyme et sans donnée d'exploitation. Le plan reprend la trame de la coupe première : les files A, B et C du portique courent d'ouest en est, les trames 1 à 6 les traversent, et la ligne de coupe A-A est fléchée vers le regard de cette coupe. La halle de transformation occupe le centre du plan ; la ligne de mouture de la planche troisième y est dessinée en place, poste après poste, sur la file B ; le versant nord de la halle, entre file A et file B, porte l'emprise de la centrale en toiture de la planche neuvième, cernée en trait interrompu. À l'ouest, la zone de réception aligne le pont-bascule, le quai de déchargement et sa fosse, puis les silos cellulaires de matière première vus en plan. À l'est, le conditionnement, la palettisation, le magasin de produits finis et les quais d'expédition avec leur aire de manoeuvre ferment le cycle. Une bande d'utilités occupe le nord de l'emprise : poste de livraison, chaufferie et rétention, air comprimé et froid, traitement des eaux et relevage, maintenance et atelier. Le flux de procédé est tracé au trait fort rehaussé de laiton, de la réception aux quais d'expédition, en un seul geste continu fléché : c'est la marche en avant, seule lecture de trente secondes de la planche. Le circuit sale, déchets et sous-produits, est tracé en trait interrompu au sud de l'emprise et ne croise le laiton nulle part. Les voiries sont à sens unique, une limite de zonage sanitaire sépare zone grise et zone blanche en trait mixte, la défense incendie est marquée d'une réserve, de poteaux et d'un recul. Aucune phrase n'est portée dans le dessin : chaque élément porte un repère court, sa désignation vit dans les échelles de libellés en marge. Rose des vents, échelle graphique symbolique et cartouche de dossier, volume premier, mention concept.",
   viewBox: '0 0 1240 1290',
@@ -104,7 +104,7 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
     <TitrePlanche
       x={60}
       y={46}
-      titre="Plan d'implantation de l'usine OWL-1"
+      titre="Plan d'implantation d'une usine type"
       sous="Trame de la PL. I - ligne de la PL. III en place - marche en avant, réception vers expédition"
     />
 
@@ -398,7 +398,7 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
         y={1176}
         w={380}
         numeral="VIII"
-        title="Implantation de l'usine OWL-1"
+        title="Implantation d'une usine type"
         echelle="Éch. symb."
         dossier={VOL_I}
         index="PL. 8/9"

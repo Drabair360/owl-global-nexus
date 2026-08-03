@@ -105,7 +105,7 @@ export const PlancheIDrawing = ({ p }: { p: string }) => (
 
     {/* ================= FIG. 1 — COUPE TRANSVERSALE A-A ================= */}
     {/* L3 / 3 s : le sujet, la forme générale, le sens de lecture */}
-    <TitrePlanche x={60} y={48} titre="L'unité industrielle OWL-1, coupe" />
+    <TitrePlanche x={60} y={48} titre="L'unité industrielle de référence, coupe" />
     <RepereFigure x={60} y={84} n="1" title="Coupe transversale A-A" w={300} />
 
     {/* L3 / 30 s : les zones nommées, du haut vers le bas de la coupe */}
