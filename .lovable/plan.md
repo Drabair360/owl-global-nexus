@@ -1,82 +1,35 @@
-## 0. Correction immédiate du filet vertical (première action, isolée)
+# Déplacement de la PL. VIII et retrait de la PL. VII
 
-Le filet or des héros est positionné en absolu à distance fixe du bord (`left-8`, `lg:left-24`) alors que le contenu vit dans un conteneur centré `max-w-6xl`. Entre ~768 px et ~1280 px, le texte atteint cette zone : le filet passe sous le titre et l'eyebrow.
+## Ce qui change pour le lecteur
 
-Fichiers : `src/components/InstitutionalHero.tsx` (9 pages secondaires), `src/pages/Index.tsx` (accueil), contrôle sur `src/pages/ventures/Venture.tsx`.
+1. **La planche d'implantation quitte /groupe** et rejoint la fiche CAO Industries, juste après la coupe (PL. I). La page Groupe se termine désormais sur la lettre du Président.
+2. **La planche n'évoque plus une « usine OWL-1 »** : elle devient le plan d'implantation d'une usine agro-industrielle type, clé en main, telle que CAO Industries en réalise pour ses clients. Mention CONCEPT conservée.
+3. **La planche VII (schéma de flux du groupe) disparaît du site public.** Elle est retirée de l'accueil et tous les renvois qui pointaient vers elle sont supprimés. Le fichier reste dans le code, non publié, pour un usage interne ultérieur.
+4. **Le dossier reste techniquement vrai** : plus aucune mention d'un site OWL-1 inexistant, plus aucun renvoi vers une planche absente.
 
-- Ancrage sur la **gouttière du conteneur** : le filet devient une colonne de la grille centrée, plus une position absolue liée au bord de l'écran.
-- Affichage **à partir de `xl` (≥ 1280 px) uniquement**, là où la marge est réellement libre. Masqué en dessous.
-- Même traitement pour le filigrane de numéro de section s'il déborde.
+## Ce qui est touché, planche par planche
 
-**Recette : 5 largeurs (390 / 768 / 1024 / 1440 / 1920) × 10 routes**, capture Playwright + assertion géométrique : aucune intersection entre la boîte du filet et la boîte d'un nœud de texte. Livraison d'une planche de contrôle.
+| Élément | Action |
+|---|---|
+| PL. VIII | Titre, sous-titre, description, cartouche : « usine de référence OWL-1 » → « usine agro-industrielle type, clé en main ». Renvoi « Centrale : PL. IX » conservé, renvoi coupe PL. I conservé (les deux restent vrais sur la fiche CAO). |
+| PL. I | Titre du dessin : « L'unité industrielle OWL-1, coupe » → unité industrielle de référence, sans code OWL-1. |
+| PL. IX | Sous-titre : versant de l'usine de référence (PL. I), sans OWL-1. |
+| PL. IV, V, VI | Suppression des renvois « Modèle du groupe : PL. VII » (cartouches et sous-titres). |
+| Cartouche | `VOL_I` : « DOSSIER OWL — VOL. I : USINE DE RÉFÉRENCE (CONCEPT) », sans OWL-1. |
+| Index du cabinet | La série publiée passe de 9 à 8 planches : les mentions « PL. n/9 » des cartouches sont recalées sur la nouvelle numérotation d'index, sans renuméroter les chiffres romains des planches. |
 
-Rien d'autre ne bouge tant que la recette n'est pas verte.
+## Détails techniques
 
----
+- `src/pages/Groupe.tsx` : suppression du bloc `PlancheEnSituation numeral="VIII"`.
+- `src/pages/ventures/Venture.tsx` : PL. VIII ajoutée sous la PL. I pour le slug `cao-industries`.
+- `src/pages/Index.tsx` : suppression du bloc PL. VII et de la vignette qui l'introduit.
+- `src/components/gravure/planches/index.ts` : PL. VII sortie de la série publiée (fichier conservé) ; `emplacement` de la PL. VIII → fiche CAO.
+- `src/components/gravure/planches/i18n.ts` : titres/descriptions EN des PL. I, VIII, IX alignés ; entrée VII conservée mais inutilisée.
+- `src/pages/studio/Lisibilite.tsx` : liste de contrôle mise à jour (VII retirée).
+- Contrôles à repasser après modification : `planche-lisibilite-check` sur les planches publiées (deux largeurs), `micro-typo-check` FR/EN, `matiere-gel-check`, plus un grep interdisant « OWL-1 » et « PL. VII » dans le rendu public.
+- Aucun chiffre financier introduit ; règle de confidentialité du cabinet inchangée.
+- Mémoire projet mise à jour : PL. VII non publiée, PL. VIII rattachée à CAO, disparition du code OWL-1.
 
-## Pause d'intégration
+## Publication
 
-Les chantiers A-E ne démarrent qu'après réception des conclusions de l'audit externe du site de production. Je les intégrerai au périmètre avant exécution.
-
----
-
-## A. Typographie — migration complète au ratio 1.333
-
-Condition retenue : **pas de coexistence d'échelles**.
-
-- Recalcul intégral des tokens de `--text-xs` à `--text-display-xl` sur une base unique et un ratio 1.333 strict.
-- **Suppression de toute taille hybride 1.25 résiduelle** : audit exhaustif de `tailwind.config.ts` (`fontSize`) et des CSS modulaires, plus grep de toutes les classes `text-[...]` arbitraires en composant. Zéro exception tolérée ; chaque valeur hors échelle est soit migrée, soit justifiée par écrit.
-- Chiffres tabulaires (`tabular-nums`) systématiques sur KPI, dates, millésimes, numéros de section.
-- Interlettrage par palier (serré en display, ouvert en micro-typo), petites capitales vraies pour les eyebrows.
-- `text-wrap: balance` sur les titres, `pretty` sur les chapeaux ; veuves et orphelines éliminées.
-- Espaces fines insécables et ligatures pour la ponctuation française.
-- Contrôle de non-régression : diff visuel avant/après sur les 10 routes, contrastes AA revérifiés.
-
-## B. Grille et rythme vertical
-
-- Grille 12 colonnes unique, réellement lisible dans la composition : titres col. 1-6, textes col. 7-11, jamais deux blocs pleine largeur consécutifs.
-- Rythme vertical base 8 px, hauteurs de section normalisées, respirations doublées entre chapitres.
-- Alternance papier chaud / encre profonde entre sections pour donner du souffle au scroll.
-- Filet or 1 px comme seul séparateur : aucune bordure grise, aucune ombre portée.
-
-## C. Densité de preuve — données requises AVANT rédaction
-
-Aucune ligne ne sera écrite avant votre retour. Barre de chiffres-clés **strictement limitée au set KPI fermé déjà arrêté** — aucun indicateur ajouté.
-
-Liste des données manquantes à confirmer :
-1. Valeur exacte de chaque KPI du set fermé, avec son millésime de référence.
-2. Périmètre et statut de chacune des cinq sociétés (CAO Industries, Drabair Labs, Line Builder, Weavme, Owl Real Estate) : millésime, pôle de rattachement, statut, périmètre d'activité.
-3. Dates exactes des entrées du Journal encore non datées.
-4. Entité d'hébergement + adresse officielle (mentions légales) — placeholder maintenu en attendant.
-5. Toute mention chiffrée souhaitée dans les pages `/groupe` et `/metiers`.
-
-Tout champ sans source de votre part reste un `[PLACEHOLDER]` explicite et visible.
-
-## D. Repérage latéral unifié (fusion imposée)
-
-Les « chapitres collants » et la table des matières fixe existante **fusionnent en un seul dispositif de marge**. Un seul rail latéral, jamais deux.
-
-- Composant unique remplaçant `StickyChapter` et la TOC actuelle.
-- Contenu du rail : numéro de chapitre, titre de chapitre, **état actif** synchronisé au scroll (chapitre courant marqué par le filet or, les autres en retrait).
-- Le rail sert aussi de navigation : clic = ancre vers le chapitre.
-- Suppression effective de l'ancien dispositif redondant (fichiers et imports nettoyés).
-- Accessible : liste sémantique, `aria-current`, parcours clavier complet, repli propre en mobile.
-- Autres moments de signature conservés : seuil d'accueil synchronisé au dévoilement du premier filet, ligne d'horizon or continue au scroll. Aucune animation curseur, aucun diagramme décoratif.
-
-## E. Finitions
-
-- Focus dessiné (filet or 2 px, offset) au lieu de l'anneau par défaut.
-- Sélection de texte, scrollbar, curseurs aux couleurs de la marque.
-- `404` et états vides traités comme des pages à part entière.
-- Feuille de style print : toute page sort comme un document institutionnel.
-- Contrôle final : a11y AA, seuils Lighthouse maintenus, planche 1440/390 avec et sans `prefers-reduced-motion`.
-
----
-
-## Séquence
-
-1. **Filet vertical + recette 5×10** — maintenant.
-2. Attente des conclusions de l'audit externe, intégration au périmètre.
-3. A (typo, migration complète) → B (grille).
-4. C, uniquement après réception des données listées ci-dessus.
-5. D (rail unifié) → E (finitions) → planche de contrôle finale.
+Les modifications ne seront mises en ligne qu'à votre demande explicite (re-gel en vigueur).
