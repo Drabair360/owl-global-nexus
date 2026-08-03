@@ -1,27 +1,18 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import Planche from './Planche';
 import { parNumeral } from './planches';
+import { metaFor, plancheLegende } from './planches/i18n';
+import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
 
 /**
- * CABINET §6 — POSE EN SITUATION, EN PRÉVERSION SEULEMENT.
+ * CABINET §6 - POSE EN SITUATION, EN PRODUCTION.
  *
- * Les onze planches de la série sont posées à leur emplacement de production
- * mais ne s'affichent qu'en préversion : rien n'entre en production avant la
- * validation de la planche contact. Interrupteur :
- *   - hôte de préversion (id-preview, lovableproject, localhost), ou
- *   - paramètre ?cabinet=1 sur n'importe quelle route.
- * En production, le composant ne rend rien et ne coûte rien.
+ * Les neuf planches de la série sont posées à leur emplacement de production :
+ * I fiche CAO, II /metiers, III fiche Line Builder, IV fiche Drabair,
+ * V fiche Weavme, VI fiche ORE, VII accueil, VIII /groupe, IX /engagements.
+ * Le gate de preversion est tombe a la cloture du cabinet.
  */
-export const useCabinetPreview = () => {
-  const { search } = useLocation();
-  if (typeof window === 'undefined') return false;
-  if (new URLSearchParams(search).get('cabinet') === '1') return true;
-  const h = window.location.hostname;
-  return h.includes('id-preview') || h.includes('lovableproject') || h === 'localhost' || h === '127.0.0.1';
-};
-
 const PlancheEnSituation = ({
   numeral,
   className = '',
@@ -31,10 +22,11 @@ const PlancheEnSituation = ({
   className?: string;
   idPrefix?: string;
 }) => {
-  const actif = useCabinetPreview();
+  const { locale } = useI18n();
   const entree = parNumeral(numeral);
-  if (!actif || !entree) return null;
-  const { meta, Drawing } = entree;
+  if (!entree) return null;
+  const { Drawing } = entree;
+  const meta = metaFor(entree.meta, locale);
   const p = `pl${numeral.toLowerCase()}s`;
 
   return (
@@ -47,6 +39,7 @@ const PlancheEnSituation = ({
             title={meta.title}
             desc={meta.desc}
             viewBox={meta.viewBox}
+            legendSuffix={plancheLegende(meta.numeral, meta.title, locale)}
           >
             <Drawing p={p} />
           </Planche>

@@ -2,6 +2,7 @@
    Groupe — béton (hero) puis grès continu ; grès-2 pour l'organigramme.
    Signature unique : le tracé de l'organigramme. Bande `skyline` ton encre. */
 import React from 'react';
+import Vignette from '@/components/gravure/Vignette';
 import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialTitle, EditorialSection, Rule } from '@/components/editorial';
@@ -9,7 +10,6 @@ import ChapterRail from '@/components/ChapterRail';
 import PresidentPortrait from '@/components/PresidentPortrait';
 import PolesViz from '@/components/PolesViz';
 import { OwlKPISet } from '@/components/KPI';
-import CinemaBand from '@/components/CinemaBand';
 import SplitText from '@/components/SplitText';
 import { useI18n } from '@/lib/i18n';
 import PlancheEnSituation from '@/components/gravure/PlancheEnSituation';
@@ -40,6 +40,7 @@ const Groupe = () => {
 
       {/* Barre KPI - set fermé, aucun autre indicateur */}
       <EditorialSection className="mat-gres mat-grain pb-0">
+        <div className="mb-8"><Vignette id="gouvernance" size={40} /></div>
         <div className="text-xs font-subtitle tracking-[0.28em] uppercase mat-ink-accent mb-8">
           {t('kpi.title')}
         </div>
@@ -63,7 +64,6 @@ const Groupe = () => {
       </EditorialSection>
 
 
-      <CinemaBand texture="skyline" tone="encre" className="mb-16" />
 
       {/* Organigramme + data-viz interactive */}
       <EditorialSection className="mat-gres-2 mat-grain relative">

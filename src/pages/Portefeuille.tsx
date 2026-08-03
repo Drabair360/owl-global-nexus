@@ -2,6 +2,7 @@
    Portefeuille — GRÈS dominant, catalogue raisonné. Béton au hero seulement.
    Laiton : filets de séparation et sceaux. Aucune signature animée. */
 import React from 'react';
+import Vignette from '@/components/gravure/Vignette';
 import { Link } from 'react-router-dom';
 import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';
@@ -9,9 +10,6 @@ import { EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
 import { ventures } from './ventures/data';
-import Duotone from '@/components/Duotone';
-import Legende from '@/components/Legende';
-import { textures, SIZES } from '@/assets/textures';
 import { absoluteUrl } from '@/config/site';
 import { ventureFolio } from '@/config/folios';
 
@@ -48,6 +46,7 @@ const Portefeuille = () => {
 
       {/* Catalogue raisonné - notices numérotées, matière grès */}
       <EditorialSection className="mat-gres mat-grain">
+        <div className="mb-8"><Vignette id="portefeuille" size={40} /></div>
         <div className="mat-cachet font-subtitle mb-16">
           <span className="mat-cachet-seal">{locale === 'fr' ? 'Catalogue raisonné' : 'Catalogue raisonné'}</span>
           <span className="mat-ink-2">
@@ -75,21 +74,6 @@ const Portefeuille = () => {
                   </Link>
                 </h2>
                 <p className="statut mt-3">{t(e.statusKey)}</p>
-                <Legende hoverOnly className="mt-6 block">
-                  <div className="mat-photo mat-elev-2">
-                    <Duotone
-                      src={textures[e.texture].src}
-                      sources={textures[e.texture].sources}
-                      sizes={SIZES.thumb}
-                      alt={textures[e.texture].alt}
-                      tone={e.tone}
-                      width={textures[e.texture].width}
-                      height={textures[e.texture].height}
-                      className="aspect-[3/2] w-full transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02] group-focus-within:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                    />
-                  </div>
-                </Legende>
-
               </div>
               <div className="md:col-span-8">
                 <p className="mat-prose mat-ink-1 mb-8 max-w-2xl">{t(e.missionKey)}</p>

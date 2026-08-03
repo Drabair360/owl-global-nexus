@@ -5,16 +5,25 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import PageShell from '@/components/PageShell';
 import { EditorialSection, Rule } from '@/components/editorial';
 import Reveal from '@/components/Reveal';
-import Duotone from '@/components/Duotone';
-import Legende from '@/components/Legende';
 import GroupDiagram from '@/components/GroupDiagram';
 import VentureNotice from '@/components/VentureNotice';
 import Planche from '@/components/gravure/Planche';
 import { PLANCHE_I, PlancheIDrawing } from '@/components/gravure/planches/PlancheI';
+import { metaFor, plancheLegende } from '@/components/gravure/planches/i18n';
 import PlancheEnSituation from '@/components/gravure/PlancheEnSituation';
+import Registre from '@/components/Registre';
+import Vignette from '@/components/gravure/Vignette';
 
-/* CABINET §6 - une planche par fiche. La planche I est en production ;
-   les quatre autres attendent la validation de la planche contact. */
+/* CABINET §6 - une planche par fiche, en production. */
+/* CABINET §4 - un registre de savoir par fiche. */
+const REGISTRE_PAR_FICHE: Record<string, string> = {
+  'cao-industries': 'cao',
+  'line-builder': 'line-builder',
+  'drabair-labs': 'drabair',
+  weavme: 'weavme',
+  'owl-real-estate': 'ore',
+};
+
 const PLANCHE_PAR_FICHE: Record<string, string> = {
   'line-builder': 'III',
   'drabair-labs': 'IV',
@@ -22,8 +31,6 @@ const PLANCHE_PAR_FICHE: Record<string, string> = {
   'owl-real-estate': 'VI',
 };
 
-import { textures, SIZES } from '@/assets/textures';
-import { useParallax } from '@/hooks/useParallax';
 import { useI18n } from '@/lib/i18n';
 import { getVenture, ventures } from './data';
 import { absoluteUrl } from '@/config/site';
@@ -32,14 +39,12 @@ import { ventureFolio } from '@/config/folios';
 const Venture = () => {
   const { slug } = useParams<{ slug: string }>();
   const { t, locale } = useI18n();
-  const parallax = useParallax(10);
   const venture = slug ? getVenture(slug) : undefined;
 
   if (!venture) {
     return <Navigate to="/portefeuille" replace />;
   }
 
-  const tex = textures[venture.texture];
   const pole = venture.pole[locale];
   const context = venture.context[locale];
   const operating = venture.operating[locale];
@@ -56,6 +61,7 @@ const Venture = () => {
   const idx = ventures.findIndex((v) => v.slug === venture.slug);
   const prev = ventures[(idx - 1 + ventures.length) % ventures.length];
   const next = ventures[(idx + 1) % ventures.length];
+  const pl1 = metaFor(PLANCHE_I, locale);
 
   return (
     <PageShell
@@ -71,7 +77,7 @@ const Venture = () => {
       {/* Hero éditorial */}
       <section className="mat-gres-2 mat-grain">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-10 items-end">
-          <div className="md:col-span-7">
+          <div className="md:col-span-8">
             <p className="mat-folio text-sm mb-5 mat-ink-2">
               <span className="mat-folio-eyes" aria-hidden="true"><i /><span /><i /></span>
               <span className="mat-tnum">{ventureFolio(venture.order)}</span>
@@ -87,55 +93,21 @@ const Venture = () => {
               </p>
             </div>
           </div>
-          <div className="md:col-span-5">
-            <Reveal>
-              <div className="relative pl-6" ref={parallax.ref}>
-                {/* Filet or vertical, tracé à la révélation */}
-                <span
-                  aria-hidden
-                  className="absolute left-0 top-0 bottom-0 w-px origin-top rule-draw"
-                  style={{ background: 'linear-gradient(hsl(var(--mat-laiton) / 0.55), hsl(var(--mat-laiton) / 0))' }}
-                />
-                <Legende>
-                  {/* Le recadrage (overflow) s'arrête à l'image : la légende
-                      vit hors du cadre parallaxé, plus aucun chevauchement. */}
-                  <div className="mat-photo mat-elev-2 overflow-hidden">
-                    <div
-                      style={{
-                        transform: `translate3d(0, ${parallax.offset}px, 0) scale(1.06)`,
-                        willChange: 'transform',
-                      }}
-                    >
-                      <Duotone
-                        src={tex.src}
-                        sources={tex.sources}
-                        sizes={SIZES.column}
-                        alt={tex.alt}
-                        tone={venture.tone}
-                        width={tex.width}
-                        height={tex.height}
-                        className="aspect-[4/5] w-full"
-                      />
-                    </div>
-                  </div>
-                </Legende>
-              </div>
-            </Reveal>
-          </div>
         </div>
       </section>
 
-      {/* CABINET DE GRAVURES — planche maîtresse (préversion : CAO seule) */}
+      {/* CABINET DE GRAVURES — planche maîtresse de la fiche */}
       {venture.slug === 'cao-industries' && (
         <section className="mat-gres mat-grain">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
             <Reveal>
               <Planche
                 idPrefix="planche-i"
-                numeral={PLANCHE_I.numeral}
-                title={PLANCHE_I.title}
-                desc={PLANCHE_I.desc}
-                viewBox={PLANCHE_I.viewBox}
+                numeral={pl1.numeral}
+                title={pl1.title}
+                desc={pl1.desc}
+                viewBox={pl1.viewBox}
+                legendSuffix={plancheLegende(pl1.numeral, pl1.title, locale)}
               >
                 <PlancheIDrawing p="pl1" />
               </Planche>
@@ -194,11 +166,11 @@ const Venture = () => {
               <div className="mt-12">
                 <Planche
                   idPrefix="planche-i-detail"
-                  numeral={PLANCHE_I.numeral}
-                  title={PLANCHE_I.title}
-                  desc={`Détail de la figure 2 de la planche I : le nœud jarret-traverse à quatre fois l'échelle, gousset, file de boulons et symbole de soudure. ${PLANCHE_I.desc}`}
-                  viewBox={PLANCHE_I.detailViewBox}
-                  legendSuffix={`Détail de la planche ${PLANCHE_I.numeral} - nœud jarret-traverse`}
+                  numeral={pl1.numeral}
+                  title={pl1.title}
+                  desc={`${locale === 'en' ? 'Enlarged detail of figure 2 of plate I: the haunch-to-rafter connection at four times scale, end plate, bolt rows and welding symbol.' : "Détail de la figure 2 de la planche I : le nœud jarret-traverse à quatre fois l'échelle, gousset, file de boulons et symbole de soudure."} ${pl1.desc}`}
+                  viewBox={pl1.detailViewBox}
+                  legendSuffix={locale === 'en' ? 'Detail of plate I - haunch-to-rafter connection' : `Détail de la planche ${pl1.numeral} - nœud jarret-traverse`}
                 >
 
                   <PlancheIDrawing p="pl1d" />
@@ -280,6 +252,13 @@ const Venture = () => {
           </Link>
         </div>
       </section>
+      {REGISTRE_PAR_FICHE[venture.slug] && (
+        <EditorialSection className="mat-gres mat-grain">
+          <div className="mb-10"><Vignette id="portefeuille" size={40} /></div>
+          <Registre id={REGISTRE_PAR_FICHE[venture.slug]} />
+        </EditorialSection>
+      )}
+
     </PageShell>
   );
 };

@@ -2,6 +2,8 @@
    Approche — grès dominant + visuel de SIGNATURE (ton laiton, pièce
    d'orfèvrerie : ni vignettage ni halation appuyés). Béton au hero seul. */
 import React from 'react';
+import Vignette from '@/components/gravure/Vignette';
+import Registre from '@/components/Registre';
 import PageShell from '@/components/PageShell';
 import InstitutionalHero from '@/components/InstitutionalHero';
 import { Eyebrow, EditorialSection, Rule } from '@/components/editorial';
@@ -91,6 +93,11 @@ const Approche = () => {
       </section>
     
       {/* CABINET §6 - planche XI posée en situation, préversion seulement */}
+      <EditorialSection className="mat-gres mat-grain">
+        <div className="mb-10"><Vignette id="approche" size={40} /></div>
+        <Registre id="approche" />
+      </EditorialSection>
+
     </PageShell>
   );
 };
