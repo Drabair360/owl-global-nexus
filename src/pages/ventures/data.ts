@@ -32,7 +32,7 @@ export const ventures: Venture[] = [
     slug: 'cao-industries',
     name: 'CAO Industries',
     pole: { fr: 'Pôle industriel', en: 'Industrial division' },
-    statusKey: 'common.status.registered',
+    statusKey: 'common.status.cao',
     missionKey: 'portfolio.cao.mission',
     pointsKeys: ['portfolio.cao.p1', 'portfolio.cao.p2', 'portfolio.cao.p3'],
     context: {
@@ -70,7 +70,7 @@ export const ventures: Venture[] = [
     slug: 'line-builder',
     name: 'Line Builder',
     pole: { fr: 'Pôle technologique', en: 'Technology division' },
-    statusKey: 'common.status.registered',
+    statusKey: 'common.status.line',
     missionKey: 'portfolio.line.mission',
     pointsKeys: ['portfolio.line.p1', 'portfolio.line.p2', 'portfolio.line.p3'],
     context: {
