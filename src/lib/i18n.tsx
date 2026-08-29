@@ -72,7 +72,8 @@ const dict: Record<Locale, Record<string, string>> = {
     'footer.verifiable': 'Ce que vous lisez ici est vérifiable au registre du commerce.',
     'common.readMore': 'Comprendre notre modèle',
     'common.status.registration': '(en cours d’immatriculation)',
-    'common.status.registered': '(immatriculée)',
+    'common.status.cao': 'SAS au RCS de Marseille',
+    'common.status.line': 'SAS au RCS de Paris',
     'common.status.notarial': '(en formation par voie notariale)',
     'common.status.formation': '(en formation)',
     'common.status.constitution': '(en cours de constitution)',
@@ -143,7 +144,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'portfolio.eyebrow': 'PORTEFEUILLE',
     'portfolio.title': 'Cinq sociétés, deux pôles, une même exigence.',
     'portfolio.intro':
-      'Cinq sociétés, dont deux immatriculées. Les sociétés du groupe sont présentées telles qu’elles sont - immatriculées, en formation ou en cours de constitution.',
+      'Les sociétés du groupe sont présentées telles qu’elles sont - immatriculées, en formation ou en cours de constitution.',
     'portfolio.covers': 'Ce que cela recouvre',
     'portfolio.cao.mission':
       'Contractant général de projets industriels clé en main (EPC : Engineering, Procurement, Construction), en France et en Afrique. Premier terrain de déploiement : l’Afrique de l’Ouest.',
@@ -469,7 +470,8 @@ const dict: Record<Locale, Record<string, string>> = {
     'footer.verifiable': 'What you read here is verifiable at the commercial registry.',
     'common.readMore': 'Understand our model',
     'common.status.registration': '(registration under way)',
-    'common.status.registered': '(registered)',
+    'common.status.cao': 'SAS registered with the Marseille Commercial Register',
+    'common.status.line': 'SAS registered with the Paris Commercial Register',
     'common.status.notarial': '(under formation by notarial deed)',
     'common.status.formation': '(under formation)',
     'common.status.constitution': '(under constitution)',
@@ -540,7 +542,7 @@ const dict: Record<Locale, Record<string, string>> = {
     'portfolio.eyebrow': 'PORTFOLIO',
     'portfolio.title': 'Five companies, two divisions, one standard.',
     'portfolio.intro':
-      'Five companies, two of which are registered. The group’s companies are presented as they are - registered, under formation, or under incorporation.',
+      'The group’s companies are presented as they are - registered, under formation, or under incorporation.',
     'portfolio.covers': 'What it covers',
     'portfolio.cao.mission':
       'General contractor for turnkey industrial projects (EPC - Engineering, Procurement, Construction), in France and in Africa. First deployment field: West Africa.',

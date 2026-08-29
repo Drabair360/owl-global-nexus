@@ -64,7 +64,6 @@ const MaquetteAccueil = () => (
           </h1>
           <p className="mt-8 text-base leading-relaxed max-w-xl m-onum">
             Owl International détient et construit des sociétés entre la France et l'Afrique.
-            Cinq sociétés, dont deux immatriculées.
           </p>
         </div>
 

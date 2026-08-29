@@ -152,9 +152,7 @@ const Venture = () => {
                   { label: t('notice.scope'), value: context },
                   ...(venture.incorporation
                     ? [{
-                        label: venture.statusKey === 'common.status.registered'
-                          ? t('notice.registration')
-                          : t('notice.incorporation'),
+                        label: t('notice.registration'),
                         value: venture.incorporation[locale],
                       }]
                     : []),
