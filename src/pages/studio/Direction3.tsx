@@ -73,7 +73,7 @@ export const VerreHero = ({ compact = false }: { compact?: boolean }) => (
         </h1>
         <p className="mt-8 text-base leading-relaxed max-w-xl v-onum" style={{ color: 'hsl(var(--v-verre-2))' }}>
           Owl International détient et construit des sociétés entre la France et l'Afrique.
-          Cinq sociétés, dont quatre en cours de constitution.
+          Cinq sociétés, dont deux immatriculées.
         </p>
       </div>
 
@@ -81,7 +81,7 @@ export const VerreHero = ({ compact = false }: { compact?: boolean }) => (
         <div className="v-panneau-2 p-6">
           <p className="v-smcp text-xs" style={{ color: 'hsl(var(--v-champagne))' }}>Dernier fait daté</p>
           <p className="mt-3 text-base leading-relaxed" style={{ color: 'hsl(var(--v-verre-2))' }}>
-            27 juillet 2026 - dépôt de capital de {cao.name}.
+            5 août 2026 - immatriculation de {cao.name} au RCS de Marseille.
           </p>
         </div>
       </div>
@@ -137,9 +137,10 @@ const MaquetteAccueil = () => (
           <tbody>
             {[
               ['23 août 2023', "Immatriculation d'Owl International, Paris.", '001'],
-              ['2024', 'Premier exercice : chiffre d\u2019affaires de 141 k€, résultat net de 130 k€. Comptes déposés au greffe.', '002'],
+              ['2024', 'Premier exercice clos. Résultat net à deux chiffres en pourcentage. Comptes déposés au greffe.', '002'],
               ['13 juillet 2026', "Ouverture d'Owl Scouts.", '003'],
-              ['27 juillet 2026', `Dépôt de capital de ${cao.name}.`, '004'],
+              ['5 août 2026', `Immatriculation de ${cao.name} au RCS de Marseille.`, '004'],
+              ['17 août 2026', 'Immatriculation de Line Builder au RCS de Paris.', '005'],
             ].map(([d, f, n]) => (
               <tr key={n}>
                 <th scope="row" className="whitespace-nowrap pr-6 align-baseline">
@@ -185,8 +186,8 @@ const FicheVenture = () => (
         <dl className="text-base">
           {[
             ['Dénomination', cao.name],
-            ['Statut', 'En cours d\u2019immatriculation'],
-            ['Dépôt de capital', '27 juillet 2026'],
+            ['Statut', 'Immatriculée'],
+            ['Immatriculation', '5 août 2026, RCS de Marseille'],
             ['Pôle', cao.pole.fr],
             ['Terrain', cao.operating.fr],
           ].map(([k, v]) => (
@@ -260,8 +261,8 @@ const Specimen = () => (
     <div className="col-span-12 md:col-span-5 space-y-4">
       <div className="v-panneau-2 p-8">
         <p className="v-smcp text-xs mb-4" style={{ color: 'hsl(var(--v-verre-3))' }}>Chiffres</p>
-        <p className="v-onum text-2xl">141 130 2023 2026 - elzéviriens (prose)</p>
-        <p className="v-tnum text-2xl mt-3">141 130 2023 2026 - tabulaires (tableaux)</p>
+        <p className="v-onum text-2xl">2023 2024 2026 - elzéviriens (prose)</p>
+        <p className="v-tnum text-2xl mt-3">2023 2024 2026 - tabulaires (tableaux)</p>
       </div>
       <div className="v-panneau-2 p-8">
         <p className="v-smcp text-xs mb-4" style={{ color: 'hsl(var(--v-champagne))' }}>Graisse optique</p>

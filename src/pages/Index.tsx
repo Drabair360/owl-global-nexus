@@ -184,6 +184,7 @@ const Index = () => {
               { year: '2026', body: t('home.milestones.2026a') },
               { year: '2026', body: t('home.milestones.2026b') },
               { year: '2026', body: t('home.milestones.2026c') },
+              { year: '2026', body: t('home.milestones.2026d') },
               { year: '-', body: t('home.milestones.next'), muted: true },
             ].map((m, i) => (
               <li key={i} className="relative">

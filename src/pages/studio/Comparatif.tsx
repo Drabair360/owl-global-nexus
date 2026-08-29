@@ -15,8 +15,8 @@ import '@/studio/verre.css';
    ================================================================= */
 
 const cao = ventures.find((v) => v.slug === 'cao-industries')!;
-const BASELINE = "Owl International détient et construit des sociétés entre la France et l'Afrique. Cinq sociétés, dont quatre en cours de constitution.";
-const DERNIER_FAIT = `27 juillet 2026 - dépôt de capital de ${cao.name}.`;
+const BASELINE = "Owl International détient et construit des sociétés entre la France et l'Afrique. Cinq sociétés, dont deux immatriculées.";
+const DERNIER_FAIT = `5 août 2026 - immatriculation de ${cao.name} au RCS de Marseille.`;
 
 /* ---------------- Hero 1 - Gravure (réduit) ---------------- */
 const HeroGravure = () => (

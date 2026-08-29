@@ -146,9 +146,10 @@ const MaquetteAccueil = () => (
           <tbody>
             {[
               ['23 août 2023', 'Immatriculation d\'Owl International, Paris.', '001'],
-              ['2024', 'Premier exercice : chiffre d\'affaires de 141 k€, résultat net de 130 k€. Comptes déposés au greffe.', '002'],
+              ['2024', 'Premier exercice clos. Résultat net à deux chiffres en pourcentage. Comptes déposés au greffe.', '002'],
               ['13 juillet 2026', 'Ouverture d\'Owl Scouts.', '003'],
-              ['27 juillet 2026', 'Dépôt de capital de CAO Industries.', '004'],
+              ['5 août 2026', 'Immatriculation de CAO Industries au RCS de Marseille.', '004'],
+              ['17 août 2026', 'Immatriculation de Line Builder au RCS de Paris.', '005'],
             ].map(([d, f, n]) => (
               <tr key={n}>
                 <th scope="row" className="whitespace-nowrap pr-6 align-baseline">
@@ -194,8 +195,8 @@ const FicheVenture = () => (
         <dl className="text-base">
           {[
             ['Dénomination', cao.name],
-            ['Statut', 'En cours d’immatriculation'],
-            ['Dépôt de capital', '27 juillet 2026'],
+            ['Statut', 'Immatriculée'],
+            ['Immatriculation', '5 août 2026, RCS de Marseille'],
             ['Pôle', cao.pole.fr],
           ].map(([k, v]) => (
 
