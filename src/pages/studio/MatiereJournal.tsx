@@ -28,7 +28,7 @@ const jalons = [
         date: '2024',
         titre: 'Premier exercice déposé',
         corps:
-          "Chiffre d'affaires de 141 k€, résultat net de 130 k€. Comptes déposés au greffe. Aucun autre chiffre d'activité n'est publié.",
+          "Premier exercice clos. Résultat net à deux chiffres en pourcentage. Comptes déposés au greffe.",
         folio: '002',
       },
     ],
@@ -43,10 +43,10 @@ const jalons = [
         folio: '003',
       },
       {
-        date: '27 juillet 2026',
-        titre: 'Dépôt de capital de CAO Industries',
+        date: '5 août 2026',
+        titre: 'Immatriculation de CAO Industries',
         corps:
-          "Le dossier d'immatriculation est déposé. La société est en cours d'immatriculation.",
+          'CAO Industries est immatriculée au registre du commerce et des sociétés de Marseille.',
         folio: '004',
       },
       {

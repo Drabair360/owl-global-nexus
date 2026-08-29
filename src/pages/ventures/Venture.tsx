@@ -151,7 +151,12 @@ const Venture = () => {
                   { label: t('notice.status'), value: t(venture.statusKey).replace(/^\(|\)$/g, '') },
                   { label: t('notice.scope'), value: context },
                   ...(venture.incorporation
-                    ? [{ label: t('notice.incorporation'), value: venture.incorporation[locale] }]
+                    ? [{
+                        label: venture.statusKey === 'common.status.registered'
+                          ? t('notice.registration')
+                          : t('notice.incorporation'),
+                        value: venture.incorporation[locale],
+                      }]
                     : []),
                   {
                     label: t('notice.rank'),

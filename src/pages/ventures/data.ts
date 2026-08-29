@@ -23,7 +23,7 @@ export interface Venture {
   operating: { fr: string; en: string };
   /** Numéro d'ordre éditorial (§6). */
   order: string; // '01' à '05'
-  /** Fait daté de constitution, uniquement lorsqu'il est vérifiable. */
+  /** Fait daté de constitution ou d'immatriculation, uniquement lorsqu'il est vérifiable. */
   incorporation?: { fr: string; en: string };
 }
 
@@ -32,7 +32,7 @@ export const ventures: Venture[] = [
     slug: 'cao-industries',
     name: 'CAO Industries',
     pole: { fr: 'Pôle industriel', en: 'Industrial division' },
-    statusKey: 'common.status.registration',
+    statusKey: 'common.status.registered',
     missionKey: 'portfolio.cao.mission',
     pointsKeys: ['portfolio.cao.p1', 'portfolio.cao.p2', 'portfolio.cao.p3'],
     context: {
@@ -40,13 +40,13 @@ export const ventures: Venture[] = [
       en: "General contractor for turnkey industrial projects. CAO Industries carries the group's industrial division, from design to delivery.",
     },
     operating: {
-      fr: "Premier terrain de déploiement : Afrique de l'Ouest. Ingénierie et pilotage depuis la France.",
-      en: "First operating ground: West Africa. Engineering and management from France.",
+      fr: "Immatriculée au RCS de Marseille le 5 août 2026. Premier terrain de déploiement : Afrique de l'Ouest.",
+      en: "Registered at the Marseille Commercial Register on 5 August 2026. First operating ground: West Africa.",
     },
     order: '01',
     incorporation: {
-      fr: 'Constitution engagée en 2026',
-      en: 'Incorporation under way in 2026',
+      fr: 'Immatriculée le 5 août 2026 au RCS de Marseille',
+      en: 'Registered on 5 August 2026 at the Marseille Commercial Register',
     },
   },
   {
@@ -70,7 +70,7 @@ export const ventures: Venture[] = [
     slug: 'line-builder',
     name: 'Line Builder',
     pole: { fr: 'Pôle technologique', en: 'Technology division' },
-    statusKey: 'common.status.formation',
+    statusKey: 'common.status.registered',
     missionKey: 'portfolio.line.mission',
     pointsKeys: ['portfolio.line.p1', 'portfolio.line.p2', 'portfolio.line.p3'],
     context: {
@@ -78,16 +78,20 @@ export const ventures: Venture[] = [
       en: "Publisher of a plant and production-line configuration application, born of the group's field experience.",
     },
     operating: {
-      fr: "Application en développement. Utilisée en interne pour accélérer les avant-projets industriels.",
-      en: "Application under development. Used in-house to accelerate industrial pre-projects.",
+      fr: "Immatriculée au RCS de Paris le 17 août 2026. Application en développement, utilisée en interne pour accélérer les avant-projets industriels.",
+      en: "Registered at the Paris Commercial Register on 17 August 2026. Application under development, used in-house to accelerate industrial pre-projects.",
     },
     order: '03',
+    incorporation: {
+      fr: 'Immatriculée le 17 août 2026 au RCS de Paris',
+      en: 'Registered on 17 August 2026 at the Paris Commercial Register',
+    },
   },
   {
     slug: 'weavme',
     name: 'Weavme',
     pole: { fr: 'Pôle technologique', en: 'Technology division' },
-    statusKey: 'common.status.partnership',
+    statusKey: 'common.status.formation',
     missionKey: 'portfolio.weavme.mission',
     pointsKeys: ['portfolio.weavme.p1', 'portfolio.weavme.p2', 'portfolio.weavme.p3'],
     context: {
@@ -95,8 +99,8 @@ export const ventures: Venture[] = [
       en: "Booking and management software developed as a joint venture with a sector partner.",
     },
     operating: {
-      fr: "Marché : agences et métiers du booking. Gouvernance partagée avec le partenaire opérationnel.",
-      en: "Market: agencies and booking professions. Governance shared with the operational partner.",
+      fr: "En formation. Marché : agences et métiers du booking. Gouvernance partagée avec le partenaire opérationnel.",
+      en: "Under formation. Market: agencies and booking professions. Governance shared with the operational partner.",
     },
     order: '04',
   },
@@ -104,7 +108,7 @@ export const ventures: Venture[] = [
     slug: 'owl-real-estate',
     name: 'Owl Real Estate',
     pole: { fr: 'Pôle patrimonial', en: 'Real estate division' },
-    statusKey: 'common.status.constitution',
+    statusKey: 'common.status.notarial',
     missionKey: 'portfolio.ore.mission',
     pointsKeys: ['portfolio.ore.p1', 'portfolio.ore.p2', 'portfolio.ore.p3'],
     context: {
@@ -112,8 +116,8 @@ export const ventures: Venture[] = [
       en: "The group's real estate investment vehicle. Residential and yield assets in central locations.",
     },
     operating: {
-      fr: "Première opération en cours de structuration dans le sud de la France. Détention longue.",
-      en: "First operation being structured in the south of France. Long-term ownership.",
+      fr: "En formation par voie de Notaire. Première opération en cours de structuration dans le sud de la France.",
+      en: "Under formation by notarial deed. First operation being structured in the south of France.",
     },
     order: '05',
   },
