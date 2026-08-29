@@ -20,7 +20,7 @@ Clés i18n : `common.status.registered` est remplacée par deux clés par socié
 
 - Notices de fiche : le champ immatriculation daté (5 août 2026 / 17 août 2026) reste tel quel — c'est lui le fait vérifiable.
 - Journal : entrées des 5 et 17 août inchangées.
-- Intro portefeuille « Cinq sociétés, dont deux immatriculées » : reformulée si la ligne de statut ne dit plus « immatriculée » — proposition : « Cinq sociétés, deux pôles opérationnels immatriculés » → à trancher à l'usage, par défaut on garde le mot « immatriculées » ici (c'est un constat de groupe, pas une étiquette).
+- Intro portefeuille « Cinq sociétés, dont deux immatriculées » : **supprimée** (FR/EN) — la ligne de statut de chaque notice porte désormais seule cette information.
 - Doctrine : aucun capital, adresse, ni numéro RCS de filiale publié (sauf instruction contraire — voir point ouvert).
 
 ## 3. Point ouvert
