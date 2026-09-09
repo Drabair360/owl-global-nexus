@@ -30,6 +30,7 @@ const InstitutionalHero = ({
   folio,
   children,
 }: Props) => {
+  const { t } = useI18n();
   const { pathname } = useLocation();
   const num = folio ?? folioFor(pathname);
 
