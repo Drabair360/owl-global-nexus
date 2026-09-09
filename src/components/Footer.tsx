@@ -10,8 +10,9 @@ import { useI18n } from '@/lib/i18n';
  * chaque page, et la mention de vérifiabilité y devient gravure.
  */
 const Footer = () => {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const year = new Date().getFullYear();
+  const labelSeparator = locale === 'en' ? ':' : ' :';
 
   const scrollTop = () => window.scrollTo(0, 0);
 
@@ -87,8 +88,8 @@ const Footer = () => {
         <div className="mat-cachet mat-ink-2">
           <span className="mat-cachet-seal">RCS Paris 978 849 230</span>
           <span className="mat-cachet-ligne">OWL INTERNATIONAL - {t('footer.form')}</span>
-          <span className="mat-cachet-ligne">{t('footer.siege')} : 47 boulevard de Courcelles, 75008 Paris</span>
-          <span className="mat-cachet-ligne">{t('footer.president')} : Arthur Draber</span>
+          <span className="mat-cachet-ligne">{t('footer.siege')}{labelSeparator} 47 boulevard de Courcelles, 75008 Paris</span>
+          <span className="mat-cachet-ligne">{t('footer.president')}{labelSeparator} Arthur Draber</span>
           <span className="mat-cachet-ligne mat-tnum">© {year} - {t('footer.rights')}</span>
         </div>
       </div>
