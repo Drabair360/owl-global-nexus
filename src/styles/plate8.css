@@ -1,0 +1,104 @@
+/* CABINET — PL. VIII (B) : plan à calques.
+   Reprise du gabarit de référence, rebasée sur les jetons Matière du site
+   (papier, encre, laiton). Les dessins gardent leur rendu CAO tel quel. */
+
+.pl8 {
+  --pl8-paper: hsl(var(--mat-gres, 40 18% 94%));
+  --pl8-plate: #fbfaf6;
+  --pl8-ink: #3f372e;
+  --pl8-soft: #6b6154;
+  --pl8-line: #8d8272;
+  --pl8-brass: hsl(var(--mat-laiton, 33 34% 48%));
+  color: var(--pl8-ink);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.pl8 .pl8-layout { display: flex; gap: 20px; align-items: flex-start; }
+.pl8 .pl8-panel {
+  width: 270px; flex: 0 0 270px;
+  border: 1px solid var(--pl8-line);
+  background: var(--pl8-plate);
+  padding: 14px 14px 10px;
+  position: sticky; top: 10px;
+}
+.pl8 .pl8-panel h2 {
+  font-size: 11px; letter-spacing: .26em; text-transform: uppercase;
+  font-weight: normal; margin: 10px 0 6px;
+}
+.pl8 .chk {
+  display: flex; gap: 9px; align-items: flex-start; padding: 7px 2px;
+  border-top: 1px dotted var(--pl8-line); cursor: pointer; font-size: 13px; line-height: 1.3;
+}
+.pl8 .chk.sub { padding-left: 22px; font-size: 12px; border-top: none; color: var(--pl8-soft); }
+.pl8 .chk input {
+  appearance: none; width: 14px; height: 14px; border: 1px solid var(--pl8-ink);
+  background: var(--pl8-plate); flex: 0 0 14px; margin-top: 2px; position: relative; cursor: pointer;
+}
+.pl8 .chk input:checked::after { content: ""; position: absolute; inset: 2px; background: var(--pl8-brass); }
+.pl8 .chk input[type=radio] { border-radius: 50%; }
+.pl8 .chk input[type=radio]:checked::after { border-radius: 50%; }
+.pl8 .chk input:focus-visible { outline: 2px solid var(--pl8-brass); outline-offset: 2px; }
+.pl8 .chk input:disabled { opacity: .4; cursor: not-allowed; }
+.pl8 .pl8-actions {
+  display: flex; gap: 12px; margin-top: 10px; border-top: 1px solid var(--pl8-line); padding-top: 8px;
+}
+.pl8 .pl8-actions button {
+  background: none; border: none; font: inherit; font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--pl8-brass); cursor: pointer; padding: 0;
+}
+.pl8 .pl8-actions button:focus-visible { outline: 2px solid var(--pl8-brass); outline-offset: 2px; }
+
+.pl8 figure { margin: 0; flex: 1; min-width: 0; }
+.pl8 .pl8-frame { border: 1px solid var(--pl8-line); background: var(--pl8-plate); padding: 18px; position: relative; }
+.pl8 .pl8-frame > svg { display: block; width: 100%; height: auto; cursor: grab; touch-action: none; }
+.pl8 figcaption {
+  font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--pl8-soft); margin-top: 12px;
+}
+.pl8 .pl8-foot { font-size: 12.5px; color: var(--pl8-soft); line-height: 1.6; max-width: 900px; margin: 14px 0 0; }
+.pl8 .pl8-zoomhint {
+  position: absolute; right: 26px; top: 22px; font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--pl8-soft); pointer-events: none;
+}
+
+.pl8 svg [hidden] { display: none !important; }
+.pl8 g.layer { transition: opacity .3s; }
+.pl8 g.layer[data-off] { opacity: 0; pointer-events: none; }
+.pl8 g.phase { opacity: .6; }
+.pl8 g.phase[data-off] { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .pl8 g.layer { transition: none; } }
+
+.pl8 .content { margin-top: 22px; display: grid; gap: 18px; }
+.pl8 section.theme, .pl8 section.a0panel, .pl8 section.inset {
+  border: 1px solid var(--pl8-line); background: var(--pl8-plate); padding: 16px 18px;
+}
+.pl8 section.theme[hidden], .pl8 section.inset[hidden], .pl8 section.a0panel[hidden] { display: none; }
+.pl8 h3 { font-size: 14px; letter-spacing: .14em; text-transform: uppercase; font-weight: normal; margin: 0 0 6px; }
+.pl8 h4 {
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: normal;
+  color: var(--pl8-brass); margin: 14px 0 6px;
+}
+.pl8 p { font-size: 13px; line-height: 1.55; margin: 6px 0; }
+.pl8 .sub { color: var(--pl8-soft); }
+.pl8 .note { font-size: 12px; color: var(--pl8-soft); }
+.pl8 .green { color: #2f6b2f; }
+.pl8 .banner { font-size: 13px; border: 1px solid var(--pl8-ink); padding: 6px 10px; display: inline-block; }
+.pl8 .tw { overflow-x: auto; }
+.pl8 table { border-collapse: collapse; font-size: 12px; width: 100%; }
+.pl8 th, .pl8 td { border: 1px solid #c9c2b6; padding: 4px 7px; text-align: left; vertical-align: top; }
+.pl8 th { background: #ece7dc; font-weight: normal; letter-spacing: .06em; }
+.pl8 ul.plain { list-style: none; padding: 0; margin: 0; font-size: 12px; line-height: 1.5; }
+.pl8 ul.two { columns: 2; column-gap: 24px; }
+.pl8 ol.notes { font-size: 12.5px; line-height: 1.5; padding-left: 26px; }
+.pl8 ol.notes li { margin: 4px 0; }
+.pl8 section.inset svg { width: 100%; height: auto; display: block; background: #fff; border: 1px solid #d8d2c6; }
+.pl8 .bands { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.pl8 .bands .bB { max-width: 420px; }
+.pl8 .bands .bC { max-width: 1000px; }
+
+@media (max-width: 900px) {
+  .pl8 .pl8-layout { flex-direction: column; }
+  .pl8 .pl8-panel { width: 100%; flex: auto; position: static; }
+  .pl8 .pl8-frame { overflow-x: auto; }
+  .pl8 .pl8-frame > svg { min-width: 900px; }
+  .pl8 ul.two { columns: 1; }
+}
