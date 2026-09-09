@@ -8,10 +8,10 @@ import { useI18n } from '@/lib/i18n';
  * pas une information). Les deux boutons portent l'encre du bâtiment.
  */
 const LanguageToggle = () => {
-  const { locale, setLocale } = useI18n();
+  const { locale, setLocale, t } = useI18n();
   const base = 'text-sm font-subtitle tracking-wider transition-colors duration-200';
   return (
-    <div className="flex items-center gap-1" aria-label="Language selector">
+    <div className="flex items-center gap-1" aria-label={t('a11y.langSelector')}>
       <button
         type="button"
         onClick={() => setLocale('fr')}

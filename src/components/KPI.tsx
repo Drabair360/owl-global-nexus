@@ -30,7 +30,7 @@ export const KPI = ({
     <p className="smallcaps text-xs text-[hsl(var(--text-secondary))]">{label}</p>
     {source ? (
       <p className="text-[11px] text-[hsl(var(--text-secondary))]/70 mt-2 font-body">
-        Source&nbsp;: {source}
+        {sourceLabel} {source}
       </p>
     ) : null}
   </div>

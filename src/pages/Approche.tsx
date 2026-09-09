@@ -42,7 +42,7 @@ const Approche = () => {
           chapters={principles.map((p) => ({
             id: `principe-${p.n}`,
             number: p.n,
-            label: `Principe ${p.n}`,
+            label: `${t('approche.principle')} ${p.n}`,
             title: t(p.tKey),
             content: (
               <SplitText
