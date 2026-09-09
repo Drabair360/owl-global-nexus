@@ -1,3 +1,4 @@
+import { useI18n } from '@/lib/i18n';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import GutterRule from './GutterRule';
@@ -29,6 +30,7 @@ const InstitutionalHero = ({
   folio,
   children,
 }: Props) => {
+  const { t } = useI18n();
   const { pathname } = useLocation();
   const num = folio ?? folioFor(pathname);
 
@@ -76,7 +78,7 @@ const InstitutionalHero = ({
       <div className="absolute inset-x-0 bottom-6 z-10 self-end">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mat-cachet font-subtitle">
-            <span className="mat-cachet-seal">Registre Owl</span>
+            <span className="mat-cachet-seal">{t('common.registre')}</span>
             <span className="mat-ink-2">{place}</span>
             <span className="mat-ink-2 ml-auto mat-tnum">{year}</span>
           </div>

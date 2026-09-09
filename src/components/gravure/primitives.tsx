@@ -1,5 +1,6 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, DEPASSEMENT } from './defs';
+import { useGravure } from './textes';
 
 /**
  * CABINET DE GRAVURES §1 — LA BIBLIOTHÈQUE DE PRIMITIVES.
@@ -295,6 +296,7 @@ export const Attache = ({
   label: string;
   anchor?: 'start' | 'end' | 'middle';
 }) => {
+  const g = useGravure();
   const mx = x + dx * 0.45;
   const my = y + dy;
   const ex = x + dx;
@@ -309,7 +311,7 @@ export const Attache = ({
         fontSize="11"
         textAnchor={anchor}
       >
-        {label}
+        {g(label)}
       </text>
     </g>
   );
@@ -425,6 +427,7 @@ export const EchelleGraphique = ({
   n?: number;
   label?: string;
 }) => {
+  const g = useGravure();
   const step = w / n;
   return (
     <g>
@@ -444,7 +447,7 @@ export const EchelleGraphique = ({
         0
       </text>
       <text className="gravure-lettrage" x={x + w} y={y + h + 11} fontSize="10" textAnchor="end">
-        {label}
+        {g(label)}
       </text>
     </g>
   );
@@ -578,7 +581,9 @@ export const RepereFigure = ({
   n: string;
   title: string;
   w?: number;
-}) => (
+}) => {
+  const g = useGravure();
+  return (
   <g>
     <text
       className="gravure-lettrage gravure-reserve"
@@ -599,12 +604,12 @@ export const RepereFigure = ({
       y={y}
       fontSize="12"
     >
-      {title}
+      {g(title)}
     </text>
     <line x1={x} y1={y + 6} x2={x + w} y2={y + 6} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
   </g>
-
-);
+  );
+};
 
 /* ------------------------------------------------------------------ *
  * §1.14 — PASTILLE DE NOMENCLATURE ①
@@ -634,6 +639,7 @@ export const Nomenclature = ({
   perCol?: number;
   lineHeight?: number;
 }) => {
+  const g = useGravure();
   const per = perCol ?? items.length;
   return (
     <g data-lis="bloc">
@@ -646,7 +652,7 @@ export const Nomenclature = ({
           <g key={it}>
             <Pastille x={px} y={py} n={i + 1} r={8} />
             <text className="gravure-lettrage" x={px + 16} y={py + 4} fontSize="12">
-              {it}
+              {g(it)}
             </text>
           </g>
         );

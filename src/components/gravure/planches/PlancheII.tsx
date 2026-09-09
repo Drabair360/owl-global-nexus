@@ -1,6 +1,7 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
 import Cartouche, { VOL_I } from '../Cartouche';
+import { useGravure } from '../textes';
 import {
   Trait,
   Cadre,
@@ -51,18 +52,23 @@ const Temps = ({
   n: number;
   titre: string;
   children: React.ReactNode;
-}) => (
+}) => {
+  const g = useGravure();
+  return (
   <g>
     <Cadre x={x - 92} y={y - 96} w={184} h={168} weight={FIN} />
     <g transform={`translate(${x} ${y})`}>{children}</g>
     <Pastille x={x - 92} y={y - 96} n={n} />
     <text className="gravure-lettrage" x={x} y={y + 92} fontSize="12" textAnchor="middle">
-      {titre}
+      {g(titre)}
     </text>
   </g>
-);
+  );
+};
 
-export const PlancheIIDrawing = ({ p }: { p: string }) => (
+export const PlancheIIDrawing = ({ p }: { p: string }) => {
+  const g = useGravure();
+  return (
   <>
     <GravureDefs p={p} />
 
@@ -107,7 +113,7 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
       strokeDasharray="9 5"
     />
     <text className="gravure-lettrage" x={COL[0] + 30} y={R2 + 122} fontSize="11" fill={OXYDE}>
-      Boucle de retour : la maintenance revient à la conception
+      {g("Boucle de retour : la maintenance revient à la conception")}
     </text>
 
     {/* ---------- 1 · AVANT-PROJET ---------- */}
@@ -153,7 +159,7 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
       <line x1={22} y1={-34} x2={22} y2={40} stroke={ENCRE} strokeWidth={FIN} />
       <line x1={-58} y1={2} x2={52} y2={2} stroke={ENCRE} strokeWidth={FIN} />
       <text className="gravure-lettrage" x={-3} y={-42} fontSize="11" textAnchor="middle">
-        Repère colis
+        {g("Repère colis")}
       </text>
       {/* bon de réception à souche */}
       <path d="M58 -10 h34 v52 h-34 z" fill="hsl(var(--gravure-fond))" stroke={ENCRE} strokeWidth={FIN} />
@@ -283,7 +289,7 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
         </g>
       ))}
       <text className="gravure-lettrage" x={0} y={76} fontSize="11">
-        Revues, réserves, réception
+        {g("Revues, réserves, réception")}
       </text>
     </g>
 
@@ -316,4 +322,5 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => (
       renvois={['Coupe de l\'unité : PL. I', 'Implantation générale : PL. VIII']}
     />
   </>
-);
+  );
+};

@@ -111,7 +111,7 @@ const Index = () => {
         <div className="absolute inset-x-0 bottom-6 z-10 self-end">
           <div className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 ${step(3)}`}>
             <div className="mat-cachet font-subtitle">
-              <span className="mat-cachet-seal">Registre Owl</span>
+              <span className="mat-cachet-seal">{t('common.registre')}</span>
               <span className="mat-ink-2 mat-cachet-ligne">Paris</span>
               <span className="mat-ink-2 mat-cachet-ligne xl:ml-auto mat-tnum">EST. 2023</span>
             </div>

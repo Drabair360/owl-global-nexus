@@ -1,6 +1,7 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
 import Cartouche, { VOL_I } from '../Cartouche';
+import { useGravure } from '../textes';
 import {
   poche,
   RepereFigure,
@@ -95,7 +96,9 @@ export const PLANCHE_IX = {
   detailViewBox: '150 170 640 390',
 };
 
-export const PlancheIXDrawing = ({ p }: { p: string }) => (
+export const PlancheIXDrawing = ({ p }: { p: string }) => {
+  const g = useGravure();
+  return (
   <>
     <GravureDefs p={p} />
 
@@ -329,10 +332,10 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     {/* ================= DÉT. 1 — TRAVERSÉE SUR NERVURE ================= */}
     <BlocTexte>
       <text className="gravure-lettrage" x={640} y={690} fontSize="12" fill={ENCRE}>
-        DÉT. 1
+        {g("DÉT. 1")}
       </text>
       <text className="gravure-lettrage" x={700} y={690} fontSize="12">
-        Traversée d&apos;étanchéité en sommet de nervure
+        {g("Traversée d'étanchéité en sommet de nervure")}
       </text>
       <line x1={640} y1={696} x2={1010} y2={696} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
     </BlocTexte>
@@ -364,7 +367,7 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
     {/* ============ 3 MINUTES — L'ÉCHELLE DE LIBELLÉS EN MARGE ============ */}
     <BlocTexte>
       <text className="gravure-lettrage" x={60} y={938} fontSize="12" fill={OXYDE}>
-        Échelle de libellés - chaque repère du dessin, sa désignation complète
+        {g("Échelle de libellés - chaque repère du dessin, sa désignation complète")}
       </text>
     </BlocTexte>
     <EchelleLibelles
@@ -418,22 +421,22 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
       <g>
         <line x1={64} y1={1160} x2={112} y2={1160} stroke={ENCRE} strokeWidth={FORT} />
         <text className="gravure-lettrage" x={124} y={1164} fontSize="12">
-          Structure de toiture (PL. I)
+          {g("Structure de toiture (PL. I)")}
         </text>
         <line x1={300} y1={1160} x2={348} y2={1160} stroke={ENCRE} strokeWidth={MOYEN} />
         <text className="gravure-lettrage" x={360} y={1164} fontSize="12">
-          Champ photovoltaïque
+          {g("Champ photovoltaïque")}
         </text>
         <line x1={540} y1={1160} x2={588} y2={1160} stroke={LAITON} strokeWidth={FORT} />
         <text className="gravure-lettrage" x={600} y={1164} fontSize="12">
-          Raccordement, laiton
+          {g("Raccordement, laiton")}
         </text>
       </g>
       <text className="gravure-lettrage" x={64} y={1196} fontSize="12" fill={OXYDE}>
-        Ni membrane ni isolant de toiture-terrasse, aucun plot ballasté.
+        {g("Ni membrane ni isolant de toiture-terrasse, aucun plot ballasté.")}
       </text>
       <text className="gravure-lettrage" x={64} y={1218} fontSize="12" fill={OXYDE}>
-        Étanchéité perforée en sommet de nervure seulement, DÉT. 1 - drainage naturel conservé.
+        {g("Étanchéité perforée en sommet de nervure seulement, DÉT. 1 - drainage naturel conservé.")}
       </text>
     </BlocTexte>
 
@@ -451,4 +454,5 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => (
       />
     </BlocTexte>
   </>
-);
+  );
+};

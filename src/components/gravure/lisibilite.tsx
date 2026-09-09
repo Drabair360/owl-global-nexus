@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { ENCRE, OXYDE, LAITON, FIN, ULTRAFIN } from './defs';
+import { useGravure } from './textes';
 
 /**
  * PHASE L — LE SYSTÈME DE LIBELLÉS ET LES TROIS LECTURES.
@@ -41,19 +42,22 @@ export const TitrePlanche = ({
   y: number;
   titre: string;
   sous?: string;
-}) => (
+}) => {
+  const g = useGravure();
+  return (
   <g>
     <text className="gravure-lettrage" data-lis="titre" x={x} y={y} fontSize="26" fill={ENCRE}>
-      {titre}
+      {g(titre)}
     </text>
     {sous && (
       <text className="gravure-lettrage" data-lis="titre" x={x} y={y + 34} fontSize="12" fill={OXYDE}>
-        {sous}
+        {g(sous)}
       </text>
     )}
     <line x1={x} y1={y + (sous ? 46 : 12)} x2={x + 1120} y2={y + (sous ? 46 : 12)} stroke={ENCRE} strokeWidth={FIN} />
   </g>
-);
+  );
+};
 
 /* ------------------------------------------------------------------ *
  * L3 / 30 SECONDES — LES ZONES NOMMÉES EN BANDEAUX
@@ -72,7 +76,9 @@ export const BandeauZone = ({
   h: number;
   label: string;
   teinte?: number;
-}) => (
+}) => {
+  const g = useGravure();
+  return (
   <g>
     <g data-lis="zone-fond">
       <rect x={x} y={y} width={w} height={h} fill={`hsl(var(--gravure-encre) / ${teinte})`} />
@@ -87,10 +93,11 @@ export const BandeauZone = ({
       fontSize={TAILLE_REPERE}
       fill={OXYDE}
     >
-      {label}
+      {g(label)}
     </text>
   </g>
-);
+  );
+};
 
 /** Le sens de lecture, flèche unique sous la figure. */
 export const SensLecture = ({
@@ -103,7 +110,9 @@ export const SensLecture = ({
   y: number;
   w: number;
   label: string;
-}) => (
+}) => {
+  const g = useGravure();
+  return (
   <g>
     <line x1={x} y1={y} x2={x + w - 12} y2={y} stroke={OXYDE} strokeWidth={ULTRAFIN} />
     <path d={`M${x + w} ${y} l-14 -5 v10 z`} fill={OXYDE} />
@@ -116,10 +125,11 @@ export const SensLecture = ({
       fontSize={TAILLE_REPERE}
       fill={OXYDE}
     >
-      {label}
+      {g(label)}
     </text>
   </g>
-);
+  );
+};
 
 /* ------------------------------------------------------------------ *
  * L1 — L'ÉCHELLE DE LIBELLÉS EN MARGE
@@ -156,7 +166,9 @@ export const EchelleLibelles = ({
   items: Libelle[];
   /** Retrait du coude par rapport au rail. */
   coude?: number;
-}) => (
+}) => {
+  const g = useGravure();
+  return (
   <g>
     {items.map((it, i) => {
       const ry = yStart + i * yStep;
@@ -185,13 +197,14 @@ export const EchelleLibelles = ({
             textAnchor={side === 'right' ? 'start' : 'end'}
             fill={it.or ? LAITON : OXYDE}
           >
-            {it.repere ? `${it.repere} - ${it.label}` : it.label}
+            {it.repere ? `${g(it.repere)} - ${g(it.label)}` : g(it.label)}
           </text>
         </g>
       );
     })}
   </g>
-);
+  );
+};
 
 /**
  * Repère court porté DANS le dessin — jamais une phrase.

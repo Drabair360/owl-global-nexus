@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useI18n } from '@/lib/i18n';
 
 interface Pole {
   code: string;
@@ -10,13 +11,13 @@ interface Pole {
 const POLES: Pole[] = [
   {
     code: 'A',
-    name: 'Opérationnel',
+    name: 'viz.op',
     weight: 72,
     entities: ['CAO Industries', 'Drabair Labs', 'Line Builder', 'Weavme'],
   },
   {
     code: 'B',
-    name: 'Patrimonial',
+    name: 'viz.pat',
     weight: 28,
     entities: ['Owl Real Estate'],
   },
@@ -27,6 +28,7 @@ const POLES: Pole[] = [
  * hover pour voir les entités. Style rapport annuel.
  */
 const PolesViz = () => {
+  const { t } = useI18n();
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
   const [active, setActive] = useState<number | null>(null);
@@ -45,9 +47,9 @@ const PolesViz = () => {
   return (
     <div ref={ref} className="w-full max-w-4xl">
       <div className="flex items-baseline justify-between mb-6">
-        <span className="text-xs font-subtitle tracking-[0.3em] uppercase mat-ink-accent">Répartition</span>
+        <span className="text-xs font-subtitle tracking-[0.3em] uppercase mat-ink-accent">{t('viz.repartition')}</span>
         <span className="text-xs font-subtitle tracking-[0.2em] uppercase text-muted-foreground">
-          Structure du groupe
+          {t('viz.structure')}
         </span>
       </div>
       <div className="space-y-8">
@@ -64,7 +66,7 @@ const PolesViz = () => {
                   {p.code}
                 </span>
                 <span className="text-sm font-subtitle tracking-[0.2em] uppercase mat-ink-2">
-                  {p.name}
+                  {t(p.name)}
                 </span>
               </div>
               <span

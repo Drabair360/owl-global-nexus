@@ -71,6 +71,21 @@ const dict: Record<Locale, Record<string, string>> = {
     'footer.siege': 'Siège social',
     'footer.verifiable': 'Ce que vous lisez ici est vérifiable au registre du commerce.',
     'common.readMore': 'Comprendre notre modèle',
+    'common.registre': 'Registre Owl',
+    'a11y.langSelector': 'Sélecteur de langue',
+    'viz.repartition': 'Répartition',
+    'viz.structure': 'Structure du groupe',
+    'viz.op': 'Opérationnel',
+    'viz.pat': 'Patrimonial',
+    'approche.principle': 'Principe',
+    'scouts.honeypot': 'Ne pas remplir',
+    'seo.og.alt': 'Owl International - carte institutionnelle, filet or sur fond encre',
+    'alt.archive': "Papier de rapport imprimé, tranche dorée en lumière rasante - image d'illustration",
+    'alt.signature': "Stylo plume posé sur papier vergé - image d'illustration",
+    'alt.terrain': "Matière minérale ocre au crépuscule - image d'illustration",
+    'alt.vide': "Mur d'encre traversé d'un unique rai de lumière - image d'illustration",
+    'alt.ogBase': "Fond institutionnel - image d'illustration",
+    'kpi.sourceLabel': 'Source',
     'common.status.registration': '(en cours d’immatriculation)',
     'common.status.cao': 'SAS au RCS de Marseille',
     'common.status.line': 'SAS au RCS de Paris',
@@ -469,6 +484,21 @@ const dict: Record<Locale, Record<string, string>> = {
     'footer.siege': 'Registered office',
     'footer.verifiable': 'What you read here is verifiable at the commercial registry.',
     'common.readMore': 'Understand our model',
+    'common.registre': 'Owl Register',
+    'a11y.langSelector': 'Language selector',
+    'viz.repartition': 'Breakdown',
+    'viz.structure': 'Group structure',
+    'viz.op': 'Operational',
+    'viz.pat': 'Real estate',
+    'approche.principle': 'Principle',
+    'scouts.honeypot': 'Do not fill',
+    'seo.og.alt': 'Owl International - institutional card, gold rule on ink ground',
+    'alt.archive': 'Printed report paper, gilt edge in raking light - illustrative image',
+    'alt.signature': 'Fountain pen resting on laid paper - illustrative image',
+    'alt.terrain': 'Ochre mineral texture at dusk - illustrative image',
+    'alt.vide': 'Ink wall crossed by a single shaft of light - illustrative image',
+    'alt.ogBase': 'Institutional background - illustrative image',
+    'kpi.sourceLabel': 'Source',
     'common.status.registration': '(registration under way)',
     'common.status.cao': 'SAS registered with the Marseille Commercial Register',
     'common.status.line': 'SAS registered with the Paris Commercial Register',
@@ -818,7 +848,9 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     const param = new URLSearchParams(window.location.search).get('lang');
     if (param === 'en' || param === 'fr') return param;
     const stored = window.localStorage.getItem(STORAGE_KEY) as Locale | null;
-    return stored === 'en' || stored === 'fr' ? stored : 'fr';
+    if (stored === 'en' || stored === 'fr') return stored;
+    // Première visite : la langue du navigateur décide, sans jamais écraser un choix stocké.
+    return (navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'fr';
   });
 
 

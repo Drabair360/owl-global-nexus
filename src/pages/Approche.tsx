@@ -42,7 +42,7 @@ const Approche = () => {
           chapters={principles.map((p) => ({
             id: `principe-${p.n}`,
             number: p.n,
-            label: `Principe ${p.n}`,
+            label: `${t('approche.principle')} ${p.n}`,
             title: t(p.tKey),
             content: (
               <SplitText
@@ -80,7 +80,7 @@ const Approche = () => {
                   src={textures.signature.src}
                   sources={textures.signature.sources}
                   sizes={SIZES.column}
-                  alt={textures.signature.alt}
+                  alt={t('alt.signature')}
                   tone="laiton"
                   width={textures.signature.width}
                   height={textures.signature.height}

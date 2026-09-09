@@ -1,6 +1,7 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, FIN } from './defs';
 import { EchelleGraphique } from './primitives';
+import { useGravure, useGravureLocale } from './textes';
 
 /**
  * CABINET DE GRAVURES §1 — LE CARTOUCHE.
@@ -45,10 +46,13 @@ const Cartouche = ({
   index?: string;
   /** Renvois croisés réels vers les autres planches. */
   renvois?: string[];
-}) => (
+}) => {
+  const g = useGravure();
+  const locale = useGravureLocale();
+  return (
   <g transform={`translate(${x} ${y})`} data-lis="bloc" aria-hidden="true">
     {dossier && (() => {
-      const [tete, sujet] = dossier.split(' : ');
+      const [tete, sujet] = g(dossier).split(' : ');
       const lignes = renvois && renvois.length > 0 ? 1 : 0;
       const bh = 38 + (sujet ? 17 : 0) + lignes * 17;
       return (
@@ -69,7 +73,7 @@ const Cartouche = ({
           )}
           {renvois && renvois.length > 0 && (
             <text className="gravure-lettrage" x="12" y={bh - 8} fontSize="9" fill={OXYDE}>
-              {renvois.join('  -  ')}
+              {renvois.map((r) => g(r)).join('  -  ')}
             </text>
           )}
         </g>
@@ -81,10 +85,10 @@ const Cartouche = ({
     <line x1={w - 62} y1="0" x2={w - 62} y2={h} stroke={ENCRE} strokeWidth={FIN} opacity="0.6" />
 
     <text className="gravure-lettrage" x="12" y={h * 0.3} fontSize="14">
-      PLANCHE {numeral}
+      {locale === 'en' ? 'PLATE' : 'PLANCHE'} {numeral}
     </text>
     <text className="gravure-lettrage" x="12" y={h * 0.68} fontSize="13" fill={ENCRE} opacity="0.85">
-      {title}
+      {g(title)}
     </text>
 
     {/* §1.9 — échelle graphique, graduations symboliques */}
@@ -97,9 +101,10 @@ const Cartouche = ({
       <line x1="0" y1="-7" x2="-2" y2="7" stroke={LAITON} strokeWidth={FORT} />
     </g>
     <text className="gravure-lettrage" x={w - 44} y={h - 10} fontSize="10" textAnchor="middle" fill={OXYDE}>
-      REGISTRE
+      {locale === 'en' ? 'REGISTER' : 'REGISTRE'}
     </text>
   </g>
-);
+  );
+};
 
 export default Cartouche;

@@ -258,7 +258,7 @@ const Scouts = () => {
 
               {/* Honeypot anti-robot : hors flux, hors tabulation, ignoré des lecteurs d'écran. */}
               <div aria-hidden="true" className="absolute w-px h-px -left-[9999px] overflow-hidden">
-                <label htmlFor="website">Ne pas remplir</label>
+                <label htmlFor="website">{t('scouts.honeypot')}</label>
                 <input
                   id="website"
                   name="website"
