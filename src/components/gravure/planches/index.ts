@@ -35,7 +35,7 @@ export interface PlancheEntree {
 /** Le cabinet : neuf planches, un seul registre. */
 export const CABINET: PlancheEntree[] = [
   { meta: PLANCHE_I, Drawing: PlancheIDrawing, emplacement: '/portefeuille/cao-industries', laiton: 'La ligne de sol' },
-  { meta: PLANCHE_II, Drawing: PlancheIIDrawing, emplacement: '/metiers', laiton: 'Le fil conducteur des sept temps' },
+  { meta: PLANCHE_II, Drawing: PlancheIIDrawing, emplacement: '(hors publication)', laiton: 'Le fil conducteur des sept temps', publiee: false },
   { meta: PLANCHE_III, Drawing: PlancheIIIDrawing, emplacement: '/portefeuille/line-builder', laiton: "La colonne CFG-A de la matrice" },
   { meta: PLANCHE_IV, Drawing: PlancheIVDrawing, emplacement: '/portefeuille/drabair-labs', laiton: "L'arbre de transmission commun" },
   { meta: PLANCHE_V, Drawing: PlancheVDrawing, emplacement: '/portefeuille/weavme', laiton: 'Le segment de résolution' },
