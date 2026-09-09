@@ -1,3 +1,4 @@
+import { useI18n } from '@/lib/i18n';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import GutterRule from './GutterRule';

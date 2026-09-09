@@ -22,7 +22,10 @@ export const KPI = ({
   label: string;
   source?: string;
   className?: string;
-}) => (
+}) => {
+  const { t, locale } = useI18n();
+  const sourceLabel = locale === 'en' ? 'Source:' : 'Source\u00A0:';
+  return (
   <div className={`border-t border-[hsl(var(--gold))/0.4] pt-4 ${className}`}>
     <div className="font-display text-4xl md:text-5xl mat-tnum mat-ink-1 leading-none mb-3">
       {value}
@@ -34,7 +37,8 @@ export const KPI = ({
       </p>
     ) : null}
   </div>
-);
+  );
+};
 
 /** Grille KPI par défaut - set autorisé complet, bilingue. */
 export const OwlKPISet = () => {
