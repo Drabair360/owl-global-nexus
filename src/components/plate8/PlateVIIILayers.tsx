@@ -191,14 +191,10 @@ const PlateVIIILayers = () => {
   useEffect(() => {
     if (!panelsNeeded || panelsLoaded.current) return;
     let alive = true;
-    loadFile(`${DIR}/panels.html`).then(async (html) => {
+    loadFile(`${DIR}/panels.html`).then((html) => {
       if (!alive || !panelsRef.current || panelsLoaded.current) return;
       panelsRef.current.innerHTML = html;
       panelsLoaded.current = true;
-      const holders = [
-        ['inset-admin', 'admin-rdc-etage.svg'],
-      ] as const;
-      void holders;
       setVersion((v) => v + 1);
     });
     return () => {
