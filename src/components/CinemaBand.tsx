@@ -1,4 +1,5 @@
 import React from 'react';
+import { useI18n } from '@/lib/i18n';
 import Duotone, { type DuotoneTone } from '@/components/Duotone';
 import Legende from '@/components/Legende';
 import { textures, SIZES, type TextureKey } from '@/assets/textures';
@@ -25,6 +26,7 @@ const CinemaBand = ({ texture, tone = 'prestige', eager = false, objectPosition,
   const ref = React.useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = React.useState(false);
   const [offset, setOffset] = React.useState(0);
+  const { t } = useI18n();
   const tex = textures[texture];
   const alt = t(`alt.${texture}`);
 
