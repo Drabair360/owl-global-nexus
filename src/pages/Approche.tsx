@@ -80,7 +80,7 @@ const Approche = () => {
                   src={textures.signature.src}
                   sources={textures.signature.sources}
                   sizes={SIZES.column}
-                  alt={textures.signature.alt}
+                  alt={t('alt.signature')}
                   tone="laiton"
                   width={textures.signature.width}
                   height={textures.signature.height}

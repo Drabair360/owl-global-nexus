@@ -26,6 +26,7 @@ const CinemaBand = ({ texture, tone = 'prestige', eager = false, objectPosition,
   const [revealed, setRevealed] = React.useState(false);
   const [offset, setOffset] = React.useState(0);
   const tex = textures[texture];
+  const alt = t(`alt.${texture}`);
 
   React.useEffect(() => {
     const el = ref.current;
@@ -93,7 +94,7 @@ const CinemaBand = ({ texture, tone = 'prestige', eager = false, objectPosition,
               src={tex.src}
               sources={tex.sources}
               sizes={SIZES.band}
-              alt={tex.alt}
+              alt={alt}
               tone={tone}
               eager={eager}
               width={tex.width}

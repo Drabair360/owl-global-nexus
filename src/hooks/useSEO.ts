@@ -113,6 +113,12 @@ export const useSEO = ({ title, description, jsonLd, keywords, ogImage, noindex 
     setProp('og:image', socialImage);
     setProp('og:image:width', '1200');
     setProp('og:image:height', '630');
+    setProp(
+      'og:image:alt',
+      locale === 'en'
+        ? 'Owl International - institutional card, gold rule on ink ground'
+        : 'Owl International - carte institutionnelle, filet or sur fond encre',
+    );
 
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', title);
