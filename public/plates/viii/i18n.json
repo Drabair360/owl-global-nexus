@@ -1,0 +1,4746 @@
+{
+"b.b145": {
+"fr": "UNITÉ 1 - CONDITIONNEMENT ET EXPORT",
+"en": "UNIT 1 - PACKING AND EXPORT"
+},
+"b.b147": {
+"fr": "UNITÉ 2 - TRANSFORMATION",
+"en": "UNIT 2 - PROCESSING"
+},
+"b.b213": {
+"fr": "MAGASIN CACAO BROUSSE",
+"en": "RAW COCOA WAREHOUSE"
+},
+"b.b215": {
+"fr": "5 816 m²",
+"en": "5 816 m²"
+},
+"b.b217": {
+"fr": "CONDITIONNEMENT 15 T/h",
+"en": "PACKING 15 T/h"
+},
+"b.b219": {
+"fr": "3 080 m²",
+"en": "3 080 m²"
+},
+"b.b221": {
+"fr": "MAGASIN CACAO EXPORT",
+"en": "EXPORT COCOA WAREHOUSE"
+},
+"b.b223": {
+"fr": "6 440 m²",
+"en": "6 440 m²"
+},
+"b.b225": {
+"fr": "HALL TRANSFORMATION",
+"en": "PROCESSING HALL"
+},
+"b.b227": {
+"fr": "2 880 m²",
+"en": "2 880 m²"
+},
+"b.b229": {
+"fr": "UTILITÉS",
+"en": "UTILITIES"
+},
+"b.b231": {
+"fr": "1 584 m²",
+"en": "1 584 m²"
+},
+"b.b233": {
+"fr": "MAGASIN PRODUITS FINIS",
+"en": "FINISHED-GOODS WAREHOUSE"
+},
+"b.b235": {
+"fr": "3 914 m²",
+"en": "3 914 m²"
+},
+"b.b237": {
+"fr": "ADMINISTRATION R+1",
+"en": "ADMINISTRATION R+1"
+},
+"b.b239": {
+"fr": "525 m²",
+"en": "525 m²"
+},
+"b.b241": {
+"fr": "LOCAL TECHNIQUE",
+"en": "TECHNICAL ROOM"
+},
+"b.b243": {
+"fr": "420 m²",
+"en": "420 m²"
+},
+"b.b245": {
+"fr": "ÎLOT TECHNIQUE",
+"en": "TECHNICAL ISLAND"
+},
+"b.b247": {
+"fr": "GPL, forage, HTA/BT, biomasse",
+"en": "LPG, borehole, HV/LV, biomass"
+},
+"b.b249": {
+"fr": "emballages, labo, bloc social",
+"en": "packaging, lab, staff block"
+},
+"b.b251": {
+"fr": "AIRE DE RÉCEPTION - quais R1 à R9",
+"en": "RECEPTION AREA - docks R1 to R9"
+},
+"b.b253": {
+"fr": "AIRE EXPORT - quais E1 à E6",
+"en": "EXPORT AREA - docks E1 to E6"
+},
+"b.b255": {
+"fr": "AIRE PF - quais PF1 à PF7",
+"en": "FINISHED-GOODS AREA - docks PF1 to PF7"
+},
+"b.b257": {
+"fr": "PONT U1",
+"en": "WEIGHBRIDGE U1"
+},
+"b.b259": {
+"fr": "PONT U2",
+"en": "WEIGHBRIDGE U2"
+},
+"b.b261": {
+"fr": "PORTAIL U1 (B3)",
+"en": "GATE U1 (B3)"
+},
+"b.b263": {
+"fr": "PORTAIL U2 (B6)",
+"en": "GATE U2 (B6)"
+},
+"b.b265": {
+"fr": "VL B5 visiteurs",
+"en": "Cars B5 visitors"
+},
+"b.b267": {
+"fr": "VL B7-B8 personnel",
+"en": "Cars B7-B8 staff"
+},
+"b.b269": {
+"fr": "PARKING",
+"en": "PARKING"
+},
+"b.b271": {
+"fr": "26 + 6",
+"en": "26 + 6"
+},
+"b.b273": {
+"fr": "PARKING 15",
+"en": "PARKING 15"
+},
+"b.b275": {
+"fr": "STEP",
+"en": "WWTP"
+},
+"b.b277": {
+"fr": "BASSIN EP",
+"en": "STORMWATER BASIN"
+},
+"b.b279": {
+"fr": "NOUE EP",
+"en": "STORMWATER SWALE"
+},
+"b.b281": {
+"fr": "INCENDIE",
+"en": "RESERVE"
+},
+"b.b283": {
+"fr": "RÉSERVE",
+"en": "FIRE"
+},
+"b.b285": {
+"fr": "CLÔTURE U1 / U2",
+"en": "FENCE U1 / U2"
+},
+"b.b287": {
+"fr": "BRETELLE U1",
+"en": "U1 LINK ROAD"
+},
+"b.b289": {
+"fr": "PONT DE",
+"en": "TRANSFER"
+},
+"b.b291": {
+"fr": "CESSION",
+"en": "WEIGHBRIDGE"
+},
+"b.b293": {
+"fr": "VOIE NORD U1 - entrée et sortie, pont U1, attente 6 PL",
+"en": "NORTH ROAD U1 - entry and exit, weighbridge U1, 6-truck waiting lane"
+},
+"b.b295": {
+"fr": "BOUCLE U2 - entrée par B6, tour de l'îlot, quais PF, sortie par le pont U2",
+"en": "LOOP U2 - entry via B6, around the island, PF docks, exit via weighbridge U2"
+},
+"b.b297": {
+"fr": "HÉVÉA - riverain nord",
+"en": "RUBBER PLANTATION - north neighbour"
+},
+"b.b299": {
+"fr": "HÉVÉA - riverain ouest",
+"en": "RUBBER PLANTATION - west neighbour"
+},
+"b.b301": {
+"fr": "BAS FOND",
+"en": "LOWLAND"
+},
+"b.b303": {
+"fr": "ROUTE",
+"en": "ROAD"
+},
+"a0.l0": {
+"fr": "29",
+"en": "29"
+},
+"a0.l1": {
+"fr": "15",
+"en": "15"
+},
+"a0.l2": {
+"fr": "34",
+"en": "34"
+},
+"a0.l3": {
+"fr": "8",
+"en": "8"
+},
+"a0.l4": {
+"fr": "14",
+"en": "14"
+},
+"a0.l5": {
+"fr": "32",
+"en": "32"
+},
+"a0.l6": {
+"fr": "31",
+"en": "31"
+},
+"a0.l7": {
+"fr": "18",
+"en": "18"
+},
+"a0.l8": {
+"fr": "13",
+"en": "13"
+},
+"a0.l9": {
+"fr": "40",
+"en": "40"
+},
+"a0.l10": {
+"fr": "17",
+"en": "17"
+},
+"a0.l11": {
+"fr": "25",
+"en": "25"
+},
+"a0.l12": {
+"fr": "27",
+"en": "27"
+},
+"a0.l13": {
+"fr": "37",
+"en": "37"
+},
+"a0.l14": {
+"fr": "28",
+"en": "28"
+},
+"a0.l15": {
+"fr": "36",
+"en": "36"
+},
+"a0.l16": {
+"fr": "24",
+"en": "24"
+},
+"a0.l17": {
+"fr": "4",
+"en": "4"
+},
+"a0.l18": {
+"fr": "33",
+"en": "33"
+},
+"a0.l19": {
+"fr": "23",
+"en": "23"
+},
+"a0.l20": {
+"fr": "19",
+"en": "19"
+},
+"a0.l21": {
+"fr": "7",
+"en": "7"
+},
+"a0.l22": {
+"fr": "3",
+"en": "3"
+},
+"a0.l23": {
+"fr": "10",
+"en": "10"
+},
+"a0.l24": {
+"fr": "22",
+"en": "22"
+},
+"a0.l25": {
+"fr": "16",
+"en": "16"
+},
+"a0.l26": {
+"fr": "12",
+"en": "12"
+},
+"a0.l27": {
+"fr": "6",
+"en": "6"
+},
+"a0.l28": {
+"fr": "2",
+"en": "2"
+},
+"a0.l29": {
+"fr": "20",
+"en": "20"
+},
+"a0.l30": {
+"fr": "9",
+"en": "9"
+},
+"a0.l31": {
+"fr": "11",
+"en": "11"
+},
+"a0.l32": {
+"fr": "21",
+"en": "21"
+},
+"a0.l33": {
+"fr": "39",
+"en": "39"
+},
+"a0.l34": {
+"fr": "35",
+"en": "35"
+},
+"a0.l35": {
+"fr": "26",
+"en": "26"
+},
+"a0.l36": {
+"fr": "1",
+"en": "1"
+},
+"a0.l37": {
+"fr": "5",
+"en": "5"
+},
+"a0.l38": {
+"fr": "30",
+"en": "30"
+},
+"a0.l39": {
+"fr": "38",
+"en": "38"
+},
+"a0.l40": {
+"fr": "(2.34 ; 175.08)",
+"en": "(2.34 ; 175.08)"
+},
+"a0.l41": {
+"fr": "B12",
+"en": "B12"
+},
+"a0.l42": {
+"fr": "(22.33 ; 171.77)",
+"en": "(22.33 ; 171.77)"
+},
+"a0.l43": {
+"fr": "B11",
+"en": "B11"
+},
+"a0.l44": {
+"fr": "(343.55 ; 165.69)",
+"en": "(343.55 ; 165.69)"
+},
+"a0.l45": {
+"fr": "B8",
+"en": "B8"
+},
+"a0.l46": {
+"fr": "7 VOIE SUD 10 m",
+"en": "7 SOUTH ROAD 10 m"
+},
+"a0.l47": {
+"fr": "(152.59 ; 150.06)",
+"en": "(152.59 ; 150.06)"
+},
+"a0.l48": {
+"fr": "(337.73 ; 150.11)",
+"en": "(337.73 ; 150.11)"
+},
+"a0.l49": {
+"fr": "B10",
+"en": "B10"
+},
+"a0.l50": {
+"fr": "B7",
+"en": "B7"
+},
+"a0.l51": {
+"fr": "8 QUAIS E1-E6",
+"en": "8 DOCKS E1-E6"
+},
+"a0.l52": {
+"fr": "UNITÉ 1  -  CONDITIONNEMENT ET EXPORT",
+"en": "UNIT 1  -  PACKING AND EXPORT"
+},
+"a0.l53": {
+"fr": "M34 M35 M36 M37 M38 M39 M40 M41 M42 M43 M44",
+"en": "M34 M35 M36 M37 M38 M39 M40 M41 M42 M43 M44"
+},
+"a0.l54": {
+"fr": "P47",
+"en": "P47"
+},
+"a0.l55": {
+"fr": "M23 M24 M25 M26 M27 M28 M29 M30 M31 M32 M33",
+"en": "M23 M24 M25 M26 M27 M28 M29 M30 M31 M32 M33"
+},
+"a0.l56": {
+"fr": "P46",
+"en": "P46"
+},
+"a0.l57": {
+"fr": "P45",
+"en": "P45"
+},
+"a0.l58": {
+"fr": "P44",
+"en": "P44"
+},
+"a0.l59": {
+"fr": "P43",
+"en": "P43"
+},
+"a0.l60": {
+"fr": "P42",
+"en": "P42"
+},
+"a0.l61": {
+"fr": "148",
+"en": "148"
+},
+"a0.l62": {
+"fr": "149",
+"en": "149"
+},
+"a0.l63": {
+"fr": "150",
+"en": "150"
+},
+"a0.l64": {
+"fr": "151",
+"en": "151"
+},
+"a0.l65": {
+"fr": "152",
+"en": "152"
+},
+"a0.l66": {
+"fr": "153",
+"en": "153"
+},
+"a0.l67": {
+"fr": "154",
+"en": "154"
+},
+"a0.l68": {
+"fr": "P41",
+"en": "P41"
+},
+"a0.l69": {
+"fr": "P40",
+"en": "P40"
+},
+"a0.l70": {
+"fr": "P39",
+"en": "P39"
+},
+"a0.l71": {
+"fr": "P38",
+"en": "P38"
+},
+"a0.l72": {
+"fr": "(252.16 ; 133.49)",
+"en": "(252.16 ; 133.49)"
+},
+"a0.l73": {
+"fr": "P37",
+"en": "P37"
+},
+"a0.l74": {
+"fr": "B9",
+"en": "B9"
+},
+"a0.l75": {
+"fr": "P36",
+"en": "P36"
+},
+"a0.l76": {
+"fr": "P35",
+"en": "P35"
+},
+"a0.l77": {
+"fr": "141",
+"en": "141"
+},
+"a0.l78": {
+"fr": "142",
+"en": "142"
+},
+"a0.l79": {
+"fr": "143",
+"en": "143"
+},
+"a0.l80": {
+"fr": "144",
+"en": "144"
+},
+"a0.l81": {
+"fr": "145",
+"en": "145"
+},
+"a0.l82": {
+"fr": "146",
+"en": "146"
+},
+"a0.l83": {
+"fr": "147",
+"en": "147"
+},
+"a0.l84": {
+"fr": "file PL3-PL4 ; 3 PONT U2 brute",
+"en": "queue PL3-PL4; 3 WEIGHBRIDGE U2 gross"
+},
+"a0.l85": {
+"fr": "P34 PMR",
+"en": "P34 access."
+},
+"a0.l86": {
+"fr": "1 PORTAIL U2 (B6) 2 voies, guerite G2 ; 2 pre-",
+"en": "1 GATE U2 (B6) 2 lanes, gatehouse G2; 2 pre-"
+},
+"a0.l87": {
+"fr": "P33 PMR",
+"en": "P33 access."
+},
+"a0.l88": {
+"fr": "134",
+"en": "134"
+},
+"a0.l89": {
+"fr": "135",
+"en": "135"
+},
+"a0.l90": {
+"fr": "136",
+"en": "136"
+},
+"a0.l91": {
+"fr": "137",
+"en": "137"
+},
+"a0.l92": {
+"fr": "138",
+"en": "138"
+},
+"a0.l93": {
+"fr": "139",
+"en": "139"
+},
+"a0.l94": {
+"fr": "140",
+"en": "140"
+},
+"a0.l95": {
+"fr": "UNITÉ 2  -  TRANSFORMATION",
+"en": "UNIT 2  -  PROCESSING"
+},
+"a0.l96": {
+"fr": "coques",
+"en": "shells"
+},
+"a0.l97": {
+"fr": "4 VOIE D'ENTRÉE 6 m ouest : GPL, gasoil,",
+"en": "4 ENTRY ROAD 6 m west: LPG, diesel,"
+},
+"a0.l98": {
+"fr": "127",
+"en": "127"
+},
+"a0.l99": {
+"fr": "128",
+"en": "128"
+},
+"a0.l100": {
+"fr": "129",
+"en": "129"
+},
+"a0.l101": {
+"fr": "130",
+"en": "130"
+},
+"a0.l102": {
+"fr": "131",
+"en": "131"
+},
+"a0.l103": {
+"fr": "132",
+"en": "132"
+},
+"a0.l104": {
+"fr": "133",
+"en": "133"
+},
+"a0.l105": {
+"fr": "CELLULE 3 - PHASE 3 - 52 x 26 m + gradin - 35 lots = 875 T  |  1 075 T",
+"en": "CELL 3 - PHASE 3 - 52 x 26 m + step - 35 lots = 875 T  |  1 075 T"
+},
+"a0.l106": {
+"fr": "120",
+"en": "120"
+},
+"a0.l107": {
+"fr": "121",
+"en": "121"
+},
+"a0.l108": {
+"fr": "122",
+"en": "122"
+},
+"a0.l109": {
+"fr": "123",
+"en": "123"
+},
+"a0.l110": {
+"fr": "124",
+"en": "124"
+},
+"a0.l111": {
+"fr": "125",
+"en": "125"
+},
+"a0.l112": {
+"fr": "126",
+"en": "126"
+},
+"a0.l113": {
+"fr": "PL3",
+"en": "PL3"
+},
+"a0.l114": {
+"fr": "PL4",
+"en": "PL4"
+},
+"a0.l115": {
+"fr": "113",
+"en": "113"
+},
+"a0.l116": {
+"fr": "114",
+"en": "114"
+},
+"a0.l117": {
+"fr": "115",
+"en": "115"
+},
+"a0.l118": {
+"fr": "116",
+"en": "116"
+},
+"a0.l119": {
+"fr": "117",
+"en": "117"
+},
+"a0.l120": {
+"fr": "118",
+"en": "118"
+},
+"a0.l121": {
+"fr": "119",
+"en": "119"
+},
+"a0.l122": {
+"fr": "(328.22 ; 109.46)",
+"en": "(328.22 ; 109.46)"
+},
+"a0.l123": {
+"fr": "106",
+"en": "106"
+},
+"a0.l124": {
+"fr": "107",
+"en": "107"
+},
+"a0.l125": {
+"fr": "108",
+"en": "108"
+},
+"a0.l126": {
+"fr": "109",
+"en": "109"
+},
+"a0.l127": {
+"fr": "110",
+"en": "110"
+},
+"a0.l128": {
+"fr": "111",
+"en": "111"
+},
+"a0.l129": {
+"fr": "112",
+"en": "112"
+},
+"a0.l130": {
+"fr": "B6",
+"en": "B6"
+},
+"a0.l131": {
+"fr": "U2 tare ; 10 SORTIE B6",
+"en": "U2 tare; 10 EXIT B6"
+},
+"a0.l132": {
+"fr": "99",
+"en": "99"
+},
+"a0.l133": {
+"fr": "100",
+"en": "100"
+},
+"a0.l134": {
+"fr": "101",
+"en": "101"
+},
+"a0.l135": {
+"fr": "102",
+"en": "102"
+},
+"a0.l136": {
+"fr": "103",
+"en": "103"
+},
+"a0.l137": {
+"fr": "104",
+"en": "104"
+},
+"a0.l138": {
+"fr": "105",
+"en": "105"
+},
+"a0.l139": {
+"fr": "8 VOIE DE SORTIE 10 m : quais PF1-PF7 ; 9 PONT",
+"en": "8 EXIT ROAD 10 m: docks PF1-PF7; 9 WEIGHBRIDGE"
+},
+"a0.l140": {
+"fr": "92",
+"en": "92"
+},
+"a0.l141": {
+"fr": "93",
+"en": "93"
+},
+"a0.l142": {
+"fr": "94",
+"en": "94"
+},
+"a0.l143": {
+"fr": "95",
+"en": "95"
+},
+"a0.l144": {
+"fr": "96",
+"en": "96"
+},
+"a0.l145": {
+"fr": "97",
+"en": "97"
+},
+"a0.l146": {
+"fr": "98",
+"en": "98"
+},
+"a0.l147": {
+"fr": "7 VOIE EST 6 m sud",
+"en": "7 EAST ROAD 6 m south"
+},
+"a0.l148": {
+"fr": "6 VOIE OUEST 10 m",
+"en": "6 WEST ROAD 10 m"
+},
+"a0.l149": {
+"fr": "85",
+"en": "85"
+},
+"a0.l150": {
+"fr": "86",
+"en": "86"
+},
+"a0.l151": {
+"fr": "87",
+"en": "87"
+},
+"a0.l152": {
+"fr": "88",
+"en": "88"
+},
+"a0.l153": {
+"fr": "89",
+"en": "89"
+},
+"a0.l154": {
+"fr": "90",
+"en": "90"
+},
+"a0.l155": {
+"fr": "91",
+"en": "91"
+},
+"a0.l156": {
+"fr": "CELLULE 2 - PHASE 2 - 52 x 28 m - 1 456 m² - 42 lots = 1 050 T  |  1 300 T",
+"en": "CELL 2 - PHASE 2 - 52 x 28 m - 1 456 m² - 42 lots = 1 050 T  |  1 300 T"
+},
+"a0.l157": {
+"fr": "78",
+"en": "78"
+},
+"a0.l158": {
+"fr": "79",
+"en": "79"
+},
+"a0.l159": {
+"fr": "80",
+"en": "80"
+},
+"a0.l160": {
+"fr": "81",
+"en": "81"
+},
+"a0.l161": {
+"fr": "82",
+"en": "82"
+},
+"a0.l162": {
+"fr": "83",
+"en": "83"
+},
+"a0.l163": {
+"fr": "84",
+"en": "84"
+},
+"a0.l164": {
+"fr": "77",
+"en": "77"
+},
+"a0.l165": {
+"fr": "78",
+"en": "78"
+},
+"a0.l166": {
+"fr": "79",
+"en": "79"
+},
+"a0.l167": {
+"fr": "80",
+"en": "80"
+},
+"a0.l168": {
+"fr": "81",
+"en": "81"
+},
+"a0.l169": {
+"fr": "158",
+"en": "158"
+},
+"a0.l170": {
+"fr": "159",
+"en": "159"
+},
+"a0.l171": {
+"fr": "160",
+"en": "160"
+},
+"a0.l172": {
+"fr": "161",
+"en": "161"
+},
+"a0.l173": {
+"fr": "162",
+"en": "162"
+},
+"a0.l174": {
+"fr": "72",
+"en": "72"
+},
+"a0.l175": {
+"fr": "73",
+"en": "73"
+},
+"a0.l176": {
+"fr": "74",
+"en": "74"
+},
+"a0.l177": {
+"fr": "75",
+"en": "75"
+},
+"a0.l178": {
+"fr": "76",
+"en": "76"
+},
+"a0.l179": {
+"fr": "153",
+"en": "153"
+},
+"a0.l180": {
+"fr": "154",
+"en": "154"
+},
+"a0.l181": {
+"fr": "155",
+"en": "155"
+},
+"a0.l182": {
+"fr": "156",
+"en": "156"
+},
+"a0.l183": {
+"fr": "157",
+"en": "157"
+},
+"a0.l184": {
+"fr": "71",
+"en": "71"
+},
+"a0.l185": {
+"fr": "72",
+"en": "72"
+},
+"a0.l186": {
+"fr": "73",
+"en": "73"
+},
+"a0.l187": {
+"fr": "74",
+"en": "74"
+},
+"a0.l188": {
+"fr": "75",
+"en": "75"
+},
+"a0.l189": {
+"fr": "76",
+"en": "76"
+},
+"a0.l190": {
+"fr": "77",
+"en": "77"
+},
+"a0.l191": {
+"fr": "PF c2 PH.3 - 852 pos. | 1420",
+"en": "PF c2 PH.3 - 852 pos. | 1420"
+},
+"a0.l192": {
+"fr": "6 ROUTE INTERNE 10 m est : quai maintenance",
+"en": "6 INTERNAL ROAD 10 m east: maintenance dock"
+},
+"a0.l193": {
+"fr": "67",
+"en": "67"
+},
+"a0.l194": {
+"fr": "68",
+"en": "68"
+},
+"a0.l195": {
+"fr": "69",
+"en": "69"
+},
+"a0.l196": {
+"fr": "70",
+"en": "70"
+},
+"a0.l197": {
+"fr": "71",
+"en": "71"
+},
+"a0.l198": {
+"fr": "148",
+"en": "148"
+},
+"a0.l199": {
+"fr": "149",
+"en": "149"
+},
+"a0.l200": {
+"fr": "150",
+"en": "150"
+},
+"a0.l201": {
+"fr": "151",
+"en": "151"
+},
+"a0.l202": {
+"fr": "152",
+"en": "152"
+},
+"a0.l203": {
+"fr": "64",
+"en": "64"
+},
+"a0.l204": {
+"fr": "65",
+"en": "65"
+},
+"a0.l205": {
+"fr": "66",
+"en": "66"
+},
+"a0.l206": {
+"fr": "67",
+"en": "67"
+},
+"a0.l207": {
+"fr": "68",
+"en": "68"
+},
+"a0.l208": {
+"fr": "69",
+"en": "69"
+},
+"a0.l209": {
+"fr": "70",
+"en": "70"
+},
+"a0.l210": {
+"fr": "62",
+"en": "62"
+},
+"a0.l211": {
+"fr": "63",
+"en": "63"
+},
+"a0.l212": {
+"fr": "64",
+"en": "64"
+},
+"a0.l213": {
+"fr": "65",
+"en": "65"
+},
+"a0.l214": {
+"fr": "66",
+"en": "66"
+},
+"a0.l215": {
+"fr": "143",
+"en": "143"
+},
+"a0.l216": {
+"fr": "144",
+"en": "144"
+},
+"a0.l217": {
+"fr": "145",
+"en": "145"
+},
+"a0.l218": {
+"fr": "146",
+"en": "146"
+},
+"a0.l219": {
+"fr": "147",
+"en": "147"
+},
+"a0.l220": {
+"fr": "57",
+"en": "57"
+},
+"a0.l221": {
+"fr": "58",
+"en": "58"
+},
+"a0.l222": {
+"fr": "59",
+"en": "59"
+},
+"a0.l223": {
+"fr": "60",
+"en": "60"
+},
+"a0.l224": {
+"fr": "61",
+"en": "61"
+},
+"a0.l225": {
+"fr": "62",
+"en": "62"
+},
+"a0.l226": {
+"fr": "63",
+"en": "63"
+},
+"a0.l227": {
+"fr": "57",
+"en": "57"
+},
+"a0.l228": {
+"fr": "58",
+"en": "58"
+},
+"a0.l229": {
+"fr": "59",
+"en": "59"
+},
+"a0.l230": {
+"fr": "60",
+"en": "60"
+},
+"a0.l231": {
+"fr": "61",
+"en": "61"
+},
+"a0.l232": {
+"fr": "138",
+"en": "138"
+},
+"a0.l233": {
+"fr": "139",
+"en": "139"
+},
+"a0.l234": {
+"fr": "140",
+"en": "140"
+},
+"a0.l235": {
+"fr": "141",
+"en": "141"
+},
+"a0.l236": {
+"fr": "142",
+"en": "142"
+},
+"a0.l237": {
+"fr": "50",
+"en": "50"
+},
+"a0.l238": {
+"fr": "51",
+"en": "51"
+},
+"a0.l239": {
+"fr": "52",
+"en": "52"
+},
+"a0.l240": {
+"fr": "53",
+"en": "53"
+},
+"a0.l241": {
+"fr": "54",
+"en": "54"
+},
+"a0.l242": {
+"fr": "55",
+"en": "55"
+},
+"a0.l243": {
+"fr": "56",
+"en": "56"
+},
+"a0.l244": {
+"fr": "52",
+"en": "52"
+},
+"a0.l245": {
+"fr": "53",
+"en": "53"
+},
+"a0.l246": {
+"fr": "54",
+"en": "54"
+},
+"a0.l247": {
+"fr": "55",
+"en": "55"
+},
+"a0.l248": {
+"fr": "56",
+"en": "56"
+},
+"a0.l249": {
+"fr": "133",
+"en": "133"
+},
+"a0.l250": {
+"fr": "134",
+"en": "134"
+},
+"a0.l251": {
+"fr": "135",
+"en": "135"
+},
+"a0.l252": {
+"fr": "136",
+"en": "136"
+},
+"a0.l253": {
+"fr": "137",
+"en": "137"
+},
+"a0.l254": {
+"fr": "43",
+"en": "43"
+},
+"a0.l255": {
+"fr": "44",
+"en": "44"
+},
+"a0.l256": {
+"fr": "45",
+"en": "45"
+},
+"a0.l257": {
+"fr": "46",
+"en": "46"
+},
+"a0.l258": {
+"fr": "47",
+"en": "47"
+},
+"a0.l259": {
+"fr": "48",
+"en": "48"
+},
+"a0.l260": {
+"fr": "49",
+"en": "49"
+},
+"a0.l261": {
+"fr": "brousse humide : 3,5 m maxi avant séchage - besoin Ph.3 2 250 T",
+"en": "wet raw cocoa: 3.5 m max before drying - Ph.3 need 2 250 T"
+},
+"a0.l262": {
+"fr": "m³ | bureau | quai maintenance | eau glacée, dry coolers en toiture sud",
+"en": "m³ | office | maintenance dock | chilled water, dry coolers on the south roof"
+},
+"a0.l263": {
+"fr": "775 T (allees 1,5 m tous les 4 rangs)",
+"en": "775 T (1.5 m aisles every 4 rows)"
+},
+"a0.l264": {
+"fr": "TGBT2 + PV | GE2 630 kVA | réserve | chaufferie gaz | air comprime | atelier | PDR | bâche 100",
+"en": "TGBT2 + PV | GE2 630 kVA | reserve | gas boiler room | compressed air | workshop | spares | 100 m³ tank"
+},
+"a0.l265": {
+"fr": "CAPACITÉ : dessinée 3 850 T (lots 25 T à 3,5 m) - gerbage haut 4",
+"en": "CAPACITY: as drawn 3 850 T (25 T lots at 3.5 m) - high stacking 4"
+},
+"a0.l266": {
+"fr": "S = 1 584 m² (fige) - 72 x 22 m - H 6 m - dimensionnee 6 T/h",
+"en": "A = 1 584 m² (fixed) - 72 x 22 m - H 6 m - sized for 6 T/h"
+},
+"a0.l267": {
+"fr": "BANDE UTILITES - U2",
+"en": "UTILITIES STRIP - U2"
+},
+"a0.l268": {
+"fr": "- portiques 2 x 26, trames 7 m",
+"en": "- portal frames 2 x 26, 7 m bays"
+},
+"a0.l269": {
+"fr": "47",
+"en": "47"
+},
+"a0.l270": {
+"fr": "48",
+"en": "48"
+},
+"a0.l271": {
+"fr": "49",
+"en": "49"
+},
+"a0.l272": {
+"fr": "50",
+"en": "50"
+},
+"a0.l273": {
+"fr": "51",
+"en": "51"
+},
+"a0.l274": {
+"fr": "128",
+"en": "128"
+},
+"a0.l275": {
+"fr": "129",
+"en": "129"
+},
+"a0.l276": {
+"fr": "130",
+"en": "130"
+},
+"a0.l277": {
+"fr": "131",
+"en": "131"
+},
+"a0.l278": {
+"fr": "132",
+"en": "132"
+},
+"a0.l279": {
+"fr": "S = 5 816 m² - 52 x 110 m - H 10 m libre - dalle +1,20 à 5 t/m²",
+"en": "A = 5 816 m² - 52 x 110 m - 10 m clear - slab +1.20 at 5 t/m²"
+},
+"a0.l280": {
+"fr": "MAGASIN CACAO BROUSSE - U1",
+"en": "RAW COCOA WAREHOUSE - U1"
+},
+"a0.l281": {
+"fr": "36",
+"en": "36"
+},
+"a0.l282": {
+"fr": "37",
+"en": "37"
+},
+"a0.l283": {
+"fr": "38",
+"en": "38"
+},
+"a0.l284": {
+"fr": "39",
+"en": "39"
+},
+"a0.l285": {
+"fr": "40",
+"en": "40"
+},
+"a0.l286": {
+"fr": "41",
+"en": "41"
+},
+"a0.l287": {
+"fr": "42",
+"en": "42"
+},
+"a0.l288": {
+"fr": "42",
+"en": "42"
+},
+"a0.l289": {
+"fr": "43",
+"en": "43"
+},
+"a0.l290": {
+"fr": "44",
+"en": "44"
+},
+"a0.l291": {
+"fr": "45",
+"en": "45"
+},
+"a0.l292": {
+"fr": "46",
+"en": "46"
+},
+"a0.l293": {
+"fr": "123",
+"en": "123"
+},
+"a0.l294": {
+"fr": "124",
+"en": "124"
+},
+"a0.l295": {
+"fr": "125",
+"en": "125"
+},
+"a0.l296": {
+"fr": "126",
+"en": "126"
+},
+"a0.l297": {
+"fr": "127",
+"en": "127"
+},
+"a0.l298": {
+"fr": "convoyeur de reprise réserves - besoin Ph.3 2 500 T",
+"en": "reclaim conveyor reserved - Ph.3 need 2 500 T"
+},
+"a0.l299": {
+"fr": "29",
+"en": "29"
+},
+"a0.l300": {
+"fr": "30",
+"en": "30"
+},
+"a0.l301": {
+"fr": "31",
+"en": "31"
+},
+"a0.l302": {
+"fr": "32",
+"en": "32"
+},
+"a0.l303": {
+"fr": "33",
+"en": "33"
+},
+"a0.l304": {
+"fr": "34",
+"en": "34"
+},
+"a0.l305": {
+"fr": "35",
+"en": "35"
+},
+"a0.l306": {
+"fr": "provisions : murs cellule 2 dimensionnes vrac, trémie et",
+"en": "provisions: cell 2 walls sized for bulk, hopper and"
+},
+"a0.l307": {
+"fr": "cellule 2 en VRAC 12 500 T",
+"en": "cell 2 in BULK 12 500 T"
+},
+"a0.l308": {
+"fr": "CAPACITÉ : dessinée 4 050 T - gerbage haut 5,5 m 8 040 T -",
+"en": "CAPACITY: as drawn 4 050 T - high stacking 5.5 m 8 040 T -"
+},
+"a0.l309": {
+"fr": "(323.62 ; 66.38)",
+"en": "(323.62 ; 66.38)"
+},
+"a0.l310": {
+"fr": "portiques 3 x 30,7, trames 7 m",
+"en": "portal frames 3 x 30.7, 7 m bays"
+},
+"a0.l311": {
+"fr": "B5",
+"en": "B5"
+},
+"a0.l312": {
+"fr": "37",
+"en": "37"
+},
+"a0.l313": {
+"fr": "38",
+"en": "38"
+},
+"a0.l314": {
+"fr": "39",
+"en": "39"
+},
+"a0.l315": {
+"fr": "40",
+"en": "40"
+},
+"a0.l316": {
+"fr": "S = 6 440 m² - 4710 x 92 m - H 10 m libre - dalle1 1+81,20 à 5 t/m² -",
+"en": "A = 6 440 m² - 70 x 92 m - 10 m clear - slab +1.20 at 5 t/m² -"
+},
+"a0.l317": {
+"fr": "119",
+"en": "119"
+},
+"a0.l318": {
+"fr": "120",
+"en": "120"
+},
+"a0.l319": {
+"fr": "121",
+"en": "121"
+},
+"a0.l320": {
+"fr": "122",
+"en": "122"
+},
+"a0.l321": {
+"fr": "MAGASIN CACAO EXPORT - U1 (sous douane)",
+"en": "EXPORT COCOA WAREHOUSE - U1 (bonded)"
+},
+"a0.l322": {
+"fr": "22",
+"en": "22"
+},
+"a0.l323": {
+"fr": "23",
+"en": "23"
+},
+"a0.l324": {
+"fr": "24",
+"en": "24"
+},
+"a0.l325": {
+"fr": "25",
+"en": "25"
+},
+"a0.l326": {
+"fr": "26",
+"en": "26"
+},
+"a0.l327": {
+"fr": "27",
+"en": "27"
+},
+"a0.l328": {
+"fr": "28",
+"en": "28"
+},
+"a0.l329": {
+"fr": "32",
+"en": "32"
+},
+"a0.l330": {
+"fr": "33",
+"en": "33"
+},
+"a0.l331": {
+"fr": "34",
+"en": "34"
+},
+"a0.l332": {
+"fr": "35",
+"en": "35"
+},
+"a0.l333": {
+"fr": "36",
+"en": "36"
+},
+"a0.l334": {
+"fr": "113",
+"en": "113"
+},
+"a0.l335": {
+"fr": "114",
+"en": "114"
+},
+"a0.l336": {
+"fr": "115",
+"en": "115"
+},
+"a0.l337": {
+"fr": "116",
+"en": "116"
+},
+"a0.l338": {
+"fr": "117",
+"en": "117"
+},
+"a0.l339": {
+"fr": "besoin Ph.3 1 980 T - sprinkler en rack au-dela de 5 m (avis assureur)",
+"en": "Ph.3 need 1 980 T - in-rack sprinklers above 5 m (insurer's opinion)"
+},
+"a0.l340": {
+"fr": "970 - double profondeur 5 161",
+"en": "970 - double depth 5 161"
+},
+"a0.l341": {
+"fr": "CAPACITÉ : dessinée 2 382 positions (racks 3 niveaux) - 5 niveaux 3",
+"en": "CAPACITY: as drawn 2 382 positions (3-level racks) - 5 levels 3"
+},
+"a0.l342": {
+"fr": "15",
+"en": "15"
+},
+"a0.l343": {
+"fr": "16",
+"en": "16"
+},
+"a0.l344": {
+"fr": "17",
+"en": "17"
+},
+"a0.l345": {
+"fr": "18",
+"en": "18"
+},
+"a0.l346": {
+"fr": "19",
+"en": "19"
+},
+"a0.l347": {
+"fr": "20",
+"en": "20"
+},
+"a0.l348": {
+"fr": "21",
+"en": "21"
+},
+"a0.l349": {
+"fr": "climatisé < 25 C",
+"en": "air-conditioned < 25 C"
+},
+"a0.l350": {
+"fr": "S = 3 750 m² - 57,5 x 69 m en L - H 8 m - dalle +1,20 à 5 t/m² -",
+"en": "A = 3 750 m² - 57.5 x 69 m L-shaped - H 8 m - slab +1.20 at 5 t/m² -"
+},
+"a0.l351": {
+"fr": "MAGASIN PRODUITS FINIS - U2",
+"en": "FINISHED-GOODS WAREHOUSE - U2"
+},
+"a0.l352": {
+"fr": "27",
+"en": "27"
+},
+"a0.l353": {
+"fr": "28",
+"en": "28"
+},
+"a0.l354": {
+"fr": "29",
+"en": "29"
+},
+"a0.l355": {
+"fr": "30",
+"en": "30"
+},
+"a0.l356": {
+"fr": "31",
+"en": "31"
+},
+"a0.l357": {
+"fr": "108",
+"en": "108"
+},
+"a0.l358": {
+"fr": "109",
+"en": "109"
+},
+"a0.l359": {
+"fr": "110",
+"en": "110"
+},
+"a0.l360": {
+"fr": "111",
+"en": "111"
+},
+"a0.l361": {
+"fr": "112",
+"en": "112"
+},
+"a0.l362": {
+"fr": "CELLULE 1 - PHASE 1 - 52 x 56 m - 2 912 m² - 77 lots = 1 925 T  |  gerbage haut : 2 400 T",
+"en": "CELL 1 - PHASE 1 - 52 x 56 m - 2 912 m² - 77 lots = 1 925 T  |  high stacking: 2 400 T"
+},
+"a0.l363": {
+"fr": "8",
+"en": "8"
+},
+"a0.l364": {
+"fr": "9",
+"en": "9"
+},
+"a0.l365": {
+"fr": "10",
+"en": "10"
+},
+"a0.l366": {
+"fr": "11",
+"en": "11"
+},
+"a0.l367": {
+"fr": "12",
+"en": "12"
+},
+"a0.l368": {
+"fr": "13",
+"en": "13"
+},
+"a0.l369": {
+"fr": "14",
+"en": "14"
+},
+"a0.l370": {
+"fr": "22",
+"en": "22"
+},
+"a0.l371": {
+"fr": "23",
+"en": "23"
+},
+"a0.l372": {
+"fr": "24",
+"en": "24"
+},
+"a0.l373": {
+"fr": "25",
+"en": "25"
+},
+"a0.l374": {
+"fr": "26",
+"en": "26"
+},
+"a0.l375": {
+"fr": "103",
+"en": "103"
+},
+"a0.l376": {
+"fr": "104",
+"en": "104"
+},
+"a0.l377": {
+"fr": "105",
+"en": "105"
+},
+"a0.l378": {
+"fr": "106",
+"en": "106"
+},
+"a0.l379": {
+"fr": "107",
+"en": "107"
+},
+"a0.l380": {
+"fr": "LIGNE 3 - PHASE 3 (6 T/h) - ATEX 22 broyage",
+"en": "LINE 3 - PHASE 3 (6 T/h) - ATEX 22 grinding"
+},
+"a0.l381": {
+"fr": "1",
+"en": "1"
+},
+"a0.l382": {
+"fr": "2",
+"en": "2"
+},
+"a0.l383": {
+"fr": "3",
+"en": "3"
+},
+"a0.l384": {
+"fr": "4",
+"en": "4"
+},
+"a0.l385": {
+"fr": "5",
+"en": "5"
+},
+"a0.l386": {
+"fr": "6",
+"en": "6"
+},
+"a0.l387": {
+"fr": "7",
+"en": "7"
+},
+"a0.l388": {
+"fr": "palettisation",
+"en": "palletising"
+},
+"a0.l389": {
+"fr": "ligne 15 T/h : nettoyage, calibrage, tri, ensachage,",
+"en": "15 T/h line: cleaning, sizing, sorting, bagging,"
+},
+"a0.l390": {
+"fr": "GALERIE DE TRANSIT (axe A-A) 8 m - convoyeur direct, voie chariots, trottoir 1,20",
+"en": "TRANSIT GALLERY (axis A-A) 8 m - direct conveyor, forklift lane, 1.20 walkway"
+},
+"a0.l391": {
+"fr": "S = 3 080 m² (fige) - 35 x 88 m - H 12 m - dalle +0,30",
+"en": "A = 3 080 m² (fixed) - 35 x 88 m - H 12 m - slab +0.30"
+},
+"a0.l392": {
+"fr": "CONDITIONNEMENT - U1",
+"en": "PACKING - U1"
+},
+"a0.l393": {
+"fr": "LIGNE 2 - PHASE 2 (4 T/h)",
+"en": "LINE 2 - PHASE 2 (4 T/h)"
+},
+"a0.l394": {
+"fr": "5 QUAIS R1-R9",
+"en": "5 DOCKS R1-R9"
+},
+"a0.l395": {
+"fr": "postcombustion, cheminée 20 m",
+"en": "post-combustion, 20 m stack"
+},
+"a0.l396": {
+"fr": "LIGNE 1 2 T/h - PHASE 1 : trémie, torréfaction, concassage, broyage, masse -",
+"en": "LINE 1 2 T/h - PHASE 1: hopper, roasting, winnowing, grinding, liquor -"
+},
+"a0.l397": {
+"fr": "S = 2 880 m² (fige) - 72 x 40 m - H 10 m - dalle +0,30 - portiques 2 x 36, trames 7 m",
+"en": "A = 2 880 m² (fixed) - 72 x 40 m - H 10 m - slab +0.30 - portal frames 2 x 36, 7 m bays"
+},
+"a0.l398": {
+"fr": "HALL TRANSFORMATION - U2",
+"en": "PROCESSING HALL - U2"
+},
+"a0.l399": {
+"fr": "(323.99 ; 25.02)",
+"en": "(323.99 ; 25.02)"
+},
+"a0.l400": {
+"fr": "CELLULE 1 - PH.1 - 28 x 92 - 66 lots = 1 650 T | haut 3 280 T",
+"en": "CELL 1 - PH.1 - 28 x 92 - 66 lots = 1 650 T | high 3 280 T"
+},
+"a0.l401": {
+"fr": "CELLULE 2 - PH.3 - 35 x 92 - 81 lots = 2 025 T | haut 4 040 T | VRAC 8 500 T",
+"en": "CELL 2 - PH.3 - 35 x 92 - 81 lots = 2 025 T | high 4 040 T | BULK 8 500 T"
+},
+"a0.l402": {
+"fr": "PF c1 PH.1 - 918 pos. | 5 niv. 1530",
+"en": "PF c1 PH.1 - 918 pos. | 5 lev. 1530"
+},
+"a0.l403": {
+"fr": "B4",
+"en": "B4"
+},
+"a0.l404": {
+"fr": "10-11 SORTIE puis PONT U1 tare",
+"en": "10-11 EXIT then WEIGHBRIDGE U1 tare"
+},
+"a0.l405": {
+"fr": "12 SORTIE B3",
+"en": "12 EXIT B3"
+},
+"a0.l406": {
+"fr": "(325.21 ; 16.84)",
+"en": "(325.21 ; 16.84)"
+},
+"a0.l407": {
+"fr": "B3",
+"en": "B3"
+},
+"a0.l408": {
+"fr": "PL1",
+"en": "PL1"
+},
+"a0.l409": {
+"fr": "PL2",
+"en": "PL2"
+},
+"a0.l410": {
+"fr": "grue + laydown",
+"en": "crane + laydown"
+},
+"a0.l411": {
+"fr": "(0.00 ; 0.00)",
+"en": "(0.00 ; 0.00)"
+},
+"a0.l412": {
+"fr": "(327.71 ; 0.00)",
+"en": "(327.71 ; 0.00)"
+},
+"a0.l413": {
+"fr": "B1",
+"en": "B1"
+},
+"a0.l414": {
+"fr": "B2",
+"en": "B2"
+},
+"a0.l415": {
+"fr": "sortie 5,5 m est",
+"en": "exit 5.5 m east"
+},
+"a0.l416": {
+"fr": "agréage ; pré-file PL1-PL2",
+"en": "grading; pre-queue PL1-PL2"
+},
+"a0.l417": {
+"fr": "4 BANDE D'ATTENTE 113 m = 6 PL",
+"en": "4 WAITING LANE 113 m = 6 trucks"
+},
+"a0.l418": {
+"fr": "3 VOIE NORD 2 voies : entrée 5,5 m ouest,",
+"en": "3 NORTH ROAD 2 lanes: entry 5.5 m west,"
+},
+"a0.l419": {
+"fr": "2 PONT U1 voie unique, feux : pesée brute,",
+"en": "2 WEIGHBRIDGE U1 single lane, signals: gross weighing,"
+},
+"a0.l420": {
+"fr": "1 PORTAIL U1 (B3) 2 voies, guerite G1",
+"en": "1 GATE U1 (B3) 2 lanes, gatehouse G1"
+},
+"a0.l421": {
+"fr": "base vie",
+"en": "site camp"
+},
+"a0.l422": {
+"fr": "M21",
+"en": "M21"
+},
+"a0.l423": {
+"fr": "M14",
+"en": "M14"
+},
+"a0.l424": {
+"fr": "M7",
+"en": "M7"
+},
+"a0.l425": {
+"fr": "M20",
+"en": "M20"
+},
+"a0.l426": {
+"fr": "M13",
+"en": "M13"
+},
+"a0.l427": {
+"fr": "M6",
+"en": "M6"
+},
+"a0.l428": {
+"fr": "M19",
+"en": "M19"
+},
+"a0.l429": {
+"fr": "M12",
+"en": "M12"
+},
+"a0.l430": {
+"fr": "M5",
+"en": "M5"
+},
+"a0.l431": {
+"fr": "P32",
+"en": "P32"
+},
+"a0.l432": {
+"fr": "P31",
+"en": "P31"
+},
+"a0.l433": {
+"fr": "P3P026",
+"en": "P3P026"
+},
+"a0.l434": {
+"fr": "P2P925",
+"en": "P2P925"
+},
+"a0.l435": {
+"fr": "P2P824",
+"en": "P2P824"
+},
+"a0.l436": {
+"fr": "P2P723",
+"en": "P2P723"
+},
+"a0.l437": {
+"fr": "P22",
+"en": "P22"
+},
+"a0.l438": {
+"fr": "P21",
+"en": "P21"
+},
+"a0.l439": {
+"fr": "P20",
+"en": "P20"
+},
+"a0.l440": {
+"fr": "P19",
+"en": "P19"
+},
+"a0.l441": {
+"fr": "P18",
+"en": "P18"
+},
+"a0.l442": {
+"fr": "P17",
+"en": "P17"
+},
+"a0.l443": {
+"fr": "P16",
+"en": "P16"
+},
+"a0.l444": {
+"fr": "P15",
+"en": "P15"
+},
+"a0.l445": {
+"fr": "P14",
+"en": "P14"
+},
+"a0.l446": {
+"fr": "P13",
+"en": "P13"
+},
+"a0.l447": {
+"fr": "P12",
+"en": "P12"
+},
+"a0.l448": {
+"fr": "P11",
+"en": "P11"
+},
+"a0.l449": {
+"fr": "P10",
+"en": "P10"
+},
+"a0.l450": {
+"fr": "P9",
+"en": "P9"
+},
+"a0.l451": {
+"fr": "P8",
+"en": "P8"
+},
+"a0.l452": {
+"fr": "P7",
+"en": "P7"
+},
+"a0.l453": {
+"fr": "P6",
+"en": "P6"
+},
+"a0.l454": {
+"fr": "P5",
+"en": "P5"
+},
+"a0.l455": {
+"fr": "P4",
+"en": "P4"
+},
+"a0.l456": {
+"fr": "P3",
+"en": "P3"
+},
+"a0.l457": {
+"fr": "P2 PMR",
+"en": "P2 access."
+},
+"a0.l458": {
+"fr": "P1 PMR",
+"en": "P1 access."
+},
+"a0.l459": {
+"fr": "M18",
+"en": "M18"
+},
+"a0.l460": {
+"fr": "M11",
+"en": "M11"
+},
+"a0.l461": {
+"fr": "M4",
+"en": "M4"
+},
+"a0.l462": {
+"fr": "M17",
+"en": "M17"
+},
+"a0.l463": {
+"fr": "M10",
+"en": "M10"
+},
+"a0.l464": {
+"fr": "M3",
+"en": "M3"
+},
+"a0.l465": {
+"fr": "M16",
+"en": "M16"
+},
+"a0.l466": {
+"fr": "M9",
+"en": "M9"
+},
+"a0.l467": {
+"fr": "M2",
+"en": "M2"
+},
+"a0.l468": {
+"fr": "M22",
+"en": "M22"
+},
+"a0.l469": {
+"fr": "M15",
+"en": "M15"
+},
+"a0.l470": {
+"fr": "M8",
+"en": "M8"
+},
+"a0.l471": {
+"fr": "M1",
+"en": "M1"
+},
+"a0.l472": {
+"fr": "R11  78 pos.",
+"en": "R11  78 pos."
+},
+"a0.l473": {
+"fr": "R8  156 pos.",
+"en": "R8  156 pos."
+},
+"a0.l474": {
+"fr": "R10  78 pos.",
+"en": "R10  78 pos."
+},
+"a0.l475": {
+"fr": "R7  156 pos.",
+"en": "R7  156 pos."
+},
+"a0.l476": {
+"fr": "R9  78 pos.",
+"en": "R9  78 pos."
+},
+"a0.l477": {
+"fr": "R6  306 pos.",
+"en": "R6  306 pos."
+},
+"a0.l478": {
+"fr": "R5  306 pos.",
+"en": "R5  306 pos."
+},
+"a0.l479": {
+"fr": "R4  306 pos.",
+"en": "R4  306 pos."
+},
+"a0.l480": {
+"fr": "R3  306 pos.",
+"en": "R3  306 pos."
+},
+"a0.l481": {
+"fr": "R2  306 pos.",
+"en": "R2  306 pos."
+},
+"a0.l482": {
+"fr": "R1  306 pos.",
+"en": "R1  306 pos."
+},
+"a0.l483": {
+"fr": "5 VOIE OUEST 6 m nord",
+"en": "5 WEST ROAD 6 m north"
+},
+"a0.l484": {
+"fr": "9 BRETELLE U1 6 m",
+"en": "9 LINK ROAD U1 6 m"
+},
+"a0.l485": {
+"fr": "102",
+"en": "102"
+},
+"a0.l486": {
+"fr": "101",
+"en": "101"
+},
+"a0.l487": {
+"fr": "100",
+"en": "100"
+},
+"a0.l488": {
+"fr": "99",
+"en": "99"
+},
+"a0.l489": {
+"fr": "98",
+"en": "98"
+},
+"a0.l490": {
+"fr": "97",
+"en": "97"
+},
+"a0.l491": {
+"fr": "96",
+"en": "96"
+},
+"a0.l492": {
+"fr": "95",
+"en": "95"
+},
+"a0.l493": {
+"fr": "94",
+"en": "94"
+},
+"a0.l494": {
+"fr": "93",
+"en": "93"
+},
+"a0.l495": {
+"fr": "92",
+"en": "92"
+},
+"a0.l496": {
+"fr": "91",
+"en": "91"
+},
+"a0.l497": {
+"fr": "90",
+"en": "90"
+},
+"a0.l498": {
+"fr": "89",
+"en": "89"
+},
+"a0.l499": {
+"fr": "88",
+"en": "88"
+},
+"a0.l500": {
+"fr": "87",
+"en": "87"
+},
+"a0.l501": {
+"fr": "86",
+"en": "86"
+},
+"a0.l502": {
+"fr": "85",
+"en": "85"
+},
+"a0.l503": {
+"fr": "84",
+"en": "84"
+},
+"a0.l504": {
+"fr": "83",
+"en": "83"
+},
+"a0.l505": {
+"fr": "82",
+"en": "82"
+},
+"a0.l506": {
+"fr": "21",
+"en": "21"
+},
+"a0.l507": {
+"fr": "20",
+"en": "20"
+},
+"a0.l508": {
+"fr": "19",
+"en": "19"
+},
+"a0.l509": {
+"fr": "18",
+"en": "18"
+},
+"a0.l510": {
+"fr": "17",
+"en": "17"
+},
+"a0.l511": {
+"fr": "16",
+"en": "16"
+},
+"a0.l512": {
+"fr": "15",
+"en": "15"
+},
+"a0.l513": {
+"fr": "14",
+"en": "14"
+},
+"a0.l514": {
+"fr": "13",
+"en": "13"
+},
+"a0.l515": {
+"fr": "12",
+"en": "12"
+},
+"a0.l516": {
+"fr": "11",
+"en": "11"
+},
+"a0.l517": {
+"fr": "10",
+"en": "10"
+},
+"a0.l518": {
+"fr": "9",
+"en": "9"
+},
+"a0.l519": {
+"fr": "8",
+"en": "8"
+},
+"a0.l520": {
+"fr": "7",
+"en": "7"
+},
+"a0.l521": {
+"fr": "6",
+"en": "6"
+},
+"a0.l522": {
+"fr": "5",
+"en": "5"
+},
+"a0.l523": {
+"fr": "4",
+"en": "4"
+},
+"a0.l524": {
+"fr": "3",
+"en": "3"
+},
+"a0.l525": {
+"fr": "2",
+"en": "2"
+},
+"a0.l526": {
+"fr": "1",
+"en": "1"
+},
+"a0.note1": {
+"fr": "J1  Quais brousse au nord-ouest, loin du portail ? Le camion plein décharge avant tout autre arrêt ; la file d'attente se fait sur la voie nord après pesée, jamais sur la route.",
+"en": "J1  Raw cocoa docks to the north-west, far from the gate? The full truck unloads before any other stop; the queue forms on the north road after weighing, never on the public road."
+},
+"a0.note2": {
+"fr": "J2  Pourquoi une seule colonne de bâtiments ? Le produit va tout droit : brousse, conditionnement, export, cession, transformation, PF ; 41 m par tonne contre 165 sur le plan initial.",
+"en": "J2  Why a single column of buildings? The product goes straight: raw cocoa, packing, export, transfer, processing, PF; 41 m per tonne against 165 on the initial plan."
+},
+"a0.note3": {
+"fr": "J3  Pourquoi le magasin export au milieu ? Il est le tampon entre les deux process et touche à la fois le conditionnement, les quais E et le pont de cession.",
+"en": "J3  Why the export warehouse in the middle? It is the buffer between the two processes and touches the packing hall, the E docks and the transfer weighbridge at once."
+},
+"a0.note4": {
+"fr": "J4  Pourquoi les quais export au sud ? Séquence sur l'anneau U1 : brousse (nord) avant export (sud) ; jamais un camion vide propre devant un quai sale.",
+"en": "J4  Why the export docks to the south? Sequence on the U1 ring: raw cocoa (north) before export (south); never a clean empty truck in front of a dirty dock."
+},
+"a0.note5": {
+"fr": "J5  Pourquoi 25 m d'aire et pas 32 ? La voie contiguë de 10 m fait partie de la manœuvre : 25 + 10 = 35 m, valeur des guides logistiques.",
+"en": "J5  Why a 25 m yard and not 32? The adjoining 10 m road is part of the manoeuvre: 25 + 10 = 35 m, the value in logistics guides."
+},
+"a0.note6": {
+"fr": "J6  Pourquoi le PF collé au hall ? Masse chaude par ligne calorifugée, pains en magasin climatisé, citerne ISO en PF7 : zéro rupture de chaîne de température.",
+"en": "J6  Why the PF against the hall? Hot liquor through an insulated line, blocks in an air-conditioned warehouse, ISO tank at PF7: no break in the temperature chain."
+},
+"a0.note7": {
+"fr": "J7  Pourquoi l'administration à l'angle NE du PF ? Elle voit le pont U1 à 25 m, le visiteur arrive sans croiser un camion, l'unité 2 a son tertiaire à l'étage, rien dans le recul.",
+"en": "J7  Why the administration at the NE corner of the PF? It sees weighbridge U1 at 25 m, visitors arrive without meeting a truck, unit 2 has its offices upstairs, nothing in the setback."
+},
+"a0.note8": {
+"fr": "J8  Pourquoi la pesée U2 dans une cabine ? Le pont U2 est à 70 m de l'administration : la cabine tenue par l'administration est à 4 m, caméras vers le PC.",
+"en": "J8  Why U2 weighing in a cabin? Weighbridge U2 is 70 m from the administration: the cabin, staffed by the administration, is 4 m away, cameras to the control room."
+},
+"a0.note9": {
+"fr": "J9  Pourquoi deux ponts ? Deux unités autonomes ne dépendent pas d'un instrument commun ; chaque pont est le secours de l'autre par le portail de liaison.",
+"en": "J9  Why two weighbridges? Two autonomous units do not depend on a shared instrument; each weighbridge backs up the other through the link gate."
+},
+"a0.note10": {
+"fr": "J10  Un camion peut-il entrer par un pont et sortir par l'autre ? Non : chaque pont est à voie unique et à feux, brute à l'entrée et tare à la sortie, même instrument.",
+"en": "J10  Can a truck enter over one weighbridge and leave over the other? No: each weighbridge is single-lane with signals, gross at entry and tare at exit, same instrument."
+},
+"a0.note11": {
+"fr": "J11  Comment attend-on avant le pont ? Pré-files de 2 PL dans le portail ; à 180 % de campagne la file maximale simulée est de 5 PL, le portail de liaison ouvre le second pont.",
+"en": "J11  How do trucks wait before the weighbridge? 2-truck pre-queues inside the gate; at 180 % of the season the simulated maximum queue is 5 trucks, the link gate opens the second weighbridge."
+},
+"a0.note12": {
+"fr": "J12  Pourquoi une clôture et pas un mur coupe-feu ? Le mur CF est dans les bâtiments ; entre les réseaux il faut une séparation sans dallage commun, visible, et ouvrable : clôture et portail.",
+"en": "J12  Why a fence and not a fire wall? The fire wall is inside the buildings; between the networks what is needed is a separation without shared paving, visible and openable: fence and gate."
+},
+"a0.note13": {
+"fr": "J13  Où les camions U1 et U2 se croisent-ils ? Nulle part : le réseau U1 à l'est de la bretelle reste sur la voie nord (y < 14), le réseau U2 reste en x > 181 et y > 84.",
+"en": "J13  Where do U1 and U2 trucks cross? Nowhere: the U1 network east of the link road stays on the north road (y < 14), the U2 network stays at x > 181 and y > 84."
+},
+"a0.note14": {
+"fr": "J14  Pourquoi la boucle U2 autour d'un îlot ? Le camion tourne sans marche arrière, dessert GPL, coques, maintenance et quais PF en un seul passage, et sort par le même pont.",
+"en": "J14  Why the U2 loop around an island? The truck turns without reversing, serves LPG, shells, maintenance and PF docks in a single pass, and leaves over the same weighbridge."
+},
+"a0.note15": {
+"fr": "J15  Le lot est refusé à l'agréage : que fait le camion ? Il recule dans la pré-file et ressort ; il n'est jamais entré dans l'usine.",
+"en": "J15  The lot is rejected at grading: what does the truck do? It reverses into the pre-queue and leaves; it never entered the plant."
+},
+"a0.note16": {
+"fr": "J16  Comment le personnel entre-t-il ? U2 : administration, étage, couloir balisé au RDC jusqu'au hall. U1 : tourniquet B5, passage protégé au portail B3 sous barrière, cheminement clôturé, passage x 100.",
+"en": "J16  How do staff enter? U2: administration, upper floor, marked ground-floor corridor to the hall. U1: turnstile B5, protected crossing at gate B3 under the barrier, fenced walkway, crossing at x 100."
+},
+"a0.note17": {
+"fr": "J17  Comment empêche-t-on le vol de fèves ? Sorties du personnel par tourniquets à badge avec poste de fouille ; magasin export sous clôture douanière ; cinq pesées dans une seule base.",
+"en": "J17  How is bean theft prevented? Staff exit through badge turnstiles with a search post; export warehouse inside the customs fence; five weighings in a single database."
+},
+"a0.note18": {
+"fr": "J18  Pourquoi le GPL dans l'îlot ? 15 m de tout bâtiment, dépotage depuis la boucle sans entrer dans une aire, hors des issues de secours, douche de sécurité à côté.",
+"en": "J18  Why LPG in the island? 15 m from every building, unloading from the loop without entering a yard, away from emergency exits, safety shower next to it."
+},
+"a0.note19": {
+"fr": "J19  Pourquoi trois cheminées et où ? Torréfaction sur le hall côté sud, chaudière sur les utilités, dépoussiérage sur le local U1 côté nord : toutes sous le vent de l'administration (vent SW).",
+"en": "J19  Why three stacks and where? Roasting on the hall's south side, boiler on the utilities, dedusting on the U1 room's north side: all downwind of the administration (SW wind)."
+},
+"a0.note20": {
+"fr": "J20  Et si le brousse arrive trop humide ? Séchoir mécanique 5 T/h en réserve intérieure du conditionnement, air humide en toiture nord.",
+"en": "J20  What if the raw cocoa arrives too wet? 5 T/h mechanical dryer in the packing hall's internal reserve, moist air vented through the north roof."
+},
+"a0.note21": {
+"fr": "J21  Pourquoi trois cellules brousse ? Cellule = phase : la cellule 1 touche les quais et le conditionnement, les suivantes s'ajoutent au pignon sud sans travaux extérieurs.",
+"en": "J21  Why three raw cocoa cells? Cell = phase: cell 1 touches the docks and the packing hall, the next ones are added at the south gable without external works."
+},
+"a0.note22": {
+"fr": "J22  Pourquoi fonder l'enveloppe finale dès la Phase 1 ? Un seul permis, pas de permis modificatif, et l'extension se fait par ajout de portiques au pignon, l'usine en marche.",
+"en": "J22  Why found the final envelope from Phase 1? A single permit, no amended permit, and the extension is made by adding portal frames at the gable, with the plant running."
+},
+"a0.note23": {
+"fr": "J23  Comment construit-on la Phase 2 sans arrêter la Phase 1 ? Le mur coupe-feu est le pignon provisoire, la grue travaille depuis la voirie, les camions de chantier entrent par le portail de liaison.",
+"en": "J23  How is Phase 2 built without stopping Phase 1? The fire wall is the temporary gable, the crane works from the road, site trucks enter through the link gate."
+},
+"a0.note24": {
+"fr": "J24  Que devient le site si les unités sont scindées ? La clôture est déjà la limite, le pont de cession est la douane interne, rien à construire.",
+"en": "J24  What happens to the site if the units are split? The fence is already the boundary, the transfer weighbridge is the internal customs point, nothing to build."
+},
+"a0.note25": {
+"fr": "J25  Et si on les fusionne ? On ouvre le portail de liaison et les portes du pont de cession ; les deux boucles restent.",
+"en": "J25  And if they are merged? Open the link gate and the transfer weighbridge doors; both loops remain."
+},
+"a0.note26": {
+"fr": "J26  Où courent les gens en cas d'alarme ? PR1 bande pare-feu nord (U1), PR2 parking cadres (U2) : hors voirie, comptage à la clôture ; itinéraire ambulance depuis B5 et B6.",
+"en": "J26  Where do people run in an alarm? PR1 north firebreak strip (U1), PR2 managers' car park (U2): off the roads, head count at the fence; ambulance route from B5 and B6."
+},
+"a0.note27": {
+"fr": "J27  Où est l'eau incendie ? Réserve 400 m³ côté U1, réseau bouclé par la galerie sous la bretelle, 13 poteaux numérotés, tout point à moins de 100 m.",
+"en": "J27  Where is the fire water? 400 m³ reserve on the U1 side, network looped through the gallery under the link road, 13 numbered hydrants, every point within 100 m."
+},
+"a0.note28": {
+"fr": "J28  Pourquoi le poste HTA/BT dans l'îlot ? Infrastructure de site, accessible au concessionnaire, deux départs comptés ; le câble U1 passe en galerie sous la bretelle.",
+"en": "J28  Why the HV/LV substation in the island? Site infrastructure, accessible to the utility, two metered feeders; the U1 cable runs through the gallery under the link road."
+},
+"a0.note29": {
+"fr": "J29  Comment gère-t-on les eaux ? Trois réseaux : pluviales vers noue et bassin, sanitaires vers la STEP, industrielles prétraitées puis STEP ; rétention enterrée 500 m³.",
+"en": "J29  How is water managed? Three networks: stormwater to the swale and basin, sanitary to the WWTP, industrial pre-treated then WWTP; 500 m³ buried retention."
+},
+"a0.note30": {
+"fr": "J30  Pourquoi une bande pare-feu ? Les hévéas voisins brûlent en saison sèche : 3 m débroussaillés dans le recul et 30 m par convention extérieure.",
+"en": "J30  Why a firebreak strip? The neighbouring rubber trees burn in the dry season: 3 m cleared in the setback and 30 m by external agreement."
+},
+"a0.note31": {
+"fr": "J31  Que fait-on des coques ? Chaudière biomasse à la ligne 2 dans l'îlot, silo et aire de reprise sur la boucle U2 ; gaz en Phase 1.",
+"en": "J31  What is done with the shells? Biomass boiler with line 2 in the island, silo and reclaim area on the U2 loop; gas in Phase 1."
+},
+"a0.note32": {
+"fr": "J32  Pourquoi PF7 ? 40 % de la masse s'exporte liquide en citerne ISO chauffée : poste dédié à 10 m du hall, ligne calorifugée.",
+"en": "J32  Why PF7? 40 % of the liquor is exported liquid in heated ISO tanks: dedicated station 10 m from the hall, insulated line."
+},
+"a0.note33": {
+"fr": "J33  Pourquoi pas de parc à conteneurs ? Empotage sur châssis à quai, rotation avec le port d'exportation ; un parc exigerait un reach stacker et 1 500 m².",
+"en": "J33  Why no container yard? Stuffing on chassis at the dock, rotation with the export port; a yard would require a reach stacker and 1 500 m²."
+},
+"a0.note34": {
+"fr": "J34  Pourquoi 47 places et 44 motos ? Effectifs par poste : U1 15 + 60 saisonniers en navette et moto, U2 45 en 3 x 8 ; dépose-navette au portail personnel.",
+"en": "J34  Why 47 car spaces and 44 motorbikes? Headcount per shift: U1 15 + 60 seasonal workers by shuttle and motorbike, U2 45 in 3 x 8; shuttle drop-off at the staff gate."
+},
+"a0.note35": {
+"fr": "J35  Pourquoi le magasin export sous douane ? Un exportateur stocke sous douane : cellule clôturable, porte unique côté quais, scellable lot par lot.",
+"en": "J35  Why a bonded export warehouse? An exporter stores under bond: fenceable cell, single door on the dock side, sealable lot by lot."
+},
+"a0.note36": {
+"fr": "J36  Comment livre-t-on un torréfacteur de 30 t ? Quai maintenance des utilités sur la route interne U2, grue depuis la boucle, portail B6 à 2 voies de 4 m.",
+"en": "J36  How is a 30 t roaster delivered? Utilities maintenance dock on the U2 internal road, crane from the loop, gate B6 with two 4 m lanes."
+},
+"a0.note37": {
+"fr": "J37  Pourquoi les dry coolers au sud ? Bruit vers le bas fond, pas vers la route ni l'administration.",
+"en": "J37  Why the dry coolers to the south? Noise towards the lowland, not towards the road or the administration."
+},
+"a0.note38": {
+"fr": "J38  Que vaut ce plan si une cote change ? Rien : il se régénère avec ses 48 contrôles. On corrige la cote, jamais le dessin.",
+"en": "J38  What is this plan worth if a dimension changes? Nothing: it regenerates with its 48 checks. The dimension is corrected, never the drawing."
+},
+"a0.note39": {
+"fr": "J39  Pourquoi une seule feuille ? Un plan directeur se signe ; une documentation se feuillette. Les annexes sont le modèle Excel et le DXF.",
+"en": "J39  Why a single sheet? A master plan is signed; documentation is leafed through. The annexes are the Excel model and the DXF."
+},
+"a0.note40": {
+"fr": "J40  Qu'est-ce qui reste à confirmer ? Topographie et G2, étude hydraulique, point de livraison du concessionnaire, EIES, et l'admission des voiries dans le recul par l'urbanisme.",
+"en": "J40  What remains to be confirmed? Topography and G2 survey, hydraulic study, utility delivery point, ESIA, and planning approval of roads within the setback."
+},
+"circulation.o19": {
+"fr": "CLÔTURE",
+"en": "FENCE"
+},
+"circulation.o21": {
+"fr": "portail de liaison",
+"en": "link gate"
+},
+"circulation.o23": {
+"fr": "pont de cession",
+"en": "transfer weighbridge"
+},
+"circulation.c0": {
+"fr": "7 Voie sud",
+"en": "7 South road"
+},
+"circulation.c1": {
+"fr": "8 Quais E",
+"en": "8 E docks"
+},
+"circulation.c2": {
+"fr": "1 Portail B6, pré-file",
+"en": "1 Gate B6, pre-queue"
+},
+"circulation.c3": {
+"fr": "4 Voie d'entrée",
+"en": "4 Entry road"
+},
+"circulation.c4": {
+"fr": "2-3 Pont U2 brute",
+"en": "2-3 Weighbridge U2 gross"
+},
+"circulation.c5": {
+"fr": "9-10 Pont U2 tare, sortie",
+"en": "9-10 Weighbridge U2 tare, exit"
+},
+"circulation.c6": {
+"fr": "8 Voie de sortie, quais PF",
+"en": "8 Exit road, PF docks"
+},
+"circulation.c7": {
+"fr": "7 Voie est",
+"en": "7 East road"
+},
+"circulation.c8": {
+"fr": "6 Voie ouest",
+"en": "6 West road"
+},
+"circulation.c9": {
+"fr": "6 Route interne",
+"en": "6 Internal road"
+},
+"circulation.c10": {
+"fr": "5 Quais R",
+"en": "5 R docks"
+},
+"circulation.c11": {
+"fr": "10-11 Sortie, pont U1 tare",
+"en": "10-11 Exit, weighbridge U1 tare"
+},
+"circulation.c12": {
+"fr": "12 Sortie B3",
+"en": "12 Exit B3"
+},
+"circulation.c13": {
+"fr": "3-4 Voie nord, attente 6 PL",
+"en": "3-4 North road, 6-truck waiting"
+},
+"circulation.c14": {
+"fr": "2 Pont U1 brute",
+"en": "2 Weighbridge U1 gross"
+},
+"circulation.c15": {
+"fr": "1 Portail B3",
+"en": "1 Gate B3"
+},
+"circulation.c16": {
+"fr": "5 Voie ouest",
+"en": "5 West road"
+},
+"circulation.c17": {
+"fr": "9 Bretelle",
+"en": "9 Link road"
+},
+"securite.o51": {
+"fr": "PI1",
+"en": "FH1"
+},
+"securite.o53": {
+"fr": "PI2",
+"en": "FH2"
+},
+"securite.o55": {
+"fr": "PI3",
+"en": "FH3"
+},
+"securite.o57": {
+"fr": "PI4",
+"en": "FH4"
+},
+"securite.o59": {
+"fr": "PI5",
+"en": "FH5"
+},
+"securite.o61": {
+"fr": "PI6",
+"en": "FH6"
+},
+"securite.o63": {
+"fr": "PI7",
+"en": "FH7"
+},
+"securite.o65": {
+"fr": "PI8",
+"en": "FH8"
+},
+"securite.o67": {
+"fr": "PI9",
+"en": "FH9"
+},
+"securite.o69": {
+"fr": "PI10",
+"en": "FH10"
+},
+"securite.o71": {
+"fr": "PI11",
+"en": "FH11"
+},
+"securite.o73": {
+"fr": "PI12",
+"en": "FH12"
+},
+"securite.o75": {
+"fr": "PI13",
+"en": "FH13"
+},
+"securite.o77": {
+"fr": "S1",
+"en": "S1"
+},
+"securite.o79": {
+"fr": "S2",
+"en": "S2"
+},
+"securite.o81": {
+"fr": "S3",
+"en": "S3"
+},
+"securite.o83": {
+"fr": "S4",
+"en": "S4"
+},
+"securite.o85": {
+"fr": "S5",
+"en": "S5"
+},
+"securite.o87": {
+"fr": "S6",
+"en": "S6"
+},
+"securite.o89": {
+"fr": "S7",
+"en": "S7"
+},
+"securite.o91": {
+"fr": "S8",
+"en": "S8"
+},
+"securite.o93": {
+"fr": "S9",
+"en": "S9"
+},
+"securite.o95": {
+"fr": "S10",
+"en": "S10"
+},
+"securite.o97": {
+"fr": "S11",
+"en": "S11"
+},
+"securite.o99": {
+"fr": "S12",
+"en": "S12"
+},
+"securite.o101": {
+"fr": "S13",
+"en": "S13"
+},
+"securite.o103": {
+"fr": "S14",
+"en": "S14"
+},
+"securite.o105": {
+"fr": "S15",
+"en": "S15"
+},
+"securite.o107": {
+"fr": "S16",
+"en": "S16"
+},
+"securite.o109": {
+"fr": "S17",
+"en": "S17"
+},
+"securite.o111": {
+"fr": "PR1 RASSEMBLEMENT U1",
+"en": "PR1 MUSTER POINT U1"
+},
+"securite.o113": {
+"fr": "PR2",
+"en": "PR2"
+},
+"securite.o115": {
+"fr": "RÉSERVE INCENDIE 400 m³",
+"en": "FIRE RESERVE 400 m³"
+},
+"securite.o117": {
+"fr": "VOIE POMPIERS 4 m",
+"en": "FIRE LANE 4 m"
+},
+"securite.o119": {
+"fr": "GPL 15 m",
+"en": "LPG 15 m"
+},
+"securite.o121": {
+"fr": "fumigants 20 m",
+"en": "fumigants 20 m"
+},
+"securite.o123": {
+"fr": "CLÔTURE 2,40 m",
+"en": "FENCE 2.40 m"
+},
+"reseaux.o7": {
+"fr": "EP",
+"en": "SW"
+},
+"reseaux.o9": {
+"fr": "EP",
+"en": "SW"
+},
+"reseaux.o11": {
+"fr": "EU",
+"en": "WW"
+},
+"reseaux.o15": {
+"fr": "HTA + fibre",
+"en": "HV + fibre"
+},
+"reseaux.o17": {
+"fr": "STEP",
+"en": "WWTP"
+},
+"reseaux.o19": {
+"fr": "BASSIN EP",
+"en": "STORMWATER BASIN"
+},
+"reseaux.o21": {
+"fr": "NOUE EP OUEST",
+"en": "WEST STORMWATER SWALE"
+},
+"reseaux.o23": {
+"fr": "NOUE SUD",
+"en": "SOUTH SWALE"
+},
+"reseaux.o25": {
+"fr": "RÉSERVE INCENDIE",
+"en": "FIRE RESERVE"
+},
+"reseaux.o27": {
+"fr": "FORAGE",
+"en": "BOREHOLE"
+},
+"reseaux.o29": {
+"fr": "PRÉTRAITEMENT",
+"en": "PRE-TREATMENT"
+},
+"reseaux.o31": {
+"fr": "POSTE HTA/BT",
+"en": "HV/LV SUBSTATION"
+},
+"reseaux.o33": {
+"fr": "SEP.",
+"en": "SEP."
+},
+"reseaux.o35": {
+"fr": "SEP.",
+"en": "SEP."
+},
+"reseaux.o37": {
+"fr": "SEP.",
+"en": "SEP."
+},
+"reseaux.o39": {
+"fr": "PV 1 050 kWc (Ph.3)",
+"en": "PV 1 050 kWp (Ph.3)"
+},
+"reseaux.o41": {
+"fr": "PV 320 kWc",
+"en": "PV 320 kWp"
+},
+"reseaux.o43": {
+"fr": "PV 700 kWc (Ph.3)",
+"en": "PV 700 kWp (Ph.3)"
+},
+"reseaux.o45": {
+"fr": "PV 300 kWc",
+"en": "PV 300 kWp"
+},
+"reseaux.o47": {
+"fr": "PV 380 kWc",
+"en": "PV 380 kWp"
+},
+"stockage.s0": {
+"fr": "35 lots = 875 T",
+"en": "35 lots = 875 T"
+},
+"stockage.s1": {
+"fr": "BR-P3",
+"en": "BR-P3"
+},
+"stockage.s2": {
+"fr": "42 lots = 1 050 T",
+"en": "42 lots = 1 050 T"
+},
+"stockage.s3": {
+"fr": "BR-P2",
+"en": "BR-P2"
+},
+"stockage.s4": {
+"fr": "66 lots = 1 650 T",
+"en": "66 lots = 1 650 T"
+},
+"stockage.s5": {
+"fr": "81 lots = 2 025 T",
+"en": "81 lots = 2 025 T"
+},
+"stockage.s6": {
+"fr": "EX-P1",
+"en": "EX-P1"
+},
+"stockage.s7": {
+"fr": "EX-P3",
+"en": "EX-P3"
+},
+"stockage.s8": {
+"fr": "6 rangees = 852 pos.",
+"en": "6 rows = 852 pos."
+},
+"stockage.s9": {
+"fr": "PF-P3",
+"en": "PF-P3"
+},
+"stockage.s10": {
+"fr": "77 lots = 1 925 T",
+"en": "77 lots = 1 925 T"
+},
+"stockage.s11": {
+"fr": "BR-P1",
+"en": "BR-P1"
+},
+"stockage.s12": {
+"fr": "3 rangees = 918 pos.",
+"en": "3 rows = 918 pos."
+},
+"stockage.s13": {
+"fr": "PF-P1",
+"en": "PF-P1"
+},
+"chantier.o897": {
+"fr": "grue, laydown",
+"en": "crane, laydown"
+},
+"chantier.o899": {
+"fr": "base vie",
+"en": "site camp"
+},
+"chantier.o901": {
+"fr": "camions de chantier par le portail de liaison",
+"en": "site trucks via the link gate"
+},
+"adm.0": {
+"fr": "15 m²",
+"en": "15 m²"
+},
+"adm.1": {
+"fr": "CVC",
+"en": "HVAC"
+},
+"adm.2": {
+"fr": "21 m²",
+"en": "21 m²"
+},
+"adm.3": {
+"fr": "INFIRMERIE",
+"en": "INFIRMARY"
+},
+"adm.4": {
+"fr": "45 m²",
+"en": "45 m²"
+},
+"adm.5": {
+"fr": "FORMATION",
+"en": "TRAINING"
+},
+"adm.6": {
+"fr": "24 m²",
+"en": "24 m²"
+},
+"adm.7": {
+"fr": "SANIT. PMR",
+"en": "ACCESSIBLE WC"
+},
+"adm.8": {
+"fr": "117 m²",
+"en": "117 m²"
+},
+"adm.9": {
+"fr": "25 m²",
+"en": "25 m²"
+},
+"adm.10": {
+"fr": "mezzanine",
+"en": "mezzanine"
+},
+"adm.11": {
+"fr": "PRIÈRE",
+"en": "PRAYER"
+},
+"adm.12": {
+"fr": "RÉSERVE",
+"en": "STOREROOM"
+},
+"adm.13": {
+"fr": "81 m²",
+"en": "81 m²"
+},
+"adm.14": {
+"fr": "21 m²",
+"en": "21 m²"
+},
+"adm.15": {
+"fr": "COUVERTE",
+"en": "TERRACE"
+},
+"adm.16": {
+"fr": "DIRECTION",
+"en": "MANAGEMENT"
+},
+"adm.17": {
+"fr": "TERRASSE",
+"en": "COVERED"
+},
+"adm.18": {
+"fr": "110 m²",
+"en": "110 m²"
+},
+"adm.19": {
+"fr": "20 m²",
+"en": "20 m²"
+},
+"adm.20": {
+"fr": "60 couverts",
+"en": "60 seats"
+},
+"adm.21": {
+"fr": "ARCHIVES",
+"en": "ARCHIVES"
+},
+"adm.22": {
+"fr": "30 m²",
+"en": "30 m²"
+},
+"adm.23": {
+"fr": "SALLE A MANGER",
+"en": "CANTEEN"
+},
+"adm.24": {
+"fr": "MÉNAGE",
+"en": "CLEANING"
+},
+"adm.25": {
+"fr": "RÉUNION",
+"en": "MEETING"
+},
+"adm.26": {
+"fr": "60 m²",
+"en": "60 m²"
+},
+"adm.27": {
+"fr": "OPEN SPACE",
+"en": "OPEN SPACE"
+},
+"adm.28": {
+"fr": "COMPTABILITÉ",
+"en": "ACCOUNTING"
+},
+"adm.29": {
+"fr": "24 m²",
+"en": "24 m²"
+},
+"adm.30": {
+"fr": "SANIT.",
+"en": "WC"
+},
+"adm.31": {
+"fr": "39 m²",
+"en": "39 m²"
+},
+"adm.32": {
+"fr": "SHOWROOM",
+"en": "SHOWROOM"
+},
+"adm.33": {
+"fr": "35 m²",
+"en": "35 m²"
+},
+"adm.34": {
+"fr": "VESTIAIRES F",
+"en": "WOMEN'S CHANGING"
+},
+"adm.35": {
+"fr": "25 m²",
+"en": "25 m²"
+},
+"adm.36": {
+"fr": "SERVEURS",
+"en": "SERVERS"
+},
+"adm.37": {
+"fr": "PC SÉCURITÉ",
+"en": "SECURITY ROOM"
+},
+"adm.38": {
+"fr": "60 m²",
+"en": "60 m²"
+},
+"adm.39": {
+"fr": "35 m²",
+"en": "35 m²"
+},
+"adm.40": {
+"fr": "BUREAUX U2",
+"en": "U2 OFFICES"
+},
+"adm.41": {
+"fr": "AGRÉAGE",
+"en": "GRADING"
+},
+"adm.42": {
+"fr": "45 m²",
+"en": "45 m²"
+},
+"adm.43": {
+"fr": "70 m²",
+"en": "70 m²"
+},
+"adm.44": {
+"fr": "60 places, douches",
+"en": "60 places, showers"
+},
+"adm.45": {
+"fr": "ACCUEIL porche",
+"en": "RECEPTION porch"
+},
+"adm.46": {
+"fr": "VESTIAIRES H",
+"en": "MEN'S CHANGING"
+},
+"adm.47": {
+"fr": "15 m²",
+"en": "15 m²"
+},
+"adm.48": {
+"fr": "14 m²",
+"en": "14 m²"
+},
+"adm.49": {
+"fr": "PESÉE U1",
+"en": "WEIGHING U1"
+},
+"adm.50": {
+"fr": "LOCAL TECH.",
+"en": "TECH. ROOM"
+},
+"adm.51": {
+"fr": "facade nord : pont U1 à 23 m",
+"en": "north façade: weighbridge U1 at 23 m"
+},
+"adm.52": {
+"fr": "facade nord : pont U1 à 23 m",
+"en": "north façade: weighbridge U1 at 23 m"
+},
+"adm.53": {
+"fr": "REZ-DE-CHAUSSEE (1/100) - somme des pieces 525 m² sur 525 m²",
+"en": "GROUND FLOOR (1/100) - sum of rooms 525 m² of 525 m²"
+},
+"adm.54": {
+"fr": "ÉTAGE (1/100) - somme des pieces 525 m² sur 525 m²",
+"en": "UPPER FLOOR (1/100) - sum of rooms 525 m² of 525 m²"
+},
+"adm.55": {
+"fr": "60 m²",
+"en": "60 m²"
+},
+"adm.56": {
+"fr": "ESCALIER",
+"en": "STAIRS"
+},
+"adm.57": {
+"fr": "CIRCULATION",
+"en": "CIRCULATION"
+},
+"adm.58": {
+"fr": "60 m²",
+"en": "60 m²"
+},
+"adm.59": {
+"fr": "ESCALIER",
+"en": "STAIRS"
+},
+"adm.60": {
+"fr": "CIRCULATION",
+"en": "CIRCULATION"
+},
+"adm.capE1": {
+"fr": "façade est : entrée, parking visiteurs",
+"en": "east façade: entrance, visitors car park"
+},
+"adm.capW1": {
+"fr": "façade ouest : mur CF avec le PF",
+"en": "west façade: fire wall shared with the PF"
+},
+"adm.capE2": {
+"fr": "façade est : entrée, parking visiteurs",
+"en": "east façade: entrance, visitors car park"
+},
+"adm.capW2": {
+"fr": "façade ouest : mur CF avec le PF",
+"en": "west façade: fire wall shared with the PF"
+},
+"band.0": {
+"fr": "Oct",
+"en": "Oct"
+},
+"band.1": {
+"fr": "Nov",
+"en": "Nov"
+},
+"band.2": {
+"fr": "Déc",
+"en": "Dec"
+},
+"band.3": {
+"fr": "Jan",
+"en": "Jan"
+},
+"band.4": {
+"fr": "Fév",
+"en": "Feb"
+},
+"band.5": {
+"fr": "Mar",
+"en": "Mar"
+},
+"band.6": {
+"fr": "Avr",
+"en": "Apr"
+},
+"band.7": {
+"fr": "Mai",
+"en": "May"
+},
+"band.8": {
+"fr": "Jui",
+"en": "Jun"
+},
+"band.9": {
+"fr": "Jul",
+"en": "Jul"
+},
+"band.10": {
+"fr": "Aoû",
+"en": "Aug"
+},
+"band.11": {
+"fr": "Sep",
+"en": "Sep"
+},
+"band.12": {
+"fr": "0",
+"en": "0"
+},
+"band.13": {
+"fr": "galerie réseaux enterree",
+"en": "buried services gallery"
+},
+"band.14": {
+"fr": "voie",
+"en": "road"
+},
+"band.15": {
+"fr": "+1,20",
+"en": "+1,20"
+},
+"band.16": {
+"fr": "+0,30",
+"en": "+0,30"
+},
+"band.17": {
+"fr": "+1,20",
+"en": "+1,20"
+},
+"band.18": {
+"fr": "+0,30",
+"en": "+0,30"
+},
+"band.19": {
+"fr": "+1,20",
+"en": "+1,20"
+},
+"band.20": {
+"fr": "parking est",
+"en": "east car park"
+},
+"band.21": {
+"fr": "route",
+"en": "road"
+},
+"band.22": {
+"fr": "bretelle U1 6 m",
+"en": "U1 link road 6 m"
+},
+"band.23": {
+"fr": "1000",
+"en": "1000"
+},
+"band.24": {
+"fr": "galerie H 5",
+"en": "gallery H 5"
+},
+"band.25": {
+"fr": "ADM R+1",
+"en": "ADM R+1"
+},
+"band.26": {
+"fr": "2000",
+"en": "2000"
+},
+"band.27": {
+"fr": "HALL TRANSFORMATION H 10",
+"en": "PROCESSING HALL H 10"
+},
+"band.28": {
+"fr": "PF H 8",
+"en": "PF H 8"
+},
+"band.29": {
+"fr": "BROUSSE H 10",
+"en": "RAW COCOA H 10"
+},
+"band.30": {
+"fr": "EXPORT H 10",
+"en": "EXPORT H 10"
+},
+"band.31": {
+"fr": "CONDITIONNEMENT H 12",
+"en": "PACKING H 12"
+},
+"band.32": {
+"fr": "clôture 2,40",
+"en": "fence 2.40"
+},
+"band.33": {
+"fr": "gabarit 4,50",
+"en": "clearance 4.50"
+},
+"band.34": {
+"fr": "+0,30",
+"en": "+0,30"
+},
+"band.35": {
+"fr": "3000",
+"en": "3000"
+},
+"band.36": {
+"fr": "HALL U2",
+"en": "HALL U2"
+},
+"band.37": {
+"fr": "pont de cession +6",
+"en": "transfer weighbridge +6"
+},
+"band.38": {
+"fr": "+1,20",
+"en": "+1,20"
+},
+"band.39": {
+"fr": "EXPORT",
+"en": "EXPORT"
+},
+"band.40": {
+"fr": "4000",
+"en": "4000"
+},
+"band.41": {
+"fr": "convoyeur + bascule",
+"en": "conveyor + scale"
+},
+"band.42": {
+"fr": "PONT DE CESSION",
+"en": "TRANSFER WEIGHBRIDGE"
+},
+"band.43": {
+"fr": "TOUR H 25",
+"en": "TOWER H 25"
+},
+"band.44": {
+"fr": "5000",
+"en": "5000"
+},
+"band.45": {
+"fr": "COUPE B-B par la bretelle et le pont de cession (1/250)",
+"en": "SECTION B-B through the link road and the transfer weighbridge (1/250)"
+},
+"band.46": {
+"fr": "COUPE A-A sur l'axe y = 42 (1/1000) : dalles magasins +1,20, halls +0,30, aires 0,00 ; portiques acier, couverture bac acier + PV, bardage isolé export et PF",
+"en": "SECTION A-A on axis y = 42 (1/1000): warehouse slabs +1.20, halls +0.30, yards 0.00; steel portal frames, steel-deck roof + PV, insulated cladding on export and PF"
+},
+"band.47": {
+"fr": "CAMPAGNE (apports T/mois), STOCK BROUSSE (T), capacité en lots 3 850 T",
+"en": "SEASON (deliveries T/month), RAW COCOA STOCK (T), lot capacity 3 850 T"
+},
+"band.48": {
+"fr": "PROVISIONS INSCRITES DANS LA PHASE 1 : dalle des magasins 5 t/m² partout, hauteur libre 10 m confirmée | cellule 2 export : murs et fondations dimensionnés pour la poussée du vrac (6 m), ventilation forcée, contrôle d'humidité | réservation de la trémie de reprise et du convoyeur vers l'ensachage | planchers ajourés ou palettes en pied de pile pour le gerbage à 5,5 m | brousse humide : gerbage limité à 3,5 m avant séchage | PF : poteaux de rack pour 5 niveaux, dalle +1,20 à 5 t/m², sprinkler en rack au-delà de 5 m (avis assureur) | au-delà de 5 m de pile : avis de l'assureur sur sprinkler ou taille des cellules avant engagement",
+"en": "PROVISIONS BUILT INTO PHASE 1: warehouse slab 5 t/m² everywhere, 10 m clear height confirmed | export cell 2: walls and foundations sized for bulk thrust (6 m), forced ventilation, humidity control | reservation of the reclaim hopper and the conveyor to bagging | slatted floors or pallets at the foot of the stack for 5.5 m stacking | wet raw cocoa: stacking limited to 3.5 m before drying | PF: rack columns for 5 levels, slab +1.20 at 5 t/m², in-rack sprinklers above 5 m (insurer's opinion) | above 5 m of stack: insurer's opinion on sprinklers or cell size before commitment"
+},
+"band.49": {
+"fr": "CAPACITÉ CACAO DU SITE : dessinée 10 282 T - gerbage haut 16 785 T - avec vrac export et racks 5 niveaux 22 436 T = une grande campagne en stock",
+"en": "SITE COCOA CAPACITY: as drawn 10 282 T - high stacking 16 785 T - with export bulk and 5-level racks 22 436 T = a full large season in stock"
+},
+"ui.kicker": {
+"fr": "Registre Owl - Prototype de référence",
+"en": "Owl Register - Reference prototype"
+},
+"ui.title": {
+"fr": "Planche VIII, indice B - Implantation générale d'une usine type, plan à calques",
+"en": "Plate VIII, issue B - General layout of a type plant, layered plan"
+},
+"ui.base": {
+"fr": "Fond de plan",
+"en": "Base map"
+},
+"ui.baseS": {
+"fr": "Plan de synthèse (A1, 1/500)",
+"en": "Synthesis plan (A1, 1/500)"
+},
+"ui.baseA": {
+"fr": "Plan de masse directeur (A0, 1/400)",
+"en": "Master site plan (A0, 1/400)"
+},
+"ui.layers": {
+"fr": "Calques thématiques",
+"en": "Thematic layers"
+},
+"ui.l1": {
+"fr": "1  Circulation et pesées",
+"en": "1  Traffic and weighing"
+},
+"ui.l2": {
+"fr": "2  Sécurité et incendie",
+"en": "2  Safety and fire"
+},
+"ui.l3": {
+"fr": "3  Réseaux, eaux et énergie",
+"en": "3  Networks, water and energy"
+},
+"ui.l4": {
+"fr": "4  Phasage de réalisation",
+"en": "4  Construction phasing"
+},
+"ui.l4a": {
+"fr": "Phase 1 (permis)",
+"en": "Phase 1 (permit)"
+},
+"ui.l4b": {
+"fr": "Phase 2",
+"en": "Phase 2"
+},
+"ui.l4c": {
+"fr": "Phase 3",
+"en": "Phase 3"
+},
+"ui.l4d": {
+"fr": "Chantier de la Phase 2",
+"en": "Phase 2 works"
+},
+"ui.l5": {
+"fr": "5  Stockage : lots et capacités",
+"en": "5  Storage: lots and capacities"
+},
+"ui.l6": {
+"fr": "6  Bloc administratif R et R+1",
+"en": "6  Administrative block GF and 1st"
+},
+"ui.l7": {
+"fr": "Notes, coupes et vérifications du plan directeur",
+"en": "Master plan notes, sections and checks"
+},
+"ui.all": {
+"fr": "Tout afficher",
+"en": "Show all"
+},
+"ui.none": {
+"fr": "Fond seul",
+"en": "Base only"
+},
+"ui.caption": {
+"fr": "PLANCHE VIII (B) - IMPLANTATION GÉNÉRALE D'UNE USINE TYPE - PLAN À CALQUES",
+"en": "PLATE VIII (B) - GENERAL LAYOUT OF A TYPE PLANT - LAYERED PLAN"
+},
+"ui.foot": {
+"fr": "Projet réel du groupe, anonymisé : aucun nom de client, de lieu ni de riverain. Géométrie, libellés, capacités, bilans, phasage, vérifications et notes de conception reproduits à l'identique des plans d'études (plan de synthèse A1, carnet thématique A3, plan de masse directeur A0, indice J).",
+"en": "Real project of the group, anonymised: no client, place or neighbour name. Geometry, labels, capacities, balances, phasing, checks and design notes reproduced identically from the design drawings (A1 synthesis plan, A3 thematic booklet, A0 master site plan, issue J)."
+},
+"ui.ces": {
+"fr": "EMPRISE AU SOL DES CONSTRUCTIONS (CES) : 53,5 % en enveloppe finale (26 713 m²), 34,3 % en Phase 1 (17 120 m²), 54,6 % avec auvents ; CES maximal 60 %. Surface imperméabilisée (bâti + aires + voiries + parkings) : 85 %, ramenée à 60 % par voiries drainantes et parkings alvéolés si le règlement l'exige.",
+"en": "BUILDING FOOTPRINT RATIO (CES): 53.5 % in the final envelope (26 713 m²), 34.3 % in Phase 1 (17 120 m²), 54.6 % with canopies; maximum CES 60 %. Sealed surface (buildings + yards + roads + car parks): 85 %, brought down to 60 % with draining roads and cellular car parks if regulations require it."
+},
+"ui.adminH": {
+"fr": "Bloc administratif - plans RDC et étage (1/100)",
+"en": "Administrative block - ground and upper floor plans (1/100)"
+},
+"ui.bandH": {
+"fr": "Coupes A-A et B-B, courbe de campagne et stock brousse",
+"en": "Sections A-A and B-B, season curve and raw cocoa stock"
+},
+"ui.scale": {
+"fr": "0  10  20  30  40  50 m - échelle 1/500",
+"en": "0  10  20  30  40  50 m - scale 1/500"
+},
+"ui.zoom": {
+"fr": "molette : zoom - glisser : déplacer - double-clic : vue entière",
+"en": "wheel: zoom - drag: pan - double-click: full view"
+},
+"th.circulation.t": {
+"fr": "1 - Circulation et pesées",
+"en": "1 - Traffic and weighing"
+},
+"th.circulation.s": {
+"fr": "Deux réseaux à sens unique sans un mètre de dallage commun ; un portail et un pont par unité ; brute à l'entrée, tare à la sortie sur le même pont.",
+"en": "Two one-way networks without a single metre of shared paving; one gate and one weighbridge per unit; gross weight at entry, tare at exit on the same weighbridge."
+},
+"th.circulation.b0h": {
+"fr": "SIMULATION DES FILES (200 jours)",
+"en": "QUEUE SIMULATION (200 days)"
+},
+"th.circulation.b0l0": {
+"fr": "Pont U1 (B3) : campagne nominale, 11 PL/j : attente moy. 0,3 min, max 7 min, file max 4 PL - OK",
+"en": "Weighbridge U1 (B3): nominal season, 11 trucks/day: avg wait 0.3 min, max 7 min, max queue 4 trucks - OK"
+},
+"th.circulation.b0l1": {
+"fr": "Pont U1 (B3) : pointe 180 %, 20 PL/j : attente moy. 0,6 min, max 10 min, file max 5 PL - REVOIR : pont de l'autre unité en secours",
+"en": "Weighbridge U1 (B3): 180 % peak, 20 trucks/day: avg wait 0.6 min, max 10 min, max queue 5 trucks - REVIEW: other unit's weighbridge as back-up"
+},
+"th.circulation.b0l2": {
+"fr": "Pont U2 (B7) : Phase 3, 9 PL/j : attente moy. 0,2 min, max 6 min, file max 4 PL - OK",
+"en": "Weighbridge U2 (B7): Phase 3, 9 trucks/day: avg wait 0.2 min, max 6 min, max queue 4 trucks - OK"
+},
+"th.circulation.b0l3": {
+"fr": "Pont U2 (B7) : Phase 3 + pointe, 14 PL/j : attente moy. 0,3 min, max 8 min, file max 4 PL - OK",
+"en": "Weighbridge U2 (B7): Phase 3 + peak, 14 trucks/day: avg wait 0.3 min, max 8 min, max queue 4 trucks - OK"
+},
+"th.circulation.b0l4": {
+"fr": "Quais R1-R6 : campagne nominale, 5 PL/j : attente moy. 0,3 min, max 13 min, file max 3 PL - OK",
+"en": "Docks R1-R6: nominal season, 5 trucks/day: avg wait 0.3 min, max 13 min, max queue 3 trucks - OK"
+},
+"th.circulation.b0l5": {
+"fr": "Quais R1-R6 : pointe 180 %, 9 PL/j : attente moy. 0,7 min, max 16 min, file max 4 PL - OK",
+"en": "Docks R1-R6: 180 % peak, 9 trucks/day: avg wait 0.7 min, max 16 min, max queue 4 trucks - OK"
+},
+"th.circulation.b1h": {
+"fr": "OCCUPATION DES QUAIS",
+"en": "DOCK OCCUPANCY"
+},
+"th.circulation.b1l0": {
+"fr": "Quais R1-R6 : 5 -> 9 PL/j, 45 min : 11 %, attente max 16 min",
+"en": "Docks R1-R6: 5 -> 9 trucks/day, 45 min: 11 %, max wait 16 min"
+},
+"th.circulation.b1l1": {
+"fr": "Quais E1-E3 : 4 conteneurs/j, 120 min : 23 %, attente max 113 min",
+"en": "Docks E1-E3: 4 containers/day, 120 min: 23 %, max wait 113 min"
+},
+"th.circulation.b1l2": {
+"fr": "Quais PF1-PF4 + PF7 : 2 -> 6 PL/j, 90 min : 17 %, attente max 47 min",
+"en": "Docks PF1-PF4 + PF7: 2 -> 6 trucks/day, 90 min: 17 %, max wait 47 min"
+},
+"th.circulation.b2h": {
+"fr": "RÈGLES",
+"en": "RULES"
+},
+"th.circulation.b2l0": {
+"fr": "15 km/h - un seul chemin par camion - arrêt uniquement à quai, en pré-file ou en bande d'attente - aucune marche arrière hors quai - priorité au camion engagé - piétons sur les passages protégés - portail de liaison fermé sauf mode dégradé. PESÉES : 5 (brute et tare U1, brute et tare U2, cession) dans une seule base ; poste U1 dans l'administration à 23 m du pont, cabine U2 à 11 m du pont ; 30 m rectilignes et de niveau de part et d'autre de chaque pont ; refus à l'agréage = recul dans la pré-file et sortie.",
+"en": "15 km/h - one path per truck - stopping only at a dock, in the pre-queue or in the waiting lane - no reversing except at docks - priority to the committed truck - pedestrians on protected crossings only - link gate closed except in degraded mode. WEIGHINGS: 5 (gross and tare U1, gross and tare U2, transfer) in a single database; U1 station in the administration 23 m from the weighbridge, U2 cabin 11 m from the weighbridge; 30 m straight and level on both sides of each weighbridge; rejection at grading = reverse into the pre-queue and exit."
+},
+"th.securite.t": {
+"fr": "2 - Sécurité et incendie",
+"en": "2 - Safety and fire"
+},
+"th.securite.s": {
+"fr": "Réserve 400 m³, 13 poteaux (rayon 100 m), 17 issues, 2 points de rassemblement, 14 caméras, voie pompiers périphérique, clôture et tourniquets.",
+"en": "400 m³ reserve, 13 hydrants (100 m radius), 17 exits, 2 muster points, 14 cameras, perimeter fire lane, fence and turnstiles."
+},
+"th.securite.b0h": {
+"fr": "DISPOSITIF",
+"en": "ARRANGEMENT"
+},
+"th.securite.b0l0": {
+"fr": "Cellules coupe-feu <= 3 220 m², murs CF 2 h (rouge) ; cellule = phase. Réserve 400 m³ + motopompe côté U1, réseau bouclé par la galerie sous la bretelle ; 13 poteaux, tout point à moins de 100 m (vérifié sur grille de 8 m). 17 issues de secours (S), 2 par cellule au moins, distance <= 50 m. Rassemblement : PR1 bande pare-feu nord (U1), PR2 parking cadres est (U2), hors voirie ; ambulance par B3 et B6. Voie pompiers périphérique 4 m : voie sud U1, prolongée jusqu'à la boucle U2 et au triangle. GPL à 15 m des bâtiments, douche de sécurité ; fumigants à 20 m des locaux occupés ; ATEX 22 tour et broyage, évents en toiture ; paratonnerre sur la tour. Bandes pare-feu 3 m débroussaillées côté hévéa, 30 m par convention extérieure. Sûreté : clôture interne U1/U2, tourniquets à badge et poste de fouille aux deux portails VL, 14 caméras dont les 5 pesées vers le PC, magasin export sous clôture douanière. Scénarios : pont en panne (portail de liaison), incendie d'une cellule (l'autre unité continue), inondation (dalles +1,20, rétention 500 m³), arrêt d'une unité (l'autre est autonome).",
+"en": "Fire compartments <= 3 220 m², 2 h fire walls (red); compartment = phase. 400 m³ reserve + motor pump on the U1 side, network looped through the gallery under the link road; 13 hydrants, every point within 100 m (checked on an 8 m grid). 17 emergency exits (S), at least 2 per compartment, distance <= 50 m. Muster: PR1 north firebreak strip (U1), PR2 east managers' car park (U2), off the roads; ambulance via B3 and B6. 4 m perimeter fire lane: U1 south road, extended to the U2 loop and the triangle. LPG 15 m from buildings, safety shower; fumigants 20 m from occupied rooms; ATEX 22 tower and grinding, roof vents; lightning rod on the tower. 3 m firebreak strips cleared on the rubber-plantation side, 30 m by external agreement. Security: internal U1/U2 fence, badge turnstiles and search post at both car gates, 14 cameras including the 5 weighings to the control room, export warehouse inside the customs fence. Scenarios: weighbridge failure (link gate), fire in one compartment (the other unit keeps running), flooding (slabs +1.20, 500 m³ retention), shutdown of one unit (the other is autonomous)."
+},
+"th.reseaux.t": {
+"fr": "3 - Réseaux, eaux et énergie",
+"en": "3 - Networks, water and energy"
+},
+"th.reseaux.s": {
+"fr": "Trois réseaux d'eau séparés, rétention et STEP, poste HTA/BT commun à deux comptages, PV en toiture, galerie sous la bretelle.",
+"en": "Three separate water networks, retention and WWTP, shared HV/LV substation with two meters, rooftop PV, gallery under the link road."
+},
+"th.reseaux.b0h": {
+"fr": "BILANS",
+"en": "BALANCES"
+},
+"th.reseaux.b0l0": {
+"fr": "Eau U1 (sanitaires, fumigation, lavage) : 8 m³/j",
+"en": "Water U1 (sanitary, fumigation, washing): 8 m³/day"
+},
+"th.reseaux.b0l1": {
+"fr": "Eau U2 (chaudière, eau glacée, lavage) : 55 m³/j",
+"en": "Water U2 (boiler, chilled water, washing): 55 m³/day"
+},
+"th.reseaux.b0l2": {
+"fr": "Forage + bâche 200 m³ + bâche U1 50 m³ : autonomie 4 j",
+"en": "Borehole + 200 m³ tank + U1 50 m³ tank: 4 days' autonomy"
+},
+"th.reseaux.b0l3": {
+"fr": "Puissance U1 / U2 installée : 450 kW / 1 400 kW",
+"en": "Installed power U1 / U2: 450 kW / 1 400 kW"
+},
+"th.reseaux.b0l4": {
+"fr": "Transformateurs U1 / U2 : 630 / 1 600 kVA",
+"en": "Transformers U1 / U2: 630 / 1 600 kVA"
+},
+"th.reseaux.b0l5": {
+"fr": "Groupes U1 / U2 (secours partiel) : 250 / 630 kVA",
+"en": "Generators U1 / U2 (partial back-up): 250 / 630 kVA"
+},
+"th.reseaux.b0l6": {
+"fr": "PV toitures Ph.1 / Ph.3 : 1 060 / 2 120 kWc",
+"en": "Rooftop PV Ph.1 / Ph.3: 1 060 / 2 120 kWp"
+},
+"th.reseaux.b0l7": {
+"fr": "GPL 2 x 30 m³ ; gasoil 10 m³ : autonomie 21 j / 10 j",
+"en": "LPG 2 x 30 m³; diesel 10 m³: 21 days / 10 days autonomy"
+},
+"th.reseaux.b1h": {
+"fr": "EAUX ET ÉNERGIE",
+"en": "WATER AND ENERGY"
+},
+"th.reseaux.b1l0": {
+"fr": "EAUX : pluviales (bleu) vers noue ouest, bassin du triangle et rétention enterrée 500 m³ sous le parking sud, exutoire régulé vers le bas fond ; sanitaires (brun) vers la STEP ; industrielles (violet) vers prétraitement puis STEP ; séparateurs d'hydrocarbures aux parkings et au GPL ; caniveaux le long des voies, pente de plateforme 1 % ; récupération des eaux de toiture vers la bâche process (8 000 m³/an). ÉNERGIE : poste HTA/BT commun dans l'îlot, arrivée du concessionnaire et fibre depuis B5 en galerie, deux départs comptés (U1 630 kVA, U2 1 600 kVA), TD1 + GE1 en U1, TGBT2 + GE2 en U2, PV 1 060 kWc en Phase 1 puis 2 120 kWc ; câble U1 en galerie sous la bretelle.",
+"en": "WATER: stormwater (blue) to the west swale, the triangle basin and a 500 m³ buried retention under the south car park, regulated outlet to the lowland; sanitary (brown) to the WWTP; industrial (purple) to pre-treatment then WWTP; oil separators at car parks and LPG; gutters along the roads, 1 % platform slope; roof water recovered to the process tank (8 000 m³/year). ENERGY: shared HV/LV substation in the island, utility supply and fibre from B5 through the gallery, two metered feeders (U1 630 kVA, U2 1 600 kVA), TD1 + GE1 in U1, TGBT2 + GE2 in U2, PV 1 060 kWp in Phase 1 then 2 120 kWp; U1 cable in the gallery under the link road."
+},
+"th.phasage.t": {
+"fr": "4 - Phasage de réalisation",
+"en": "4 - Construction phasing"
+},
+"th.phasage.s": {
+"fr": "Phase 1 = plus petit nombre de trames couvrant le besoin ; enveloppes fondées dès la Phase 1 ; cellule coupe-feu = phase ; extension au pignon, usine en marche.",
+"en": "Phase 1 = smallest number of bays covering the need; envelopes founded from Phase 1; fire compartment = phase; extension at the gable end, plant in operation."
+},
+"th.phasage.tab.h": {
+"fr": "SURFACES PAR PHASE (m²)",
+"en": "AREAS PER PHASE (m²)"
+},
+"th.phasage.tab.c0": {
+"fr": "Zone",
+"en": "Zone"
+},
+"th.phasage.tab.c1": {
+"fr": "Ph.1",
+"en": "Ph.1"
+},
+"th.phasage.tab.c2": {
+"fr": "ext. Ph.2",
+"en": "Ph.2 ext."
+},
+"th.phasage.tab.c3": {
+"fr": "ext. Ph.3",
+"en": "Ph.3 ext."
+},
+"th.phasage.tab.c4": {
+"fr": "enveloppe",
+"en": "envelope"
+},
+"th.phasage.tab.r0c0": {
+"fr": "U1 Magasin cacao brousse",
+"en": "U1 Raw cocoa warehouse"
+},
+"th.phasage.tab.r1c0": {
+"fr": "U1 Conditionnement (figé)",
+"en": "U1 Packing (fixed)"
+},
+"th.phasage.tab.r2c0": {
+"fr": "U1 Local technique U1",
+"en": "U1 Technical room U1"
+},
+"th.phasage.tab.r3c0": {
+"fr": "U1 Bande nord (emballages, labo, social 1)",
+"en": "U1 North strip (packaging, lab, staff 1)"
+},
+"th.phasage.tab.r4c0": {
+"fr": "U1 Magasin cacao export (sous douane)",
+"en": "U1 Export cocoa warehouse (bonded)"
+},
+"th.phasage.tab.r5c0": {
+"fr": "U1/U2 Pont de cession + SAS + labo",
+"en": "U1/U2 Transfer weighbridge + airlock + lab"
+},
+"th.phasage.tab.r6c0": {
+"fr": "U2 Hall transformation (figé)",
+"en": "U2 Processing hall (fixed)"
+},
+"th.phasage.tab.r7c0": {
+"fr": "U2 Bande utilités (figé)",
+"en": "U2 Utilities strip (fixed)"
+},
+"th.phasage.tab.r8c0": {
+"fr": "U2 Îlot technique (bâti) + réserve incendie",
+"en": "U2 Technical island (built) + fire reserve"
+},
+"th.phasage.tab.r9c0": {
+"fr": "U2 Magasin produits finis (L, cellule sud incluse)",
+"en": "U2 Finished-goods warehouse (L, south cell included)"
+},
+"th.phasage.tab.r10c0": {
+"fr": "SITE Administration R+1 (RDC) ; étage = tertiaire U2",
+"en": "SITE Administration R+1 (GF); upper floor = U2 offices"
+},
+"th.phasage.tab.r11c0": {
+"fr": "TOTAL EMPRISE AU SOL",
+"en": "TOTAL FOOTPRINT"
+},
+"th.phasage.b0h": {
+"fr": "PHASES",
+"en": "PHASES"
+},
+"th.phasage.b0l0": {
+"fr": "Phase 1 : brousse cellule 1 (8 trames), conditionnement, export cellule 1 (4 trames), hall 3 lignes (ligne 1 équipée), utilités, PF cellule 1, administration, îlot, réseaux, voiries et portails complets. Phase 2 : brousse cellule 2, export +1 trame, ligne 2, séchoir, chaudière biomasse, PF extension. Phase 3 : brousse cellule 3, export cellule 2 (option vrac), ligne 3, PF cellule 2 et cellule sud. Chantier : le mur coupe-feu est le pignon provisoire, la grue travaille depuis les voies, les camions de chantier entrent par le portail de liaison, la production continue.",
+"en": "Phase 1: raw cocoa cell 1 (8 bays), packing, export cell 1 (4 bays), hall for 3 lines (line 1 equipped), utilities, PF cell 1, administration, island, networks, complete roads and gates. Phase 2: raw cocoa cell 2, export +1 bay, line 2, dryer, biomass boiler, PF extension. Phase 3: raw cocoa cell 3, export cell 2 (bulk option), line 3, PF cell 2 and south cell. Construction: the fire wall is the temporary gable, the crane works from the roads, site trucks enter through the link gate, production continues."
+},
+"th.stockage.t": {
+"fr": "5 - Stockage : lots et capacités",
+"en": "5 - Storage: lots and capacities"
+},
+"th.stockage.s": {
+"fr": "Lots commerciaux de 25 T (6,00 x 2,50 m, gerbés 3,5 m) dessinés et comptés ; racks palettes 3 niveaux ; trois niveaux de capacité.",
+"en": "Commercial 25 T lots (6.00 x 2.50 m, stacked 3.5 m) drawn and counted; 3-level pallet racks; three capacity levels."
+},
+"th.stockage.tab.h": {
+"fr": "CAPACITÉS (T ou positions)",
+"en": "CAPACITIES (T or positions)"
+},
+"th.stockage.tab.note": {
+"fr": "cellule : dessinée / gerbage haut / vrac ou 5 niv.",
+"en": "cell: as drawn / high stacking / bulk or 5 levels"
+},
+"th.stockage.tab.c0": {
+"fr": "Cellule",
+"en": "Cell"
+},
+"th.stockage.tab.c1": {
+"fr": "Dessinée",
+"en": "As drawn"
+},
+"th.stockage.tab.c2": {
+"fr": "Gerbage haut",
+"en": "High stacking"
+},
+"th.stockage.tab.c3": {
+"fr": "Vrac ou 5 niv.",
+"en": "Bulk or 5 levels"
+},
+"th.stockage.tab.r0c0": {
+"fr": "BR-P1",
+"en": "BR-P1"
+},
+"th.stockage.tab.r1c0": {
+"fr": "BR-P2",
+"en": "BR-P2"
+},
+"th.stockage.tab.r2c0": {
+"fr": "BR-P3",
+"en": "BR-P3"
+},
+"th.stockage.tab.r3c0": {
+"fr": "EX-P1",
+"en": "EX-P1"
+},
+"th.stockage.tab.r4c0": {
+"fr": "EX-P2",
+"en": "EX-P2"
+},
+"th.stockage.tab.r5c0": {
+"fr": "EX-P3",
+"en": "EX-P3"
+},
+"th.stockage.tab.r6c0": {
+"fr": "PF-P1",
+"en": "PF-P1"
+},
+"th.stockage.tab.r7c0": {
+"fr": "PF-P2",
+"en": "PF-P2"
+},
+"th.stockage.tab.r8c0": {
+"fr": "PF-P3",
+"en": "PF-P3"
+},
+"th.stockage.tab.r9c0": {
+"fr": "Brousse",
+"en": "Raw cocoa"
+},
+"th.stockage.tab.r10c0": {
+"fr": "Export",
+"en": "Export"
+},
+"th.stockage.tab.r11c0": {
+"fr": "Produits finis",
+"en": "Finished goods"
+},
+"th.stockage.tab.r12c0": {
+"fr": "SITE",
+"en": "SITE"
+},
+"th.stockage.b0h": {
+"fr": "BESOINS ET PROVISIONS",
+"en": "NEEDS AND PROVISIONS"
+},
+"th.stockage.b0l0": {
+"fr": "Besoins : brousse 1 500 T (Ph.1) et 2 250 T (Ph.3), export 1 600 et 2 500 T, produits finis 660 et 1 980 T. PROVISIONS PHASE 1 : dalle des magasins 5 t/m² partout, hauteur libre 10 m confirmée ; cellule 2 export : murs et fondations dimensionnés pour la poussée du vrac (6 m), ventilation forcée, contrôle d'humidité ; réservation de la trémie de reprise et du convoyeur vers l'ensachage ; planchers ajourés ou palettes en pied de pile pour le gerbage à 5,5 m ; brousse humide : gerbage limité à 3,5 m avant séchage ; PF : poteaux de rack pour 5 niveaux, dalle +1,20 à 5 t/m², sprinkler en rack au-delà de 5 m (avis assureur) ; au-delà de 5 m de pile : avis de l'assureur sur sprinkler ou taille des cellules avant engagement.",
+"en": "Needs: raw cocoa 1 500 T (Ph.1) and 2 250 T (Ph.3), export 1 600 and 2 500 T, finished goods 660 and 1 980 T. PHASE 1 PROVISIONS: warehouse slab 5 t/m² everywhere, 10 m clear height confirmed; export cell 2: walls and foundations sized for bulk thrust (6 m), forced ventilation, humidity control; reservation of the reclaim hopper and the conveyor to bagging; slatted floors or pallets at the foot of the stack for 5.5 m stacking; wet raw cocoa: stacking limited to 3.5 m before drying; PF: rack columns for 5 levels, slab +1.20 at 5 t/m², in-rack sprinklers above 5 m (insurer's opinion); above 5 m of stack: insurer's opinion on sprinklers or cell size before commitment."
+},
+"th.admin.t": {
+"fr": "6 - Bloc administratif R et R+1",
+"en": "6 - Administrative block GF and first floor"
+},
+"th.admin.s": {
+"fr": "17,5 x 30 m à l'angle nord-est du magasin produits finis, entrée façade route, poste de pesée U1 à 23 m du pont, tertiaire de l'unité 2 à l'étage.",
+"en": "17.5 x 30 m at the north-east corner of the finished-goods warehouse, entrance on the road façade, U1 weighing station 23 m from the weighbridge, unit 2 offices upstairs."
+},
+"th.admin.b0h": {
+"fr": "PROGRAMME",
+"en": "PROGRAMME"
+},
+"th.admin.b0l0": {
+"fr": "RDC (site) : accueil et porche face au parking visiteurs, showroom, salle de réunion, direction, comptabilité et open space, labo d'agréage avec sas d'échantillons vers la pré-file, poste de pesée U1 vitré à l'angle nord-ouest (23 m du pont U1), PC sécurité et serveurs (caméras des 5 pesées), infirmerie avec accès ambulance, sanitaires PMR, ménage, archives, réserve avec mezzanine. ÉTAGE (unité 2) : vestiaires hommes 60 places avec douches, vestiaires femmes, salle à manger 60 couverts et kitchenette, salle de prière, bureaux d'unité, salle de formation, sanitaires, terrasse couverte, local CVC ; départ du couloir balisé de 1,20 m qui longe le mur nord du PF jusqu'au hall, sans traverser une voie. Structure : R+1, 3,20 m sous plafond, mur coupe-feu avec le PF, dalle +0,30, entrée depuis la façade route ; visiteurs jamais en zone d'usine.",
+"en": "GROUND FLOOR (site): reception and porch facing the visitors' car park, showroom, meeting room, management, accounting and open space, grading lab with a sample airlock to the pre-queue, glazed U1 weighing station at the north-west corner (23 m from weighbridge U1), security control room and servers (cameras of the 5 weighings), infirmary with ambulance access, accessible toilets, cleaning, archives, storeroom with mezzanine. UPPER FLOOR (unit 2): men's changing rooms 60 places with showers, women's changing rooms, 60-seat canteen and kitchenette, prayer room, unit offices, training room, toilets, covered terrace, HVAC room; start of the 1.20 m marked corridor running along the north wall of the PF to the hall, without crossing a road. Structure: two storeys, 3.20 m ceiling height, fire wall shared with the PF, slab +0.30, entrance from the road façade; visitors never in the plant zone."
+},
+"a0.title": {
+"fr": "PLAN DE MASSE DIRECTEUR - INDICE J",
+"en": "MASTER SITE PLAN - ISSUE J"
+},
+"a0.project": {
+"fr": "USINE DE CONDITIONNEMENT ET DE TRANSFORMATION DE CACAO - projet anonymisé - parcelle 5 ha 00 a 16 ca",
+"en": "COCOA CONDITIONING AND PROCESSING PLANT - anonymised project - 5 ha 00 a 16 ca plot"
+},
+"a0.ref": {
+"fr": "Échelle 1/400 - orientation du plan (nord en haut). Documents d'entrée : plan de l'architecte 09/2026, offres, observations du client 07/09. Annexes : modèle de surfaces (Excel, 24 onglets), fichier DXF 41 calques.",
+"en": "Scale 1/400 - plan orientation (north up). Input documents: architect's plan 09/2026, offers, client's observations 07/09. Annexes: area model (Excel, 24 tabs), DXF file with 41 layers."
+},
+"a0.ces": {
+"fr": "EMPRISE AU SOL DES CONSTRUCTIONS (CES) : 53,5 % en enveloppe finale (26 713 m²), 34,3 % en Phase 1 (17 120 m²) ; CES maximal 60 %. Surface imperméabilisée (bâti + aires + voiries + parkings) 85 %, ramenée à 60 % par voiries drainantes et parkings alvéolés si le règlement l'exige.",
+"en": "BUILDING FOOTPRINT RATIO (CES): 53.5 % in the final envelope (26 713 m²), 34.3 % in Phase 1 (17 120 m²); maximum CES 60 %. Sealed surface (buildings + yards + roads + car parks) 85 %, brought down to 60 % with draining roads and cellular car parks if regulations require it."
+},
+"a0.banner": {
+"fr": "CAPACITÉ CACAO DU SITE : dessinée 10 282 T - gerbage haut 16 785 T - avec vrac export et racks 5 niveaux 22 436 T = une grande campagne en stock",
+"en": "SITE COCOA CAPACITY: as drawn 10 282 T - high stacking 16 785 T - with export bulk and 5-level racks 22 436 T = a full large season in stock"
+},
+"a0.indh": {
+"fr": "INDICES",
+"en": "ISSUES"
+},
+"a0.ind0": {
+"fr": "A  04/09  Anneau unique, colonne en L, PF séparé",
+"en": "A  04/09  Single ring, L-shaped column, separate PF"
+},
+"a0.ind1": {
+"fr": "B  04/09  Colonne rectiligne, aires 25 m, tertiaire R+1, stockage +70 %",
+"en": "B  04/09  Straight column, 25 m yards, two-storey offices, storage +70 %"
+},
+"a0.ind2": {
+"fr": "C  04/09  Brousse en cellules = phases, axe A-A, trames au pignon",
+"en": "C  04/09  Raw cocoa in cells = phases, axis A-A, bays at the gable"
+},
+"a0.ind3": {
+"fr": "D  07/09  Observations du client : une porte, un pont, admin dehors, front route",
+"en": "D  07/09  Client's observations: one gate, one weighbridge, admin outside, road frontage"
+},
+"a0.ind4": {
+"fr": "E  07/09  Deux portails, deux ponts, bretelle, admin entre les ponts",
+"en": "E  07/09  Two gates, two weighbridges, link road, admin between the weighbridges"
+},
+"a0.ind5": {
+"fr": "F  07/09  Séparation totale : îlot U2, sept critères I1-I7",
+"en": "F  07/09  Total separation: U2 island, seven criteria I1-I7"
+},
+"a0.ind6": {
+"fr": "G  08/09  Révision finale : A0 unique, exploitation, sécurité, bilans, notes",
+"en": "G  08/09  Final revision: single A0, operations, safety, balances, notes"
+},
+"a0.ind7": {
+"fr": "H  08/09  Orientation du plan, lots 25 T dessinés, tout compté",
+"en": "H  08/09  Plan orientation, 25 T lots drawn, everything counted"
+},
+"a0.ind8": {
+"fr": "I  08/09  Capacités à 3 niveaux, provisions structurelles",
+"en": "I  08/09  Three-level capacities, structural provisions"
+},
+"a0.ind9": {
+"fr": "J  08/09  PF sud, îlot 27 m, voie pompiers, épures, notes, admin R/R+1",
+"en": "J  08/09  South PF, 27 m island, fire lane, sketches, notes, admin GF/1st"
+},
+"a0.verh": {
+"fr": "VÉRIFICATIONS DE CONCEPTION : 46 / 46 points conformes",
+"en": "DESIGN CHECKS: 46 / 46 points compliant"
+},
+"a0.ver0": {
+"fr": "[OK] C1  Aucun bâtiment dans le recul de 13 m",
+"en": "[OK] C1  No building within the 13 m setback"
+},
+"a0.ver1": {
+"fr": "[OK] C2  Bilan = surface vectorielle 49 926 m², écart cadastre -0,18 % ; ch…",
+"en": "[OK] C2  Balance = vector area 49 926 m², cadastre deviation -0.18 %; ch…"
+},
+"a0.ver2": {
+"fr": "[OK] C3  Boucle U1 fermée sur son nœud, 627 m ; boucle U2 354 m fermée par…",
+"en": "[OK] C3  U1 loop closed on its node, 627 m; U2 loop 354 m closed by…"
+},
+"a0.ver3": {
+"fr": "[OK] I1  Aucun dallage partagé : U1 à l'est de x 179 reste en y <= 14 ; U2…",
+"en": "[OK] I1  No shared paving: U1 east of x 179 stays at y <= 14; U2…"
+},
+"a0.ver4": {
+"fr": "[OK] I2  Aucune voie de circulation dans une aire de manœuvre ; les camion…",
+"en": "[OK] I2  No traffic road inside a manoeuvring yard; trucks…"
+},
+"a0.ver5": {
+"fr": "[OK] I3  Aucune jonction en vis-à-vis : fin voie sud U1 (176 ; 138) et angl…",
+"en": "[OK] I3  No facing junctions: end of U1 south road (176; 138) and…"
+},
+"a0.ver6": {
+"fr": "[OK] I4  Clôture x 179,5 de y 13 à y 127 entre la bretelle U1 et l'unité 2",
+"en": "[OK] I4  Fence x 179.5 from y 13 to y 127 between the U1 link road and unit 2"
+},
+"a0.ver7": {
+"fr": "[OK] I5  Chaque quai atteignable depuis sa seule boucle : PF à 100 m de U1,…",
+"en": "[OK] I5  Each dock reachable from its own loop only: PF 100 m from U1,…"
+},
+"a0.ver8": {
+"fr": "[OK] I6  Chaque unité : portail, pont, boucle, comptage, groupe, eau, vesti…",
+"en": "[OK] I6  Each unit: gate, weighbridge, loop, metering, generator, water, chang…"
+},
+"a0.ver9": {
+"fr": "[OK] I7  Seule liaison produit : pont de cession +6 m (portée 8 m) ; seule…",
+"en": "[OK] I7  Only product link: transfer weighbridge +6 m (8 m span); only…"
+},
+"a0.ver10": {
+"fr": "[OK] C4  Poste de pesée U1 dans l'administration à 23 m du pont U1 (<= 30)",
+"en": "[OK] C4  U1 weighing station in the administration 23 m from weighbridge U1 (<= 30)"
+},
+"a0.ver11": {
+"fr": "[OK] C5  Un portail et un pont par unité (B3 / B6) ; sections à voie unique",
+"en": "[OK] C5  One gate and one weighbridge per unit (B3 / B6); single-lane sections"
+},
+"a0.ver12": {
+"fr": "[OK] C6  Administration hors des deux boucles, entrée façade route face au…",
+"en": "[OK] C6  Administration outside both loops, entrance on the road façade facing…"
+},
+"a0.ver13": {
+"fr": "[OK] C7  Toute cellule coupe-feu <= 3 220 m² (max Export c1 3 220 m²) ; mur…",
+"en": "[OK] C7  Every fire compartment <= 3 220 m² (max Export c1 3 220 m²); wall…"
+},
+"a0.ver14": {
+"fr": "[OK] C8  PF 3 914 m² >= besoin Phase 3 3 050 m² (+28 %) ; hall, utilités et…",
+"en": "[OK] C8  PF 3 914 m² >= Phase 3 need 3 050 m² (+28 %); hall, utilities and…"
+},
+"a0.ver15": {
+"fr": "[OK] C9  Aires 25 m + voie contiguë >= 35 m sur les trois fronts de quais ;…",
+"en": "[OK] C9  25 m yards + adjoining road >= 35 m on the three dock fronts;…"
+},
+"a0.ver16": {
+"fr": "[OK] C10 GPL à 17 m du bâtiment le plus proche (>= 15 m), douche de sécurit…",
+"en": "[OK] C10 LPG 17 m from the nearest building (>= 15 m), safety show…"
+},
+"a0.ver17": {
+"fr": "[OK] C11 Fumigants à 35 m du local occupé le plus proche (>= 20 m)",
+"en": "[OK] C11 Fumigants 35 m from the nearest occupied room (>= 20 m)"
+},
+"a0.ver18": {
+"fr": "[OK] C12 Réserve incendie 400 m³ (site) : angle le plus éloigné à 182 m ; r…",
+"en": "[OK] C12 Fire reserve 400 m³ (site): farthest corner at 182 m; r…"
+},
+"a0.ver19": {
+"fr": "[OK] C13 13 poteaux incendie : tout angle de bâtiment à moins de 57 m d'un…",
+"en": "[OK] C13 13 fire hydrants: every building corner within 57 m of one…"
+},
+"a0.ver20": {
+"fr": "[OK] C14 17 issues de secours : toute cellule a 2 issues au moins, distance…",
+"en": "[OK] C14 17 emergency exits: every compartment has at least 2 exits, distance…"
+},
+"a0.ver21": {
+"fr": "[OK] C15 Points de rassemblement hors voirie PL : PR1 bande pare-feu nord (…",
+"en": "[OK] C15 Muster points off the truck roads: PR1 north firebreak strip (…"
+},
+"a0.ver22": {
+"fr": "[OK] C16 Trois cheminées (torréfaction 20 m, chaudière 15 m, dépoussiérage…",
+"en": "[OK] C16 Three stacks (roasting 20 m, boiler 15 m, dedusting…"
+},
+"a0.ver23": {
+"fr": "[OK] C17 Cellule export et ses quais entièrement dans la clôture douanière,…",
+"en": "[OK] C17 Export cell and its docks entirely inside the customs fence,…"
+},
+"a0.ver24": {
+"fr": "[OK] C18 PF7 citerne ISO à 30 m du hall (ligne calorifugée <= 35 m) ; PF1-P…",
+"en": "[OK] C18 PF7 ISO tank 30 m from the hall (insulated line <= 35 m); PF1-P…"
+},
+"a0.ver25": {
+"fr": "[OK] C19 Séchoir 5 T/h en réserve intérieure du conditionnement (brousse >…",
+"en": "[OK] C19 5 T/h dryer in the internal reserve of the packing hall (raw cocoa >…"
+},
+"a0.ver26": {
+"fr": "[OK] C20 Trois réseaux d'eau : EP (noue ouest, bassin SE, rétention enterré…",
+"en": "[OK] C20 Three water networks: stormwater (west swale, SE basin, buried retenti…"
+},
+"a0.ver27": {
+"fr": "[OK] C21 Bande pare-feu 3 m débroussaillée au nord et à l'ouest côté hévéa,…",
+"en": "[OK] C21 3 m firebreak strip cleared to the north and west on the rubber side,…"
+},
+"a0.ver28": {
+"fr": "[OK] C22 47 VL + 44 motos, dépose-navette, tourniquets et fouille aux deux…",
+"en": "[OK] C22 47 cars + 44 motorbikes, shuttle drop-off, turnstiles and search at both…"
+},
+"a0.ver29": {
+"fr": "[OK] C23 Poste HTA/BT commun dans l'îlot (2 départs comptés), local serveur…",
+"en": "[OK] C23 Shared HV/LV substation in the island (2 metered feeders), server room…"
+},
+"a0.ver30": {
+"fr": "[OK] C24 Simulation (feuille) : attente moyenne 0,3 min, file max 4 PL nomi…",
+"en": "[OK] C24 Simulation (sheet): average wait 0.3 min, max queue 4 trucks nomi…"
+},
+"a0.ver31": {
+"fr": "[OK] C25 Distances par tonne 41 m (plan initial : 165 m) ; séquence camions U1 brou…",
+"en": "[OK] C25 Distance per tonne 41 m (initial plan: 165 m); U1 truck sequence raw…"
+},
+"a0.ver32": {
+"fr": "[OK] C26 Phasage : Phase 1 au plus petit nombre de trames, enveloppes fondé…",
+"en": "[OK] C26 Phasing: Phase 1 with the smallest number of bays, envelopes founde…"
+},
+"a0.ver33": {
+"fr": "[OK] C27 Aucune étiquette superposée (test des boîtes de texte), contraste…",
+"en": "[OK] C27 No overlapping labels (text-box test), contrast…"
+},
+"a0.ver34": {
+"fr": "[OK] C29 Lots de 25 T dessinés = comptés = capacité : brousse c1 77 lots =…",
+"en": "[OK] C29 25 T lots drawn = counted = capacity: raw cocoa c1 77 lots =…"
+},
+"a0.ver35": {
+"fr": "[OK] C30 Capacités finales en lots : brousse 3 850 T (besoin Ph.3 2 250), e…",
+"en": "[OK] C30 Final lot capacities: raw cocoa 3 850 T (Ph.3 need 2 250), e…"
+},
+"a0.ver36": {
+"fr": "[OK] C31 Couverture incendie sur grille de 8 m : tout point de la zone cons…",
+"en": "[OK] C31 Fire coverage on an 8 m grid: every point of the built zone…"
+},
+"a0.ver37": {
+"fr": "[OK] C32 42 mâts d'éclairage (tous les 30 m, côté extérieur des boucles), 1…",
+"en": "[OK] C32 42 lighting masts (every 30 m, outer side of the loops), 1…"
+},
+"a0.ver38": {
+"fr": "[OK] C33 Toutes les places dessinées et numérotées : P1-P47 (VL), M1-M44 (m…",
+"en": "[OK] C33 All spaces drawn and numbered: P1-P47 (cars), M1-M44 (m…"
+},
+"a0.ver39": {
+"fr": "[OK] C34 Surlargeurs intérieures R 5,3 m dessinées aux quatre angles de la…",
+"en": "[OK] C34 Inner widenings R 5.3 m drawn at the four corners of the…"
+},
+"a0.ver40": {
+"fr": "[OK] C35 Ponts bascules : 30 m rectilignes et de niveau de part et d'autre",
+"en": "[OK] C35 Weighbridges: 30 m straight and level on both sides"
+},
+"a0.ver41": {
+"fr": "[OK] C36 Voie pompiers périphérique 4 m continue (voie sud U1 -> boucle U2…",
+"en": "[OK] C36 Continuous 4 m perimeter fire lane (U1 south road -> U2 loop…"
+},
+"a0.ver42": {
+"fr": "[OK] C37 Auvent de sondage au pré-file U1, auvents de quai 4 m sur les troi…",
+"en": "[OK] C37 Sampling canopy at the U1 pre-queue, 4 m dock canopies on the thre…"
+},
+"a0.ver43": {
+"fr": "[OK] C38 Cellule sud PF prolongée à la voie de sortie : PF 3 914 m² ; îlot…",
+"en": "[OK] C38 South PF cell extended to the exit road: PF 3 914 m²; island…"
+},
+"a0.ver44": {
+"fr": "[OK] C39 Lisibilité : 0 recouvrement d'écriture",
+"en": "[OK] C39 Legibility: 0 overlapping text"
+},
+"a0.ver45": {
+"fr": "[OK] C40 Traits de rappel des notes : 0 croisement",
+"en": "[OK] C40 Note leader lines: 0 crossings"
+},
+"a0.legh": {
+"fr": "LÉGENDE",
+"en": "LEGEND"
+},
+"a0.leg0": {
+"fr": "bâti Phase 1",
+"en": "Phase 1 buildings"
+},
+"a0.leg1": {
+"fr": "process",
+"en": "process"
+},
+"a0.leg2": {
+"fr": "enveloppe fondée, bardage en extension",
+"en": "founded envelope, cladding in extension"
+},
+"a0.leg3": {
+"fr": "réserve intérieure",
+"en": "internal reserve"
+},
+"a0.leg4": {
+"fr": "aire de manœuvre 25 m",
+"en": "25 m manoeuvring yard"
+},
+"a0.leg5": {
+"fr": "technique",
+"en": "technical"
+},
+"a0.leg6": {
+"fr": "tertiaire",
+"en": "offices"
+},
+"a0.leg7": {
+"fr": "parkings, pré-files",
+"en": "car parks, pre-queues"
+},
+"a0.leg8": {
+"fr": "voirie U2 / U1 (teinte 8 %)",
+"en": "U2 / U1 roads (8 % tint)"
+},
+"a0.leg9": {
+"fr": "pont à voie unique",
+"en": "single-lane weighbridge"
+},
+"a0.leg10": {
+"fr": "bande pare-feu",
+"en": "firebreak strip"
+},
+"a0.leg11": {
+"fr": "eau",
+"en": "water"
+},
+"a0.leg12": {
+"fr": "quais brousse, murs CF 2 h, clôture, gabarits",
+"en": "raw cocoa docks, 2 h fire walls, fence, templates"
+},
+"a0.leg13": {
+"fr": "quais export, issues S1-S17, rassemblement, arbres",
+"en": "export docks, exits S1-S17, muster, trees"
+},
+"a0.leg14": {
+"fr": "quais PF, réseau EP, réserve, bassins",
+"en": "PF docks, stormwater network, reserve, basins"
+},
+"a0.leg15": {
+"fr": "eaux usées sanitaires",
+"en": "sanitary wastewater"
+},
+"a0.leg16": {
+"fr": "eaux industrielles, clôture douanière",
+"en": "industrial water, customs fence"
+},
+"a0.leg17": {
+"fr": "flux produit, notes J",
+"en": "product flow, notes J"
+},
+"a0.comptages": {
+"fr": "COMPTAGES : P1-P47 places VL (4 PMR) | M1-M44 motos | PL1-PL4 pré-files | quais R1-R9, E1-E6, PF1-PF7 | PI1-PI13 poteaux (rayon 100 m) | C1-C14 caméras | S1-S17 issues | 42 mâts (30 m) | 17 arbres | 316 lots de 25 T | 11 rangées de racks",
+"en": "COUNTS: P1-P47 car spaces (4 accessible) | M1-M44 motorbikes | PL1-PL4 pre-queues | docks R1-R9, E1-E6, PF1-PF7 | PI1-PI13 hydrants (100 m radius) | C1-C14 cameras | S1-S17 exits | 42 masts (30 m) | 17 trees | 316 lots of 25 T | 11 rows of racks"
+},
+"a0.regles": {
+"fr": "RÈGLES DE CIRCULATION (affichées aux guérites) : 15 km/h - un seul chemin par camion - arrêt uniquement à quai, en pré-file ou en bande d'attente - aucune marche arrière hors quai - priorité au camion engagé - piétons sur les passages protégés uniquement - portail de liaison fermé sauf mode dégradé",
+"en": "TRAFFIC RULES (posted at the gatehouses): 15 km/h - one path per truck - stopping only at a dock, in the pre-queue or in the waiting lane - no reversing except at docks - priority to the committed truck - pedestrians on protected crossings only - link gate closed except in degraded mode"
+},
+"a0.lecture": {
+"fr": "LECTURE : fonds beiges = unité 1, fonds bleutés = unité 2 ; hachure = enveloppe fondée à barder ; pointillé = réserve ; rouge = murs CF et clôture ; bandeaux blancs = cellules et phases avec leur capacité ; bulles = séquence camion ; pastilles orange = notes de conception J",
+"en": "HOW TO READ: beige grounds = unit 1, bluish grounds = unit 2; hatching = founded envelope to be clad; dotted = reserve; red = fire walls and fence; white bands = cells and phases with their capacity; bubbles = truck sequence; orange dots = design notes J"
+},
+"a0.phh": {
+"fr": "PHASES DE RÉALISATION (1/2500) : bâti de la phase en foncé, enveloppes fondées en contour, chantier de la Phase 2 avec grue, base vie et accès",
+"en": "CONSTRUCTION PHASES (1/2500): phase buildings in dark, founded envelopes in outline, Phase 2 works with crane, site camp and access"
+},
+"a0.ph0t": {
+"fr": "PHASE 1 - 2027 / 2028",
+"en": "PHASE 1 - 2027 / 2028"
+},
+"a0.ph0d": {
+"fr": "brousse c1, conditionnement, export c1, hall, utilités, PF c1, administration",
+"en": "raw cocoa c1, packing, export c1, hall, utilities, PF c1, administration"
+},
+"a0.ph1t": {
+"fr": "PHASE 2",
+"en": "PHASE 2"
+},
+"a0.ph1d": {
+"fr": "brousse c2, export ext., ligne 2, séchoir, biomasse, PF ext.",
+"en": "raw cocoa c2, export ext., line 2, dryer, biomass, PF ext."
+},
+"a0.ph2t": {
+"fr": "PHASE 3",
+"en": "PHASE 3"
+},
+"a0.ph2d": {
+"fr": "brousse c3, export c2, ligne 3, PF c2 + cellule sud",
+"en": "raw cocoa c3, export c2, line 3, PF c2 + south cell"
+},
+"a0.ph3t": {
+"fr": "CHANTIER DE LA PHASE 2",
+"en": "PHASE 2 WORKS"
+},
+"a0.ph3d": {
+"fr": "grue au pignon sud, base vie sur l'aire nord, camions par le portail de liaison, usine en marche",
+"en": "crane at the south gable, site camp on the north yard, trucks through the link gate, plant in operation"
+},
+"a0.t_cap.h": {
+"fr": "CAPACITÉS À TROIS NIVEAUX PAR CELLULE (dessinée / gerbage haut / vrac ou racks 5 niveaux)",
+"en": "THREE-LEVEL CAPACITIES PER CELL (as drawn / high stacking / bulk or 5-level racks)"
+},
+"a0.t_cap.c0": {
+"fr": "Cellule",
+"en": "Cell"
+},
+"a0.t_cap.c1": {
+"fr": "Lots",
+"en": "Lots"
+},
+"a0.t_cap.c2": {
+"fr": "Dessiné",
+"en": "As drawn"
+},
+"a0.t_cap.c3": {
+"fr": "Haut",
+"en": "High"
+},
+"a0.t_cap.c4": {
+"fr": "Vrac-5 niv.",
+"en": "Bulk-5 lev."
+},
+"a0.t_cap.c5": {
+"fr": "Condition",
+"en": "Condition"
+},
+"a0.t_cap.r0c5": {
+"fr": "brousse humide : 3,5 m maxi, gain par allées réduites seulement",
+"en": "wet raw cocoa: 3.5 m max, gain from reduced aisles only"
+},
+"a0.t_cap.r1c5": {
+"fr": "brousse humide : 3,5 m maxi, gain par allées réduites seulement",
+"en": "wet raw cocoa: 3.5 m max, gain from reduced aisles only"
+},
+"a0.t_cap.r2c5": {
+"fr": "brousse humide : 3,5 m maxi, gain par allées réduites seulement",
+"en": "wet raw cocoa: 3.5 m max, gain from reduced aisles only"
+},
+"a0.t_cap.r3c5": {
+"fr": "cacao sec : gerbeuses 5,5 m, 40 T par lot",
+"en": "dry cocoa: 5.5 m stackers, 40 T per lot"
+},
+"a0.t_cap.r4c5": {
+"fr": "cacao sec : gerbeuses 5,5 m, 40 T par lot",
+"en": "dry cocoa: 5.5 m stackers, 40 T per lot"
+},
+"a0.t_cap.r5c5": {
+"fr": "cellule vrac à parois poussantes, 6 m, 0,55 t/m³, remplissage 80 %",
+"en": "bulk cell with thrust walls, 6 m, 0.55 t/m³, 80 % filling"
+},
+"a0.t_cap.r6c5": {
+"fr": "racks 5 niveaux sous 8 m, puis double profondeur",
+"en": "5-level racks under 8 m, then double depth"
+},
+"a0.t_cap.r7c5": {
+"fr": "racks 5 niveaux sous 8 m, puis double profondeur",
+"en": "5-level racks under 8 m, then double depth"
+},
+"a0.t_cap.r8c5": {
+"fr": "racks 5 niveaux sous 8 m, puis double profondeur",
+"en": "5-level racks under 8 m, then double depth"
+},
+"a0.t_cap.r9c5": {
+"fr": "une grande campagne en stock",
+"en": "a full large season in stock"
+},
+"a0.t_surf.h": {
+"fr": "SURFACES PAR CELLULE ET PHASE (m²)",
+"en": "AREAS PER CELL AND PHASE (m²)"
+},
+"a0.t_surf.c0": {
+"fr": "Zone",
+"en": "Zone"
+},
+"a0.t_surf.c1": {
+"fr": "Ph.1",
+"en": "Ph.1"
+},
+"a0.t_surf.c2": {
+"fr": "Ph.2",
+"en": "Ph.2"
+},
+"a0.t_surf.c3": {
+"fr": "Ph.3",
+"en": "Ph.3"
+},
+"a0.t_surf.c4": {
+"fr": "Env.",
+"en": "Env."
+},
+"a0.t_surf.c5": {
+"fr": "Bes.1",
+"en": "Need 1"
+},
+"a0.t_surf.c6": {
+"fr": "Bes.3",
+"en": "Need 3"
+},
+"a0.t_surf.c7": {
+"fr": "Marge",
+"en": "Margin"
+},
+"a0.t_surf.c8": {
+"fr": "Capacité dessinée",
+"en": "Capacity as drawn"
+},
+"a0.t_surf.r0c0": {
+"fr": "U1 Magasin cacao brousse",
+"en": "U1 Raw cocoa warehouse"
+},
+"a0.t_surf.r0c8": {
+"fr": "154 lots = 3 850 T",
+"en": "154 lots = 3 850 T"
+},
+"a0.t_surf.r1c0": {
+"fr": "U1 Conditionnement (figé)",
+"en": "U1 Packing (fixed)"
+},
+"a0.t_surf.r1c5": {
+"fr": "figé",
+"en": "fixed"
+},
+"a0.t_surf.r1c6": {
+"fr": "figé",
+"en": "fixed"
+},
+"a0.t_surf.r2c0": {
+"fr": "U1 Local technique U1",
+"en": "U1 Technical room U1"
+},
+"a0.t_surf.r2c8": {
+"fr": "TD1, GE1, eau, atelier",
+"en": "TD1, GE1, water, workshop"
+},
+"a0.t_surf.r3c0": {
+"fr": "U1 Bande nord (emballages, labo, social 1)",
+"en": "U1 North strip (packaging, lab, staff 1)"
+},
+"a0.t_surf.r4c0": {
+"fr": "U1 Magasin cacao export (sous douane)",
+"en": "U1 Export cocoa warehouse (bonded)"
+},
+"a0.t_surf.r4c8": {
+"fr": "162 lots = 4 050 T",
+"en": "162 lots = 4 050 T"
+},
+"a0.t_surf.r5c0": {
+"fr": "U1/U2 Pont de cession + SAS + labo",
+"en": "U1/U2 Transfer weighbridge + airlock + lab"
+},
+"a0.t_surf.r5c8": {
+"fr": "bascule intégratrice",
+"en": "integrating scale"
+},
+"a0.t_surf.r6c0": {
+"fr": "U2 Hall transformation (figé)",
+"en": "U2 Processing hall (fixed)"
+},
+"a0.t_surf.r6c5": {
+"fr": "figé",
+"en": "fixed"
+},
+"a0.t_surf.r6c6": {
+"fr": "figé",
+"en": "fixed"
+},
+"a0.t_surf.r7c0": {
+"fr": "U2 Bande utilités (figé)",
+"en": "U2 Utilities strip (fixed)"
+},
+"a0.t_surf.r8c0": {
+"fr": "U2 Îlot technique (bâti) + réserve incendie (U1)",
+"en": "U2 Technical island (built) + fire reserve (U1)"
+},
+"a0.t_surf.r9c0": {
+"fr": "U2 Magasin produits finis (L, cellule sud incluse)",
+"en": "U2 Finished-goods warehouse (L, south cell included)"
+},
+"a0.t_surf.r9c8": {
+"fr": "2 382 positions = 2 382 T",
+"en": "2 382 positions = 2 382 T"
+},
+"a0.t_surf.r10c0": {
+"fr": "SITE Administration R+1 (RDC) ; étage = tertiaire U2",
+"en": "SITE Administration R+1 (GF); upper floor = U2 offices"
+},
+"a0.t_surf.r11c0": {
+"fr": "TOTAL EMPRISE AU SOL",
+"en": "TOTAL FOOTPRINT"
+},
+"a0.t_surf.r11c7": {
+"fr": "53 % parcelle",
+"en": "53 % of plot"
+},
+"a0.t_surf.r11c8": {
+"fr": "stockage 16 170 m²",
+"en": "storage 16 170 m²"
+},
+"a0.t_sim.h": {
+"fr": "SIMULATION DES FILES (200 jours)",
+"en": "QUEUE SIMULATION (200 days)"
+},
+"a0.t_sim.c0": {
+"fr": "Poste",
+"en": "Station"
+},
+"a0.t_sim.c1": {
+"fr": "Trafic",
+"en": "Traffic"
+},
+"a0.t_sim.c2": {
+"fr": "Serv.",
+"en": "Serv."
+},
+"a0.t_sim.c3": {
+"fr": "Att. moy.",
+"en": "Avg wait"
+},
+"a0.t_sim.c4": {
+"fr": "Att. max",
+"en": "Max wait"
+},
+"a0.t_sim.c5": {
+"fr": "Occ.",
+"en": "Occ."
+},
+"a0.t_sim.c6": {
+"fr": "File",
+"en": "Queue"
+},
+"a0.t_sim.c7": {
+"fr": "Verdict",
+"en": "Verdict"
+},
+"a0.t_sim.r0c0": {
+"fr": "Pont U1 (B3) : campagne nominale, 11 PL/j",
+"en": "Weighbridge U1 (B3): nominal season, 11 trucks/day"
+},
+"a0.t_sim.r0c1": {
+"fr": "22 passages/j",
+"en": "22 passes/day"
+},
+"a0.t_sim.r1c0": {
+"fr": "Pont U1 (B3) : pointe 180 %, 20 PL/j",
+"en": "Weighbridge U1 (B3): 180 % peak, 20 trucks/day"
+},
+"a0.t_sim.r1c1": {
+"fr": "40 passages/j",
+"en": "40 passes/day"
+},
+"a0.t_sim.r1c7": {
+"fr": "REVOIR : pont de l'autre unité e…",
+"en": "REVIEW: other unit's weighbridge…"
+},
+"a0.t_sim.r2c0": {
+"fr": "Pont U2 (B7) : Phase 3, 9 PL/j",
+"en": "Weighbridge U2 (B7): Phase 3, 9 trucks/day"
+},
+"a0.t_sim.r2c1": {
+"fr": "18 passages/j",
+"en": "18 passes/day"
+},
+"a0.t_sim.r3c0": {
+"fr": "Pont U2 (B7) : Phase 3 + pointe, 14 PL/j",
+"en": "Weighbridge U2 (B7): Phase 3 + peak, 14 trucks/day"
+},
+"a0.t_sim.r3c1": {
+"fr": "28 passages/j",
+"en": "28 passes/day"
+},
+"a0.t_sim.r4c0": {
+"fr": "Quais R1-R6 : campagne nominale, 5 PL/j",
+"en": "Docks R1-R6: nominal season, 5 trucks/day"
+},
+"a0.t_sim.r5c0": {
+"fr": "Quais R1-R6 : pointe 180 %, 9 PL/j",
+"en": "Docks R1-R6: 180 % peak, 9 trucks/day"
+},
+"a0.t_quais.h": {
+"fr": "QUAIS",
+"en": "DOCKS"
+},
+"a0.t_quais.c0": {
+"fr": "Groupe",
+"en": "Group"
+},
+"a0.t_quais.c1": {
+"fr": "Occup.",
+"en": "Occup."
+},
+"a0.t_quais.c2": {
+"fr": "Att. max",
+"en": "Max wait"
+},
+"a0.t_quais.c3": {
+"fr": "Verdict",
+"en": "Verdict"
+},
+"a0.t_quais.r0c0": {
+"fr": "Quais R1-R6 : 5 -> 9 PL/j, 45 min",
+"en": "Docks R1-R6: 5 -> 9 trucks/day, 45 min"
+},
+"a0.t_quais.r1c0": {
+"fr": "Quais E1-E3 : 4 conteneurs/j, 120 min",
+"en": "Docks E1-E3: 4 containers/day, 120 min"
+},
+"a0.t_quais.r2c0": {
+"fr": "Quais PF1-PF4 + PF7 : 2 -> 6 PL/j, 90 min",
+"en": "Docks PF1-PF4 + PF7: 2 -> 6 trucks/day, 90 min"
+},
+"a0.t_scen.h": {
+"fr": "SCÉNARIOS ADVERSES",
+"en": "ADVERSE SCENARIOS"
+},
+"a0.t_scen.c0": {
+"fr": "Scénario",
+"en": "Scenario"
+},
+"a0.t_scen.c1": {
+"fr": "Réponse",
+"en": "Response"
+},
+"a0.t_scen.c2": {
+"fr": "Preuve",
+"en": "Evidence"
+},
+"a0.t_scen.r0c0": {
+"fr": "Pont U1 en panne",
+"en": "Weighbridge U1 out of order"
+},
+"a0.t_scen.r0c1": {
+"fr": "Camions U1 entrent par B7 et le pont U2, puis rejoignent la bretelle U1 pa…",
+"en": "U1 trucks enter via B7 and weighbridge U2, then reach the U1 link road…"
+},
+"a0.t_scen.r0c2": {
+"fr": "Portail de mode dégradé",
+"en": "Degraded-mode gate"
+},
+"a0.t_scen.r1c0": {
+"fr": "Pont U2 en panne",
+"en": "Weighbridge U2 out of order"
+},
+"a0.t_scen.r1c1": {
+"fr": "Camions U2 entrent par B3 et le pont U1, descendent la bretelle U1 et rejo…",
+"en": "U2 trucks enter via B3 and weighbridge U1, go down the U1 link road and…"
+},
+"a0.t_scen.r1c2": {
+"fr": "Portail de mode dégradé",
+"en": "Degraded-mode gate"
+},
+"a0.t_scen.r2c0": {
+"fr": "Incendie dans une cellule",
+"en": "Fire in one compartment"
+},
+"a0.t_scen.r2c1": {
+"fr": "Mur CF 2 h, réserve 400 m³, accès pompiers par les deux boucles et la bret…",
+"en": "2 h fire wall, 400 m³ reserve, fire access via both loops and the link…"
+},
+"a0.t_scen.r2c2": {
+"fr": "Contrôles 11, 16",
+"en": "Checks 11, 16"
+},
+"a0.t_scen.r3c0": {
+"fr": "Inondation du bas fond",
+"en": "Flooding of the lowland"
+},
+"a0.t_scen.r3c1": {
+"fr": "Dalles magasins +1,20, rétention enterrée 500 m³ + noues, exutoire régulé",
+"en": "Warehouse slabs +1.20, 500 m³ buried retention + swales, regulated outlet"
+},
+"a0.t_scen.r3c2": {
+"fr": "Loi 12 : données d'e…",
+"en": "Law 12: input data…"
+},
+"a0.t_scen.r4c0": {
+"fr": "Pointe de campagne à 200 %",
+"en": "200 % season peak"
+},
+"a0.t_scen.r4c1": {
+"fr": "Simulation : file max 6 PL sur la bande d'attente U1, attente moyenne < 8…",
+"en": "Simulation: max queue 6 trucks on the U1 waiting lane, average wait < 8…"
+},
+"a0.t_scen.r4c2": {
+"fr": "Feuille 2, simulation",
+"en": "Sheet 2, simulation"
+},
+"a0.t_scen.r5c0": {
+"fr": "Unité 2 à l'arrêt un an",
+"en": "Unit 2 stopped for a year"
+},
+"a0.t_scen.r5c1": {
+"fr": "U1 tourne seule : sa porte, son pont, sa boucle, son TD 1 + GE 1, son bloc…",
+"en": "U1 runs alone: its gate, its weighbridge, its loop, its TD 1 + GE 1, its block…"
+},
+"a0.t_scen.r5c2": {
+"fr": "Loi 7",
+"en": "Law 7"
+},
+"a0.t_scen.r6c0": {
+"fr": "Scission juridique des unités",
+"en": "Legal split of the units"
+},
+"a0.t_scen.r6c1": {
+"fr": "La bande technique clôturée est déjà la limite ; pont de cession = douane",
+"en": "The fenced technical strip is already the boundary; transfer weighbridge = customs"
+},
+"a0.t_scen.r6c2": {
+"fr": "Loi 8",
+"en": "Law 8"
+},
+"a0.t_scen.r7c0": {
+"fr": "Fusion des unités",
+"en": "Merger of the units"
+},
+"a0.t_scen.r7c1": {
+"fr": "On ouvre les portes du pont de cession et on banalise la bretelle ; les de…",
+"en": "Open the transfer weighbridge doors and make the link road common; the…"
+},
+"a0.t_scen.r7c2": {
+"fr": "Loi 8",
+"en": "Law 8"
+},
+"a0.t_scen.r8c0": {
+"fr": "Phase 4 au-delà de 6 T/h",
+"en": "Phase 4 beyond 6 T/h"
+},
+"a0.t_scen.r8c1": {
+"fr": "Réserve 2e ligne conditionnement 625 m², réserve nord 375 m², réserve util…",
+"en": "Reserve for a 2nd packing line 625 m², north reserve 375 m², utilities reserve…"
+},
+"a0.t_scen.r8c2": {
+"fr": "Réserves nommées",
+"en": "Named reserves"
+},
+"a0.t_scen.r9c0": {
+"fr": "Acquisition du terrain voisin",
+"en": "Acquisition of the neighbouring plot"
+},
+"a0.t_scen.r9c1": {
+"fr": "Extension au pignon sud (brousse) ou à l'ouest ; l'anneau U1 se déplace, l…",
+"en": "Extension at the south gable (raw cocoa) or to the west; the U1 ring moves,…"
+},
+"a0.t_scen.r9c2": {
+"fr": "Loi 9",
+"en": "Law 9"
+},
+"a0.t_scen.r10c0": {
+"fr": "Refus d'un lot à l'agréage",
+"en": "Lot rejected at grading"
+},
+"a0.t_scen.r10c1": {
+"fr": "Le camion recule dans le tronçon et ressort sans entrer dans l'usine",
+"en": "The truck reverses into the section and leaves without entering the plant"
+},
+"a0.t_scen.r10c2": {
+"fr": "Tronçon à feux",
+"en": "Signalled section"
+},
+"a0.t_scen.r11c0": {
+"fr": "Coupure du concessionnaire",
+"en": "Utility power cut"
+},
+"a0.t_scen.r11c1": {
+"fr": "GE 2 (U2) et GE 1 (U1) sur les circuits prioritaires ; PV en autoconsommat…",
+"en": "GE 2 (U2) and GE 1 (U1) on priority circuits; PV in self-consumpt…"
+},
+"a0.t_scen.r11c2": {
+"fr": "Contrôle 10",
+"en": "Check 10"
+},
+"a0.bilan": {
+"fr": "BILAN MATIÈRE : Réception brousse 150 T/j | Rejets tri et poussières 5 % 8 T/j | Conditionné 142 T/j | Cédé à U2 Ph.1 -> Ph.3 44 -> 132 T/j | Export sacs Ph.1 -> Ph.3 98 -> 10 T/j | Coques 11 % 5 -> 15 T/j | Masse produite Ph.1 -> Ph.3 39 -> 117 T/j | Pains 25 kg / citernes ISO 60 % / 40 %. EAU ET ÉNERGIE : Eau U1 (sanitaires, fumigation, lavage) 8 m³/j | Eau U2 (chaudière, eau glacée, lavage) 55 m³/j | Forage + bâche 200 m³ + bâche U1 50 m³ autonomie 4 j | Puissance U1 / U2 installée 450 kW / 1 400 kW | Transformateurs U1 / U2 630 / 1 600 kVA | Groupes U1 / U2 (secours partiel) 250 / 630 kVA | PV toitures Ph.1 / Ph.3 1 060 / 2 120 kWc | GPL 2 x 30 m³ ; gasoil 10 m³ autonomie 21 j / 10 j",
+"en": "MATERIAL BALANCE: raw cocoa received 150 T/day | sorting rejects and dust 5 % 8 T/day | conditioned 142 T/day | transferred to U2 Ph.1 -> Ph.3 44 -> 132 T/day | bagged export Ph.1 -> Ph.3 98 -> 10 T/day | shells 11 % 5 -> 15 T/day | liquor produced Ph.1 -> Ph.3 39 -> 117 T/day | 25 kg blocks / ISO tanks 60 % / 40 %. WATER AND ENERGY: water U1 (sanitary, fumigation, washing) 8 m³/day | water U2 (boiler, chilled water, washing) 55 m³/day | borehole + 200 m³ tank + U1 50 m³ tank 4 days' autonomy | installed power U1 / U2 450 kW / 1 400 kW | transformers U1 / U2 630 / 1 600 kVA | generators U1 / U2 (partial back-up) 250 / 630 kVA | rooftop PV Ph.1 / Ph.3 1 060 / 2 120 kWp | LPG 2 x 30 m³; diesel 10 m³ 21 days / 10 days autonomy"
+},
+"a0.notesh": {
+"fr": "NOTES DE CONCEPTION J1 à J40 (pastilles orange du plan directeur)",
+"en": "DESIGN NOTES J1 to J40 (orange dots on the master plan)"
+},
+"a0.nl1": {
+"fr": "Quais brousse au nord-ouest, loin du portail ? Le camion plein décharge avant tout autre arrêt ; la file d'attente se fait sur la voie nord après pesée, jamais sur la route.",
+"en": "Raw cocoa docks to the north-west, far from the gate? The full truck unloads before any other stop; the queue forms on the north road after weighing, never on the public road."
+},
+"a0.nl2": {
+"fr": "Pourquoi une seule colonne de bâtiments ? Le produit va tout droit : brousse, conditionnement, export, cession, transformation, PF ; 41 m par tonne contre 165 sur le plan initial.",
+"en": "Why a single column of buildings? The product goes straight: raw cocoa, packing, export, transfer, processing, PF; 41 m per tonne against 165 on the initial plan."
+},
+"a0.nl3": {
+"fr": "Pourquoi le magasin export au milieu ? Il est le tampon entre les deux process et touche à la fois le conditionnement, les quais E et le pont de cession.",
+"en": "Why the export warehouse in the middle? It is the buffer between the two processes and touches the packing hall, the E docks and the transfer weighbridge at once."
+},
+"a0.nl4": {
+"fr": "Pourquoi les quais export au sud ? Séquence sur l'anneau U1 : brousse (nord) avant export (sud) ; jamais un camion vide propre devant un quai sale.",
+"en": "Why the export docks to the south? Sequence on the U1 ring: raw cocoa (north) before export (south); never a clean empty truck in front of a dirty dock."
+},
+"a0.nl5": {
+"fr": "Pourquoi 25 m d'aire et pas 32 ? La voie contiguë de 10 m fait partie de la manœuvre : 25 + 10 = 35 m, valeur des guides logistiques.",
+"en": "Why a 25 m yard and not 32? The adjoining 10 m road is part of the manoeuvre: 25 + 10 = 35 m, the value in logistics guides."
+},
+"a0.nl6": {
+"fr": "Pourquoi le PF collé au hall ? Masse chaude par ligne calorifugée, pains en magasin climatisé, citerne ISO en PF7 : zéro rupture de chaîne de température.",
+"en": "Why the PF against the hall? Hot liquor through an insulated line, blocks in an air-conditioned warehouse, ISO tank at PF7: no break in the temperature chain."
+},
+"a0.nl7": {
+"fr": "Pourquoi l'administration à l'angle NE du PF ? Elle voit le pont U1 à 25 m, le visiteur arrive sans croiser un camion, l'unité 2 a son tertiaire à l'étage, rien dans le recul.",
+"en": "Why the administration at the NE corner of the PF? It sees weighbridge U1 at 25 m, visitors arrive without meeting a truck, unit 2 has its offices upstairs, nothing in the setback."
+},
+"a0.nl8": {
+"fr": "Pourquoi la pesée U2 dans une cabine ? Le pont U2 est à 70 m de l'administration : la cabine tenue par l'administration est à 4 m, caméras vers le PC.",
+"en": "Why U2 weighing in a cabin? Weighbridge U2 is 70 m from the administration: the cabin, staffed by the administration, is 4 m away, cameras to the control room."
+},
+"a0.nl9": {
+"fr": "Pourquoi deux ponts ? Deux unités autonomes ne dépendent pas d'un instrument commun ; chaque pont est le secours de l'autre par le portail de liaison.",
+"en": "Why two weighbridges? Two autonomous units do not depend on a shared instrument; each weighbridge backs up the other through the link gate."
+},
+"a0.nl10": {
+"fr": "Un camion peut-il entrer par un pont et sortir par l'autre ? Non : chaque pont est à voie unique et à feux, brute à l'entrée et tare à la sortie, même instrument.",
+"en": "Can a truck enter over one weighbridge and leave over the other? No: each weighbridge is single-lane with signals, gross at entry and tare at exit, same instrument."
+},
+"a0.nl11": {
+"fr": "Comment attend-on avant le pont ? Pré-files de 2 PL dans le portail ; à 180 % de campagne la file maximale simulée est de 5 PL, le portail de liaison ouvre le second pont.",
+"en": "How do trucks wait before the weighbridge? 2-truck pre-queues inside the gate; at 180 % of the season the simulated maximum queue is 5 trucks, the link gate opens the second weighbridge."
+},
+"a0.nl12": {
+"fr": "Pourquoi une clôture et pas un mur coupe-feu ? Le mur CF est dans les bâtiments ; entre les réseaux il faut une séparation sans dallage commun, visible, et ouvrable : clôture et portail.",
+"en": "Why a fence and not a fire wall? The fire wall is inside the buildings; between the networks what is needed is a separation without shared paving, visible and openable: fence and gate."
+},
+"a0.nl13": {
+"fr": "Où les camions U1 et U2 se croisent-ils ? Nulle part : le réseau U1 à l'est de la bretelle reste sur la voie nord (y < 14), le réseau U2 reste en x > 181 et y > 84.",
+"en": "Where do U1 and U2 trucks cross? Nowhere: the U1 network east of the link road stays on the north road (y < 14), the U2 network stays at x > 181 and y > 84."
+},
+"a0.nl14": {
+"fr": "Pourquoi la boucle U2 autour d'un îlot ? Le camion tourne sans marche arrière, dessert GPL, coques, maintenance et quais PF en un seul passage, et sort par le même pont.",
+"en": "Why the U2 loop around an island? The truck turns without reversing, serves LPG, shells, maintenance and PF docks in a single pass, and leaves over the same weighbridge."
+},
+"a0.nl15": {
+"fr": "Le lot est refusé à l'agréage : que fait le camion ? Il recule dans la pré-file et ressort ; il n'est jamais entré dans l'usine.",
+"en": "The lot is rejected at grading: what does the truck do? It reverses into the pre-queue and leaves; it never entered the plant."
+},
+"a0.nl16": {
+"fr": "Comment le personnel entre-t-il ? U2 : administration, étage, couloir balisé au RDC jusqu'au hall. U1 : tourniquet B5, passage protégé au portail B3 sous barrière, cheminement clôturé, passage x 100.",
+"en": "How do staff enter? U2: administration, upper floor, marked ground-floor corridor to the hall. U1: turnstile B5, protected crossing at gate B3 under the barrier, fenced walkway, crossing at x 100."
+},
+"a0.nl17": {
+"fr": "Comment empêche-t-on le vol de fèves ? Sorties du personnel par tourniquets à badge avec poste de fouille ; magasin export sous clôture douanière ; cinq pesées dans une seule base.",
+"en": "How is bean theft prevented? Staff exit through badge turnstiles with a search post; export warehouse inside the customs fence; five weighings in a single database."
+},
+"a0.nl18": {
+"fr": "Pourquoi le GPL dans l'îlot ? 15 m de tout bâtiment, dépotage depuis la boucle sans entrer dans une aire, hors des issues de secours, douche de sécurité à côté.",
+"en": "Why LPG in the island? 15 m from every building, unloading from the loop without entering a yard, away from emergency exits, safety shower next to it."
+},
+"a0.nl19": {
+"fr": "Pourquoi trois cheminées et où ? Torréfaction sur le hall côté sud, chaudière sur les utilités, dépoussiérage sur le local U1 côté nord : toutes sous le vent de l'administration (vent SW).",
+"en": "Why three stacks and where? Roasting on the hall's south side, boiler on the utilities, dedusting on the U1 room's north side: all downwind of the administration (SW wind)."
+},
+"a0.nl20": {
+"fr": "Et si le brousse arrive trop humide ? Séchoir mécanique 5 T/h en réserve intérieure du conditionnement, air humide en toiture nord.",
+"en": "What if the raw cocoa arrives too wet? 5 T/h mechanical dryer in the packing hall's internal reserve, moist air vented through the north roof."
+},
+"a0.nl21": {
+"fr": "Pourquoi trois cellules brousse ? Cellule = phase : la cellule 1 touche les quais et le conditionnement, les suivantes s'ajoutent au pignon sud sans travaux extérieurs.",
+"en": "Why three raw cocoa cells? Cell = phase: cell 1 touches the docks and the packing hall, the next ones are added at the south gable without external works."
+},
+"a0.nl22": {
+"fr": "Pourquoi fonder l'enveloppe finale dès la Phase 1 ? Un seul permis, pas de permis modificatif, et l'extension se fait par ajout de portiques au pignon, l'usine en marche.",
+"en": "Why found the final envelope from Phase 1? A single permit, no amended permit, and the extension is made by adding portal frames at the gable, with the plant running."
+},
+"a0.nl23": {
+"fr": "Comment construit-on la Phase 2 sans arrêter la Phase 1 ? Le mur coupe-feu est le pignon provisoire, la grue travaille depuis la voirie, les camions de chantier entrent par le portail de liaison.",
+"en": "How is Phase 2 built without stopping Phase 1? The fire wall is the temporary gable, the crane works from the road, site trucks enter through the link gate."
+},
+"a0.nl24": {
+"fr": "Que devient le site si les unités sont scindées ? La clôture est déjà la limite, le pont de cession est la douane interne, rien à construire.",
+"en": "What happens to the site if the units are split? The fence is already the boundary, the transfer weighbridge is the internal customs point, nothing to build."
+},
+"a0.nl25": {
+"fr": "Et si on les fusionne ? On ouvre le portail de liaison et les portes du pont de cession ; les deux boucles restent.",
+"en": "And if they are merged? Open the link gate and the transfer weighbridge doors; both loops remain."
+},
+"a0.nl26": {
+"fr": "Où courent les gens en cas d'alarme ? PR1 bande pare-feu nord (U1), PR2 parking cadres (U2) : hors voirie, comptage à la clôture ; itinéraire ambulance depuis B5 et B6.",
+"en": "Where do people run in an alarm? PR1 north firebreak strip (U1), PR2 managers' car park (U2): off the roads, head count at the fence; ambulance route from B5 and B6."
+},
+"a0.nl27": {
+"fr": "Où est l'eau incendie ? Réserve 400 m³ côté U1, réseau bouclé par la galerie sous la bretelle, 13 poteaux numérotés, tout point à moins de 100 m.",
+"en": "Where is the fire water? 400 m³ reserve on the U1 side, network looped through the gallery under the link road, 13 numbered hydrants, every point within 100 m."
+},
+"a0.nl28": {
+"fr": "Pourquoi le poste HTA/BT dans l'îlot ? Infrastructure de site, accessible au concessionnaire, deux départs comptés ; le câble U1 passe en galerie sous la bretelle.",
+"en": "Why the HV/LV substation in the island? Site infrastructure, accessible to the utility, two metered feeders; the U1 cable runs through the gallery under the link road."
+},
+"a0.nl29": {
+"fr": "Comment gère-t-on les eaux ? Trois réseaux : pluviales vers noue et bassin, sanitaires vers la STEP, industrielles prétraitées puis STEP ; rétention enterrée 500 m³.",
+"en": "How is water managed? Three networks: stormwater to the swale and basin, sanitary to the WWTP, industrial pre-treated then WWTP; 500 m³ buried retention."
+},
+"a0.nl30": {
+"fr": "Pourquoi une bande pare-feu ? Les hévéas voisins brûlent en saison sèche : 3 m débroussaillés dans le recul et 30 m par convention extérieure.",
+"en": "Why a firebreak strip? The neighbouring rubber trees burn in the dry season: 3 m cleared in the setback and 30 m by external agreement."
+},
+"a0.nl31": {
+"fr": "Que fait-on des coques ? Chaudière biomasse à la ligne 2 dans l'îlot, silo et aire de reprise sur la boucle U2 ; gaz en Phase 1.",
+"en": "What is done with the shells? Biomass boiler with line 2 in the island, silo and reclaim area on the U2 loop; gas in Phase 1."
+},
+"a0.nl32": {
+"fr": "Pourquoi PF7 ? 40 % de la masse s'exporte liquide en citerne ISO chauffée : poste dédié à 10 m du hall, ligne calorifugée.",
+"en": "Why PF7? 40 % of the liquor is exported liquid in heated ISO tanks: dedicated station 10 m from the hall, insulated line."
+},
+"a0.nl33": {
+"fr": "Pourquoi pas de parc à conteneurs ? Empotage sur châssis à quai, rotation avec le port d'exportation ; un parc exigerait un reach stacker et 1 500 m².",
+"en": "Why no container yard? Stuffing on chassis at the dock, rotation with the export port; a yard would require a reach stacker and 1 500 m²."
+},
+"a0.nl34": {
+"fr": "Pourquoi 47 places et 44 motos ? Effectifs par poste : U1 15 + 60 saisonniers en navette et moto, U2 45 en 3 x 8 ; dépose-navette au portail personnel.",
+"en": "Why 47 car spaces and 44 motorbikes? Headcount per shift: U1 15 + 60 seasonal workers by shuttle and motorbike, U2 45 in 3 x 8; shuttle drop-off at the staff gate."
+},
+"a0.nl35": {
+"fr": "Pourquoi le magasin export sous douane ? Un exportateur stocke sous douane : cellule clôturable, porte unique côté quais, scellable lot par lot.",
+"en": "Why a bonded export warehouse? An exporter stores under bond: fenceable cell, single door on the dock side, sealable lot by lot."
+},
+"a0.nl36": {
+"fr": "Comment livre-t-on un torréfacteur de 30 t ? Quai maintenance des utilités sur la route interne U2, grue depuis la boucle, portail B6 à 2 voies de 4 m.",
+"en": "How is a 30 t roaster delivered? Utilities maintenance dock on the U2 internal road, crane from the loop, gate B6 with two 4 m lanes."
+},
+"a0.nl37": {
+"fr": "Pourquoi les dry coolers au sud ? Bruit vers le bas fond, pas vers la route ni l'administration.",
+"en": "Why the dry coolers to the south? Noise towards the lowland, not towards the road or the administration."
+},
+"a0.nl38": {
+"fr": "Que vaut ce plan si une cote change ? Rien : il se régénère avec ses 48 contrôles. On corrige la cote, jamais le dessin.",
+"en": "What is this plan worth if a dimension changes? Nothing: it regenerates with its 48 checks. The dimension is corrected, never the drawing."
+},
+"a0.nl39": {
+"fr": "Pourquoi une seule feuille ? Un plan directeur se signe ; une documentation se feuillette. Les annexes sont le modèle Excel et le DXF.",
+"en": "Why a single sheet? A master plan is signed; documentation is leafed through. The annexes are the Excel model and the DXF."
+},
+"a0.nl40": {
+"fr": "Qu'est-ce qui reste à confirmer ? Topographie et G2, étude hydraulique, point de livraison du concessionnaire, EIES, et l'admission des voiries dans le recul par l'urbanisme.",
+"en": "What remains to be confirmed? Topography and G2 survey, hydraulic study, utility delivery point, ESIA, and planning approval of roads within the setback."
+}
+}

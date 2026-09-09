@@ -11,6 +11,7 @@ import { Eyebrow, EditorialSection } from '@/components/editorial';
 import { useI18n } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
 import PlancheEnSituation from '@/components/gravure/PlancheEnSituation';
+const PlateVIIILayers = React.lazy(() => import('@/components/plate8/PlateVIIILayers'));
 
 const Metiers = () => {
   const { t } = useI18n();
@@ -68,7 +69,14 @@ const Metiers = () => {
       {/* CABINET §6 - PL. VIII : l'implantation d'une usine type, pendant en plan
           du cycle de vie. Respiration pleine section entre les deux planches. */}
       <div className="mat-gres py-16 md:py-24" aria-hidden="true" />
-      <PlancheEnSituation numeral="VIII" idPrefix="planche-viii-metiers" />
+
+      {/* CABINET §6 - PL. VIII (B) : plan à calques, réplique anonymisée des
+          plans d'études. Les dessins sont posés tels quels, sans reprise. */}
+      <EditorialSection className="mat-gres mat-grain">
+        <React.Suspense fallback={<div className="min-h-[320px]" aria-hidden="true" />}>
+          <PlateVIIILayers />
+        </React.Suspense>
+      </EditorialSection>
     </PageShell>
   );
 };
