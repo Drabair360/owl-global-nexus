@@ -409,4 +409,5 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => {
       />
     </BlocTexte>
   </>
-);
+  );
+};

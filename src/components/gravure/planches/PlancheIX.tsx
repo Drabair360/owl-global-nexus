@@ -332,10 +332,10 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => {
     {/* ================= DÉT. 1 — TRAVERSÉE SUR NERVURE ================= */}
     <BlocTexte>
       <text className="gravure-lettrage" x={640} y={690} fontSize="12" fill={ENCRE}>
-        DÉT. 1
+        {g("DÉT. 1")}
       </text>
       <text className="gravure-lettrage" x={700} y={690} fontSize="12">
-        {g("Traversée d&apos;étanchéité en sommet de nervure")}
+        {g("Traversée d'étanchéité en sommet de nervure")}
       </text>
       <line x1={640} y1={696} x2={1010} y2={696} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
     </BlocTexte>
@@ -454,4 +454,5 @@ export const PlancheIXDrawing = ({ p }: { p: string }) => {
       />
     </BlocTexte>
   </>
-);
+  );
+};

@@ -322,4 +322,5 @@ export const PlancheIIDrawing = ({ p }: { p: string }) => {
       renvois={['Coupe de l\'unité : PL. I', 'Implantation générale : PL. VIII']}
     />
   </>
-);
+  );
+};
