@@ -1,6 +1,7 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, GravureDefs } from '../defs';
 import Cartouche, { VOL_I } from '../Cartouche';
+import { useGravure } from '../textes';
 import {
   TitrePlanche,
   BandeauZone,
@@ -91,7 +92,9 @@ export const PLANCHE_VIII = {
   detailViewBox: '360 250 480 350',
 };
 
-export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
+export const PlancheVIIIDrawing = ({ p }: { p: string }) => {
+  const g = useGravure();
+  return (
   <>
     <GravureDefs p={p} />
     <defs>
@@ -308,15 +311,15 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
     {/* ============ 3 MINUTES — LES ÉCHELLES DE LIBELLÉS ============ */}
     <BlocTexte>
       <text className="gravure-lettrage" x={100} y={848} fontSize="12" fill={ENCRE}>
-        Procédé - marche en avant
+        {g("Procédé - marche en avant")}
       </text>
       <line x1={100} y1={854} x2={420} y2={854} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
       <text className="gravure-lettrage" x={470} y={848} fontSize="12" fill={ENCRE}>
-        Utilités et servitudes
+        {g("Utilités et servitudes")}
       </text>
       <line x1={470} y1={854} x2={790} y2={854} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
       <text className="gravure-lettrage" x={840} y={848} fontSize="12" fill={ENCRE}>
-        Repérage et renvois de dossier
+        {g("Repérage et renvois de dossier")}
       </text>
       <line x1={840} y1={854} x2={1160} y2={854} stroke={ENCRE} strokeWidth={FIN} opacity="0.8" />
     </BlocTexte>
@@ -377,18 +380,18 @@ export const PlancheVIIIDrawing = ({ p }: { p: string }) => (
       <g>
         <line x1={100} y1={1130} x2={148} y2={1130} stroke={LAITON} strokeWidth={FORT} />
         <text className="gravure-lettrage" x={160} y={1134} fontSize="12">
-          Marche en avant, circuit propre
+          {g("Marche en avant, circuit propre")}
         </text>
         <line x1={400} y1={1130} x2={448} y2={1130} stroke={ENCRE} strokeWidth={MOYEN} strokeDasharray="10 6" />
         <text className="gravure-lettrage" x={460} y={1134} fontSize="12">
-          Circuit sale, déchets
+          {g("Circuit sale, déchets")}
         </text>
       </g>
       <text className="gravure-lettrage" x={100} y={1166} fontSize="12" fill={OXYDE}>
-        Les deux circuits ne se croisent en aucun point du plan.
+        {g("Les deux circuits ne se croisent en aucun point du plan.")}
       </text>
       <text className="gravure-lettrage" x={100} y={1188} fontSize="12" fill={OXYDE}>
-        Cotation symbolique, aucun toponyme ni donnée d'exploitation.
+        {g("Cotation symbolique, aucun toponyme ni donnée d'exploitation.")}
       </text>
     </BlocTexte>
 
