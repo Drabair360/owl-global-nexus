@@ -30,7 +30,10 @@ const Registre = ({ id, className = '' }: { id: string; className?: string }) =>
             const ne = locale === 'en' ? NOTES_EN[nid] : undefined;
             return (
               <div key={nid} className="border-t pt-3" style={{ borderColor: 'hsl(var(--mat-on-gres-1) / 0.22)' }}>
-                <div className="mat-mention font-subtitle tracking-[0.22em] uppercase mat-ink-accent">
+                <div
+                  className="mat-mention font-subtitle tracking-[0.22em] uppercase mat-ink-accent"
+                  translate={(ne?.terme ?? n.terme) === 'Holding animatrice' ? 'no' : undefined}
+                >
                   {ne?.terme ?? n.terme}
                 </div>
                 <p className="mt-2 text-sm mat-ink-2 font-body leading-relaxed">{ne?.texte ?? n.texte}</p>
