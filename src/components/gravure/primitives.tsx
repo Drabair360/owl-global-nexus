@@ -1,5 +1,6 @@
 import React from 'react';
 import { ENCRE, OXYDE, LAITON, FORT, MOYEN, FIN, ULTRAFIN, DEPASSEMENT } from './defs';
+import { useGravure } from './textes';
 
 /**
  * CABINET DE GRAVURES §1 — LA BIBLIOTHÈQUE DE PRIMITIVES.
